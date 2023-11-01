@@ -1,0 +1,840 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2016/Scripting2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:50:10 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scripting 2 &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2016" href="index.html"/>
+        <link rel="next" title="Scripting 3" href="Scripting3.html"/>
+        <link rel="prev" title="Scripting 1" href="Scripting1.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2016</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath1.html">Vector Math, part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hierarchies.html">Hierarchies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprite Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Scripting 2</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting4.html">Scripting 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HierarchiesInCode.html">Hierarchies in Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events3.html">Events 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events4.html">Events 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogPaths.html">Cog Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Spaces.html">Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath2.html">Vector Math, part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2016</a> &raquo;</li>
+      
+    <li>Scripting 2</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2016/Scripting2.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- this is used as a file for inclusion in other .rst files --><div class="searchtitle section" id="scripting-2">
+<span id="scripting2"></span><h1>Scripting 2</h1>
+<p class="searchdescription">This lesson will focus on conditionals (<code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">else</span></code>, and <code class="docutils literal"><span class="pre">else</span> <span class="pre">if</span></code>).</p>
+<div class="section" id="learning-objectives">
+<span id="scripting2vocab"></span><h2>Learning Objectives</h2>
+<p>By the end of this lesson you should be able to...</p>
+<ul class="simple">
+<li>Be able to write nested <strong>if</strong>, <strong>else</strong>, and <strong>else if</strong> statements.</li>
+<li>Be able to print a <strong>String</strong> with a <strong>variable</strong>.</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="39%" />
+<col width="22%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Variable</td>
+<td>Scope</td>
+<td>String</td>
+</tr>
+<tr class="row-odd"><td>Data Type</td>
+<td>Random</td>
+<td>Conditionals</td>
+</tr>
+<tr class="row-even"><td>if</td>
+<td>else</td>
+<td>else if</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">||</span></code></td>
+<td><code class="docutils literal"><span class="pre">&amp;&amp;</span></code></td>
+<td><code class="docutils literal"><span class="pre">!</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="open-previous-project">
+<h2>Open Previous Project</h2>
+<p><em>Open the project created for the</em> <a class="reference internal" href="Scripting1.html#scripting1"><span>Scripting 1</span></a> <em>lesson</em></p>
+</div>
+<div class="section" id="conditionals">
+<h2>Conditionals</h2>
+<p>Now that variables have been covered it is time to take a look at how they may be used beside just printing to the console. The example used for random numbers in the first scripting lesson will come in handy here.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>In the <strong>GameLogic</strong> component change your code to:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Here be dragons.&quot;</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="c1">// Create a random number generator</span>
+</span><span class="hll">        <span class="k">var</span> <span class="nx">randNumGen</span> <span class="o">=</span> <span class="nx">Random</span><span class="p">();</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="c1">// In honor of dragons and D&amp;D, roll a d20:</span>
+</span><span class="hll">        <span class="k">var</span> <span class="nx">randNum</span> <span class="o">=</span> <span class="nx">randNumGen</span><span class="p">.</span><span class="nx">DieRoll</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="c1">// See what we rolled:</span>
+</span><span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">randNum</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p></p>
+<p>Now, let&#8217;s say we are a pretty average player and these are concerning dragons. If we roll a 1&#8211;10, we get burned by the fearsome dragon; if we roll 11&#8211;20 we slay the dragon. Knowing that rolling a d20 will give us a number between 1 and 20, we can check how the number compares to 11:</p>
+<p><code class="docutils literal"><span class="pre">If</span> <span class="pre">the</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">is</span> <span class="pre">less</span> <span class="pre">than</span> <span class="pre">11</span> <span class="pre">(randNum</span> <span class="pre">&lt;</span>&nbsp; <span class="pre">11),</span></code>
+<code class="docutils literal"><span class="pre">it</span> <span class="pre">must</span> <span class="pre">be</span> <span class="pre">between</span>&nbsp; <span class="pre">1</span> <span class="pre">and</span> <span class="pre">10.</span></code></p>
+<p><code class="docutils literal"><span class="pre">If</span> <span class="pre">the</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">is</span> <span class="pre">greater</span> <span class="pre">than</span> <span class="pre">or</span> <span class="pre">equal</span> <span class="pre">to</span> <span class="pre">11</span> <span class="pre">(randNum</span> <span class="pre">&gt;=</span> <span class="pre">11),</span></code>
+<code class="docutils literal"><span class="pre">it</span> <span class="pre">must</span> <span class="pre">be</span> <span class="pre">between</span> <span class="pre">11</span> <span class="pre">and</span> <span class="pre">20.</span></code></p>
+<p>These <strong>comparison operators</strong> operate the same way they do in mathematics. These statements are either <strong>true</strong> or <strong>false</strong>. We will use these comparison operators in an <strong>if</strong> statement.</p>
+<div class="section" id="if-statements">
+<h3>if Statements</h3>
+<p>An <code class="docutils literal"><span class="pre">if</span></code> statement takes a <strong>boolean condition</strong> (something that evaluates to true or false), to determine whether or not it should run some code.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="c1">//Evaluating the boolean value `true`</span>
+<span class="p">{</span>
+  <span class="c1">// Code between these curly braces always gets run.</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">false</span><span class="p">)</span> <span class="c1">//Evaluating the boolean value `false`</span>
+<span class="p">{</span>
+  <span class="c1">// Code between these curly braces always gets skipped.</span>
+<span class="p">}</span>
+
+<span class="c1">// Comparison operators can be used as boolean conditions</span>
+<span class="c1">// because they result in true or false.</span>
+<span class="k">if</span> <span class="p">(</span><span class="m">5</span> <span class="p">&gt;</span> <span class="m">3</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Code between these curly braces always runs because the value of 5 will</span>
+  <span class="c1">// always be greater than 3. This boolean condition will always result in true.</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">randomNumber</span> <span class="p">&gt;</span> <span class="m">3</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Code between these curly braces may or may not run --</span>
+  <span class="c1">// it depends on if the value stored in the randomNumber variable</span>
+  <span class="c1">// is greater than 3 or not.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We can use these concepts to fight the dragon.</p>
+<p></p>
+<ul class="simple">
+<li>In the <strong>GameLogic</strong> ZilchScript Window<ul>
+<li>In the <strong>Initialize</strong> function change your code to:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;A Dragon attacks!&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Create a random number generator</span>
+    <span class="k">var</span> <span class="nx">randNumGen</span> <span class="o">=</span> <span class="nx">Random</span><span class="p">();</span>
+    <span class="c1">// In honor of dragons and D&amp;D, roll a d20:</span>
+    <span class="k">var</span> <span class="nx">randNum</span> <span class="o">=</span> <span class="nx">randNumGen</span><span class="p">.</span><span class="nx">DieRoll</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+
+    <span class="c1">// See what we rolled:</span>
+<span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;(you roll a `randNum`)&quot;</span><span class="p">);</span>
+</span><span class="hll">        <span class="c1">// Note the grave accent marks, ``, used here -- see below</span>
+</span><span class="hll">        <span class="c1">// These are NOT the same as apostrophes or single quotes (&#39;&#39;)</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">// If we rolled a less than 11:</span>
+</span><span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="nx">randNum</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// We lose.</span>
+</span><span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Taking you by surprise, the dragon burns you to a crisp!&quot;</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="c1">// If we roll greater than 11:</span>
+</span><span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="nx">randNum</span> <span class="o">&gt;=</span> <span class="mi">11</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// We win.</span>
+</span><span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Dodging the dragon&#39;s fiery breath, you slay the dragon with your sword!&quot;</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>When writing the value of <code class="docutils literal"><span class="pre">randNum</span></code> within a string, place <strong>grave accent marks</strong>, ` (the tilde ~ key, under Esc on an American QWERTY keyboards), around the variable&#8217;s name. In general, surrounding a bit of code (such as a variable name) with ` marks and putting it in a string will replace it with its value instead of its name. This is called <strong>string interpolation</strong>.</p>
+<p>You&#8217;ll see your story unfold in the Console Window.</p>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame"><span>Rerun the game</span></a> multiple times.</li>
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>What if we want to reward great technical skill? Let&#8217;s alter the message when you&#8217;ve rolled a 20.</p>
+<p></p>
+<ul class="simple">
+<li>In the <strong>GameLogic</strong> ZilchScript Window<ul>
+<li>In the <strong>Initialize</strong> function change your code to:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;A Dragon attacks!&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Create a random number generator</span>
+    <span class="k">var</span> <span class="nx">randNumGen</span> <span class="o">=</span> <span class="nx">Random</span><span class="p">();</span>
+    <span class="c1">// In honor of dragons and D&amp;D, roll a d20:</span>
+    <span class="k">var</span> <span class="nx">randNum</span> <span class="o">=</span> <span class="nx">randNumGen</span><span class="p">.</span><span class="nx">DieRoll</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+
+    <span class="c1">// See what we rolled:</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;(you roll a `randNum`)&quot;</span><span class="p">);</span>
+
+    <span class="c1">// If we rolled a less than 11:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">randNum</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// We lose.</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Taking you by surprise, the dragon burns you to a crisp!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// If we roll a 20:</span>
+<span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="nx">randNum</span> <span class="o">==</span> <span class="mi">20</span><span class="p">)</span> <span class="c1">// Be sure to use two equals signs -- see below</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// We win with style.</span>
+</span><span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Before the dragon can muster its fire, you slay it!&quot;</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span>    <span class="c1">// If we roll greater than 11:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">randNum</span> <span class="o">&gt;=</span> <span class="mi">11</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// We win.</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Dodging the dragon&#39;s fiery breath, you slay the dragon!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The equals sign, <code class="docutils literal"><span class="pre">=</span></code>, is <em>not</em> the same as the double equals sign, <code class="docutils literal"><span class="pre">==</span></code>. The double equals sign asks a question: &#8220;Is this the same as that?&#8221; It&#8217;s frequently used in <code class="docutils literal"><span class="pre">if</span></code> statements. The single equals sign stores a value in a variable, so if we were to write:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nx">hitPoints</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>the value of <code class="docutils literal"><span class="pre">hitPoints</span></code> would be set to be equal to <code class="docutils literal"><span class="pre">100</span></code>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame"><span>Rerun the game</span></a> until you roll a 20</li>
+</ul>
+<p>You&#8217;ll see your story unfold in the Console Window.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>----------------  End  Game ---------------
+---------------- Begin Game ---------------
+A Dragon attacks!
+(you roll a 20)
+Before the dragon can muster its fire, you slay the it!
+Dodging the dragon&#39;s fiery breath, you slay the dragon!
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>Here you can see that both win conditions ran as if <em>two</em> dragons attacked.</p>
+<p>This is because both of the conditions were true: when we rolled a 20, that meant the value in <code class="docutils literal"><span class="pre">randNum</span></code> was 20, so:</p>
+<p><code class="docutils literal"><span class="pre">if</span> <span class="pre">(randNum</span> <span class="pre">==</span> <span class="pre">20)</span></code> became <code class="docutils literal"><span class="pre">if</span> <span class="pre">(20</span> <span class="pre">==</span> <span class="pre">20)</span></code> became <code class="docutils literal"><span class="pre">if</span> <span class="pre">(true)</span></code> so</p>
+<p><code class="docutils literal"><span class="pre">Console.WriteLine(&quot;Before</span> <span class="pre">the</span> <span class="pre">dragon</span> <span class="pre">can</span> <span class="pre">muster</span> <span class="pre">its</span> <span class="pre">fire,</span></code></p>
+<p><code class="docutils literal"><span class="pre">you</span> <span class="pre">slay</span> <span class="pre">the</span> <span class="pre">dragon</span> <span class="pre">with</span> <span class="pre">your</span> <span class="pre">sword!&quot;);</span></code></p>
+<p>ran, and also:</p>
+<p><code class="docutils literal"><span class="pre">if</span> <span class="pre">(randNum</span> <span class="pre">&gt;=</span> <span class="pre">11)</span></code> became <code class="docutils literal"><span class="pre">if</span> <span class="pre">(20</span> <span class="pre">&gt;=</span> <span class="pre">11)</span></code> became <code class="docutils literal"><span class="pre">if</span> <span class="pre">(true)</span></code> so</p>
+<p><code class="docutils literal"><span class="pre">Console.WriteLine(&quot;Dodging</span> <span class="pre">the</span> <span class="pre">dragon's</span> <span class="pre">fiery</span> <span class="pre">breath,</span></code></p>
+<p><code class="docutils literal"><span class="pre">you</span> <span class="pre">slay</span> <span class="pre">the</span> <span class="pre">dragon</span> <span class="pre">with</span> <span class="pre">your</span> <span class="pre">sword!&quot;);</span></code></p>
+<p>also ran.</p>
+</div>
+<div class="section" id="else-else-if-statements">
+<h3>else &amp; else if Statements</h3>
+<p>Once we&#8217;ve defeated the dragon, we don&#8217;t want to do it again. We can avoid this by only checking if necessary.</p>
+<p>Look at this example of <code class="docutils literal"><span class="pre">else</span></code> and <code class="docutils literal"><span class="pre">else</span> <span class="pre">if</span></code> statements.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">// When the boolean condition evaluates to true:</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code between these curly braces gets run.</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="c1">// Code between these curly braces gets skipped.</span>
+<span class="p">}</span>
+
+
+<span class="c1">// When the boolean condition evaluates to false:</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">false</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code between these curly braces gets skipped.</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="c1">// Code between these curly braces gets run.</span>
+<span class="p">}</span>
+
+<span class="c1">// when you have more conditions to check you can pair an else with another if:</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">randNumber</span> <span class="p">==</span> <span class="m">20</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code between these curly braces may or may not run.</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">randNumber</span> <span class="p">&gt;=</span> <span class="m">11</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code between these curly braces may or may not run.</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">randNumber</span> <span class="p">&lt;</span> <span class="m">11</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code between these curly braces may or may not run.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let&#8217;s fix our game by adding an <strong>else if</strong> statement:</p>
+<ul class="simple">
+<li>In the <strong>GameLogic</strong> ZilchScript Window<ul>
+<li>In the <strong>Initialize</strong> function change your code to:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="hll"><span class="c1">// If we didn&#39;t roll a 20 but did roll greater than 11:</span>
+</span><span class="hll"><span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">randNum</span> <span class="o">&gt;=</span> <span class="mi">11</span><span class="p">)</span>
+</span><span class="p">{</span>
+    <span class="c1">// We win.</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Dodging the dragon&#39;s fiery breath, you slay the dragon with your sword!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You&#8217;ll see your story unfold in the Console Window.</p>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame"><span>Rerun the game</span></a> until you roll a 20</li>
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>----------------  End  Game ---------------
+---------------- Begin Game ---------------
+A Dragon attacks!
+(you roll a 20)
+Before the dragon can muster its fire, you slay it!
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<p>Now it works as intended and we&#8217;ve learned about variables, if, else, errors, printing, and strings.</p>
+</div>
+</div>
+<div class="section" id="boolean-algebra-operators">
+<h2>Boolean Algebra &amp; Operators</h2>
+<p>So far the examples have only used comparison operators. While these are the most common operators to be used with conditionals there are other operators which perform Boolean operations. These are part of a topic called Boolean algebra. Take a look at the following examples.</p>
+<div class="section" id="the-operator">
+<h3>The <code class="docutils literal"><span class="pre">||</span></code> Operator</h3>
+<p>The <code class="docutils literal"><span class="pre">||</span></code> operator is read as &#8220;or&#8221; and always will evaluate its left and right values (assuming they are boolean values) to a Boolean result. If either the left or right value is true, the statement will evaluate to true. Only if both the left and right value are false will the statement evaluate to false.</p>
+<p></p>
+<p>Look at this code block:</p>
+<ul>
+<li><p class="first">In the <strong>GameLogic</strong> ZilchScript Window</p>
+<ul class="simple">
+<li>In the <strong>Initialize</strong> function change your code to:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">var</span> <span class="n">a</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+  <span class="kt">var</span> <span class="n">b</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+  <span class="kt">var</span> <span class="n">c</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="p">||</span> <span class="n">b</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;a or b is true&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">b</span> <span class="p">||</span> <span class="n">c</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;b or c is true&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="RunTheGame.html#runthegame"><span>Run the game</span></a></p>
+</li>
+</ul>
+<p>You should see the following console output:</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ----------------
+a or b is true
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>Notice that the second print statement does not execute. This is because neither b <strong>or</strong> c is true while a is so the first print statement fires. The following table demonstrates the possible cases for an <strong>or</strong> statement.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="19%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3"><code class="docutils literal"><span class="pre">||</span></code> operator truth table</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>a</td>
+<td>b</td>
+<td>Result of <code class="docutils literal"><span class="pre">a</span> <span class="pre">||</span> <span class="pre">b</span></code></td>
+</tr>
+<tr class="row-odd"><td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+<tr class="row-even"><td>true</td>
+<td>false</td>
+<td>true</td>
+</tr>
+<tr class="row-odd"><td>false</td>
+<td>true</td>
+<td>true</td>
+</tr>
+<tr class="row-even"><td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+</div>
+<div class="section" id="id1">
+<h3>The <code class="docutils literal"><span class="pre">&amp;&amp;</span></code> Operator</h3>
+<p>The <code class="docutils literal"><span class="pre">&amp;&amp;</span></code> operator is read as &#8220;and&#8221; and always will evaluate its left and right values (assuming they are boolean values) to a Boolean result. Look at this code block:</p>
+<ul>
+<li><p class="first">In the <strong>GameLogic</strong> ZilchScript Window</p>
+<ul class="simple">
+<li>In the <strong>Initialize</strong> function change your code to:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">var</span> <span class="n">a</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+  <span class="kt">var</span> <span class="n">b</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+  <span class="kt">var</span> <span class="n">c</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+  <span class="kt">var</span> <span class="n">d</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="p">&amp;&amp;</span> <span class="n">b</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;a and b are both true&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">b</span> <span class="p">&amp;&amp;</span> <span class="n">c</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;b and c are both true&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="p">&amp;&amp;</span> <span class="n">d</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;a and d are both true&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="RunTheGame.html#runthegame"><span>Run the game</span></a></p>
+</li>
+</ul>
+<p>You should see the following console output:</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ----------------
+a and d are both true
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>Notice that only the third print statement executes. This is because only <code class="docutils literal"><span class="pre">a</span></code> <strong>and</strong> <code class="docutils literal"><span class="pre">d</span></code> are true. The following table demonstrates the possible cases for an <strong>and</strong> statement.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="19%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3"><code class="docutils literal"><span class="pre">&amp;&amp;</span></code> operator truth table</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>a</td>
+<td>b</td>
+<td>Result of <code class="docutils literal"><span class="pre">a</span> <span class="pre">&amp;&amp;</span> <span class="pre">b</span></code></td>
+</tr>
+<tr class="row-odd"><td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+<tr class="row-even"><td>true</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr class="row-odd"><td>false</td>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr class="row-even"><td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>The <code class="docutils literal"><span class="pre">!</span></code> Operator</h2>
+<p>The last major Boolean algebra operator is the <strong>negation</strong> operator written as <code class="docutils literal"><span class="pre">!</span></code>. Look at this code block:</p>
+<ul>
+<li><p class="first">In the <strong>GameLogic</strong> ZilchScript Window</p>
+<ul class="simple">
+<li>In the <strong>Initialize</strong> function change your code to:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">var</span> <span class="n">a</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+  <span class="kt">var</span> <span class="n">b</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+  <span class="kt">var</span> <span class="n">c</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+  <span class="kt">var</span> <span class="n">d</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">b</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;a or b are true&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(!</span><span class="n">b</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">c</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;b and c are both false&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="p">&amp;&amp;</span> <span class="n">d</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;a and d are both true&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="RunTheGame.html#runthegame"><span>Run the game</span></a></p>
+</li>
+</ul>
+<p>You should see the following console output:</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ----------------
+a or b are true
+b and c are both false
+a and d are both true
+Level &#39;Level&#39; was loaded.
+Loaded level 0.01s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>As can be seen in the console output, all three print statements fire. While the original boolean variables of <code class="docutils literal"><span class="pre">b</span></code> and <code class="docutils literal"><span class="pre">c</span></code> still hold the value of <code class="docutils literal"><span class="pre">false</span></code>, the <code class="docutils literal"><span class="pre">if</span></code> statements still evaluate to true. This is because the <code class="docutils literal"><span class="pre">!</span></code> operator is being evaluated before the <code class="docutils literal"><span class="pre">&amp;&amp;</span></code> statement. Since the <code class="docutils literal"><span class="pre">!</span></code> operator negates <code class="docutils literal"><span class="pre">b</span></code> and <code class="docutils literal"><span class="pre">c</span></code> they evaluate as <code class="docutils literal"><span class="pre">true</span></code> instead of <code class="docutils literal"><span class="pre">false</span></code> where the <code class="docutils literal"><span class="pre">&amp;&amp;</span></code> statements are evaluated.</p>
+<p></p>
+</div>
+<div class="section" id="on-your-own">
+<h2>On Your Own</h2>
+<p>Beside rewarding great technical skill, it is also common to acknowledge abysmal failure. Write another check for if you roll a 1, and print out a different message describing your unfortunate encounter with the dragon. Make sure the normal failure condition doesn&#8217;t run!</p>
+<p>There are many different ways to approach the same problem when programming. Experiment with different comparison operators while maintaining the same functionality.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Comparison Operators</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&lt;</td>
+<td>less than</td>
+</tr>
+<tr class="row-odd"><td>&lt;=</td>
+<td>less than or equal to</td>
+</tr>
+<tr class="row-even"><td>&gt;</td>
+<td>greater than</td>
+</tr>
+<tr class="row-odd"><td>&gt;=</td>
+<td>greater than or equal to</td>
+</tr>
+<tr class="row-even"><td>==</td>
+<td>equality</td>
+</tr>
+<tr class="row-odd"><td>!=</td>
+<td>inequality</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Scripting3.html" class="btn btn-neutral float-right" title="Scripting 3" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Scripting1.html" class="btn btn-neutral" title="Scripting 1" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2016/Scripting2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:50:10 GMT -->
+</html>

@@ -1,0 +1,371 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Editor/EditorCommands/Exporting.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:25:50 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Game Application and Exporting &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Editor &amp; Project Commands" href="index.html"/>
+        <link rel="next" title="CogPaths" href="../CogPathsManual.html"/>
+        <link rel="prev" title="Right-Click Submenu" href="RightClickSubmenu.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Editor</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tags.html">Editor Tags</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Editor &amp; Project Commands</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Commands.html">Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LauncherNewProject.html">Create a New Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l4"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SelectObject.html">Selecting an Object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RightClickSubmenu.html">Right-Click Submenu</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Game Application and Exporting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../CogPathsManual.html">CogPaths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UsingCustomEaseInActions.html">Using Custom Eases in Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../TextEditor/index.html">Text Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tools/index.html">Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EditMode.html">Editing Mode 2D vs 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../AddRemoveComponent.html">Adding &amp; Removing Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UsingTheVoid.html">The Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ExportAnProject.html">Export a Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CustomizeExportedGame.html">Customize an Exported Game</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Editor</a> &raquo;</li>
+      
+          <li><a href="index.html">Editor &amp; Project Commands</a> &raquo;</li>
+      
+    <li>Game Application and Exporting</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Editor/EditorCommands/Exporting.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="game-application-and-exporting">
+<span id="manualexporting"></span><h1>Game Application and Exporting</h1>
+<p class="searchdescription">Exporting is the process of converting your project into a single playable executable. This process is used to create the final build of your game but can also be useful for creating Playtest builds.</p>
+<div class="section" id="setting-a-starting-level">
+<h2>Setting a Starting Level</h2>
+<p>By default, Zero will set the auto-generated &#8216;Level&#8217; as the starting level but that can be changed by:</p>
+<ul class="simple">
+<li>Select the Game Session (Shift + G) or Select-&gt;GameSession</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Under the <strong>DefaultGameSetup</strong> component, change the StartingLevel to the desired one</li>
+</ul>
+</div></blockquote>
+<p><img alt="Exporting01" src="../../../_images/Exporting01.png" /></p>
+<p><strong>OR</strong></p>
+<ul class="simple">
+<li>Select the level that you want to be the starting one (Library-&gt;Level-&gt;MyStartingLevel)</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Run the <span class="xref std std-ref">Command</span> : <strong>SetAsStartingLevel</strong></li>
+</ul>
+</div></blockquote>
+<p><img alt="Exporting02" src="../../../_images/Exporting02.png" /></p>
+</div>
+<div class="section" id="custom-launch-startup-banner">
+<h2>Custom Launch/StartUp Banner</h2>
+<p>To give your exported game a custom start-up banner:</p>
+<ul class="simple">
+<li>Add a SpriteSource to your project with the name “LaunchBanner”.</li>
+<li>Its size must be 400 x 150 pixels.</li>
+</ul>
+<p><img alt="Exporting03" src="../../../_images/Exporting03.png" /></p>
+<p>When you export your game, your new banner will replace the default one.</p>
+<p><img alt="Exporting04" src="../../../_images/Exporting04.png" /></p>
+</div>
+<div class="section" id="custom-game-icon">
+<h2>Custom Game Icon</h2>
+<p>To give your exported game a custom icon:</p>
+<ul class="simple">
+<li>Create a .ico image file using a tool or website (we recommend <a class="reference external" href="http://converticon.com/">converticon</a>)</li>
+<li>Place in the same directory as your project file (<span class="xref std std-ref">Command</span>: <strong>ShowProjectFolder</strong>)</li>
+<li>Rename it to: <strong>Icon.ico</strong></li>
+</ul>
+<p><img alt="Exporting05" src="../../../_images/Exporting05.png" /></p>
+<p>Export your game and your new icon will replace the default.</p>
+<p><img alt="Exporting06" src="../../../_images/Exporting06.png" /></p>
+</div>
+<div class="section" id="handling-escape-event">
+<h2>Handling Escape Event</h2>
+<p>By default, Zero will map the Escape key to close the game application instantly. To prevent that, use the following steps:</p>
+<ul class="simple">
+<li>Create a Zilch Script called <strong>GameStateManager</strong> and attach it to your Level Settings object</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameStateManager</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">GameSession</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">GameRequestQuit</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnGameRequestQuit</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnGameRequestQuit</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">GameEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">event</span><span class="p">.</span><span class="nx">Handled</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, Zero will no longer close the application when Escape is pressed. In Editor you can still use the <strong>StopGame</strong> button (F8) to close the game tab, but on the exported version you&#8217;ll need to close the application through some other means. (Usually by offering a pause menu with an option to quit the game)</p>
+</div>
+<div class="section" id="handling-focus-change-events-alt-tab">
+<h2>Handling Focus Change Events (Alt + Tab)</h2>
+<p>Similarly to handling Escape events, you may want to do special logic (such as pausing the game) when the users loses or regains focus of the application. You can accomplish that by connecting to the following events:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">GameSession</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">GameFocusOut</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnGameFocusOut</span><span class="p">);</span> <span class="c1">//When focus is lost</span>
+<span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">GameSession</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">GameFocusIn</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnGameFocusIn</span><span class="p">);</span> <span class="c1">//When focus is regained</span>
+</pre></div>
+</div>
+<p>You can connect to these events from any object but we recommend doing it from a script attached to a persistent object (such as LevelSettings). The <strong>GameStateManager</strong> script we wrote earlier would work really well for this.</p>
+</div>
+<div class="section" id="changing-resolutions-and-fullscreen-mode">
+<h2>Changing Resolutions and Fullscreen mode</h2>
+<p>In addition to setting the resolution at launch, you can set the game&#8217;s resolution or its fullscreen mode by using the following function:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">fullscreen</span> <span class="o">:</span> <span class="nb">Boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">resolution</span> <span class="o">:</span> <span class="nx">Real2</span>   <span class="o">=</span> <span class="nx">Real2</span><span class="p">(</span><span class="mi">1280</span><span class="o">,</span> <span class="mi">720</span><span class="p">);</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">GameSession</span><span class="p">.</span><span class="nx">ChangeResolution</span><span class="p">(</span><span class="nx">fullscreen</span><span class="o">,</span> <span class="nx">resolution</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Some combinations of resolutions/fullscreen mode might produce jarring visual effects. Make sure to test them thoroughly.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../CogPathsManual.html" class="btn btn-neutral float-right" title="CogPaths" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="RightClickSubmenu.html" class="btn btn-neutral" title="Right-Click Submenu" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Editor/EditorCommands/Exporting.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:25:52 GMT -->
+</html>

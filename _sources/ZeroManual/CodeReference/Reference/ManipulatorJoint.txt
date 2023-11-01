@@ -1,0 +1,118 @@
+.. _ReferenceManipulatorJoint:
+
+.. rst-class:: searchtitle
+
+ManipulatorJoint
+================
+
+.. rst-class:: searchdescription
+
+A position joint that is designed to manipulate one object. The only difference between this and the position joint is that the manipulator always draws itself, draws differently, and configures the max force differently.
+
+.. include:: Description/ManipulatorJoint.rst
+
+.. cpp:class:: ManipulatorJoint
+
+    Base Class: :cpp:type:`Joint`
+
+.. _ReferenceManipulatorJointProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ManipulatorJoint::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space ManipulatorJoint::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ManipulatorJoint::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession ManipulatorJoint::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ManipulatorJoint::Active
+
+            Determines if this joint is currently active. Used for runtime enabling/disabling of joints.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ManipulatorJoint::SendsEvents
+
+            Determines if this joint will send any events. Used for a small efficiency boost and for reducing the number of events.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ManipulatorJoint::AutoSnaps
+
+            Determines if this joint will automatically delete itself if it reaches the max force value. This will still send an event if it snaps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ManipulatorJoint::CollideConnected
+
+            Determines if the two objects connected by this joint can collide. If any joint between this pair does not collide, then the pair does not collide. All joints have to be set to true in order to have the objects collide.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real ManipulatorJoint::MaxForce
+
+            The maximum force that this joint can apply to correct itself.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ManipulatorJoint::TargetPoint
+
+            The point in world space that the object's point is being moved towards.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ManipulatorJoint::LocalPoint
+
+            The local space point on the object that the joint is connected to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ManipulatorJoint::WorldPoint
+
+            The world space point on the object that the joint is connected to.
+
+.. _ReferenceManipulatorJointMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ManipulatorJoint::DebugDraw()
+
+            Draws the debug info associated with this joint.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog ManipulatorJoint::GetOtherObject(Cog cog)
+
+            If the passed in object is ObjectA, returns ObjectB. Prevents the user from having to write the if case all the time.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog ManipulatorJoint::GetCog(uint index)
+
+            Returns the cog associated with an index. Index of 0 is ObjectA, index 1 is ObjectB. Used to write more streamline functions where you index into the objects in a loop.
+
+.. include:: Remarks/ManipulatorJoint.rst

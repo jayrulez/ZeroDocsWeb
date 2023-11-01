@@ -1,0 +1,114 @@
+.. _ReferenceTextEditorConfig:
+
+.. rst-class:: searchtitle
+
+TextEditorConfig
+================
+
+.. include:: Description/TextEditorConfig.rst
+
+.. cpp:class:: TextEditorConfig
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceTextEditorConfigProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog TextEditorConfig::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space TextEditorConfig::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog TextEditorConfig::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession TextEditorConfig::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: TabWidth::Type TextEditorConfig::TabWidth
+
+            Number of spaces inserted for tabs.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool TextEditorConfig::ShowWhiteSpace
+
+            If we show whitespace as special symbols in the text editor.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool TextEditorConfig::LineNumbers
+
+            Show Line numbers.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool TextEditorConfig::CodeFolding
+
+            Is code folding enabled?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool TextEditorConfig::ConfidentAutoCompleteOnSymbols
+
+            When the auto-complete is confident in its results(green), this controls whether or not we will finish completion on any symbol rather than just Tab Non-confident results(red) always require the user to press Tab(or Enter if AutoCompleteOnEnter is set)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool TextEditorConfig::LocalWordCompletion
+
+            Whether we include local words from the current document/ language.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool TextEditorConfig::KeywordAndTypeCompletion
+
+            Whether we include keywords and types from the languages.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool TextEditorConfig::AutoCompleteOnEnter
+
+            Whether or not the auto-complete allows enter(similar to Tab) to be used as an auto-completer If the user manually scrolls through the list of suggestions, Enter will always complete regardless of this option.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String TextEditorConfig::ColorScheme
+
+            Name of color scheme to use.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint TextEditorConfig::FontSize
+
+            Default Font Size.
+
+.. _ReferenceTextEditorConfigMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void TextEditorConfig::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/TextEditorConfig.rst

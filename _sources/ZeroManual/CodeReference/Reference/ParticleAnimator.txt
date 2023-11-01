@@ -1,0 +1,58 @@
+.. _ReferenceParticleAnimator:
+
+.. rst-class:: searchtitle
+
+ParticleAnimator
+================
+
+.. rst-class:: searchdescription
+
+Particle Animator Interface. Particle Animators effect partices in the system.
+
+.. include:: Description/ParticleAnimator.rst
+
+.. cpp:class:: ParticleAnimator
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceParticleAnimatorProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ParticleAnimator::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space ParticleAnimator::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ParticleAnimator::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession ParticleAnimator::GameSession
+
+            Get the GameSession that owns us and our space.
+
+.. _ReferenceParticleAnimatorMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ParticleAnimator::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/ParticleAnimator.rst

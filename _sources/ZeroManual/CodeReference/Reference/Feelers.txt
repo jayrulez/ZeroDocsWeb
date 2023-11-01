@@ -1,0 +1,136 @@
+.. _ReferenceFeelers:
+
+.. rst-class:: searchtitle
+
+Feelers
+=======
+
+.. rst-class:: searchdescription
+
+Rotates the object away from obstacles by using feeler sensors that detect walls.
+
+.. include:: Description/Feelers.rst
+
+.. cpp:class:: Feelers
+
+    Base Class: :cpp:type:`MovementBase`
+
+.. _ReferenceFeelersProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Feelers::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Feelers::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Feelers::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Feelers::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Feelers::Active
+
+            Is the component active.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Feelers::MaxAngleChange
+
+            The maximum angle that this component can output.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Feelers::Strength
+
+            The strength of this particular movement component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Feelers::QueryOnly
+
+            Do we query the component(and not rotate our object?)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Feelers::DebugDraw
+
+            Do we draw the debug information?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: FeelerMode::Type Feelers::FeelerMode
+
+            What kind of mode are we in with the feelers.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Feelers::SideFeelerAngle
+
+            The angle of the side feelers.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Feelers::SideFeelerDistance
+
+            The max distance of the side feelers.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Feelers::PrimaryFeelerMaxAngle
+
+            The random angle that the primary feeler is allowed to move in.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Feelers::PrimaryFeelerDistance
+
+            The max distance of the primary feeler.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Feelers::LocalOffset
+
+            The offset in local space of the ray casting.
+
+.. _ReferenceFeelersMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Feelers::DebugDraw()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Real Feelers::QueryAngleChangeRadians()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Real Feelers::QueryAngleChangeDegrees()
+
+            
+
+.. include:: Remarks/Feelers.rst

@@ -1,0 +1,100 @@
+.. _ReferenceThrustEffect:
+
+.. rst-class:: searchtitle
+
+ThrustEffect
+============
+
+.. rst-class:: searchdescription
+
+Applies a directional force at the thrust effects center. When applied to a rigid body, this force will cause the rigid body to torque if the force's direction does not go through the center of mass. Useful for modeling any sort of a thruster.
+
+.. include:: Description/ThrustEffect.rst
+
+.. cpp:class:: ThrustEffect
+
+    Base Class: :cpp:type:`PhysicsEffect`
+
+.. _ReferenceThrustEffectProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ThrustEffect::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space ThrustEffect::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ThrustEffect::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession ThrustEffect::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ThrustEffect::Active
+
+            Enable/disable this effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ThrustEffect::WakeUpOnChange
+
+            Whether the object associated with this is woken up when any property is changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EffectType::Enum ThrustEffect::EffectType
+
+            What kind of effect this is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ThrustEffect::LocalSpaceDirection
+
+            Determines if this force is to be applied in local or in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real ThrustEffect::ForceStrength
+
+            The strength of the force being applied in the force direction.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ThrustEffect::ForceDirection
+
+            The direction that the force should be applied.
+
+.. _ReferenceThrustEffectMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ThrustEffect::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ThrustEffect::Toggle()
+
+            Toggles whether or not this effect is active.
+
+.. include:: Remarks/ThrustEffect.rst

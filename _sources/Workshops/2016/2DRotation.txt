@@ -1,0 +1,426 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _20162DRotation:
+
+.. rst-class:: SearchTitle
+
+2D Rotation
+===========
+
+.. rst-class:: SearchDescription
+
+This lesson covers the basics concepts of rotating an object.
+
+.. _20162DRotationVocab:
+
+Learning Objectives
+-------------------
+
+*   Understand the difference between local and world rotation
+*   How to rotate an object using Transform
+*   How to rotate an object using Orientation
+
+.. rst-class:: VocabSection
+
++----------------------------------------------------------------------------------------+
+| Vocabulary                                                                             |
++================+=========================+==============================+==============+
+| Angle          | Axis                    | Degrees                      | Radians      | 
++----------------+-------------------------+------------------------------+--------------+
+| Rotation       | :cpp:type:`Orientation` | :cpp:type:`Quaternion<Quat>` | Euler Angles | 
++----------------+-------------------------+------------------------------+--------------+
+| Local Rotation | World Rotation          | Parent                       | Child        |
++----------------+-------------------------+------------------------------+--------------+
+
+
+Level Setup
+-----------
+
+* :ref:`2016CreateNewProject`
+
+* :ref:`Command<2016Commands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+|GWInitialSprite|
+
+* :ref:`Select the Sprite you created <2016SelectObject>`
+* In the Properties Window
+
+  * Set name to: ``Wheel``
+  * Under :cpp:type:`Transform`
+    
+    * Hover over the name of the `Rotation` Property
+
+As you can see, **Rotation** is saved as a :cpp:type:`Quaternion<Quat>`. As a high-level developer, you do not need to know how :cpp:type:`Quaternions<Quat>` work, but you will need to know how to use them. In the Properties Window, :cpp:type:`Quaternions<Quat>` are represented by three angles that are the rotation of the object around the corresponding axes; these are called Euler (pronounced "oil-er") angles. In this lesson, we will be working with a 2D game, so we only need to worry about the Z axis rotation.
+
+|pbr|
+
+* In the Properties Window
+    
+  * Under :cpp:type:`Transform`
+        
+    * Set Rotation to: ``[0, 0, 45]``
+            
+      |GWRotation1|
+
+The sprite is now rotated by ``45`` degrees. It is very simple to set the starting rotation of an object through the Properties Window.
+
+Local and World Rotation
+------------------------
+
+Before we get into rotating objects while the game is running, we need to understand the difference between the **LocalRotation** and **WorldRotation** values of an object. 
+
+* :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: ``RotationPrinter``
+* Update the **RotationPrinter** script to the following code:
+
+.. code-block:: as
+
+    class RotationPrinter : ZilchComponent
+    {
+      function Initialize(init : CogInitializer)
+      {
+        var angle = Math.ToDegrees(this.Owner.Transform.EulerAngles.Z);
+        Console.WriteLine("Object Name: `this.Owner.Name`, Z-Angle: `angle`");
+      }
+    }
+
+* :ref:`Select the Wheel Object<2016SelectObject>`
+
+* In the Properties Window
+    
+  * :ref:`Add the RotationPrinter component <2016AddComponent>`
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+|pbr|
+
+Now when the game starts the ``Wheel`` object's name and Z rotation are printed to the Console window.
+
+    Console Output::
+    
+        ---------------- Begin Game ---------------
+        Object Name: Wheel, Z-Angle: 45
+        Level 'Level' was loaded.
+        Loaded level 0.02s
+
+* :ref:`Stop the Game <2016StopGame>`
+
+* In the Properties Window
+    
+  * Under :cpp:type:`Transform`
+        
+    * Set Rotation to: ``[0, 0, 0]``
+
+* :ref:`Command<2016Commands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+* :ref:`Select the Sprite you created <2016SelectObject>`
+* In the Properties Window
+    
+  * Set name to: ``WheelChild``
+  * Under :cpp:type:`Transform`
+            
+    * Set Translation to: ``[3, 0, 0]``
+    * Set Rotation to: ``[0, 0, 45]``          
+  * :ref:`Add the RotationPrinter component <2016AddComponent>`
+* In the Objects Window
+
+  * Make the ``WheelChild`` a child of the ``Wheel`` object.  
+    
+    |ChildRotation1|
+
+We can see the child is rotated, now let's rotate the parent again.
+
+* :ref:`Select the Wheel object <2016SelectObject>`
+* In the Properties Window
+  
+  * Under :cpp:type:`Transform`
+          
+    * Set Rotation to: ``[0, 0, 45]``
+          
+          |DoubleRotation|
+
+Because the ``WheelChild`` object is a child of the ``Wheel`` object, its :cpp:type:`Transform` properties are scaled and rotated by the ``Wheel`` object's :cpp:type:`Transform` properties. This is a good illustration of **LocalRotation** vs **WorldRotation** as the ``WheelChild`` object very clearly has its rotation set to ``45`` degrees along with the parent. However since the parent's ``Rotation`` is applied to the child it appears to be rotated by ``90`` degrees. Let's make this a little easier to see.
+
+* :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: ``AxisDebug``
+* Update the **AxisDebug** script to the following code:
+
+.. code-block:: as
+
+    class AxisDebug : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      [Dependency]
+      var Orientation : Orientation;
+      
+      [Property]
+      var ArrowLength : Real = 3.0;
+      
+      function Initialize(init : CogInitializer)
+      {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+      
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        var myPos = this.Transform.WorldTranslation;
+        var forward = this.Orientation.WorldForward;
+        var up = this.Orientation.WorldUp;
+        var right = this.Orientation.WorldRight;
+        
+        this.DrawArrow(myPos, forward, Real4(1,0,0,1));
+        this.DrawArrow(myPos, up, Real4(0,1,0,1));
+        this.DrawArrow(myPos, right, Real4(0,0,1,1));
+      }
+      
+      function DrawArrow(start : Real3, direction : Real3, color : Real4)
+      {
+        var arrow = DebugLine();
+        arrow.Float4Color(color).Start(start).End(start + (direction * this.ArrowLength)).Draw();
+      }
+    }
+
+|pbr|
+
+* :ref:`Select  both the Wheel and the WheelChild objects <2016SelectObject>`
+* In the Properties Window
+
+  * :ref:`Add the Orientation component <2016AddComponent>`
+  * :ref:`Add the AxisDebug component <2016AddComponent>`
+
+You may notice that the ``AxisDebug`` :cpp:type:`component<Component>` requires an :cpp:type:`Orientation` :cpp:type:`component<Component>`. The :cpp:type:`Orientation` :cpp:type:`component<Component>` will be explained later in this lesson.
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+|AxisDraw|
+
+Now we can see the local X axis of the ``WheelChild`` object drawn in blue, and the local Y axis drawn in green. Since these are the local axes of each object, they are rotated by the rotations of the object and its parent (if there is one). This shows that the ``WheelChild`` object is rotated a full ``90`` degrees. However, if we look at the Console Window, we printed a ``45`` degree angle for both objects.
+
+    Console Output::
+    
+        ---------------- Begin Game ---------------
+        Object Name: Wheel, Z-Angle: 45
+        Object Name: WheelChild, Z-Angle: 45
+        Level 'Level' was loaded.
+        Loaded level 0.00s
+        
+This is because the ``EulerAngles`` property is based off the local rotation of the object, which has not been modified, and is still what we set it to before the game started, whereas the world rotation is the local rotation rotated by the world rotation of its parent.
+
+* :ref:`Stop the Game <2016StopGame>`
+
+|pbr|
+
+Rotating With Transform
+-----------------------
+
+Rotating objects at runtime is done very commonly in games. Let's cover a few ways to do this.
+
+* :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: ``RotationTest``
+* Update the **RotationTest** script to the following code:
+
+.. code-block:: as
+
+    class RotationTest : ZilchComponent
+    {
+      [Property]
+      var RotationSpeed : Real = 30.0;
+      
+      function Initialize(init : CogInitializer)
+      {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+      
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        var rotationSpeedRadians = Math.ToRadians(this.RotationSpeed);
+        
+        this.Owner.Transform.RotateAnglesLocal(Real3(0,0,rotationSpeedRadians * event.Dt));
+      }
+    }
+
+* :ref:`Select the WheelChild object <2016SelectObject>`
+* In the Properties Window
+
+  * :ref:`Add the RotationTest component <2016AddComponent>`    
+
+|pbr|
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+|RotateAnglesWorld|
+
+By calling the above update function, we can rotate the object each frame.
+
+* :ref:`Stop the Game <2016StopGame>`
+
+|pbr|
+
+* Update the **RotationTest** script ``OnLogicUpdate`` function with the following code:
+
+  .. code-block:: as
+      :emphasize-lines: 5
+      
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        var rotationSpeedRadians = Math.ToRadians(this.RotationSpeed);
+        
+        this.Owner.Transform.RotateAnglesWorld(Real3(0,0,rotationSpeedRadians * event.Dt));
+      }
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+Notice that the result appears the same as when we were using the ``RotateAnglesLocal`` function. This will often be the case when working in 2D, as we do not have any rotations around other axes to affect our Z axis rotation.
+
+* Update the **RotationTest** script ``OnLogicUpdate`` function with the following code:
+
+  .. code-block:: as
+      :emphasize-lines: 4-5
+      
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        var rotationSpeedRadians = Math.ToRadians(this.RotationSpeed);
+        var rotation = Math.ToQuaternion(Real3(0,0,rotationSpeedRadians * event.Dt));
+        this.Owner.Transform.RotateAround(this.Owner.Parent.Transform.Translation, rotation);
+      }
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+|RotateAround|
+
+|pbr|
+
+With the ``RotateAround`` function, we are simply telling the ``WheelChild`` object to rotate around the point defined by the translation of the ``Wheel`` object. This could also have been achieved by rotating the ``Wheel`` object with ``RotateAnglesLocal`` or ``RotateAnglesWorld``.
+
+There are two more rotation functions of the :cpp:type:`Transform` :cpp:type:`component<Component>`, ``RotateLocal`` and ``RotateWorld``. These functions have the same functionality as ``RotateAnglesLocal`` and ``RotateAnglesWorld`` except they take :cpp:type:`Quaternions<Quat>`. You can turn Euler angles into a :cpp:type:`Quaternion<Quat>` in the same way we did in the last code snippet using ``Math.ToQuaternion``.
+
+* :ref:`Stop the Game <2016StopGame>`
+
+:cpp:type:`Transform` rotation functions are great for rotating an object a specific amount or continuously over a series of frames. However, what if you want to have an object look at a particular direction? You would have to determine the direction, then the rotation, to make the object face that direction, which could involve quite a bit of vector math. Let's look at an easier way to do this.
+
+Rotating With Orientation
+-------------------------
+
+In the last section we needed to attach the :cpp:type:`Orientation` :cpp:type:`component<Component>` to the ``Wheel`` object in order to draw the axis of the object. :cpp:type:`Orientation` is a very useful :cpp:type:`component<Component>` that allows you to redefine the base axis of an object. Using the :cpp:type:`Orientation` :cpp:type:`component<Component>`, we can stop thinking about transforming the object using X, Y, and Z; instead, we use the Forward, Up, and Right axes.
+
+* :ref:`Select the Wheel and WheelChild object <2016SelectObject>`
+
+  * Under :cpp:type:`Orientation`
+        
+    * Set DefaultOrientation to: ``ForwardXUpZ``
+
+|pbr|
+
+By setting the local X axis to be the Forward axis we can now tell the ``Wheel`` object to face a certain direction.
+
+* Update the **RotationTest** script ``OnLogicUpdate`` function with the following code:
+
+  .. code-block:: as
+      :emphasize-lines: 3-5
+
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        var screenPos = Zero.Mouse.ScreenPosition;
+        var mousePos = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(screenPos, 0.0);
+        this.Owner.Orientation.LookAtPoint(mousePos);
+      }
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+|LookAtPoint|
+
+|pbr|
+
+Now, if we move the mouse around the screen, we can see the ``WheelChild`` object rotates to have its Forward axis face the mouse.
+
+* :ref:`Stop the Game <2016StopGame>`
+* Update the **RotationTest** script ``OnLogicUpdate`` function with the following code:
+
+  .. code-block:: as
+      :emphasize-lines: 5
+  
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        var screenPos = Zero.Mouse.ScreenPosition;
+        var mousePos = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(screenPos, 0.0);
+        this.Owner.Orientation.LookAtPointWithUp(mousePos, Real3.ZAxis);
+      }
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+|LookAtPointWithUp|
+
+|pbr|
+
+Now, if we move the mouse around the screen, we can see the ``WheelChild`` object still rotates to have its Forward axis face the mouse. This time, however, the perpendicular axis we see is the local Y axis, where as before it was the Z axis. This is because without giving :cpp:type:`Orientation` an axis to rotate around, it uses the global Up, which is the Y axis. 
+
+* :ref:`Stop the Game <2016StopGame>`
+* :ref:`Select the WheelChild object <2016SelectObject>`
+
+  * Under :cpp:type:`Orientation`
+        
+    * Set GlobalUp to: ``[0, 0, 1]``
+* Update the **RotationTest** script ``OnLogicUpdate`` function with the following code:
+
+  .. code-block:: as
+      :emphasize-lines: 5
+  
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        var screenPos = Zero.Mouse.ScreenPosition;
+        var mousePos = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(screenPos, 0.0);
+        this.Owner.Orientation.LookAtPoint(mousePos);
+      }
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+|LookAtpoint2|
+
+|pbr|
+
+Even though we have changed the code back to use ``LookAtPoint`` , it is rotating around the Z axis correctly since we fixed the ``GlobalUp``. Let's look at another function on :cpp:type:`Orientation`.
+
+* :ref:`Stop the Game <2016StopGame>`
+* Update the **RotationTest** script ``OnLogicUpdate`` function with the following code:
+
+  .. code-block:: as
+      :emphasize-lines: 5-7
+  
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        var screenPos = Zero.Mouse.ScreenPosition;
+        var mousePos = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(screenPos, 0.0);
+        var mouseDirection = mousePos - this.Owner.Transform.WorldTranslation;
+        mouseDirection = Math.Normalize(mouseDirection);
+        this.Owner.Orientation.LookAtDirection(mouseDirection);
+      }
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+
+While we are now using the ``LookAtDirection`` function, the functionality looks the same, and it basically is. By subtracting ``mousePos`` from the ``WheelChild`` object's ``Translation`` , we can get a vector from the object to the mouse, then by normalizing the vector we can just get a direction to have the object face.
+
+|FinalLookAt|
+
+Now we know the basics of making objects rotate using the :cpp:type:`Transform` :cpp:type:`component<Component>` and the :cpp:type:`Orientation` :cpp:type:`component<Component>`, and we understand the difference between Local and World Rotation. 
+
+.. |AxisDraw|                               image:: images/2DRotation/AxisDraw.png
+.. |ChildRotation1|                         image:: images/2DRotation/ChildRotation1.png
+  :height: 2.0in
+.. |DoubleRotation|                         image:: images/2DRotation/DoubleRotation.png
+    :height: 2.0in
+.. |GWInitialSprite|                        image:: images/2DRotation/GWInitialSprite.png
+    :height: 2.0 in
+.. |GWRotation1|                            image:: images/2DRotation/GWRotation1.png
+    :height: 2.0 in
+.. |LookAtPoint|                            image:: images/2DRotation/LookAtPoint.gif
+    :width:  8.35in
+.. |LookAtPoint2|                           image:: images/2DRotation/LookAtPoint2.gif
+    :width:  8.35in
+.. |LookAtPointWithUp|                      image:: images/2DRotation/LookAtPointWithUp.gif
+    :width:  8.35in
+.. |RotateAnglesWorld|                      image:: images/2DRotation/RotateAnglesWorld.gif
+    :width:  8.35in
+.. |FinalLookAt|                            image:: images/2DRotation/FinalLookAt.gif
+    :width:  8.35in
+.. |RotateAround|                           image:: images/2DRotation/RotateAround.gif
+    :width:  8.35in
+    

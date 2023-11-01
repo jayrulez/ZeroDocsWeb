@@ -1,0 +1,70 @@
+.. _ReferenceNetUserCreator:
+
+.. rst-class:: searchtitle
+
+NetUserCreator
+==============
+
+.. rst-class:: searchdescription
+
+Network User Creator Creates a network user on add request(intended as a helper component)
+
+.. include:: Description/NetUserCreator.rst
+
+.. cpp:class:: NetUserCreator
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceNetUserCreatorProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NetUserCreator::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space NetUserCreator::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NetUserCreator::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession NetUserCreator::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetUserCreator::SpawnSpace
+
+            Data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Archetype NetUserCreator::UserArchetype
+
+            Returns the network user archetype to be spawned when accepting a new user.
+
+.. _ReferenceNetUserCreatorMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void NetUserCreator::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/NetUserCreator.rst

@@ -1,0 +1,627 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Gameplay/Input/MouseInput.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:58:12 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mouse Input &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Input" href="index.html"/>
+        <link rel="next" title="Vector Math" href="../VectorMath/index.html"/>
+        <link rel="prev" title="Gamepad" href="Gamepad.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Gameplay</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Input</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Gamepad.html">Gamepad</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Mouse Input</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../VectorMath/index.html">Vector Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LevelSwitching.html">Level Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UsingTheSweptController.html">Using the Swept Controller</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Tutorials</a> &raquo;</li>
+      
+          <li><a href="../index.html">Gameplay</a> &raquo;</li>
+      
+          <li><a href="index.html">Input</a> &raquo;</li>
+      
+    <li>Mouse Input</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/Tutorials/Gameplay/Input/MouseInput.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="mouse-input">
+<span id="tutorialmouseinput"></span><h1>Mouse Input</h1>
+<p class="searchdescription">This lesson covers Mouse Input, Mouse Events, arrays in Zilch, and Strings.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/LauncherNewProject.html#manualcreatenewproject"><span>Create a New Project</span></a></p>
+<ul class="simple">
+<li>In the Level Window<ul>
+<li>Press space</li>
+</ul>
+</li>
+<li>In the Search Window<ul>
+<li>Enter the command: NewProject</li>
+<li>Press Enter</li>
+</ul>
+</li>
+<li>In the Projects Window<ul>
+<li>Select Empty Project (2D)</li>
+<li>Give the project a name</li>
+<li>Press Enter</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<p><strong>Create a Transform</strong></p>
+<ul>
+<li><p class="first">Enter the command: CreateTransform</p>
+</li>
+<li><p class="first">Select the Transform object we just created</p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Set Name to: MouseClickCountText</p>
+</li>
+<li><p class="first">Add a SpriteText Component</p>
+</li>
+<li><p class="first">Under SpriteText</p>
+<ul class="simple">
+<li>Set FontSize to: 50</li>
+<li>Set Position to: Centered</li>
+<li>Set Text to: MouseClickCountText</li>
+</ul>
+</li>
+<li><p class="first">In the Objects Window</p>
+<ul>
+<li><p class="first">Select the Camera Object</p>
+<p><img alt="100000000000010D000000924A902BF7_png" src="../../../_images/100000000000010D000000924A902BF7.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Add a CameraViewport component</li>
+<li>Under Transform<ul>
+<li>Set Translation to: [0, 0, 40]</li>
+</ul>
+</li>
+<li>Under CameraViewport<ul>
+<li>Set Renderer to: LevelSettings</li>
+<li>Set Camera to: Camera</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and run the game</p>
+</li>
+</ul>
+<p>Instead of printing to the Console Window as visual feedback for testing mouse input, we are going to use text from the SpriteText component instead.</p>
+<p>Here is the game running:</p>
+<p><a class="reference internal" href="../../../_images/100000000000026200000227DB3FF2F7.png"><img alt="100000000000026200000227DB3FF2F7_png" src="../../../_images/100000000000026200000227DB3FF2F7.png" style="width: 8.35in;" /></a></p>
+<ul class="simple">
+<li>Close the Game Window</li>
+</ul>
+</div>
+<div class="section" id="connecting-to-a-viewport-s-mouse-events">
+<h2>Connecting to a Viewport&#8217;s Mouse Events</h2>
+<p>For testing mouse input, we will keep count of how many times we click the different mouse buttons, and then we will display those amounts as text.</p>
+<ul class="simple">
+<li>Add a ZilchScript named: MouseTextLogic<ul>
+<li>Update the <strong>MouseTextLogic</strong> script with the following:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">MouseTextLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">// Creating variables that will persist for the life of the object requires it</span>
+    <span class="c1">// to be define in the class scope. This allows the variables to live between</span>
+    <span class="c1">// calls to different functions. These variables are accessible via this.</span>
+      <span class="c1">// We haven&#39;t clicked anything yet, so initialize them to 0:</span>
+    <span class="k">var</span> <span class="nx">LeftClickCount</span>       <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">RightClickCount</span>      <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">MiddleClickCount</span>     <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">DoubleClickCount</span>     <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// We want to update the MouseClickCountText every game loop:</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+
+        <span class="c1">// Sign up for mouse events called on our Camera&#39;s Viewport:</span>
+          <span class="c1">// Get a reference to the camera</span>
+        <span class="k">var</span> <span class="nx">gameCamera</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">FindObjectByName</span><span class="p">(</span><span class="s2">&quot;Camera&quot;</span><span class="p">);</span>
+          <span class="c1">// Sign up for events</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="nx">gameCamera</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">MouseDown</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLeftMouseDown</span><span class="p">);</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="nx">gameCamera</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">RightMouseDown</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnRightMouseDown</span><span class="p">);</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="nx">gameCamera</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">MiddleMouseDown</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnMiddleMouseDown</span><span class="p">);</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="nx">gameCamera</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">DoubleClick</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnDoubleClick</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLeftMouseDown</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">ViewportMouseEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnRightMouseDown</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">ViewportMouseEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnMiddleMouseDown</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">ViewportMouseEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnDoubleClick</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">ViewportMouseEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We declare and initialize our counter variables for the left, right, middle, and double mouse click. We get a reference to the camera which has a CameraViewport component. This allows us to connect to the camera object in order to receive viewport mouse events. The MouseDown, RightMouseDown, and MiddleMouseDown are a few of the <strong>MouseEvent</strong> types. They have specific properties pertaining to the mouse such as the position and movement of the mouse.</p>
+<div class="section" id="reviewing-class-variables">
+<h3>Reviewing Class Variables</h3>
+<p><img alt="ClassVariableScope" src="../../../_images/ClassVariableScope.png" /></p>
+<p><em>Here you can see the variable&#8217;s longevity</em></p>
+<p>Notice the use of the keyword <code class="docutils literal"><span class="pre">this</span></code>. Like how we use it to access our functions when connecting to events:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span>                                             <span class="c1">// Notice how we use &quot;this&quot; to</span>
+                                             <span class="c1">// gain access to our function:</span>
+<span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span>      <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>We do the same thing to access our variables:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">WithVariables</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">MyVar</span><span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="kd">function</span> <span class="nx">PrintMyVar</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="s2">&quot;MyVar has a value of: &quot;</span><span class="p">);</span>
+        <span class="c1">// Here we are using the &quot;this&quot; keyword to access MyVar:</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">MyVar</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="converting-numerical-values-to-strings">
+<h2>Converting Numerical Values To Strings</h2>
+<ul class="simple">
+<li>Add the following function to the <strong>MouseTextLogic</strong> class:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">UpdateMouseClickCount</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Update the text for the MouseClickCountText</span>
+    <span class="k">var</span> <span class="nx">mouseClickCounts</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">StringBuilder</span><span class="p">();</span>
+    <span class="nx">mouseClickCounts</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Left Mouse Button Click Count: `this.LeftClickCount`&quot;</span><span class="p">);</span>
+    <span class="nx">mouseClickCounts</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">();</span>
+    <span class="nx">mouseClickCounts</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Right Mouse Button ClicK Count: `this.RightClickCount`&quot;</span><span class="p">);</span>
+    <span class="nx">mouseClickCounts</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">();</span>
+    <span class="nx">mouseClickCounts</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Middle Mouse Button Click Count: `this.MiddleClickCount`&quot;</span><span class="p">);</span>
+    <span class="nx">mouseClickCounts</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">();</span>
+    <span class="nx">mouseClickCounts</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Double Click Count: `this.DoubleClickCount`&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Turn this stringbuilder into a string that our SpriteText can display:</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SpriteText</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="nx">mouseClickCounts</span><span class="p">.</span><span class="nx">ToString</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>In the <strong>UpdateMouseClickCountText</strong> function, we create the mouseClickCountText String and set it to be a String containing the leftClickCount value which has been converted from a numerical value to a String using Zilch&#8217;s built-in <strong>string interpolation</strong> using the <strong>`</strong>. The string interpolation operation works with any available variable giving it a printable String format.</li>
+</ul>
+<p>We added a newline character by using a call to WriteLine, if we wanted text appended <cite>without</cite> a newline, we&#8217;d simply use the Write function. Finally, the character <code class="docutils literal"><span class="pre">\n</span></code> within a string still works as a valid way to indicate a newline. Notice how the StringBuilder works very similarly to the Console class we learned for printing to the console. Although related, the StringBuilder is <cite>not</cite> a String, so notice that we are calling the ToString function when setting the text on our SpriteText object.</p>
+<ul class="simple">
+<li>Update the following functions in the <strong>MouseTextLogic</strong> class:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+<span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">UpdateMouseClickCount</span><span class="p">();</span>
+</span>  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">OnLeftMouseDown</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">ViewportMouseEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+      <span class="c1">// Update the Click &amp; Double Click counts</span>
+<span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">LeftClickCount</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+</span>  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">OnRightMouseDown</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">ViewportMouseEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+      <span class="c1">// Update the Click &amp; Double Click counts</span>
+<span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">RightClickCount</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+</span>  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">OnMiddleMouseDown</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">ViewportMouseEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+<span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">MiddleClickCount</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+</span>  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">OnDoubleClick</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">ViewportMouseEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+<span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">DoubleClickCount</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+</span>  <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Select the MouseClickCountText object</li>
+<li>In the Properties Window<ul>
+<li>Add the MouseTextLogic script component to the MouseClickCountText object</li>
+</ul>
+</li>
+</ul>
+<p><img alt="AddComponent" src="../../../_images/AddComponent.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and run the game</li>
+</ul>
+<p>The MouseClickCountText should update its SpriteText component&#8217;s Text String every logic update to display the click counts:</p>
+<p><img alt="1000000000000195000000B30648538B_png" src="../../../_images/1000000000000195000000B30648538B.png" /></p>
+<p>After clicking and double-clicking the mouse buttons, the numbers should increase for each specific button:</p>
+<p><img alt="10000000000001AE000000B35ABC74ED_png" src="../../../_images/10000000000001AE000000B35ABC74ED.png" /></p>
+<p>This covers mouse button input. Now we will go over mouse scrolling.</p>
+</div>
+<div class="section" id="mouse-scrolling">
+<h2>Mouse Scrolling</h2>
+<p>The <strong>Scroll</strong> member variable of the MouseEvent is as 2D vector that represents the movement of the mouse scroll wheel. If the mouse has a ball, then it can scroll horizontally (the x value) in addition to the vertical scrolling (the y value).</p>
+<ul class="simple">
+<li>Close the Game Window and open the MouseTextLogic script</li>
+<li>Add the following code to the <strong>Initialize</strong> function:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="nx">gameCamera</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">MouseScroll</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnMouseScroll</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Add the <strong>OnMouseScroll</strong> function:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnMouseScroll</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">ViewportMouseEvent</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In order to visually show the mouse scroll wheel functionality, we will cycle through a list of colors that will be used as the color of the text. We will use the Zilch Array data structure.</p>
+<p><strong>Making a List of Colors</strong></p>
+<ul class="simple">
+<li>Add the following variables to the <strong>MouseTextLogic</strong> class:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="k">var</span> <span class="nx">MiddleClickCount</span>     <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="k">var</span> <span class="nx">DoubleClickCount</span>     <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+<span class="hll">  <span class="k">var</span> <span class="nx">ColorList</span>            <span class="o">:</span> <span class="nb">Array</span><span class="p">[</span><span class="nx">Real4</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">[</span><span class="nx">Real4</span><span class="p">]();</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nx">CurrentColorIndex</span>    <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li>Add the following code to the <strong>Initialize</strong> function</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>                           <span class="c1">//    R     G      B     A</span>
+<span class="k">var</span> <span class="nx">orangeRed</span>    <span class="o">=</span> <span class="nx">local</span> <span class="nx">Real4</span><span class="p">(</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.27</span><span class="o">,</span>   <span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">yellow</span>       <span class="o">=</span> <span class="nx">local</span> <span class="nx">Real4</span><span class="p">(</span> <span class="mf">1.0</span><span class="o">,</span>  <span class="mf">1.0</span><span class="o">,</span>   <span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">midnightBlue</span> <span class="o">=</span> <span class="nx">local</span> <span class="nx">Real4</span><span class="p">(</span> <span class="mf">0.1</span><span class="o">,</span>  <span class="mf">0.1</span><span class="o">,</span>  <span class="mf">0.44</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">greenYellow</span>  <span class="o">=</span> <span class="nx">local</span> <span class="nx">Real4</span><span class="p">(</span><span class="mf">0.68</span><span class="o">,</span>  <span class="mf">1.0</span><span class="o">,</span>  <span class="mf">0.18</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">pink</span>         <span class="o">=</span> <span class="nx">local</span> <span class="nx">Real4</span><span class="p">(</span><span class="mf">1.0</span><span class="o">,</span>  <span class="mf">0.75</span><span class="o">,</span>   <span class="mf">0.8</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">purple</span>       <span class="o">=</span> <span class="nx">local</span> <span class="nx">Real4</span><span class="p">(</span><span class="mf">0.5</span><span class="o">,</span>   <span class="mf">0.0</span><span class="o">,</span>   <span class="mf">0.5</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">);</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">ColorList</span><span class="p">.</span><span class="nx">Push</span><span class="p">(</span><span class="nx">orangeRed</span>   <span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">ColorList</span><span class="p">.</span><span class="nx">Push</span><span class="p">(</span><span class="nx">yellow</span>      <span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">ColorList</span><span class="p">.</span><span class="nx">Push</span><span class="p">(</span><span class="nx">midnightBlue</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">ColorList</span><span class="p">.</span><span class="nx">Push</span><span class="p">(</span><span class="nx">greenYellow</span> <span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">ColorList</span><span class="p">.</span><span class="nx">Push</span><span class="p">(</span><span class="nx">pink</span>        <span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">ColorList</span><span class="p">.</span><span class="nx">Push</span><span class="p">(</span><span class="nx">purple</span>      <span class="p">);</span>
+</pre></div>
+</div>
+<p>Arrays in Zilch are declared with type they contain the between square brackets. Each item in the list is separated by a comma. We have created the currentColorIndex variable which will represent the current color being used from the list, or array, of colors.</p>
+<ul class="simple">
+<li>Add the following code to the <strong>UpdateMouseClickCount</strong> function:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Update the text color:</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SpriteText</span><span class="p">.</span><span class="nb">Color</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">ColorList</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">CurrentColorIndex</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Notice how we use the opening and closing square brackets with the currentColorIndex in order to get the color at that location in the list.</li>
+<li>Add the following code to the <strong>OnMouseScroll</strong> function of the MouseTextLogic class:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// If Scrolling up,</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">viewportMouseEvent</span><span class="p">.</span><span class="nx">Scroll</span><span class="p">.</span><span class="nx">Y</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Increment the index</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">CurrentColorIndex</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="p">}</span>
+
+<span class="c1">// If Scrolling Down,</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">viewportMouseEvent</span><span class="p">.</span><span class="nx">Scroll</span><span class="p">.</span><span class="nx">Y</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Decrement the index</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">CurrentColorIndex</span> <span class="o">-=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>When we get the MouseScroll event, we will increment or decrement the currentColorIndex based on whether or not we are scrolling up or down vertically with the mouse scroll wheel.</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and run the game</li>
+</ul>
+<p>The text color should be set to the first color in the color list:</p>
+<p><img alt="100000000000013C000000EBE89BCD75_png" src="../../../_images/100000000000013C000000EBE89BCD75.png" /></p>
+<p>Scrolling the mouse wheel up and down will change the color. We get an error if we go &#8220;out of bounds&#8221; with our currentColorIndex variable (in the script and the Console Window):</p>
+<p>In the script:</p>
+<p><img alt="OutOfBoundsError" src="../../../_images/OutOfBoundsError.png" /></p>
+<p>In the Console Window:</p>
+<p><a class="reference internal" href="../../../_images/ConsoleError.png"><img alt="ConsoleError" src="../../../_images/ConsoleError.png" style="width: 8.35in;" /></a></p>
+<p>We can avoid this by not letting our currentColorIndex variable get out of range (less than 0 or greater than the index of the last item in the list). We will do this by wrapping back around to the opposite end when we go out of bounds.</p>
+<ul class="simple">
+<li>Close the Game Window and open the MouseTextLogic script</li>
+<li>Add the following code to the <strong>OnMouseScroll</strong> function:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="k">this</span><span class="p">.</span><span class="nx">CurrentColorIndex</span> <span class="o">-=</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="p">}</span>
+
+<span class="hll">  <span class="c1">// Make sure the index is not out of bounds</span>
+</span><span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">WrapCurrentColorIndex</span><span class="p">();</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li>Add the following function to the <strong>MouseTextLogic</strong> class:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">WrapCurrentColorIndex</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Get the last valid index in the color list:</span>
+    <span class="k">var</span> <span class="nx">lastColorIndex</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">ColorList</span><span class="p">.</span><span class="nx">LastIndex</span><span class="o">;</span>
+
+    <span class="c1">// If we are before the first index,</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">CurrentColorIndex</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// wrap it to the end of the list.</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">CurrentColorIndex</span> <span class="o">=</span> <span class="nx">lastColorIndex</span><span class="o">;</span>
+    <span class="p">}</span>
+    <span class="c1">// If we are beyond the last index,</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">CurrentColorIndex</span> <span class="o">&gt;</span> <span class="nx">lastColorIndex</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// wrap it to the beginning of the list.</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">CurrentColorIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and run the game</li>
+</ul>
+<p>Clicking the mouse buttons and scrolling the mouse increases the click counts and changes the text color, respectively:</p>
+<p><a class="reference internal" href="../../../_images/100000000000054B000003D0DFAC048F.png"><img alt="100000000000054B000003D0DFAC048F_png" src="../../../_images/100000000000054B000003D0DFAC048F.png" style="width: 2.5in;" /></a>
+<a class="reference internal" href="../../../_images/100000000000054F000003CF50280C2E.png"><img alt="100000000000054F000003CF50280C2E_png" src="../../../_images/100000000000054F000003CF50280C2E.png" style="width: 2.5in;" /></a>
+<a class="reference internal" href="../../../_images/1000000000000551000003D1DAC538D1.png"><img alt="1000000000000551000003D1DAC538D1_png" src="../../../_images/1000000000000551000003D1DAC538D1.png" style="width: 2.5in;" /></a></p>
+<p>Now we know how to detect mouse input, we know how to convert numerical values into Strings, and we know how to create and index an Array in Zilch.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../VectorMath/index.html" class="btn btn-neutral float-right" title="Vector Math" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Gamepad.html" class="btn btn-neutral" title="Gamepad" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Gameplay/Input/MouseInput.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:58:15 GMT -->
+</html>

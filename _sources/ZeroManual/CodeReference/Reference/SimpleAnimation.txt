@@ -1,0 +1,100 @@
+.. _ReferenceSimpleAnimation:
+
+.. rst-class:: searchtitle
+
+SimpleAnimation
+===============
+
+.. rst-class:: searchdescription
+
+Plays a single animation on Initialize.
+
+.. include:: Description/SimpleAnimation.rst
+
+.. cpp:class:: SimpleAnimation
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceSimpleAnimationProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SimpleAnimation::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space SimpleAnimation::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SimpleAnimation::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession SimpleAnimation::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: AnimPlayMode::Enum SimpleAnimation::PlayMode
+
+            Play mode getter/setter.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Animation SimpleAnimation::Animation
+
+            Animation getter/setter.
+
+.. _ReferenceSimpleAnimationMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SimpleAnimation::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: AnimationNode SimpleAnimation::PlaySingle(Animation animation, AnimPlayMode::Enum playMode)
+
+            Play animations directly.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: AnimationNode SimpleAnimation::DirectBlend(Animation animation, Real transitionTime, AnimPlayMode::Enum playMode)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: AnimationNode SimpleAnimation::CrossBlend(Animation animation, Real transitionTime, AnimPlayMode::Enum playMode)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: AnimationNode SimpleAnimation::PlayIsolatedAnimation(Animation animation, Cog rootBone, AnimPlayMode::Enum playMode)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: AnimationNode SimpleAnimation::ChainAnimation(Animation animation, AnimPlayMode::Enum playMode)
+
+            
+
+.. include:: Remarks/SimpleAnimation.rst

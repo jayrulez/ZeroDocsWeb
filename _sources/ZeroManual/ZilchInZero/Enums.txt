@@ -1,0 +1,230 @@
+.. _ZilchEnums:
+
+.. rst-class:: SearchTitle
+
+Enums
+=====
+
+.. rst-class:: SearchDescription
+
+You can define an enumerated type with the **enum** keyword:
+
+.. code-block:: as
+
+    enum ControllerButtons {Start, Select, Up=0, Down, Left, Right, A=0, B=1} // no semicolon
+
+The names line up with incrementing Integers, the default starting value is Zero. You can manually set the values, they will increment off of that new values:
+
+.. code-block:: as
+ 
+    Console.WriteLine("ControllerButtons.Start  = `ControllerButtons.Start  as Integer`  " );
+    Console.WriteLine("ControllerButtons.Select = `ControllerButtons.Select as Integer`  " );
+    Console.WriteLine("ControllerButtons.Up     = `ControllerButtons.Up     as Integer`  " );
+    Console.WriteLine("ControllerButtons.Down   = `ControllerButtons.Down   as Integer`  " );
+    Console.WriteLine("ControllerButtons.Left   = `ControllerButtons.Left   as Integer`  " );
+    Console.WriteLine("ControllerButtons.Right  = `ControllerButtons.Right  as Integer`  " );
+    Console.WriteLine("ControllerButtons.A      = `ControllerButtons.A      as Integer`  " );
+    Console.WriteLine("ControllerButtons.B      = `ControllerButtons.B      as Integer`  " );
+    
+Console Output::
+
+      ---------------- Begin Game ---------------
+      ControllerButtons.Start  = 0  
+      ControllerButtons.Select = 1  
+      ControllerButtons.Up     = 0  
+      ControllerButtons.Down   = 1  
+      ControllerButtons.Left   = 2  
+      ControllerButtons.Right  = 3  
+      ControllerButtons.A      = 0  
+      ControllerButtons.B      = 1  
+
+.. warning::
+  
+  It is a known `bug <http://zeroengine.digipen.edu/default.asp?3719>`_ that you are unable to set the values to negative Integers. 
+
+      
+**Important things to note:**
+
+**1.** Identifiers for the enum type name and the enumerated values must be capitalized.
+
+.. code-block:: as
+
+    // This will not compile. 
+    enum Directions {up, down, left, right}
+
+Console Output::
+
+      Enum declaration 'Directions' does not have a closing '}'. We found 'LowerIdentifier' but we
+      expected to find '}'.    
+    
+.. code-block:: as    
+    
+    // Neither will this.
+    enum directions {Up, Down, Left, Right}
+    
+Console Output::
+
+      Enum declaration is missing a name. Upper-camel case names are required here (use 'Directions'
+      instead of 'directions').    
+    
+**2.** Identifiers for the enumerated values must be unique.    
+
+.. code-block:: as
+
+    // This will not compile.
+    enum Directions {Up, Down, Up, Down}
+    
+Console Output::
+
+      A value of the same name 'Up' has already been declared in the enum 'Directions'. Names must 
+      only be used once.
+      
+**3.** Enums cannot be defined inside classes, structs, or other enums.
+
+.. code-block:: as
+
+    // Classes cannot contain enums.
+    class EnumWrapper
+    {
+        // This won't compile.
+        enum ControllerButtons {Start, Select, Up=0, Down, Left, Right, A=0, B=1}
+    }
+
+Console Output::
+      
+      Class declaration 'EnumWrapper' does not have a closing '}'. We found 'enum' but we expected to find '}'.
+
+Enums and Integers
+------------------
+
+As in other languages, Integers make up the backbone of how enums work, and thus they work together in many situations.
+
+Casting
+~~~~~~~
+
+
+Because of this, Zilch will implicitly cast from an enum to an Integer when necessary:
+
+Given this:
+
+.. code-block:: as    
+
+  enum ControllerButtons {Start, Select, Up=0, Down, Left, Right, A=0, B=1}
+
+  class Controller
+  {
+      [Static]
+      // This function accepts an enum type.
+      function AcceptsEnum(param: ControllerButtons)
+      {
+          Console.WriteLine(" turned into `param`!");
+      }
+      
+      [Static]
+      // This function accepts an integer type.
+      function AcceptsInt(param: Integer)
+      {
+          Console.WriteLine(" turned into `param`!");
+      }
+  }
+
+We can test the calls to these functions to see the interplay of casting:
+
+.. code-block:: as
+
+    var paramInt = 3;
+    var paramEnum = ControllerButtons.Right;
+
+    // This works, as you'd expect
+    Console.Write(paramEnum);
+    Controller.AcceptsEnum(paramEnum);
+    
+    // But if you want to accept an Integer in an enum's place you MUST cast. 
+    Console.Write(paramInt);
+    Controller.AcceptsEnum(paramInt as ControllerButtons);
+
+Console Output::
+
+      ---------------- Begin Game ---------------
+      Right turned into Right!
+      3 turned into Right!    
+ 
+.. code-block:: as
+
+    // Attempting to pass an Integer without casting to an enum 
+    // will cause a compiler error
+    Console.Write(paramInt);
+    Controller.AcceptsEnum(paramInt);
+    
+Console Output::
+
+      The function 'AcceptsEnum' exists, but could not be resolved since the types of the arguments 
+      used did not match. The arguments you gave were: 
+
+        AcceptsEnum(Integer)
+
+      The possible choices were: 
+
+        AcceptsEnum(param : ControllerButtons)
+  
+.. code-block:: as
+    
+    // This also works as you'd expect. 
+    Console.Write(paramInt);
+    Controller.AcceptsInt(paramInt);
+    
+    // The enum type parameter is implicitly casted to an Integer and is then passed to the function. 
+    Console.Write(paramEnum);
+    Controller.AcceptsInt(paramEnum);
+
+Console Output::
+    
+      ---------------- Begin Game ---------------
+      3 turned into 3!
+      Right turned into 3!
+    
+Enum-Integer Operations
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Enums can perform all operations as if they were Integers. For instance, you can perform all of the normal math operations as implicit conversion will happen as necessary from the enum type to Integer:
+
+.. code-block:: as
+
+    // Here you can see use of the +, -, *, /, (), ^ and % Integer operators.
+    var math = (ControllerButtons.Start + ControllerButtons.Right) ^ ControllerButtons.Left % 
+               ControllerButtons.Right - ControllerButtons.Right * ControllerButtons.Select;
+               
+    // When the math evaluates to an unaliased number, the variable, although still of the enum type, 
+    // prints out its integer value.
+    Console.WriteLine(math); 
+    Console.WriteLine(typeid(math).Name);
+
+Console Output::
+    
+      ---------------- Begin Game ---------------
+      -3
+      ControllerButtons
+
+*You can see the typeid is not an Integer but ControllerButtons.* raw:: html <br />
+*An Integer value was printed because there was no alias in the enum that maps to -3.*
+      
+Because the type is still of the enum, you could pass it to our ``Controller.AcceptsEnum()`` function without issue.  
+
+When an operation includes both an enum and an Integer the result is always promoted to the enum type. If you want an Integer either 
+
+* Declare the variable you are storing the result in as an Integer: ``var result : Integer``
+* Cast it: ``result as Integer``
+
+Caveat
+~~~~~~
+
+Although enums cast to Integers, they **will not** cast to Integers to perform cross-enum operations.
+
+.. code-block:: as
+
+  // This won't compile.
+  Console.WriteLine(ControllerButtons.Down + Directions.Down);
+  
+Console Output::
+    
+      The binary '+' operator 'Positive / Add' is not valid with 'ControllerButtons' and 'Directions'.  

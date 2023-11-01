@@ -1,0 +1,108 @@
+.. _ReferenceCogTransformGizmo:
+
+.. rst-class:: searchtitle
+
+CogTransformGizmo
+=================
+
+.. include:: Description/CogTransformGizmo.rst
+
+.. cpp:class:: CogTransformGizmo
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceCogTransformGizmoProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CogTransformGizmo::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space CogTransformGizmo::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CogTransformGizmo::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession CogTransformGizmo::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GizmoBasis::Enum CogTransformGizmo::Basis
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GizmoPivot::Enum CogTransformGizmo::Pivot
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint CogTransformGizmo::ObjectCount
+
+            Object getters.
+
+.. _ReferenceCogTransformGizmoMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void CogTransformGizmo::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void CogTransformGizmo::AddObject(Cog cog)
+
+            Adds an object to be modified by this gizmo.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void CogTransformGizmo::RemoveObject(Cog cog)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void CogTransformGizmo::ClearObjects()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void CogTransformGizmo::SetOperationQueue(OperationQueue opQueue)
+
+            If set, this Gizmo will add operations for all modifications to cogs.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void CogTransformGizmo::ToggleCoordinateMode()
+
+            Toggle between local/ world.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog CogTransformGizmo::GetObjectAtIndex(uint index)
+
+            
+
+.. include:: Remarks/CogTransformGizmo.rst

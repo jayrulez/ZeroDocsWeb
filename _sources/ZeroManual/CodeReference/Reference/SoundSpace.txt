@@ -1,0 +1,142 @@
+.. _ReferenceSoundSpace:
+
+.. rst-class:: searchtitle
+
+SoundSpace
+==========
+
+.. rst-class:: searchdescription
+
+SoundSpace component provides sound for a space.
+
+.. include:: Description/SoundSpace.rst
+
+.. cpp:class:: SoundSpace
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceSoundSpaceProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SoundSpace::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space SoundSpace::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SoundSpace::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession SoundSpace::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SoundSpace::Volume
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SoundSpace::VolumeDB
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SoundSpace::Pitch
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SoundSpace::PitchSemitones
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SoundSpace::Pause
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SoundSpace::PauseWithLevel
+
+            
+
+.. _ReferenceSoundSpaceMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundSpace::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundSpace::InterpolatePitch(Real pitch, Real time)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundSpace::InterpolatePitchSemitones(Real pitch, Real time)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundSpace::InterpolateVolume(Real value, Real interpolationTime)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundSpace::InterpolateVolumeDB(Real volumeDecibels, Real interpolationTime)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: SoundInstance SoundSpace::PlayCueAt(SoundCue cue, Vec3 position)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: SoundInstance SoundSpace::PlayCue(SoundCue cue)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundSpace::StopAllSounds()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundSpace::PrintAudioStartupMessage()
+
+            
+
+.. include:: Remarks/SoundSpace.rst

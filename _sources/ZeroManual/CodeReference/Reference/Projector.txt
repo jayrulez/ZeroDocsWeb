@@ -1,0 +1,76 @@
+.. _ReferenceProjector:
+
+.. rst-class:: searchtitle
+
+Projector
+=========
+
+.. rst-class:: searchdescription
+
+Projector component class. Used for masking or coloring lights.
+
+.. include:: Description/Projector.rst
+
+.. cpp:class:: Projector
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceProjectorProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Projector::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Projector::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Projector::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Projector::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Projector::IsActive
+
+            Is the projector active?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Projector::IsMask
+
+            Is project just a simple mask or a projected image.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Texture Projector::Texture
+
+            
+
+.. _ReferenceProjectorMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Projector::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/Projector.rst

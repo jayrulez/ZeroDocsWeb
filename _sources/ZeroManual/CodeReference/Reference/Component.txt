@@ -1,0 +1,58 @@
+.. _ReferenceComponent:
+
+.. rst-class:: searchtitle
+
+Component
+=========
+
+.. rst-class:: searchdescription
+
+A component is an atomic piece of functionality that is composed into a Cogs to form game objects.
+
+.. include:: Description/Component.rst
+
+.. cpp:class:: Component
+
+    Base Class: :cpp:type:`ZeroObject`
+
+.. _ReferenceComponentProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Component::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Component::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Component::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Component::GameSession
+
+            Get the GameSession that owns us and our space.
+
+.. _ReferenceComponentMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Component::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/Component.rst

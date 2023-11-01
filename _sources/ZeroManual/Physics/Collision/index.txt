@@ -1,0 +1,90 @@
+.. _ManualCollisionIndex:
+
+.. rst-class:: SearchTitle
+
+Collision
+=========
+
+.. rst-class:: SearchDescription
+
+Simulating collision between two objects is handled completely by the engine. As the developer you will often be working with the data resulting from detected or resolved collisions. You will also often define the rules for how objects should collide.
+
+Overview
+--------
+
+*	:doc:`Collision Overview<CollisionOverview>`
+
+Colliders
+---------
+
+Colliders define collision boundaries for the Physics space to use.
+
+Base Collider Class
+~~~~~~~~~~~~~~~~~~~
+
+.. Warning:: Read this page on the base Collider class before visiting any of the specific Collider pages!
+
+*   :doc:`Collider<Colliders/Collider>`
+
+All Primitive and User-Defined Colliders
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*   :doc:`BoxCollider<Colliders/BoxCollider>`
+*   :doc:`SphereCollider<Colliders/SphereCollider>`
+*   :doc:`CapsuleCollider<Colliders/CapsuleCollider>`
+*   :doc:`CylinderCollider<Colliders/CylinderCollider>`
+*   :doc:`EllipsoidCollider<Colliders/EllipsoidCollider>`
+*   :doc:`MeshCollider<Colliders/MeshCollider>`
+*   :doc:`ConvexMeshCollider<Colliders/ConvexMeshCollider>`
+*   :doc:`MultiConvexMeshCollider<Colliders/MultiConvexMeshCollider>`
+*   :doc:`HeightMapCollider<Colliders/HeightMapCollider>`
+
+Collision Groups
+----------------
+
+Collision Groups allow the user to define the relationships between different types of objects when the physics engine is calculating whether they should collide or not.
+
+*    :doc:`Collision Groups and Tables<CollisionGroups/CollisionGroupAndCollisionTable>`
+
+Collision Events
+----------------
+
+Collision Events are the primary way you as the game developer are notified of collisions. It is also the best way to get data about any said collision.
+
+*   :doc:`Collision Events<CollisionEvents>`
+    
+*	:doc:`Collision Group Events<CollisionGroups/CollisionGroupEvents>`
+
+*    Check out our lesson on collision events :ref:`here<TutorialCollisionEvents>`.
+
+Collision TroubleShooting
+-------------------------
+
+Often physics can be one of the most difficult systems to intuit when working with. 
+
+*    :doc:`Why No Collision? <WhyNoCollision>`
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :titlesonly:
+   
+   CollisionOverview
+    
+   Colliders/Collider
+   Colliders/BoxCollider
+   Colliders/CapsuleCollider
+   Colliders/ConvexMeshCollider
+   Colliders/CylinderCollider
+   Colliders/EllipsoidCollider
+   Colliders/HeightMapCollider
+   Colliders/MeshCollider
+   Colliders/MultiConvexMeshCollider
+   Colliders/SphereCollider
+
+   CollisionGroups/CollisionGroupAndCollisionTable
+
+   CollisionEvents
+   CollisionGroups/CollisionGroupEvents
+   
+   WhyNoCollision

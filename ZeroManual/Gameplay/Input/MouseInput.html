@@ -1,0 +1,515 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Gameplay/Input/MouseInput.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:24 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mouse Input &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Input" href="index.html"/>
+        <link rel="next" title="Custom Cursor" href="CustomCursor.html"/>
+        <link rel="prev" title="Input" href="index.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Gameplay</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Random.html">Random</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Input</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Mouse Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CustomCursor.html">Custom Cursor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="KeyboardInput.html">Keyboard Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GamepadInput.html">Gamepad Input</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../VectorMath/index.html">Vector Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HandlingQuitMessage.html">Handle the Quit Message (Stop Esc from Exiting Game)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LevelPath.html">LevelPath</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Gameplay</a> &raquo;</li>
+      
+          <li><a href="index.html">Input</a> &raquo;</li>
+      
+    <li>Mouse Input</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Gameplay/Input/MouseInput.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="mouse-input">
+<span id="manualmouseinput"></span><h1>Mouse Input</h1>
+<p class="searchdescription">Mouse input is one of the main systems of control, allowing aspects of gameplay to be controlled by either mouse movement or mouse buttons.</p>
+<div class="section" id="common-uses">
+<h2>Common Uses</h2>
+<ul class="simple">
+<li>Interacting with in-game objects</li>
+<li>Aiming and other game mechanics</li>
+<li>Camera movement</li>
+</ul>
+</div>
+<div class="section" id="using-mouse-input">
+<h2>Using Mouse Input</h2>
+<p>Mouse input in Zero is most commonly handled in one of two ways:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Event-Based Mouse Input:</strong> This method involves connecting to various <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">Viewport</span> <span class="pre">Mouse</span> <span class="pre">Events</span></code></a> that are dispatched by the Engine when the Mouse changes states. Mouse Events offer pre-calculated data that makes them much simpler to use than a frame-based input event system.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>There are times when the user will still need to calculate a WorldPosition that is in some way based off direct mouse input, despite the pre-calculated data. As ViewportMouseEvents only fire when the mouse is moved or has a button clicked, there are situations where the mouse&#8217;s calculated WorldPosition is not updated properly.</p>
+<p class="last">For example, the camera moves when the mouse does not. In this case, the cameras movement changes the data needed to calculate the mouse WorldPosition from the mouse screen position. However, because no ViewportMouseEvents were triggered, the logic that recalculates the WorldPosition using the new data is not run, <em>leaving the WorldPosition of the mouse incorrect.</em></p>
+</div>
+<ul class="simple">
+<li><strong>Frame-Based Mouse Input:</strong> Rather than passively waiting for an Event to be sent, frame-based input queries the system every frame for the desired information, such as <a class="reference internal" href="../../CodeReference/Reference/Mouse.html#_CPPv25Mouse" title="Mouse"><code class="xref cpp cpp-type docutils literal"><span class="pre">Mouse</span></code></a> Position. This information is then used to perform the desired function. The drawback to using frame-based input is that, since it queries every frame update, it can can cause a performance hit if there are multiple objects using it.</li>
+</ul>
+</div></blockquote>
+<div class="section" id="event-based-mouse-input">
+<span id="manualmouseinputeventbased"></span><h3>Event-Based Mouse Input</h3>
+<p>When using an Event-Based system for Mouse input, the first thing to start with is to connect to the appropriate ViewportMouseEvent (MouseMove, MouseEnter, LeftMouseDown, etc.). This is done with <a class="reference internal" href="../../CodeReference/Reference/Event.html#_CPPv25Event" title="Event"><code class="xref cpp cpp-type docutils literal"><span class="pre">Zilch</span> <span class="pre">Events</span></code></a>, which can be connected to using the <code class="docutils literal"><span class="pre">Zero.Connect</span></code> syntax.</p>
+<p>This connection can be made inside of any <a class="reference internal" href="../../CodeReference/Reference/ZilchScript.html#_CPPv211ZilchScript" title="ZilchScript"><code class="xref cpp cpp-type docutils literal"><span class="pre">ZilchScript</span></code></a> Component. For example:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EventBasedMouseSample</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+<span class="na">    [Dependency]</span>
+    <span class="kt">var</span> <span class="n">Transform</span> <span class="p">:</span> <span class="n">Transform</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+    <span class="c1">// Time in seconds to move object to new position</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">TimeToMove</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">1.0</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Connect to the MouseMove Event dispatched onto the Space and name the</span>
+        <span class="c1">// response function (i.e., this.OnMouseMove)</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MouseMove</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMouseMove</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// The response function called when this component &quot;hears&quot; the MouseMove event</span>
+    <span class="n">function</span> <span class="nf">OnMouseMove</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">ViewportMouseEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Get world position of the mouse</span>
+        <span class="kt">var</span> <span class="n">mouseWorldPosition</span> <span class="p">=</span> <span class="k">event</span><span class="p">.</span><span class="n">ToWorldZPlane</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+        <span class="c1">// Move the object to the mouse position over time using Actions</span>
+        <span class="kt">var</span> <span class="n">seq</span> <span class="p">=</span> <span class="n">Actions</span><span class="p">.</span><span class="n">Sequence</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Actions</span><span class="p">);</span>
+        <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span>
+                        <span class="n">@this</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">,</span>
+                        <span class="n">mouseWorldPosition</span><span class="p">,</span>
+                        <span class="k">this</span><span class="p">.</span><span class="n">TimeToMove</span><span class="p">,</span>
+                        <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The component above attached to a simple <a class="reference internal" href="../../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a> object:</p>
+<p><img alt="MouseMoveAni" src="../../../_images/MouseMoveAni.gif" /></p>
+<p>In the example above, the MouseMove event is used to change the position of the object, moving it to where the mouse is; however, this is only one of many ViewportMouseEvents that can be used. To find more information on Events in general as well as a a full list of all built-in Events, please see the <a class="reference internal" href="../../Scripting/EventsAndConnections.html#manualeventsandconnections"><span>Events and Connections Page</span></a>.</p>
+</div>
+<div class="section" id="frame-based-mouse-input">
+<span id="manualmouseinputframebased"></span><h3>Frame-Based Mouse Input</h3>
+<p>When using a frame-based input system, instead of connecting to any specific Mouse Events the ZilchScript will instead connect to LogicUpdate in order to get the information desired every frame. That information can then be used to change any parameters that need to be changed. In order to emulate the previous example of having an object follow the mouse position, some information will also be needed from the CameraViewport Component. By default, the CameraViewport Component is found on the LevelSettings object but can be moved to any object, which allows for Split-Screen or Multi-Viewport games.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">FrameBasedMouseSample</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nb">Transform</span> <span class="o">:</span> <span class="nb">Transform</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+    <span class="c1">// Speed at which the object will interpolate to the mouse position</span>
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">Speed</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">5.0</span><span class="o">;</span>
+
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Connect to the LogicUpdate Event and assign the function to be called</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Find the position of the Mouse on the Computer Screen</span>
+        <span class="k">var</span> <span class="nx">mouseScreenPosition</span> <span class="o">=</span> <span class="nx">Zero</span><span class="p">.</span><span class="nb">Mouse</span><span class="p">.</span><span class="nx">ScreenPosition</span><span class="o">;</span>
+
+        <span class="c1">// Use the position of the Mouse on the Computer Screen to find the position of the</span>
+        <span class="c1">// Mouse on the Game Screen at a depth of 0</span>
+        <span class="k">var</span> <span class="nx">mouseWorldPosition</span> <span class="o">=</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">LevelSettings</span><span class="p">.</span><span class="nx">CameraViewport</span><span class="p">.</span><span class="nx">ScreenToWorldZPlane</span><span class="p">(</span><span class="nx">mouseScreenPosition</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+
+        <span class="c1">// Move the object (through linear interpolation) to mouse position over time</span>
+        <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">=</span>
+        <span class="nb">Math</span><span class="p">.</span><span class="nx">Lerp</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">,</span> <span class="nx">mouseWorldPosition</span><span class="o">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">Speed</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Applying the frame-based component to an object results in this type of behavior:</p>
+<p><img alt="FrameMouseMoveAni" src="../../../_images/FrameMouseMoveAni.gif" /></p>
+<p>By comparing the two examples, it&#8217;s easy to see that both systems are fairly easy to put in place, and they both have their strengths and weaknesses. Think about what is needed from the mouse to decide which system will be put to better use.</p>
+</div>
+</div>
+<div class="section" id="properties-of-viewportmouseevents">
+<h2>Properties of ViewportMouseEvents</h2>
+<p><code class="docutils literal"><span class="pre">ViewportMouseEvents</span></code> all have access to various shared properties and methods regardless of what event is being called. <code class="docutils literal"><span class="pre">event.ShiftPressed</span></code>, <code class="docutils literal"><span class="pre">event.AltPressed</span></code> and <code class="docutils literal"><span class="pre">event.CtrlPressed</span></code> will allow the user to check if any of those buttons were being pressed at the same time the Mouse Event was dispatched to allow different functionality if any  of the buttons were. It also becomes possible to create a Mouse Input system that is uses Space based events by using <code class="docutils literal"><span class="pre">event.HitObject</span></code> to find which object was hit by the mouse.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Connect to the MouseDown event, but on the Space rather than Owner</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MouseDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMouseDown</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="nf">OnMouseDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">ViewportMouseEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Check to make sure an object was hit</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">HitObject</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Insert code here</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>By placing this component onto the <code class="docutils literal"><span class="pre">LevelSettings</span></code> or any other object that will be permanently in the level, any game object in that level that has the <code class="docutils literal"><span class="pre">Reactive</span></code> component attached will trigger the code block while anything without <code class="docutils literal"><span class="pre">Reactive</span></code> will be ignored. The Zero engine is able to determine what it hits based on a <a class="reference internal" href="../../Physics/PhysicsCasting/PhysicsCastingOverview.html#manualraycasting"><span>Raycast</span></a> that is also accessible from the event data: <code class="docutils literal"><span class="pre">event.WorldRay</span></code> returns the instance of the Ray used; <code class="docutils literal"><span class="pre">event.RayStart</span></code> returns the starting location of the Ray in world space; <code class="docutils literal"><span class="pre">event.RayDirection</span></code> returns the direction the ray traveled in to hit the option; <code class="docutils literal"><span class="pre">event.HitObject</span></code> is a reference to the Cog hit by the Ray, while <code class="docutils literal"><span class="pre">event.HitPosition</span></code> returns the location where the object was hit, again in world space. This can be used to create visual feedback in a specific area easily.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">MyArchetype</span> <span class="p">:</span> <span class="n">Archetype</span><span class="p">;</span>
+
+<span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Connect to the MouseDown event, but on the Space rather than Owner</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MouseDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMouseDown</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="nf">OnMouseDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">ViewportMouseEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Check to make sure an object was hit</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">HitObject</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Given an archetype, the engine can create one in the area that was hit</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">CreateAtPosition</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">MyArchetype</span><span class="p">,</span> <span class="k">event</span><span class="p">.</span><span class="n">HitPosition</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Aside from <code class="docutils literal"><span class="pre">event.HitPosition</span></code>, <code class="docutils literal"><span class="pre">event.HitNormal</span></code> can be used to automatically determine the normal vector the face of the reactive object that the Raycast first hit. This can be helpful in determining angles of reflection.</p>
+<p>The mouse buttons themselves gain some added functionality from dispatched events as well. <code class="docutils literal"><span class="pre">event.Button</span></code> will return the mouse button that was depressed to trigger the event (either Left, Right, or Middle), while <code class="docutils literal"><span class="pre">event.MouseDown</span></code> returns a bool stating whether any mouse button is down. <code class="docutils literal"><span class="pre">event.IsButtonDown</span></code> or <code class="docutils literal"><span class="pre">IsButtonUp</span></code> can be used to check specific mouse buttons as well, passing in <code class="docutils literal"><span class="pre">MouseButtons.Left</span></code>, <code class="docutils literal"><span class="pre">Right</span></code> or <code class="docutils literal"><span class="pre">Middle</span></code> as a parameter.</p>
+<div class="sidebar">
+<p class="first sidebar-title">The ToWorldPlane() Function</p>
+<p class="last">If more information on the math behind <code class="docutils literal"><span class="pre">ToWorldPlane()</span></code>, please see <a class="reference external" href="http://mathonline.wikidot.com/point-normal-form-of-a-plane">This Link</a>.</p>
+</div>
+<p><code class="docutils literal"><span class="pre">ViewportMouseEvents</span></code> have built in functions for determining the mouse position on multiple planes: <code class="docutils literal"><span class="pre">event.ToWorldPlane</span></code> takes a normal vector that is a <code class="xref cpp cpp-type docutils literal"><span class="pre">Real3</span></code> as well as a <code class="docutils literal"><span class="pre">Real3</span></code> position and finds the mouse in any arbitrary plane; <code class="docutils literal"><span class="pre">event.ToWorldViewPlane</span></code> takes a <code class="docutils literal"><span class="pre">Real</span></code> as the depth of the mouse and returns the mouse position on the view plane at that depth; and <code class="docutils literal"><span class="pre">event.ToWorldZPlane</span></code> also takes a <code class="docutils literal"><span class="pre">Real</span></code> as the depth and returns the mouse position in the world plane at the given Z depth. A good example of using these functions can be found in the <a class="reference internal" href="CustomCursor.html#manualcustomcursor"><span>Custom Cursor</span></a> manual page.</p>
+</div>
+<div class="section" id="properties-and-methods-of-the-mouse">
+<h2>Properties and Methods of the Mouse</h2>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/Mouse.html#referencemouse"><span>Mouse Code Reference</span></a></li>
+</ul>
+</div>
+<div class="section" id="mouse-events">
+<h2>Mouse Events</h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">MouseEnter</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a><ul>
+<li>An Event dispatched to an object with the Reactive Component when the Mouse enters the objects area.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">MouseEnterPreview</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a><ul>
+<li>An Event dispatched to an object with the Reactive Component when the Mouse enters the objects area. This event is sent before any other Mouse Event.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">MouseExit</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a><ul>
+<li>An Event dispatched to an object with the Reactive Component when the Mouse exits the objects area.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">MouseUpdate</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a><ul>
+<li>An Event dispatched to an object with the Reactive Component as the Mouse hovers over the objects area.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">MouseScroll</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a><ul>
+<li>An Event dispatched to an object with the Reactive Component when the Mouse scroll wheel is turned while over the objects area.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">MiddleMouseDown</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a><ul>
+<li>An Event dispatched to an object with the Reactive Component when the Mouse scroll wheel is depressed while over the objects area.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">MiddleMouseUp</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a><ul>
+<li>An Event dispatched to an object with the Reactive Component when the Mouse scroll wheel is released while over the objects area.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">MouseDown</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a><ul>
+<li>An Event dispatched to an object with the Reactive Component when either Mouse button is depressed while over the objects area.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">MouseUp</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a><ul>
+<li>An Event dispatched to an object with the Reactive Component when either Mouse button is released while over the objects area.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">RightMouseDown</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a><ul>
+<li>An Event dispatched to an object with the Reactive Component when the right Mouse button is depressed while over the objects area.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">RightMouseUp</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a><ul>
+<li>An Event dispatched to an object with the Reactive Component when the right Mouse button is release while over the objects area.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">LeftMouseDown</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a><ul>
+<li>An Event dispatched to an object with the Reactive Component when the left Mouse button is depressed while over the objects area.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">LeftMouseUp</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a><ul>
+<li>An Event dispatched to an object with the Reactive Component when the left Mouse button is released while over the objects area.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">DoubleClick</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a><ul>
+<li>An Event dispatched to an object with the Reactive Component when either Mouse button is double clicked while over the objects area.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="related-materials">
+<span id="manualmouseinputrelated"></span><h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../Scripting/EventsAndConnections.html#manualeventsandconnections"><span>Events and Connections</span></a></li>
+<li><a class="reference internal" href="CustomCursor.html#manualcustomcursor"><span>Custom Cursor</span></a></li>
+<li><a class="reference internal" href="../../Physics/PhysicsCasting/PhysicsCastingOverview.html#manualraycasting"><span>RayCasting</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../Tutorials/Gameplay/Input/MouseInput.html#tutorialmouseinput"><span>Mouse Input</span></a></li>
+<li><a class="reference internal" href="../../../Tutorials/Scripting/Actions.html#tutorialactions"><span>Actions</span></a></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/ViewportMouseEvent.html#_CPPv218ViewportMouseEvent" title="ViewportMouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ViewportMouseEvent</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/Camera.html#_CPPv26Camera" title="Camera"><code class="xref cpp cpp-type docutils literal"><span class="pre">Camera</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/Mouse.html#_CPPv25Mouse" title="Mouse"><code class="xref cpp cpp-type docutils literal"><span class="pre">Mouse</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/ZilchScript.html#_CPPv211ZilchScript" title="ZilchScript"><code class="xref cpp cpp-type docutils literal"><span class="pre">ZilchScript</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/SpriteSource.html#_CPPv212SpriteSource" title="SpriteSource"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteSource</span></code></a></li>
+<li><code class="xref cpp cpp-type docutils literal"><span class="pre">Real3</span></code></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CustomCursor.html" class="btn btn-neutral float-right" title="Custom Cursor" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Input" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Gameplay/Input/MouseInput.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:25 GMT -->
+</html>

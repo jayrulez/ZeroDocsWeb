@@ -1,0 +1,692 @@
+.. _ParticleSystems2014:
+
+.. rst-class:: SearchTitle
+
+Particle Systems
+================
+
+.. rst-class:: SearchDescription
+
+This lesson introduces Particle Systems, Particle Emitters, and Particle Animators.
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2014`
+
+Particle Effects
+----------------
+
+Many games use particle effects to create lots of visual effects such as fire, 
+smoke, snow, and clouds. Particle Systems are like a group of pictures or **Sprites** that 
+have different transformational behaviors, colors, and blending effects. In the 
+Zero Engine, Particle Systems are composed of 3 main components and several 
+extra optional components for added behavior.
+
+The three required components are any type of:
+
+ * **Particle System** component 
+ * **Particle Animator** component
+ * **Particle Emitter** component.
+
+Creating a Particle Effect
+--------------------------
+
+* :ref:`Command<Commands2014>`: ``CreateTransform`` or :menuselection:`Create --> Create Transform` 
+*   In the Properties Window
+
+    *   Set Name to: ParticleEffectA
+    *   Click the Add Component... area and then enter: Particle
+
+        |ParticleTag|
+
+|pbr|
+        
+Particle System        
+~~~~~~~~~~~~~~~
+        
+The particle related components that we are able to add will appear in the 
+drop-down selection:
+
+|ParticleRelatedComponents|
+   
+    *   :ref:`Add a SpriteParticleSystem component <AddComponent2014>`
+
+        |SpriteParticleSystem| 
+
+        *The SpriteParticleSystem Component*
+
+The SpriteParticleSystem component falls under the Particle System category, 
+which controls properties such as:
+
+* Type of particle (Sprites in this case) used 
+* The sprite to use for the particles
+* Coordinate system the particle effects should live in
+* How the particles should be graphically displayed or **rendered**.
+
+    *   Again, click the Add Component... area and then enter: Particle
+
+        |ParticleTag|
+
+More valid particle related components appear because we have a 
+SpriteParticleSystem component already. Here are the 
+available particle effect related components:
+
+|MoreParticleOptions|
+
+Particle Emitter
+~~~~~~~~~~~~~~~~
+
+We are going to start out with the BoxParticleEmitter.
+ 
+    *   :ref:`Add a BoxParticleEmitter component <AddComponent2014>`
+
+        |BoxParticleEmitter|
+
+        *The BoxParticleEmitter Component*
+
+|pbr|
+        
+The BoxParticleEmitter component falls under the Particle Emitter category, 
+which is responsible for creating the particles with specified characteristics 
+such as:
+
+* Spawn location (in this case it's a box shape around the Transform's position)
+* Amount of particles 
+* Size of particles
+* Starting velocity
+* Lifetime of particles
+
+    *   Again, click the Add Component... area and then enter: Particle
+
+        |ParticleTag|
+        
+More valid particle related components appear because we have the 
+SpriteParticleSystem and BoxParticleEmitter components already. Here you can see the available particle effect related components appearing:
+
+|ExtraParticleComponents|
+
+|pbr|
+
+Particle Animator
+~~~~~~~~~~~~~~~~~
+
+We will use the LinearParticleAnimator for now.
+ 
+    *   :ref:`Add a LinearParticleAnimator component <AddComponent2014>`
+
+        |LinearParticleAnimator|
+
+        *The LinearParticleAnimator Component*
+
+The LinearParticleAnimator component falls under the Particle Animator category 
+and is responsible for modifying the particles after they are 
+created. The LinearParticleAnimator does things like changing the size and 
+applying forces on the particles.
+
+*   :ref:`Select the ParticleEffectA object <SelectObject2014>`
+
+Notice how the particles are being created in the Level Window:
+
+|FirstParticleSystem|
+
+Notice that the particle sprites are plain white and are being a random initial velocity. This is because the SpriteParticleSystem component's **Texture** property is set to the DefaultTexture, and the BoxParticleEmitter component's StartingVelocity 
+property is [0,0,0] and RandomVelocity is [2,2,2]. Let's change the sprite the particles are using.
+
+Importing Particle Sprites
+--------------------------
+
+|NoBookBegin|
+
+*   :download:`Download the external resources for this lesson <files/Particles>`
+*   Locate the Assets folder you downloaded
+
+|NoBookEnd|
+
+*   Drag and drop the provided sprite files Twinkle.png, Smoke2.png, and FireCloud.png files onto the Level Window
+*   In the Group Import Options Window
+
+    *   Click the "Import All" button
+*   :ref:`Select the ParticleEffectA object <SelectObject2014>`
+*   In the Properties Window
+
+    *   Under SpriteParticleSystem
+
+        *   Set Texture to: Twinkle
+        *   Set RenderMode to: Additive
+
+Now let's get rid of the velocity and make the particles spawn in a box shape 
+using the BoxParticleEmitter.
+
+    *   Make BoxParticleEmitter match the settings below:
+
+        *   Set SpinVariance to: 0
+        *   Set RandomSpin to: false
+        *   Set RandomVelocity to: [0.0, 0.0, 0.0]
+        *   Set EmitterSize to: [5, 5, 1]
+
+The particle effect is now emitting particles in the shape of a box that has 
+[5, 5, 1] (which is the **EmitterSize** property) as its dimensions. Let's 
+make it a little more obvious that it is a box.
+ 
+        *   Set EmitRate to: 500
+
+The **EmitRate** is how many particles are emitted per second, so particles 
+should emit more rapidly now to fill the box more before they die:
+
+|BoxOParticles|
+  
+    *   Under Transform
+
+        *   Set Translation to: [-8, 0, 0]
+        
+*   :ref:`Save the project <SavingProject2014>`
+
+|pbr|
+
+Make Another Particle Effect
+----------------------------
+
+We just made the last particle effect from scratch for learning purposes. Now 
+we will use the **CreateParticleSystem** command to make a simple particle 
+effect to start with. It will already have a system, animator, and emitter 
+component.
+
+*   :ref:`Command<Commands2014>`: ``CreateParticleSystem`` or :menuselection:`Create --> Create Particle System` 
+*   :ref:`Select the BasicParticleEffect object we just created <SelectObject2014>`
+
+    |QuickStartParticles|
+
+*Properties of the BasicParticleEffect object we just made with the CreateParticleSystem command*
+
+Observe how, instead of the BoxParticleEmitter, the BasicParticleEffect object 
+has a SphericalParticleEmitter by default.
+
+*   In the Properties Window
+
+    *   Set Name to: ParticleEffectB
+
+*   Use the TranslateGizmo to move the ParticleEffectB object up and down on 
+    the world y-axis (the green arrows):
+
+    |NoBookBegin|
+    |WebWorldSpace|
+    |NoBookEnd|
+    
+    |NoWebBegin|
+    |BookWorldSpace|
+    |NoWebEnd|
+
+Observe how the particles do not move when you move the ParticleEffectB object. 
+They are only emitted at the position of the object but do not move when the 
+object moves. *This is because the particles are being confined to the world 
+coordinate system.* We can have the particles follow the emitter by changing the
+**SystemSpace** property on the SpriteParticleSystem component.
+
+*   In the Properties Window
+
+    *   Under SpriteParticleSystem
+
+        *   Set SystemSpace to: LocalSpace
+
+This will make the particles that are emitted be confined to the local 
+coordinate system of the ParticleEffectB object.
+
+*   Use the TranslateGizmo to move the ParticleEffectB object again
+
+The particles remain in their relative positions to the ParticleEffectB object, 
+so when it moves, they all move with it.
+
+Multiple Particle Animators
+---------------------------
+
+*   In the Properties Window
+
+    *   Under Transform
+
+        *   Set Translation to: [8, 0, 0]
+
+Unlike the emitter and system category of particle effect components, multiple 
+particle animator components `are` possible. Different particle 
+animators affect the particles in different ways, and we are able to combine 
+them to get different effects.
+
+    *   Under the **ParticleColorAnimator** component
+
+        |ColorAnimatorComponent|
+
+The ParticleColorAnimator component will make each particle's color change over 
+its lifetime. Color0 will be the starting color and the color will change to, or **interpolate** 
+to, Color1 and so on. Keep in mind that the Tint color on the SpriteParticleSystem 
+component will be multiplied by these colors, so they may not appear exactly as chosen.
+
+|pbr|
+
+    *   Under ParticleColorAnimator
+
+        *   Set Color0 to: [R: 0,   G: 148, B: 255, A: 1.00]
+        *   Set Color1 to: [R: 255, G: 128, B: 0,   A: 1.00]
+        *   Set Color2 to: [R: 166, G: 0,   B: 255, A: 1.00]
+        *   Set Color3 to: [R: 255, G: 0,   B: 115, A: 1.00]
+        *   Set Color4 to: [R: 255, G: 255, B: 255, A: 1.00]
+
+            |ColorsChosen|
+
+Notice how the ParticleEffectB object's particles are now changing from one 
+color to the next over each particle's lifetime.
+
+*   :ref:`Save the project <SavingProject2014>`
+
+Additional Particle Effect Components (Particle Attractor)
+----------------------------------------------------------
+
+There are other components that we can add to the required system, animator, 
+and emitter components.
+   
+    *   Click the Add Component... area and then enter: Particle
+
+        |ParticleTag|
+
+The additional particle effect components that we are able to add will appear 
+in the drop-down selection:
+
+|AddParticleAttractor|
+
+    *   :ref:`Add a ParticleAttractor component <AddComponent2014>`
+
+|pbr|    
+
+The Strength property is how much of a "pull" towards the center that it will 
+have on the particles. They will get pulled with a strength equal to 100 
+percent of the **Strength** value if they are anywhere between the emitter's 
+position and the **MinDistance** from there. Between the MinDistance and the 
+MaxDistance from the emitter's position, the percentage decreases. After a 
+particle reaches a distance that is greater than the MaxDistance, it will not 
+be affected by the ParticleAttractor component (0 percent). The following 
+diagram attempts to briefly summarize the situation:
+
+|Diagram|
+
+In that diagram, the black dot is the center/position of the emitter. The 
+white area is where the ParticleAttractor component has no influence on the 
+particles, and in the darkest grey area, its "pull" is 100% of the **Strength** value 
+(from the center to the **MinDistance**). The percentage decreases to 0 % as it 
+gets closer to the **MaxDistance**. In the case of the ParticleEffectB object, 
+these values are in the object's local coordinate system because we set the 
+SpriteParticleSystem's **SystemSpace** property to to LocalSpace.
+
+    *   Under ParticleAttractor
+
+        *   Set Strength to: 5
+        *   Set MinDistance to: 0
+        *   Set MaxDistance to: 10
+
+            |AttractorSettings|
+
+The ParticleEffectB object's particles should be getting pulled towards and 
+past the center repeatedly because of the Strength causing them to get pulled 
+back before they get past the **MaxDistance**.
+
+*   :ref:`Save the project <SavingProject2014>`
+
+Fire Particle Effect
+--------------------
+
+Now we will make a fire particle effect, but we won't just make any fire 
+particle effect. We are going to make a pink fire particle effect.
+
+*   :ref:`Command<Commands2014>` : ``CreateParticleSystem`` or :menuselection:`Create --> Create Particle System`
+*   Select the BasicParticleEffect object we just created
+*   In the Properties Window
+
+    *   Set Name to: Fire
+    *   Under SpriteParticleSystem
+
+        *   Set Texture to: FireCloud
+        *   Make sure all properties match these:
+
+            |NoBookBegin|
+            |WebFireCloudSPS|
+            |NoBookEnd|
+            
+            |NoWebBegin|
+            |BookFireCloudSPS|
+            |NoWebEnd|
+            
+    *   Under LinearParticleAnimator
+
+        *   Make sure all properties match these:
+
+            |FireCloudLPA|
+
+    |pbr|
+            
+    *   Under SphericalParticleEmitter
+
+        *   Make sure all properties match these:
+
+            |FireCloudSPE|
+
+Here is our Fire object's particles in the Level Window:
+
+|FireParticles|
+
+|pbr|
+
+*   :ref:`Select the Fire object <SelectObject2014>`
+*   In the Properties Window
+
+    *   Under SpriteParticleSystem
+
+        *   Set Tint to: [R: 255, G: 64, B: 255, A: 1.00]
+
+            |PinkTint|
+   
+    *   Under Transform
+
+        *   Set Translation to: [10, 0, 0]
+
+We are moving the Fire object out of the way so that we can see the Smoke particle effect.
+
+*   :ref:`Save the project <SavingProject2014>`
+
+|pbr|
+
+Smoke Particle Effect
+---------------------
+
+*   :ref:`Command<Commands2014>` : ``CreateParticleSystem`` or :menuselection:`Create --> Create Particle System`
+*   :ref:`Select the BasicParticleEffect object we just created <SelectObject2014>`
+*   In the Properties Window
+
+    *   Set Name to: Smoke
+    *   Under SpriteParticleSystem
+
+        *   Set Texture to: Smoke2
+        *   Make sure all properties match these:
+
+            |SmokeSPS|
+
+    *   Under LinearParticleAnimator
+
+        *   Make sure all properties match these:
+
+            |SmokeLPA|
+
+    |pbr|
+    
+    *   Under SphericalParticleEmitter
+
+        *   Make sure all properties match these:
+
+            |NoBookBegin|
+            |WebSmokeSPE|
+            |NoBookEnd|
+            
+            |NoWebBegin|
+            |BookSmokeSPE|
+            |NoWebEnd|
+
+Here is our Smoke object's particles in the Level Window:
+
+|SmokeinLW|
+
+*   :ref:`Save the project <SavingProject2014>`
+
+|pbr|
+
+Combining the Fire and Smoke
+----------------------------
+
+*   :ref:`Select the Fire object <SelectObject2014>`
+*   In the Properties Window
+
+    *   Under Transform
+
+        *   Set Translation to: [0, 0, 0]
+*   :ref:`Command<Commands2014>`: ``CreateTransform`` or :menuselection:`Create --> Create Transform` 
+*   In the Properties Window
+
+    *   Set Name to: FallingFireAndSmoke
+
+Parent-Child Hierarchies
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+A hierarchy allows one object to be attached to another. A parent is an object that has one or more children. When you attach an object to another, the attached object becomes a child, and the other object that you attached it to is now a parent.
+
+Hierarchies like this are useful for making multiple objects behave according to how a single parent behaves. For us, we want both particle systems, Fire and Smoke, to move as if they are one object, so we will create a single parent for them to reference when updating their position.
+
+Creating a Hierarchy
+~~~~~~~~~~~~~~~~~~~~
+
+Lets create a simple hierarchy with one parent object and one child object. The parent object should be the FallingFireAndSmoke Transform object we made and the child object
+should be the Fire. To create this hierarchy follow these steps:
+
+*   In the Objects Window
+
+    *   Click and drag the Fire object onto the FallingFireAndSmoke object
+
+|ParentFire| 
+
+The FallingFireAndSmoke object can now be expanded to show its child object. This is what it should look like right after parenting:
+
+ |Parented|
+
+|pbr|
+
+*   Click on the small orange arrow to the left of FallingFireAndSmoke
+
+ |ShowChildren|
+
+*The FallingFireAndSmoke object's child objects are now visible*
+ 
+Repeat this process for the Smoke Object:
+ 
+ |BothParented|
+
+*The FallingFireAndSmoke object now has both Fire and Smoke as children*
+
+Now that we have made the Smoke and Fire objects children of the 
+FallingFireAndSmoke object, let's give the FallingFireAndSmoke a RigidBody component so that the hierarchy will fall due to gravity.
+
+    *   :ref:`Add a RigidBody component <AddComponent2014>`
+
+        |AddRigidBody|
+
+        
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+FallingFireAndSmoke object falling in Game:
+
+|NoWebBegin|
+|BookFallingFireAndSmokeInGame|
+|NoWebEnd|
+
+|NoBookBegin|
+|WebFallingFireAndSmokeInGame|
+|NoBookEnd|
+
+*   :ref:`Stop the Game <StopGame2014>`
+
+|pbr|
+
+Creating Particle Effects at Run-Time
+-------------------------------------
+
+Creating particles effects at run-time is the same as creating any other object 
+at run-time.
+
+*   :ref:`Select the FallingFireAndSmoke object <SelectObject2014>`
+
+The FallingFireAndSmoke object just falls forever instead of ever being destroyed. We don't want these objects to persist because over time this could cause performance problems. There is a component that will destroy the object it is attached to after a specified amount of time.
+
+Importing Scripts
+-----------------
+
+*   Locate the provided TimedDeath Stock Script
+*   Drag and drop the TimedDeath file onto the Level Window
+*   :ref:`Select the FallingFireAndSmoke object <SelectObject2014>`
+*   In the Properties Window
+
+    *   :ref:`Add a TimedDeath component <AddComponent2014>` with the following properties:
+
+        |TimedDeath|
+
+The **Lifetime** property is set to 4, which means that the object will be 
+destroyed after 4 seconds.
+  
+    *   Set Archetype to: FallingFireAndSmoke
+    *   Click the |Upload| button to upload the archetype
+
+The FallingFireAndSmoke object should appear under the Archetype tab in the 
+Library Window.
+
+|NewArchetype|
+
+*   In the Objects Window
+    
+    *   :ref:`Select the FallingFireAndSmoke object <SelectObject2014>`
+    *   Delete it (``Right-Click`` and select delete)
+
+|pbr|
+
+*   :ref:`Add a new ZilchScript resource<ResourceAdding2014>` named: GameLogic
+*   Change the **GameLogic** script to the following code:
+
+.. code-block:: as
+    
+    class GameLogic : ZilchComponent
+    {
+        function Initialize(init : CogInitializer)
+        {
+            Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+        }
+
+        function OnKeyDown(event : KeyboardEvent)
+        {
+            if (event.Key == Keys.Space)
+            {
+                // Get a reference to the FallingFireAndSmoke archetype:
+                var particleSystem = Archetype.Find("FallingFireAndSmoke");
+                
+                // Get a random X position from the RandomContext:
+                var randomX = this.Owner.RandomContext.Range(-10.0, 10.0);
+                // Create an instance of of the FallingFireAndSmokeArchetype:
+                this.Space.CreateAtPosition(particleSystem, local Real3(randomX, 5.0, 0.0));
+            }
+        }
+    }
+
+*   :ref:`Select the LevelSettings object <SelectObject2014>`
+*   In the Properties Window
+
+    *   :ref:`Add the GameLogic script component <AddComponent2014>`
+    *   :ref:`Add the RandomContext component <AddComponent2014>`
+
+        |RandomContext|
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+|pbr|
+
+Now we have both ParticleEffectA and ParticleEffectB emitting particle effects, and if you press Space on the keyboard, an instance of the FallingFireAndSmoke object will be created.
+
+Here our FallingFireAndSmoke objects are being created at run-time:
+
+|FallingFire|
+
+Now we know the basics of Particle Systems, Particle Emitters, and Particle 
+Animators.
+    
+.. |Diagram|                              image:: images/ParticleSystems/ParticleAttractorDiagram.png
+    :width: 3.0in
+    
+.. |FallingFire|                          image:: images/ParticleSystems/FallingFire.png
+    :width: 8.35in
+
+.. |RandomContext|                        image:: images/ParticleSystems/RandomContext.png
+    
+.. |NewArchetype|                         image:: images/ParticleSystems/NewArchetype.png
+    
+.. |TimedDeath|                           image:: images/ParticleSystems/TimedDeath.png    
+    
+.. |BookFallingFireAndSmokeInGame|            image:: images/ParticleSystems/FallingFireAndSmokeInGame.png
+    :height: 3.0in
+    
+.. |WebFallingFireAndSmokeInGame|            image:: images/ParticleSystems/FallingFireAndSmokeInGame.png
+    :width: 8.35in
+    
+.. |AddRigidBody|                         image:: images/ParticleSystems/AddRigidBody.png    
+
+.. |BothParented|                         image:: images/ParticleSystems/BothParented.png
+    
+.. |SmokeinLW|                            image:: images/ParticleSystems/SmokeinLW.png
+    :height: 2.8in
+
+.. |WebSmokeSPE|                             image:: images/ParticleSystems/SmokeSPE.png        
+
+.. |BookSmokeSPE|                             image:: images/ParticleSystems/SmokeSPE.png 
+    :height: 4.0in
+    
+.. |SmokeLPA|                             image:: images/ParticleSystems/SmokeLPA.png    
+    
+.. |SmokeSPS|                             image:: images/ParticleSystems/SmokeSPS.png    
+    
+.. |PinkTint|                             image:: images/ParticleSystems/PinkTint.png    
+    
+.. |FireParticles|                        image:: images/ParticleSystems/FireParticles.png    
+    
+.. |FireCloudSPE|                         image:: images/ParticleSystems/FireCloudSPE.png
+    
+.. |FireCloudLPA|                         image:: images/ParticleSystems/FireCloudLPA.png    
+    
+.. |WebFireCloudSPS|                         image:: images/ParticleSystems/FireCloudSPS.png
+
+.. |BookFireCloudSPS|                         image:: images/ParticleSystems/FireCloudSPS.png
+    :height: 2.5in
+    
+.. |AttractorSettings|                    image:: images/ParticleSystems/AttractorSettings.png
+
+.. |AddParticleAttractor|                 image:: images/ParticleSystems/AddParticleAttractor.png    
+    
+.. |ColorsChosen|                         image:: images/ParticleSystems/ColorsChosen.png
+    
+.. |ColorAnimatorComponent|               image:: images/ParticleSystems/ColorAnimatorComponent.png    
+    
+.. |WebWorldSpace|                           image:: images/ParticleSystems/WorldSpace.png
+    
+.. |BookWorldSpace|                           image:: images/ParticleSystems/WorldSpace.png
+    :height: 2.5in
+    
+.. |QuickStartParticles|                  image:: images/ParticleSystems/QuickStartParticles.png    
+    
+.. |BoxOParticles|                        image:: images/ParticleSystems/BoxOParticles.png    
+    :height: 2.5in
+
+.. |FirstParticleSystem|                  image:: images/ParticleSystems/FirstParticleSystem.png    
+    :height: 2.5in
+    
+.. |LinearParticleAnimator|               image:: images/ParticleSystems/LinearParticleAnimator.png
+    
+.. |ExtraParticleComponents|              image:: images/ParticleSystems/ExtraParticleComponents.png    
+    
+.. |BoxParticleEmitter|                   image:: images/ParticleSystems/BoxParticleEmitter.png 
+    :height: 3.25in
+    
+.. |MoreParticleOptions|                  image:: images/ParticleSystems/MoreParticleOptions.png    
+
+.. |SpriteParticleSystem|                 image:: images/ParticleSystems/SpriteParticleSystem.png
+    
+.. |ParticleRelatedComponents|            image:: images/ParticleSystems/ParticleRelatedComponents.png
+    
+.. |ParentFire|                           image:: images/ParticleSystems/ParentFire.png
+
+.. |Parented|                             image:: images/ParticleSystems/Parented.png
+
+.. |ShowChildren|                         image:: images/ParticleSystems/ShowChildren.png
+
+.. |ParticleTag|                          image:: images/ParticleSystems/ParticleTag.png
+
+.. |Upload|                               image:: images/Audio/upload.png
+
+.. include:: BookFormattingShortcuts.rst

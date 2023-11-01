@@ -1,0 +1,172 @@
+.. _ReferenceSphericalParticleEmitter:
+
+.. rst-class:: searchtitle
+
+SphericalParticleEmitter
+========================
+
+.. rst-class:: searchdescription
+
+Emits particles inside a sphere.
+
+.. include:: Description/SphericalParticleEmitter.rst
+
+.. cpp:class:: SphericalParticleEmitter
+
+    Base Class: :cpp:type:`ParticleEmitterShared`
+
+.. _ReferenceSphericalParticleEmitterProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SphericalParticleEmitter::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space SphericalParticleEmitter::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SphericalParticleEmitter::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession SphericalParticleEmitter::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SphericalParticleEmitter::Active
+
+            Is this emitter currently emitting particles?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint SphericalParticleEmitter::EmitCount
+
+            Number of particles to emit per reset.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SphericalParticleEmitter::EmitRate
+
+            Rate that particles spawn per second.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SphericalParticleEmitter::EmitVariance
+
+            How much the emit can vary per sample.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SphericalParticleEmitter::Size
+
+            Size of each particle spawned.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SphericalParticleEmitter::SizeVariance
+
+            How much the emit can vary per sample.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SphericalParticleEmitter::Lifetime
+
+            How a particle's starting lifetime is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SphericalParticleEmitter::LifetimeVariance
+
+            Hom much lifetime can vary per particle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SphericalParticleEmitter::Spin
+
+            Speed in rads per second of the particle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SphericalParticleEmitter::SpinVariance
+
+            Hom much speed speed can vary per particle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SphericalParticleEmitter::RandomSpin
+
+            Each particle should start with random spin.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SphericalParticleEmitter::Fill
+
+            How much area of the emitter to used 0 to 1.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SphericalParticleEmitter::EmitterVelocityPercent
+
+            How much of the objects velocity is added to the particles.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 SphericalParticleEmitter::StartVelocity
+
+            Velocity of each particle at start.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 SphericalParticleEmitter::RandomVelocity
+
+            Random Velocity per particle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 SphericalParticleEmitter::TangentVelocity
+
+            Velocity of each particle in x horizontal tangent y vertical tangent and z outward tangent.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 SphericalParticleEmitter::EmitterSize
+
+            Size of the emitter.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SphericalParticleEmitter::FastMovingEmitter
+
+            Whether or not we attempt to emit along the vector between the previous position to the current position, which looks better for fast moving particle systems Note: Particle systems that teleport will emit along the teleport line.
+
+.. _ReferenceSphericalParticleEmitterMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SphericalParticleEmitter::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SphericalParticleEmitter::ResetCount()
+
+            Reset the number of particles to emit back to EmitCount.
+
+.. include:: Remarks/SphericalParticleEmitter.rst

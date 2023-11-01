@@ -1,0 +1,148 @@
+.. _ReferenceRayTracedRenderer:
+
+.. rst-class:: searchtitle
+
+RayTracedRenderer
+=================
+
+.. rst-class:: searchdescription
+
+Ray-traced Scene renderer.
+
+.. include:: Description/RayTracedRenderer.rst
+
+.. cpp:class:: RayTracedRenderer
+
+    Base Class: :cpp:type:`Renderer`
+
+.. _ReferenceRayTracedRendererProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog RayTracedRenderer::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space RayTracedRenderer::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog RayTracedRenderer::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession RayTracedRenderer::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 RayTracedRenderer::ClearColor
+
+            Color to clear the screen.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RayTracedRenderer::DrawNonVisible
+
+            Draw editor only materials.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RayTracedRenderer::DrawDebugObjects
+
+            Do debug drawing.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RayTracedRenderer::DrawEditorIcons
+
+            Draw editor icons.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RayTracedRenderer::EditorIconDepth
+
+            Depth for editor icons.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RayTracedRenderer::Active
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real RayTracedRenderer::TargetDrawTimeMs
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RayTracedRenderer::AllowThreading
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint RayTracedRenderer::ThreadCount
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint RayTracedRenderer::SampleScale
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint RayTracedRenderer::TestX
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint RayTracedRenderer::TestY
+
+            
+
+.. _ReferenceRayTracedRendererMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RayTracedRenderer::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RayTracedRenderer::PickTestCoordinates()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RayTracedRenderer::RunTest()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RayTracedRenderer::RestartDrawing()
+
+            
+
+.. include:: Remarks/RayTracedRenderer.rst

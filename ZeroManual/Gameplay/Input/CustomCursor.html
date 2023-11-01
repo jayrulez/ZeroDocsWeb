@@ -1,0 +1,642 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Gameplay/Input/CustomCursor.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:27 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Custom Cursor &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Input" href="index.html"/>
+        <link rel="next" title="Keyboard Input" href="KeyboardInput.html"/>
+        <link rel="prev" title="Mouse Input" href="MouseInput.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Gameplay</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Random.html">Random</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Input</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="MouseInput.html">Mouse Input</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Custom Cursor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="KeyboardInput.html">Keyboard Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GamepadInput.html">Gamepad Input</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../VectorMath/index.html">Vector Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HandlingQuitMessage.html">Handle the Quit Message (Stop Esc from Exiting Game)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LevelPath.html">LevelPath</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Gameplay</a> &raquo;</li>
+      
+          <li><a href="index.html">Input</a> &raquo;</li>
+      
+    <li>Custom Cursor</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Gameplay/Input/CustomCursor.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="custom-cursor">
+<span id="manualcustomcursor"></span><h1>Custom Cursor</h1>
+<p>Custom Cursors are a great way to add a level of professionalism and polish to any project. A Cursor created specifically for a project can be used for player feedback and fits into the project universe better than the normal <a class="reference internal" href="../../CodeReference/Reference/Mouse.html#_CPPv25Mouse" title="Mouse"><code class="xref cpp cpp-type docutils literal"><span class="pre">Mouse</span></code></a> icon in most situations. There are several methods that can be used to add this functionality, all of which come with their own strengths and weaknesses.</p>
+<div class="sidebar">
+<p class="first sidebar-title">Recommended Reading</p>
+<p>This section covers topics that may not have been encountered yet. To learn or review those topics, please see:</p>
+<ul class="last simple">
+<li><a class="reference internal" href="MouseInput.html#manualmouseinput"><span>Mouse Input</span></a></li>
+<li><strong>Plugins</strong> (I need a link)</li>
+<li><a class="reference internal" href="../../Graphics/CamerasViewportsRenderers/index.html#manualcamerasviewportsrenderers"><span>Cameras, Viewports and Renderers</span></a></li>
+</ul>
+</div>
+<div class="section" id="common-uses">
+<h2>Common Uses</h2>
+<ul class="simple">
+<li>To implement and use a custom menu cursor for a game project</li>
+<li>To implement and use a custom cursor icon that can be used for visual feedback</li>
+</ul>
+</div>
+<div class="section" id="using-a-custom-cursor">
+<h2>Using a Custom Cursor</h2>
+<div class="section" id="hiding-the-mouse">
+<span id="manualcustomcursorhiding"></span><h3>Hiding the Mouse</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Pros:</th>
+<th class="head">Cons:</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Quick to implement</td>
+<td>Mouse Icon can leave window bounds</td>
+</tr>
+<tr class="row-odd"><td>Retains all mouse functionality</td>
+<td>Will become visible if it does</td>
+</tr>
+</tbody>
+</table>
+<p>The first option involves making the Mouse Cursor invisible while not affecting any of its functionality. This has two easy-to-see benefits: it&#8217;s quick to implement and all functionality is retained.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HiddenMouseExample</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+<span class="na">    [Dependency]</span>
+    <span class="kt">var</span> <span class="n">Transform</span> <span class="p">:</span> <span class="n">Transform</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Set the Mouse to invisible</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Mouse</span><span class="p">.</span><span class="n">Cursor</span> <span class="p">=</span> <span class="n">Cursor</span><span class="p">.</span><span class="n">Invisible</span><span class="p">;</span>
+
+        <span class="c1">// Connect to MouseMove Event</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MouseMove</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMouseMove</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>This would be the start of a component attached to the object that will act as the Custom Cursor. After making sure the object has a <a class="reference internal" href="../../CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a> Component using the Dependency <a class="reference internal" href="../../ZilchInZero/Attributes.html#zilchattributes"><span>attribute</span></a>, it then sets the Mouse Cursor to be invisible. The final part of the code-block connects to the MouseMove event, which is fleshed out in the following code-block:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="p">...</span>
+    <span class="n">function</span> <span class="nf">OnMouseMove</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">ViewportMouseEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Get mouse WorldPosition on the Z-Plane at depth 0</span>
+        <span class="kt">var</span> <span class="n">mousePosition</span> <span class="p">=</span> <span class="k">event</span><span class="p">.</span><span class="n">ToWorldZPlane</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+        <span class="c1">// Set the MouseCursor Objects position to the Mouse position</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span> <span class="p">=</span> <span class="n">mousePosition</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">OnMouseMove</span></code> function will fire every time the Mouse is moved, keeping our custom cursor in the same location as the invisible Mouse. It could also connect to other Mouse Events, such as MouseDown or MouseUp, in order to interact with these events visually (e.g., by changing the <a class="reference internal" href="../../CodeReference/Reference/SpriteSource.html#_CPPv212SpriteSource" title="SpriteSource"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteSource</span></code></a> of the object). All other working functionality can then be given to the Mouse itself, so that it can react with objects that have the <a class="reference internal" href="../../CodeReference/Reference/Reactive.html#_CPPv28Reactive" title="Reactive"><code class="xref cpp cpp-type docutils literal"><span class="pre">Reactive</span></code></a> Component attached the them.</p>
+<p>A large drawback to using this method is the fact that it allows the Mouse icon to leave the boundaries of the Game window, which will make the Mouse visible and not hide it again even if the Game is brought back into focus. Below is an example of how a <a class="reference internal" href="../../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a> with this script attached would act, as well as what happens when the mouse leaves the boundaries of the window.</p>
+<p><img alt="HiddenMouseExample" src="../../../_images/HiddenMouseExample.gif" /></p>
+<p>It would also be possible to set the Mouse invisible from the MouseMove event, which would stop it from staying visible even if it leaves the window boundaries.</p>
+</div>
+<div class="section" id="locking-the-mouse">
+<span id="manualcustomcursorlocking"></span><h3>Locking the Mouse</h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Pros:</th>
+<th class="head">Cons:</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Mouse stays within widow bounds</td>
+<td>Loses most mouse functionality</td>
+</tr>
+<tr class="row-odd"><td>Allows use of multiple Spaces</td>
+<td>More complex the hiding the mouse</td>
+</tr>
+</tbody>
+</table>
+<p>A second option, rather than hiding the Mouse, is to lock it to the center of the screen. It helps to solve the issue of the the Mouse staying within the the Game boundaries but also comes with its own set of problems.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LockedMouseExample</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">// An Archetype of the Custom Cursor Object</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">CursorArchetype</span> <span class="p">:</span> <span class="n">Archetype</span><span class="p">;</span>
+
+    <span class="c1">// An Archetype of the Space to be built</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">CursorSpaceArchetype</span> <span class="p">:</span> <span class="n">Archetype</span><span class="p">;</span>
+
+    <span class="c1">// Reference to the CameraViewport of the created Cursor Space</span>
+    <span class="kt">var</span> <span class="n">CurViewport</span> <span class="p">:</span> <span class="n">CameraViewport</span>
+    <span class="p">{</span>
+        <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">CursorSpace</span><span class="p">.</span><span class="n">LevelSettings</span><span class="p">.</span><span class="n">CameraViewport</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// An empty Level used to create the Custom Cursor in</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">CursorLevel</span> <span class="p">:</span> <span class="n">Level</span><span class="p">;</span>
+
+    <span class="c1">// Reference to the Custom Cursor Object once it&#39;s created</span>
+    <span class="kt">var</span> <span class="n">CursorObj</span> <span class="p">:</span> <span class="n">Cog</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+    <span class="c1">// The Space the Custom Cursor will inhabit</span>
+    <span class="kt">var</span> <span class="n">CursorSpace</span> <span class="p">:</span> <span class="n">Space</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+    <span class="c1">// Reference to the Translation of the Custom Cursor</span>
+    <span class="kt">var</span> <span class="n">CursorTranslation</span> <span class="p">:</span> <span class="n">Real3</span>
+    <span class="p">{</span>
+        <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">CursorObj</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Calls a function to give the Cursor Position in Screen Space</span>
+    <span class="kt">var</span> <span class="n">CursorScreenSpacePosition</span> <span class="p">:</span> <span class="n">Real2</span>
+    <span class="p">{</span>
+        <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">CurViewport</span><span class="p">.</span><span class="n">WorldToScreen</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CursorTranslation</span><span class="p">);</span> <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Calls a function to give the Cursor Position in the Viewport</span>
+    <span class="kt">var</span> <span class="n">CursorViewportPosition</span> <span class="p">:</span> <span class="n">Real2</span>
+    <span class="p">{</span>
+        <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">CurViewport</span><span class="p">.</span><span class="n">ScreenToViewport</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CursorScreenSpacePosition</span><span class="p">);</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Get-Sets</p>
+<p class="last">In order to reduce the amount of repetitive typing, a number of <code class="docutils literal"><span class="pre">getters</span></code> have been used to hold references to other functions. For further explanation of get-sets, see <a class="reference internal" href="../../ZilchInZero/Properties.html#zilchproperties"><span>this page</span></a>.</p>
+</div>
+<p>Just from the initial setup it becomes obvious that this method is much more complex than simply making the Mouse invisible and having an Object follow it, but it also offers benefits.</p>
+<p>When this is attached to the current levels <code class="docutils literal"><span class="pre">LevelSettings</span></code> object, this will create an Object in a new <a class="reference internal" href="../../CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Space</span></code></a> that is built on top of the GameSpace, which allows it to function properly in a 3D game. As the getters have defined most of the variables, much of the script is ready to be used.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="p">...</span>
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Traps the Mouse, locking it and making it invisible</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Mouse</span><span class="p">.</span><span class="n">Trapped</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+
+        <span class="c1">// Creates a new Space for the Cursor to inhabit</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">CursorSpace</span> <span class="p">=</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">GameSession</span><span class="p">.</span><span class="n">CreateNamedSpace</span><span class="p">(</span><span class="s">&quot;CursorSpace&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">CursorSpaceArchetype</span><span class="p">);</span>
+
+        <span class="c1">// Loads the CursorLevel inside the newly made space</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">CursorSpace</span><span class="p">.</span><span class="n">LoadLevel</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CursorLevel</span><span class="p">);</span>
+
+        <span class="c1">// Creates the Custom Cursor at (0,0,0) in the new Level</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">CursorObj</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">CursorSpace</span><span class="p">.</span><span class="n">CreateAtPosition</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CursorArchetype</span><span class="p">,</span> <span class="n">Real3</span><span class="p">());</span>
+
+        <span class="c1">// Connects to the MouseMove Event In the Cursor Space, NOT the Game Space</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CursorSpace</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MouseMove</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMouseMove</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>The Initialize function creates the required Space, Level and Object for the Custom Cursor. It&#8217;s important to make sure that the objects are being made in the CursorSpace, not the main GameSpace.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="p">...</span>
+    <span class="n">function</span> <span class="nf">OnMouseMove</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">ViewportMouseEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Get a new position by adding the distance of the MoveEvent to the Cursors current position</span>
+        <span class="kt">var</span> <span class="n">newPos</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">CursorViewportPosition</span> <span class="p">+</span> <span class="k">event</span><span class="p">.</span><span class="n">Movement</span><span class="p">;</span>
+
+        <span class="c1">// Create a new position within the Viewport for the Cursor while also Clamping the range</span>
+        <span class="kt">var</span> <span class="n">newCurViewportPos</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Clamp</span><span class="p">(</span><span class="n">newPos</span><span class="p">,</span> <span class="n">Real2</span><span class="p">(),</span> <span class="k">this</span><span class="p">.</span><span class="n">CurViewport</span><span class="p">.</span><span class="n">ViewportResolution</span><span class="p">);</span>
+
+        <span class="c1">// Adjust the Viewport position to the proper Screen position</span>
+        <span class="kt">var</span> <span class="n">newCurScreenPos</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">CurViewport</span><span class="p">.</span><span class="n">ViewportToScreen</span><span class="p">(</span><span class="n">newCurViewportPos</span><span class="p">);</span>
+
+        <span class="c1">// Set the Cursor Objects position to the newly determined position in World Space</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">CursorObj</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span> <span class="p">=</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">CurViewport</span><span class="p">.</span><span class="n">ScreenToWorldZPlane</span><span class="p">(</span><span class="n">newCurScreenPos</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Similar to hiding the mouse, the code-block above uses MouseMove Events to control the movement of the Custom Cursor object. This time, however, a few more steps are needed:</p>
+<ol class="arabic simple">
+<li>The intended new cursor position is found by adding the current viewport position of the Cursor and the Mouse Movement vector given in the MouseMove Event.</li>
+<li>The new cursor viewport position must be clamped within the boundaries of the viewport.</li>
+<li>The viewport position must be converted to screen position as there is no way to directly convert from viewport space coordinates directly to worldspace.</li>
+<li>The cursor screenspace position must be converted to worldspace so the custom cursor can be moved.</li>
+</ol>
+<p>The biggest problem with using this method is the fact that most Mouse functionality is lost, as it becomes locked to the center of the screen. All Cursor functionality will have to be determined using either collision events or Cursor position, which can become taxing on the system as it has to either check the position every frame or resolve various collisions.</p>
+<p>Below is an example of this script attached to the <code class="docutils literal"><span class="pre">LevelSettings</span></code> object of an empty level, with the blue sprite given as the <code class="docutils literal"><span class="pre">CursorArchetype</span></code> and the white sprite following the same script as the hidden cursor example, to show how the mouse is attempting to move from the world origin.</p>
+<p><img alt="LockedMouseExample" src="../../../_images/LockedMouseExample.gif" /></p>
+</div>
+<div class="section" id="using-a-custom-plugin">
+<span id="manualcustomcursorplugin"></span><h3>Using a Custom Plugin</h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Pros:</th>
+<th class="head">Cons:</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Gives the most control over the mouse</td>
+<td>More complex than other solutions</td>
+</tr>
+<tr class="row-odd"><td>Retains all mouse functionality</td>
+<td>Requires outside sources</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>A custom plugin will work with any project built using the same Build of the Zero Engine, so long as it has three files:</p>
+<ul class="simple">
+<li>The <code class="docutils literal"><span class="pre">ZilchPluginSource.data</span></code> file associated with the plugin.</li>
+<li>The <code class="docutils literal"><span class="pre">ZilchPluginSource.data.meta</span></code> file associated with the same.</li>
+<li>The plugin library associated with the both the plugin and the correct Zero Engine build.</li>
+</ul>
+<p class="last">To read more about creating and implementing custom plugins, see <strong>this page</strong> (I need a page).</p>
+</div>
+<p>A third option is to use a custom plugin that allows control over the Windows mouse position, and write a component to clamp the mouse position itself to inside the Camera viewport boundaries. <strong>Here&#8217;s a link</strong> (I need a link) to a plugin with that exact functionality, built with Zero build number <code class="docutils literal"><span class="pre">13602</span></code>, which adds some extra functions.</p>
+<p><img alt="CustomPluginFunctions" src="../../../_images/CustomPluginFunctions.png" /></p>
+<p>To use the extra functionality requires a script to access the plugin. Most of the plugin will be working behind the scenes however, with the script only using <code class="docutils literal"><span class="pre">GetPosition()</span></code> and <code class="docutils literal"><span class="pre">SetPosition()</span></code>.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CustomPluginScriptExample</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">// An Archetype of the object to be used as a cursor</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">CursorArchetype</span> <span class="p">:</span> <span class="n">Archetype</span><span class="p">;</span>
+
+    <span class="c1">// An Archetype of the Space to be created for the custom cursor to exist in</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">CursorSpaceArchetype</span> <span class="p">:</span> <span class="n">Archetype</span><span class="p">;</span>
+
+    <span class="c1">// A reference to the CameraViewport of the CursorSpace</span>
+    <span class="kt">var</span> <span class="n">CurSpaceViewport</span> <span class="p">:</span> <span class="n">CameraViewport</span>
+    <span class="p">{</span>
+        <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">CursorSpace</span><span class="p">.</span><span class="n">LevelSettings</span><span class="p">.</span><span class="n">CameraViewport</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// The Level to create the custom cursor in</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">CursorLevel</span> <span class="p">:</span> <span class="n">Level</span><span class="p">;</span>
+
+    <span class="c1">// A Boolean used to determine if the mouse is confined to the Camera Margins</span>
+    <span class="c1">// of the Camera in the Cursor Level</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">IncludeMargins</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+
+    <span class="c1">// A reference to the Cursor Object, once created</span>
+    <span class="kt">var</span> <span class="n">CursorObj</span> <span class="p">:</span> <span class="n">Cog</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+    <span class="c1">// A Reference to the Cursor Space, once created</span>
+    <span class="kt">var</span> <span class="n">CursorSpace</span> <span class="p">:</span> <span class="n">Space</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>Most of the variables have the same functionality as the variables created when the mouse was being locked to the center. One variable of note is <code class="docutils literal"><span class="pre">IncludeMargins</span></code>, which allows the choice between either locking the mouse to the confines of the game window or the camera viewport itself. By setting <code class="docutils literal"><span class="pre">IncludeMargins</span></code> to <code class="docutils literal"><span class="pre">true</span></code>, the cursor not only stays within the confines of the game when windowed, it will also stay within a smaller camera window inside a project, such as a mini-map for example.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="p">...</span>
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Create the Space for the cursor object</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">CursorSpace</span> <span class="p">=</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">GameSession</span><span class="p">.</span><span class="n">CreateNamedSpace</span><span class="p">(</span><span class="s">&quot;CursorSpace&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">CursorSpaceArchetype</span><span class="p">);</span>
+
+        <span class="c1">// Creates the Cursor Level in the Cursor Space</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">CursorSpace</span><span class="p">.</span><span class="n">LoadLevel</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CursorLevel</span><span class="p">);</span>
+
+        <span class="c1">// Creates the actual Cursor Object inside the Cursor Space</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">CursorObj</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">CursorSpace</span><span class="p">.</span><span class="n">CreateAtPosition</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CursorArchetype</span><span class="p">,</span> <span class="n">Real3</span><span class="p">());</span>
+
+        <span class="c1">// Connect to LogicUpdate</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CursorSpace</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>Again, this is sharing much of the same functionality as when the mouse was locked. The only difference is that it&#8217;s connecting to LogicUpdate rather than MouseMove. Since the clamping of the mouse needs to happen repeatedly to make sure that it doesn&#8217;t leave the confines of the window, it&#8217;s best done within LogicUpdate.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="p">...</span>
+    <span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Find the dimensions of the Viewport</span>
+        <span class="kt">var</span> <span class="n">resolution</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">CurSpaceViewport</span><span class="p">.</span><span class="n">ViewportResolutionWithMargin</span><span class="p">;</span>
+
+        <span class="c1">// Find the Camera margins</span>
+        <span class="kt">var</span> <span class="n">halfMargins</span> <span class="p">=</span> <span class="p">(</span><span class="n">resolution</span> <span class="p">-</span> <span class="k">this</span><span class="p">.</span><span class="n">CurSpaceViewport</span><span class="p">.</span><span class="n">ViewportResolution</span><span class="p">)</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+
+        <span class="c1">// Find the mouse cursor position, in both Screen Space and Viewport Space</span>
+        <span class="kt">var</span> <span class="n">curScreenPos</span> <span class="p">=</span> <span class="n">WindowsCursorControl</span><span class="p">.</span><span class="n">GetPosition</span><span class="p">();</span>
+
+        <span class="kt">var</span> <span class="n">cursorViewportPos</span> <span class="p">=</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">CurSpaceViewport</span><span class="p">.</span><span class="n">ScreenToViewport</span><span class="p">(</span><span class="n">curScreenPos</span><span class="p">)</span> <span class="p">+</span> <span class="k">this</span><span class="p">.</span><span class="n">CurSpaceViewport</span><span class="p">.</span><span class="n">ViewportOffset</span><span class="p">;</span>
+
+        <span class="c1">// Clamp the mouse</span>
+        <span class="kt">var</span> <span class="n">newCursorViewportPos</span> <span class="p">=</span> <span class="n">Real2</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">IncludeMargins</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">newCursorViewportPos</span> <span class="p">=</span>
+            <span class="n">Math</span><span class="p">.</span><span class="n">Clamp</span><span class="p">(</span><span class="n">cursorViewportPos</span><span class="p">,</span> <span class="n">halfMargins</span><span class="p">,</span> <span class="n">resolution</span> <span class="p">-</span> <span class="n">halfMargins</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">newCursorViewportPos</span> <span class="p">=</span>
+            <span class="n">Math</span><span class="p">.</span><span class="n">Clamp</span><span class="p">(</span><span class="n">cursorViewportPos</span><span class="p">,</span> <span class="n">Integer2</span><span class="p">(),</span> <span class="n">resolution</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Recalculate the screen position if Space is not held down</span>
+        <span class="c1">// (used as a method to free the mouse)</span>
+        <span class="k">if</span> <span class="p">(!</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Space</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">curScreenPos</span> <span class="p">=</span>
+            <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CurSpaceViewport</span><span class="p">.</span><span class="n">ViewportToScreen</span><span class="p">(</span><span class="n">newCursorViewportPos</span><span class="p">)</span> <span class="p">-</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">CurSpaceViewport</span><span class="p">.</span><span class="n">ViewportOffset</span><span class="p">)</span> <span class="k">as</span> <span class="n">Integer2</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Set Mouse position if in a different location and the CursorControl has the window handle</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">cursorViewportPos</span> <span class="p">!=</span> <span class="n">newCursorViewportPos</span> <span class="p">&amp;&amp;</span> <span class="n">WindowsCursorControl</span><span class="p">.</span><span class="n">HasHandle</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">WindowsCursorControl</span><span class="p">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="n">curScreenPos</span><span class="p">.</span><span class="n">X</span><span class="p">,</span> <span class="n">curScreenPos</span><span class="p">.</span><span class="n">Y</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Set the Custom Cursor position</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">CursorObj</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span> <span class="p">=</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">CurSpaceViewport</span><span class="p">.</span><span class="n">ScreenToWorldZPlane</span><span class="p">(</span><span class="n">curScreenPos</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This will find the dimensions of the viewport, keep the mouse either inside the game window or inside the camera viewport itself, and then set the custom cursor to the same position as the mouse. Since the engine still has full mouse functionality, all that needs to be done is to make mouse icon itself invisible as per our <a class="reference internal" href="#manualcustomcursorhiding"><span>first example</span></a>. It will still have the issue where if the mouse exits the game screen and comes back it will no longer be invisible; therefore, a check to see if it&#8217;s become visible and reset it is recommended.</p>
+<p>Below is an example of how this script functions when attached to the <code class="docutils literal"><span class="pre">LevelSettings</span></code> object of a level, with the blue sprite given as the <code class="docutils literal"><span class="pre">CursorArchetype</span></code>.</p>
+<p><img alt="CustomPluginExample" src="../../../_images/CustomPluginExample.gif" /></p>
+</div>
+</div>
+<div class="section" id="related-materials">
+<span id="manualcustomcursorrelated"></span><h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="MouseInput.html#manualmouseinput"><span>Mouse Input</span></a></li>
+<li><a class="reference internal" href="../../ZilchInZero/Properties.html#zilchproperties"><span>Getters and Setters</span></a></li>
+<li><a class="reference internal" href="../../Graphics/CamerasViewportsRenderers/index.html#manualcamerasviewportsrenderers"><span>Cameras, Viewports and Renderers</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../Tutorials/Gameplay/Input/MouseInput.html#tutorialmouseinput"><span>Mouse Input</span></a></li>
+<li><a class="reference internal" href="../../../Tutorials/UI/HeadsUpDisplay.html#tutorialheadsupdisplay"><span>HUD</span></a></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/Mouse.html#_CPPv25Mouse" title="Mouse"><code class="xref cpp cpp-type docutils literal"><span class="pre">Mouse</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/Reactive.html#_CPPv28Reactive" title="Reactive"><code class="xref cpp cpp-type docutils literal"><span class="pre">Reactive</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Space</span></code></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="KeyboardInput.html" class="btn btn-neutral float-right" title="Keyboard Input" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MouseInput.html" class="btn btn-neutral" title="Mouse Input" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Gameplay/Input/CustomCursor.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:29 GMT -->
+</html>

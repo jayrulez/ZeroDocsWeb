@@ -1,0 +1,82 @@
+.. _ReferenceCustomPhysicsEffect:
+
+.. rst-class:: searchtitle
+
+CustomPhysicsEffect
+===================
+
+.. rst-class:: searchdescription
+
+A physics effect that sends events out so users can apply custom logic for forces. This sends out the ApplyCustomPhysicsEffect event.
+
+.. include:: Description/CustomPhysicsEffect.rst
+
+.. cpp:class:: CustomPhysicsEffect
+
+    Base Class: :cpp:type:`PhysicsEffect`
+
+.. _ReferenceCustomPhysicsEffectProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CustomPhysicsEffect::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space CustomPhysicsEffect::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CustomPhysicsEffect::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession CustomPhysicsEffect::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CustomPhysicsEffect::Active
+
+            Enable/disable this effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CustomPhysicsEffect::WakeUpOnChange
+
+            Whether the object associated with this is woken up when any property is changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EffectType::Enum CustomPhysicsEffect::EffectType
+
+            What kind of effect this is.
+
+.. _ReferenceCustomPhysicsEffectMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void CustomPhysicsEffect::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void CustomPhysicsEffect::Toggle()
+
+            Toggles whether or not this effect is active.
+
+.. include:: Remarks/CustomPhysicsEffect.rst

@@ -1,0 +1,124 @@
+.. _ReferenceLight:
+
+.. rst-class:: searchtitle
+
+Light
+=====
+
+.. rst-class:: searchdescription
+
+Light component for dynamic scene lighting.
+
+.. include:: Description/Light.rst
+
+.. cpp:class:: Light
+
+    Base Class: :cpp:type:`Graphical`
+
+.. _ReferenceLightProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Light::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Light::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Light::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Light::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Light::Visible
+
+            If object should be rendered.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Light::VisibilityCulling
+
+            If object is culled and not graphically updated when it's not visible.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Light::VisibilityEvents
+
+            If object receives events when entering/exiting the view of a rendering camera or shadow.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Light::CastShadows
+
+            If object is rendered to shadow maps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: LightType::Enum Light::LightType
+
+            Type of the Light(Point, Spot, Etc)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 Light::Color
+
+            Color of the light.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Light::Intensity
+
+            Intensity of the light.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Light::Range
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Light::Falloff
+
+            Falloff exponent, 1 is linear.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Light::Angle
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Light::Size
+
+            
+
+.. _ReferenceLightMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Light::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/Light.rst

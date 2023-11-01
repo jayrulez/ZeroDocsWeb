@@ -1,0 +1,58 @@
+.. _ReferenceLockStepKeyboard:
+
+.. rst-class:: searchtitle
+
+LockStepKeyboard
+================
+
+.. rst-class:: searchdescription
+
+Provides synced keyboard input across lock step.
+
+.. include:: Description/LockStepKeyboard.rst
+
+.. cpp:class:: LockStepKeyboard
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceLockStepKeyboardProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog LockStepKeyboard::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space LockStepKeyboard::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog LockStepKeyboard::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession LockStepKeyboard::GameSession
+
+            Get the GameSession that owns us and our space.
+
+.. _ReferenceLockStepKeyboardMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void LockStepKeyboard::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/LockStepKeyboard.rst

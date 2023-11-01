@@ -1,0 +1,54 @@
+
+Local
+-----
+
+.. rst-class:: SearchDescription
+
+When working with by-value types that have constructors, such as structs or more complex stack primitive data types, the keyword **local** may be used:
+
+.. code-block:: as
+
+    var up: Real3 = local Real3(0.0, 1.0, 0.0);
+    var stackStructInstance: CustomStruct = local CustomStruct();
+ 
+The compiler will infer the use of local for by-value types:
+
+.. code-block:: as
+
+    // This is also valid.
+    var up: Real3 = Real3(0.0, 1.0, 0.0);
+    var stackStructInstance: CustomStruct = CustomStruct();
+ 
+ 
+New
+---
+ 
+When working with classes, references, or other or anything located on the heap with a constructor, use the **new** keyword:
+
+.. code-block:: as
+
+    var heapObject: CustomClass = new CustomClass();
+    var heapStructInstance: ref CustomStruct = new CustomStruct();
+    
+Once again the compiler will infer the use of new for by-ref types:
+
+.. code-block:: as 
+
+    // This is also valid.
+    var heapObject: CustomClass = CustomClass();
+    
+Since structs are by-value, in order to get a ref you **must** specify new.
+
+.. code-block:: as    
+
+    // This does not compile
+    var heapStructInstance: ref CustomStruct = CustomStruct();
+    
+.. tab::    
+
+  .. tabindex:: Console Output
+  
+    ::
+
+      The value being assigned to 'heapStructInstance' must be of type 'ref CustomStruct'. Its 
+      type is 'CustomStruct'.

@@ -1,0 +1,743 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/ZilchInZero/Memory_Management.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:08 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Memory Management &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Zilch In Zero" href="index.html"/>
+        <link rel="next" title="Inheritance" href="Inheritance.html"/>
+        <link rel="prev" title="Classes" href="Classes.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Zilch In Zero</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Variables_And_Data_Types.html">Variables, Data Types, &amp; Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Conditionals.html">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Looping.html">Looping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Attributes.html">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Flags.html">Flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Structs.html">Structs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Classes.html">Classes</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Memory Management</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Casting.html">Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Named_Parameters.html">Named Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Delegates.html">Delegates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Reflection.html">Reflection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Properties.html">Properties (Get-Sets)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Property_Delegates.html">Property Delegates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConstructByValueVsByRef.html">Local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConstructByValueVsByRef.html#new">New</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Operators_Precedence_Chart.html">Operator Precedence Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Keywords.html">Keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Array.html">Array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean.html">Boolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean2.html">Boolean2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean3.html">Boolean3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean4.html">Boolean4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Console.html">Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Exception.html">Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/HashMap.html">HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer.html">Integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer2.html">Integer2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer3.html">Integer3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer4.html">Integer4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/KeyValue.html">KeyValue [Key, Value]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Math.html">Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Property.html">Property [Type]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Quaternion.html">Quaternion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real.html">Real</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real2.html">Real2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real3.html">Real3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real4.html">Real4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/String.html">String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/StringBuilder.html">StringBuilder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="index.html">Zilch In Zero</a> &raquo;</li>
+      
+    <li>Memory Management</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/ZeroManual/ZilchInZero/Memory_Management.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="memory-management">
+<span id="zilchmemorymanagement"></span><h1>Memory Management</h1>
+<p class="searchdescription">This section covers the basics of memory management in Zilch.</p>
+<div class="section" id="types-of-memory-storage">
+<h2>Types of Memory Storage</h2>
+<div class="section" id="by-value">
+<h3>By-Value</h3>
+<p>There are two main types of storage, <code class="docutils literal"><span class="pre">by-value</span></code> and <code class="docutils literal"><span class="pre">by-reference</span></code> (or <code class="docutils literal"><span class="pre">by-ref</span></code> for short). <code class="docutils literal"><span class="pre">By-value</span></code> is stored on the local stack and the storage is cleaned up once it goes out of scope. When passed into a function it copies it <code class="docutils literal"><span class="pre">by-value</span></code>. Structs and primitives are <code class="docutils literal"><span class="pre">by-value</span></code>.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nx">struct</span> <span class="nx">ByValue</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">ID</span><span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">guid</span><span class="o">:</span> <span class="nx">Integer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">ID</span> <span class="o">=</span> <span class="nx">guid</span><span class="o">;</span>
+    <span class="p">}</span>
+
+
+    <span class="p">[</span><span class="nx">Static</span><span class="p">]</span>
+    <span class="kd">function</span> <span class="nx">IncrementID</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">ByValue</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">a</span><span class="p">.</span><span class="nx">ID</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">ToString</span><span class="p">()</span> <span class="o">:</span> <span class="nb">String</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;ID: `this.ID`\n&quot;</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// If we were to test it:</span>
+<span class="k">var</span> <span class="nx">byValA</span><span class="o">:</span> <span class="nx">ByValue</span> <span class="o">=</span> <span class="nx">local</span> <span class="nx">ByValue</span><span class="p">(</span><span class="mi">1111111</span><span class="p">);</span>
+
+<span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="s2">&quot;byValA &quot;</span><span class="p">);</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">byValA</span><span class="p">.</span><span class="nx">ToString</span><span class="p">());</span>           <span class="c1">// byValA ID: 1111111</span>
+                                                <span class="c1">// by-value copy does not update the passed in argument.</span>
+<span class="nx">ByValue</span><span class="p">.</span><span class="nx">IncrementID</span><span class="p">(</span><span class="nx">byValA</span><span class="p">);</span>                    <span class="c1">// Since it was copied, the changes were to a</span>
+                                                <span class="c1">// local variable. The local variable is destroyed at</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="s2">&quot;byValA &quot;</span><span class="p">);</span>                       <span class="c1">// the end of the function&#39;s scope.</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">byValA</span><span class="p">.</span><span class="nx">ToString</span><span class="p">());</span>           <span class="c1">// byValA ID: 1111111</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="by-reference">
+<h3>By-Reference</h3>
+<p><code class="docutils literal"><span class="pre">By-reference</span></code> is stored on the heap and the storage is cleaned up once it there are no longer references to it, or the handle is explicitly deleted in code. When passed into a function it copies it <code class="docutils literal"><span class="pre">by-reference</span></code>. Classes and structs promoted with the <code class="docutils literal"><span class="pre">ref</span></code> keyword are <code class="docutils literal"><span class="pre">by-reference</span></code>.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nx">struct</span> <span class="nx">ByValue</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">ID</span><span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">guid</span><span class="o">:</span> <span class="nx">Integer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">ID</span> <span class="o">=</span> <span class="nx">guid</span><span class="o">;</span>
+    <span class="p">}</span>
+
+    <span class="p">[</span><span class="nx">Static</span><span class="p">]</span>
+    <span class="kd">function</span> <span class="nx">IncrementID</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">ref</span> <span class="nx">ByValue</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">a</span><span class="p">.</span><span class="nx">ID</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">ToString</span><span class="p">()</span> <span class="o">:</span> <span class="nb">String</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;ID: `this.ID`\n&quot;</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// If we were to test it:</span>
+<span class="k">var</span> <span class="nx">byValC</span><span class="o">:</span> <span class="nx">ref</span> <span class="nx">ByValue</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ByValue</span><span class="p">(</span><span class="mi">3333333</span><span class="p">);</span>
+
+<span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="s2">&quot;byValC &quot;</span><span class="p">);</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">byValC</span><span class="p">.</span><span class="nx">ToString</span><span class="p">());</span>           <span class="c1">// byValC ID: 3333333</span>
+
+<span class="nx">ByValue</span><span class="p">.</span><span class="nx">IncrementID</span><span class="p">(</span><span class="nx">byValC</span><span class="p">);</span>
+                                                <span class="c1">// Similar to a pointer, by-ref argument allows for</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="s2">&quot;byValC &quot;</span><span class="p">);</span>                       <span class="c1">// persistent changes to its internals:</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">byValC</span><span class="p">.</span><span class="nx">ToString</span><span class="p">());</span>           <span class="c1">// byValC ID: 3333334</span>
+
+
+<span class="kd">class</span> <span class="nx">ByRef</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">ID</span><span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">guid</span><span class="o">:</span> <span class="nx">Integer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">ID</span> <span class="o">=</span> <span class="nx">guid</span><span class="o">;</span>
+    <span class="p">}</span>
+
+    <span class="p">[</span><span class="nx">Static</span><span class="p">]</span>
+    <span class="kd">function</span> <span class="nx">IncrementID</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">ByRef</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">a</span><span class="p">.</span><span class="nx">ID</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">ToString</span><span class="p">()</span> <span class="o">:</span> <span class="nb">String</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;ID: `this.ID`\n&quot;</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// If we were to test it:</span>
+<span class="k">var</span> <span class="nx">byRefA</span><span class="o">:</span> <span class="nx">ByRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ByRef</span><span class="p">(</span><span class="mi">5555555</span><span class="p">);</span>
+
+<span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="s2">&quot;byRefA &quot;</span><span class="p">);</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">byRefA</span><span class="p">.</span><span class="nx">ToString</span><span class="p">());</span>           <span class="c1">// byRefA ID: 5555555</span>
+
+<span class="nx">ByRef</span><span class="p">.</span><span class="nx">IncrementID</span><span class="p">(</span><span class="nx">byRefA</span><span class="p">);</span>                      <span class="c1">// Since classes are made to be passed by-reference</span>
+                                                <span class="c1">// this works without adding the ref keyword</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="s2">&quot;byRefA &quot;</span><span class="p">);</span>                       <span class="c1">// (adding it would make it not compile!)</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">byRefA</span><span class="p">.</span><span class="nx">ToString</span><span class="p">());</span>           <span class="c1">// byRefA ID: 5555556</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="allocating-memory">
+<h2>Allocating Memory</h2>
+<div class="sidebar">
+<p class="first sidebar-title">Null</p>
+<p>Null is a special type of its own:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">typeid</span><span class="p">(</span><span class="kc">null</span><span class="p">).</span><span class="nx">Name</span><span class="p">);</span>  <span class="c1">// Null</span>
+</pre></div>
+</div>
+<p class="last"><strong>Note:</strong> A <code class="docutils literal"><span class="pre">by-ref</span></code> type can be set to null,
+but a <code class="docutils literal"><span class="pre">by-value</span></code> type cannot.</p>
+</div>
+<p>Creating variables <code class="docutils literal"><span class="pre">by-value</span></code> and <code class="docutils literal"><span class="pre">by-ref</span></code>:</p>
+</div>
+<div class="section" id="local">
+<span id="zilchconstructbyvaluevsbyref"></span><h2>Local</h2>
+<p class="searchdescription">When working with by-value types that have constructors, such as structs or more complex stack primitive data types, the keyword <strong>local</strong> may be used:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">up</span><span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">local</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">stackStructInstance</span><span class="o">:</span> <span class="nx">CustomStruct</span> <span class="o">=</span> <span class="nx">local</span> <span class="nx">CustomStruct</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>The compiler will infer the use of local for by-value types:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// This is also valid.</span>
+<span class="k">var</span> <span class="nx">up</span><span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">stackStructInstance</span><span class="o">:</span> <span class="nx">CustomStruct</span> <span class="o">=</span> <span class="nx">CustomStruct</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="new">
+<h2>New</h2>
+<p>When working with classes, references, or other or anything located on the heap with a constructor, use the <strong>new</strong> keyword:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">heapObject</span><span class="o">:</span> <span class="nx">CustomClass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CustomClass</span><span class="p">();</span>
+<span class="k">var</span> <span class="nx">heapStructInstance</span><span class="o">:</span> <span class="nx">ref</span> <span class="nx">CustomStruct</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CustomStruct</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Once again the compiler will infer the use of new for by-ref types:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// This is also valid.</span>
+<span class="k">var</span> <span class="nx">heapObject</span><span class="o">:</span> <span class="nx">CustomClass</span> <span class="o">=</span> <span class="nx">CustomClass</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Since structs are by-value, in order to get a ref you <strong>must</strong> specify new.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// This does not compile</span>
+<span class="k">var</span> <span class="nx">heapStructInstance</span><span class="o">:</span> <span class="nx">ref</span> <span class="nx">CustomStruct</span> <span class="o">=</span> <span class="nx">CustomStruct</span><span class="p">();</span>
+</pre></div>
+</div>
+<a class="tabID0 zerotabinfocus"href="#!" id="tabindexID0link" > Console Output </a><div class="zerotabarea" id="tabindexID0"style="display:block;"><div class="highlight-python"><div class="highlight"><pre><span></span>The value being assigned to &#39;heapStructInstance&#39; must be of type &#39;ref CustomStruct&#39;. Its
+type is &#39;CustomStruct&#39;.
+</pre></div>
+</div>
+</div><div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Zilch does not currently have a dereferencing operator.</p>
+<p>Although you can still use the <code class="docutils literal"><span class="pre">ref</span></code> type with the <strong>dot operator</strong> to access functionality, those typed with <code class="docutils literal"><span class="pre">ref</span></code> will not be equivalent to the <code class="docutils literal"><span class="pre">non-ref</span></code> type. <em>Anything expecting a</em> <code class="docutils literal"><span class="pre">non-ref</span></code> <em>type will not accept a</em> <code class="docutils literal"><span class="pre">ref</span></code> <em>type without dereferencing.</em> Consider the following:</p>
+<div class="last highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">heapObject</span><span class="o">:</span> <span class="nx">ref</span> <span class="nx">CustomStruct</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CustomStruct</span><span class="p">();</span>
+<span class="c1">// The following will not compile because they are different types:</span>
+<span class="c1">//              CustomStruct != ref CustomStruct</span>
+<span class="k">var</span> <span class="nx">stackObject</span><span class="o">:</span> <span class="nx">CustomStruct</span> <span class="o">=</span> <span class="nx">heapObject</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="constructors">
+<h3>constructors</h3>
+<p>Constructors are required when calling local or new. The only times you wouldn&#8217;t have a constructor is when your class or struct lacks instanced data, or you are using a primitive data type that can be created from a literal.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">MyClass</span>
+<span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="c1">// Initialize members here.</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A class or struct may possess one or more constructors. Like <a class="reference internal" href="Functions.html"><em>functions</em></a> they can be overloaded via their <a class="reference internal" href="Named_Parameters.html"><em>named parameters</em></a>. Special syntax is also used when constructing a derived class, see <a class="reference internal" href="Inheritance.html"><em>the inheritance article</em></a> for more.</p>
+</div>
+</div>
+<div class="section" id="freeing-memory">
+<h2>Freeing Memory</h2>
+<p>Zilch does not have a full-fledged garbage collector, but it does have ref-counted handles.
+When you use local to make things on the stack they are cleaned up upon leaving the scope.
+When you use new to construct objects on the heap they are cleaned up when:</p>
+<blockquote>
+<div><p>-You call delete on the handle.</p>
+<p>-No references to the object exist.</p>
+</div></blockquote>
+<p><strong>Important things to note:</strong></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Zilch <strong>cannot</strong> detect cycles. These must be deleted explicitly.</li>
+</ol>
+<blockquote>
+<div><div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Cycles will not get cleaned up without explicitly deleting.</span>
+<span class="k">var</span> <span class="nx">gh</span><span class="o">:</span> <span class="nx">ARefHolder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ARefHolder</span><span class="p">(</span><span class="s2">&quot;gh&quot;</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">ef</span><span class="o">:</span> <span class="nx">ARefHolder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ARefHolder</span><span class="p">(</span><span class="s2">&quot;ef&quot;</span><span class="p">);</span>
+<span class="c1">// Simply having one point at another is not</span>
+<span class="c1">// a cycle, it cleans up just fine.</span>
+<span class="nx">gh</span><span class="p">.</span><span class="nx">Handle</span> <span class="o">=</span> <span class="nx">ef</span><span class="o">;</span> <span class="c1">// Both gh &amp; ef will clean up at the end of the scope.</span>
+
+<span class="k">var</span> <span class="nx">ab</span><span class="o">:</span> <span class="nx">ARefHolder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ARefHolder</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">ba</span><span class="o">:</span> <span class="nx">ARefHolder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ARefHolder</span><span class="p">(</span><span class="s2">&quot;ba&quot;</span><span class="p">);</span>
+
+<span class="nx">ab</span><span class="p">.</span><span class="nx">Handle</span> <span class="o">=</span> <span class="nx">ba</span><span class="o">;</span>
+<span class="nx">ba</span><span class="p">.</span><span class="nx">Handle</span> <span class="o">=</span> <span class="nx">ab</span><span class="o">;</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Note ba&#39;s handle is valid: `ba.Handle`&quot;</span><span class="p">);</span>
+
+<span class="c1">// Cleans up when you explicitly delete one of the</span>
+<span class="c1">// Objects as it becomes null and nulls all references</span>
+<span class="c1">// to it as ARefHolder is a ZilchType.</span>
+<span class="nx">delete</span> <span class="nx">ab</span><span class="o">;</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Note ba&#39;s handle has been made null: `ba.Handle`&quot;</span><span class="p">);</span>
+
+<span class="k">var</span> <span class="nx">cd</span><span class="o">:</span> <span class="nx">ARefHolder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ARefHolder</span><span class="p">(</span><span class="s2">&quot;cd&quot;</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">dc</span><span class="o">:</span> <span class="nx">ARefHolder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ARefHolder</span><span class="p">(</span><span class="s2">&quot;dc&quot;</span><span class="p">);</span>
+
+<span class="nx">cd</span><span class="p">.</span><span class="nx">Handle</span> <span class="o">=</span> <span class="nx">dc</span><span class="o">;</span>
+<span class="nx">dc</span><span class="p">.</span><span class="nx">Handle</span> <span class="o">=</span> <span class="nx">cd</span><span class="o">;</span>
+
+<span class="c1">// Making a reference type null does not delete it.</span>
+<span class="c1">// The object is still alive in dc&#39;s handle</span>
+<span class="c1">// and since that handle has an object that refers</span>
+<span class="c1">// back to it; the cycle remains uncollected. (memory leak)</span>
+<span class="nx">cd</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="k">var</span> <span class="nx">ij</span><span class="o">:</span> <span class="nx">ARefHolder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ARefHolder</span><span class="p">(</span><span class="s2">&quot;ij&quot;</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">ji</span><span class="o">:</span> <span class="nx">ARefHolder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ARefHolder</span><span class="p">(</span><span class="s2">&quot;ji&quot;</span><span class="p">);</span>
+
+<span class="nx">ij</span><span class="p">.</span><span class="nx">Handle</span> <span class="o">=</span> <span class="nx">ji</span><span class="o">;</span>
+<span class="nx">ji</span><span class="p">.</span><span class="nx">Handle</span> <span class="o">=</span> <span class="nx">ij</span><span class="o">;</span>
+
+<span class="c1">// Making null the cyclic handle breaks the cycle</span>
+<span class="c1">// allowing ref-counting to take care of the clean up:</span>
+<span class="nx">ij</span><span class="p">.</span><span class="nx">Handle</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+
+<span class="k">var</span> <span class="nx">abc</span><span class="o">:</span> <span class="nx">ARefHolder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ARefHolder</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">bca</span><span class="o">:</span> <span class="nx">ARefHolder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ARefHolder</span><span class="p">(</span><span class="s2">&quot;bca&quot;</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">cab</span><span class="o">:</span> <span class="nx">ARefHolder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ARefHolder</span><span class="p">(</span><span class="s2">&quot;cab&quot;</span><span class="p">);</span>
+
+<span class="nx">abc</span><span class="p">.</span><span class="nx">Handle</span> <span class="o">=</span> <span class="nx">bca</span><span class="o">;</span>
+<span class="nx">bca</span><span class="p">.</span><span class="nx">Handle</span> <span class="o">=</span> <span class="nx">cab</span><span class="o">;</span>
+<span class="nx">cab</span><span class="p">.</span><span class="nx">Handle</span> <span class="o">=</span> <span class="nx">abc</span><span class="o">;</span>
+<span class="c1">// Without deleting any of the objects</span>
+<span class="c1">// e.g. delete abc;</span>
+<span class="c1">// or breaking the cycle</span>
+<span class="c1">// e.g. abc.Handle = null;</span>
+<span class="c1">// abc, bca, and cab will leak.</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p class="first"><a class="reference internal" href="Delegates.html"><em>Delegates</em></a> containing an instance member function hold the <code class="docutils literal"><span class="pre">this</span></code> handle to the object, and thus will keep ref-counted objects alive.</p>
+<blockquote>
+<div><div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">Utility</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nx">Static</span><span class="p">]</span>
+    <span class="kd">function</span> <span class="nx">NullDelegate</span><span class="p">()</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nx">DelegateHolder</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">Name</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;Unnamed&quot;</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">Greeting</span><span class="o">:</span> <span class="nx">delegate</span><span class="p">()</span> <span class="o">=</span> <span class="nx">Utility</span><span class="p">.</span><span class="nx">NullDelegate</span><span class="o">;</span>
+
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span> <span class="nb">String</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Name</span> <span class="o">=</span> <span class="nx">name</span><span class="o">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">Introduce</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Hi I&#39;m `this.Name`&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">destructor</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Dtor: `this.Name`&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nx">Driver</span>
+<span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">DelegateLeaking</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Here are three Objects with the ability to hold delegates:</span>
+        <span class="k">var</span> <span class="nx">leaky</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DelegateHolder</span><span class="p">(</span><span class="s2">&quot;Leaky&quot;</span><span class="p">);</span>
+        <span class="k">var</span> <span class="nx">tarp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DelegateHolder</span><span class="p">(</span><span class="s2">&quot;Tarp&quot;</span><span class="p">);</span>
+        <span class="k">var</span> <span class="nx">waterproof</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DelegateHolder</span><span class="p">(</span><span class="s2">&quot;Waterproof&quot;</span><span class="p">);</span>
+        <span class="k">var</span> <span class="nx">mop</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DelegateHolder</span><span class="p">(</span><span class="s2">&quot;Mop&quot;</span><span class="p">);</span>
+        <span class="k">var</span> <span class="nx">morph</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DelegateHolder</span><span class="p">(</span><span class="s2">&quot;Morph&quot;</span><span class="p">);</span>
+
+        <span class="c1">// This one has another object&#39;s delegate.</span>
+        <span class="c1">// There is no cycle so they are all cleaned up</span>
+        <span class="c1">// via ref-counting at the end of the scope.</span>
+        <span class="nx">tarp</span><span class="p">.</span><span class="nx">Greeting</span> <span class="o">=</span> <span class="nx">waterproof</span><span class="p">.</span><span class="nx">Introduce</span><span class="o">;</span>
+
+        <span class="c1">// This instance holds a delegate to its own function.</span>
+        <span class="c1">// The delegate, referring to a member function, includes</span>
+        <span class="c1">// a handle to the instance it is associated with.</span>
+        <span class="c1">// This creates a cycle between the delegate and the</span>
+        <span class="c1">// the instance.</span>
+        <span class="nx">leaky</span><span class="p">.</span><span class="nx">Greeting</span> <span class="o">=</span> <span class="nx">leaky</span><span class="p">.</span><span class="nx">Introduce</span><span class="o">;</span> <span class="c1">// This will leak.</span>
+        <span class="nx">mop</span><span class="p">.</span><span class="nx">Greeting</span> <span class="o">=</span> <span class="nx">mop</span><span class="p">.</span><span class="nx">Introduce</span><span class="o">;</span>
+        <span class="nx">morph</span><span class="p">.</span><span class="nx">Greeting</span> <span class="o">=</span> <span class="nx">morph</span><span class="p">.</span><span class="nx">Introduce</span><span class="o">;</span>
+
+        <span class="c1">// To not leak you&#39;d have to either manually delete:</span>
+        <span class="nx">delete</span> <span class="nx">mop</span><span class="o">;</span>
+
+        <span class="c1">// or break the cycle by changing</span>
+        <span class="c1">// what the delegate points to:</span>
+        <span class="nx">morph</span><span class="p">.</span><span class="nx">Greeting</span> <span class="o">=</span> <span class="nx">tarp</span><span class="p">.</span><span class="nx">Introduce</span><span class="o">;</span>
+
+        <span class="c1">// Upon completion the console prints out:</span>
+        <span class="c1">// Dtor: Mop</span>
+        <span class="c1">// Dtor: Morph</span>
+        <span class="c1">// Dtor: Tarp</span>
+        <span class="c1">// Dtor: Waterproof</span>
+        <span class="c1">// The Dtor for Leaky is never called; it is a</span>
+        <span class="c1">// memory leak in this snippet.</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+<div class="section" id="deleting-variables">
+<h3>Deleting variables</h3>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Using ByValue and ByRef as defined above &amp; the Utility class:</span>
+<span class="kd">class</span> <span class="nx">Utility</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nx">Static</span><span class="p">]</span>
+    <span class="kd">function</span> <span class="nx">SafeToString</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">ref</span> <span class="nx">ByValue</span><span class="o">,</span> <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot; is null&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">ToString</span><span class="p">());</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+    <span class="p">[</span><span class="nx">Static</span><span class="p">]</span>
+    <span class="kd">function</span> <span class="nx">SafeToString</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">ByRef</span><span class="o">,</span> <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot; is null&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">ToString</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Examples of deleting:</span>
+
+<span class="c1">// 1. Delete a by-value struct instance:</span>
+<span class="k">var</span> <span class="nx">byValA</span><span class="o">:</span> <span class="nx">ByValue</span> <span class="o">=</span> <span class="nx">local</span> <span class="nx">ByValue</span><span class="p">(</span><span class="mi">1111111</span><span class="p">);</span>
+<span class="c1">// Unable to delete a non reference type;</span>
+<span class="nx">delete</span> <span class="nx">byValA</span><span class="o">;</span> <span class="c1">// This line won&#39;t compile.</span>
+
+<span class="c1">// 2. Delete an instance of a struct promoted to by-reference:</span>
+<span class="k">var</span> <span class="nx">byValB</span><span class="o">:</span> <span class="nx">ref</span> <span class="nx">ByValue</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ByValue</span><span class="p">(</span><span class="mi">1111111</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">byValC</span><span class="o">:</span> <span class="nx">ref</span> <span class="nx">ByValue</span> <span class="o">=</span> <span class="nx">byValB</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">byValD</span><span class="o">:</span> <span class="nx">ref</span> <span class="nx">ByValue</span> <span class="o">=</span> <span class="nx">byValB</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">byValK</span><span class="o">:</span> <span class="nx">ref</span> <span class="nx">ByValue</span> <span class="o">=</span> <span class="nx">byValC</span><span class="o">;</span>
+
+<span class="c1">// Utility function calls ToString method, when ref is valid.</span>
+<span class="c1">// If invalid, it indicates it is null.</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byValB</span><span class="o">,</span> <span class="s2">&quot;byValB&quot;</span><span class="p">);</span>  <span class="c1">// byValBID: 1111111</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byValC</span><span class="o">,</span> <span class="s2">&quot;byValC&quot;</span><span class="p">);</span>  <span class="c1">// byValCID: 1111111</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byValD</span><span class="o">,</span> <span class="s2">&quot;byValD&quot;</span><span class="p">);</span>  <span class="c1">// byValDID: 1111111</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byValK</span><span class="o">,</span> <span class="s2">&quot;byValK&quot;</span><span class="p">);</span>  <span class="c1">// byValKID: 1111111</span>
+
+<span class="c1">// Simply use the delete keyword on the handle.</span>
+<span class="nx">delete</span> <span class="nx">byValB</span><span class="o">;</span>
+  <span class="c1">// Since these are all handles to ZilchTypes, all references</span>
+  <span class="c1">// are made null.</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byValB</span><span class="o">,</span> <span class="s2">&quot;byValB&quot;</span><span class="p">);</span>  <span class="c1">// byValB is null</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byValC</span><span class="o">,</span> <span class="s2">&quot;byValC&quot;</span><span class="p">);</span>  <span class="c1">// byValC is null</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byValD</span><span class="o">,</span> <span class="s2">&quot;byValD&quot;</span><span class="p">);</span>  <span class="c1">// byValD is null</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byValK</span><span class="o">,</span> <span class="s2">&quot;byValK&quot;</span><span class="p">);</span>  <span class="c1">// byValK is null</span>
+
+<span class="c1">// 3. Delete an instance of a class:</span>
+<span class="k">var</span> <span class="nx">byRefA</span><span class="o">:</span> <span class="nx">ByRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ByRef</span><span class="p">(</span><span class="mi">22222222</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">byRefB</span><span class="o">:</span> <span class="nx">ByRef</span> <span class="o">=</span> <span class="nx">byRefA</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">byRefC</span><span class="o">:</span> <span class="nx">ByRef</span> <span class="o">=</span> <span class="nx">byRefA</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">byRefK</span><span class="o">:</span> <span class="nx">ByRef</span> <span class="o">=</span> <span class="nx">byRefC</span><span class="o">;</span>
+
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byRefA</span><span class="o">,</span> <span class="s2">&quot;byRefA&quot;</span><span class="p">);</span>  <span class="c1">// byRefAID: 22222222</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byRefB</span><span class="o">,</span> <span class="s2">&quot;byRefB&quot;</span><span class="p">);</span>  <span class="c1">// byRefBID: 22222222</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byRefC</span><span class="o">,</span> <span class="s2">&quot;byRefC&quot;</span><span class="p">);</span>  <span class="c1">// byRefCID: 22222222</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byRefK</span><span class="o">,</span> <span class="s2">&quot;byRefK&quot;</span><span class="p">);</span>  <span class="c1">// byRefKID: 22222222</span>
+
+<span class="nx">delete</span> <span class="nx">byRefA</span><span class="o">;</span>
+
+  <span class="c1">// Since these are all handles to ZilchTypes, all references</span>
+  <span class="c1">// are made null.</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byRefA</span><span class="o">,</span> <span class="s2">&quot;byRefA&quot;</span><span class="p">);</span>  <span class="c1">// byRefA is null</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byRefB</span><span class="o">,</span> <span class="s2">&quot;byRefB&quot;</span><span class="p">);</span>  <span class="c1">// byRefB is null</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byRefC</span><span class="o">,</span> <span class="s2">&quot;byRefC&quot;</span><span class="p">);</span>  <span class="c1">// byRefC is null</span>
+<span class="nx">Utility</span><span class="p">.</span><span class="nx">SafeToString</span><span class="p">(</span><span class="nx">byRefK</span><span class="o">,</span> <span class="s2">&quot;byRefK&quot;</span><span class="p">);</span>  <span class="c1">// byRefK is null</span>
+</pre></div>
+</div>
+<p><strong>Important things to note</strong></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Zilch <strong>always</strong> sets the deleted handle to null after deletion. Only if the handle points to a <em>ZilchType</em> does it make null the other objects referencing it. It <em>cannot</em> automatically do thing for objects bound through C++. In order to have C++ BoundTypes work the same as ZilchTypes it must be handled in C++ by the object bound.</li>
+<li>Deleting in Zilch forwards delete calls to C++ bound objects. Thus, when you call delete in Zilch on a C++ BoundType, that bound type will have the C++ delete called allowing it to call its destructor.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="destructors">
+<h3>destructors</h3>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">MyClass</span>
+<span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="c1">// Initialize members here.</span>
+  <span class="p">}</span>
+
+  <span class="nx">destructor</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="c1">// Do any object clean-up here.</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Destructors allow you to do any necessary clean up on your part, such as free memory. You can only have one, and there are no parameters or return values.</p>
+<p>It&#8217;s important to know that stack allocated instances (i.e. non-ref <code class="docutils literal"><span class="pre">by-value</span></code> types, or non-ref primitives) have no guarantee they&#8217;ll call the destructor. Only those objects with handles that do not leak are guaranteed to have their destructors called.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Inheritance.html" class="btn btn-neutral float-right" title="Inheritance" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Classes.html" class="btn btn-neutral" title="Classes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/ZilchInZero/Memory_Management.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:08 GMT -->
+</html>

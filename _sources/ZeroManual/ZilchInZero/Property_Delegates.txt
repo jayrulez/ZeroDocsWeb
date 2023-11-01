@@ -1,0 +1,82 @@
+.. _ZilchPropertyDelegates:
+
+.. rst-class:: SearchTitle
+
+Property Delegates
+==================
+
+.. rst-class:: SearchDescription
+
+Property delegates can be generated from a field using the property delegate operator: ``@``.
+
+.. note::
+    
+    Fields are variables, but not all variables are fields. Local variables do not have the ability to be accessed via a property and they **cannot** be used in conjunction with the property delegate operator like fields can.
+ 
+
+.. code-block:: csharp
+    
+    class Cat
+    {
+    
+        var Lives: Integer = 9;
+        
+        function Example()
+        {
+
+            // @, the property delegate operator, takes this.Lives
+            // and creates a property delegate from it. 
+            var prop = @this.Lives;
+
+            Console.WriteLine(typeid(prop).Name); // Property[Integer]
+            Console.WriteLine(prop.Get());        // 9
+
+            prop.Set(7);
+            Console.WriteLine(prop.Get());        // 7
+            Console.WriteLine(this.Lives);        // 7
+            
+        }
+    }
+    
+Choosing to take in a property delegate allows you propagate side-effects to the parameters that would otherwise be lost on copies passed in by-value. 
+
+.. code-block:: as
+    
+    // Consider the following two functions:
+    function Driver(prop : Property[Integer])
+    {
+        prop.Set(15);                                 
+        Console.WriteLine("Inside Driver");
+        Console.WriteLine(prop.Get());
+    }
+    function DriverControl(prop : Integer)
+    {
+        prop = 2;
+        Console.WriteLine("Inside DriverControl");
+        Console.WriteLine(prop);
+    }
+    
+.. code-block:: csharp 
+    
+    class Cat
+    {
+        var Lives: Integer = 9;
+        
+        function Example()
+        {
+
+            // @, the property delegate operator, takes this.Lives
+            // and creates a property delegate from it. 
+            var prop = @this.Lives;
+            Console.WriteLine(this.Lives); // 9
+            this.Driver(@this.Lives);      // Inside Driver
+                                           // 15                                       
+            Console.WriteLine(this.Lives); // 15 (Notice this value changed)
+            this.DriverControl(this.Lives);// Inside DriverControl 
+                                           // 2
+            Console.WriteLine(this.Lives); // 15 (Notice this value is unchanged)
+        }
+        
+        // [[Driver and DriverControl defined here]]
+    }
+        

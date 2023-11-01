@@ -1,0 +1,43 @@
+.. _ReferenceNetUserAcquiredObjectOwnership:
+
+.. rst-class:: searchtitle
+
+NetUserAcquiredObjectOwnership
+==============================
+
+.. rst-class:: searchdescription
+
+Dispatched after the net user acquires network ownership of a net object.
+
+.. include:: Description/NetUserAcquiredObjectOwnership.rst
+
+.. cpp:class:: NetUserAcquiredObjectOwnership
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceNetUserAcquiredObjectOwnershipProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetUserAcquiredObjectOwnership::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NetUserAcquiredObjectOwnership::AcquiredObject
+
+            Data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NetUserAcquiredObjectOwnership::PreviousNetUserOwner
+
+            The object this user just acquired network ownership of.
+
+.. _ReferenceNetUserAcquiredObjectOwnershipMethods:
+
+.. include:: Remarks/NetUserAcquiredObjectOwnership.rst

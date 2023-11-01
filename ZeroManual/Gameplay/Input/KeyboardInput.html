@@ -1,0 +1,545 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Gameplay/Input/KeyboardInput.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:29 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Keyboard Input &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Input" href="index.html"/>
+        <link rel="next" title="Gamepad Input" href="GamepadInput.html"/>
+        <link rel="prev" title="Custom Cursor" href="CustomCursor.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Gameplay</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Random.html">Random</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Input</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="MouseInput.html">Mouse Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CustomCursor.html">Custom Cursor</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Keyboard Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GamepadInput.html">Gamepad Input</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../VectorMath/index.html">Vector Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HandlingQuitMessage.html">Handle the Quit Message (Stop Esc from Exiting Game)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LevelPath.html">LevelPath</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Gameplay</a> &raquo;</li>
+      
+          <li><a href="index.html">Input</a> &raquo;</li>
+      
+    <li>Keyboard Input</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Gameplay/Input/KeyboardInput.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="keyboard-input">
+<span id="manualkeyboardinput"></span><h1>Keyboard Input</h1>
+<p class="searchdescription">Keyboard input is one of the main methods of control for a Zero project, and can be set up quickly to be use a keyboard as a gameplay control device.</p>
+<div class="section" id="common-uses">
+<h2>Common Uses</h2>
+<ul class="simple">
+<li>Controlling an on-screen character</li>
+<li>Hotkey implementation for game and/or character events</li>
+<li>Text entry</li>
+</ul>
+</div>
+<div class="section" id="using-keyboard-input">
+<h2>Using Keyboard Input</h2>
+<p>Like other methods of Input (e.g., <a class="reference internal" href="MouseInput.html#manualmouseinput"><span>Mouse Input</span></a> and <a class="reference internal" href="GamepadInput.html#manualgamepadinput"><span>Gamepad Input</span></a>), <a class="reference internal" href="../../CodeReference/Reference/Keyboard.html#_CPPv28Keyboard" title="Keyboard"><code class="xref cpp cpp-type docutils literal"><span class="pre">Keyboard</span></code></a> Input can be separated into two different forms: Frame-Based Input using the LogicUpdate event, and Event-Based Input using <a class="reference internal" href="../../CodeReference/Reference/KeyboardEvent.html#_CPPv213KeyboardEvent" title="KeyboardEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">KeyboardEvents</span></code></a>.</p>
+<div class="section" id="frame-based-keyboard-input">
+<span id="manualkeyboardinputframebased"></span><h3>Frame-Based Keyboard Input</h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Because Frame-Based Input is repeatedly checking to see if any keys have been pressed or let go, it can end up affecting performance especially if there are multiple key presses being looked for. It is best to be mindful of how much is called every frame amongst all ZilchScripts in use.</p>
+</div>
+<p>In Frame-Based Keyboard Input, the Engine is queried every frame to see if the desired key has been pressed, is continuing to be held down, or let go. This can be done by using either the <em>Zero.Keyboard.KeyIsPressed</em>, <em>KeyIsDown</em>, or <em>KeyIsReleased</em> functions, respectively.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Space</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="c1">// Insert code here</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this case, the code repeatedly asks the engine if the Space bar is being held down, running the code inside the <code class="docutils literal"><span class="pre">if</span></code> statement repeatedly for as long as the key is held.</p>
+</div>
+<div class="section" id="event-based-keyboard-input">
+<span id="manualkeyboardinputeventbased"></span><h3>Event-Based Keyboard Input</h3>
+<div class="sidebar">
+<p class="first sidebar-title">Events and Paused Spaces</p>
+<p class="last">Keep in mind that if a Game Space has been paused, then OnLogicUpdate will no longer be dispatched as it is connected to the space, and therefore no Frame-Based system can be used to unpause the Space from within that same Space. Keyboard Events will still be sent however, so it&#8217;s possible to use them to unpause the Space, or it can be unpaused from another Space as well.</p>
+</div>
+<p>In an Event-Based Input system, the component connects to the Keyboard and listens for specific events to be dispatched, such as a KeyDown or KeyUp event.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span>
+                 <span class="n">Events</span><span class="p">.</span><span class="n">KeyDown</span><span class="p">,</span>
+                 <span class="k">this</span><span class="p">.</span><span class="n">OnKeyDown</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="nf">OnKeyDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Insert code here</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The code inside the <code class="docutils literal"><span class="pre">OnKeyDown</span></code> function above will be called whenever a keyboard key is pressed. As with frame-based keyboard input, it is possible to check if a certain key has been pressed or released. Checking for KeyDown and KeyUp require two different event connections, as is demonstrated in the following code-block:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Connect to the KeyDown event</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">KeyDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnKeyDown</span><span class="p">);</span>
+    <span class="c1">// Connect to the KeyUp event</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">KeyUp</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnKeyUp</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="nf">OnKeyDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// If the Spacebar key is pressed</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">Space</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Code to change a value goes here</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="nf">OnKeyUp</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// If the Spacebar key is released</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">Space</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Code to reset the value goes here</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is an Event of note to consider for projects that wish to use Text Entry: <code class="docutils literal"><span class="pre">Events.TextTyped</span></code>. If this is the the desired use of Keyboard Events, please see <a class="reference internal" href="../../../Community/Blogs/Doug/TextEntry.html#communityblogdougtextentry"><span>this Blog post</span></a>.</p>
+</div>
+<p>This can be used as a method to stop a player character from stopping completely if two movement keys were being pressed but only one was released.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">// Make sure the object has the RigidBody Component</span>
+<span class="na">[Dependency]</span>
+<span class="kt">var</span> <span class="n">RigidBody</span> <span class="p">:</span> <span class="n">RigidBody</span><span class="p">;</span>
+
+<span class="c1">// A variable to be used to set the player speed</span>
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">Speed</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+
+<span class="c1">// A variable that will be set to determine the movement vector</span>
+<span class="kt">var</span> <span class="n">Movement</span> <span class="p">:</span> <span class="n">Real3</span><span class="p">;</span>
+
+<span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Connect both the KeyDown and KeyRepeated events to the same function</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">KeyDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveCode</span><span class="p">);</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">KeyRepeated</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveCode</span><span class="p">);</span>
+
+    <span class="c1">// Connect to the KeyUp event</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">KeyUp</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnKeyUp</span><span class="p">);</span>
+
+    <span class="c1">// Connect to the LogicUpdate event</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLogicUpdate</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="nf">MoveCode</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// If the A key is pressed, move left. If it is the D key, move right</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">A</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(-</span><span class="k">this</span><span class="p">.</span><span class="n">Speed</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">D</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Speed</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="nf">OnKeyUp</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// If either the A or D key are released, and the other is already up</span>
+    <span class="k">if</span> <span class="p">((</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">A</span> <span class="p">&amp;&amp;</span> <span class="k">event</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsUp</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">D</span><span class="p">))</span>
+    <span class="p">||</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">D</span> <span class="p">&amp;&amp;</span> <span class="k">event</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsUp</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">A</span><span class="p">)))</span>
+    <span class="p">{</span>
+        <span class="c1">// Reset Movement to 0 to begin coming to a stop</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// However, if either the A or D key are released, and the other is still held down</span>
+    <span class="k">else</span> <span class="nf">if</span> <span class="p">((</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">A</span> <span class="p">&amp;&amp;</span> <span class="k">event</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">D</span><span class="p">))</span>
+    <span class="p">||</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">D</span> <span class="p">&amp;&amp;</span> <span class="k">event</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">A</span><span class="p">)))</span>
+    <span class="p">{</span>
+        <span class="c1">// Rather than stopping, simply start moving in the opposite direction</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">*</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// If the players velocity is less than 25 in either direction</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">RigidBody</span><span class="p">.</span><span class="n">Velocity</span><span class="p">.</span><span class="n">X</span> <span class="p">&lt;</span> <span class="m">25</span> <span class="p">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="n">RigidBody</span><span class="p">.</span><span class="n">Velocity</span><span class="p">.</span><span class="n">X</span> <span class="p">&gt;</span> <span class="p">-</span><span class="m">25</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Apply the movement vector to the player character</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">RigidBody</span><span class="p">.</span><span class="n">ApplyLinearVelocity</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">*</span> <span class="k">event</span><span class="p">.</span><span class="n">Dt</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="properties-of-keyboardevents">
+<h2>Properties of KeyboardEvents</h2>
+<p>Because they are all the same type of event, all of the different Keyboard Events have access to shared properties that are brought up whenever <code class="docutils literal"><span class="pre">event.</span></code> is typed in the event function. Several of these have been used above, such as <code class="docutils literal"><span class="pre">event.Keyboard</span></code> which gives a reference to the Keyboard used (and therefore all of its methods), and <code class="docutils literal"><span class="pre">event.Key</span></code> which shows which key was changed. Several of the others are in place to allow the user to see if other keys are also depressed, specifically the <code class="docutils literal"><span class="pre">Shift</span></code>, <code class="docutils literal"><span class="pre">Alt</span></code>, <code class="docutils literal"><span class="pre">Ctrl</span></code> and <code class="docutils literal"><span class="pre">Space</span></code> keys. These can be used to add functionality to the above example.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span>   <span class="n">function</span> <span class="nf">MoveCode</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+   <span class="p">{</span>
+       <span class="c1">// If the A key is pressed, move left. If it is the D key, move right</span>
+       <span class="k">if</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">A</span><span class="p">)</span>
+       <span class="p">{</span>
+           <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(-</span><span class="k">this</span><span class="p">.</span><span class="n">Speed</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+       <span class="p">}</span>
+       <span class="k">if</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">D</span><span class="p">)</span>
+       <span class="p">{</span>
+           <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Speed</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+       <span class="p">}</span>
+<span class="hll">       <span class="c1">// If the Shift key is also pressed</span>
+</span><span class="hll">       <span class="k">if</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">ShiftPressed</span><span class="p">)</span>
+</span><span class="hll">       <span class="p">{</span>
+</span><span class="hll">           <span class="c1">// And if it hasn&#39;t gone outside a specified range</span>
+</span><span class="hll">           <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Movement</span><span class="p">.</span><span class="n">X</span> <span class="p">&lt;</span> <span class="m">20</span> <span class="p">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="n">Movement</span><span class="p">.</span><span class="n">X</span> <span class="p">&gt;</span> <span class="p">-</span><span class="m">20</span><span class="p">)</span>
+</span><span class="hll">           <span class="p">{</span>
+</span><span class="hll">               <span class="c1">// Double the Movement vector</span>
+</span><span class="hll">               <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Movement</span><span class="p">*</span><span class="m">2</span><span class="p">;</span>
+</span><span class="hll">           <span class="p">}</span>
+</span><span class="hll">       <span class="p">}</span>
+</span>   <span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">Event.ShiftPressed</span></code> returns a Bool that is either <code class="docutils literal"><span class="pre">true</span></code> if the Shift key is pressed or <code class="docutils literal"><span class="pre">false</span></code> if it is not. This way, the player character should &#8220;sprint&#8221; when the Shift key is down and slow down when it is released.</p>
+<p>While <code class="docutils literal"><span class="pre">KeyDown</span></code> events work well for movement, if it&#8217;s to create a text entry system <code class="docutils literal"><span class="pre">TextTyped</span></code> events are the better choice.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">// An Array used to hold the Key being pressed</span>
+<span class="kt">var</span> <span class="n">KeyUsed</span> <span class="p">:</span> <span class="n">Array</span><span class="p">[</span><span class="n">String</span><span class="p">]</span> <span class="p">=</span> <span class="n">Array</span><span class="p">[</span><span class="n">String</span><span class="p">]();</span>
+
+<span class="c1">// A StringBuilder used to concatenate and print the String to the Console</span>
+<span class="kt">var</span> <span class="n">Sentence</span> <span class="p">:</span> <span class="n">StringBuilder</span> <span class="p">=</span> <span class="n">StringBuilder</span><span class="p">();</span>
+
+<span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">KeyDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnKeyDown</span><span class="p">);</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">TextTyped</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnTextTyped</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="nf">OnTextTyped</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardTextEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Index into the string to get the character position of Space and Tilde</span>
+    <span class="c1">// By comparing these to the typed key, it can be determined if the key is renderable</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Character</span> <span class="p">&gt;=</span> <span class="s">&quot; &quot;</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">&amp;&amp;</span> <span class="k">event</span><span class="p">.</span><span class="n">Character</span> <span class="p">&lt;=</span> <span class="s">&quot;~&quot;</span><span class="p">[</span><span class="m">0</span><span class="p">])</span>
+    <span class="p">{</span>
+        <span class="c1">// Add the key that was pressed to the array from pressed characters</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">KeyUsed</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">FromChar</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Character</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="nf">OnKeyDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">Enter</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Loop through the KeyUsed Array, and add each element to the Sentence</span>
+        <span class="k">foreach</span><span class="p">(</span><span class="kt">var</span> <span class="n">letter</span> <span class="k">in</span> <span class="k">this</span><span class="p">.</span><span class="n">KeyUsed</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Sentence</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">letter</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">// Output the full sentence to the console</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;The sentence is: `this.Sentence.ToString()`&quot;</span><span class="p">);</span>
+
+        <span class="c1">// Clear the current sentence from the Array then the StringBuilder</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">KeyUsed</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Sentence</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>All renderable characters start at character code <code class="docutils literal"><span class="pre">32</span></code> which is <code class="docutils literal"><span class="pre">Space</span></code>, and end at <code class="docutils literal"><span class="pre">126</span></code> which is <code class="docutils literal"><span class="pre">~</span></code>. <code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">&quot;[0]</span></code> will index into the string <code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">&quot;</span></code> at position <code class="docutils literal"><span class="pre">[0]</span></code> and return the character code of <code class="docutils literal"><span class="pre">Space</span></code>, likewise with <code class="docutils literal"><span class="pre">&quot;~&quot;[0]</span></code>. This allows <code class="docutils literal"><span class="pre">event.Character</span></code>, which returns an <code class="docutils literal"><span class="pre">int</span></code> of the character code of the keyboard key that dispatched the event, to compare and see if it is a renderable character. See <a class="reference internal" href="../../../Community/Blogs/Doug/TextEntry.html#communityblogdougtextentry"><span>This Blog Post</span></a> for more information on using the <code class="docutils literal"><span class="pre">TextTyped</span></code> event for text entry.</p>
+<p>Other properties available to Keyboard Events is <code class="docutils literal"><span class="pre">event.EventID</span></code> which returns a string of the dispatched event, for example the <code class="docutils literal"><span class="pre">KeyDown</span></code> event would return &#8220;KeyDown&#8221; as its EventID.</p>
+</div>
+<div class="section" id="properties-and-methods-of-keyboard">
+<h2>Properties and Methods of Keyboard</h2>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/Keyboard.html#referencekeyboard"><span>Keyboard Code Reference</span></a></li>
+</ul>
+</div>
+<div class="section" id="keyboard-events">
+<h2>Keyboard Events</h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">KeyDown</span></code> : <a class="reference internal" href="../../CodeReference/Reference/KeyboardEvent.html#_CPPv213KeyboardEvent" title="KeyboardEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">KeyboardEvent</span></code></a><ul>
+<li>An Event dispatched from the Keyboard when a Keyboard key is depressed.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">KeyUp</span></code> : <a class="reference internal" href="../../CodeReference/Reference/KeyboardEvent.html#_CPPv213KeyboardEvent" title="KeyboardEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">KeyboardEvent</span></code></a><ul>
+<li>An Event dispatched from the Keyboard when a Keyboard key is released.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">KeyRepeated</span></code> : <a class="reference internal" href="../../CodeReference/Reference/KeyboardEvent.html#_CPPv213KeyboardEvent" title="KeyboardEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">KeyboardEvent</span></code></a><ul>
+<li>An Event dispatched from the Keyboard when a Keyboard key is held down.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">TextTyped</span></code> : <a class="reference internal" href="../../CodeReference/Reference/KeyboardTextEvent.html#_CPPv217KeyboardTextEvent" title="KeyboardTextEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">KeyboardTextEvent</span></code></a><ul>
+<li>An Event dispatched from the Keyboard with data holding the text character of the Keyboard key pressed.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="related-materials">
+<span id="manualkeyboardinputrelated"></span><h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../Scripting/EventsAndConnections.html#manualeventsandconnections"><span>Events and Connections</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><span class="xref std std-ref">Events</span></li>
+</ul>
+</div>
+<div class="section" id="blog-posts">
+<h3>Blog Posts</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../Community/Blogs/Doug/TextEntry.html#communityblogdougtextentry"><span>Text Entry</span></a></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/Keyboard.html#_CPPv28Keyboard" title="Keyboard"><code class="xref cpp cpp-type docutils literal"><span class="pre">Keyboard</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/KeyboardEvent.html#_CPPv213KeyboardEvent" title="KeyboardEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">KeyboardEvent</span></code></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="GamepadInput.html" class="btn btn-neutral float-right" title="Gamepad Input" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="CustomCursor.html" class="btn btn-neutral" title="Custom Cursor" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Gameplay/Input/KeyboardInput.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:29 GMT -->
+</html>

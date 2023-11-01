@@ -1,0 +1,132 @@
+.. _ZilchConditionals:
+
+.. rst-class:: SearchTitle
+
+Conditionals
+============
+
+.. rst-class:: SearchDescription
+
+Conditional statements are those language constructs that alter the control flow of a program based on whether they are ``true`` or ``false``.
+
+Options for conditional branching include, 
+
+* if 
+  
+   .. code-block:: as
+    
+    var flag = true;
+    if (flag) // Parenthesis are required.
+    {// The body of the if statment must be enclosed in curly braces.
+        Console.WriteLine("first");
+    }
+    flag = false;
+    if(flag)
+    {
+        Console.WriteLine("second");
+    }
+
+.. tab::    
+
+  .. tabindex:: Console Output
+  
+    ::
+
+      ---------------- Begin Game ---------------
+      first
+    
+* else
+  
+   .. code-block:: as
+    
+    var flag = true;
+    if(flag)
+    {
+        Console.WriteLine(true);
+    }
+    else
+    {
+        Console.WriteLine(false);
+    }
+    
+    if(!flag)
+    {
+        Console.WriteLine(true);
+    }
+    else
+    {
+        Console.WriteLine(false);
+    }
+    // TrueFalse
+    
+Console Output::
+
+      ---------------- Begin Game ---------------
+      True
+      False
+    
+* while (do/while), :doc:`see examples here.<Looping>`
+* for :doc:`see examples here.<Looping>`
+
+**Note:** There is no ternary operator in Zilch.
+
+Zilch is a very strongly typed language. For instance, if an integer is zero, it will not be considered ``false`` because zero is not of Boolean type.
+
+.. code-block:: as
+    
+    var num = 0;
+    if(num) // This won't compile.
+    {
+        Console.Write(true);
+    }
+    
+Console Output::
+
+      The expression resulted in a 'Integer'. Any condition must result in a Boolean (true/false) type.
+
+    
+.. code-block:: as
+    
+        var num = 0;
+        if(num as Boolean) // This will compile as it is explicitly casted to a Boolean.
+        {
+            Console.WriteLine(true);
+        }
+        else 
+        {
+            Console.WriteLine(false);
+        }
+        
+        if(num != 0) // This will compile as it is the != operator results in a Boolean.
+        {
+            Console.WriteLine(true);
+        }
+        else
+        {
+            Console.WriteLine(false);
+        }
+        
+Console Output::
+
+      ---------------- Begin Game ---------------
+      False
+      False        
+    
+Relational Operators
+--------------------
+
+Often test conditions in conditional statements make use of relational operators. Below are the relational operators present in Zilch.
+
++------------+----------+----------------------------------+
+| Left to    | <        | less than                        |
++ Right      +----------+----------------------------------+
+| Associative| <=       | less than or equal to            |
++            +----------+----------------------------------+
+| higher     | >        | greater than                     |
++ precedence +----------+----------------------------------+
+|            | >=       | greater than or equal to         |
++------------+----------+----------------------------------+
+| LeftToRight| ==       | equality                         |
++ lower      +----------+----------------------------------+
+| precedence | !=       | inequality                       |
++------------+----------+----------------------------------+

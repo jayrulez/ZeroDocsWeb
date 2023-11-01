@@ -1,0 +1,70 @@
+.. _ReferenceWeightedTable:
+
+.. rst-class:: searchtitle
+
+WeightedTable
+=============
+
+.. rst-class:: searchdescription
+
+Given values and probabilities, rolls a loaded die over these entries. Useful when wanting to have probabilities that one of n events will happen, such as what item to create on an object destruction. This table cannot be emptied because then there would be no value to return on a sample call.
+
+.. include:: Description/WeightedTable.rst
+
+.. cpp:class:: WeightedTable
+
+    Base Class: :cpp:type:`Resource`
+
+.. _ReferenceWeightedTableProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String WeightedTable::Name
+
+            Name of resource for display.
+
+.. _ReferenceWeightedTableMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Resource WeightedTable::RuntimeClone()
+
+            Clone a resource for runtime modification.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: uint WeightedTable::Size()
+
+            How many items are in the table.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: ValueType WeightedTable::Sample(Real random1, Real random2)
+
+            Randomly sample the table and return the value that was rolled. Takes two random Reals from[0,1).
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: uint WeightedTable::SampleIndex(Real random1, Real random2)
+
+            Randomly sample the table and return the index of the value that was rolled. Takes two random Reals from[0,1).
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: ValueType WeightedTable::ValueAtIndex(uint index)
+
+            Get the value in the table at the provided index.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: WeightType WeightedTable::ProbabilityAtIndex(uint index)
+
+            Get the probability in the table at the provided index.
+
+.. include:: Remarks/WeightedTable.rst

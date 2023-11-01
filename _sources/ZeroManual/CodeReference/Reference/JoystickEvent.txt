@@ -1,0 +1,43 @@
+.. _ReferenceJoystickEvent:
+
+.. rst-class:: searchtitle
+
+JoystickEvent
+=============
+
+.. rst-class:: searchdescription
+
+Joystick events are sent when a game pad button state is changed.
+
+.. include:: Description/JoystickEvent.rst
+
+.. cpp:class:: JoystickEvent
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceJoystickEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String JoystickEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int JoystickEvent::Button
+
+            The button that was just pressed or released.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Joystick JoystickEvent::Joystick
+
+            The joystick that generated this event.
+
+.. _ReferenceJoystickEventMethods:
+
+.. include:: Remarks/JoystickEvent.rst

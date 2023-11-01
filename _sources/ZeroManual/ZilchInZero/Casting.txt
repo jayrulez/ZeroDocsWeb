@@ -1,0 +1,59 @@
+.. _ZilchCasting:
+
+.. rst-class:: SearchTitle
+
+Casting
+=======
+
+.. rst-class:: SearchDescription
+
+This section covers the concept of type casting in Zilch.
+
+**as** keyword is used for casting. 
+
+Given the :doc:`enum <Enums>`:
+
+.. code-block:: as
+
+  enum AlphaNumeric {A = 1, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z}
+
+
+.. code-block:: as
+    
+    
+    var letter = 18;                          // Inferred to be an Integer
+    var newLetter: AlphaNumeric = letter + 3; // Won't compile because of mismatching types. 
+    Console.WriteLine(newLetter);
+    
+Console Output::
+        
+        The value being assigned to 'newLetter' must be of type 'AlphaNumeric'. Its type is 'Integer'.
+    
+.. code-block:: as
+    
+        var letter = 18;  // Inferred to be an Integer, but                         
+        // by using the casting operator we can store it as the enum type.
+        var newLetter: AlphaNumeric = (letter + 3) as AlphaNumeric; 
+        Console.WriteLine(newLetter);
+        
+Console Output::
+          
+        ---------------- Begin Game ---------------
+        U        
+    
+Casting primitives is only allowed between Boolean, Integer, & Real. Casting between Custom types must be valid up- or down- casts in the inheritance hierarchy.
+
+For instance, in an improper downcast you will encounter a runtime error:
+
+ .. code-block:: as
+    
+        // Here is the base type:
+        var myFeline = new Feline();
+        // Here the base type is unsafely downcasted to a derived type:
+        Console.WriteLine((myFeline as Lion).ManeLength); // throws our runtime error
+        
+Console Output::
+          
+        Attempted to access a member of a null handle
+
+There are other instances of implicit casting you can read about between :doc:`enums/Integers <Enums>` and :doc:`flags/Integers <Flags>`.

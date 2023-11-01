@@ -1,0 +1,427 @@
+.. _PhysicsEffects2014:
+
+.. rst-class:: SearchTitle
+
+Regions & Physics Effects
+=========================
+
+.. rst-class:: SearchDescription
+
+This lesson covers using Regions as trigger volumes and applying PhysicsEffects to Regions. It covers the VortexEffect, FlowEffect, and WindEffect.
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2014`
+
+Level Setup
+-----------
+
+**WhiteBlock Object**
+
+*  :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In Properties Window
+
+    *   Set Name to: WhiteBlock
+    *   :ref:`Add the RigidBody component <AddComponent2014>`
+    *   :ref:`Add the BoxCollider component <AddComponent2014>` 
+    *   Under Transform
+
+        *   Set Translation to: [-7.5, 8, 0]
+    *   Under RigidBody
+
+        *   Set AllowSleep to: False
+
+**PlatformGround Object**
+
+*   :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In Properties Window
+
+    *   Set Name to: PlatformGround
+    *   :ref:`Add the RigidBody component <AddComponent2014>`
+    *   :ref:`Add the BoxCollider component <AddComponent2014>` 
+    *   Under Transform
+
+        *   Set Translation to: [0, -6, 0.03]
+        *   Set Scale to: [20, 1,1]
+    *   Under Sprite
+
+        *   Set Color to: [R: 0, G: 0, B: 0]
+    *   Under RigidBody
+
+        *   Set DynamicState to: Static
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+|pbr|
+
+The WhiteBlock object should fall due to the default gravity of LevelSettings object:
+
+|FirstRun|
+
+*   :ref:`Close the Game Window <StopGame2014>`
+
+Physics Effects Review
+----------------------
+
+In the Physics Effects Intro snippet, we covered the DragEffect and GravityEffect components which were two different PhysicsEffects. A PhysicsEffect is a component that applies some sort of a force to an object. A PhysicsEffect can be attached in a variety of ways. This effect will then perform its action every frame according to the **rules of the object** it's attached to.
+
+Regions
+-------
+
+A Region is a component primarily used for **trigger** volumes. A region requires a **Collider** to define what the collision volume is. Regions contain the info of the objects inside of it (if they have a Collider). This allows us to conveniently do things with only the objects that are within a specific area.
+
+Regions and Physics Effects
+---------------------------
+
+What will happen if we applied a PhysicsEffect to an object that has been marked as a Region? In the PhysicsEffects Intro snippet, we attached PhysicsEffects to objects and Spaces. Only objects that had a RigidBody component with a DynamicState set to Dynamic were affected. One of the main features of a region is that the PhysicsEffects attached to a region will be automatically applied to any objects with a RigidBody component inside of it. Let's see it in action.
+
+Attaching Physics Effects to Regions
+------------------------------------
+
+WindEffect
+~~~~~~~~~~
+
+**WindRegion Object**
+
+*   :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In Properties Window
+
+    *   Set Name to: WindRegion
+    *   :ref:`Add the RigidBody component <AddComponent2014>`
+    *   :ref:`Add the BoxCollider component <AddComponent2014>` 
+    *   :ref:`Add the Region component <AddComponent2014>`
+    *   Under Transform
+
+        *   Set Translation to: [-6, -3.5, 0.01]
+        *   Set Scale to: [5, 5, 1]
+    *   Under Sprite
+
+        *   Set Color to: [R: 255, G: 255, B: 255, A: 0.25]
+    *   Under RigidBody
+
+        *   Set DynamicState to: Static
+    *   :ref:`Add the WindEffect component <AddComponent2014>` 
+    
+    |pbr|
+    
+    *   Make sure the **WindRegion** object's **WindEffect** component has the following properties:
+
+        |1000000000000111000001AC5A547AE4_png|
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+Here the wind pushes our WhiteBlock up when the WhiteBlock comes in contact with the top of the WindRegion, making it appear to jump:
+
+|NoBookBegin|
+|JumpingBlockWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|JumpingBlockBook|
+|NoWebEnd|
+
+*   :ref:`Close the Game Window <StopGame2014>`
+
+Ghost Collider
+++++++++++++++
+
+What if we wanted to allow objects to exist or move in and out of a Region? We can achieve this by
+setting the Collider's **Ghost** property to True.
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   :ref:`Select the WindRegion object <SelectObject2014>`
+*   In the Properties Window
+
+    *   Under BoxCollider
+
+        *   Set Ghost to: True
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+Now our WhiteBlock should pass through the region:
+
+|GhostCollision|
+
+
+*   :ref:`Close the Game Window <StopGame2014>`
+
+The WhiteBlock object falls and lands on the PlatformGround object. As soon as it is within the WindRegion object's Collider area, the WhiteBlock object is affected by the WindEffect attached to the WindRegion object. Let's experiment by adding another object.
+
+**HeavyBlock Object**
+
+*   In the Level Window
+
+    *   :ref:`Select the WhiteBlock object <SelectObject2014>`
+    *   ``Ctrl+C`` to Copy
+    *   ``Ctrl+V`` to Paste 
+    
+    |pbr|
+    
+*   In Properties Window
+
+    *   Set Name to: HeavyBlock
+    *   Under Transform
+
+        *   Set Translation to: [-4.5, 8, 0]
+        *   Set Scale to: [3, 3, 1]
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+With our HeavyBlock:
+
+|NoBookBegin|
+|HeavyBlockSinksWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|HeavyBlockSinksBook|
+|NoWebEnd|
+
+Notice how the HeavyBlock is not moved as easily by the WindEffect as the WhiteBlock. This is because the increased size of the HeavyBlock results in a larger mass. You can compare these by looking at the Mass property in the RigidBody component:
+
+|HeavyBlockMass|
+
+Larger mass means that a larger force is required to accelerate it to the same speed.
+
+VortexEffect
+~~~~~~~~~~~~
+
+A vortex effect applies a force on an object in way that is similar to how a tornado would. Here is a diagram showing a summary of the VortexEffect:
+
+    |NoWebBegin|
+    |BookVortexDiagram_png|
+    |NoWebEnd|
+    
+    |NoBookBegin|
+    |WebVortexDiagram_png|
+    |NoBookEnd|
+
+*   :ref:`Close the Game Window <StopGame2014>`
+
+**VortexRegion Object**
+
+*   :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In Properties Window
+
+    *   Set Name to: VortexRegion
+    *   :ref:`Add the RigidBody component <AddComponent2014>`
+    *   :ref:`Add the BoxCollider component <AddComponent2014>` 
+    *   :ref:`Add the Region component <AddComponent2014>` 
+    *   Under Transform
+
+        *   Set Translation to: [3, -1, 0.01]
+        *   Set Scale to: [5, 9, 1]
+    *   Under Sprite
+        *   Set Color to: [R: 255, G: 128, B: 0, A: 0.25]
+    *   Under RigidBody
+
+        *   Set DynamicState to: Static
+    *   Under BoxCollider
+
+        *   Set Ghost to: True
+
+|pbr|
+
+*   :ref:`Add the VortexEffect component <AddComponent2014>` to the VortexRegion object with the following properties:
+
+    |1000000000000102000001BA7BE03CE3_png|
+
+The **ForceStrengthAtMinDistance** and **ForceStrengthAtMaxDistance** properties of the VortexEffect are referring to the **perpendicular force** as shown in the diagram above. The **InwardStrengthAtMinDistance** and **InwardStrengthAtMaxDistance** properties are referring to the **inward force** as shown in the diagram above.
+
+You can see the MinDistance and MaxDistance properties governing where those values are used in the debug display:
+
+|MinMaxDebug_png| 
+
+*The Red circle Marks the MinDistance and the Green circle marks the MaxDistance*
+
+When viewed from an angle, you can more clearly see the VortexAxis:
+
+|VortexAxis_png| 
+
+*The black vector protruding from the center of the object indicates the vortex axis*
+
+The **EndCondition** property controls how objects are affected by the vortex when still in contact with the region applying the effect, but beyond the MaxDistance range (in our case the corners of our region falling outside of our green circle). We'll leave ours at ClampToMax, so the ForceStrengthAtMaxDistance will be applied. 
+
+Those items falling inside the rec circle have the ForceStrengthAtMinDistance applied to them. 
+
+*   :ref:`Select the WindRegion object <SelectObject2014>`
+*   In the Properties Window
+
+    *   Under WindEffect
+
+        *   Set WindDirection to: [1, 0, 0]
+*   Delete the HeavyBlock object
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+The WhiteBlock object falls into the "wind region" and is "blown" towards the "vortex region" where the VortexEffect that has been applied to the VortexRegion object is applying forces to the WhiteBlock object in a vortex-like manner as shown in the diagram above. 
+
+|pbr|
+
+Running the game we see this:
+
+|NoBookBegin|
+|VortexRegionWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|VortexRegionBook|
+|NoWebEnd|
+
+FlowEffect
+~~~~~~~~~~
+
+A flow effect will apply a force in a direction to make the objects inside it move at a desired speed. By changing the **MaxFlowForce** you change the acceleration of the affected objects by controlling how strongly they can be pushed. The flow effect applies a force up to **MaxFlowForce** in strength in order to align it with the **FlowDirection** and reach the desired **FlowSpeed**. 
+
+*   :ref:`Close the Game Window <StopGame2014>`
+
+**FlowRegion Object**
+
+*   :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In Properties Window
+
+    *   Set Name to: FlowRegion
+    *   :ref:`Add the RigidBody component <AddComponent2014>`
+    *   :ref:`Add the BoxCollider component <AddComponent2014>` 
+    *   :ref:`Add the Region component <AddComponent2014>` 
+    *   Under Transform
+
+        *   Set Translation to: [8, 2, 0.02]
+        *   Set Rotation to: [0, 0, -75]
+        *   Set Scale to: [15, 4, 1]
+    *   Under Sprite
+
+        *   Set Color to: [R: 255, G: 0, B: 255, A: 0.25]
+    
+    |pbr|
+    
+    *   Under RigidBody
+
+        *   Set DynamicState to: Static
+    *   Under BoxCollider
+
+        *   Set Ghost to: True
+        
+    *   :ref:`Add the FlowEffect component <AddComponent2014>` to the **FlowRegion** object; make sure it has the following properties:
+
+                |1000000000000117000001AB22A131DD_png|
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+|pbr|
+
+After including our FlowRegion:
+
+|WorldAxisFlow|
+
+When the WhiteBlock comes into the FlowRegion's Collider area it looks like it bounces off of the FlowRegion. What happened? We set the BoxCollider component of the FlowRegion Ghost property to True, right? Yes, it just so happens we also set the FlowEffect's **FlowDirection** property is set to [-1, 0, 0], so it appears like our blocks are bouncing off the Flow Region as they are pushed strongly along the negative x-axis. This slows down objects entering the flow from the side. Notice how the WhiteBlock object moves along the **world's** **x-axis**. What if we wanted to make the flow direction be along the FlowRegion object's local x-axis?
+
+*   :ref:`Close the Game Window <StopGame2014>`
+*   :ref:`Select the FlowRegion object <SelectObject2014>`
+*   In the Property Window
+
+    *   Under FlowEffect
+
+        *   Set **LocalForce** to: True
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+|pbr|
+
+Here you can see it is pulled along the its local x-axis:
+
+|LocalAxisFlow|
+
+The flow effect can pull objects to the "center" of the flow field, where the center is defined as the center of the object along the perpendicular of the flow direction.
+
+*   :ref:`Close the Game Window <StopGame2014>`
+*   :ref:`Select the FlowRegion object <SelectObject2014>`
+*   In the Property Window
+
+    *   Under FlowEffect
+
+        *   Set **AttractToFlowCenter** to: True
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+Now when the WhiteBlock enters the flow region, it not only moves along the local x-axis of the FlowRegion object, but also moves to the center of the flow region (perpendicular to the flow direction).
+
+|pbr|
+
+Here we can see the FlowRegion acting like a cannon:
+
+|AttractedToCenter|
+
+*If you wait long enough it should fall back into the White block as a perpetual machine.*
+
+What PhysicsEffects Affects
+---------------------------
+
+These are some of the ways PhysicsEffects will behave based on what they are attached to:
+
+*   **Space:** If attached to a Space, the effect will be applied to all objects inside of the Space.
+*   **Region:** If attached to an object that has a Region component, it will be applied to all of the objects inside of the Region.
+*   **RigidBody:** If attached to an object that has a RigidBody component and does not have a Region component, then the effect will be applied to the RigidBody itself (only that object).
+*   **Collider:** If attached to an object that has a Collider component and does not have a RigidBody or Region component, then the effect will be applied to the parent object (attaching objects to parent objects will be covered in the particle systems lesson). This is primarily useful for creating a piece that should apply an effect based upon its position relative to its parent, such as a thruster object attached to a rocket.
+
+Now we know how to use Regions as trigger volumes, and apply PhysicsEffects to Regions.
+
+|pbr|
+
+On Your Own
+-----------
+
+Explore attaching the PhysicsEffects you learned at different levels to make interesting behavior on your game objects.
+
+* Try adding new PhysicsEffects to the level.
+* What happens if you add multiple PhysicsEffects to the WhiteBlock? |br| How do they interact?
+* What happens if a Region applies a PhysicsEffect that negates one on the Level? |br| (e.g. the same magnitude gravity, but in the opposite direction) |br| Do they cancel out? |br| Does the Region override the Level? |br| Does the Level override the Region?
+
+Explore other components that fall under the PhysicsEffect tag and their properties, e.g. PointGravityEffect.
+
+.. |FirstRun| image:: images/PhysicsEffects/FirstRun.png
+    :width: 8.35in
+
+.. |JumpingBlockBook| image:: images/PhysicsEffects/JumpingBlock.png
+    :height: 2.75in
+
+.. |JumpingBlockWeb| image:: images/PhysicsEffects/JumpingBlock.png
+
+.. |GhostCollision| image:: images/PhysicsEffects/GhostCollision.png
+
+.. |HeavyBlockSinksBook| image:: images/PhysicsEffects/HeavyBlockSinks.png
+    :height: 2.5in
+
+.. |HeavyBlockSinksWeb| image:: images/PhysicsEffects/HeavyBlockSinks.png
+
+.. |HeavyBlockMass| image:: images/PhysicsEffects/HeavyBlockMass.png
+
+.. |VortexRegionWeb| image:: images/PhysicsEffects/VortexRegion.png
+
+.. |VortexRegionBook| image:: images/PhysicsEffects/VortexRegion.png
+    :height: 3.0in
+
+.. |WorldAxisFlow| image:: images/PhysicsEffects/WorldAxisFlow.png
+
+.. |LocalAxisFlow| image:: images/PhysicsEffects/LocalAxisFlow.png
+
+.. |AttractedToCenter| image:: images/PhysicsEffects/AttractedToCenter.png
+
+.. |1000000000000117000001AB22A131DD_png| image:: images/PhysicsEffects/1000000000000117000001AB22A131DD.png
+
+.. |WebVortexDiagram_png| image:: images/PhysicsEffects/VortexDiagram.png
+    :width: 4.0in
+    :height: 4.0in
+    
+.. |BookVortexDiagram_png| image:: images/PhysicsEffects/VortexDiagram.png
+    :width: 3.0in
+    :height: 3.0in
+
+.. |1000000000000111000001AC5A547AE4_png| image:: images/PhysicsEffects/1000000000000111000001AC5A547AE4.png
+
+.. |1000000000000102000001BA7BE03CE3_png| image:: images/PhysicsEffects/1000000000000102000001BA7BE03CE3.png
+
+.. |MinMaxDebug_png| image:: images/PhysicsEffects/MinMaxDebug.png
+
+.. |VortexAxis_png| image:: images/PhysicsEffects/VortexAxis.png
+
+.. include:: BookFormattingShortcuts.rst

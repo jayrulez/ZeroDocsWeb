@@ -1,0 +1,106 @@
+.. _ReferenceLinearAxisJoint:
+
+.. rst-class:: searchtitle
+
+LinearAxisJoint
+===============
+
+.. rst-class:: searchdescription
+
+A linear axis joint is used to keep an object locked on a plane that is defined by a normal. Special case use is for the dynamic controller. Should not be created by anyone else! If it is absolutely desired for movement, then the constraint should be turned off and a motor should be added. This will then push the objects in the direction of the normal of the plane.
+
+.. include:: Description/LinearAxisJoint.rst
+
+.. cpp:class:: LinearAxisJoint
+
+    Base Class: :cpp:type:`Joint`
+
+.. _ReferenceLinearAxisJointProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog LinearAxisJoint::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space LinearAxisJoint::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog LinearAxisJoint::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession LinearAxisJoint::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LinearAxisJoint::Active
+
+            Determines if this joint is currently active. Used for runtime enabling/disabling of joints.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LinearAxisJoint::SendsEvents
+
+            Determines if this joint will send any events. Used for a small efficiency boost and for reducing the number of events.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LinearAxisJoint::AutoSnaps
+
+            Determines if this joint will automatically delete itself if it reaches the max force value. This will still send an event if it snaps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LinearAxisJoint::CollideConnected
+
+            Determines if the two objects connected by this joint can collide. If any joint between this pair does not collide, then the pair does not collide. All joints have to be set to true in order to have the objects collide.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real LinearAxisJoint::MaxForce
+
+            The maximum force that this joint can apply to correct itself.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 LinearAxisJoint::WorldAxis
+
+            The axis in world space that the object will move along.
+
+.. _ReferenceLinearAxisJointMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void LinearAxisJoint::DebugDraw()
+
+            Draws the debug info associated with this joint.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog LinearAxisJoint::GetOtherObject(Cog cog)
+
+            If the passed in object is ObjectA, returns ObjectB. Prevents the user from having to write the if case all the time.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog LinearAxisJoint::GetCog(uint index)
+
+            Returns the cog associated with an index. Index of 0 is ObjectA, index 1 is ObjectB. Used to write more streamline functions where you index into the objects in a loop.
+
+.. include:: Remarks/LinearAxisJoint.rst

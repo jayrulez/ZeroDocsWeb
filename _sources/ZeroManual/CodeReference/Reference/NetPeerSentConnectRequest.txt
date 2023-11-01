@@ -1,0 +1,49 @@
+.. _ReferenceNetPeerSentConnectRequest:
+
+.. rst-class:: searchtitle
+
+NetPeerSentConnectRequest
+=========================
+
+.. rst-class:: searchdescription
+
+Dispatched after sending a connect request.
+
+.. include:: Description/NetPeerSentConnectRequest.rst
+
+.. cpp:class:: NetPeerSentConnectRequest
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceNetPeerSentConnectRequestProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetPeerSentConnectRequest::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: IpAddress NetPeerSentConnectRequest::TheirIpAddress
+
+            Data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EventBundle NetPeerSentConnectRequest::OurRequestBundle
+
+            Their IP address(as seen from our perspective)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint NetPeerSentConnectRequest::OurPendingUserAddRequestCount
+
+            Our bundled request event data.
+
+.. _ReferenceNetPeerSentConnectRequestMethods:
+
+.. include:: Remarks/NetPeerSentConnectRequest.rst

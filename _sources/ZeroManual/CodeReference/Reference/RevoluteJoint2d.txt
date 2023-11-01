@@ -1,0 +1,130 @@
+.. _ReferenceRevoluteJoint2d:
+
+.. rst-class:: searchtitle
+
+RevoluteJoint2d
+===============
+
+.. rst-class:: searchdescription
+
+A revolute joint is used to create a wheel or a hinge. This is the 2d version of the revolute joint. This joint is used in 2d mode for increased speed and stability. The motor axis is automatically set to the z axis, as that is the only axis objects can rotate upon. Also, the translation on the z axis is ignored so that objects can be arbitrarily far apart. Add on definitions: Limit: A limit will provide a min/max angle on the motor axis. Motor: A motor will turn the objects about the motor axis. Spring: A spring will make the motor axis springy at the limits.
+
+.. include:: Description/RevoluteJoint2d.rst
+
+.. cpp:class:: RevoluteJoint2d
+
+    Base Class: :cpp:type:`Joint`
+
+.. _ReferenceRevoluteJoint2dProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog RevoluteJoint2d::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space RevoluteJoint2d::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog RevoluteJoint2d::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession RevoluteJoint2d::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RevoluteJoint2d::Active
+
+            Determines if this joint is currently active. Used for runtime enabling/disabling of joints.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RevoluteJoint2d::SendsEvents
+
+            Determines if this joint will send any events. Used for a small efficiency boost and for reducing the number of events.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RevoluteJoint2d::AutoSnaps
+
+            Determines if this joint will automatically delete itself if it reaches the max force value. This will still send an event if it snaps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RevoluteJoint2d::CollideConnected
+
+            Determines if the two objects connected by this joint can collide. If any joint between this pair does not collide, then the pair does not collide. All joints have to be set to true in order to have the objects collide.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real RevoluteJoint2d::MaxForce
+
+            The maximum force that this joint can apply to correct itself.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 RevoluteJoint2d::LocalPointA
+
+            The local point of the anchor on object A.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 RevoluteJoint2d::LocalPointB
+
+            The local point of the anchor on object B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 RevoluteJoint2d::WorldPointA
+
+            The position of the anchor on object A in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 RevoluteJoint2d::WorldPointB
+
+            The position of the anchor on object B in world space.
+
+.. _ReferenceRevoluteJoint2dMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RevoluteJoint2d::DebugDraw()
+
+            Draws the debug info associated with this joint.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog RevoluteJoint2d::GetOtherObject(Cog cog)
+
+            If the passed in object is ObjectA, returns ObjectB. Prevents the user from having to write the if case all the time.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog RevoluteJoint2d::GetCog(uint index)
+
+            Returns the cog associated with an index. Index of 0 is ObjectA, index 1 is ObjectB. Used to write more streamline functions where you index into the objects in a loop.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RevoluteJoint2d::SetWorldPointsVec3
+
+            Sets the position of the anchor on object A and B given a position in world space
+
+.. include:: Remarks/RevoluteJoint2d.rst

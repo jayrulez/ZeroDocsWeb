@@ -1,0 +1,555 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Gameplay/LevelPath.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:23 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>LevelPath &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Gameplay" href="index.html"/>
+        <link rel="next" title="Graphics" href="../Graphics/index.html"/>
+        <link rel="prev" title="Handle the Quit Message (Stop Esc from Exiting Game)" href="HandlingQuitMessage.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Gameplay</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Random.html">Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Input/index.html">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath/index.html">Vector Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingQuitMessage.html">Handle the Quit Message (Stop Esc from Exiting Game)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">LevelPath</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="index.html">Gameplay</a> &raquo;</li>
+      
+    <li>LevelPath</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/ZeroManual/Gameplay/LevelPath.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="levelpath">
+<span id="manuallevelpath"></span><h1>LevelPath</h1>
+<p class="searchdescription">A <a class="reference internal" href="../CodeReference/Reference/LevelPath.html#_CPPv29LevelPath" title="LevelPath"><code class="xref cpp cpp-type docutils literal"><span class="pre">LevelPath</span></code></a> is a component that is used to create spline paths that any game object can be made to follow. The Path can be created manually in the Editor, or ControlPoints can be added at runtime.</p>
+<div class="section" id="common-uses">
+<h2>Common Uses</h2>
+<ul class="simple">
+<li>Creating a patrol route for enemies to follow</li>
+<li>Creating a camera path for an on-rails game</li>
+</ul>
+</div>
+<div class="section" id="using-a-levelpath">
+<h2>Using a LevelPath</h2>
+<p>LevelPath is a component that can be added to any Cog so long as it also has the Transform component attached. Once attached, the object has access to several options to start creating a Path.</p>
+<p><img alt="LevelPathProperties" src="../../_images/LevelPathProperties.png" /></p>
+<p>The properties of the LevelPath will effect the Path in various ways. All of the properties can be modified both in editor as well as at runtime.</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">Closed</span></code>: This will determine whether or not the Path loops in on itself.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">DebugDraw</span></code>: If this is turned off then the current Path will not be shown either in editor or at runtime. Note that even if DebugDraw is turned off the control points may still be viewable.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Error</span></code>: Determines how far a line segment is allowed to deviate from the curve. A higher error will create a more pointed curve, especially if the Path has tight bends.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">CurveType</span></code>: The CurveType determines how the control points will effect the curve of the Path. There are three different CurveTypes, each with their own benefits and drawbacks.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Linear</span></code>: A linear path will simply be drawn in a straight line from one control point to the next. The Path will always hit each control point, but it will also only have sharp corners rather than a smooth curve.</li>
+<li><code class="docutils literal"><span class="pre">BSpline</span></code>: A BSpline will create a smooth curve throughout the Path, however it will not go directly through each of the control points. As such it may not be always be drawn as expected.</li>
+<li><code class="docutils literal"><span class="pre">CatmulRom</span></code>: CatmulRom Paths will go through each control point, but it is also possible for the Path to loop and intersect itself if the control points are too close to each other.</li>
+</ul>
+<p>Below is an example of each CurveType, each using the same control points in the same positions.</p>
+<p><img alt="LinearSpline" src="../../_images/LinearSpline.png" />
+<em>Linear CurveType</em></p>
+<p><img alt="BSpline" src="../../_images/BSpline.png" />
+<em>BSpline CurveType</em></p>
+<p><img alt="CatmullRomSpline" src="../../_images/CatmullRomSpline.png" />
+<em>CatmulRom CurveType</em></p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">DisplayProxyControlPoints</span></code>: This determines whether or not the control points used to modify the Path in editor are shown. Note that if they are turned off, the Path itself may still be viewable. However if they are turned off then they will no longer move if their parent object (the Cog with the LevelPath component attached) is moved, and as the Path itself is derived from their position the Path will not move as well.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="creating-a-path">
+<h2>Creating a Path</h2>
+<p>A Path can be created either in the Zero Editor or at runtime from a ZilchScript. Which method is a better choice is typically dependent on the manner of gameplay; if the direction the object will be taking is known it&#8217;s generally better to make the Path in editor so that the it can be hand crafted, however if the direction is unknown it will need to be created at runtime. It&#8217;s also possible to use a mix of both: a number of different Paths can be created ahead of time and the player may choose which direction to travel, at which point smaller Paths can be made to join the currently traveled Path with the next the player has chosen.</p>
+<div class="section" id="using-the-editor">
+<h3>Using the Editor</h3>
+<p>In order to make a Path using the editor, simply click on <code class="docutils literal"><span class="pre">AddPoint</span></code> in the LevelPath properties. Each time the button is pressed it will create a new control point a short distance away from the previous control point along the current vector the path is pointed in. The control points can then be moved in order to manipulate the shape of the path.</p>
+<p><img alt="AddControlPoints" src="../../_images/AddControlPoints.gif" /></p>
+<p>If any control points are deleted, the path will be recalculated and redrawn with the remaining points.</p>
+</div>
+<div class="section" id="in-a-zilchscript">
+<h3>In a ZilchScript</h3>
+<p>To create a Path at runtime, there are two options. The <code class="docutils literal"><span class="pre">LevelPath.AddPoint()</span></code> function can be used, which acts in the same manner as clicking on the <code class="docutils literal"><span class="pre">AddPoint</span></code> button in the properties window, however because of that it&#8217;s somewhat inefficient: after making the control point, it would then be necessary to get a reference to that control point in order to move it into the correct position. It will also always be made with the control point being shown. The better option is to use <code class="docutils literal"><span class="pre">LevelPath.Path.AddControlPoint</span></code> with takes a <code class="xref cpp cpp-type docutils literal"><span class="pre">Real3</span></code> and creates a control point at that location.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PathMaker</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">// This class will create a Path in a Sine wave</span>
+
+    <span class="c1">// Make sure that the object has the LevelPath Component</span>
+<span class="na">    [Dependency]</span>
+    <span class="kt">var</span> <span class="n">LevelPath</span> <span class="p">:</span> <span class="n">LevelPath</span><span class="p">;</span>
+
+    <span class="c1">// The Amplitude of the wave</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">Amplitude</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+
+    <span class="c1">// How many times it cycles through the wave</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">MaxCycles</span> <span class="p">:</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+
+    <span class="c1">// The Period of the wave</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">Period</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+
+    <span class="c1">// Variable to be used to keep a reference to the Path</span>
+    <span class="kt">var</span> <span class="n">MyPath</span> <span class="p">:</span> <span class="n">Path</span><span class="p">;</span>
+
+    <span class="c1">// the current point in the Sine wave</span>
+    <span class="kt">var</span> <span class="n">CurrentPoint</span> <span class="p">:</span> <span class="n">Real</span><span class="p">;</span>
+
+    <span class="c1">// How many points have been made</span>
+    <span class="kt">var</span> <span class="n">Point</span> <span class="p">:</span> <span class="n">Integer</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Save the reference of the Path of the LevelPath</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">MyPath</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">LevelPath</span><span class="p">.</span><span class="n">Path</span><span class="p">;</span>
+
+        <span class="c1">// Check to make sure at least one cycle is being made</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">MaxCycles</span> <span class="p">&lt;=</span> <span class="m">0</span><span class="p">)</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">MaxCycles</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+
+        <span class="c1">// Make sure that the Period is not zero</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Period</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Period</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// There needs to be 5 made in the first cycle, however there only</span>
+        <span class="c1">// needs to be 4 points in each cycle after the first. Therefore</span>
+        <span class="c1">// there needs to be one less point made for each cycle after the first</span>
+        <span class="k">if</span> <span class="p">((</span><span class="k">this</span><span class="p">.</span><span class="n">Point</span><span class="p">+(</span><span class="k">this</span><span class="p">.</span><span class="n">MaxCycles</span> <span class="p">-</span> <span class="m">1</span><span class="p">))</span> <span class="p">&lt;</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">MaxCycles</span> <span class="p">*</span> <span class="m">5</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="c1">// Find the Y location based on the Sine wave equation</span>
+            <span class="kt">var</span> <span class="n">yLoc</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Amplitude</span> <span class="p">*</span>
+                       <span class="n">Math</span><span class="p">.</span><span class="n">Sin</span><span class="p">((</span><span class="n">Math</span><span class="p">.</span><span class="n">Pi</span><span class="p">/</span><span class="m">2</span><span class="p">*(</span><span class="m">1</span><span class="p">/(</span><span class="k">this</span><span class="p">.</span><span class="n">Period</span><span class="p">)))*</span><span class="k">this</span><span class="p">.</span><span class="n">CurrentPoint</span><span class="p">);</span>
+
+            <span class="c1">// Create a new control point at:</span>
+            <span class="c1">// The current X location of the Sine wave</span>
+            <span class="c1">// The Y location determined by the Sine equation</span>
+            <span class="c1">// And offset by the position of the object with the LevelPath component</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">MyPath</span><span class="p">.</span><span class="n">AddControlPoint</span><span class="p">(</span><span class="n">Real3</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CurrentPoint</span><span class="p">,</span> <span class="n">yLoc</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span>
+                                        <span class="p">+</span> <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">);</span>
+
+            <span class="c1">// Update the X location</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">CurrentPoint</span> <span class="p">+=</span> <span class="k">this</span><span class="p">.</span><span class="n">Period</span><span class="p">;</span>
+
+            <span class="c1">// Update how many points have been made</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Point</span> <span class="p">+=</span> <span class="m">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="c1">// Since all points have been made, LogicUpdate is no longer needed</span>
+            <span class="n">Zero</span><span class="p">.</span><span class="n">Disconnect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="following-a-path">
+<h2>Following a Path</h2>
+<p>Once a Path has been made, <code class="docutils literal"><span class="pre">LevelPath.Path.SampleDistance().WorldPoint</span></code> can be used to get a Real3 of the location of the Path at a specific distance from the start. By using that function in <code class="docutils literal"><span class="pre">LogicUpdate</span></code> the location of an object can be repeatedly updated to the next point on the line.</p>
+<p>With some updates to the previous script and by creating a new script, they can be used to create an enemy that follows the wave when it gets created.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CreatePathMaker</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">// An archetype that needs to have both the</span>
+    <span class="c1">// LevelPath component and the PathMaker script</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">PathMaker</span> <span class="p">:</span> <span class="n">Archetype</span><span class="p">;</span>
+
+    <span class="c1">// How fast to move along the Path</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">MoveSpeed</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+
+    <span class="c1">// The specific object that made the Path</span>
+    <span class="kt">var</span> <span class="n">PathMakerCog</span> <span class="p">:</span> <span class="n">Cog</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+    <span class="c1">// A reference to the Path to be followed</span>
+    <span class="kt">var</span> <span class="n">MyPath</span> <span class="p">:</span> <span class="n">Path</span><span class="p">;</span>
+
+    <span class="c1">// A timer to determine the time on the Path</span>
+    <span class="kt">var</span> <span class="n">TimePassed</span> <span class="p">:</span> <span class="n">Real</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Check that a PathMaker archetype was assigned</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">PathMaker</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Create the PathMaker at the same position as this object</span>
+            <span class="c1">// and save a reference to the created object</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">PathMakerCog</span> <span class="p">=</span>
+                <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">CreateAtPosition</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">PathMaker</span><span class="p">,</span>
+                                            <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">);</span>
+
+            <span class="c1">// Create a new instance of a custom event that&#39;s defined below</span>
+            <span class="kt">var</span> <span class="n">pathRequest</span> <span class="p">=</span> <span class="k">new</span> <span class="n">RequestPathMaker</span><span class="p">();</span>
+
+            <span class="c1">// Information to be sent with the event</span>
+            <span class="n">pathRequest</span><span class="p">.</span><span class="n">Maker</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">;</span>
+            <span class="n">pathRequest</span><span class="p">.</span><span class="n">MaxCycles</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span>
+
+            <span class="c1">// Make sure that the created object has the LevelPath component</span>
+            <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">PathMakerCog</span><span class="p">.</span><span class="n">LevelPath</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="c1">// Dispatch the custom event to the object</span>
+                <span class="k">this</span><span class="p">.</span><span class="n">PathMakerCog</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">RequestPathMaker</span><span class="p">,</span>
+                                                <span class="n">pathRequest</span><span class="p">);</span>
+
+                <span class="c1">// Save a reference to the Path to be followed</span>
+                <span class="k">this</span><span class="p">.</span><span class="n">MyPath</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">PathMakerCog</span><span class="p">.</span><span class="n">LevelPath</span><span class="p">.</span><span class="n">Path</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// A function that will be called when the Path has finished being made</span>
+    <span class="n">function</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Keep track of how much time has passed</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">TimePassed</span> <span class="p">+=</span> <span class="k">event</span><span class="p">.</span><span class="n">Dt</span><span class="p">;</span>
+
+        <span class="c1">// Set the objects position along the Path</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span> <span class="p">=</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">MyPath</span><span class="p">.</span><span class="n">SampleDistance</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">TimePassed</span> <span class="p">*</span>
+                                       <span class="k">this</span><span class="p">.</span><span class="n">MoveSpeed</span><span class="p">).</span><span class="n">WorldPoint</span><span class="p">;</span>
+
+        <span class="c1">// If the object reaches the end of the Path</span>
+        <span class="c1">// and the Path is not closed in a loop</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">TimePassed</span> <span class="p">*</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveSpeed</span>
+            <span class="p">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="n">MyPath</span><span class="p">.</span><span class="n">TotalDistance</span>
+            <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="k">this</span><span class="p">.</span><span class="n">MyPath</span><span class="p">.</span><span class="n">Closed</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Destroy both the object and the PathMaker</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">PathMakerCog</span><span class="p">.</span><span class="n">Destroy</span><span class="p">();</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Destroy</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// The event to send to give information to the PathMaker object</span>
+<span class="k">class</span> <span class="nc">RequestPathMaker</span> <span class="p">:</span> <span class="n">ZilchEvent</span>
+<span class="p">{</span>
+    <span class="n">sends</span> <span class="n">RequestPathMaker</span> <span class="p">:</span> <span class="n">RequestPathMaker</span><span class="p">;</span>
+
+    <span class="c1">// A reference to the object that will be following the Path</span>
+    <span class="kt">var</span> <span class="n">Maker</span> <span class="p">:</span> <span class="n">Cog</span><span class="p">;</span>
+
+    <span class="c1">// The information for the Sine wave</span>
+    <span class="c1">// Defaults to one to make sure usable information is passed</span>
+    <span class="kt">var</span> <span class="n">Amplitude</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+    <span class="kt">var</span> <span class="n">MaxCycles</span> <span class="p">:</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+    <span class="kt">var</span> <span class="n">Period</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">CreatePathMaker</span></code> script will need to be attached to the object that will follow the Path, then some changes will have to be made to the previous <code class="docutils literal"><span class="pre">PathMaker</span></code> script. First the connection to LogicUpdate should be changed to connect to the new <code class="docutils literal"><span class="pre">RequestPathMaker</span></code> event, and the checks on <code class="docutils literal"><span class="pre">this.MaxCycles</span></code> and <code class="docutils literal"><span class="pre">this.Period</span></code> should be moved from the initialize function into the function that event calls.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="hll"><span class="c1">// Reference to the object that will be following the Path</span>
+</span><span class="hll"><span class="kt">var</span> <span class="n">MyMaker</span> <span class="p">:</span> <span class="n">Cog</span><span class="p">;</span>
+</span>
+<span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Save the reference of the Path of the LevelPath</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">MyPath</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">LevelPath</span><span class="p">.</span><span class="n">Path</span><span class="p">;</span>
+
+<span class="hll">    <span class="c1">// Listen for a RequestPathMaker event</span>
+</span><span class="hll">    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">RequestPathMaker</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">MakePath</span><span class="p">);</span>
+</span><span class="p">}</span>
+
+<span class="n">function</span> <span class="nf">MakePath</span> <span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">RequestPathMaker</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Save a reference of object that follows the Path</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">MyMaker</span> <span class="p">=</span> <span class="k">event</span><span class="p">.</span><span class="n">Maker</span><span class="p">;</span>
+
+    <span class="c1">// Set the Amplitude, Period and MaxCycles of the wave</span>
+    <span class="c1">// Check that it&#39;s making at least one cycle</span>
+    <span class="c1">// and the Period is not zero</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Amplitude</span> <span class="p">=</span> <span class="k">event</span><span class="p">.</span><span class="n">Amplitude</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">MaxCycles</span> <span class="p">=</span> <span class="k">event</span><span class="p">.</span><span class="n">MaxCycles</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">MaxCycles</span> <span class="p">&lt;=</span> <span class="m">0</span><span class="p">)</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">MaxCycles</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Period</span> <span class="p">=</span> <span class="k">event</span><span class="p">.</span><span class="n">Period</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Period</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Period</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+
+    <span class="c1">// Connect to LogicUpdate here</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLogicUpdate</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A new line will also have to be added to the <code class="docutils literal"><span class="pre">else</span></code> condition in <code class="docutils literal"><span class="pre">LogicUpdate</span></code>.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="p">...</span>
+<span class="k">else</span>
+<span class="p">{</span>
+<span class="hll">    <span class="c1">// call the Start() function to have the object follow the Path</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="n">MyMaker</span><span class="p">.</span><span class="n">CreatePathMaker</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+</span>
+    <span class="c1">// Since all points have been made, LogicUpdate is no longer needed</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Disconnect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Once the archetypes have been created and assigned, whenever the moving object is created it will create the PathMaker object and send it an event will any information needed for setting the parameters of the sine wave. The PathMaker will then create the Path and, once the Path is finished, call the function on the moving object to connect to LogicUpdate to begin moving.</p>
+<p><img alt="FinishedPath" src="../../_images/FinishedPath.gif" /></p>
+</div>
+<div class="section" id="properties-and-methods-of-levelpath">
+<h2>Properties and Methods of LevelPath</h2>
+<ul class="simple">
+<li><a class="reference internal" href="../CodeReference/Reference/LevelPath.html#referencelevelpath"><span>LevelPath</span></a></li>
+<li><a class="reference internal" href="../CodeReference/Reference/Path.html#referencepath"><span>Path</span></a></li>
+</ul>
+</div>
+<div class="section" id="related-materials">
+<h2>Related Materials</h2>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../CodeReference/Reference/Path.html#_CPPv24Path" title="Path"><code class="xref cpp cpp-type docutils literal"><span class="pre">Path</span></code></a></li>
+<li><a class="reference internal" href="../CodeReference/Reference/LevelPath.html#_CPPv29LevelPath" title="LevelPath"><code class="xref cpp cpp-type docutils literal"><span class="pre">LevelPath</span></code></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Graphics/index.html" class="btn btn-neutral float-right" title="Graphics" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="HandlingQuitMessage.html" class="btn btn-neutral" title="Handle the Quit Message (Stop Esc from Exiting Game)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Gameplay/LevelPath.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:25 GMT -->
+</html>

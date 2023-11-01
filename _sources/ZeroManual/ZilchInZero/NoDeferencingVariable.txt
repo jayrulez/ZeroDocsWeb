@@ -1,0 +1,13 @@
+.. warning:: 
+    
+    Zilch does not currently have a dereferencing operator.
+    
+    Although you can still use the ``ref`` type with the **dot operator** to access functionality, those typed with ``ref`` will not be equivalent to the ``non-ref`` type. *Anything expecting a* ``non-ref`` *type will not accept a* ``ref`` *type without dereferencing.* Consider the following:
+    
+    .. code-block:: as
+    
+        var heapObject: ref CustomStruct = new CustomStruct();
+        // The following will not compile because they are different types:
+        //              CustomStruct != ref CustomStruct
+        var stackObject: CustomStruct = heapObject;
+

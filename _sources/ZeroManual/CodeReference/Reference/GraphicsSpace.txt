@@ -1,0 +1,88 @@
+.. _ReferenceGraphicsSpace:
+
+.. rst-class:: searchtitle
+
+GraphicsSpace
+=============
+
+.. rst-class:: searchdescription
+
+A Space of geometric objects. The space Contains Models and other 3d objects.
+
+.. include:: Description/GraphicsSpace.rst
+
+.. cpp:class:: GraphicsSpace
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceGraphicsSpaceProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog GraphicsSpace::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space GraphicsSpace::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog GraphicsSpace::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession GraphicsSpace::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: TransparentSort::Type GraphicsSpace::TransparentSort
+
+            How transparent objects will be sorted if the camera does not.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SpriteLayerOrder GraphicsSpace::SpriteLayerOrder
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GraphicsSpace::Active
+
+            Prevent Visibility, Particle System, and Render updates.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GraphicsSpace::UseRandomSeed
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint GraphicsSpace::RandomSeed
+
+            
+
+.. _ReferenceGraphicsSpaceMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GraphicsSpace::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/GraphicsSpace.rst

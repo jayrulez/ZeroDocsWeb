@@ -1,0 +1,76 @@
+.. _ReferenceScreenWarpRing:
+
+.. rst-class:: searchtitle
+
+ScreenWarpRing
+==============
+
+.. rst-class:: searchdescription
+
+A component that creates a graphical warping effect(in a ring). Requires the deferred renderer and that Refraction is enabled.
+
+.. include:: Description/ScreenWarpRing.rst
+
+.. cpp:class:: ScreenWarpRing
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceScreenWarpRingProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ScreenWarpRing::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space ScreenWarpRing::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ScreenWarpRing::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession ScreenWarpRing::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real ScreenWarpRing::Size
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real ScreenWarpRing::Thickness
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real ScreenWarpRing::Intensity
+
+            
+
+.. _ReferenceScreenWarpRingMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ScreenWarpRing::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/ScreenWarpRing.rst

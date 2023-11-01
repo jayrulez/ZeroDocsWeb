@@ -1,0 +1,85 @@
+.. _ReferenceKeyboardEvent:
+
+.. rst-class:: searchtitle
+
+KeyboardEvent
+=============
+
+.. rst-class:: searchdescription
+
+Keyboard Events are for when key state changes.
+
+.. include:: Description/KeyboardEvent.rst
+
+.. cpp:class:: KeyboardEvent
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceKeyboardEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String KeyboardEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Keys::Enum KeyboardEvent::Key
+
+            Key that was changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: KeyState::Enum KeyboardEvent::State
+
+            State of the key Up,Down,Repeated.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool KeyboardEvent::ShiftPressed
+
+            Is Shift pressed with this key?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool KeyboardEvent::AltPressed
+
+            Is Alt pressed with this key?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool KeyboardEvent::CtrlPressed
+
+            Is Ctrl pressed with this key?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool KeyboardEvent::SpacePressed
+
+            Is Space pressed with this key?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Boolean KeyboardEvent::HandledEvent
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Keyboard KeyboardEvent::Keyboard
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint KeyboardEvent::OsKey
+
+            The original OS key that was pressed(platform specific)
+
+.. _ReferenceKeyboardEventMethods:
+
+.. include:: Remarks/KeyboardEvent.rst

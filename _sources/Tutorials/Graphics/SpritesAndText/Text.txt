@@ -1,0 +1,621 @@
+.. _TutorialText:
+
+.. rst-class:: SearchTitle
+
+Sprite Text
+===========
+
+.. rst-class:: SearchDescription
+
+This lesson covers the use of :cpp:type:`SpriteText` and :cpp:type:`Sprite` component and how they can be used with the Area component as well as the :cpp:type:`SpriteLayer` and :cpp:type:`SpriteLayerOrder` resources. Topics include tiling sprites, nine-sliced sprites, text, both wrapping and rotated, and solutions to **z-fighting.**
+
+.. _TutorialTextVocab:
+
+Learning Objectives
+-------------------
+
+*   Understand Nine-Slice Scaling
+
+*   Understand how to display text through the :cpp:type:`SpriteText` component.
+
+*   Usage of the Text Block Resource.
+
+*   Importing images.
+
+*   Layering sprites.
+
+.. rst-class:: VocabSection
+
++---------------------------------+
+| Vocabulary                      |
++============+====================+
+| Tiling     | Nine-Slice Scaling |
++------------+--------------------+
+| SpriteText | Font               |
++------------+--------------------+
+| TextBlock  | Sprite Layer       |
++------------+--------------------+
+
+Sprites
+-------
+
+*   :ref:`Create a New 2D Project<LauncherNewProjectTab>`
+
+
+Get all three items included in the ``VG_1SpritesAndText`` package (brickWalltileable.png, PosterOnWall.png, and Button.png) from the Void. 
+ 
+Tiling Sprites
+++++++++++++++
+ 
+By default, sprites are set up to stretch, so to make them tile we'll have to change some settings.
+
+*   In the Library Window
+
+    *   ``Double Left Click`` on SpriteSource
+    
+    *   ``Double Left Click`` on brickWalltileable
+    
+*   In the Sprite Source Editor Window
+
+    *   Set SpriteFill to: ``Tiled``
+  
+|SSEWTiled|  
+
+    *   ``Left Click`` Save to Sprite Source
+
+**Create a Sprite**
+
+*   :ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+ 
+|SWCreateSpriteText|
+
+*   :ref:`Select the newly created object <ManualSelectObject>`
+*   In the Properties Window
+
+    *   Set Name to: ``Wall``
+    
+    *   Under Sprite 
+    
+        *   Set SpriteSource to: ``brickWalltileable``
+
+*   In the Level Window
+  
+    *   :ref:`Select the Wall <ManualSelectObject>`
+    
+    *   Press ``5``
+
+Scale your sprite with the Manipulator Tool. 
+
+|LWStillStretched|
+
+
+
+What you may have noticed is that setting it to Tiled mode had no impact on the 
+Sprite --the image was still stretched. In order to make tiling work we'll add the Area component. 
+
+*   Press ``Ctrl + Z`` to undo the stretched scaling of the sprite.
+ 
+*   In the Properties Window
+  
+    *   :ref:`Add the Area component <ManualAddRemoveComponents>`
+    
+*   In the Level Window
+  
+    *   Press ``5`` 
+
+Scale your sprite with the Manipulator Tool.
+
+|PWAreaLWTiled|
+
+Now that we have the Area component we can see the sprite is actually tiling as 
+we manipulate it. 
+
+
+
+Nine-Slicing Sprites
+++++++++++++++++++++
+
+**Create a Sprite**
+
+*   :ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+*   :ref:`Select the newly created object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Set Name to: ``WantedPoster``
+    
+    *   Under Sprite 
+    
+        *   Set SpriteSource to: ``PosterOnWall``
+
+*   In the Level Window
+  
+    *   :ref:`Select the WantedPoster <ManualSelectObject>`
+    
+    *   Press ``5``
+
+Scale your sprite with the Manipulator Tool. 
+
+|LWPosterStretched|
+
+
+
+Notice the stretching of the decoration along the edge. 
+Unfortunately, this sprite doesn't tile well. 
+
+*   Press ``Ctrl + Z`` to undo the stretched scaling of the sprite.
+
+What you may notice is that while the edges cannot be easily stretched, the center of the sprite can be; this quality makes it valid as
+a Nine-Slice sprite. 
+
+|NineSliceDemo|
+
+*Nine-Sliced sprites follow this format when being stretched.* 
+
+To make it use the nine-slice scaling, we'll once again change settings on our SpriteSource and add an Area component. 
+
+*   In the Library Window
+
+    *   ``Double Left Click`` on PosterOnWall
+  
+*   In the Sprite Source Editor Window
+
+    *   Set SpriteFill to: ``NineSlice``
+
+To set the position of the lines you see in the diagram, we say how many pixels from the edge each line is.
+
+    *   Set Left to: ``30``
+    
+    *   Set Right to: ``30``
+    
+    *   Set Top to: ``30``
+    
+    *   Set Bottom to: ``30``
+    
+    *   ``Left Click`` Save to Sprite Source
+  
+*   :ref:`Select the WantedPoster <ManualSelectObject>`
+
+*   In the Properties Window
+  
+    *   :ref:`Add the Area component <ManualAddRemoveComponents>`
+  
+Scale your sprite with the Manipulator Tool.
+
+|PWAreaLWNineSliced|
+
+Now the edges are nice on our sprite.
+
+.. sidebar:: The Area Component
+    
+    If you have a sprite that needs to be nine slice scaled, but not everytime the sprite is used, then you can attach the :cpp:type:`Area` component to the object. The :cpp:type:`Area` component forces the object to use nine slice scaling. The ``Size`` property on :cpp:type:`Area` should be used to scale nine-slice sprites instead of ``Scale`` on :cpp:type:`Transform`.
+
+
+Text
+----
+
+In our scene we are going to make our brick wall have a wanted poster on it. 
+For consistency between our screenshots and your results, make sure your 
+properties match:
+
+*   :ref:`Select the Wall <ManualSelectObject>`
+*   In the Properties Window
+  
+    *   Make sure your properties match the settings below:
+  
+|PWWallSettings|
+
+*   :ref:`Select the WantedPoster <ManualSelectObject>`
+*   In the Properties Window
+  
+    *   Make sure your properties match the settings below:
+  
+|PWPosterSettings|
+  
+Now to create the text for our Wanted poster. 
+
+**Create Text**
+
+*   :ref:`Command<ManualCommands>` : ``CreateSpriteText`` or :menuselection:`Create --> Create Sprite Text`
+
+*   :ref:`Select the newly created object <ManualSelectObject>`
+
+    *   In the Properties Window
+  
+        *   Set Name to: ``WantedText``
+        
+        *   Under Translation
+        
+            *   Set Translation to: ``[-9.5, 1, 0]``
+            
+        *   Under SpriteText 
+        
+            *   Set Color to: ``[R: 0, G: 0, B: 0, A: 1.0]``, ``#000000``
+            
+            *   Set FontSize to: ``50``
+            
+            *   Set Text to: ``Wanted``
+ 
+Importing Images
+++++++++++++++++
+ 
+To make it feel more complete we'll place a picture of our culprit in question. 
+First we'll need to make a picture to include, so we can just create a simple face in an external program.
+
+Make your image **64x64** pixels, and save it as a PNG file named ``WantedFace.png``. 
+ 
+or :download:`download the image used in the screenshots.<images/Text/WantedFace.png>` 
+
+*   ``Left Click, Hold + Drag`` your picture from your file explorer on your computer so it is visually over the open Zero Editor.
+
+ |GIOWBrickPoster|
+ 
+*   In the Group Import Options Window
+
+    *   Set ImportImages to: ``Sprites``
+    
+    *   ``Left Click`` Import All
+
+**Create a Sprite**  
+  
+*   :ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+*   :ref:`Select the newly created object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Set Name to: ``WantedPicture``
+    
+    *   Under Translation
+    
+        *   Set Translation to: ``[-8, -1.5, 0]``
+        
+        *   Set Scale to: ``[3, 3, 1]``
+        
+    *   Under Sprite 
+    
+        *   Set SpriteSource to: ``WantedFace``   
+    
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`   
+
+|GWWantedPosterText|
+
+*Here the text appears on our poster along with our own drawn picture.*
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+.. _TutorialAddingFont:
+
+Adding a Font
++++++++++++++
+
+Zero Engine works with many basic fonts. All you have to do is drag and drop the font file into the editor to import it. 
+
+*   Download the ``VD1_Font`` package from The Void.
+
+|SettingNewFont|
+
+TextBlock
++++++++++
+
+Let's add another poster with more information.
+
+.. sidebar:: Formatting the Text
+
+  If using the single line text field instead of a :cpp:type:`TextBlock`, not all whitespace is treated equally, e.g. newlines are ignored. Despite this, you can very precisely set the text from code.   
+
+*   :ref:`Select the WantedPoster object <ManualSelectObject>`
+
+    *   Press ``Ctrl + D`` to duplicate the object 
+  
+*   In the Properties Window
+
+    *   Set Name to: ``HiringFlyer``
+    
+    *   Under Transform
+  
+        *   Set Translation to: ``[-3, -1, 0]``
+    
+*   :ref:`Select the WantedText object <ManualSelectObject>`
+
+    *   Press ``Ctrl + D`` to duplicate the object 
+  
+*   In the Properties Window
+  
+    *   Set Name to: ``HiringText``
+    
+    *   Under Transform
+  
+        *   Set Translation to: ``[-4.5, 1, 0]`` 
+
+Now, instead of applying the new text to the :cpp:type:`Text` property like we did for the previous flyer, let's make a new :cpp:type:`TextBlock` resource that will give us more formatting options.
+ 
+    *   :ref:`Add a new TextBlock resource<ManualResourceAdding>` named: ``HiringTextBlock``
+
+A new, blank window will appear. This is where we'll write our text for the HiringFlyer.
+
+*   In the ``HiringTextBlock`` Window
+
+    *   Add the following text, complete with new lines:
+
+.. code-block:: as
+    
+    We're Now Hiring!
+    Are you a hard working individual ready to create change?
+    Call now! 555-555-5555
+
+To apply this TextBlock to our flyer, we must add the TextBlock component to our ``HiringText`` object.
+
+*   :ref:`Select the HiringText object <ManualSelectObject>`
+
+    *   :ref:`Add the SpriteTextBlock component <ManualAddRemoveComponents>`
+
+    *   Under TextBlock
+
+        *   Set TextBlock to: ``HiringTextBlock``
+
+While the text has kept our line formatting, you may notice that the text has run over the edge of our poster:
+
+|LWTextOverrun| 
+
+Of course we `can` grab the edges of our object and force it into the box shape, but this will skew the text until it is illegible. To confine our text to the area available on the flyer, we'll use the Area component.
+  
+*   :ref:`Add the Area component <ManualAddRemoveComponents>`
+
+*   Under Area
+  
+    *   Set Origin to: ``TopLeft``
+    
+    *   Set Size to: ``[3, 4]``
+
+  
+|LWTextWrappedClipped|
+    
+*You can see that the text is now confined. The message is too large and long to be displayed, and what doesn't get word wrapped isn't shown.*
+ 
+*   Under SpriteText
+  
+    *   Set FontSize to: ``21``
+
+
+
+Now everything is visible, but you might notice it is a bit lopsided to the left:
+
+      |LWTextLeftAligned|
+
+*   Set Align to: ``Center``
+    
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`   
+
+
+|GWHiringFlyer|
+
+*Here the text is correctly wrapped on our flyer.*
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+
+
+To add a little more to the environment, we'll layer a party flyer over our hiring flyer. 
+
+*   :ref:`Select the WantedPoster object <ManualSelectObject>`
+
+    *   Press ``Ctrl + D`` to duplicate the object
+    
+*   In the Properties Window
+
+    *   Set Name to: ``PartyFlyer``
+    
+    *   Under Transform
+  
+        *   Set Translation to: ``[-1, -1, 0]``
+        
+        *   Set Rotation to: ``[0, 0, -12]``
+        
+    *   Under Sprite
+    
+        *   Set Color to: ``[R:255, G:128, B:0, A:1.0]``, ``#FF8000``
+        
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+
+
+|GWOrangeFlyerTextOverlap|
+
+*Here the text from the hiring flyer is already bleeding into our new orange flyer.*
+
+*   :ref:`Stop the Game <ManualStopGame>`    
+
+.. sidebar:: Other solutions?
+
+ If you thought about changing the z-values in Transform's Translation property to get the desired effect, you're right, this would work in our case. 
+ 
+ However, this solution can create heavy maintenance. Either: 
+ 
+ *  Every time you add another object that needs to be sorted you have the potential problem of needing to change half of all the other z-values of the objects being sorted.
+ *  Every time you add an object you end up choosing a number with more decimal places to get the desired effect making it harder to sort them out in your head.
+
+ Moreover, changing the z-value is not a solution to this problem when working in 3D as the depth is no longer constrained to the z-axis, so it is a less versatile solution.
+
+**Z-fighting** is a graphical artifact, or visual error, that occurs when two objects are at the same position. Since items at the same position have no formal method to determine which object should be visible, sprites may flicker or become obscured randomly based on the state of the graphics engine at the time of processing. 
+To change what is rendered on top when two things are at the same distance, we set the graphics to use our own custom :cpp:type:`SpriteLayerOrder` containing our own new :cpp:type:`SpriteLayers<SpriteLayer>`. 
+
+.. _TutorialTextSpriteLayer:
+
+Sprite Layer Ordering
+---------------------
+
+*   :ref:`Add a new SpriteLayerOrder resource<ManualResourceAdding>` named: ``Game``
+
+|SLOWAfterAddGame|  
+
+*   In the Game's Sprite Layer Order Window
+
+    *   ``Left Click`` Add SpriteLayer...
+
+    *   ``Left Click`` DefaultSpriteLayer
+
+In order to change the order we'll need to create our own SpriteLayers. 
+
+*   :ref:`Add a new SpriteLayer resource<ManualResourceAdding>` named: ``HiringFlyer``
+
+*   :ref:`Add a new SpriteLayer resource<ManualResourceAdding>` named: ``PartyFlyer``
+
+*   In the Game's Sprite Layer Order Window
+
+    *   ``Left Click`` Add SpriteLayer...
+
+    *   ``Left Click`` HiringFlyer
+
+    *   ``Left Click`` PartyFlyer
+  
+To make the game use this new SpriteLayerOrder we have to set in on the Graphics Space.
+
+*   In the Level Window
+
+    *   Press ``Shift + S`` 
+
+*   In the Properties Window
+
+    *   Under GraphicsSpace
+
+        *   Set SpriteLayerOrder to: ``Game``
+
+Then we need to actually associate the Objects with the Sprites and SpriteText components to the layers we created. 
+
+*   :ref:`Select the HiringFlyer object <ManualSelectObject>`
+
+    *   In the Properties Window
+
+        *   Under Sprite
+
+            *   Set SpriteLayer to: ``HiringFlyer``
+
+|LWTextbehind|  
+   
+*You may notice the SpriteText for the HiringFlyer is now hidden.*
+
+*   :ref:`Select the HiringText object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Under SpriteText
+
+        *   Set SpriteLayer to: ``HiringFlyer``
+
+|LWHiringFlyerForward|
+   
+*Now our hiring flyer is fully visible.* 
+   
+*   :ref:`Select the PartyFlyer object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Under Sprite
+
+        *   Set SpriteLayer to: ``PartyFlyer``
+
+|LWPartyFlyerForward|
+   
+    *Now the party flyer is successfully layered over the hiring flyer.*    
+
+
+
+Now if we change our mind which one we want layered on top, all we have to do it rearrange the order:
+
+  |GWSLOWPartyBehind| |GWSLOWHiringBehind|
+  
+Now to add text to our party flyer.
+
+
+
+Rotated Text
+------------
+
+Rotating is as simple with text as it is with sprites. We'll be setting ours directly in the Rotation property of the Transform component:
+
+*   :ref:`Select the HiringText object <ManualSelectObject>`
+
+    *   Press ``Ctrl + D`` to duplicate the object
+    
+*   In the Properties Window
+
+    *   Set Name to: ``PartyText``
+
+    *   Delete the SpriteTextBlock component
+
+    *   Under Transform
+
+        *   Set Translation to: ``[-2.1, 1, 0]``
+
+        *   Set Rotation to: ``[0, 0, -12]``
+
+    *   Under SpriteText
+
+        *   Set SpriteLayer to: ``PartyFlyer``
+
+        *   Set FontSize to: ``30``
+
+        *   Set Text to: ``Party Friday at the Roombox $5 Cover - LIVE Bands`` 
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+|GWRotatePartyText|
+
+Now we know how to make Sprites and Text and how the Area component is used with both.
+
+Related Materials
+-----------------
+
+Manual Pages
+++++++++++++
+
+*   :ref:`Commands<ManualCommands>`
+*   :ref:`Selecting Objects<ManualSelectObject>`
+*   :ref:`Adding a Resource<ManualResourceAdding>`
+*   :ref:`Adding Components<ManualAddRemoveComponents>`
+*   :ref:`Saving<ManualSavingProject>`
+*   :ref:`Running the Project<ManualRunTheGame>`
+*   :ref:`Stop the Project<ManualStopGame>`
+
+Reference Pages
++++++++++++++++
+
+*   :cpp:type:`SpriteSource`
+*   :cpp:type:`Sprite`
+*   :cpp:type:`SpriteText`
+*   :cpp:type:`SpriteLayer`
+*   :cpp:type:`Area`
+*   :cpp:type:`TextBlock`
+*   :cpp:type:`SpriteLayerOrder`
+
+
+.. |GIOWBrickPoster|          image:: images/Text/GIOWBrickPoster.png
+.. |SWCreateSpriteText|       image:: images/Text/SWCreateSpriteText.png
+.. |NineSliceDemo|            image:: images/Text/NineSliceDemo.png
+.. |SSEWTiled|                image:: images/Text/SSEWTiled.png     
+.. |LWStillStretched|         image:: images/Text/LWStillStretched.png     
+.. |PWAreaLWTiled|            image:: images/Text/PWAreaLWTiled.png           
+.. |LWPosterStretched|        image:: images/Text/LWPosterStretched.png
+.. |PWAreaLWNineSliced|       image:: images/Text/PWAreaLWNineSliced.png
+.. |PWWallSettings|           image:: images/Text/PWWallSettings.png
+.. |PWPosterSettings|         image:: images/Text/PWPosterSettings.png
+.. |GWWantedPosterText|       image:: images/Text/GWWantedPosterText.png
+.. |SettingNewFont|           image:: images/Text/SettingNewFont.png
+.. |HiringTextBlock|          image:: images/Text/HiringTextBlock.png
+.. |LWTextOverrun|            image:: images/Text/LWTextOverrun.png           
+.. |LWTextWrappedClipped|     image:: images/Text/LWTextWrappedClipped.png
+.. |LWTextLeftAligned|        image:: images/Text/LWTextLeftAligned.png
+.. |GWHiringFlyer|            image:: images/Text/GWHiringFlyer.png           
+.. |GWOrangeFlyerTextOverlap| image:: images/Text/GWOrangeFlyerTextOverlap.png            
+.. |SLOWAfterAddGame|         image:: images/Text/SLOWAfterAddGame.png    
+.. |LWTextbehind|             image:: images/Text/LWTextbehind.png    
+.. |LWHiringFlyerForward|     image:: images/Text/LWHiringFlyerForward.png
+.. |LWPartyFlyerForward|      image:: images/Text/LWPartyFlyerForward.png
+.. |GWSLOWPartyBehind|        image:: images/Text/GWSLOWPartyBehind.png
+.. |GWSLOWHiringBehind|       image:: images/Text/GWSLOWHiringBehind.png
+.. |GWRotatePartyText|        image:: images/Text/GWRotatePartyText.png
+.. |PWLibChooseAFont|         image:: images/Text/PWLibChooseAFont.png
+ 
+ 

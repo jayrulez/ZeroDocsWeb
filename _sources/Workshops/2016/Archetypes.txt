@@ -1,0 +1,269 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _2016Archetypes:
+
+.. rst-class:: SearchTitle
+
+Archetypes
+==========
+
+.. rst-class:: SearchDescription
+
+This lesson covers the creation and use of :cpp:type:`archetypes<Archetype>`.
+
+.. _2016ArchetypesVocab:
+
+Learning Objectives
+-------------------
+
+* Gain an understanding of archetypes and how they are used in the Zero Engine
+* Create and modify an archetyped object
+
+.. rst-class:: VocabSection
+
++----------------------------------------------------------------+
+| Vocabulary                                                     |
++=======================+=====================+==================+
+| :cpp:type:`Archetype` | Upload To Archetype | Revert Archetype |
++-----------------------+---------------------+------------------+
+
+Archetypes
+----------
+
+An :cpp:type:`archetype<Archetype>` in the Zero Engine (also known as a
+blueprint, prefab, or template in other engines) is a collection of
+:cpp:type:`components<Component>` and their settings which is used to create
+objects. All of the objects created from a certain
+:cpp:type:`archetype<Archetype>` start with the same data, but any changes to
+that data after their creation do not affect the
+:cpp:type:`archetype<Archetype>`. One benefit of
+:cpp:type:`archetypes<Archetype>` is that any changes to the
+:cpp:type:`archetype<Archetype>` affect all of the objects you have created from
+it. We are going to create some :cpp:type:`archetypes<Archetype>` so that we can
+use them to create objects later.
+
+Adding a Pickup ZilchScript
+---------------------------
+
+* :ref:`2016CreateNewProject`
+
+* :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: 'Pickup' 
+
+Update your script to look like this:
+
+.. code-block:: as
+    
+    class Pickup : ZilchComponent
+    {
+      [Property]
+      var Points : Integer = 0;
+    }
+
+Creating an Object
+------------------
+
+* :ref:`Command<2016Commands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+* In the Properties Window
+
+  * Set Name to: ``Pickup``
+    
+  * Under :cpp:type:`Sprite`
+
+    * Set Color to : Yellow [ R: 255, G: 255, B: 0, A: 1.00 ]       
+        
+  * :ref:`Add the Component Pickup <2016AddComponent>`
+
+    * Under Pickup 
+        
+      * Set Points to 100
+
+|pbr|
+  
+Here's what your object should look like:
+
+|NoBookSingleLine| |PickupSettingsWeb|
+
+|NoWebBegin|
+|PickupSettingsBook|
+|NoWebEnd|
+
+Why Archetypes?
+---------------
+
+.. sidebar:: Archetypes are Resources
+    
+    An :cpp:type:`archetype<Archetype>` is an example of a
+    :cpp:type:`resource<Resource>`. Remember, :cpp:type:`resources<Resource>`
+    are shared by everything in the project. Just as two :cpp:type:`cogs<Cog>`'
+    :cpp:type:`Sprite` :cpp:type:`components<Component>` might share the same
+    :cpp:type:`SpriteSource` :cpp:type:`resource<Resource>`, and modifying that
+    :cpp:type:`SpriteSource` will affect both :cpp:type:`cogs<Cog>`, so too
+    might two objects be instances of the same :cpp:type:`Archetype`
+    :cpp:type:`resource<Resource>` --- changes to the
+    :cpp:type:`archetype<Archetype>` will impact every instance thereof.
+
+Imagine we were to copy and paste this object many times throught the
+:cpp:type:`level<Level>`. What happens if we want to change the value of this
+pickup? We would have to find all pickups in the level and change their
+``Points`` values. Even with multiselect we might miss a few or there might be
+pickups on other :cpp:type:`levels<Level>`. :cpp:type:`Archetypes<Archetype>`
+will allow us to change all pickups at once.
+
+|pbr|
+
+Let's create our first :cpp:type:`Archetype`.
+
+* :ref:`Select the Object <2016SelectObject>`
+ 
+* In the Properties Window
+ 
+  * Set the Archetype Name to: ``Pickup``
+    
+  * |SetArchetypeName|
+ 
+  * Press the green Upload to Archetype button  |Upload| 
+
+This object is now **Archetyped**. 
+
+Creating Multiple Objects
+-------------------------
+Copy and paste the object multiple times.
+
+|Copied| 
+
+
+Changing Archetyped Objects
+---------------------------
+
+Let's change the property values of one of the pickups. Say
+that we want it to be more of a gold color and worth more points.
+
+* In the Properties Window
+    
+  * Under :cpp:type:`Sprite`
+
+    * Set Color to : Gold [ R: 255, G: 200, B: 0, A: 1.00 ]
+        
+    * Set :cpp:type:`SpriteSource` to: Circle
+        
+  * Under Pickup
+    
+    * Set Points to: 200
+
+|pbr|
+
+Notice that object now looks like this:
+
+|BeforeUpload|
+
+
+Notice, in the Properties Window, the :cpp:type:`Archetype` property looks like
+this:
+
+|Modified|
+
+*Notice the* ``(*)`` *after the word Archetype*
+
+This means the object is **modified from** :cpp:type:`archetype<Archetype>`.
+This object has local changes that are not part of the
+:cpp:type:`archetype<Archetype>`. The :cpp:type:`Archetype` property has two
+buttons now: the |Revert| Revert to Archetype button and the |Upload| Upload to
+Archetype button. The Revert button will remove the local changes. The Upload
+button will take the local changes and apply them to all
+:cpp:type:`archetyped<Archetype>` objects.
+
+|pbr|
+
+Uploading to Archetype
+-----------------------
+
+* In the Properties Window
+
+  * Press |Upload| Upload button.
+
+|Uploaded|
+
+Notice all the objects have now changed to be the same. Check to see that
+both the color and the ``Points`` under Pickup have changed. This change would
+modify all :cpp:type:`archetyped<Archetype>` objects in **all**
+:cpp:type:`levels<Level>` to the new values.
+
+
+Reverting to Archetype
+----------------------
+
+* In the Properties Window
+    
+  * Under :cpp:type:`Sprite`
+
+    * Set Color to: White [ R: 255, G: 255, B: 255, A: 1.00 ]
+     
+|NoBookSingleLine| |PreRevertWeb|
+
+|NoWebBegin|
+|PreRevertBook|
+|NoWebEnd|   
+
+After testing it out we determine we like what we had before, so press the
+|Revert| Revert button to revert the object to gold.
+
+|NoBookSingleLine| |Uploaded|
+
+|pbr|
+
+Created :cpp:type:`Archetypes<Archetype>` can be found in the Library. 
+
+* In the Library Window
+
+|LibraryWindow|
+
+* ``Double-Click`` on the ``Archetypes`` Tag
+
+|ArchetypeTag|
+
+* Select the ``Pickup`` :cpp:type:`archetype<Archetype>`
+
+|SelectingPickup|
+
+*Notice the property grid shows you the* :cpp:type:`archetyped<Archetype>`
+*object.*
+
+*  Drag the :cpp:type:`archetype<Archetype>` from the library onto the game
+   window.
+
+This creates an instance of your :cpp:type:`archetyped<Archetype>` object. This
+allows you to quickly populate your :cpp:type:`levels<Level>` with objects you
+have already set up.
+
+.. |SetArchetypeName|         image:: images/Archetypes/SetArchetypeName.png  
+
+.. |Upload|                   image:: images/Archetypes/UploadButton.png  
+  :width: 0.35in
+.. |Copied|                   image:: images/Archetypes/Copied.png 
+
+.. |Revert|                   image:: images/Archetypes/RevertButton.png   
+  :width: 0.35in
+
+.. |BeforeUpload|             image:: images/Archetypes/BeforeUpload.png 
+  :height: 4.0in
+
+.. |Modified|                 image:: images/Archetypes/Modified.png 
+
+.. |Uploaded|                 image:: images/Archetypes/Uploaded.png 
+
+.. |PreRevertWeb|             image:: images/Archetypes/BeforeRevert.png   
+
+.. |PreRevertBook|            image:: images/Archetypes/BeforeRevert.png   
+    :height: 3.0in
+
+.. |LibraryWindow|            image:: images/Archetypes/LibraryWindow.png
+
+.. |ArchetypeTag|             image:: images/Archetypes/ArchetypeTag.png
+
+.. |SelectingPickup|          image:: images/Archetypes/SelectingPickup.png
+
+.. |PickupSettingsWeb|        image:: images/Archetypes/PickupSettings.png  
+
+.. |PickupSettingsBook|       image:: images/Archetypes/PickupSettings.png 
+    :height: 4.0in 

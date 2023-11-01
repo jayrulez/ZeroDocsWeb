@@ -1,0 +1,175 @@
+.. _Orientation2014:
+
+.. rst-class:: SearchTitle
+
+Rotating Towards a Point
+========================
+
+.. rst-class:: SearchDescription
+
+This lesson shows how to use the Orientation component to rotate an object to face a particular point or direction.
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2014`
+
+Level Setup
+-----------
+
+|NoBookBegin|
+
+* :download:`Download the Sprites for the lesson <files/Sprites>`
+
+|NoBookEnd|
+
+* :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+* In the Properties Window
+
+  * Under the Sprite Component
+  
+    * Set the SpriteSource to the provided sprite file
+
+  * Set Name to: ``Ship``
+  * :ref:`Add Orientation Component <AddComponent2014>`
+
+  * Under the Orientation Component
+
+    * Set DefaultOrientation to: ForwardYUpZ
+    * Set GlobalUp to: [0, 0, 1]
+
+Using Orientation
+-----------------
+
+:ref:`Add a new ZilchScript resource<ResourceAdding2014>` named: 'FaceMouse' 
+
+* Change the **FaceMouse** script to the following code:
+
+.. code-block:: as   
+
+  class FaceMouse : ZilchComponent
+  {
+    function Initialize(init : CogInitializer)
+    {
+      Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+      // Get the mouse position on the screen
+      var mouseScreenPosition = Zero.Mouse.ScreenPosition;
+    
+      // Convert the mouse position from screen coordinate to world coordinates
+      // use the main viewport for the level
+      var worldMousePosition = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(mouseScreenPosition, 0);
+    
+      // Look at this point
+      this.Owner.Orientation.LookAtPoint(worldMousePosition);       
+    
+    }
+  }
+
+* :ref:`Add the component FaceMouse <AddComponent2014>` to your Ship Sprite
+
+* :ref:`Save your project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+|pbr|
+
+Move your mouse around. You should see the object updating to the appropriate rotation to face the mouse each frame.
+
+|LookAtMouse|
+
+|pbr|
+
+Rotate Towards
+--------------
+
+Let's make it take longer to rotate:
+
+* Replace the **OnLogicUpdate** with the following code.
+
+.. code-block:: as   
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+      // Get the mouse position on the screen
+      var mouseScreenPosition = Zero.Mouse.ScreenPosition;
+    
+      // Convert the mouse position from screen coordinate to world coordinates
+      // use the main viewport for the level
+      var worldMousePosition = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(mouseScreenPosition, 0);
+                
+      // Get the rotation need to look at the point
+      var targetRotation = this.Owner.Orientation.GetLookAtPointRotation(worldMousePosition);        
+    
+      var currentRotation = this.Owner.Transform.Rotation;
+    
+      // Move towards the needed rotation at a max rate
+      var maxTurnDegrees = 10;
+      var partialRotation = 
+        Math.RotateTowards(currentRotation, targetRotation, Math.ToRadians(maxTurnDegrees) * event.Dt);
+    
+      this.Owner.Transform.Rotation = partialRotation;
+        
+    }
+
+* :ref:`Save your project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+        
+|RotateTowardsMouse| 
+
+Now the object should update to *rotate towards* the appropriate rotation to face the mouse instead of just changing directly to it.
+Trying change the maxTurnDegrees to different values to see how it changes. 
+
+|pbr|
+
+Move and Rotate
+-------------------
+
+Change the **OnLogicUpdate** code to the following
+
+.. code-block:: as  
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        // Get the mouse position on the screen
+        var mouseScreenPosition = Zero.Mouse.ScreenPosition;
+        
+        // Convert the mouse position from screen coordinate to world coordinates
+        // use the main viewport for the level
+        var worldMousePosition = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(mouseScreenPosition, 0);
+                    
+        // Get the rotation need to look at the point
+        var targetRotation = this.Owner.Orientation.GetLookAtPointRotation(worldMousePosition);        
+        
+        var currentRotation = this.Owner.Transform.Rotation;
+        
+        // Move towards the needed rotation at a max rate
+        var maxTurnDegrees = 160;
+        var partialRotation = 
+          Math.RotateTowards(currentRotation, targetRotation, Math.ToRadians(maxTurnDegrees) * event.Dt);
+        
+        this.Owner.Transform.Rotation = partialRotation;        
+        
+        // Alway move forwards at moveSpeed
+        var moveSpeed = 4.0;
+        this.Owner.Transform.Translation += this.Owner.Orientation.WorldForward * event.Dt * moveSpeed;        
+    }
+    
+* :ref:`Save your project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+
+Now the ship will chase the mouse.
+    
+|ChaseTheMouse|
+
+Try changing both maxTurnDegrees and moveSpeed to see how these values effect the movement of the ship. Finally you can turn these into 
+properties to have different chasing values.
+
+.. |LookAtMouse| image:: images/Orientation/LookAtMouse.gif
+
+.. |RotateTowardsMouse| image:: images/Orientation/RotateTowardsMouse.gif    
+
+.. |ChaseTheMouse| image:: images/Orientation/ChaseTheMouse.gif
+
+.. include:: BookFormattingShortcuts.rst

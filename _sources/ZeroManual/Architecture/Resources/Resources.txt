@@ -1,0 +1,37 @@
+.. _ManualResources:
+
+.. rst-class:: SearchTitle
+
+Resources
+=========
+
+.. rst-class:: SearchDescription
+
+Basic resource reference.
+
+Overview
+--------
+Resources are the source data of a game. They include things like textures, sounds, scripts, and levels. Everything the editor works with is either a resource or derived from one, such as levels, archetypes, and tables. The list of existing resources that have been loaded into a project can be found through the Library Window.
+
+Shared and Immutable 
+--------------------
+
+.. Sidebar:: When is it Okay to Change a Resource in Code?
+
+    The reason one is allowed to change resources in ZilchScripts is because the Zero Engine allows the user to create their own Tools, Commands, and other elements of the Editor through writing a ZilchScript. That is, Zilch is used for both code used in-game and code used to create Editor tools (as well as many other parts of the Zero Engine). While it is a bad idea to change resources in ZilchScripts that are used as Components attached to objects in a game, being able to change certain properties can be very useful when crafting one’s own custom Editor functionality.
+    
+When the game is running in the editor or exported, the resources are considered immutable or not changeable. This is because resources are shared, so only one instance of a resource is loaded at a time.  This saves on memory and helps with performance.
+
+Since resources are shared, those that can be edited should only have a single resource editor open. If a second resource editor is opened it may save over any changes made in the other location, resulting in erratic behavior.
+
+Resource Names
+--------------
+
+Whenever a new resource is created, it will need to be given a unique name. This allows resources to be referenced by objects in levels through a ZilchComponent, or inside a ZilchScript by referring to ``<ResourceType>.<ResourceName>``. Note that there is a difference between an object name and an archetype name: as an archetype is a type of resource, the archetype name is the name of the resource; the object name is simply the name of that instance of the resource. 
+
+Runtime Clones
+--------------
+
+Rather than modifying a resource at runtime Zero allows some resources to be copied as RuntimeClones, which have all the same properties and settings as the base resource but can only be created and modified at runtime, and will be destroyed once the project stops running. They allow for safe modifications as they do not modify the base resource in any way and only effect the object that creates and modifies them. 
+
+While the method ``RuntimeClone()`` is available to all resources, not every resource can be clone and those that cannot will either return a null reference or give a runtime error stating this resource cannot be cloned. ``RuntimeClone()`` will return a base resource regardless of what resource is used to call it, and therefore must be cast as the appropriate resource afterwards, for example ``Material.<ResourceName>.RuntimeClone() as Material``. 

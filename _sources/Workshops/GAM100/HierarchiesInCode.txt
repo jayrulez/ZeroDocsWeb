@@ -1,0 +1,192 @@
+
+
+.. _HierarchiesInCodeGAM100:
+
+.. rst-class:: SearchTitle
+
+Hierarchies in Code
+===================
+
+.. rst-class:: SearchDescription
+
+This lesson covers the basics of interacting with hierarchies through code.
+
+.. _HierarchiesInCodeVocabGAM100:
+
+Learning Objectives
+-------------------
+
+* Attach and detach objects from ech other in code.
+
+.. rst-class:: VocabSection
+
++-----------------------------------------------+
+| Vocabulary                                    |
++=====================+=============+===========+
+| Game Object ( Cog ) | Parent      | Child     |
++---------------------+-------------+-----------+
+| Composite           | Attach      | Detach    |
++---------------------+-------------+-----------+
+
+Level Setup
+-----------
+
+* Open the previous project from the :ref:`Hierarchies lesson<HierarchiesGAM100>`
+
+While most hierarchies will be created through the editor there are times when the user may wish to attach or detach object from a hierarchy while the game is running.
+
+:ref:`Add a new ZilchScript resource named:<ResourceAddingGAM100>` ``Hierarchies``
+
+*   In the Hierarchies ZilchScript Window
+
+    *   Update the **Hierarchies** component to the following code:
+    
+.. code-block:: csharp
+
+    class Hierarchies : ZilchComponent
+    {
+      [Property]
+      var CubeArchetype : Archetype = Archetype.Find("Cube");
+      
+      function Initialize(init : CogInitializer)
+      {
+        //Create a new default cube and attach it to the ParentSquare Object
+        var cube1 = this.Space.Create(this.CubeArchetype);
+        cube1.Transform.Translation = Real3(-5,0,0);
+        cube1.AttachTo(this.Owner);
+      }
+    }
+
+*   :ref:`Select the ParentSquare object <SelectObjectGAM100>`
+
+*   In the Properties Window
+
+    * :ref:`Add the **Hierarchies** component <AddComponentGAM100>`
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+You should see the new cube be spawned and fall. Once again this is because the cube has a dynamic ``RigidBody`` meaning it is part of the hierarchy but not part of the composite object of the root of the hierarchy. It is not very easy to tell that the new cube is part of the hierarchy, printing out the hierarchy would make that easier.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+
+
+:ref:`Download The HierarchyDisplay Script from the DebugScripts package on The Void.<UsingTheVoidGAM100>`
+
+*   :ref:`Select the ParentSquare object <SelectObjectGAM100>`
+
+*   In the Properties Window
+
+    * :ref:`Add the HierarchyDisplay component <AddComponentGAM100>`
+
+*   In the Hierarchies ZilchScript Window
+
+    *   Update the **Hierarchies** component to the following code:
+    
+.. code-block:: csharp
+    :emphasize-lines: 10, 13
+
+    class Hierarchies : ZilchComponent
+    {
+      [Property]
+      var CubeArchetype : Archetype = Archetype.Find("Cube");
+      
+      function Initialize(init : CogInitializer)
+      {
+        //Create a new default cube and attach it to the ParentSquare Object
+        var cube1 = this.Space.Create(this.CubeArchetype);
+        cube1.Name = "Cube1";
+        cube1.Transform.Translation = Real3(-5,0,0);
+        cube1.AttachTo(this.Owner);
+        this.Owner.HierarchyDisplay.DisplayHierarchy();
+      }
+    }
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+You should see the following output in the console.
+
+Console Output::
+
+   ---------------- Begin Game ----------------
+    ParentSquare
+        ChildSquare
+        Cube1
+    Total Children Count: 3
+    Level 'Level' was loaded.
+    Loaded level 0.01s
+
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+We added a name to the new cube so that we can identify when it is printed in the console. The HierarchyDisplay component has also been added to the object. This component prints our the object hierarchy in the console indented by each object depth in the hierarchy. There is only one sections of important code in HierarchyDisplay.
+
+.. code-block:: csharp
+    :emphasize-lines: 3
+    
+    // Add one to the childCount for this level of recursion
+    var childCount = 1;
+    foreach(var child in obj.Children.All)
+    {
+      // Print the sub hierarchy tree of the given child
+      // and record the number of its children
+      childCount += this.PrintChildren(child, level + 1);
+    }
+
+
+
+This is an example of how you could iterate through the children of an object in code using the ``foreach`` loop structure we saw in :ref:`Scripting4`.
+
+*   In the Hierarchies ZilchScript Window
+
+    *   Update the **Hierarchies** component to the following code:
+    
+.. code-block:: csharp
+    :emphasize-lines: 14-15
+
+    class Hierarchies : ZilchComponent
+    {
+      [Property]
+      var CubeArchetype : Archetype = Archetype.Find("Cube");
+      
+      function Initialize(init : CogInitializer)
+      {
+        //Create a new default cube and attach it to the ParentSquare Object
+        var cube1 = this.Space.Create(this.CubeArchetype);
+        cube1.Name = "Cube1";
+        cube1.Transform.Translation = Real3(-5,0,0);
+        cube1.AttachTo(this.Owner);
+        this.Owner.HierarchyDisplay.DisplayHierarchy();
+        cube1.Detach();
+        this.Owner.HierarchyDisplay.DisplayHierarchy();
+      }
+    }
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+The new console output should look like this.
+
+Console Output::
+
+    ---------------- Begin Game ----------------
+    ParentSquare
+        ChildSquare
+        Cube1
+    Total Children Count: 3
+    ParentSquare
+        ChildSquare
+    Total Children Count: 2
+    Level 'Level' was loaded.
+    Loaded level 0.01s
+
+Conclusions
+-----------
+
+Now we can manipulate object hierarchies through code.
+
+On You Own
+~~~~~~~~~~
+
+*   Manipulate the ``DynamicState`` on parented object's RigidBodies at runtime.
+
+*   Experiment with the ``DetachRelative`` function on ``this.Owner``.

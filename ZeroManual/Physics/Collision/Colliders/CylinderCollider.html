@@ -1,0 +1,364 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Physics/Collision/Colliders/CylinderCollider.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:44:45 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CylinderCollider &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../../index-2.html"/>
+        <link rel="up" title="Collision" href="../index.html"/>
+        <link rel="next" title="EllipsoidCollider" href="EllipsoidCollider.html"/>
+        <link rel="prev" title="ConvexMeshCollider" href="ConvexMeshCollider.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../PhysicsSpace.html">PhysicsSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../RigidBody.html">RigidBody</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Collision</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../CollisionOverview.html">Collision Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Collider.html">Collider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BoxCollider.html">Box Collider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CapsuleCollider.html">CapsuleCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConvexMeshCollider.html">ConvexMeshCollider</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">CylinderCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EllipsoidCollider.html">EllipsoidCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HeightMapCollider.html">HeightMapCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeshCollider.html">MeshCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MultiConvexMeshCollider.html">MultiConvexMeshCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SphereCollider.html">SphereCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CollisionGroups/CollisionGroupAndCollisionTable.html">CollisionGroup and CollisionTable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CollisionGroups/CollisionGroupEvents.html">Group Collision Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../WhyNoCollision.html">Why is my object not colliding?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../PhysicsCasting/PhysicsCastingOverview.html">Physics Casting Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../PhysicsEffects/index.html">Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Joints.html">Joints</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Physics</a> &raquo;</li>
+      
+          <li><a href="../index.html">Collision</a> &raquo;</li>
+      
+    <li>CylinderCollider</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/ZeroManual/Physics/Collision/Colliders/CylinderCollider.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="cylindercollider">
+<span id="manualcylindercollider"></span><h1>CylinderCollider</h1>
+<p class="searchdescription">The <a class="reference internal" href="../../../CodeReference/Reference/CylinderCollider.html#_CPPv216CylinderCollider" title="CylinderCollider"><code class="xref cpp cpp-type docutils literal"><span class="pre">CylinderCollider</span></code></a> component is one of the primitive Collider types available in the Zero Engine. It takes the shape of a cylinder scaled by radius and height properties set by the user. The CylinderCollider component can be added to any object as long as it has a <a class="reference internal" href="../../../CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a> component.</p>
+<div class="sidebar">
+<p class="first sidebar-title">Recommended Reading</p>
+<p>This page includes topics one might not have encountered yet. To learn about or review these materials, the following list provides the links to their respective Manual or Tutorial pages:</p>
+<ul class="last simple">
+<li><a class="reference internal" href="Collider.html#manualcollider"><span>Collider</span></a></li>
+</ul>
+</div>
+<div class="section" id="common-uses">
+<span id="manualcylindercollidercommon"></span><h2>Common Uses</h2>
+<ul class="simple">
+<li>Defining collision boundaries of either cylindrical objects or parts of an object where a cylinder provides the most efficient and/or complete coverage.</li>
+<li>Defining the boundaries for a cylindrical-shaped <a class="reference internal" href="../../../CodeReference/Reference/Region.html#_CPPv26Region" title="Region"><code class="xref cpp cpp-type docutils literal"><span class="pre">Region</span></code></a> with a <a class="reference internal" href="../../../CodeReference/Reference/PhysicsEffect.html#_CPPv213PhysicsEffect" title="PhysicsEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">PhysicsEffect</span></code></a> attached to it.</li>
+<li>Defining the boundaries for a cylindrical-shaped, collision-based trigger volume that causes a <a class="reference internal" href="../../../CodeReference/Reference/CollisionEvent.html#_CPPv214CollisionEvent" title="CollisionEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionEvent</span></code></a> to be dispatched.</li>
+</ul>
+</div>
+<div class="section" id="using-cylindercollider">
+<span id="manualcylindercolliderusing"></span><h2>Using CylinderCollider</h2>
+<div class="section" id="creating-a-cylindercollider">
+<h3>Creating a CylinderCollider</h3>
+<p>When adding a CylinderCollider to an otherwise empty <a class="reference internal" href="../../../CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a> object, the CylinderCollider still retains all of its functionality and properties. The In-Editor properties for the CylinderCollider can be seen in the following picture, where a CylinderCollider component has been placed on an otherwise empty Transform object:</p>
+<p><img alt="CylinderColliderProperties" src="../../../../_images/CylinderColliderProperties.png" /></p>
+<p>When this object is selected and viewed on the Level Screen, the only thing that will be visible are the <a class="reference internal" href="../../../Scripting/DebugDrawing.html#manualdebugdrawing"><span>DebugDraw</span></a> lines marking the boundaries of the CylinderCollider; that is, the area in which collision will be resolved if this Collider comes into contact with another Collider (assuming the Colliders belong to the default <a class="reference internal" href="../CollisionGroups/CollisionGroupAndCollisionTable.html#manualcollisiongroupandtable"><span>CollisionGroup</span></a> ).</p>
+<p><img alt="CylinderColliderInEditor" src="../../../../_images/CylinderColliderInEditor.png" /></p>
+</div>
+<div class="section" id="applying-cylindercollider-to-an-object">
+<h3>Applying CylinderCollider to an Object</h3>
+<p>The CylinderCollider component is best used for models that are cylindrically-shaped or for parts of an object that where a cylinder provides the best coverage. To see how a CylinderCollider may be used within a project, a three-dimensional model of a barrel will be used, as can be seen here in the Level Window:</p>
+<p><img alt="BarrelInLevelWindow" src="../../../../_images/BarrelInLevelWindow.png" /></p>
+<div class="section" id="attaching-cylindercolliders-to-an-object">
+<h4>Attaching CylinderColliders to an Object</h4>
+<p>In order to simulate realistic collision for the entire barrel, only two CylinderColliders are needed. The process for attaching these colliders to the Barrel object is illustrated in the following screenshots.</p>
+<p>The <a class="reference internal" href="../../../Editor/EditorUI.html#manualeditoruiobjectwindow"><span>Objects Window</span></a> with two parented object containg CylinderCollider components</p>
+<p><img alt="ParentedCylinderColliders" src="../../../../_images/ParentedCylinderColliders.png" /></p>
+<p>The first CylinderCollider passes all the way through the Barrel object, ending and surrounding each end of the Barrel</p>
+<p><img alt="FirstCylinderCollider" src="../../../../_images/FirstCylinderCollider.png" /></p>
+<p>The second CylinderCollider fits snugly around the middle section of the Barrel object, providing coverage as the radius of the Barrel expands</p>
+<p><img alt="SecondCylinderCollider" src="../../../../_images/SecondCylinderCollider.png" /></p>
+<p>The Barrel object in the Level Window with both CylinderColliders <a class="reference internal" href="../../../Scripting/DebugDrawing.html#manualdebugdrawing"><span>DebugDraw</span></a> lines visible</p>
+<p><img alt="BarrelWithAllColliders" src="../../../../_images/BarrelWithAllColliders.png" /></p>
+<p>As can be seen, the middle CylinderCollider fits snugly around the thickest part of the barrel, while the top and bottom CylinderCollider can only be seen around the edge of the very top and bottom, due to its lower radius. The reason for making the top and bottom CylinderCollider smaller is so that if the barrel falls or is hit, causing it to roll around, the collision for the barrel will act much more life-like than if only one collider is used. While the two CylinderColliders overlap, since they are part of the same object hierarchy, there is no collision conflict.</p>
+</div>
+</div>
+<div class="section" id="demonstration">
+<h3>Demonstration</h3>
+<p>The Barrel should mimic how an empty barrel would react in the same condition in real-life (to only a very small degree of precision, of course), due to the two CylinderColliders in use:</p>
+<p><img alt="BarrelDemo" src="../../../../_images/BarrelDemo.gif" /></p>
+<p>When the Barrel hits the floor, the first CylinderCollider resolves the collision, causing the Barrel object to slightly bounce over to its other side where the edges of both the first and second CylinderColliders resolves collision with the floor. It bounces back and forth until only the CylinderCollider in the middle of the Barrel object is resolving collision, allowing the barrel to smoothly roll down the rest of the ramp.</p>
+</div>
+<div class="section" id="properties-and-methods-of-cylindercollider">
+<h3>Properties and Methods of CylinderCollider</h3>
+<p><a class="reference internal" href="../../../CodeReference/Reference/CylinderCollider.html#referencecylindercollider"><span>CylinderCollider Code Reference</span></a></p>
+</div>
+<div class="section" id="events-of-cylindercollider">
+<h3>Events of CylinderCollider</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../CollisionEvents.html#manualcollisionevents"><span>Collision Events</span></a></li>
+<li><a class="reference internal" href="../CollisionGroups/CollisionGroupEvents.html#manualgroupcollisionevents"><span>Group Collision Events</span></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="related-material">
+<span id="manualcylindercolliderrelated"></span><h2>Related Material</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../CollisionOverview.html#manualcollisionoverview"><span>Collision Overview</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../../Tutorials/Physics/Collision/CollisionEvents.html#tutorialcollisionevents"><span>Collision</span></a></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a></li>
+<li><a class="reference internal" href="../../../CodeReference/Reference/Collider.html#_CPPv28Collider" title="Collider"><code class="xref cpp cpp-type docutils literal"><span class="pre">Collider</span></code></a></li>
+<li><a class="reference internal" href="../../../CodeReference/Reference/CylinderCollider.html#_CPPv216CylinderCollider" title="CylinderCollider"><code class="xref cpp cpp-type docutils literal"><span class="pre">CylinderCollider</span></code></a></li>
+<li><a class="reference internal" href="../../../CodeReference/Reference/PhysicsEffect.html#_CPPv213PhysicsEffect" title="PhysicsEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">PhysicsEffect</span></code></a></li>
+<li><a class="reference internal" href="../../../CodeReference/Reference/Region.html#_CPPv26Region" title="Region"><code class="xref cpp cpp-type docutils literal"><span class="pre">Region</span></code></a></li>
+<li><a class="reference internal" href="../../../CodeReference/Reference/CollisionEvent.html#_CPPv214CollisionEvent" title="CollisionEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionEvent</span></code></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="EllipsoidCollider.html" class="btn btn-neutral float-right" title="EllipsoidCollider" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ConvexMeshCollider.html" class="btn btn-neutral" title="ConvexMeshCollider" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Physics/Collision/Colliders/CylinderCollider.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:45:27 GMT -->
+</html>

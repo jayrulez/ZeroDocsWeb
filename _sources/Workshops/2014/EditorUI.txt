@@ -1,0 +1,399 @@
+.. _EditorUI2014:
+
+.. rst-class:: SearchTitle
+
+Editor UI 
+=========
+
+.. rst-class:: SearchDescription
+
+This lesson introduces the Zero Engine editor and user interface. It covers editor windows such as the Objects Window, Properties Window, Library Window, Level Window, and Search Window.
+
+Create a New Project
+--------------------
+
+It is recommended that you create a new project. If this is the first time you have run the Zero Engine
+you will already be on the create project screen and can simply type in a name for your project. 
+If you are not on the new project screen you can access it using the project menu.
+
+To create a new project follow these steps:
+
+* :ref:`Command<Commands2014>` : ``NewProject`` or :menuselection:`Project --> New Project`
+ 
+ |NewProject|  
+    
+* In the Project Window
+    * Select Project Type 2D or 3D project
+    * Enter a name for the project in the Project Name area
+        * Enter a Project Folder directory (if the default is not sufficient) by either typing or clicking the Browse... button
+    * Click the Ok button to create your new project   
+    
+|pbr|
+
+Windows Overview
+----------------
+
+Now we will go over some of the Editor Windows and Interfaces. After creating a new project, the editor should look something like this:
+
+|NoBookBegin|
+|Lesson01_WindowsOverview_pngWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|Lesson01_WindowsOverview_pngBook|
+|NoWebEnd|
+
+*First view as the Zero Editor is opened*
+
+Level Window
+------------
+
+The Level Window (located in the center of the editor as seen in the Window Overview section above) is where you will manipulate objects to build levels.
+
+Objects Window
+--------------
+
+Every level contains objects. An object can represent the floor, a wall, enemies, the player, and many other things. There are a few different buttons in the Objects Window that you should know about:
+
+*   **Eyeball:** Toggles visibility of an object *only while in the editor.* Objects with the eye button disabled will be invisible in the editor, but still visible when the level is played.
+
+*   **Selection Lock:** The small lock button can be turned on and off to toggle the ability to select an object from within the editor.
+
+|10000000000000300000002CBCDAB0B1_png|
+
+*View of the eye and lock button in the Objects Window*
+
+|pbr|
+
+Each level has four objects by default:
+
+|10000000000001150000008B66F32D0B_png|
+
+*Objects in the level by default*
+
+*   Click on the object named: LevelSettings
+*   Once clicked, take a look at the Properties Window on the left
+
+Properties Window
+-----------------
+
+When an object is selected, the properties of that object are accessible from the Properties Window.
+
+|1000000000000117000000A9234905E4_png|
+
+*The Properties Window showing the properties of the LevelSettings object*
+
+The Properties Window is the primary means for editing or building objects. This is due to an object being comprised of multiple **components**.
+
+*   **Component:** a chunk of functionality or small bucket of data. An object's behavior and purpose depends upon what components it contains. Game objects are made up of different components. More details about components will be covered in a future lesson.
+
+|pbr|
+
+|PropertiesQuickNav_png|
+
+*Buttons to help navigate what is shown in the Properties Window*
+
+* The arrows allow you to navigate back and forth between recently selected objects.
+* The Show Selection button, on first click, pans to the object and on second click, zooms to frame the object in the Level Window.
+* The recent button pulls up a drop down list of the recently accessed objects for selection.
+
+Library Window
+--------------
+
+|NoBookBegin|
+|LibraryWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|LibraryBook|
+|NoWebEnd|
+
+*Library Window*
+
+Anything you add to the game using the ``Add`` command or through drag-and-drop importing is stored as a resource. All resources added to your project can be found in the Library Window. You'll learn more details about resources in future lessons.
+
+|pbr|
+
+Search Window
+-------------
+
+This powerful tool allows you to search for various things within the editor.
+Several uses such as selecting objects, opening archetypes, viewing properties, etc., are accessible from here. 
+For example, if you wanted to quickly access a script file you can just open the search view and type in the name of the script to begin editing.
+Another important use of the Search Window is for performing commands. See :ref:`Commands<Commands2014>` for information.
+
+|10000000000001EA000000E5D84AA163_png|
+
+*The Zero Search Window for performing commands*
+
+.. sidebar:: "Do This + That"
+    
+    The ``+`` symbol can be read as "and" when used to describe button combinations. It means you should do all the actions "added" together simultaneously. 
+    Press ``Ctrl+C`` to copy, would mean hold down the ``Ctrl`` button on your keyboard while you press the ``C`` button on your keyboard to perform the copy action.
+    
+There are three ways to pull up the Zero Search Window:
+
+1. Click anywhere in the Level Window and press ``Space``
+2. From **any** window press ``Ctrl+Shift+Space``
+3. Click the Zero Search Button in the upper left-hand corner
+
+|pbr|
+
+Reopening Windows & Docking
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+With its numerous commands the Search Window provides many crucial functions such as those that reopen closed windows and tabs. 
+
+*   Click the x on the Library tab to close the Library Window:
+    
+    |LibraryX|
+    
+*   Press ``Ctrl+Shift+Space`` to open the Zero Search Window
+*   Search for the Library command by typing "Library" without any quotes, then hit enter (or click on the Library command directly) to open the Library Window
+
+This same process can be used to reopen many of these key windows. Once reopened, you can use a drag and drop technique to "dock" the window back into the same starting configuration. Docking locations are indicated by the editor with light blue regions as you hover over them. When you find the one you want to dock to, release the Left Mouse Button:
+
+|NoBookBegin|
+|DockingWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|DockingBook|
+|NoWebEnd|
+
+*By pressing the Left Mouse Button + Dragging we can pull the Library Window to the upper right-hand corner to dock it*
+
+|pbr|
+
+Console Window
+--------------
+
+* Press the Tilde ``~`` key to open the Console Window
+
+|1000020100000229000000DC7E4A1222_png|
+
+*Console Window*
+
+.. sidebar:: "In the ... Window"
+    
+    To be "in" a window requires that the window has "focus". To gain focus you need to click on the window itself. This ensures that all your keyboard input works as intended.
+
+* In the Console Window
+    
+  * Press ``Ctrl+Delete`` to clear the console
+* In the Level Window
+    
+  * Press ``Space``
+  *    Enter the command: ``SaveProject`` 
+  *    Press ``Enter``
+
+A message telling you the project was saved is displayed in the Console Window\
+
+When console output is referenced in future lessons it will be shown like this:
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    I am player PlayerOne my health is 10
+    I am player PlayerOne my health is 20
+
+|pbr|    
+
+.. admonition:: Lesson Structure
+    
+    In the Lessons instructions are laid out in a specific way to make them easier to understand.
+    For example:
+    
+    * In the Object Window
+    
+      * Select the Player object
+    * In the Properties Window
+      
+      * Add the RigidBody Component
+      * Under RigidBody 
+        
+        * Set AllowSleep to: False
+    
+    Each level of indentation represents a subsection of the window you are already in, where the base is the Editor itself. This makes it easier for you to know where to look in the editor for the information you seek. As the lessons progress some common steps will be cut for brevity, for instance:
+    
+    * In the Level Window
+      
+      * Press Space
+    * In the Search Window
+      
+      * In the search bar
+        
+        * Enter the Command: ``CreateSprite``
+        * Press Enter
+    
+    will be shortened to:
+    
+    * :ref:`Command<Commands2014>`: ``CreateSprite``
+
+    This significantly reduces the amount of reading, and while still providing a reference to the full process should you need a refresher.
+
+|pbr|
+
+Game Window
+-----------
+
+The Game Window is where your game actually runs inside the Zero Engine editor. You can test or play your game (or specific levels) here without having to create an executable. 
+
+* :ref:`Command<Commands2014>`: ``PlayGame``
+
+
+The Game Window tab should appear in a tab next to the Level Window tab:
+
+|NoBookBegin|
+|GameWindowTabWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|GameWindowTabBook|
+|NoWebEnd|
+
+*Game Window Tab*
+
+The Game Window should not show anything but a blank screen right now because we haven't added any visible objects to our level yet:
+
+|NoBookBegin|
+|EmptyWindowWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|EmptyWindowBook|
+|NoWebEnd|
+
+
+*Game Window displaying empty level*
+
+*   Close the Game Window by pressing the X button on the Game tab
+*   You can also press ``Esc`` or use :ref:`Command<Commands2014>` : ``StopGame`` |br|
+    It is a good practice to close your game window promptly. Editing levels while it a Game Window is open can cause erratic behavior, undefined behavior, or errors. 
+*   Click on the Level tab to return to the Level Window
+
+Tools Window
+------------
+
+This window contains several useful tools for using the Zero Editor. These tools are for managing various objects within the level. Settings for the current tool being used are also available here. You can switch tools from the drop-down selection or by using hotkeys.
+
+*   Click anywhere in the Level Window and press the ``Number 1`` key on your keyboard to switch to the SelectTool. This is a hotkey for switching to the SelectTool.
+
+|100000000000016800000148237888DC_png|
+
+*Tools window*
+
+Click on the drop-down selection in the tools window to display a list of tools you can use:
+
+|ToolsSelection_png|
+
+*Tools drop-down selection*
+
+Tool Bar
+--------
+
+The tool bar is located at the top left of the entire editor. Various buttons to perform common actions are located here. Here are some of the toolbar buttons:
+
+|100000000000025C0000001D22E7DF0A_png|
+
+*Tool Bar*
+
+In order to find out more about the function of each button, you can hover over them to get a pop-up tool tip. You can reach all the same functionality by searching in the Search Window.        
+
+|EditButtons_png|
+
+*Left most buttons functionality is also found in the Edit Menu item*
+
+These provide common functions such as save, cut, copy, paste, undo and redo.
+
+|ResourceButtons_png|  
+
+*Calls the Add Command to add new resources to your library*
+
+Resources will be covered in future lessons.
+
+|ToolButtons_png|   
+
+*Visual short cuts for many of the tools found in the Tools Window drop down selection*
+
+|GameButtons_png|     
+
+*This allows you to affect the playback of your game*
+
+These allow you to play, pause, step through frame by frame or stop running your game.
+
+Menu Bar
+--------
+
+|MenuBar|  
+
+The menu bar includes commands for project manipulation and exporting your game under ``File``, 
+quick create options for getting things on the screen fast under ``Create``,
+and the ability to reopen closed windows via ``Windows``.
+See :ref:`Commands<Commands2014>` for information.
+
+.. |NewProject| image:: images/EditorUi/NewProject.png
+
+.. |GameWindowTabWeb| image:: images/EditorUi/GameWindowTab.png 
+
+.. |GameWindowTabBook| image:: images/EditorUi/GameWindowTab.png  
+
+.. |PropertiesQuickNav_png| image:: images/EditorUI/PropertiesQuickNav.png
+
+.. |MenuBar|            image:: images/EditorUI/MenuBar.png
+
+.. |DevSupportButtons_png|  image:: images/EditorUI/DevSupportButtons.png
+
+.. |GameButtons_png|        image:: images/EditorUI/GameButtons.png
+
+.. |ToolButtons_png|        image:: images/EditorUI/ToolButtons.png
+
+.. |ResourceButtons_png|    image:: images/EditorUI/ResourceButtons.png
+
+.. |EditButtons_png|        image:: images/EditorUI/EditButtons.png
+
+.. |100000000000025C0000001D22E7DF0A_png| image:: images/EditorUI/100000000000025C0000001D22E7DF0A.png
+    :width: 8.35in
+
+.. |ToolsSelection_png| image:: images/EditorUI/Lesson01_ToolsSelection.png
+
+.. |Lesson01_WindowsOverview_pngWeb| image:: images/EditorUI/Lesson01_WindowsOverview.png
+    :width: 8.35in
+    
+.. |Lesson01_WindowsOverview_pngBook| image:: images/EditorUI/Lesson01_WindowsOverview.png
+    :height: 3.5in
+    
+.. |EmptyWindowWeb| image:: images/EditorUI/EmptyWindow.jpg
+    :width: 8.35in    
+    
+.. |EmptyWindowBook| image:: images/EditorUI/EmptyWindow.jpg
+    :height: 4.0in
+
+.. |1000020100000229000000DC7E4A1222_png| image:: images/EditorUI/1000020100000229000000DC7E4A1222.png
+
+.. |100000000000016800000148237888DC_png| image:: images/EditorUI/100000000000016800000148237888DC.png
+
+.. |100000000000005800000061A87733C1_jpg| image:: images/EditorUI/100000000000005800000061A87733C1.jpg
+
+.. |1000000000000117000000A9234905E4_png| image:: images/EditorUI/1000000000000117000000A9234905E4.png
+
+.. |LibraryWeb| image:: images/EditorUI/10000000000001150000010ED8C039A5.png
+
+.. |LibraryBook| image:: images/EditorUI/10000000000001150000010ED8C039A5.png
+
+.. |10000000000001150000008B66F32D0B_png| image:: images/EditorUI/10000000000001150000008B66F32D0B.png
+
+.. |10000000000001EA000000E5D84AA163_png| image:: images/EditorUI/10000000000001EA000000E5D84AA163.png
+
+.. |10000000000000300000002CBCDAB0B1_png| image:: images/EditorUI/10000000000000300000002CBCDAB0B1.png
+
+.. |Commands| image:: images/EditorUI/Commands.png   
+ 
+.. |DockingWeb| image::  images/EditorUI/Docking.png    
+
+.. |DockingBook| image::  images/EditorUI/Docking.png   
+    :height: 4.0in
+
+.. |LibraryX| image:: images/EditorUI/LibraryX.png
+
+.. include:: BookFormattingShortcuts.rst

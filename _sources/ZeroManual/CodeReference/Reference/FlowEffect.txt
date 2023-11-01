@@ -1,0 +1,124 @@
+.. _ReferenceFlowEffect:
+
+.. rst-class:: searchtitle
+
+FlowEffect
+==========
+
+.. rst-class:: searchdescription
+
+Applies a force to make an object move at a target speed in a given direction. This can also be used to pull the object towards the center of the flow(center of a flow is the center perpendicular to the flow direction). Used to model a river or a tractor beam.
+
+.. include:: Description/FlowEffect.rst
+
+.. cpp:class:: FlowEffect
+
+    Base Class: :cpp:type:`PhysicsEffect`
+
+.. _ReferenceFlowEffectProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog FlowEffect::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space FlowEffect::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog FlowEffect::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession FlowEffect::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool FlowEffect::Active
+
+            Enable/disable this effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool FlowEffect::WakeUpOnChange
+
+            Whether the object associated with this is woken up when any property is changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EffectType::Enum FlowEffect::EffectType
+
+            What kind of effect this is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool FlowEffect::LocalForce
+
+            Determines if the flow direction is in the local space of the object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool FlowEffect::AttractToFlowCenter
+
+            Determines if the flow field will attract objects towards the center of the field. This can be used to create a tractor beam effect that will keep the object inside of the flow field.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real FlowEffect::FlowSpeed
+
+            The target speed of objects in the flow field.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real FlowEffect::MaxFlowForce
+
+            The max strength of the force that can be applied in a frame to reach the target flow speed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 FlowEffect::FlowDirection
+
+            The direction that the field is flowing. This can be defined in world or local space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real FlowEffect::AttractSpeed
+
+            The target speed for an object to be pulled towards the center of the flow.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real FlowEffect::MaxAttractForce
+
+            The max strength of the force that will pull the object towards the center of the flow field.
+
+.. _ReferenceFlowEffectMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void FlowEffect::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void FlowEffect::Toggle()
+
+            Toggles whether or not this effect is active.
+
+.. include:: Remarks/FlowEffect.rst

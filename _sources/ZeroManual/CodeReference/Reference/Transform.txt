@@ -1,0 +1,196 @@
+.. _ReferenceTransform:
+
+.. rst-class:: searchtitle
+
+Transform
+=========
+
+.. rst-class:: searchdescription
+
+Transform component class. The transform component provides the position, rotation and scale of an object.
+
+.. include:: Description/Transform.rst
+
+.. cpp:class:: Transform
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceTransformProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Transform::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Transform::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Transform::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Transform::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Transform::Translation
+
+            Local Translation relative to parent.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Quat Transform::Rotation
+
+            Local rotation relative to parent.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Transform::Scale
+
+            Local Scale relative to parent.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Transform::EulerAngles
+
+            The rotation of the transform as an Euler angle vector in radians.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Transform::LocalScale
+
+            Local Scale relative to parent.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Quat Transform::LocalRotation
+
+            Local rotation relative to parent.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Transform::LocalTranslation
+
+            Local Translation relative to parent.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Transform::WorldScale
+
+            Scale in World Space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Quat Transform::WorldRotation
+
+            Rotation in World Space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Transform::WorldTranslation
+
+            Translation in World Space.
+
+.. _ReferenceTransformMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Transform::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Transform::SetRotationBases(Vec3 facing, Vec3 up, Vec3 right)
+
+            Generates a rotation matrix from the given bases.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 Transform::TransformNormal(Vec3 normal)
+
+            Transforms a local normal(direction) into world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 Transform::TransformPoint(Vec3 point)
+
+            Transforms a local point into world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 Transform::TransformNormalLocal(Vec3 normal)
+
+            Transforms a normal by the local matrix(ignores parent's transform) Needed now because there is no quaternion times vector in script.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 Transform::TransformPointLocal(Vec3 point)
+
+            Transforms a point by the local matrix(ignores parent's transform)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 Transform::TransformNormalInverse(Vec3 normal)
+
+            Transforms a world normal(direction) into local space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 Transform::TransformPointInverse(Vec3 point)
+
+            Transforms a world point into local space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Transform::RotateLocal(Quat rotation)
+
+            Rotate object in local space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Transform::RotateWorld(Quat rotation)
+
+            Rotate object in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Transform::RotateAround(Vec3 point, Quat rotation)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Transform::RotateAnglesLocal(Vec3 angles)
+
+            Rotate object in local space by the given Euler angle vector(in radians).
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Transform::RotateAnglesWorld(Vec3 angles)
+
+            Rotate object in world space by the given Euler angle vector(in radians).
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Transform::SetEulerAnglesXYZ(Real xRadians, Real yRadians, Real zRadians)
+
+            Sets the rotation of the transform by the given Euler angles in radians.
+
+.. include:: Remarks/Transform.rst

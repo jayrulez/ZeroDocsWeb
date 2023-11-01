@@ -1,0 +1,32 @@
+.. _ManualRegions:
+
+.. rst-class:: SearchTitle
+
+Region and Effects
+==================
+
+.. rst-class:: SearchDescription
+
+This section cover using regions and physics effects together.
+
+Regions
+-------
+
+A Region is a component primarily used for trigger volumes. A region requires a collider to define what the collision volume is. When using a region as a trigger volume, the collider should probably be marked as a ghost object. One of the main features of a region is that effects attached to a region will be automatically applied to any objects with a rigid body inside of it.
+
+Effects
+-------
+
+Effects are components that apply some sort of a force to an object. Effects can be attached in a variety of ways.
+
+ **PhysicsSpace:** If attached to the space, an effect will apply to all objects inside of the space.
+
+ **LevelSettings:** Same as a space, except to all objects in the level. Useful for per-level settings instead of global settings.
+
+ **Region:** If an effect is attached to a region, it will apply to all of the objects inside of the region.
+
+ **RigidBody:** If an effect is attached to a RigidBody and there is no Region, then the effect will be applied to the RigidBody itself.
+
+ **Collider:** If an effect is attached to a Collider and there is no RigidBody or Region, then the effect will be applied to the nearest RigidBody parent (see Composites). This is primarily useful for creating a piece that should apply an effect based upon its position relative to its parent (A thruster object attached to a rocket).
+ 
+ For a practical exercise, consider the :ref:`Physics Effects<TutorialPhysicsEffects>` lesson. 

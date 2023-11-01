@@ -1,0 +1,602 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/HeadsUpDisplay.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:16:55 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Heads Up Display &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2015" href="index.html"/>
+        <link rel="next" title="User Interface" href="UserInterface.html"/>
+        <link rel="prev" title="Parallax Background" href="ParallaxBackground.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2015</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprites and Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ArraysLoops.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Heads Up Display</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Random.html">Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath.html">Vector Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RayCasting.html">Ray Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PracticalParticles.html">Particle Effects: Practical Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LauncherNewProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Adding &amp; Removing Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tags.html">Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2015</a> &raquo;</li>
+      
+    <li>Heads Up Display</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2015/HeadsUpDisplay.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- this is used as a file for inclusion in other .rst files --><div class="searchtitle section" id="heads-up-display">
+<span id="headsupdisplay2015"></span><h1>Heads Up Display</h1>
+<p class="searchdescription">This lesson explains the basics of creating a head&#8217;s up display in the Zero Engine.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="LauncherNewProject.html#createnewproject2015"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select LevelSettings</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under ForwardRenderer<ul>
+<li>Set ClearColor to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">0,</span> <span class="pre">G:</span> <span class="pre">0,</span> <span class="pre">B:</span> <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.0]</span></code>, <code class="docutils literal"><span class="pre">#000000</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>It should look like this:</p>
+<p> <img alt="BlackLevelWeb" src="../../_images/BlackLevel2.png" /></p>
+<p><!--
+<a class="reference internal" href="../../_images/BlackLevel2.png"><img alt="BlackLevelBook" src="../../_images/BlackLevel2.png" style="height: 3.0in;" /></a>
+--></p>
+<p><em>Note that the Level tab says Level:Level.</em></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new Level resource</span></a> named: <code class="docutils literal"><span class="pre">Hud</span></code></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select LevelSettings</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under ForwardRenderer<ul>
+<li>Set ClearColor to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">0,</span> <span class="pre">B:</span> <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.0]</span></code>, <code class="docutils literal"><span class="pre">#FF0000</span></code></li>
+</ul>
+</li>
+<li>Under CameraViewport<ul>
+<li>Set Layer to: <code class="docutils literal"><span class="pre">1</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Create a Hud sprite</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">HudSprite</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">8,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add an Area Component</span></a></li>
+<li>Under Area<ul>
+<li>Set Size to: <code class="docutils literal"><span class="pre">[20,</span> <span class="pre">1]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>It should look like this:</p>
+<p> <img alt="RedLevelWeb" src="../../_images/RedLevel1.png" /></p>
+<p><!--
+<a class="reference internal" href="../../_images/RedLevel1.png"><img alt="RedLevelBook" src="../../_images/RedLevel1.png" style="height: 3.0in;" /></a>
+--></p>
+<p><em>Note that the Level tab says Level:Hud.</em></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="making-a-head-s-up-display">
+<h2>Making a Head&#8217;s Up Display</h2>
+<p>In order to create our head&#8217;s up display, we are going to render one level over the other. Spaces can only have one level loaded at a time, so to make this happen we need to make our own space; we can do this in code.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">HudCreator</span></code></li>
+<li>In the <strong>HudCreator</strong> script<ul>
+<li>Update the <strong>HudCreator</strong> class with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">HudCreator</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+<span class="hll">    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+</span><span class="hll">    <span class="k">var</span> <span class="nx">HudLevel</span><span class="o">:</span> <span class="nx">Level</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">// Level that has our head&#39;s up display in it</span>
+</span><span class="hll">    <span class="k">var</span> <span class="nx">HudSpace</span><span class="o">:</span> <span class="nx">Space</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="c1">// Create a new Space to load our Hud level into</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">HudSpace</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">GameSession</span><span class="p">.</span><span class="nx">CreateNamedSpace</span><span class="p">(</span><span class="s2">&quot;HudSpace&quot;</span><span class="o">,</span> <span class="nx">Archetype</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;Space&quot;</span><span class="p">));</span>
+</span><span class="hll">        <span class="c1">// Load the Hud level set in the property</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">HudSpace</span><span class="p">.</span><span class="nx">LoadLevel</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">HudLevel</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+
+<span class="hll">    <span class="kd">function</span> <span class="nx">Destroyed</span><span class="p">()</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">      <span class="c1">// Make sure to clean up the extra Space we created</span>
+</span><span class="hll">      <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">HudSpace</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+</span><span class="hll">      <span class="p">{</span>
+</span><span class="hll">          <span class="k">this</span><span class="p">.</span><span class="nx">HudSpace</span><span class="p">.</span><span class="nx">Destroy</span><span class="p">();</span>
+</span><span class="hll">      <span class="p">}</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+<li>In the Library Window<ul>
+<li>Under Level tag<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">Left</span> <span class="pre">Click</span></code> on Level</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select LevelSettings</span></a></p>
+<blockquote>
+<div><ul>
+<li><p class="first">In the Properties Window</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add the HudCreator Component</span></a></p>
+</li>
+<li><p class="first">Under HudCreator</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set HudLevel to: <code class="docutils literal"><span class="pre">Hud</span></code></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>Having set our HudLevel&#8217;s layer during the Level Setup to 1, we ensured it would render on top of our game. Unfortunately, our HudLevel <em>completely</em> hides our game:</p>
+<p> <img alt="HUDEclipseWeb" src="../../_images/HUDEclipse2.png" /></p>
+<p><!--
+<a class="reference internal" href="../../_images/HUDEclipse2.png"><img alt="HUDEclipseBook" src="../../_images/HUDEclipse2.png" style="height: 3.0in;" /></a>
+--></p>
+<p><em>Notice the Level tab says Level:Level, but it still has a red background.</em></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="transparent-background">
+<h2>Transparent Background</h2>
+<p>In order to make our game visible under the Hud level we need to make the Hud level not render its background.</p>
+<ul class="simple">
+<li>In the Library Window<ul>
+<li>Under Level tag<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">Left</span> <span class="pre">Click</span></code> on Hud</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select LevelSettings</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under CameraViewport<ul>
+<li>Set Background to: <code class="docutils literal"><span class="pre">False</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the Library Window<ul>
+<li>Under Level tag<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">Left</span> <span class="pre">Click</span></code> on Level</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p> <img alt="GoodHUDWeb" src="../../_images/GoodHUD2.png" /></p>
+<p><!--
+<a class="reference internal" href="../../_images/GoodHUD2.png"><img alt="GoodHUDBook" src="../../_images/GoodHUD2.png" style="height: 3.0in;" /></a>
+--></p>
+<p><em>Now we have the head&#8217;s up display and the black background of the game.</em></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="interacting-with-the-head-s-up-display">
+<h2>Interacting with the Head&#8217;s Up Display</h2>
+<p>In order to access objects in the head&#8217;s up display we have to ensure we are looking in the correct space. You can follow this simple example:</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">HudInteraction</span></code></li>
+<li>In the <strong>HudInteraction</strong> script<ul>
+<li>Update the <strong>HudInteraction</strong> class with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">HudInteraction</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">// A way to store the sprite we are controlling, so we don&#39;t have to find it every frame.</span>
+    <span class="k">var</span> <span class="nx">HudSprite</span> <span class="o">:</span> <span class="nx">Cog</span><span class="o">;</span>
+<span class="hll">
+</span>    <span class="c1">// Making this dependency explicit ensure the HudCreator&#39;s Initialize function is</span>
+    <span class="c1">// called before HudInteraction&#39;s Initialize function.</span>
+    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">HudCreator</span><span class="o">:</span> <span class="nx">HudCreator</span><span class="o">;</span>
+<span class="hll">    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">HudSprite</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">HudCreator</span><span class="p">.</span><span class="nx">HudSpace</span><span class="p">.</span><span class="nx">FindObjectByName</span><span class="p">(</span><span class="s2">&quot;HudSprite&quot;</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span>    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Move an Object from HudLevel</span>
+        <span class="c1">// --Simply show we can interact with it by making the HudSprite slowly fall</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">HudSprite</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">HudSprite</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+</span>
+                                            <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,-</span><span class="mf">1.0</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select LevelSettings</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add the HudInteraction Component</span></a></li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Our head&#8217;s up display is now updating based on our game:</p>
+<p><!--
+<a class="reference internal" href="../../_images/HUDUpdating1.png"><img alt="HUDUpdatingBook" src="../../_images/HUDUpdating1.png" style="height: 3.0in;" /></a>
+--></p>
+<p><em>Our HudInteraction Component in Level is updating our HudSprite in Hud level.</em></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="sending-information-back-to-the-game">
+<h2>Sending Information Back to the Game</h2>
+<p>In order to send the information back to the Level from the head&#8217;s up display, we once again need to ensure we use the correct space.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">HudChangesLevel</span></code></li>
+<li>In the <strong>HudChangesLevel</strong> script<ul>
+<li>Update the <strong>HudChangesLevel</strong> class with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">HudChangesLevel</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">         <span class="c1">// Since we don&#39;t already have access to the Space we have to find it.</span>
+</span><span class="hll">         <span class="c1">// The default name for the Space a Level is loaded into is called Main</span>
+</span><span class="hll">         <span class="k">var</span> <span class="nx">gameSpace</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">GameSession</span><span class="p">.</span><span class="nx">FindSpaceByName</span><span class="p">(</span><span class="s2">&quot;Main&quot;</span><span class="p">);</span>
+</span><span class="hll">         <span class="c1">// Here we can quickly show we can affect the game by changing the background color:</span>
+</span><span class="hll">         <span class="nx">gameSpace</span><span class="p">.</span><span class="nx">LevelSettings</span><span class="p">.</span><span class="nx">ForwardRenderer</span><span class="p">.</span><span class="nx">ClearColor</span> <span class="o">=</span> <span class="nx">Real4</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+<li>In the Library Window<ul>
+<li>Under Level tag<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">Left</span> <span class="pre">Click</span></code> on Hud</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select LevelSettings</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add the HudChangesLevel Component</span></a></li>
+</ul>
+</li>
+<li>In the Library Window<ul>
+<li>Under Level tag<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">Left</span> <span class="pre">Click</span></code> on Level</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Our game is now updating based on our head&#8217;s up display:</p>
+<p><!--
+<a class="reference internal" href="../../_images/HUDChangingLevel1.png"><img alt="HUDChangingLevelBook" src="../../_images/HUDChangingLevel1.png" style="height: 3.0in;" /></a>
+--></p>
+<p><em>Our HudChangesLevel component in the Hud level is updating our background color in Level.</em></p>
+<p>Now we know how to overlay a head&#8217;s up display on our game and pass data to and from each other.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="UserInterface.html" class="btn btn-neutral float-right" title="User Interface" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ParallaxBackground.html" class="btn btn-neutral" title="Parallax Background" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/HeadsUpDisplay.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:16:57 GMT -->
+</html>

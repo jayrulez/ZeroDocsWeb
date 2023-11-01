@@ -1,0 +1,1179 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _PracticalParticles2015:
+
+.. rst-class:: SearchTitle
+
+Particle Effects: Practical Applications
+========================================
+
+.. rst-class:: SearchDescription
+
+This lesson expands on what we've learned in :ref:`the previous lesson about
+particle effects<ParticleEffects2015>`, and goes into further detail on some ways
+that you can use particles to make your game look and feel cooler.
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2015`
+
+Import Particle Sprites
+-----------------------
+
+For this lesson's particle effects, we'll be using a few images from the Void.
+
+* :ref:`Download the following files from the Void: <UsingTheVoid2015>`
+  
+  * ``Cloud.png``
+  * ``FastSpark.png``
+  * ``Fire.png``
+  * ``FlashParticle.png``
+  * ``ShockWave.png``
+  * ``SmallRock0.png``
+  * ``SmallRock1.png``
+  * ``SmallRock2.png``
+  * ``Twinkle.png``
+
+Making a Cool Explosion
+-----------------------
+
+An excellent way to make an impressive explosion in a video game is through the
+use of particle effects. The best particle-based explosions are typically made
+out of several separate effects all working together. Our explosion will be
+composed of a *flash* of light, some *fire* and *smoke*, some *sparks*, a bunch
+of flying *debris*, a cool *shock wave*, and a handful of *ballistic smoke
+trails*. We'll make them all individually, and then learn how to combine them
+together into one cohesive effect.
+
+|pbr|
+
+Flash Effect
+~~~~~~~~~~~~
+
+The flash effect is quick and subtle, but adds nicely to the impact of the
+explosion. Its particles should appear and be gone in a very brief amount of
+time.
+
+* :ref:`Command<Commands2015>` : ``CreateParticleSystem`` or
+  :menuselection:`Create --> Create Particle System`
+* :ref:`Select the BasicParticleEffect object we just created <SelectObject2015>`
+* In the Properties Window
+  
+  * Set Name to: ``Flash``
+  * Under SpriteParticleSystem
+    
+    * Set Texture to: ``FlashParticle``
+    * Set RenderMode to: ``Additive``
+    * Set Tint to: ``[R: 255, G: 224, B: 128, A: 0.25]``, ``#FFE080``
+  * Under SphericalParticleEmitter
+    
+    * Set EmitCount to: ``12``
+    * Set EmitRate to: ``200``
+
+Note that, when making a particle effect that uses a non-zero value for the
+**EmitCount** property, the emitter will stop spawning particles when it has
+become *exhausted*, or out of particles to spawn. This may be inconvenient while
+you are trying to design an elaborate particle effect, so you can use the
+**ResetCount** button at the bottom of the emitter component in the Properties
+Window to "refresh" the emitter and see it run again:
+
+|ResetCount|
+
+    * Set Size to: ``8``
+    * Set SizeVariance to: ``2``
+    * Set Lifetime to: ``0.05``
+    * Set LifetimeVariance to: ``0``
+    
+    * Set RandomVelocity to: ``[20, 20, 20]``
+    * Set EmitterSize to: ``[1, 1, 1]``
+    
+|pbr|
+    
+    * Press the **ResetCount** button a few times to see the Flash effect in
+      action
+    
+  |FlashEffect|
+
+* :ref:`Save the project <SavingProject2015>`
+
+Fire Effect
+~~~~~~~~~~~
+
+This explosion is going to be on the smokier side, so the fire effect is going
+to be a bit subtle, but it will be noticeable. It should bloom up and outward,
+growing while it goes, then quickly die out.
+
+* :ref:`Command<Commands2015>` : ``CreateParticleSystem`` or
+  :menuselection:`Create --> Create Particle System`
+* :ref:`Select the BasicParticleEffect object we just created <SelectObject2015>`
+* In the Properties Window
+  
+  * Set Name to: ``Fire``
+  * Under SpriteParticleSystem
+    
+    * Set Texture to: ``Fire``
+    * Set RenderMode to: ``Additive``
+    * Set Tint to: ``[R: 255, G: 208, B: 64, A: 0.50]``, ``#FFD040``
+
+|pbr|
+
+  * Under SphericalParticleEmitter
+    
+    * Set EmitCount to: ``40``
+    * Set EmitRate to: ``50000``
+    * Set Size to: ``1``
+    * Set SizeVariance to: ``1``
+    * Set Lifetime to: ``0.3``
+    * Set LifetimeVariance to: ``0.3``
+    * Set SpinVariance to: ``500``
+    * Set StartVelocity to: ``[0, 4, 0]``
+    * Set RandomVelocity to: ``[3, 0, 3]``
+  * Under LinearParticleAnimator
+    
+    * Set Growth to: ``20``
+  * Under ParticleColorAnimator
+    
+    * Set Color2 to: ``[R: 255, G: 255, B: 255, A: 0.50]``, ``#FFFFFF``
+    * Set Color3 to: ``[R: 255, G: 255, B: 255, A: 0.25]``, ``#FFFFFF``
+
+|pbr|
+
+  * Under SphericalParticleEmitter
+    
+    * Press the **ResetCount** button a few times to see the Fire effect in
+      action
+      
+  |FireEffect|
+
+* :ref:`Save the project <SavingProject2015>`
+
+|pbr|
+
+Smoke Effect
+~~~~~~~~~~~~
+
+This is a smoky explosion, but this particular effect isn't the star of the show
+--- that will come a bit later. This is just a small, central puff that billows
+above the fire effect we just made. Like the fire, it should grow and die
+quickly.
+
+* :ref:`Command<Commands2015>` : ``CreateParticleSystem`` or
+  :menuselection:`Create --> Create Particle System`
+* :ref:`Select the BasicParticleEffect object we just created <SelectObject2015>`
+* In the Properties Window
+  
+  * Set Name to: ``Smoke``
+  * Under SpriteParticleSystem
+    
+    * Set Texture to: ``WhiteCloud``
+    * Set Tint to: ``[R: 255, G: 255, B: 255, A: 0.50]``, ``#FFFFFF``
+  * Under SphericalParticleEmitter
+    
+    * Set EmitCount to: ``70``
+    * Set EmitRate to: ``50000``
+    * Set Size to: ``0.4``
+    * Set SizeVariance to: ``0.4``
+    * Set Lifetime to: ``0.8``
+    * Set LifetimeVariance to: ``0.8``
+    * Set SpinVariance to: ``500``
+    * Set StartVelocity to: ``[0, 10, 0]``
+    * Set RandomVelocity to: ``[8, 6, 8]``
+  * Under LinearParticleAnimator
+    
+    * Set Force to: ``[0, 3, 0]``
+    * Set RandomForce to: ``[50, 10, 50]``
+    * Set Growth to: ``7``
+    * Set Dampening to: ``2``
+  * Under ParticleColorAnimator
+    
+    * Set Color0 to: ``[R: 255, G: 212, B:   0, A: 1.00]``, ``#FFD400``
+    * Set Color1 to: ``[R: 180, G: 180, B: 180, A: 0.80]``, ``#B4B4B4``
+    * Set Color2 to: ``[R: 150, G: 150, B: 150, A: 0.60]``, ``#969696``
+    * Set Color3 to: ``[R: 112, G: 112, B: 112, A: 0.40]``, ``#707070``
+    * Set Color4 to: ``[R:  64, G:  64, B:  64, A: 0.20]``, ``#404040``
+
+|pbr|
+
+  * Under SphericalParticleEmitter
+    
+    * Press the **ResetCount** button a few times to see the Smoke effect in
+      action
+      
+  |SmokeEffect|
+
+* :ref:`Save the project <SavingProject2015>`
+
+|pbr|
+
+Sparks Effect
+~~~~~~~~~~~~~
+
+The explosion should throw a small shower of sparks. These sparks should quickly
+fly away from the center of the explosion as trails of light.
+
+* :ref:`Command<Commands2015>` : ``CreateParticleSystem`` or
+  :menuselection:`Create --> Create Particle System`
+* :ref:`Select the BasicParticleEffect object we just created <SelectObject2015>`
+* In the Properties Window
+  
+  * Set Name to: ``Sparks``
+  * Under SpriteParticleSystem
+    
+    * Set Texture to: ``FastSpark``
+    * Set RenderMode to: ``Additive``
+    * Set Tint to: ``[R: 255, G: 224, B: 128, A: 0.65]``, ``#FFE080``
+    * Set GeometryMode to: ``Beam``
+    * Set VelocityScale to: ``0.5``
+  * Under SphericalParticleEmitter
+    
+    * Set EmitCount to: ``60``
+    * Set EmitRate to: ``500``
+    * Set Size to: ``0.4``
+    * Set SizeVariance to: ``0.4``
+    * Set Lifetime to: ``0.3``
+    * Set LifetimeVariance to: ``0.15``
+    * Set RandomVelocity to: ``[25, 25, 25]``
+  * Under ParticleColorAnimator
+    
+    * Set Color2 to: ``[R: 255, G: 255, B: 255, A: 0.50]``, ``#FFFFFF``
+    * Set Color3 to: ``[R: 255, G: 255, B: 255, A: 0.25]``, ``#FFFFFF``
+
+|pbr|
+
+  * Under SphericalParticleEmitter
+    
+    * Press the **ResetCount** button a few times to see the Sparks effect in
+      action
+      
+  |SparksEffect|
+
+* :ref:`Save the project <SavingProject2015>`
+
+|pbr|
+
+At this point, it might be a good idea to preview what we've done so far, to see
+how the Flash, Fire, Smoke, and Sparks effects will look together.
+
+* :ref:`Select the Flash, Fire, Smoke, and Sparks objects <SelectObject2015>`
+* In the Properties Window
+  
+  * Under SphericalParticleEmitter
+    
+    * Press the **ResetCount** button a few times to see this collection of
+      effects in action
+      
+  |ExplosionStageOne|
+
+It looks good so far, but we're not done yet.
+
+|pbr|
+
+Debris Effects
+~~~~~~~~~~~~~~
+
+This explosion will throw a bunch of bits of debris around at high speeds. We're
+going to use three different sprites for this effect, so this will actually mean
+three different particle effect objects. We can create the first one, then
+duplicate it and modify the duplicates to save time.
+
+* :ref:`Command<Commands2015>` : ``CreateParticleSystem`` or
+  :menuselection:`Create --> Create Particle System`
+* :ref:`Select the BasicParticleEffect object we just created <SelectObject2015>`
+* In the Properties Window
+  
+  * Set Name to: ``Debris0``
+  * Under SpriteParticleSystem
+    
+    * Set Texture to: ``SmallRock0``
+    * Set Tint to: ``[R: 128, G: 128, B: 128, A: 1.00]``, ``#808080``
+    * Set SystemSize to: ``[20, 20, 20]``
+  * Under SphericalParticleEmitter
+    
+    * Set EmitCount to: ``8``
+    * Set EmitRate to: ``60``
+    * Set Size to: ``0.75``
+    * Set SizeVariance to: ``0.25``
+    * Set LifetimeVariance to: ``0``
+    * Set SpinVariance to: ``500``
+    * Set StartVelocity to: ``[0, 8, 0]``
+    * Set RandomVelocity to: ``[16, 16, 16]``
+  * Under LinearParticleAnimator
+    
+    * Set Force to: ``[0, -20, 0]``
+  * Under ParticleColorAnimator
+    
+    * Set Color0 to: ``[R: 255, G: 255, B: 255, A: 1.00]``, ``#FFFFFF``
+    
+* :ref:`Save the project <SavingProject2015>`
+
+|pbr|
+
+That's one debris effect down. Let's duplicate it and make the next one.
+
+* :ref:`Select the Debris0 object <SelectObject2015>`
+* **Duplicate** the object by pressing ``Ctrl + D``
+* In the Properties Window
+  
+  * Set Name to: ``Debris1``
+  * Under SpriteParticleSystem
+    
+    * Set Texture to: ``SmallRock1``
+    * Set Tint to: ``[R: 192, G: 192, B: 192, A: 1.00]``, ``#C0C0C0``
+  * Under SphericalParticleEmitter
+    
+    * Set EmitCount to: ``12``
+    * Set EmitRate to: ``90``
+    * Set Size to: ``0.5``
+    * Set StartVelocity to: ``[0, 16, 0]``
+    * Set RandomVelocity to: ``[32, 32, 32]``
+* :ref:`Save the project <SavingProject2015>`
+
+One more debris effect to go.
+
+* :ref:`Select the Debris1 object <SelectObject2015>`
+* **Duplicate** the object by pressing ``Ctrl + D``
+* In the Properties Window
+  
+  * Set Name to: ``Debris2``
+  * Under SpriteParticleSystem
+    
+    * Set Texture to: ``SmallRock2``
+    * Set Tint to: ``[R: 255, G: 255, B: 255, A: 1.00]``, ``#FFFFFF``
+  * Under SphericalParticleEmitter
+    
+    * Set EmitCount to: ``16``
+    * Set EmitRate to: ``120``
+    * Set Size to: ``0.25``
+    * Set StartVelocity to: ``[0, 32, 0]``
+    * Set RandomVelocity to: ``[64, 64, 64]``
+* :ref:`Save the project <SavingProject2015>`
+
+|pbr|
+
+...There! Now let's see all the debris effects together.
+
+* :ref:`Select the Debris0, Debris1, and Debris2 objects <SelectObject2015>`
+* In the Properties Window
+  
+  * Under SphericalParticleEmitter
+    
+    * Press the **ResetCount** button a few times to see all of the debris
+      effects in action
+      
+  |DebrisEffects|
+
+|pbr|
+
+Shock Wave Effect
+~~~~~~~~~~~~~~~~~
+
+The explosion should create a quick shock wave that propagates out along the XZ
+plane (sideways and towards the camera).
+
+* :ref:`Command<Commands2015>` : ``CreateParticleSystem`` or
+  :menuselection:`Create --> Create Particle System`
+* :ref:`Select the BasicParticleEffect object we just created <SelectObject2015>`
+* In the Properties Window
+  
+  * Set Name to: ``ShockWave``
+  * Under SpriteParticleSystem
+    
+    * Set Texture to: ``ShockWave``
+    * Set RenderMode to: ``Additive``
+    * Set Tint to: ``[R: 255, G: 255, B: 255, A: 0.10]``, ``#FFFFFF``
+  * Under SphericalParticleEmitter
+    
+    * Set EmitCount to: ``6``
+    * Set EmitRate to: ``120``
+    * Set SizeVariance to: ``0``
+    * Set Lifetime to: ``0.4``
+    * Set LifetimeVariance to: ``0``
+    * Set SpinVariance to: ``0``
+    * Set RandomVelocity to: ``[0, 0, 0]``
+  * Under LinearParticleAnimator
+    
+    * Set Growth to: ``200``
+  * Under ParticleColorAnimator
+    
+    * Set Color0 to: ``[R: 255, G: 255, B: 255, A: 1.00]``, ``#FFFFFF``
+    * Set Color1 to: ``[R: 255, G: 255, B: 255, A: 0.60]``, ``#FFFFFF``
+    * Set Color2 to: ``[R: 255, G: 255, B: 255, A: 0.30]``, ``#FFFFFF``
+    * Set Color3 to: ``[R: 255, G: 255, B: 255, A: 0.10]``, ``#FFFFFF``
+    * Set Color4 to: ``[R: 255, G: 255, B: 255, A: 0.00]``, ``#FFFFFF``
+
+|pbr|
+
+Let's see how it looks so far:
+
+  * Under SphericalParticleEmitter
+    
+    * Press the **ResetCount** button a few times to see the ShockWave effect
+      in action
+      
+  |ShockWaveEffectBillboarded|
+
+It looks cool, but we can make it even better by rotating it around the X axis.
+To do that, we'll need to change the system's **GeometryMode**, as well as a few
+other properties.
+
+.. sidebar:: GeometryMode: Flat
+  
+  Setting the SpriteParticleSystem's **GeometryMode** property to ``Flat``
+  causes the particles to lay flat on their XZ plane.
+  
+  * When ``Flat`` particles are created, they will lay flat on the World XZ
+    plane if their system's **SystemSpace** property is set to ``WorldSpace``,
+    and they will lay flat on the XZ plane of their system's Transform if the
+    **SystemSpace** property is set to ``LocalSpace``.
+    
+    * Using the ``LocalSpace`` setting, you can rotate the particles by changing
+      the **Rotation** property of the Transform component.
+
+|pbr|
+
+* In the Properties Window
+  
+  * Under Transform
+    
+    * Set Translation to: ``[8, -1, 0]``
+    * Set Rotation to: ``[5, 0, 0]``
+  * Under SpriteParticleSystem
+    
+    * Set SystemSpace to: ``LocalSpace``
+    * Set GeometryMode to: ``Flat``
+  * Under SphericalParticleEmitter
+    
+    * Press the **ResetCount** button a few times to see the ShockWave effect
+      in action
+      
+  |ShockWaveEffectFlat|
+
+* :ref:`Save the project <SavingProject2015>`
+
+|pbr|
+
+Let's check in again and see all the explosion effects we've made so far.
+
+* :ref:`Select the Flash, Fire, Smoke, Sparks, Debris0, Debris1, Debris2, and
+  ShockWave objects <SelectObject2015>`
+* In the Properties Window
+  
+  * Under SphericalParticleEmitter
+    
+    * Press the **ResetCount** button a few times to see this collection of
+      effects in action
+      
+  |ExplosionStageTwo|
+
+Already we have a convincing explosion effect on our hands. If we were in a
+hurry, we could call it done and be satisfied.
+
+...Let's make it even better.
+
+|pbr|
+
+Object Systems
+--------------
+
+So far, we've only created particle effects that use the
+``SpriteParticleSystem`` component. These are great for quick, easy, lightweight
+effects. But there's another kind of particle system: the **ObjectSystem**.
+Whereas a SpriteParticleSystem spawns humble sprites from a specified textures,
+the ObjectSystem spawns cogs from a specified *archetype*. We might use a
+particle effect with an ObjectSystem to spawn 3D models, collectable coins,
+damaging fireballs, enemies with AI... just about any kind of game object you
+can imagine, *including other particle effects*. This last use is what we'll do
+now.
+
+Ballistic Smoke Effect
+~~~~~~~~~~~~~~~~~~~~~~
+
+The explosion we're making should do one last thing --- launch a few trails of
+smoke in different directions. These smoke trails will actually be moving
+particle effects. We'll make the smoke trail particle effect now, and then
+upload it as an archetype so we can use it later.
+
+* :ref:`Command<Commands2015>` : ``CreateParticleSystem`` or
+  :menuselection:`Create --> Create Particle System`
+* :ref:`Select the BasicParticleEffect object we just created <SelectObject2015>`
+* In the Properties Window
+  
+  * Set Name to: ``BallisticSmoke``
+  * Under SpriteParticleSystem
+    
+    * Set Texture to: ``WhiteCloud``
+    * Set Tint to: ``[R: 192, G: 192, B: 192, A: 0.75]``, ``#C0C0C0``
+    * Set SortMode to: ``Sorted``
+    * Set SystemSize to: ``[20, 20, 20]``
+  * Under SphericalParticleEmitter
+    
+    * Set EmitCount to: ``1500``
+    * Set EmitRate to: ``500``
+    * Set Lifetime to: ``0.5``
+    * Set LifetimeVariance to: ``0.5``
+    * Set StartVelocity to: ``[0, 1, 0]``
+    * Set FastMovingEmitter to: ``true``
+
+|pbr|
+
+  * Under LinearParticleAnimator
+    
+    * Set RandomForce to: ``[10, 10, 10]``
+    * Set Growth to: ``1``
+    * Set Dampening to: ``2``
+  * Under ParticleColorAnimator
+    
+    * Set Color0 to: ``[R: 255, G: 232, B: 128, A: 1.00]``, ``#FFE880``
+    * Set Color1 to: ``[R: 255, G: 248, B: 216, A: 0.75]``, ``#FFF8D8``
+    * Set Color2 to: ``[R: 255, G: 255, B: 255, A: 0.50]``, ``#FFFFFF``
+    * Set Color3 to: ``[R: 112, G: 112, B: 112, A: 0.25]``, ``#707070``
+    * Set Color4 to: ``[R:   0, G:   0, B:   0, A: 0.00]``, ``#000000``
+  * Under SphericalParticleEmitter
+    
+    * Press the **ResetCount** button to see the BallisticSmoke effect in action
+    
+  |BallisticSmokeEffect|
+
+It's not much to look at yet, but it'll be great when it's moving.
+
+* :ref:`Save the project <SavingProject2015>`
+* In the Properties Window
+  
+  * Set Archetype Name to: ``BallisticSmoke``
+
+Now that we've uploaded this effect as an archetype, we can safely delete it now
+and still use it again later.
+
+* Delete the ``BallisticSmoke`` object
+
+|pbr|
+
+Ballistic Smoke Trails Object System
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Now it's time to create our first ObjectSystem. The archetype it will spawn will
+be the BallisticSmoke effect we just created.
+
+* :ref:`Command<Commands2015>`: ``CreateTransform`` or
+  :menuselection:`Create --> Create Transform`
+* In the Properties Window
+
+  * Set Name to: ``BallisticSmokeTrails``
+  * :ref:`Add an ObjectSystem component <AddComponent2015>`
+  * :ref:`Add a SphericalParticleEmitter component <AddComponent2015>`
+  * :ref:`Add a LinearParticleAnimator component <AddComponent2015>`
+    
+    * Under ObjectSystem
+      
+      * Set EffectsTranslation to: ``true``
+      * Set SpawnArchetype to: ``BallisticSmoke``
+      * Set SystemSize to: ``[20, 20, 20]``
+    * Under SphericalParticleEmitter
+      
+      * Set EmitCount to: ``8``
+      * Set EmitRate to: ``50000``
+      * Set Lifetime to: ``5``
+      * Set LifetimeVariance to: ``0``
+      * Set StartVelocity to: ``[0, 20, 0]``
+      * Set RandomVelocity to: ``[25, 25, 25]``
+    * Under LinearParticleAnimator
+      
+      * Set Force to: ``[0, -20, 0]``
+      * Set Dampening to: ``0.5``
+* :ref:`Save the project <SavingProject2015>`
+
+This is it! Let's see the fruits of our labor by running the game.
+
+* :ref:`Run the game<RunTheGame2015>` several times to see the full explosion effect
+  in action
+
+|ExplosionFinal|
+
+Excellent!
+
+* :ref:`Stop the game <StopGame2015>`
+
+|pbr|
+
+.. admonition:: Default Assets
+  
+  When it comes to particle effects, the actual art assets used for the
+  particles themselves are perhaps not as important as one might think --- the
+  particles' behavior does most of the heavy lifting in making an effect look
+  good. The explosion we've made in this lesson is impressive, but it can be
+  made entirely with the default assets that come with the editor:
+    
+    |SquareExplosion|
+    
+  This is the same effect, using only the ``Square`` and ``DefaultTexture``
+  images as particle textures, and with just a few minor modifications to the
+  components' properties.
+  
+  Remember, if you're making a game and you don't have a ton of art muscle on
+  your team, simple particle effects can go a very long way.
+
+|pbr|
+
+Finishing the Explosion
+-----------------------
+
+Now, let's make this explosion reusable. To do this, we're going to
+group all of its sub-effects by attaching them all as *children* to a single
+root Transform.
+
+* :ref:`Select the Flash, Fire, Smoke, Sparks, Debris0, Debris1, Debris2,
+  ShockWave, and BallisticSmokeTrails objects <SelectObject2015>`
+* **Group** them by pressing ``Ctrl + G``
+
+|Grouped|
+
+* :ref:`Select the Root object you just created<SelectObject2015>`
+* In the Properties Window
+  
+  * Set Name to: ``Explosion``
+  * Set Archetype Name to: ``Explosion``
+* :ref:`Save the project <SavingProject2015>`
+
+|pbr|
+
+The TimedDeath ZilchComponent
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There's one more important detail we need to address before this explosion
+effect is truly complete. After the effect goes off and all the smoke clears,
+*the explosion's cog still exists*. We can make this apparent by attaching a
+sprite to the ``Explosion`` object.
+
+  * :ref:`Add a Sprite component <AddComponent2015>`
+  * Under Sprite
+    
+    * Set SpriteSource to: ``Circle``
+  * :ref:`Run the game <RunTheGame2015>`
+
+|ExplosionCircle|
+
+*This little guy isn't going anywhere*
+
+See how the circle remains even after the explosion is completely gone? This can
+be a problem --- if we dynamically spawn a few hundred explosions over the
+course of a level, that's a few hundred cogs that are hanging around afterward,
+invisible but still taking up memory. This could potentially lead to performance
+issues.
+
+* :ref:`Stop the game <StopGame2015>`
+
+|pbr|
+
+We can solve this problem with the use of a new ZilchComponent, which we'll call
+**TimedDeath**.
+
+* :ref:`Add a new ZilchScript resource<ResourceAdding2015>` named: ``TimedDeath``
+* Change the **TimedDeath** script to the following code:
+
+.. code-block:: as
+  
+  class TimedDeath : ZilchComponent
+  {
+      [Property]
+      var Lifetime : Real = 1.0;
+      
+      var Timer : Real;
+      
+      
+      function Initialize(init : CogInitializer)
+      {
+          this.Timer = this.Lifetime;
+          
+          Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+      
+      
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+          this.Timer -= event.Dt;
+          
+          if(this.Timer <= 0.0)
+          {
+              this.Owner.Destroy();
+          }
+      }
+  }
+
+* :ref:`Save the project <SavingProject2015>`
+* :ref:`Select the Explosion object<SelectObject2015>`
+* In the Properties Window
+  
+  * :ref:`Add a TimedDeath component <AddComponent2015>`
+* :ref:`Run the game <RunTheGame2015>`
+
+Now, the explosion goes off as usual, but after one second, the circle
+disappears. This indicates that the game object has been properly destroyed.
+However, this has a further undesirable effect --- notice also how the
+explosion's particles that are still alive when the circle disappears are
+destroyed along with it. This is because **destroying a particle effect destroys
+all of its particles as well**.
+
+* :ref:`Stop the game <StopGame2015>`
+
+|pbr|
+
+We can make this look a bit better by waiting to destroy the explosion cog until
+all of its particles have died on their own.
+
+* In the Properties Window
+  
+  * Under TimedDeath
+    
+    * Set Lifetime to: ``5``
+
+We chose five seconds because the element of the explosion with the longest life
+span is the BallisticSmokeTrails effect, whose SphericalParticleEmitter
+component has a **Lifetime** of ``5``. Since all of its smoke trails are spawned
+at once (thanks to the emitter's **EmitRate** of ``50000``), we can be sure that
+after five seconds, its last particle will be destroyed.
+
+* :ref:`Run the game <RunTheGame2015>`
+
+Now the circle doesn't disappear until every last particle from the explosion
+has disappeared first.
+
+* :ref:`Stop the game <StopGame2015>`
+* In the Properties Window
+  
+  * :ref:`Remove the Sprite component <RemoveComponent2015>`
+  * Update the Explosion archetype
+* :ref:`Save the project <SavingProject2015>`
+
+Now that we've got our cool explosion, we need something that can explode. How
+about a bomb?
+
+|pbr|
+
+Bombs Away
+----------
+
+* :ref:`Download the following files from the Void: <UsingTheVoid2015>`
+  
+  * ``Bomb``
+  * ``BombLogic.z``
+  * ``BasicExplosion``
+
+|Bomb|
+
+This bomb comes with some basic bomb logic, including an ``Explode`` function
+that is triggered when the Space Bar is pressed.
+
+* :ref:`Create an instance <Archetypes2015>` of the Bomb archetype
+* In the Properties Window
+  
+  * Under Transform
+    
+    * Set Translation to: ``[0, 8, 0]``
+
+|pbr|
+
+* :ref:`Run the game <RunTheGame2015>` and press the ``Space Bar`` to detonate the
+  bomb
+
+|BasicExplosion|
+
+That's a pretty underwhelming explosion. Fortunately, we've already made
+something to replace it.
+
+* :ref:`Stop the game <StopGame2015>`
+* In the Properties Window
+  
+  * Under BombLogic
+    
+    * Set ExplosionArchetype to: ``Explosion``
+
+|pbr|
+
+* :ref:`Run the game <RunTheGame2015>` and press the ``Space Bar`` to detonate the
+  bomb
+
+|BombWithExplosion|
+
+That's much better.
+
+* :ref:`Stop the game <StopGame2015>`
+* In the Properties Window
+  
+  * Update the Bomb archetype
+* :ref:`Save the project <SavingProject2015>`
+* Delete the Bomb object
+
+Now that we have this swell exploding bomb, we need something in-game that can
+cause it to explode instead of relying on the space bar.
+
+|pbr|
+
+Laser Beam
+----------
+
+A real-life laser beam is invisible --- we can only see what it illuminates. If
+it's powerful enough, then it will cause the airborne particles it hits to glow.
+This is the effect we're going to replicate with our laser particles.
+
+* :ref:`Command<Commands2015>` : ``CreateParticleSystem`` or
+  :menuselection:`Create --> Create Particle System`
+* :ref:`Select the BasicParticleEffect object we just created <SelectObject2015>`
+* In the Properties Window
+  
+  * Set Name to: ``LaserBeam``
+  * :ref:`Remove the SphericalParticleEmitter component <RemoveComponent2015>`
+  * :ref:`Add a BoxParticleEmitter component <AddComponent2015>`
+  * Under SpriteParticleSystem
+    
+    * Set Texture to: ``Circle``
+    * Set RenderMode to: ``Additive``
+    * Set Tint to: ``[R: 255, G:   0, B:  0, A: 1.00]``
+  * Under BoxParticleEmitter
+    
+    * Set EmitRate to: ``5000``
+    * Set Size to: ``0.02``
+    * Set SizeVariance to: ``0.02``
+    * Set Lifetime to: ``0.3``
+    * Set LifetimeVariance to: ``0.3``
+    * Set SpinVariance to: ``0``
+    * Set RandomSpin to: ``false``
+    * Set RandomVelocity to: ``[0, 0, 0]``
+    * Set EmitterSize to: ``[12, 0.1, 0]``
+* :ref:`Save the project <SavingProject2015>`
+
+|pbr|
+
+|LaserBeam|
+
+That looks pretty cool already, but let's put a sprite on either end of the beam
+to give it a sort of visual "anchor".
+
+* :ref:`Command<Commands2015>` : ``CreateSprite`` or
+  :menuselection:`Create --> Create Sprite`
+* :ref:`Select the Sprite object we just created <SelectObject2015>`
+* In the Properties Window
+  
+  * Set Name to: ``BeamAnchor``
+  * Under Transform
+    
+    * Set Translation to: ``[-6, 0, 0]``
+    * Set Rotation to: ``[0, 0, 45]``
+    * Set Scale to: ``[0.4, 0.4, 0.4]``
+  * Under Sprite
+    
+    * Set Color to: ``[R: 255, G:  0, B:  0, A: 1.00]``
+* **Duplicate** the object by pressing ``Ctrl + D``
+* In the Properties Window
+  
+  * Under Transform
+    
+    * Set Translation to: ``[6, 0, 0]``
+* Parent both BeamAnchor objects to the LaserBeam object
+
+|pbr|
+
+* :ref:`Select the LaserBeam object <SelectObject2015>`
+* In the Properties Window
+  
+  * Under Transform
+    
+    * Set Translation to: ``[0, -6, 0]``
+
+|LaserBeamWithAnchors|
+
+Now let's give it a bomb to blow up.
+
+* :ref:`Create an instance <Archetypes2015>` of the Bomb archetype
+* In the Properties Window
+  
+  * Under Transform
+    
+    * Set Translation to: ``[0, 8, 0]``
+* :ref:`Run the project <RunTheGame2015>`
+
+The bomb falls past the laser beam and, unsurprisingly, nothing happens. Let's
+change that.
+
+|pbr|
+
+Custom Event: Detonate
+----------------------
+
+Take a look at the code for the BombLogic component that is attached to the
+bomb.
+
+* In the Library Window
+  
+  * Open the ``BombLogic`` ZilchScript
+* In the BombLogic Window
+
+.. code-block:: as
+  :emphasize-lines: 12, 25-28
+  
+  class BombLogic : ZilchComponent
+  {
+      sends Detonate : ZilchEvent;
+      
+      [Property]
+      var ExplosionArchetype : Archetype = Archetype.Find("BasicExplosion");
+      
+      
+      function Initialize(init : CogInitializer)
+      {
+          Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+          Zero.Connect(this.Owner, Events.Detonate, this.OnDetonate);
+      }
+      
+      
+      function OnKeyDown(event : KeyboardEvent)
+      {
+          if(event.Key == Keys.Space)
+          {
+              this.Explode();
+          }
+      }
+      
+      
+      function OnDetonate(event : ZilchEvent)
+      {
+          this.Explode();
+      }
+      
+      
+      function Explode()
+      {
+          this.Space.CreateAtPosition(this.ExplosionArchetype, this.Owner.Transform.Translation);
+          this.Owner.Destroy();
+      }
+  }
+
+This code suggests a way that we can make the laser blow the bomb up: the bomb
+will explode if we **dispatch the custom** ``Detonate`` **event** to it. We just
+have to write another component that can do that.
+
+|pbr|
+
+DetonateOnContact Component
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* :ref:`Add a new ZilchScript resource<ResourceAdding2015>` named:
+  ``DetonateOnContact``
+* Change the **DetonateOnContact** script to the following code:
+
+.. code-block:: as
+  :emphasize-lines: 6, 17
+  
+  class DetonateOnContact : ZilchComponent
+  {
+      [Dependency]
+      var Collider : Collider;
+      
+      sends Detonate : ZilchEvent;
+      
+      
+      function Initialize(init : CogInitializer)
+      {
+          Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+      }
+      
+      
+      function OnCollisionStarted(event : CollisionEvent)
+      {
+          event.OtherObject.DispatchEvent(Events.Detonate, ZilchEvent());
+      }
+  }
+
+A cog with this component will dispatch the ``Detonate`` event to anything it
+touches. Note that only things that actually connect to this event will "care"
+--- everything else will just go on its merry way, blissfully ignorant of the
+fact that there even is such an event.
+
+Let's give our laser beam this new component.
+
+* :ref:`Select the LaserBeam object <SelectObject2015>`
+* In the Properties Window
+  
+  * Add a DetonateOnContact component
+
+|MissingCollider|
+
+...Oops, we need to add a collider first. Since our laser effect uses a
+**BoxParticleEmitter**, it is natural that we should choose a **BoxCollider**.
+
+  * Add a BoxCollider component
+
+Since the emitter and the collider have the same shape, we can copy the
+EmitterSize dimensions over to the collider's **Size** property.
+
+  * Under BoxCollider
+    
+    * Set Size to: ``[12, 0.1, 1]``
+    * Set Ghost to: ``true``
+  * Add a DetonateOnContact component
+
+|pbr|
+
+* :ref:`Run the project <RunTheGame2015>`
+
+|LaserDetonatesBomb|
+
+This is what we're looking for.
+
+* :ref:`Stop the project <StopGame2015>`
+
+But you can never know whether you've gone far enough until you go too far,
+right?
+
+.. sidebar:: 3D Physics and Escaping Bombs
+  
+  If you run this simulation long enough, you may see a bomb or two miss the
+  laser beam, even though it appears to fall right into it. What causes this?
+  
+  Sometimes, two bombs will collide, usually when one is created overlapping
+  another. When this happens, the two bombs are pushed apart by Zero's collision
+  resolution. The effect is rarely noticeable, since the bombs are all spawned
+  off-screen. However, occasionally, the collision will impart enough of a push
+  along the Z axis upon one or both bombs to allow it to clear the thickness of
+  the laser's BoxCollider. You can see it happen more readily if you increase
+  the BombGenerator's EmitRate, say, to ``5`` or so, and shrink its EmitterSize,
+  say, to around ``[1, 1, 0]``.
+  
+  |EscapingBomb|
+  
+  *This bomb has missed the laser beam*
+  
+  So far, we've only ever made 2D projects, so we've only ever used 2D physics.
+  In 2D physics, collisions cannot push objects in the Z direction. Thus, based
+  on our experience so far, this effect could never happen.
+  
+  The fact that it *is* happening is a result of two cooperating properties: the
+  **Mode2D** property of the Bomb archetype's RigidBody component, and the
+  **RandomTorque** property of the BombGenerator's ObjectSystem component.
+  
+  The BombGenerator uses a RandomTorque of ``[30, 30, 30]`` so that the bombs
+  will be created with some **angular velocity**, causing them to rotate a bit
+  in different directions, thereby looking more interesting as they fall. For
+  this effect to be realized in full, the bombs' RigidBody components must be
+  set to use 3D physics, by setting the Mode2D property to ``Mode3D`` ---
+  otherwise, they will only be able to spin around their Z axes. 
+  
+  With 3D physics enabled, the bombs are now free to be pushed in the Z
+  direction by collisions. In this case, this may occur *when they collide with
+  angular velocity around their X or Y axes*. When this angular velocity is high
+  enough, the push is sufficient to cause a bomb to miss the laser.
+
+|pbr|
+
+Going Too Far
+-------------
+
+We're going to make another object system that's going to cause bombs to rain
+down in the level. The bombs that land on the laser beam will explode;
+naturally, those that miss it will not.
+
+* :ref:`Save the project <SavingProject2015>`
+* Delete the Bomb object
+* :ref:`Command<Commands2015>`: ``CreateTransform`` or
+  :menuselection:`Create --> Create Transform`
+* In the Properties Window
+
+  * Set Name to: ``BombGenerator``
+  * :ref:`Add an ObjectSystem component <AddComponent2015>`
+  * :ref:`Add a BoxParticleEmitter component <AddComponent2015>`
+  * :ref:`Add a LinearParticleAnimator component <AddComponent2015>`
+    
+    * Under Transform
+      
+      * Set Translation to: ``[0, 15, 0]``
+    * Under ObjectSystem
+      
+      * Set RandomTorque to: ``[30, 30, 30]``
+      * Set SpawnArchetype to: ``Bomb``
+    * Under BoxParticleEmitter
+      
+      * Set EmitRate to: ``2``
+      * Set SizeVariance to: ``0``
+      * Set Lifetime to: ``10``
+      * Set LifetimeVariance to: ``0``
+      * Set SpinVariance to: ``0``
+      * Set RandomSpin to: ``false``
+      * Set RandomVelocity to: ``[0, 0, 0]``
+      * Set EmitterSize to: ``[30, 5, 0]``
+
+|pbr|
+
+* :ref:`Save<SavingProject2015>` and :ref:`run<RunTheGame2015>` the project
+
+|RainingBombsOrthographic|
+
+Okay, let's do one last thing to make this effect even more exciting. It's
+subtle, but subtlety is often the difference between good and great.
+
+* :ref:`Stop the project <StopGame2015>`
+
+|pbr|
+
+Perspective Camera
+~~~~~~~~~~~~~~~~~~
+
+Recall the :ref:`parallax background lesson <ParallaxBackground2015>`, in which we used multiple layers
+separated along the Z axis to give our project more of a sense of depth. In
+order for that to work, we had to change our camera's **ProjectionMode**
+property to ``Perspective``. We're going to make that same change now.
+
+* :ref:`Select the Camera object <SelectObject2015>`
+* In the Properties Window
+  
+  * Under Camera
+    
+    * Set ProjectionMode to: ``Perspective``
+  * Under Transform
+    
+    * Set Translation to: ``[0, 0, 20]``
+
+|pbr|
+
+* :ref:`Save<SavingProject2015>` and :ref:`run<RunTheGame2015>` the project
+
+|RainingBombsPerspective|
+
+Notice the dramatic effect that is caused by the particles flying toward the
+camera, especially the smoke trails.
+
+Now we know how to apply our knowledge of particle effects in some cool ways
+to make our games look even better.
+
+..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..
+
+ 
+
+.. |ResetCount|                    image:: images/PracticalParticles/ResetCount.png
+.. |FlashEffect|                image:: images/PracticalParticles/FlashEffect.png
+.. |FireEffect|                    image:: images/PracticalParticles/FireEffect.png
+.. |SmokeEffect|                image:: images/PracticalParticles/SmokeEffect.png
+.. |SparksEffect|                image:: images/PracticalParticles/SparksEffect.png
+.. |ExplosionStageOne|            image:: images/PracticalParticles/ExplosionStageOne.png
+.. |DebrisEffects|                image:: images/PracticalParticles/DebrisEffects.png
+.. |ShockWaveEffectBillboarded| image:: images/PracticalParticles/ShockWaveEffectBillboarded.png
+.. |ShockWaveEffectFlat|        image:: images/PracticalParticles/ShockWaveEffectFlat.png
+.. |ExplosionStageTwo|            image:: images/PracticalParticles/ExplosionStageTwo.png
+.. |BallisticSmokeEffect|        image:: images/PracticalParticles/BallisticSmokeEffect.png
+.. |ExplosionFinal|                image:: images/PracticalParticles/ExplosionFinal.gif
+.. |ExplosionFinalB1|            image:: images/PracticalParticles/ExplosionFinalB1.png
+.. |ExplosionFinalB2|            image:: images/PracticalParticles/ExplosionFinalB2.png
+.. |SquareExplosion|            image:: images/PracticalParticles/SquareExplosion.gif
+.. |Grouped|                    image:: images/PracticalParticles/Grouped.png
+.. |ExplosionCircle|            image:: images/PracticalParticles/ExplosionCircle.png
+.. |Bomb|                        image:: images/PracticalParticles/Bomb.png
+.. |BasicExplosion|                image:: images/PracticalParticles/BasicExplosion.png
+.. |BombWithExplosion|            image:: images/PracticalParticles/BombWithExplosion.gif
+.. |LaserBeam|                    image:: images/PracticalParticles/LaserBeam.gif
+.. |LaserBeamWithAnchors|        image:: images/PracticalParticles/LaserBeamWithAnchors.png
+.. |MissingCollider|            image:: images/PracticalParticles/MissingCollider.png
+.. |LaserDetonatesBomb|            image:: images/PracticalParticles/LaserDetonatesBomb.gif
+.. |RainingBombsOrthographic|   image:: images/PracticalParticles/RainingBombsOrthographic.gif
+    :width: 4.0in
+.. |RainingBombsPerspective|    image:: images/PracticalParticles/RainingBombsPerspective.gif
+    :width: 4.0in
+.. |EscapingBomb|                image:: images/PracticalParticles/EscapingBomb.png

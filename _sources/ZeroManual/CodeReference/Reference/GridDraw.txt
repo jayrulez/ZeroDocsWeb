@@ -1,0 +1,130 @@
+.. _ReferenceGridDraw:
+
+.. rst-class:: searchtitle
+
+GridDraw
+========
+
+.. rst-class:: searchdescription
+
+A component used for drawing a grid.
+
+.. include:: Description/GridDraw.rst
+
+.. cpp:class:: GridDraw
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceGridDrawProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog GridDraw::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space GridDraw::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog GridDraw::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession GridDraw::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GridDraw::Active
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GridAxis::Type GridDraw::Axis
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real GridDraw::CellSize
+
+            The deltas in the grid(how far apart we draw grid lines)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int GridDraw::Lines
+
+            The number of lines to draw.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int GridDraw::HilightInterval
+
+            How often should cells be activated.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 GridDraw::GridColor
+
+            Color of grid lines.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 GridDraw::GridHiLight
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GridDraw::HalfCellOffset
+
+            Is the grid offset by half a unit?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GridDraw::DrawAxisOrigins
+
+            Changes the line color to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GridDraw::AlwaysDrawInEditor
+
+            Always draw the grid in editor(not just when it's selected)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GridDraw::DrawInGame
+
+            Draw the grid in the game.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GridDraw::FollowEditorCamera
+
+            Move with the editor camera?
+
+.. _ReferenceGridDrawMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GridDraw::DebugDraw()
+
+            
+
+.. include:: Remarks/GridDraw.rst

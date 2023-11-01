@@ -1,0 +1,429 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2016/Operators_Precedence_Chart.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:25:26 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Operator Precedence &amp; Data Types &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+    <li>Operator Precedence &amp; Data Types</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2016/Operators_Precedence_Chart.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="operator-precedence-data-types">
+<span id="operatorprecedencechartanddatatypes"></span><h1>Operator Precedence &amp; Data Types</h1>
+<p class="searchdescription">Below is a complete list of the operands sorted by order of operation and data types.</p>
+<div class="section" id="operator-precedence">
+<span id="operatorprecedencechart"></span><h2>Operator Precedence</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="14%" />
+<col width="49%" />
+<col width="21%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Precedence</th>
+<th class="head">Operator</th>
+<th class="head">Description</th>
+<th class="head">Associativity</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td rowspan="3">1</td>
+<td>()</td>
+<td>function call</td>
+<td rowspan="4">LeftToRight</td>
+</tr>
+<tr class="row-odd"><td>[]</td>
+<td>index operator</td>
+</tr>
+<tr class="row-even"><td>.</td>
+<td>dot operator</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>as</td>
+<td>casting operator</td>
+</tr>
+<tr class="row-even"><td rowspan="7">3</td>
+<td>+</td>
+<td>unary plus</td>
+<td rowspan="7">RightToLeft</td>
+</tr>
+<tr class="row-odd"><td>-</td>
+<td>unary minus</td>
+</tr>
+<tr class="row-even"><td>++</td>
+<td>pre-increment</td>
+</tr>
+<tr class="row-odd"><td>&#8212;</td>
+<td>pre-decrement</td>
+</tr>
+<tr class="row-even"><td>!</td>
+<td>not</td>
+</tr>
+<tr class="row-odd"><td>~</td>
+<td>bitwise negation</td>
+</tr>
+<tr class="row-even"><td>&#64;</td>
+<td>property delegate</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>^</td>
+<td>exponent</td>
+<td rowspan="19">LeftToRight</td>
+</tr>
+<tr class="row-even"><td rowspan="3">5</td>
+<td>*</td>
+<td>multiplication</td>
+</tr>
+<tr class="row-odd"><td>/</td>
+<td>division</td>
+</tr>
+<tr class="row-even"><td>%</td>
+<td>modulo, remainder</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">6</td>
+<td>+</td>
+<td>addition</td>
+</tr>
+<tr class="row-even"><td>-</td>
+<td>subtraction</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">7</td>
+<td>&lt;&lt;</td>
+<td>bitshift left</td>
+</tr>
+<tr class="row-even"><td>&gt;&gt;</td>
+<td>bitshift right</td>
+</tr>
+<tr class="row-odd"><td rowspan="4">8</td>
+<td>&lt;</td>
+<td>less than</td>
+</tr>
+<tr class="row-even"><td>&lt;=</td>
+<td>less than or equal to</td>
+</tr>
+<tr class="row-odd"><td>&gt;</td>
+<td>greater than</td>
+</tr>
+<tr class="row-even"><td>&gt;=</td>
+<td>greater than or equal to</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">9</td>
+<td>==</td>
+<td>equality</td>
+</tr>
+<tr class="row-even"><td>!=</td>
+<td>inequality</td>
+</tr>
+<tr class="row-odd"><td>10</td>
+<td>&amp;</td>
+<td>bitwise and</td>
+</tr>
+<tr class="row-even"><td>11</td>
+<td>$</td>
+<td>bitwise xor</td>
+</tr>
+<tr class="row-odd"><td>12</td>
+<td>|</td>
+<td>bitwise or</td>
+</tr>
+<tr class="row-even"><td>13</td>
+<td>&amp;&amp;</td>
+<td>logical and</td>
+</tr>
+<tr class="row-odd"><td>14</td>
+<td>||</td>
+<td>logical or</td>
+</tr>
+<tr class="row-even"><td rowspan="12">15</td>
+<td>=</td>
+<td>assignment</td>
+<td rowspan="12">RightToLeft</td>
+</tr>
+<tr class="row-odd"><td>+=</td>
+<td>assignment of sum</td>
+</tr>
+<tr class="row-even"><td>-=</td>
+<td>assignment of difference</td>
+</tr>
+<tr class="row-odd"><td>*=</td>
+<td>assignment of product</td>
+</tr>
+<tr class="row-even"><td>/=</td>
+<td>assignment of quotient</td>
+</tr>
+<tr class="row-odd"><td>%=</td>
+<td>assignment of remainder</td>
+</tr>
+<tr class="row-even"><td>^=</td>
+<td>assignment of power</td>
+</tr>
+<tr class="row-odd"><td>&lt;&lt;=</td>
+<td>assignment of bitwise left shift</td>
+</tr>
+<tr class="row-even"><td>&gt;&gt;=</td>
+<td>assignment of bitwise right shift</td>
+</tr>
+<tr class="row-odd"><td>&amp;=</td>
+<td>assignment of bitwise and</td>
+</tr>
+<tr class="row-even"><td>$=</td>
+<td>assignment of bitwise xor</td>
+</tr>
+<tr class="row-odd"><td>|=</td>
+<td>assignment of bitwise or</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="variable-types">
+<span id="builtinvariabletypes"></span><h2>Variable Types</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Integer</td>
+<td>Integer2</td>
+<td>Integer3</td>
+<td>Integer4</td>
+</tr>
+<tr class="row-even"><td>Boolean</td>
+<td>Boolean2</td>
+<td>Boolean3</td>
+<td>Boolean4</td>
+</tr>
+<tr class="row-odd"><td>DoubleInteger</td>
+<td>Real</td>
+<td>DoubleReal</td>
+<td>Void</td>
+</tr>
+<tr class="row-even"><td>Real2</td>
+<td>Real3</td>
+<td>Real4</td>
+<td>Math</td>
+</tr>
+<tr class="row-odd"><td>Quaternion</td>
+<td>String</td>
+<td>Exception</td>
+<td>Events</td>
+</tr>
+<tr class="row-even"><td>Null</td>
+<td>Error</td>
+<td colspan="2">OverloadedMethods</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2016/Operators_Precedence_Chart.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:25:26 GMT -->
+</html>

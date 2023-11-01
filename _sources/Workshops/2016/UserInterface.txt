@@ -1,0 +1,1971 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _2016UserInterface:
+
+.. rst-class:: SearchTitle
+
+User Interface
+==============
+
+.. rst-class:: SearchDescription
+
+In this lesson, we will be looking at how to create a user interface using the Reactive component. Specifically, we'll be creating a fully functional game menu system, complete with different levels that allow the user to return to the main menu.
+
+Learning Objectives
+-------------------
+
+*   Learn about when and how to use the Reactive component
+
+*   Learn to create a logical, user-friendly menu
+
+*   Understand the code being used in conjunction with the Reactive component to make the menu interactive
+
+*   Revisit the concept of Spaces briefly and implementing multiple spaces within the project
+
+.. rst-class:: VocabSection
+
++--------------------------------------------+
+| Vocabulary                                 |
++======================+=====================+
+| SpriteLayer          | SpriteLayerOrder    |
++----------------------+---------------------+
+| Reactive             |                     |
++----------------------+---------------------+
+
+Create a New Project
+--------------------
+
+:ref:`Create a new 2D Project<2016CreateNewProject>`
+
+The Level(s) setup for this lesson is quite extensive, but in the end we should have a smooth, fluid menu system that can be the basis for any number of future projects. So, let's get started!
+
+The first thing we'll need to do is :ref:`download the "BasicUI" SpriteSource files from The Void<2016UsingTheVoid>`. This set includes a number of useful UI :cpp:type:`SpriteSources<SpriteSource>`, some of which we'll be using in our project. Feel free to use as many as you'd like for your own ZeroEngine projects in the future.
+
+Editing the Imported Sprite Sources
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Before creating the sprites that will make up the menu, we need to edit some of the imported :cpp:type:`SpriteSources<SpriteSource>` so they will scale correctly.
+
+*   In the Library window
+
+    *   Under SpriteSource
+    
+        *   Select and open ``Button5``
+        
+*   In the Sprite Source Editor
+
+    *   Set SpriteFill to: ``NineSlice``
+    
+    *   Set Left to: ``10``
+    
+    *   Set Right to: ``10``
+    
+    *   Set Top to: ``10``
+    
+    *   Set Bottom to: ``10``
+    
+    *   Click Save to Sprite Source and Close
+    
+|SpriteSourceEditor|
+    
+*   In the Library window
+
+    *   Under SpriteSource
+    
+        *   Make the same changes above that were made to ``Button5`` to the following :cpp:type:`SpriteSource` resources:
+        
+            *   ``Button4``
+            
+            *   ``Button3``
+            
+            *   ``Menu3``
+            
+
+Creating the Menu Sprites and SpriteTexts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Menu Buttons Parent Object
+++++++++++++++++++++++++++++++
+
+In the Main Menu level, we need to have a parent object for all the sprites that will act as our menu "buttons". This object should not have a :cpp:type:`Sprite` component or anything else that would cause it to be visible. In other words, we just want an object with a ``Transform`` component on it and nothing else. Fortunately, the option to create such an object exists.
+
+*   In the Level window
+
+    *   :ref:`Commmand<2016Commands>` : ``CreateTransform`` or :menuselection:`Create --> Create Transform`
+    
+*   In the Objects window
+
+    *   :ref:`Select the newly created object<2016SelectObject>`
+    
+*   In the Properties window
+
+    *   Set Name to: MenuButtons
+
+As there will be a relatively large amount of sprites used to make this menu, we can keep them mentally organized by creating all the :cpp:type:`Sprites<Sprite>` of a particular type (background, button, text, etc...) at the same time. Let's start with our level background and menu background sprites.
+
+Level Background and Menu Background Sprites
+++++++++++++++++++++++++++++++++++++++++++++
+
+Changing the level background color to black
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*   In the Objects window
+
+    *   :ref:`Select the LevelSettings object<2016SelectObject>`
+    
+*   In the Properties window
+
+    *   Under ForwardRenderer
+    
+        *   Set ClearColor to: ``[R: 0, G: 0, B: 0, A: 1.00]`` , ``#000000``
+        
+Adding the :ref:`Sprite Layers<2016TextSpriteLayer>` for the background :cpp:type:`Sprites<Sprite>`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        
+*   :ref:`Add a new SpriteLayer resource<2016ResourceAdding>` named: ``MenuBackgroundBack``
+
+*   :ref:`Add a new SpriteLayer resource<2016ResourceAdding>` named: ``MenuBackgroundFront``
+
+|pbr|
+
+Creating the two menu background sprites
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*   :ref:`Command<2016Commands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+*   :ref:`Select the Sprite you created<2016SelectObject>`
+
+*   In the Properties window
+
+    *   Set Name to: ``MenuBackgroundBack``
+    
+    *   Under Sprite
+    
+        *   Set SpriteSource to: ``Menu3``
+        
+        *   Set SpriteLayer to: ``MenuBackgroundBack``
+        
+        *   Set Color to: ``[R: 35, G: 75, B: 75, A: 1.00]`` , ``#234B4B``
+
+    *   :ref:`Add the Area component<2016AddComponent>`
+    
+    *   Under Area
+    
+        *   Set Size to: ``[18, 19]``
+        
+*   In the Objects window
+
+    *   Select ``MenuBackgroundBack``
+    
+    *   Press ``Ctrl+D`` to duplicate it
+    
+    *   Select the newly duplicated object
+    
+*   In the Properties window
+
+    *   Set Name to: ``MenuBackgroundFront``
+    
+    *   Under Sprite
+    
+        *   Set SpriteLayer to: ``MenuBackgroundFront``
+    
+        *   Set Color to: ``[R: 56, G: 192, B: 154, A: 1.00]`` , ``#38C09A``
+        
+    *   Under Area
+    
+        * Set Size to: ``[16.5, 17.5]``
+
+Our two menu background Sprites should now appear like so in the Level window:
+
+|MenuBackgroundSprites|
+
+Game Title Sprite and Menu Button Sprites
++++++++++++++++++++++++++++++++++++++++++
+
+*   :ref:`Add a new SpriteLayer resource<2016ResourceAdding>` named: ``MenuButton``
+
+*   :ref:`Add a new SpriteLayer resource<2016ResourceAdding>` named: ``MenuButtonText``
+
+*   :ref:`Command<2016Commands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+*   :ref:`Select the Sprite you created<2016SelectObject>`
+
+*   In the Properties window
+
+    *   Set Name to: ``GameTitle``
+    
+    *   Under Transform
+    
+        *   Set Translation to: ``[0, 6, 0]``
+    
+    *   Under Sprite
+    
+        *   Set SpriteSource to: ``Button5``
+        
+        *   Set SpriteLayer to: ``MenuButton``
+        
+        *   Set Color to: ``[R: 35, G: 75, B: 75, A: 1.00]`` , ``#234B4B`` 
+        
+    *   :ref:`Add the Area component<2016AddComponent>`
+    
+        *   Under Area
+        
+            *   Set Size to: ``[14, 3]``
+            
+*   In the Objects window
+
+    *   Select ``GameTitle``
+    
+    *   Press ``Ctrl+D`` to duplicate it
+    
+    *   Select the newly duplicated object
+    
+*   In the Properties window
+
+    *   Set Name to: ``StartGameButton``
+    
+    *   Under Transform
+    
+        *   Set Translation to: ``[0, 2.5, 0]``
+        
+    *   Under Sprite
+    
+        *   Set Color to: ``[R: 187, G: 0, B: 5, A: 1.00]`` , ``#BB0005``
+        
+    *   Under Area
+    
+        *   Set Size to: ``[10, 1.75]``
+        
+    *   :ref:`Add the Reactive component<2016AddComponent>`
+    
+*   In the Objects window
+
+    *   Select ``StartGameButton``
+    
+    *   Press ``Ctrl+D`` three times to duplicate the object three times
+    
+    *   Select the first newly duplicated object
+    
+*   In the Properties Window
+
+    *   Set Name to: ``HowToPlayButton``
+    
+    *   Under Transform
+    
+        *   Set Translation to: ``[0, -0.5, 0]``
+
+|pbr|
+    
+*   In the Objects window
+
+    *   Select the second duplicated object
+    
+*   In the Properties Window
+
+    *   Set Name to: ``CreditsButton``
+    
+    *   Under Transform
+    
+        *   Set Translation to: ``[0, -3.5, 0]``
+        
+*   In the Objects window
+
+    *   Select the third duplicated object
+    
+*   In the Properties window
+
+    *   Set Name to: ``QuitButton``
+    
+    *   Under Transform
+    
+        *   Set Translation to: ``[0, -6.5, 0]``
+
+*   In the Objects window
+
+    *   :ref:`Parent the StartGameButton Sprite to the MenuButtons object<2016Hierarchies>`
+    
+    *   :ref:`Parent the HowToPlayButton Sprite to the MenuButtons object<2016Hierarchies>`
+    
+    *   :ref:`Parent the CreditsButton Sprite to the MenuButtons object<2016Hierarchies>`
+    
+    *   :ref:`Parent the QuitButton Sprite to the MenuButtons object<2016Hierarchies>`
+    
+Our Objects window, with everything correctly parented, should now look like this:
+
+|ParentedMenuButtons|
+
+Right now, our overlapping :cpp:type:`Sprites<Sprite>` are not being told which ones should appear on top. To address this, we need to create a :cpp:type:`Sprite Layer Order<SpriteLayerOrder>` so that our menu Sprites are layered in the proper order.
+
+Adding the SpriteLayers to a SpriteLayerOrder
++++++++++++++++++++++++++++++++++++++++++++++
+        
+*   :ref:`Add a new SpriteLayerOrder resource<2016ResourceAdding>` named: ``Menu``
+
+*   In the Sprite Layer Order Editor window
+
+    *   ``Left Click`` Add SpriteLayer...
+    
+    *   ``Left Click`` MenuBackgroundBack
+    
+    *   Repeat the previous two steps for the other SpriteLayers we created, in this order:
+    
+        *   MenuBackgroundFront
+        
+        *   MenuButton
+        
+        *   MenuButtonText
+
+|pbr|
+
+The Sprite Layer Order Editor window should now appear like so:
+
+|InitialSpriteLayerOrder|
+    
+*   In the Level window
+
+    *   Press ``Shift + S``
+    
+*   In the Properties window
+
+    *   Under GraphicsSpace
+    
+        *   Set SpriteLayerOrder to: ``Menu``
+        
+Now we have a :cpp:type:`Sprite`-based framework for our menu:
+
+|MenuWithBlankButtons|
+
+|pbr|
+
+Adding SpriteText Objects
++++++++++++++++++++++++++
+
+For this project, we'll be :ref:`importing a custom font<Text2016AddingFont>` called "Savings Bond", which you can :ref:`download on The Void.<2016UsingTheVoid>`
+
+*   :ref:`Command<2016Commands>` : ``CreateSpriteText`` or :menuselection:`Create --> Create SpriteText`
+
+*   In the Objects Window
+
+    *   :ref:`Select the SpriteText you created<2016SelectObject>`
+
+    *   :ref:`Parent the SpriteText<2016Hierarchies>` to the ``GameTitle`` object
+
+    *   Re-select the SpriteText you just parented to the ``GameTitle`` object
+
+*   In the Properties window
+
+    *   Set Name to: ``GameTitleText``
+    
+    *   Under Transform
+    
+        *   Set Translation to: ``[0, 0, 0]``
+    
+    *   Under SpriteText
+    
+        *   Set SpriteLayer to: ``MenuButtonText``
+        
+        *   Set Font to: ``SAVINGSB_``
+
+        *   Set FontSize to: 130
+        
+        *   Set Text to: Whatever title you would like to call it. The example pictures will use: ``Mighty Menu 7``
+        
+        *   Set Align to: ``Center``
+        
+    *   :ref:`Add the Area component<2016AddComponent>`
+    
+        *   Under Area
+        
+            *   Set Size to: ``[13, 3]``
+            
+*   :ref:`Command<2016Commands>` : ``CreateSpriteText`` or :menuselection:`Create --> Create SpriteText`
+
+*   :ref:`Select the SpriteText you created<2016SelectObject>`
+
+*   In the Properties Window
+
+    *   Set Name to: ``StartGameText``
+
+    *   Under SpriteText
+    
+        *   Set SpriteLayer to: ``MenuButtonText``
+        
+        *   Set Font to: ``SAVINGSB_``
+        
+        *   Set FontSize to: 90
+        
+        *   Set Text to: ``Start Game``
+        
+        *   Set Align to: ``Center``
+        
+        *   Set Color to: ``[R: 0, G: 0, B: 0, A: 1.00]`` , ``#000000``
+        
+    *   :ref:`Add the Area component<2016AddComponent>`
+    
+        *   Under Area
+        
+            *   Set Size to: ``[9, 1.75]``
+            
+|StartGameTextProperties|
+            
+*   In the Objects window
+
+    *   Select the ``StartGameText`` :cpp:type:`SpriteText`
+    
+    *   Press ``Ctrl+D`` three times to duplicate the object three times
+    
+    *   Select the first newly duplicated object
+    
+*   In the Properties window
+
+    *   Set Name to: ``HowToPlayText``
+    
+    *   Under SpriteText
+    
+        *   Set Text to: How To Play
+        
+*   In the Objects window
+
+    * Select the second duplicated object
+    
+*   In the Properties window
+
+    *   Set Name to: ``CreditsText``
+    
+    *   Under SpriteText
+    
+        *   Set Text to: Credits
+        
+*   In the Objects window
+
+    * Select the third duplicated object
+    
+*   In the Properties window
+
+    *   Set Name to: ``QuitText``
+    
+    *   Under SpriteText
+    
+        *   Set Text to: Quit
+
+|pbr|
+
+*   In the Objects window
+
+    *   :ref:`Parent the StartGameText SpriteText to the StartGameButton object<2016Hierarchies>`
+    
+    *   :ref:`Parent the HowToPlayText SpriteText to the HowToPlayButton object<2016Hierarchies>`
+    
+    *   :ref:`Parent the CreditsText SpriteText to the CreditsButton object<2016Hierarchies>`
+    
+    *   :ref:`Parent the QuitText SpriteText to the QuitText object<2016Hierarchies>`
+    
+Even though each :cpp:type:`SpriteText` has been parented to their respective buttons, they're still in the same place. To fix this, we'll need to go into the :cpp:type:`Transform` component of each SpriteText object to change their Translation relative to the parent object.
+
+*   In the Objects window
+
+    *   :ref:`Select the StartGameText object<2016SelectObject>`
+    
+*   In the Properties window
+
+    *   Under Transform
+    
+        *   Set Translation to: ``[0, 0, 0]``
+        
+*   Repeat the last two steps for the other three :cpp:type:`SpriteText` objects attached to buttons:
+
+    *   ``HowToPlayText``
+    
+    *   ``CreditsText``
+    
+    *   ``QuitText``
+    
+The Menu itself should now look just about complete:
+
+|MenuWithButtonText|
+
+|pbr|
+
+And here's another look at our objects window, now with the :cpp:type:`SpriteText` objects parented
+
+|ParentedMenuButtonsWithText|
+
+We're just going to add one more :cpp:type:`Sprite` to this level: a selection arrow that will indicate over which button the mouse is hovering.
+
+Adding the Selection Arrow
+++++++++++++++++++++++++++
+
+*   :ref:`Command<2016Commands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+*   In the Objects window
+
+    *   Select the newly created Sprite
+    
+*   In the Properties window
+
+    *   Set Name to: ``SelectionArrow``
+    
+    *   Under Transform
+    
+        *   Set Translation to: ``[-6.5, 2.5, 0]``
+    
+    *   Under Sprite
+
+        *   Set Visible to: false
+        
+        *   Set SpriteLayer to: ``MenuButton``
+        
+        *   Set SpriteSource to: ``ArrowRight3``
+        
+        *   Set Color to: ``[R: 206, G: 226, B: 154, A: 1.00]`` , ``#CEE29A``
+        
+    *   :ref:`Add the Area component<2016AddComponent>`
+    
+        *   Under Area
+        
+            *   Set Size to: ``[2.25, 2.25]``
+            
+We now have a simple, but good looking menu for a game. Before adding functionality to the menu, however, we need to create the :cpp:type:`Levels<Level>` to which the menu buttons will take us.
+
+|pbr|
+
+Creating Levels
+---------------
+
+Creating the Game Level
+^^^^^^^^^^^^^^^^^^^^^^^
+
+We're going to need three more :cpp:type:`Levels<Level>` in addition to the one we've been working on: a Game level, a How to Play level, and a Credits level.
+
+*   :ref:`Add a new Level resource<2016ResourceAdding>` named: ``GameLevel``
+
+First, we'll change the ClearColor to match the menu :cpp:type:`Level`. Then, instead of creating all the :cpp:type:`Sprites<Sprite>` from scratch, we'll copy Sprites from our previously made level and paste them in the new level.
+
+*   In the Objects window
+
+    *   :ref:`Select the LevelSettings object<2016SelectObject>`
+    
+*   In the Properties window
+
+    *   Under ForwardRenderer
+    
+        *   Set ClearColor to: ``[R: 0, G: 0, B: 0, A: 1.00]`` , ``#000000``
+
+*   In the Library window
+
+    *   Select and open the Level named ``Level``
+    
+*   In the Objects window
+
+    *   Select both the ``MenuBackgroundBack`` and ``MenuBackgroundFront`` objects by first selecting one, then while holding ``Ctrl``, select the other
+    
+    *   With both objects selected, press ``Ctrl+C`` to copy them
+    
+*   In the Library window
+
+    *   Select and open the level named ``GameLevel``
+    
+*   In the Level window
+
+    *   Press ``Ctrl+V`` to paste the objects from the menu level
+    
+As we don't need anything as big as the menu backgrounds on these pages, we can just make some quick changes to the Area components of these two objects to resize them.
+
+*   In the Objects window
+
+    *   :ref:`Select the MenuBackgroundBack object<2016SelectObject>`
+    
+*   In the Properties window
+
+    *   Set Name to: ``BackgroundBack``
+    
+    *   Under Area
+    
+        *   Set Size to: ``[16, 4.75]``
+        
+*   In the Objects window
+
+    *   :ref:`Select the MenuBackgroundFront object<2016SelectObject>`
+    
+*   In the Properties window
+
+    *   Set Name to: ``BackgroundFront``
+    
+    *   Under Area
+    
+        *   Set Size to: ``[15, 4]``
+        
+We can do the same trick with a :cpp:type:`SpriteText` object from the menu Level.
+
+*   In the Library window
+
+    *   Select and open the Level named ``Level``
+    
+*   In the Objects window
+
+    *   :ref:`Select the GameTitleText object<2016SelectObject>`
+    
+    *   Make a copy of it by pressing ``Ctrl+C``
+    
+*   In the Library window
+
+    *   Select and open the level named ``GameLevel``
+    
+*   In the Level window
+
+    *   Press ``Ctrl+V`` to paste the objects from the menu level
+    
+*   In the Objects window
+
+    *   :ref:`Select the GameTitleText object<2016SelectObject>`
+    
+*   In the Properties window
+
+    *   Set Name to: ``WinText``
+    
+    *   Under SpriteText
+    
+        *   Set FontSize to: 95
+        
+        *   Set Text to: Congratulations! You've Won!
+        
+        *   Set Color to: ``[R: 28, G: 60, B: 60, A: 1.00]`` , ``#1C3C3C``
+        
+    *   Under Area
+    
+        *   Set Size to: ``[12, 3.5]``
+        
+The backgrounds and text for the GameLevel should now appear like so:
+
+|GameLevelWinBox|
+      
+The last thing we'll do for the GameLevel is to steal a button from the menu Level and use it as a "Return to Main Menu" button
+
+*   In the Library window
+
+    *   Select and open the Level named ``Level``
+    
+*   In the Objects window
+
+    *   :ref:`Select the StartGameButton object<2016SelectObject>`
+    
+    *   Make a copy of it by pressing ``Ctrl+C``
+    
+*   In the Library window
+
+    *   Select and open the level named ``GameLevel``
+    
+*   In the Level window
+
+    *   Press ``Ctrl+V`` to paste the objects from the menu level
+    
+*   In the Objects window
+
+    *   :ref:`Select the StartGameButton object<2016SelectObject>`
+    
+*   In the Properties window
+
+    *   Set Name to: ``ReturnButton``
+    
+    *   Under Transform
+    
+        *   Set Translation to: ``[0, -4, 0]``
+        
+    *   Under Sprite
+    
+        *   Set Color to: ``[R: 43, G: 72, B: 76, A: 1.00]`` , ``#2B484C``
+
+|pbr|
+        
+*   In the Objects window
+
+    *   :ref:`Select the StartGameText object<2016SelectObject>`
+    
+*   In the Properties window
+
+    *   Set Name to: ``ReturnText``
+    
+    *   Under SpriteText
+    
+        *   Set FontSize to: ``55``
+            
+        *   Set Text to: ``Return to Main Menu``
+            
+        *   Set Color to: ``[R: 187, G: 0, B: 5, A: 1.00]`` , ``#BB0005``
+        
+    *   Under Area
+    
+        *   Set Size to: ``[9, 1]``
+        
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+|GameLevelFinished|
+
+Creating the How To Play and Quit Levels
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To save even more time, to create the other two levels we can merely duplicate the GameLevel and make a few changes.
+
+*   In the Library window
+
+    *   Under Level
+    
+        *   :ref:`Duplicate the GameLevel level twice<2016LevelDuplicating>`
+        
+        *   Select the ``GameLevelCopy1`` level
+        
+        *   Right-click and select Rename
+        
+        *   Set new name to HowToPlayLevel
+        
+        *   Select the ``GameLevelCopy2`` level
+        
+        *   Right-click and select Rename
+        
+        *   Set new name to CreditsLevel
+        
+        *   Select and open ``HowToPlayLevel``
+
+|pbr|
+       
+*   In the Objects window
+
+    *   :ref:`Select the WinText object<2016SelectObject>`
+
+*   In the Properties window
+
+    *   Set Name to: ``HowToPlayText``
+    
+        *   Under SpriteText
+        
+            *   Set Font to: ``90``
+    
+            *   Set Text to: ``Press Start Game in the Main Menu!``
+    
+* :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+        
+|HowToPlayLevelRunning|
+
+And finally, the Credits level
+        
+*   In the Library window
+
+    *   Under Level
+    
+        *   Select and open ``CreditsLevel``
+    
+*   In the Objects window
+
+    *   :ref:`Select the WinText object<2016SelectObject>`
+
+*   In the Properties window
+
+    *   Set Name to: ``CreditsText``
+    
+    *   Under SpriteText
+    
+        *   Set Text to: Your own name or whatever you would like to place here. The sample project will use ``Made by: YOU``
+    
+    *   Under Area
+    
+        *   Set Size to: ``[12, 2]``
+
+|pbr|
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+|CreditsLevelRunning|
+
+Okay, so we've now got our Main Menu and all the levels to which the menu can take us. After all that setup and object creation, it's time to put the "react" in Reactive.
+
+Adding the Components
+---------------------
+
+For this project, you will need to download three components found in an asset on The Void named "ProjectFun UIComponents". The three component scripts and their functions are:
+
+*   ``UIButton``
+
+    *   This component should be placed on every button in the project. It keeps track of the current state of the button (i.e., whether the mouse is currently hovering over it or if it has been clicked) as well as dispatches a custom event with the information needed for the UIMenuManager component to perform its logic.
+
+*   ``UIMenuManager``
+
+    *   This component will usually be placed on the parent object of all the menu buttons on a given level. By listening for the UIButton custom event, it receives the information regarding which button was pushed and then acts on that information, calling the appropriate response functions. These responses include loading a new level, triggering a custom event to create a confirmation window (through the ``ConfirmationPopUp`` component) , and either accepting or denying that confirmation request.
+
+*   ``ConfirmationPopUp``
+
+    *   This component should be placed on the ``LevelSettings`` object of the level where the Confirmation Window is located. By listening and responding to the ConfirmationPopUpRequest custom event (dispatched from ``UIMenuManager``), the component does four things:
+    
+        *   Creates a new space for the Confirmation Window
+        
+        *   Loads the Confirmation Window level
+        
+        *   Turns off the Reactive functionality of the main menu
+        
+        *   By listening for the ConfirmationPopUpResponse custom event (also dispatched from ``UIMenuManager``), it either causes the game either to quit out or, if the confirmation to quit is denied, to destroy the confirmation space and restart the main menu.
+
+Let's start out by taking a more in-depth look at the ``UIButton`` component and applying it to all the buttons in our project.
+
+The UIButton Component
+----------------------
+
+The primary purpose of this component is to set the values for the buttons' properties and what :cpp:type:`level` to load when it is clicked (only for those buttons that indicate changing levels). 
+
+.. Note::
+
+  The following section (and the sections covering the other two components) give a detailed overview of what is happening in each component. Before discussing each section of a certain component, the code for that section as well as comments explaining what each line does is displayed. You **DO NOT** need to write this code anywhere. It's there for your reference.
+  
+  The best way to use these in-depth sections is, after looking at the code and reading the discussion about a particular section, look at the section of the script inside the project itself to see how it fits in as part of a bigger whole. Doing this will provide the greatest potential to not only understand what is happening, but also to become comfortable enough to start creating your own interacting components.
+  
+The UIButton Class
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: csharp
+
+  // Custom event that notifies the UIMenuManager of state changes on its buttons
+  class UIButtonEvent : ZilchEvent
+  {
+    // Registers UIButtonEvent as the custom event's string type identifier
+    sends UIButtonEvent : UIButtonEvent;
+    
+    // Button that underwent a state change
+    var Button : Cog = null;
+    
+    // The current state of the button
+    var State : ButtonState = ButtonState.Default;
+    
+    // The level to load when the button is clicked
+    var LevelToLoad : Level = null;
+  }
+  
+This block of code, which defines the custom event we'll be using to send the information of whatever button has been clicked, is completely separate from the rest of the code. Custom events that send information like this one require their own class where variables are defined that will hold the information.
+
+You could put this block of code in any new :cpp:type:`ZilchScript` that you write and it would still be accessible from every other ZilchScript. It is placed in this component because this is where we dispatch instances of this event. All of the variables listed in this class will be assigned values either from properties of the button object itself or variables inside the ``UIButton`` class (which are in our next code-block).
+
+|pbr|
+
+Variables
+^^^^^^^^^
+
+.. code-block:: csharp
+
+    // This component requires a reactive component
+    [Dependency]
+    var Reactive : Reactive = null;
+    
+    // Should this component be active?
+    [Property]
+    var Active : Boolean = true;
+    
+    // Sprite Sources for Default, Hovered, and Clicked States
+    [Property]
+    var DefaultSprite : SpriteSource = null;
+    
+    [Property]
+    var HoveredSprite : SpriteSource = null;
+    
+    [Property]
+    var ClickedSprite : SpriteSource = null;
+    
+    // Property to select which level this button should load when clicked
+    [Property]
+    var LevelToLoad : Level = null;
+    
+    // Current State of the button
+    var CurState : ButtonState = ButtonState.Default;
+
+*   ``Reactive`` - A variable for the Reactive component that is given the Dependency attribute (to make sure the Reactive Component is attached to the object)
+
+*   ``Active`` - A Boolean with the Property attribute to set whether the Component should be active or not
+
+*   ``DefaultSprite`` - A SpriteSource with the Property attribute to be used when the button is in its DefaultState (i.e., when the mouse is neither hovering over it nor clicking it)
+
+*   ``HoveredSprite`` - A SpriteSource with the Property attribute to be used when the button is in its HoveredState (i.e, when the mouse hovers over the button)
+
+*   ``ClickedSprite`` - A SpriteSource with the Property attribute to be used when the button is in its ClickedState (i.e., when the mouse is clicked)
+
+*   ``LevelToLoad`` - A Level reference to the particular level to load based on which button has been clicked
+
+*   ``CurrentState`` - A variable that keeps track of the current button state. All of the possible button states have been defined in an :cpp:type:`enum` at the very top of the script.
+
+|pbr|
+
+Mouse Events
+^^^^^^^^^^^^
+
+.. code-block:: csharp
+
+  function Initialize(init : CogInitializer)
+  {
+    // Connections to the needed Mouse events (Enter, Exit, Up, Down)
+    Zero.Connect(this.Owner, Events.MouseEnter, this.OnMouseEnter);
+    Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);
+    Zero.Connect(this.Owner, Events.MouseUp, this.OnMouseUp);
+    Zero.Connect(this.Owner, Events.MouseDown, this.OnMouseDown);
+  }
+  
+  // Responds to the mouse entering the boundaries of the button
+  function OnMouseEnter(event : ViewportMouseEvent)
+  {
+    // Calls the function for the Hovered state
+    this.HoveredState();
+  }
+  // Responds to the mouse exiting the boundaries of the button
+  function OnMouseExit(event : ViewportMouseEvent)
+  {
+    // Calls the function for the Default state
+    this.DefaultState();
+  }
+  
+  // Responds to the mouse releasing a button
+  function OnMouseUp(event : ViewportMouseEvent)
+  {
+    // Goes back to the hovered space, as mouse would most likely still
+    // be hovering over the button just clicked
+    this.HoveredState();
+  }
+  
+  // Responds to the mouse clicking a button
+  function OnMouseDown(event : ViewportMouseEvent)
+  {
+    // Calls the function for the clicked state
+    this.ClickedState();
+  }
+
+Above we see the ``Initialize()`` function as well as the response functions called when a mouse event is heard. As our menu is navigated by the mouse, we need to connect to the mouse events that correspond to how the player will interact with it. Inside each mouse event response function, another function is called (either ``DefaultState()``, ``HoveredState()``, or ``ClickedState()``). These three functions set the properties of the button depending on the state the button is currently in. The last line of each of these functions is the call to the ``DispatchState()`` function, which will be discussed in further detail below.
+
+|pbr|
+
+Button States and Response Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: csharp
+
+  // Sets the button to the default state
+  function DefaultState()
+  {
+    // Changes this object's SpriteSource to the one selected in the
+    // DefaultSprite variable property
+    this.Owner.Sprite.SpriteSource = this.DefaultSprite;
+    // Changes CurState to Default (to be sent as info with event dispatch)
+    this.CurState = ButtonState.Default;
+    
+    // Calls the function that dispatches the event with state info
+    this.DispatchState();
+  }
+  
+  // Sets the button the the hovered (or focused) state
+  function HoveredState()
+  {
+    // Changes this object's SpriteSource to the one selected in the
+    // HoveredSprite variable property
+    this.Owner.Sprite.SpriteSource = this.HoveredSprite;
+    // Changes CurState to Hovered (to be sent as info with event dispatch)
+    this.CurState = ButtonState.Hovered;
+    
+    // Calls the function that dispatches the event with state info
+    this.DispatchState();
+  }
+  
+  // If valid, Sets the button to the clicked state
+  function ClickedState()
+  {
+    //Check to make sure the ButtonState isn't already Hovered 
+    if(this.CurState != ButtonState.Hovered)
+    {
+      return;
+    }
+    
+    // Changes this object's SpriteSource to the one selected in the
+    // ClickedSprite variable property
+    this.Owner.Sprite.SpriteSource = this.ClickedSprite;
+    // Changes CurState to Clicked (to be sent as info with event dispatch)
+    this.CurState = ButtonState.Clicked;
+    
+    // Calls the function that dispatches the event with state info
+    this.DispatchState();
+  }
+
+The possible states a button can be in are defined in the ``ButtonState`` ``enum`` as ``Default``, ``Hovered``, and ``Clicked`` at the very top of the script, above the ``UIButtonEvent`` class. So, it makes sense to name these functions according to those states.
+
+Each function in the code-block above does two things that rely on the button state:
+
+*   The button's :cpp:type:`SpriteSource` is changed to what is selected for the ``DefaultSprite``, ``HoveredSprite``, and ``ClickedSprite`` properties
+
+*   The ``CurrentState`` variable is set to ``ButtonState`` that corresponds to the response function (for example, ``this.CurrentState`` is set to ``ButtonState.Hovered`` in the ``HoveredState()`` function).
+
+The final line in each function is the call to the ``DispatchState()`` function, which dispatches the ``UIButtonEvent`` custom event.
+
+Dispatching the Event
+^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: csharp
+
+  // Dispatches the current state of the button
+  function DispatchState()
+  {
+    // Creates a new instance of the UIButtonEvent custom event
+    var buttonEvent : UIButtonEvent = new UIButtonEvent();
+    // Sets the information to be sent with the event
+    buttonEvent.Button = this.Owner;
+    buttonEvent.State = this.CurState;
+    buttonEvent.LevelToLoad = this.LevelToLoad;
+    //Dispatches the event onto the space
+    this.Space.DispatchEvent(Events.UIButtonEvent, buttonEvent);
+  }
+
+In the ``DispatchState()`` function, a new instance of the ``UIButtonEvent`` custom event called ``buttonEvent`` is created. Then, the variables defined in the custom event--that is, the information we wish to send with the event--are set to the appropriate values:
+
+*   ``buttonEvent.Button`` is a reference to the button itself, so its value is set to ``this.Owner`` (that is, the button this component is on)
+
+*   ``buttonEvent.State`` is set to the current value of ``this.CurrentState``
+
+*   ``buttonEvent.LevelToLoad`` is set to the value of the variable ``LevelToLoad``. Remember that the ``LevelToLoad`` has the Property attribute, which means we'll be setting its value in the Property window whenever we attach this component to an object.
+
+Finally, the new instance of ``UIButtonEvent`` is dispatched onto the :cpp:type:`Space` so that any object within the Space that is listening for it can hear it and receive all of the information sent with it.
+
+Attaching the UIButton Component
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Main Menu Buttons
++++++++++++++++++++++
+
+*   In the Objects window
+
+    *   :ref:`Select the StartGameButton object<2016SelectObject>`
+    
+*   In the Properties Window
+    
+    *   :ref:`Add the UIButton component<2016AddComponent>`
+    
+    *   Under UIButton
+    
+        *   Set DefaultSprite to: ``Button5``
+        
+        *   Set HoveredSprite to: ``Button4``
+        
+        *   Set ClickedSprite to: ``Button3``
+        
+        *   Set LevelToLoad to: ``GameLevel``
+      
+*   In the Objects window
+
+    *   :ref:`Select the HowToPlayButton object<2016SelectObject>`
+    
+*   In the Properties Window
+
+    *   :ref:`Add the UIButton component<2016AddComponent>`
+    
+    *   Under UIButton
+    
+        *   Set DefaultSprite to: ``Button5``
+        
+        *   Set HoveredSprite to: ``Button4``
+        
+        *   Set ClickedSprite to: ``Button3``
+        
+        *   Set LevelToLoad to: ``HowToPlayLevel``
+        
+*   In the Objects window
+
+    *   :ref:`Select the CreditsButton object<2016SelectObject>`
+    
+*   In the Properties Window
+
+    *   :ref:`Add the UIButton component<2016AddComponent>`
+    
+    *   Under UIButton
+    
+        *   Set DefaultSprite to: ``Button5``
+        
+        *   Set HoveredSprite to: ``Button4``
+        
+        *   Set ClickedSprite to: ``Button3``
+        
+        *   Set LevelToLoad to: ``CreditsLevel``
+        
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+With the exception of the Quit button, each button should change :cpp:type:`SpriteSources<SpriteSource>` as the mouse hovers over them.
+
+*   :ref:`Stop the Game<2016StopGame>`
+
+The Return to Main Menu Buttons
++++++++++++++++++++++++++++++++
+
+We now need to go through every other level we created and add the ``UIButton`` Component to the Return buttons so that we can return to the Main Menu level at any time.
+
+*   In the Library window
+
+    *   Under Level
+    
+        *   Select and open ``GameLevel``
+    
+*   In the Objects window
+
+    *   :ref:`Select the ReturnButton object<2016SelectObject>`
+
+*   In the Properties window
+
+    *   Under UIButton
+    
+        *   Set DefaultSprite to: ``Button5``
+            
+        *   Set HoveredSprite to: ``Button4``
+            
+        *   Set ClickedSprite to: ``Button3``
+            
+        *   Set LevelToLoad to: ``Level``
+        
+*   Repeat the steps immediately above for:
+
+    *   The ``HowToPlayLevel`` level
+    
+    *   The ``CreditsLevel`` level
+    
+*   In the Library window
+
+    *   Under Level
+    
+        *   Select and open ``Level``
+        
+*   :ref:`Save your project <2016SavingProject>`
+
+In order to get full functionality, we need to add the ``UIMenuManager`` component. Let's take a moment to go a bit more in-depth with what is happening inside of it.
+
+The UIMenuManager Component
+---------------------------
+
+This component's primary purpose is to listen for any instances of the ``UIButtonEvent`` custom event that have been dispatched. When the event is heard, it should respond appropriately to all the information sent with the event.
+
+Variables
+^^^^^^^^^
+
+.. code-block:: csharp
+
+  // Should the component be active or not
+  [Property]
+  var Active : Boolean = true;
+  
+  // The CogPath for the selection arrow pointing to selected button
+  [Property] 
+  var SelectionArrow : CogPath = null;
+  
+  // The offset of the selection arrow relative to selected button
+  [Property] 
+  var ArrowOffset : Real3 = Real3();
+
+*   ``Active`` - A Boolean variable with the Property attribute to set whether the Component should be active or not
+
+*   ``SelectionArrow`` - A CogPath variable with the Property attribute that's a reference to ``SelectionArrow`` object may be derived from (e.g., the arrow ``Cog``) so as to access its properties
+
+*   ``ArrowOffset`` - A Real3 variable with the Property attribute to set the position of the ``SelectionArrow`` depending on which button is currently being hovered over
+
+Responding to UIButtonEvent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: csharp
+
+  function Initialize(init : CogInitializer)
+  {
+    // Connect to dispatched UIButton event6
+    Zero.Connect(this.Space, Events.UIButtonEvent, this.OnUIButtonEvent);
+  }
+  
+  // Response function called when the UIButtonEvent is heard
+  function OnUIButtonEvent(event : UIButtonEvent)
+  {
+      // If the component is set to not active, do nothing
+      if(!this.Active)
+      {
+          return;
+      }
+      
+      // Check the button's previous state and respond to it by calling the appropriate 
+      // response function and passing in the button that is being interacted with
+      // (i.e., the one that dispatched the event)
+      if(event.State == ButtonState.Default)
+      {
+          this.OnButtonDefault(event.Button);
+      }
+      else if(event.State == ButtonState.Hovered)
+      {
+          this.OnButtonHovered(event.Button);
+      }
+      // If ClickedState, also pass in the level to load along with the button
+      else if(event.State == ButtonState.Clicked)
+      {
+          this.OnButtonClicked(event.Button, event.LevelToLoad);
+      }
+      else
+      {
+          // Debug warning that shouldn't fire using basic functionality
+          Console.WriteLine("Button `event.Button.Name` with text `event.Button.SpriteText.Text` is in invalid state `event.State`");
+      }
+  }
+
+As you can see inside the ``Initialize`` function, we're connecting to the ``UIButtonEvent`` (that is, listening for any instance of it dispatched onto the Space) and calling the response function ``OnUIButtonEvent`` when an instance is heard.
+
+Looking down a couple of lines to the ``OnUIButtonEvent`` function itself, you can see that most of the code is a series of checks to see which ButtonState was sent with the event. The variable ``event.State``, which gives us the current ButtonState, is checked against the three ButtonState values (see note on enums below for more details). Based on these ``if`` checks, response functions are called that perform the logic specific to the ButtonState sent, whether it be default, hovered, or clicked.
+
+While the ``Default`` and ``Hovered`` states pass in the button object sent by the UIButton event (i.e., the button that the player is currently interacting with in a level), the ``Clicked`` state also passes the ``LevelToLoad`` variable sent with the event. This is because we only want to load a level when a button is clicked. Of course, not all buttons actually do load new levels (like the quit button, for example).
+
+.. Note:: Enums Revisited
+
+  In the ``UIMenuManager`` script, you may be wondering how we are able to access the ButtonState ``enum`` that was created in the ``UIButton`` script. Once an ``enum`` has been defined, it can be used again in any script in the project without having to redefine it in another script. The ButtonState ``enum`` was initially defined in the ``UIButton`` script because that's where it's first used to set the current state of the button (see the discussion of the ``UIButton`` component above for more details). ButtonState is used in ``UIMenuManager`` as a way to check what state the button is in when the UIButtonEvent was dispatched so that we can respond appropriately.
+  
+  In other words, ``UIButton`` needs ButtonState to set and send the current state, while ``UIMenuManager`` needs ButtonState to check for and respond to the current state. Since we're able to use the same ``enum``, the check is simple. If we had made another ``enum`` for ``UIMenuManager``, we would have ended up with a lot of redundant and confusing code. Another benefit of using the same ``enum`` is that we can avoid errors both when sending and checking the current state as there are only the three accessible options (default, hovered, and clicked) when using ButtonState.
+
+|pbr|
+
+Responding to the Button States
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: csharp
+
+  // Used to respond to buttons changing to the default state generically
+  function OnButtonDefault(button : Cog)
+  {
+    // Check to see if the SelectionArrow is being used in this level
+    if(this.SelectionArrow.Cog != null)
+    {
+      // If so, make it invisible
+      this.SelectionArrow.Cog.Sprite.Visible = false;
+    }
+  }
+  
+  // Used to respond to buttons changing to the hovered state generically
+  function OnButtonHovered(button : Cog)
+  {
+    // Check to see if the SelectionArrow is being used in this level
+    if(this.SelectionArrow.Cog != null)
+    {
+      // If buttons are on the confirmation window
+      if(button.Name == "ConfirmYesButton" || button.Name == "ConfirmNoButton")
+      {
+        // Make the selection arrow is invisible
+        this.SelectionArrow.Cog.Sprite.Visible = false;
+      }
+      // If the button is anywhere else (i.e., the main menu)
+      else
+      {
+        // Make the selection arrow visible
+        this.SelectionArrow.Cog.Sprite.Visible = true;
+        
+        // Offset the position of SelectionArrow relative to the current button
+        this.SelectionArrow.Cog.Transform.Translation = button.Transform.Translation + this.ArrowOffset;
+      }
+    }
+  }
+  
+  // Can be used to respond to buttons changing to the clicked state generically
+  function OnButtonClicked(button : Cog, levelToLoad : Level)
+  {
+    // This is where you check which button was activated and perform //
+    
+    // Call Default response function to clear the SelectionArrow
+    this.OnButtonDefault(button);
+    
+    // Check to see if the button is one that loads a level; if it is, load the level.
+    if(button.Name == "StartGameButton" ||
+        button.Name == "HowToPlayButton" ||
+        button.Name == "CreditsButton" ||
+        button.Name == "ReturnButton")
+    {
+      this.Space.LoadLevel(levelToLoad);
+    }
+    
+    //More code here to be discussed below...
+  }
+
+|pbr|
+
+These are the three response functions called in ``OnUIButtonEvent``:
+
+*   ``OnButtonDefault``
+
+    *   This function checks to see if there is a ``SelectionArrow`` object in the level, and if there is, make it invisible. This is because the default state means that the button is not currently selected.
+
+*   ``OnButtonHovered``
+
+    *   This function does the same check for ``SelectionArrow`` and if it is found, makes it visible and sets its position so that it lines up next to the button. This last part is accomplished by getting the current position of the button and then adding the value of a variable with the Property attribute named ``ArrowOffset``. We'll be setting the value for ``ArrowOffset`` in the Property window when we attach this component later.
+
+*   ``OnButtonClicked``
+
+    *   It calls the ``OnDefaultButton()`` function so that the selection arrow will be made invisible
+    
+    *   It checks to see if the name of the button sent with the ``UIButtonEvent`` is one of four names that indicate that its a button that should load a new level.
+    
+        *   If it is one of those buttons, then it loads the level that was also sent with ``UIButtonEvent``.
+
+Note the comment mentioning there is more code. That bit of code has a direct connection to ``ConfirmationPopUp`` component so we'll look at that code-block and discuss it further down in that section.
+
+Toggling the Reactive Components
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: csharp
+
+  // Used to activate or deactivate the Reactive components on the
+  // non-confirmation buttons in the current level
+  function SetChildrenReactive(val : Boolean)
+  {
+    // Iterate through the buttons parented to the buttons parent object (i.e., this.Owner)
+    foreach(var child in this.Owner.Children)
+    {
+      // Activate or deactivate Reactive component based on passed in boolean (i.e, val)
+      child.Reactive.Active = val;
+    }
+  }
+
+The last function in this script, ``SetChidldrenReactive()``, iterates (or loops through) all of the buttons that are child objects of the ``MenuButtons`` parent object. As with the last part of the ``OnButtonClicked()`` function, this function will also come into play once we discuss our final component.
+
+|pbr|
+
+Attaching the UIMenuManager Component
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*   In the Objects window
+
+    *   :ref:`Select the MenuButtons object<2016SelectObject>`
+    
+*   In the Properties window
+
+    *   :ref:`Add the UIMenuManager component<2016AddComponent>`
+    
+    *   Under UIMenuManager
+    
+        *   Set SelectionArrow by: :ref:`choosing the SelectionArrow object<2016CogPaths>` or typing ``:/SelectionArrow`` into the text field
+        
+        *   Set ArrowOffset to: ``[-6, 0, 0]``
+        
+*   In the Library window
+
+    *   Under Level
+    
+        *   Select and Open ``GameLevel``
+        
+*   In the Objects window
+
+    *   :ref:`Select the ReturnButton object<2016SelectObject>`
+    
+*   In the Properties window
+
+    *   :ref:`Add the UIMenuManager component<2016AddComponent>`
+    
+*   Repeat the previous three steps for the other two levels we've created:
+
+    *   ``HowToPlayLevel``
+    *   ``CreditsLevel``
+    
+*   Return to the level named ``Level``
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+With the exception of the "Quit" button, you should be able to navigate from the main menu to the other levels and back again. 
+
+Adding Confirmation of Destructive Action
+-----------------------------------------
+
+Right now, when we hit the Quit button in the Main Menu, it does nothing (as we haven't added the UIButton component to it). We could easily add a case into our ``UIMenuManager`` component that just quits out of the game when we hit quit, but as both game developers and players have come to realize, this is a very bad idea.
+
+When things like level progress, item accumulation, and especially save states are at risk, you will always want to provide a confirmation interface making sure that the player wishes to quit. It is fairly common to accidentally hit a quit button without meaning to. If there is no confirmation interface that prompts the user to make sure they really do intend to quit, there will inevitably be a large number of frustrated, angry players.
+
+As the last part of this User Interface project, we will make a "confirmation to quit" window that will pop up when the player chooses the "Quit" option from the main menu. It will ask whether the player really does intend to quit and provides two buttons--"Yes" or "No"--for the player to provide their answer. As such a window could reasonably appear at any point in a game (e.g., at a main menu, at a pause menu, at a level restart prompt, etc...), we will want to put it in its own Space, therefore making it accessible no matter what level the player is in.
+
+|pbr|
+
+Creating the Confirmation Window Level
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The first thing we need to do is to add a level for the confirmation window. To display any object in a space, it must be placed in its own level.
+
+*   :ref:`Add a new Level resource<2016ResourceAdding>` named: ``ConfirmLevel``
+
+*   :ref:`Select the LevelSettings object<2016SelectObject>`
+
+    *   Under ForwardRenderer
+    
+        *   Set ClearColor to: ``[R: 0, G: 0, B, 0, A: 1.00]`` , ``#000000``
+        
+    *   Under CameraViewport
+    
+        *   Set Layer to: ``1``
+        
+        *   Set Background to: ``false``
+        
+With these preliminary steps done, let's make the confirmation window itself.
+
+Creating the Confirmation Window
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Parent Object
++++++++++++++++++
+
+To keep everything tidy and in one place, let's make a parent object, similar to the one we made for the main menu buttons, that will act as the parent object for all of our confirmation window objects.
+
+*   In the ConfirmLevel window
+
+    *   :ref:`Command<2016Commands>` : ``CreateTransform`` or :menuselection:`Create --> Create Transform`
+    
+*   In the Objects window
+
+    *   :ref:`Select the newly created object<2016SelectObject>`
+    
+*   In the Properties window
+
+    *   Set Name to: ConfirmWindow   
+    
+Background Sprites and SpriteText
++++++++++++++++++++++++++++++++++
+
+As before, we can speed this process up by reusing assets we've already placed in other levels. For the confirmation window, let's use the menu background sprites again.
+
+*   In the Library window
+
+    *   Under the Level tag
+    
+        *   Open the level named: ``Level``
+
+*   In the Objects window
+
+    *   :ref:`Select<2016SelectObject>` the ``MenuBackgroundBack`` object
+    
+    *   Make a copy of the object by pressing ``Ctrl+C``
+    
+*   In the Library window
+
+    *   Under the Level tag
+    
+        *   Open the level named: ``ConfirmLevel``
+        
+*   In the Level window
+
+    *   Paste the object by pressing ``Ctrl+V``
+    
+*   In the Properties window
+
+    *   Set Name to: ``ConfirmWindowBack``
+    
+    *   Under Sprite
+    
+        *   Set Color to: ``[R: 82, G: 0, B: 3, A: 1.00]`` , ``#520003``
+        
+    *   Under Area
+    
+        *   Set Size to: ``[15, 11]``
+
+*   In the Objects window
+
+    *   :ref:`Select<2016SelectObject>` and copy the ``ConfirmWindowBack`` object
+    
+    *   Select the newly created object
+    
+*   In the Properties window
+
+    *   Set Name to: ``ConfirmWindowFront``
+    
+    *   Under Sprite
+    
+        *   Set SpriteLayer to: ``MenuBackgroundFront``
+    
+        *   Set Color to: ``[R: 187, G: 0, B: 5, A: 1.00]`` , ``#BB0005``
+        
+    *   Under Area
+    
+        *   Set Size to: ``[14, 10]``  
+
+*   In the Objects window
+
+    *   :ref:`Parent the ConfirmWindowFront object to the ConfirmWindow object<2016Hierarchies>`
+
+The Level window should now look like this:
+
+|ConfirmWindowBackground|
+
+Now let's add the SpriteText that asks the user if they really do want to quit.
+
+|pbr|
+
+*   :ref:`Command<2016Commands>` : ``CreateSpriteText`` or :menuselection:`Create --> Create SpriteText`
+
+*   In the Objects Window
+
+    *   :ref:`Select the SpriteText you created<2016SelectObject>`
+
+    *   :ref:`Parent the SpriteText<2016Hierarchies>` to the ``ConfirmWindow`` object
+    
+*   In the Properties window
+
+    *   Set Name to: ``ConfirmText``
+    
+    *   Under Transform
+    
+        *   Set Translation to: ``[0, 2, 0]``
+    
+    *   Under SpriteText
+    
+        *   Set SpriteLayer to: ``MenuButtonText``
+        
+        *   Set Font to: ``SAVINGSB_``
+        
+        *   Set FontSize to: 100
+        
+        *   Set Text to: ``Are You Sure You Want To Quit?``
+        
+        *   Set Align to: ``Center``
+        
+        *   Set Color to: ``[R: 255, G: 255, B: 255, A: 1.00]`` , ``#FFFFFF``
+        
+    *   :ref:`Add the Area component<2016AddComponent>`
+    
+        *   Under Area
+        
+            *   Set Size to: ``[12, 4]``
+
+Button Sprites
+++++++++++++++
+
+Let's copy over the buttons from the main menu since they're already setup as we need them to be.
+
+*   In the Library window
+
+    *   Under the Level tag
+    
+        *   Open the level named: ``Level``
+        
+*   In the Objects window
+
+    *   :ref:`Select<2016SelectObject>` the ``StartGameButton`` object
+    
+    *   Make a copy of the object by pressing ``Ctrl+C``
+    
+*   In the Library window
+
+    *   Under the Level tag
+    
+        *   Open the level named: ``ConfirmLevel``
+        
+*   In the Level window
+
+    *   Paste the object by pressing ``Ctrl+V``
+    
+    *   :ref:`Parent the newly created object<2016Hierarchies>` to the ``ConfirmWindow`` object
+   
+*   In the Properties window
+    
+    *   Set Name to: ``ConfirmYesButton``
+    
+    *   Under Transform
+    
+        *   Set Translation to: ``[-3, -2, 0]``
+    
+    *   Under Sprite
+    
+        *   Set Color to: ``[R: 35, G: 75, B: 75, A: 1.00]`` , ``#234B4B``
+        
+    *   Under Area
+    
+        *   Set Size to: ``[4, 1.75]``
+
+|pbr|
+
+*   In the Objects window
+
+    *   Select the ``StartGameText`` object parented to the ``ConfirmYesButton`` object
+
+*   In the Properties window
+
+    *   Set Name to: ``ConfirmYesText``
+    
+    *   Under SpriteText
+        
+        *   Set Text to: ``Yes``
+        
+        *   Set Color to: ``[R: 255, G: 255, B: 255, A: 1.00]`` , ``#FFFFFF``
+
+    *   Under Area
+    
+        *   Set Size to: ``[4, 1.75]``
+        
+The No button is just a matter of copying the object we just made and changing a couple of properties.
+
+*   In the Objects window
+    
+    *   :ref:`Select<2016SelectObject>` and copy the ``ConfirmYesButton`` object
+    
+    *   Select the newly created object
+    
+*   In the Properties window
+
+    *   Set Name to: ``ConfirmNoButton``
+    
+    *   Under Transform
+    
+        *   Set Translation to: ``[3, -2, 0]``
+        
+*   In the Objects window
+
+    *   Select the ``ConfirmYesText`` object parented to the ``ConfirmNoButton`` object
+
+*   In the Properties window
+
+    *   Set Name to: ``ConfirmNoText``
+    
+    *   Under SpriteText
+    
+        *   Set Text to: ``No``
+        
+We should now have our finished Confirmation of Quitting window:
+
+|FinishedConfirmWindow|
+
+And the hierarchy in the Objects window for the entire Confirmation of Quitting window:
+
+|ConfirmWindowHierarchy|
+
+Now that we have our level ready to go, it's time to take a look at our final component, ``ConfirmationPopUp``.
+
+The ConfirmationPopUp Component
+-------------------------------
+
+This component aims to accomplish the following objectives:
+
+*   Create the new :cpp:type:`Space` for the Confirmation :cpp:type:`Level`
+
+*   Load the Confirmation Level once the Space has been created
+
+*   Turn off all the Main Menu buttons while the Confirmation Window exists (so the user doesn't accidentally interact with the Main Menu)
+
+*   Receive the response from the player deciding whether they should quit or not
+
+*   If they do wish to quit, quit out of the game
+
+*   If they do not wish to quit, turn back on all the Main Menu buttons and destroy the Space where the Confirmation Level exists
+
+Two New Custom Events
+^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: csharp
+
+  // Class for a custom event that requests a confirmation window to appear
+  class ConfirmationPopUpRequest : ZilchEvent
+  {
+    // Registers ConfirmationPopUpRequest as the custom event's string type identifier
+    sends ConfirmationPopUpRequest : ConfirmationPopUpRequest;
+    // Variable that sends a reference to the object that made the request
+    var Source : Cog = null;
+  }
+  
+  // Class for a custom event that responds to a confirmation request either affirmatively (true) 
+  // or negatively (false). Used here for buttons confirmation to quit buttons
+  class ConfirmationPopUpResponse : ZilchEvent
+  {
+    // Registers ConfirmationPopUpResponse as the custom event's string type identifier
+    sends ConfirmationPopUpResponse : ConfirmationPopUpResponse;
+    // Variable that sends the true/false (yes/no) response to quit confirmation
+    var Response : Boolean = false;
+  }
+
+|pbr|
+
+``ConfirmationPopUpRequest`` is the custom event dispatched when there is a need for a confirmation pop up window. In our case, it's a confirmation to quit. It uses the ``sends`` keyword to register the event's string type identifier and has one variable that provides the ``Source`` cog (or "game object") that has sent the request.
+
+``ConfirmationPopUpResponse`` is the custom event dispatched when the player has responded to the confirmation to quit window, either with a yes or no. Again, the ``sends`` keyword registers the event's string type identifier. The one variable in this event--``Response``--is a Boolean that lets us know if the user answered "yes" or "no". Its value will be ``true`` if the answer if "yes" or ``false`` if the answer is no.
+
+Variables
+^^^^^^^^^
+
+.. code-block:: csharp
+
+  // The level with the confirmation window in it to be loaded in the new space
+  [Property]
+  var ConfirmationLevel : Level = null;
+  
+  // Variable to reference the new space where the confirmation window will exist
+  var ConSpace : Space = null;
+  
+  // Space archetype used to create the new space for the level containing the
+  // confirmation window
+  [Property]
+  var ConSpaceArchetype : Archetype = null;
+  
+  // The parent object for the buttons in a level
+  [Property]
+  var SourceMenu : CogPath;
+
+*   ``ConfirmationLevel`` - A Level variable with the Property attribute where we set the level that holds the confirmation window in it
+
+*   ``ConSpace`` - A Space variable so we can reference the newly created Space where the Confirmation level will be loaded
+
+*   ``ConSpaceArchetype`` - An Archetype variable with the Property attribute where we set the Space archetype used to generate the new Space
+
+*   ``SourceMenu`` - A CogPath variable with the Property attribute where we set the parent object for the main menu buttons
+
+|pbr|
+
+Connecting to the ConfirmationPopUpRequest Event
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: csharp
+
+  function Initialize(init : CogInitializer)
+  {
+    // Connects to the ConfirmationPopUpRequest custom event
+    Zero.Connect(this.Space, Events.ConfirmationPopUpRequest, this.OnConfirmationPopUpRequest);
+  }
+  
+  // Response function called when ConfirmationPopUpRequest event is heard
+  function OnConfirmationPopUpRequest(event : ConfirmationPopUpRequest)
+  {
+    // Creates and gets a reference to a new space made the confirmation window level
+    this.ConSpace = this.GameSession.CreateNamedSpace("ConSpace", this.ConSpaceArchetype);
+    
+    // Loads the level that contains the confirmation window
+    this.ConSpace.LoadLevel(this.ConfirmationLevel);
+    
+    // Calls the SetChildrenReactive function in the UIMenuManager component, passing in
+    // false to deactivate the reactive components on the menu buttons
+    this.SourceMenu.Cog.UIMenuManager.SetChildrenReactive(false);
+    
+    // Gets a reference to the SelectionArrow and checks to see if it exists in the level
+    var selectionArrow = this.SourceMenu.Cog.UIMenuManager.SelectionArrow.Cog;
+    if(selectionArrow != null)
+    {
+      // If it does exist, make the SelectionArrow invisible
+      selectionArrow.Sprite.Visible = false;
+    }
+    
+    // Connects to the ConfirmationPopUpResponse custom event
+    Zero.Connect(this.Space, Events.ConfirmationPopUpResponse, this.OnConfirmationPopUpResponse);
+  }
+
+In the ``Initialize()`` function, you'll see that we're connecting to (or listening for) an instance of the ``ConfirmationPopUpRequest`` event that has been dispatched onto the Space. At this point we need to look back at our UIMenuManager script where we last left off, inside the ``OnButtonClicked()`` function:
+
+.. code-block:: csharp
+
+  // If the button is meant to quit the game...
+  else if(button.Name == "QuitButton")
+  {
+    Console.WriteLine("ConReq");
+    //Create a new instance of the event that requests the confirmation window
+    var conReq = ConfirmationPopUpRequest();
+    // Set event's Source variable to this object
+    conReq.Source = this.Owner;
+    // Dispatch the event onto the space
+    this.Space.DispatchEvent(Events.ConfirmationPopUpRequest, conReq);
+    
+    // Connect to the UIButtonEvent custom event dispatched from the space where
+    // the confirmation window exists.
+    Zero.Connect(this.LevelSettings.ConfirmationPopUp.ConSpace,
+                 Events.UIButtonEvent,
+                 this.OnUIButtonEvent);
+  }
+
+As you can see, if the button's name is "QuitButton", the first thing we do is create a new instance of the ``ConfirmationPopUpRequest`` event. Then, we set the source of the request to ``this.Owner`` and dispatch the event onto the :cpp:type:`Space`. The last thing to do is to connect to the ``UIButtonEvent`` that will be dispatched from our Confirmation Space.
+
+What this means is that once we create the new Space and load the Confirmation level, we will need to listen to the button events dispatched onto that new Space. These button events can be sent out by the "yes" and "no" buttons, as they also have the ``UIButton`` component attached to them. Since those buttons exist in a different Space from one in which the ``ConfirmationPopUp`` component exists, we need to listen for the events the button dispatch in the Space where it does exist. We access that Space in ``UIMenuManager`` using our variable from the ``ConfirmationPopUp`` component: ``this.LevelSettings.ConfirmationPopUp.ConSpace`` .
+
+With that section covered, let's go back to our ``ConfirmationPopUp`` script.
+
+Responding to the ConfirmationPopUpRequest Event
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: csharp
+
+  // Response function called when ConfirmationPopUpRequest event is heard
+  function OnConfirmationPopUpRequest(event : ConfirmationPopUpRequest)
+  {
+    // Creates and gets a reference to a new space made the confirmation window level
+    this.ConSpace = this.GameSession.CreateNamedSpace("ConSpace", this.ConSpaceArchetype);
+    
+    // Loads the level that contains the confirmation window
+    this.ConSpace.LoadLevel(this.ConfirmationLevel);
+    
+    // Calls the SetChildrenReactive function in the UIMenuManager component, passing in
+    // false to deactivate the reactive components on the menu buttons
+    this.SourceMenu.Cog.UIMenuManager.SetChildrenReactive(false);
+    
+    // Gets a reference to the SelectionArrow and checks to see if it exists in the level
+    var selectionArrow = this.SourceMenu.Cog.UIMenuManager.SelectionArrow.Cog;
+    if(selectionArrow != null)
+    {
+      // If it does exist, make the SelectionArrow invisible
+      selectionArrow.Sprite.Visible = false;
+    }
+    
+    // Connects to the ConfirmationPopUpResponse custom event
+    Zero.Connect(this.Space, Events.ConfirmationPopUpResponse, this.OnConfirmationPopUpResponse);
+  }
+
+This function accomplishes the first three objectives from our list above:
+
+*   First, we create the new :Cpp:type:`Space` that the Confirmation level will exist in.
+
+*   Second, we load the Confirmation level as specified by ``ConfirmationLevel`` variable.
+
+*   Third, we turn off all the main menu buttons by setting the ``Active`` property on their :cpp:type:`Reactive` components to false. This is done by accessing the ``SetChildrenReactive()`` function in our ``UIMenuManager`` component    and passing in the value ``false``.
+
+The last line of this function should look familiar. As in the ``OnButtonClicked()`` function in our ``UIMenuManager`` script, we are again connecting to an event outside of the ``Initialize()`` function. In this case, we are connecting to the second custom event defined in the ``ConfirmationPopUp`` script: ``ConfirmationPopUpResponse``.
+
+The ConfirmationPopUpResponse Event
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once more, let's look back at our ``UIMenuManager`` script where we left off last time, where we check to see if the name of the button is "ConfirmYesButton":
+
+.. code-block:: csharp
+
+  // If the button confirms that the player wishes to quit...
+  else if(button.Name == "ConfirmYesButton")
+  {
+    Console.WriteLine("ConYes");
+    // Create a new instance of the event that requests the confirmation window
+    var conEvent = ConfirmationPopUpResponse();
+    // Sets the event's Response variable (true means to confirm quit)
+    conEvent.Response = true;
+    // Dispatch the event onto the space
+    this.Space.DispatchEvent(Events.ConfirmationPopUpResponse, conEvent);
+  }
+  
+  // If the button denies that the player wishes to exit...
+  else if(button.Name == "ConfirmNoButton")
+  {
+    Console.WriteLine("ConNo");
+    // Create a new instance of the event that requests the confirmation window
+    var conEvent = ConfirmationPopUpResponse();
+    // Sets the event's Response variable (false means to deny quit)
+    conEvent.Response = false;
+    // Dispatch the event onto the space
+    this.Space.DispatchEvent(Events.ConfirmationPopUpResponse, conEvent);
+  }
+
+If the button is named ``ConfirmYesButton`` (the "Yes" button on our Confirmation window) we create a new instance of the ``ConfirmationPopUpResponse`` event (named ``conEvent``). As we do want to quit in this case, we set the event variable ``conEvent.Response`` to ``true`` and dispatch the instance of the event onto the :cpp:type:`Space`.
+
+Next, we have our last check for the name of the button. If the button is named "ConfirmNoButton" (the "No" button on our Confirmation window) then again we create a new instance of the ``ConfirmationPopResponse`` event. This time, however, we set ``conEvent.Response`` to ``false`` as the player has decided not to quit. Finally, we once again dispatch our instance of the event onto the Space.
+
+As we saw above in the ``OnConfirmationPopUpRequest()`` function, the script is now listening for a dispatch of the ``ConfirmationPopUpResponse`` event. So, how does it respond when it hears a dispatch? This forms the last part of our discussion of the components for our project.
+
+|pbr|
+
+Responding to the ConfirmationPopUpResponse Event
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: csharp
+
+  // Response function called when ConfirmationPopUpResponse event is heard
+  function OnConfirmationPopUpResponse(event : ConfirmationPopUpResponse)
+  {
+    // If the the response sent with the event is true...
+    if(event.Response)
+    {
+      //Quit out of the game
+      this.GameSession.Quit();
+    }
+    
+    // If it's false, call the SetChildrenReactive function in the UIMenuManager component, 
+    // passing in "true" to activate the reactive components on the menu buttons
+    this.SourceMenu.Cog.UIMenuManager.SetChildrenReactive(true);
+    
+    // Disconnects from the ConfirmationPopUpResponse custom event
+    Zero.Disconnect(this.Space, Events.ConfirmationPopUpResponse, this.Owner);
+    
+    //Destroys the space created for the confirmation window level
+    this.ConSpace.Destroy();
+  }
+
+The first thing that we do is to check the event variable (``event.Response``) that tells us whether the response was "yes" or "no" (true or false)). If ``event.Response`` is true, then we call the function that will cause the game to quit. If ``event.Response`` is false, however, we have a few different things to do.
+
+First, we need to turn the buttons of our main menu back on. We do this in the same way we turned them off, by calling on the ``SetChildrenReactive()`` function. This time, however, we pass in the value ``true``. This sets all the ``Active`` properties on the :cpp:type:`Reactive` components attached to our main menu buttons to true, allowing those buttons to once again react to mouse events. Second, we disconnect from the ``ConfirmationPopUpResponse`` event as we no longer need to listen for any dispatches of that event. Finally, we destroy the :cpp:type:`Space` in which the Confirmation level exists, clearing it from the screen and showing us only the main menu again.
+
+Now that we've gone through everything, let's finish this project up by attaching our final components.
+
+|pbr|
+
+Attaching the Final Components
+------------------------------
+
+The QuitButton Object
+^^^^^^^^^^^^^^^^^^^^^
+
+Let's start with our main menu level and attach the ``UIButton`` component to the ``QuitButton`` object
+
+*   In the Objects window
+
+    *   :ref:`Select<2016SelectObject>` the ``QuitButton`` object
+    
+*   In the Properties window
+
+    *   :ref:`Add the UIButton component<2016AddComponent>`
+    
+    *   Under UIButton
+    
+        *   Set DefaultSprite to: ``Button5``
+            
+        *   Set HoveredSprite to: ``Button4``
+            
+        *   Set ClickedSprite to: ``Button3``
+
+The LevelSettings Object
+^^^^^^^^^^^^^^^^^^^^^^^^
+        
+*   In the Objects window
+
+    *   :ref:`Select<2016SelectObject>` the ``LevelSettings`` object
+    
+*   In the Properties window
+
+    *   :ref:`Add the ConfirmationPopUp component<2016AddComponent>`  
+    
+    *   Under ConfirmationPopUp
+    
+        *   Set Confirmation Level to: ``ConfirmLevel``
+        
+        *   Set ConSpaceArchetype to: ``Space``
+        
+        *   Set SourceMenu by: :ref:`choosing the MenuButtons object<2016CogPaths>` or typing ``:/MenuButtons`` into the text field
+        
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+You should now have a fully-functioning menu system, complete with a confirmation of quitting window that allows the player to choose yes or no!
+
+On Your Own
+-----------
+
+*   Add the option to quit the game from every level accessible from the menu (i.e., Game, How To Play, Credits). Make sure the Confirmation window is brought up.
+
+    *   Tips: *Make a new button expressly for this purpose. What might you name it so that it would work seamlessly with the rest of the code? Each level already has ``UIButton`` and ``UIMenuManager``. Will those components stay in the same place? Do you need to make any more objects? Do you need to include ``ConfirmationPopUp`` anywhere?*
+
+
+
+
+
+
+.. |SpriteSourceEditor|                    image:: images/UserInterface/SpriteSourceEditor.png
+    :width: 5.0in
+.. |InitialSpriteLayerOrder|               image:: images/UserInterface/InitialSpriteLayerOrder.png
+    :height: 2.5in
+.. |ParentedMenuButtons|                   image:: images/UserInterface/ParentedMenuButtons.png
+.. |MenuBackgroundSprites|                 image:: images/UserInterface/MenuBackgroundSprites.png
+    :height: 4.0in
+.. |MenuWithBlankButtons|                  image:: images/UserInterface/MenuWithBlankButtons.png
+    :height: 4.0in
+.. |StartGameTextProperties|               image:: images/UserInterface/StartGameTextProperties.png
+.. |MenuWithButtonText|                    image:: images/UserInterface/MenuWithButtonText.png
+    :height: 4.0in
+.. |ParentedMenuButtonsWithText|           image:: images/UserInterface/ParentedMenuButtonsWithText.png
+.. |GameLevelWinBox|                       image:: images/UserInterface/GameLevelWinBox.png
+    :width: 5.0in
+.. |GameLevelFinished|                     image:: images/UserInterface/GameLevelFinished.png
+    :width: 5.0in
+.. |HowToPlayLevelRunning|                 image:: images/UserInterface/HowToPlayLevelRunning.png
+    :width: 5.0in
+.. |CreditsLevelRunning|                   image:: images/UserInterface/CreditsLevelRunning.png
+    :width: 5.0in
+.. |HoveringThroughMenu|                   image:: images/UserInterface/HoveringThroughMenu.gif
+.. |MenuWorkingNoConfirm|                  image:: images/UserInterface/MenuWorkingNoConfirm.gif
+.. |FinalSpriteLayerOrder|                 image:: images/UserInterface/ConfirmSpriteLayerOrder.png
+.. |ConfirmWindowBackground|               image:: images/UserInterface/ConfirmWindowBackground.png
+.. |FinishedConfirmWindow|                 image:: images/UserInterface/FinishedConfirmWindow.png
+.. |ConfirmWindowHierarchy|                image:: images/UserInterface/ConfirmWindowHierarchy.png
+.. |FinalMenu|                             image:: images/UserInterface/FinalMenu.gif
+
+
+.. Written by: Jason Clark

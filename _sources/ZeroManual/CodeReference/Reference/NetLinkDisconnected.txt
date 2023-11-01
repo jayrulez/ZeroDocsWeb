@@ -1,0 +1,61 @@
+.. _ReferenceNetLinkDisconnected:
+
+.. rst-class:: searchtitle
+
+NetLinkDisconnected
+===================
+
+.. rst-class:: searchdescription
+
+Dispatched after sending or receiving a disconnect notice Their net peer ID is released and link is destroyed immediately after this.
+
+.. include:: Description/NetLinkDisconnected.rst
+
+.. cpp:class:: NetLinkDisconnected
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceNetLinkDisconnectedProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetLinkDisconnected::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetPeerId NetLinkDisconnected::TheirNetPeerId
+
+            Data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: IpAddress NetLinkDisconnected::TheirIpAddress
+
+            Their net peer ID.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: DisconnectReason::Enum NetLinkDisconnected::DisconnectReason
+
+            Their IP address(as seen from our perspective)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EventBundle NetLinkDisconnected::RequestBundle
+
+            Disconnect reason.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: TransmissionDirection::Enum NetLinkDisconnected::Direction
+
+            Bundled request event data.
+
+.. _ReferenceNetLinkDisconnectedMethods:
+
+.. include:: Remarks/NetLinkDisconnected.rst

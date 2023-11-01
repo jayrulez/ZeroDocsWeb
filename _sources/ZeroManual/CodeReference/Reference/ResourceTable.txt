@@ -1,0 +1,118 @@
+.. _ReferenceResourceTable:
+
+.. rst-class:: searchtitle
+
+ResourceTable
+=============
+
+.. rst-class:: searchdescription
+
+A table of resources(or strings) that can be indexed, searched by name or sampled randomly. The table can be sampled to return a string or a resource pointer. If other info about the sampled value is needed, the table can be sampled for an index that can then be used to fetch the name, value, resource and weight at that index. This index can also be used to randomly sample arrays that are created along-side this resource.
+
+.. include:: Description/ResourceTable.rst
+
+.. cpp:class:: ResourceTable
+
+    Base Class: :cpp:type:`Resource`
+
+.. _ReferenceResourceTableProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String ResourceTable::Name
+
+            Name of resource for display.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String ResourceTable::ResourceType
+
+            Stores the kind of resource this Contains.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint ResourceTable::Size
+
+            Returns how many items are stored in the table.
+
+.. _ReferenceResourceTableMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Resource ResourceTable::RuntimeClone()
+
+            Clone a resource for runtime modification.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: String ResourceTable::ResourceTypeContained()
+
+            Returns the kind of resource contained in this table.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: ValueType ResourceTable::GetNameAt(uint index)
+
+            Returns the name of the item at the given index.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: ValueType ResourceTable::GetValueAt(uint index)
+
+            Returns the name of the value at the given index.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: WeightType ResourceTable::GetWeightAt(uint index)
+
+            Returns the weight of the item at the given index.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Resource ResourceTable::GetResourceAt(uint index)
+
+            Returns the resource that represents the value at the given index(returns null in string mode).
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: uint ResourceTable::SampleIndex(Real random1, Real random2)
+
+            Samples the table to return a random index into the table. Takes two(different) random Reals from[0,1) in order to sample.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: ValueType ResourceTable::SampleValue(Real random1, Real random2)
+
+            Samples the table to return a random value. Takes two(different) random Reals from[0,1) in order to sample. Returns an empty string if the table is empty.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: ValueType ResourceTable::FindValue(String name)
+
+            Searches for a value by name. Returns an empty string if the name did not exist.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Resource ResourceTable::SampleResource(Real random1, Real random2)
+
+            Samples the table to return a random value. Takes two(different) random Reals from[0,1) in order to sample. Returns null if the table is empty or the table is in String mode.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Resource ResourceTable::FindResource(String name)
+
+            Searches for a value by name and returns the corresponding resource pointer. Returns null if the name does not exist(or if the table was in String mode).
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: int ResourceTable::FindIndexOfResource(Resource resource)
+
+            Get the index of a resource. Returns-1 if not found.
+
+.. include:: Remarks/ResourceTable.rst

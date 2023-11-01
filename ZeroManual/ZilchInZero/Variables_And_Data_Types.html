@@ -1,0 +1,575 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/ZilchInZero/Variables_And_Data_Types.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:57:43 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Variables, Data Types, &amp; Scopes &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Zilch In Zero" href="index.html"/>
+        <link rel="next" title="Conditionals" href="Conditionals.html"/>
+        <link rel="prev" title="Zilch In Zero" href="index.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Zilch In Zero</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Variables, Data Types, &amp; Scopes</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Conditionals.html">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Looping.html">Looping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Attributes.html">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Flags.html">Flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Structs.html">Structs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Classes.html">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Memory_Management.html">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Casting.html">Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Named_Parameters.html">Named Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Delegates.html">Delegates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Reflection.html">Reflection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Properties.html">Properties (Get-Sets)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Property_Delegates.html">Property Delegates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConstructByValueVsByRef.html">Local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConstructByValueVsByRef.html#new">New</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Operators_Precedence_Chart.html">Operator Precedence Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Keywords.html">Keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Array.html">Array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean.html">Boolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean2.html">Boolean2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean3.html">Boolean3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean4.html">Boolean4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Console.html">Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Exception.html">Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/HashMap.html">HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer.html">Integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer2.html">Integer2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer3.html">Integer3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer4.html">Integer4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/KeyValue.html">KeyValue [Key, Value]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Math.html">Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Property.html">Property [Type]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Quaternion.html">Quaternion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real.html">Real</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real2.html">Real2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real3.html">Real3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real4.html">Real4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/String.html">String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/StringBuilder.html">StringBuilder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="index.html">Zilch In Zero</a> &raquo;</li>
+      
+    <li>Variables, Data Types, &amp; Scopes</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/ZeroManual/ZilchInZero/Variables_And_Data_Types.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="variables-data-types-scopes">
+<span id="zilchvariablesanddatatypes"></span><h1>Variables, Data Types, &amp; Scopes</h1>
+<p class="searchdescription">This section covers the basics of variables, their types, and how they interact with scopes.</p>
+<div class="section" id="creating-variables">
+<h2>Creating Variables</h2>
+<p>Variables are created with the <strong>var</strong> keyword:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Although the language can infer the type, it is still a statically typed language. The type can also be explicitly set via the <strong>colon</strong> <code class="docutils literal"><span class="pre">:</span></code> i.e.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">greeting</span><span class="o">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Identifier names must be alphanumeric and may include underscores. They cannot start with a number, and no other symbols are allowed.
+Remember to choose identifier names that don&#8217;t clash with the  <a class="reference internal" href="Keywords.html"><em>keywords!</em></a></p>
+</div>
+<div class="section" id="data-types">
+<h2>Data Types</h2>
+<p>Zilch has a few built in variable types:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Integer</td>
+<td>Integer2</td>
+<td>Integer3</td>
+<td>Integer4</td>
+</tr>
+<tr class="row-even"><td>Boolean</td>
+<td>Boolean2</td>
+<td>Boolean3</td>
+<td>Boolean4</td>
+</tr>
+<tr class="row-odd"><td>DoubleInteger</td>
+<td>Real</td>
+<td>DoubleReal</td>
+<td>Void</td>
+</tr>
+<tr class="row-even"><td>Real2</td>
+<td>Real3</td>
+<td>Real4</td>
+<td>Math</td>
+</tr>
+<tr class="row-odd"><td>Quaternion</td>
+<td>String</td>
+<td>Exception</td>
+<td>Events</td>
+</tr>
+<tr class="row-even"><td>Null</td>
+<td>Error</td>
+<td colspan="2">OverloadedMethods</td>
+</tr>
+</tbody>
+</table>
+<div class="sidebar">
+<p class="first sidebar-title">C++ Equivalents</p>
+<p>Many primitive types come straight from C++</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Zilch Type</th>
+<th class="head">C++ Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Integer</td>
+<td>int</td>
+</tr>
+<tr class="row-odd"><td>DoubleInteger</td>
+<td>long long int</td>
+</tr>
+<tr class="row-even"><td>Real</td>
+<td>float</td>
+</tr>
+<tr class="row-odd"><td>DoubleReal</td>
+<td>double</td>
+</tr>
+<tr class="row-even"><td>Boolean</td>
+<td>bool</td>
+</tr>
+</tbody>
+</table>
+<p class="last">Note: there are no unsigned types in Zilch.</p>
+</div>
+<p>Some of these built-in types can be created from literals:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="64%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Zilch Type</th>
+<th class="head">Literal</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Integer</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>DoubleInteger</td>
+<td>1d</td>
+</tr>
+<tr class="row-even"><td>Real</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td>DoubleReal</td>
+<td>1.0d</td>
+</tr>
+<tr class="row-even"><td rowspan="2">Boolean</td>
+<td>true</td>
+</tr>
+<tr class="row-odd"><td>false</td>
+</tr>
+<tr class="row-even"><td>String</td>
+<td>&#8220;hello&#8221;</td>
+</tr>
+<tr class="row-odd"><td>Null</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="creating-variables-with-constructors">
+<h2>Creating Variables With Constructors</h2>
+<!-- this is used as a file for inclusion in other .rst files --><div class="section" id="local">
+<h3>Local</h3>
+<p>When working with by-value types that have constructors, such as structs or more complex stack primitive data types, the keyword <strong>local</strong> may be used:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">up</span><span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">local</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">stackStructInstance</span><span class="o">:</span> <span class="nx">CustomStruct</span> <span class="o">=</span> <span class="nx">local</span> <span class="nx">CustomStruct</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>The compiler will infer the use of local for by-value types:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// This is also valid.</span>
+<span class="k">var</span> <span class="nx">up</span><span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">stackStructInstance</span><span class="o">:</span> <span class="nx">CustomStruct</span> <span class="o">=</span> <span class="nx">CustomStruct</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="new">
+<h3>New</h3>
+<p>When working with classes, references, or other or anything located on the heap with a constructor, use the <strong>new</strong> keyword:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">heapObject</span><span class="o">:</span> <span class="nx">CustomClass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CustomClass</span><span class="p">();</span>
+<span class="k">var</span> <span class="nx">heapStructInstance</span><span class="o">:</span> <span class="nx">ref</span> <span class="nx">CustomStruct</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CustomStruct</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Once again the compiler will infer the use of new for by-ref types:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// This is also valid.</span>
+<span class="k">var</span> <span class="nx">heapObject</span><span class="o">:</span> <span class="nx">CustomClass</span> <span class="o">=</span> <span class="nx">CustomClass</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Since structs are by-value, in order to get a ref you <strong>must</strong> specify new.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// This does not compile</span>
+<span class="k">var</span> <span class="nx">heapStructInstance</span><span class="o">:</span> <span class="nx">ref</span> <span class="nx">CustomStruct</span> <span class="o">=</span> <span class="nx">CustomStruct</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>The value being assigned to &#39;heapStructInstance&#39; must be of type &#39;ref CustomStruct&#39;. Its
+type is &#39;CustomStruct&#39;.
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Zilch does not currently have a dereferencing operator.</p>
+<p>Although you can still use the <code class="docutils literal"><span class="pre">ref</span></code> type with the <strong>dot operator</strong> to access functionality, those typed with <code class="docutils literal"><span class="pre">ref</span></code> will not be equivalent to the <code class="docutils literal"><span class="pre">non-ref</span></code> type. <em>Anything expecting a</em> <code class="docutils literal"><span class="pre">non-ref</span></code> <em>type will not accept a</em> <code class="docutils literal"><span class="pre">ref</span></code> <em>type without dereferencing.</em> Consider the following:</p>
+<div class="last highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">heapObject</span><span class="o">:</span> <span class="nx">ref</span> <span class="nx">CustomStruct</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CustomStruct</span><span class="p">();</span>
+<span class="c1">// The following will not compile because they are different types:</span>
+<span class="c1">//              CustomStruct != ref CustomStruct</span>
+<span class="k">var</span> <span class="nx">stackObject</span><span class="o">:</span> <span class="nx">CustomStruct</span> <span class="o">=</span> <span class="nx">heapObject</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="global-variables">
+<span id="zilchvariablesanddatatypesglobalvariables"></span><h2>Global Variables</h2>
+<p>This concept does not exist in Zilch. You cannot make global variables; if needed, you can make static fields on classes.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Example</span>
+<span class="p">{</span>
+    <span class="c1">// Mark it with the [Static] attribute</span>
+<span class="na">    [Static]</span>
+    <span class="kt">var</span> <span class="n">MyStaticField</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">PrintMyStaticField</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Access it through the class name and the dot operator</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Example</span><span class="p">.</span><span class="n">MyStaticField</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The creation of a true global variable would require binding through C++.</p>
+</div>
+<div class="section" id="scopes">
+<h2>Scopes</h2>
+<p>Scopes help determine the lifetime of a variable. Their start and end are generally denoted by the left and right curly braces, {}, respectively. Scopes are created while using many of the other language constructs:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">Driver</span>                       <span class="c1">// Beginning scope of the class:</span>
+<span class="p">{</span>
+   <span class="k">var</span> <span class="nx">MyNumber</span><span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="kd">function</span> <span class="nx">ScopeDemo</span><span class="p">()</span>             <span class="c1">// Beginning scope of the function:</span>
+  <span class="p">{</span>
+    <span class="c1">// This variable &#39;a&#39; lives in the scope denoted by</span>
+    <span class="c1">// the curly braces that define the function&#39;s body.</span>
+    <span class="k">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">15</span><span class="o">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span>                      <span class="c1">// Beginning scope of the if statement:</span>
+    <span class="p">{</span>
+      <span class="c1">// This variable &#39;b&#39; lives in the scope denoted by the</span>
+      <span class="c1">// curly braces that define the if statement&#39;s body.</span>
+      <span class="k">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">16</span><span class="o">;</span>
+    <span class="p">}</span>                              <span class="c1">// End scope of the if statement.</span>
+    <span class="c1">// b died with the end of its scope (the if statement scope), and thus is not</span>
+    <span class="c1">// available in this outer, function-body, scope.</span>
+    <span class="nx">a</span> <span class="o">=</span> <span class="nx">b</span><span class="o">;</span> <span class="c1">// This won&#39;t compile.</span>
+  <span class="p">}</span>                                <span class="c1">// End Scope of the function.</span>
+<span class="p">}</span>                                  <span class="c1">// End Scope of the class.</span>
+</pre></div>
+</div>
+<p>Some language constructs start the scope a little earlier:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span> <span class="nx">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">;</span> <span class="o">--</span><span class="nx">a</span><span class="p">)</span>        <span class="c1">// Beginning scope of for loop:</span>
+<span class="p">{</span>
+  <span class="c1">// This scope is shared with the initializer list of the for loop</span>
+  <span class="c1">// so we are unable to redefine &#39;a&#39;:</span>
+  <span class="k">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">13</span><span class="o">;</span> <span class="c1">// This won&#39;t compile.</span>
+<span class="p">}</span>                                  <span class="c1">// End scope of for loop,</span>
+<span class="c1">// The initializer list is tied to the for loop&#39;s scope which ended with</span>
+<span class="c1">// the right curly brace, }, so there is no &#39;a&#39; to reference:</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span> <span class="c1">// This won&#39;t compile.</span>
+</pre></div>
+</div>
+<p>In order to create a scope without repurposing a language construct (like we did with the always-true if statement) you can use the <strong>scope</strong> keyword:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">Driver</span>                       <span class="c1">// Beginning scope of the class:</span>
+<span class="p">{</span>
+   <span class="k">var</span> <span class="nx">MyNumber</span><span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="kd">function</span> <span class="nx">ScopeDemo</span><span class="p">()</span>             <span class="c1">// Beginning scope of the function:</span>
+  <span class="p">{</span>
+    <span class="k">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">15</span><span class="o">;</span>
+    <span class="nx">scope</span>                          <span class="c1">// Beginning scope designated scope:</span>
+    <span class="p">{</span>
+      <span class="c1">// Things in the outer scopes are available in the inner scope:</span>
+      <span class="k">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">MyNumber</span><span class="o">;</span>
+    <span class="p">}</span>                              <span class="c1">// End scope designated scope.</span>
+      <span class="c1">// Things in the inner scope are NOT available in the outer scope:</span>
+    <span class="nx">a</span> <span class="o">=</span> <span class="nx">b</span> <span class="o">+</span> <span class="mi">3</span><span class="o">;</span> <span class="c1">// This won&#39;t compile.</span>
+  <span class="p">}</span>                                <span class="c1">// End Scope of the function.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Unlike other languages, you <strong>cannot</strong> hide an outer scope&#8217;s variable by declaring your own:</p>
+<div class="last highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">Driver</span>                       <span class="c1">// Beginning scope of the class:</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">MyNumber</span><span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="kd">function</span> <span class="nx">ScopeDemo</span><span class="p">()</span>             <span class="c1">// Beginning scope of the function:</span>
+  <span class="p">{</span>
+    <span class="k">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">15</span><span class="o">;</span>
+    <span class="nx">scope</span>                          <span class="c1">// Beginning scope designated scope</span>
+    <span class="p">{</span>
+      <span class="c1">// Unlike other languages, you cannot hide another variable</span>
+      <span class="c1">// in an outer scope by defining a new one:</span>
+      <span class="k">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">13</span><span class="o">;</span> <span class="c1">// This won&#39;t compile.</span>
+    <span class="p">}</span>                              <span class="c1">// End scope designated scope</span>
+  <span class="p">}</span>                                <span class="c1">// End Scope of the function</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Conditionals.html" class="btn btn-neutral float-right" title="Conditionals" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Zilch In Zero" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/ZilchInZero/Variables_And_Data_Types.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:57:43 GMT -->
+</html>

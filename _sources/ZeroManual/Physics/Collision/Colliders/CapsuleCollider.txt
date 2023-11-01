@@ -1,0 +1,139 @@
+.. _ManualCapsuleCollider:
+
+.. rst-class:: SearchTitle
+
+CapsuleCollider
+===============
+
+.. rst-class:: SearchDescription
+
+The :cpp:type:`CapsuleCollider` is one of the primitive :cpp:type:`Collider` types available in the Zero Engine. It takes the shape of a capsule (a cylinder capped with half-spheres on either end) scaled by the user using three properties: radius, height, and direction (i.e. which direction the height should be facing, either along the x-, y-, or z-axis). The CapsuleCollider can be added to any object as long as it has a :cpp:type:`Transform` component.
+
+.. sidebar:: Recommended Reading
+
+    This page includes topics one might not have encountered yet. To learn about or review these materials, the following list provides the links to their respective Manual or Tutorial pages:
+    
+    *   :ref:`Collider<ManualCollider>`
+    
+    *   :ref:`BoxCollider<ManualBoxCollider>`
+
+    *   :ref:`Object Parenting<GameObjectGAM100Parenting>`
+
+.. _ManualCapsuleColliderCommon:
+
+Common Uses
+-----------
+
+*   Defining collision boundaries for sprites and models that have distinct shapes where a capsule provides more efficient coverages than a BoxCollider or :cpp:type:`SphereCollider`.
+
+*   Defining the boundaries for a capsule-shaped :cpp:type:`Region` with a :cpp:type:`PhysicsEffect` attached to it.
+
+*   Defining the boundaries for a collision-based, capsule-shaped trigger volume that causes a :cpp:type:`CollisionEvent` to be dispatched.
+
+*   Defining collision boundaries for sprites and models that may be prone to "Edge Catching". A further discussion of this phenomenon can be found in the Community section the Zero website :ref:`here<CommunityEdgeCatching>`.
+
+.. _ManualCapsuleColliderUsing:
+
+Using CapsuleCollider
+---------------------
+
+Creating a CapsuleCollider
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The CapsuleCollider can be placed on many different objects, the simplest being an object with only a Transform component on it. When added to an otherwise empty Transform object, the CapsuleCollider still retains all of its functionality and properties. The In-Editor properties for the CapsuleCollider can be seen in the following picture, where a CapsuleCollider component has been placed on an otherwise empty Transform object:
+    
+|CapsuleProperties|
+
+When this object is selected and viewed on the Level Screen, the only thing that will be visible are the :ref:`DebugDraw<ManualDebugDrawing>` lines marking the boundaries of the CapsuleCollider; that is, the area in which collision will be resolved if this Collider comes into contact with another Collider. 
+
+|CapsuleInEditor|
+    
+The following diagram illustrates how Radius and Height are used to define the size of the CapsuleCollider:
+
+|CapsuleDiagram|
+
+Applying CapsuleCollider to an Object
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To see how a CapsuleCollider may be used in a project, a three-dimensional model of a dagger will be used:
+
+|DaggerInLevelWindow|
+
+To create the collision boundaries for the dagger, two BoxColliders and a CapsuleCollider will prove to be an effective and efficient method for creating realistic collision when the sword falls. The following screenshots will illustrate this process.
+
+While it may not seem obvious, a CapsuleCollider works quite well for the handle. The CapsuleCollider will simulate the roundness of the handle itself as well as the ring-shaped pommel at the very bottom of it. 
+
+|CapsuleHandle|
+
+The other Colliders for this object are BoxColliders. There is no need to use the CapsuleCollider for either the blade or the handle of the dagger. 
+
+The dagger with all three Colliders positioned on the Dagger object:
+
+|AllSwordColliders|
+
+Demonstration
+~~~~~~~~~~~~~
+
+This demonstration shows the dagger falling to the floor and upon impact, bouncing slightly and falling to the left (due to the angle of the pommel in a real-life scenario and due to the CapsuleCollider being slightly rotated in the Editor), as is shown here:
+
+|SwordDemo|
+
+Properties and Methods of CapsuleCollider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`CapsuleCollider Code Reference<ReferenceCapsuleCollider>`
+
+Events of CapsuleCollider
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+*   :ref:`Collision Events<ManualCollisionEvents>`
+
+*   :ref:`Group Collision Events<ManualGroupCollisionEvents>`
+
+.. _ManualCapsuleColliderRelated:
+
+Related Material
+----------------
+
+Manual Pages
+~~~~~~~~~~~~
+
+*   :ref:`Collision Overview<ManualCollisionOverview>`
+
+Tutorial Pages
+~~~~~~~~~~~~~~
+
+*   :ref:`Collision<TutorialCollisionEvents>`
+
+Community Pages
+~~~~~~~~~~~~~~~
+
+*   :ref:`Edge Catching<CommunityEdgeCatching>`
+
+Reference Pages
+~~~~~~~~~~~~~~~
+
+*   :cpp:type:`Transform`
+*   :cpp:type:`Collider`
+*   :cpp:type:`CapsuleCollider`
+*   :cpp:type:`BoxCollider`
+*   :cpp:type:`SphereCollider`
+*   :cpp:type:`PhysicsEffect`
+*   :cpp:type:`Region`
+*   :cpp:type:`CollisionEvent`
+    
+    
+    
+    
+
+
+.. |CapsuleProperties|                     image:: images/CapsuleCollider/CapsuleProperties.png
+.. |CapsuleInEditor|                       image:: images/CapsuleCollider/CapsuleInEditor.png
+.. |CapsuleDiagram|                        image:: images/CapsuleCollider/CapsuleDiagram.png
+.. |DaggerInLevelWindow|                   image:: images/CapsuleCollider/DaggerInLevelWindow.png
+.. |CreateSword|                           image:: images/CapsuleCollider/CreateSword.gif
+.. |CapsuleHandle|                         image:: images/CapsuleCollider/CapsuleHandle.png
+.. |AllSwordColliders|                     image:: images/CapsuleCollider/AllSwordColliders.png
+.. |SwordDemo|                             image:: images/CapsuleCollider/SwordDemo.gif
+
+.. Written by: Jason Clark

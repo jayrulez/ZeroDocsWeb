@@ -1,0 +1,497 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/SameLevelCheckpoints.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:16:51 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Level Checkpoints &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2015" href="index.html"/>
+        <link rel="next" title="Parallax Background" href="ParallaxBackground.html"/>
+        <link rel="prev" title="Tile Editor and Sprite Sheets" href="TileEditorAndSpriteSheets.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2015</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprites and Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ArraysLoops.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Level Checkpoints</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Random.html">Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath.html">Vector Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RayCasting.html">Ray Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PracticalParticles.html">Particle Effects: Practical Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LauncherNewProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Adding &amp; Removing Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tags.html">Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2015</a> &raquo;</li>
+      
+    <li>Level Checkpoints</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2015/SameLevelCheckpoints.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- this is used as a file for inclusion in other .rst files --><div class="searchtitle section" id="level-checkpoints">
+<span id="levelcheckpoints2015"></span><h1>Level Checkpoints</h1>
+<p class="searchdescription">This lesson shows how to implement mid-level checkpoints. When a level resets, so does the player data, so the last checkpoint needs to be stored in the LevelSettings object.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="LauncherNewProject.html#createnewproject2015"><span>Create a New Project</span></a></p>
+<div class="sidebar">
+<p class="first sidebar-title">Using Past Scripts</p>
+<p>If you have already created the SweptController for the player in the previous lesson, feel free to import it:</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">ShowProjectFolder</span></code> or <span class="menuselection">Project ‣ Show Project Folder</span></li>
+<li>Locate and enter the project folder for the <a class="reference internal" href="UsingTheSweptController.html#usingthesweptcontroller2015"><span>Using the Swept Controller</span></a> lesson</li>
+<li>Enter the Content folder</li>
+<li>Drag both SweptController.z and PlayerController.z into the Zero Editor</li>
+</ul>
+<p class="last"><em>When going this route, don&#8217;t forget to add Collider and RigidBody components to your player, as well as setting its Dynamic State to Kinematic.</em></p>
+</div>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<ul class="simple">
+<li>Create a object named <code class="docutils literal"><span class="pre">Player</span></code> with <a class="reference internal" href="UsingTheSweptController.html#usingthesweptcontroller2015"><span>swept controls</span></a></li>
+<li>Create a Level for the player</li>
+</ul>
+</div>
+<div class="section" id="forwarding-collision-events">
+<h2>Forwarding Collision Events</h2>
+<p>We know how to make a Player with the swept controller. However, one problem we
+get with the swept controller is that it does not receive collision events,
+meaning the player doesn&#8217;t know what it&#8217;s colliding with. To fix this, we need
+to <em>forward the swept collision events</em>. We&#8217;ll use a special script called
+<strong>CustomCollisionEventTracker</strong>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Player object</span></a></li>
+<li>In Properties Window<ul>
+<li>Under SweptController<ul>
+<li>Set ForwardEvents to: <code class="docutils literal"><span class="pre">true</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now all collision events handled by the SweptController will be forwarded to the Player object.</p>
+<p></p>
+</div>
+<div class="section" id="checkpoints">
+<h2>Checkpoints</h2>
+<p>We will distinguish checkpoints from other objects by the presence of a
+<strong>Checkpoint</strong> component. To do this, we will create an empty ZilchScript named
+<code class="docutils literal"><span class="pre">Checkpoint</span></code>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">Checkpoint</span></code></li>
+</ul>
+<p><strong>Checkpoint1 Object</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Checkpoint1</span></code></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a BoxCollider Component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a Checkpoint Component</span></a></li>
+<li>Under Transform<ul>
+<li>Set Scale to: <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">1000,</span> <span class="pre">1]</span></code></li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">0.10]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+</ul>
+</li>
+<li>Under BoxCollider<ul>
+<li>Set Ghost to: <code class="docutils literal"><span class="pre">true</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Checkpoint2 Object</strong></p>
+<ul class="simple">
+<li>Copy and Paste Checkpoint1</li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Checkpoint2</span></code></li>
+</ul>
+</li>
+<li>In the Tools Window<ul>
+<li>Select the <code class="docutils literal"><span class="pre">TranslateTool</span></code></li>
+<li>Move Checkpoint2 to the right</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p>We want to make the checkpoint height infinitely tall because it&#8217;s a boundary.
+To simulate this, we just scale along the Y axis so much so that the user can&#8217;t
+tell where it starts and ends.</p>
+<p> <a class="reference internal" href="../../_images/CP2_12.png"><img alt="CP2_CheckpointsWeb" src="../../_images/CP2_12.png" style="width: 8.35in;" /></a></p>
+<p><!--
+<a class="reference internal" href="../../_images/CP2_12.png"><img alt="CP2_CheckpointsBook" src="../../_images/CP2_12.png" style="height: 3.0in;" /></a>
+--></p>
+</div>
+<div class="section" id="storing-player-data">
+<h2>Storing Player Data</h2>
+<p>Now we will store the PlayerPosition in the level by making a Zilch Script</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named: &#8216;LevelVars&#8217;</li>
+<li>Include the following Property in the <strong>LevelVars</strong> Script</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+<span class="k">var</span> <span class="nx">PlayerPosition</span> <span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">();</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the LevelSettings object</span></a></li>
+<li>In Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a LevelVars component</span></a></li>
+</ul>
+</li>
+</ul>
+<p>You can set the starting position of the player by changing PlayerPosition under the LevelVars component.  If you <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a> now, however, you will notice the player position doesn&#8217;t change as we have yet to use the variable.  We will fix that in a bit.</p>
+<p></p>
+</div>
+<div class="section" id="resetting-the-level">
+<h2>Resetting the Level</h2>
+<p>Next let&#8217;s make the level restart.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named: &#8216;RkeyReset&#8217;</li>
+<li>Implement the following logic update in the <strong>RkeyReset</strong> script</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Reset the player when R is pressed</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">R</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">player</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">FindObjectByName</span><span class="p">(</span><span class="s2">&quot;Player&quot;</span><span class="p">);</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="nx">player</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">player</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">LevelVars</span><span class="p">.</span><span class="nx">PlayerPosition</span><span class="o">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the LevelSettings object</span></a></li>
+<li>In Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a RkeyReset Component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Now you&#8217;ll notice pressing <code class="docutils literal"><span class="pre">R</span></code> sets your player&#8217;s position.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="saving-the-last-checkpoint-in-the-level">
+<h2>Saving the Last Checkpoint in the Level</h2>
+<p>Finally, we need to store the player&#8217;s last checkpoint position in the LevelSettings object.</p>
+<ul>
+<li><p class="first">In the <strong>PlayerController</strong></p>
+<ul class="simple">
+<li>Add the following to the <strong>Initialize</strong> function</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">CollisionStarted</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnCollisionStarted</span><span class="p">);</span>
+
+<span class="k">var</span> <span class="nx">startPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">LevelSettings</span><span class="p">.</span><span class="nx">LevelVars</span><span class="p">.</span><span class="nx">PlayerPosition</span><span class="o">;</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">=</span> <span class="nx">startPosition</span><span class="o">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Create the following function to connect to the Collision Started Event:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnCollisionStarted</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">CollisionEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">//when hitting a checkpoint, save this position in the level</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">OtherObject</span><span class="p">.</span><span class="nx">Checkpoint</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">checkpointPosition</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">OtherObject</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+
+        <span class="nx">checkpointPosition</span><span class="p">.</span><span class="nx">Y</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="p">.</span><span class="nx">Y</span><span class="o">;</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">LevelSettings</span><span class="p">.</span><span class="nx">LevelVars</span><span class="p">.</span><span class="nx">PlayerPosition</span> <span class="o">=</span> <span class="nx">checkpointPosition</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Run the project</span></a></p>
+</li>
+<li><p class="first">Press the <code class="docutils literal"><span class="pre">R</span></code> key to reset the level and see your checkpoints in action.</p>
+</li>
+</ul>
+<p>Now we have a simple checkpoint system.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ParallaxBackground.html" class="btn btn-neutral float-right" title="Parallax Background" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="TileEditorAndSpriteSheets.html" class="btn btn-neutral" title="Tile Editor and Sprite Sheets" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/SameLevelCheckpoints.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:16:52 GMT -->
+</html>

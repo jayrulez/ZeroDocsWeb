@@ -1,0 +1,100 @@
+.. _ReferenceGravityEffect:
+
+.. rst-class:: searchtitle
+
+GravityEffect
+=============
+
+.. rst-class:: searchdescription
+
+A constant acceleration that is applied in the given direction(mass is ignored). This is useful for creating gravity(either on the entire world or in a region) that will push/pull objects in a given direction at a constant acceleration.
+
+.. include:: Description/GravityEffect.rst
+
+.. cpp:class:: GravityEffect
+
+    Base Class: :cpp:type:`BasicDirectionEffect`
+
+.. _ReferenceGravityEffectProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog GravityEffect::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space GravityEffect::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog GravityEffect::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession GravityEffect::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GravityEffect::Active
+
+            Enable/disable this effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GravityEffect::WakeUpOnChange
+
+            Whether the object associated with this is woken up when any property is changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EffectType::Enum GravityEffect::EffectType
+
+            What kind of effect this is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GravityEffect::LocalSpaceDirection
+
+            Determines if the direction that the effect is applied is in local or world space. The length of this vector is preserved when applying the force(non-normalized vectors will change the strength).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real GravityEffect::Strength
+
+            An extra scalar multiplier to change the magnitude of the applied effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 GravityEffect::Direction
+
+            The direction that the effect will be applied in(may be in local or world space depending on the LocalSpaceDirection property).
+
+.. _ReferenceGravityEffectMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GravityEffect::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GravityEffect::Toggle()
+
+            Toggles whether or not this effect is active.
+
+.. include:: Remarks/GravityEffect.rst

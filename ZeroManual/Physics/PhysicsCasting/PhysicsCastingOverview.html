@@ -1,0 +1,387 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Physics/PhysicsCasting/PhysicsCastingOverview.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:29 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Physics Casting Overview &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Physics" href="../index.html"/>
+        <link rel="next" title="Physics Effects" href="../PhysicsEffects/index.html"/>
+        <link rel="prev" title="Why is my object not colliding?" href="../Collision/WhyNoCollision.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../PhysicsSpace.html">PhysicsSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../RigidBody.html">RigidBody</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Collision/index.html">Collision</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Physics Casting Overview</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PhysicsEffects/index.html">Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Joints.html">Joints</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Physics</a> &raquo;</li>
+      
+    <li>Physics Casting Overview</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Physics/PhysicsCasting/PhysicsCastingOverview.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="physics-casting-overview">
+<span id="manualphysicscastingoverview"></span><h1>Physics Casting Overview</h1>
+<p class="searchdescription"><strong>Physics casting</strong> can be used to check for the existence of objects based on
+where they are in a Space. The most commonly-used form of physics casting is
+<strong>ray casting</strong>, which checks for colliders along a ray, but there are other
+varieties that check for colliders within a volume, and so on.</p>
+<p>Here&#8217;s a quick rundown of the different kinds of physics casting available
+within the Zero Engine.</p>
+<div class="section" id="ray-casting">
+<span id="manualraycasting"></span><h2>Ray Casting</h2>
+<ul>
+<li><p class="first">Ray casting checks for colliders found along a specified <strong>ray</strong>.</p>
+</li>
+<li><p class="first">Ray casting requires a <strong>ray</strong>, which in turn is defined by a <strong>starting
+point</strong> and a <strong>direction</strong>.</p>
+</li>
+<li><p class="first">Ray casting is useful for &#8220;hitscan&#8221; weapon logic (like with lasers), and also
+for line-of-sight calculations, etc.</p>
+<p>Example:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">ray</span> <span class="o">=</span> <span class="nx">Ray</span><span class="p">();</span>
+<span class="nx">ray</span><span class="p">.</span><span class="nx">Start</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+<span class="nx">ray</span><span class="p">.</span><span class="nx">Direction</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+
+<span class="hll"><span class="k">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastRayResults</span><span class="p">(</span><span class="nx">ray</span><span class="o">,</span> <span class="nx">count</span><span class="p">);</span>
+</span></pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="segment-casting">
+<span id="manualsegmentcasting"></span><h2>Segment Casting</h2>
+<ul>
+<li><p class="first">Segment casting checks for colliders found along a specified <strong>line segment</strong>.</p>
+</li>
+<li><p class="first">Rather than taking a ray, segment casting requires a <strong>starting point</strong> and an
+<strong>ending point</strong>.</p>
+</li>
+<li><p class="first">Segment casting is useful when you would normally use ray casting, except
+either you have two points instead of a point and a direction, or you know
+that the &#8220;ray&#8221; should have a specific length.</p>
+<p>Example:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">end</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Target</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+
+<span class="hll"><span class="k">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastSegmentResults</span><span class="p">(</span><span class="nx">start</span><span class="o">,</span> <span class="nx">end</span><span class="o">,</span> <span class="nx">count</span><span class="p">);</span>
+</span></pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="sphere-casting">
+<span id="manualspherecasting"></span><h2>Sphere Casting</h2>
+<ul>
+<li><p class="first">Sphere casting checks for colliders found within (either completely or
+partially) a specified <strong>sphere</strong>.</p>
+</li>
+<li><p class="first">Sphere casting requires a <strong>center</strong> and a <strong>radius</strong> for the sphere to be
+used.</p>
+</li>
+<li><p class="first">Sphere casting is useful when you want to find all objects within a certain
+distance of a given point.</p>
+<p>Example:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">center</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">radius</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">BlastRadius</span><span class="o">;</span> <span class="c1">// let&#39;s just say it&#39;s 5.0 units</span>
+<span class="k">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">filter</span> <span class="o">=</span> <span class="nx">CastFilter</span><span class="p">();</span>
+<span class="nx">filter</span><span class="p">.</span><span class="nx">IgnoreCog</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="o">;</span>
+
+<span class="hll"><span class="k">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastSphereResults</span><span class="p">(</span><span class="nx">center</span><span class="o">,</span> <span class="nx">radius</span><span class="o">,</span> <span class="nx">count</span><span class="o">,</span> <span class="nx">filter</span><span class="p">);</span>
+</span></pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="collider-casting">
+<span id="manualcollidercasting"></span><h2>Collider Casting</h2>
+<ul>
+<li><p class="first">Collider casting checks for colliders that would be in contact with an
+<strong>existing collider</strong>, if it were at a different location.</p>
+</li>
+<li><p class="first">Collider casting requires an reference to an <strong>existing collider</strong> and an
+<strong>offset</strong> to the collider&#8217;s current position</p>
+</li>
+<li><p class="first">Collider casting is useful when you want to know if a collider would collide
+with anything if it were in a different location.</p>
+<p>Example:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">offset</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">TeleportDestination</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">collider</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Collider</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">filter</span> <span class="o">=</span> <span class="nx">CastFilter</span><span class="p">();</span>
+<span class="nx">filter</span><span class="p">.</span><span class="nx">IgnoreCog</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="o">;</span>
+<span class="nx">filter</span><span class="p">.</span><span class="nx">IgnoreGhost</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+<span class="hll"><span class="k">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastColliderResults</span><span class="p">(</span><span class="nx">offset</span><span class="o">,</span> <span class="nx">collider</span><span class="o">,</span> <span class="nx">filter</span><span class="p">);</span>
+</span></pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="aabb-casting">
+<h2>AABB Casting</h2>
+<ul>
+<li><p class="first">AABB casting checks for colliders found within (either completely or
+partially) a specified <strong>axis-aligned bounding box</strong>.</p>
+</li>
+<li><p class="first">AABB casting requires a <strong>center</strong> and <strong>dimensions</strong> for the box to be used.</p>
+</li>
+<li><p class="first">AABB casting is actually only rarely useful &#8212; you&#8217;ll usually want to use
+<strong>collider casting</strong> instead &#8212; except in cases when you want to know whether
+something is in a broad, general area and collider casting is too slow (say,
+because you&#8217;re doing a very large number of them every frame).</p>
+<p>Example:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// let&#39;s say that there are hundreds of potential destinations</span>
+<span class="nx">foreach</span><span class="p">(</span><span class="k">var</span> <span class="nx">position</span> <span class="k">in</span> <span class="k">this</span><span class="p">.</span><span class="nx">PotentialDestinations</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">size</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">2.0</span><span class="o">,</span> <span class="mf">2.0</span><span class="o">,</span> <span class="mf">2.0</span><span class="p">);</span>
+  <span class="k">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+  <span class="k">var</span> <span class="nx">filter</span> <span class="o">=</span> <span class="nx">CastFilter</span><span class="p">();</span>
+  <span class="nx">filter</span><span class="p">.</span><span class="nx">IgnoreCog</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="o">;</span>
+  <span class="nx">filter</span><span class="p">.</span><span class="nx">IgnoreGhost</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+<span class="hll">  <span class="k">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastAabbResults</span><span class="p">(</span><span class="nx">position</span><span class="o">,</span> <span class="nx">size</span><span class="o">,</span> <span class="nx">count</span><span class="o">,</span> <span class="nx">filter</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../PhysicsEffects/index.html" class="btn btn-neutral float-right" title="Physics Effects" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Collision/WhyNoCollision.html" class="btn btn-neutral" title="Why is my object not colliding?" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Physics/PhysicsCasting/PhysicsCastingOverview.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:29 GMT -->
+</html>

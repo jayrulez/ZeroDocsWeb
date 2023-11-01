@@ -1,0 +1,79 @@
+.. _ReferenceCollisionGroupEvent:
+
+.. rst-class:: searchtitle
+
+CollisionGroupEvent
+===================
+
+.. rst-class:: searchdescription
+
+An event sent out when a collision happens between two groups with a filter. Used to write hook up messages based upon certain types colliding(ie. when a player is hit by a bullet, catch on fire or something).
+
+.. include:: Description/CollisionGroupEvent.rst
+
+.. cpp:class:: CollisionGroupEvent
+
+    Base Class: :cpp:type:`BaseCollisionEvent`
+
+.. _ReferenceCollisionGroupEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String CollisionGroupEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CollisionGroupEvent::Object
+
+            The object that this event was sent to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CollisionGroupEvent::OtherObject
+
+            The other object in this event. There were two objects A and B, we sent to A so this is B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint CollisionGroupEvent::ContactPointCount
+
+            Returns how many points of contact there are.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CollisionGroupEvent::IsGhost
+
+            Returns whether or not this was a ghost collision.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ContactPointRange CollisionGroupEvent::ContactPoints
+
+            Returns a range to iterate through all of the contact points.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String CollisionGroupEvent::TypeAName
+
+            Returns the collision group name of object A.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String CollisionGroupEvent::TypeBName
+
+            Returns the collision group name of object B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ContactPoint CollisionGroupEvent::FirstPoint
+
+            
+
+.. _ReferenceCollisionGroupEventMethods:
+
+.. include:: Remarks/CollisionGroupEvent.rst

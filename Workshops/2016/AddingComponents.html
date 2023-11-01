@@ -1,0 +1,695 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2016/AddingComponents.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:13:10 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Adding Components &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2016" href="index.html"/>
+        <link rel="next" title="Vector Math, part 1" href="VectorMath1.html"/>
+        <link rel="prev" title="Game Objects" href="GameObjects.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2016</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Adding Components</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath1.html">Vector Math, part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hierarchies.html">Hierarchies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprite Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting4.html">Scripting 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HierarchiesInCode.html">Hierarchies in Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events3.html">Events 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events4.html">Events 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogPaths.html">Cog Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Spaces.html">Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath2.html">Vector Math, part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2016</a> &raquo;</li>
+      
+    <li>Adding Components</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2016/AddingComponents.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- this is used as a file for inclusion in other .rst files --><div class="searchtitle section" id="adding-components">
+<h1>Adding Components</h1>
+<p class="searchdescription">This lesson covers <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a>-based design, including how
+to create a sprite, <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">rigid</span> <span class="pre">bodies</span></code></a>, collision,
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/PhysicsEffect.html#_CPPv213PhysicsEffect" title="PhysicsEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">physics</span> <span class="pre">effects</span></code></a>, and an overview of the LevelSettings
+object.</p>
+<div class="section" id="learning-objectives">
+<span id="addingcomponentsvocab"></span><h2>Learning Objectives</h2>
+<ul class="simple">
+<li>Understand the basics of components and the goals of component-based design</li>
+<li>Become familiar with the built-in components attached to the LevelSettings object</li>
+<li>Understand the basics of RigidBody and Collider components</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="34%" />
+<col width="28%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">Component</span></code></a></td>
+<td>Sprite</td>
+<td>Physics</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a></td>
+<td><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Collider.html#_CPPv28Collider" title="Collider"><code class="xref cpp cpp-type docutils literal"><span class="pre">Collider</span></code></a></td>
+<td><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/DragEffect.html#_CPPv210DragEffect" title="DragEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">Drag</span></code></a></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/PhysicsEffect.html#_CPPv213PhysicsEffect" title="PhysicsEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">PhysicsEffect</span></code></a></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<ul class="simple">
+<li><a class="reference internal" href="LauncherNewProject.html#createnewproject"><span>Create a New Project</span></a></li>
+</ul>
+<p><strong>Create a Sprite</strong></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></p>
+<p><img alt="MICreateSprite" src="../../_images/MICreateSprite2.png" /></p>
+</li>
+</ul>
+<p>This is what the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">Level</span></code></a> should look like:</p>
+<p><img alt="LWDefaultSprite" src="../../_images/LWDefaultSprite2.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame"><span>run the game</span></a></li>
+</ul>
+<p>Nothing happens.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first">In the Object Window</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Sprite object</span></a></li>
+</ul>
+<p><img alt="OWDefaultSprite" src="../../_images/OWDefaultSprite2.png" /></p>
+<p></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Set Name to: Player</p>
+<p><img alt="PWSetNamePlayer" src="../../_images/PWSetNamePlayer2.png" /></p>
+</li>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent"><span>Add the RigidBody component</span></a></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="PWAddRigidBodyPlayer" src="../../_images/PWAddRigidBodyPlayer2.png" /></p>
+<p><cite>Notice the component description pop up when Rigidbody is highlighted in the auto-complete drop down menu.</cite></p>
+<blockquote>
+<div><img alt="PWRigidBodyonPlayer" src="../../_images/PWRigidBodyonPlayer2.png" /></div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a>  and <a class="reference internal" href="RunTheGame.html#runthegame"><span>run the game</span></a></li>
+</ul>
+<p>The Player object is falling because its <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a>
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> is affected by the default gravity in the
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code></a>.</p>
+<p></p>
+</div>
+<div class="section" id="components">
+<span id="addingcomponentscomponents"></span><h2>Components</h2>
+<p><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">Components</span></code></a> are bits of functionality that can be added to a game object. You can see
+the three <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code></a> on our Player in the Properties window: <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a>, <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a>, and <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a> gives our game object a position, rotation, and scale.</li>
+<li><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a>, which requires a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a>, allows us to visualize our game object.</li>
+<li><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> allows our <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a>&#8216;s Translation (position) and Rotation to be altered by the Physics engine.</li>
+</ul>
+<p>While these come with Zero, others we&#8217;ll create ourself by coding in Zilch.
+By using <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code></a> to create our game objects we can easily reuse our code to make new and different items.
+This set-up can aid you in rapid prototyping when making your own games.</p>
+<p>Let&#8217;s imagine we are making Bats, Wolves, and Birds. You could create 3 <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code></a>:</p>
+<ul class="simple">
+<li>BatLogic</li>
+<li>WolfLogic</li>
+<li>BirdLogic</li>
+</ul>
+<p><img alt="BadComponentsExample" src="../../_images/BadComponentExample3.png" /></p>
+<p>While making them you find they have some things in common. Rather than copying
+and pasting (which becomes messy fast), we can use the
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a>-based engine to our advantage and rearrange our
+logic. By making smaller <code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code> of functionality, we
+can factor out the code into common <code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code>, making
+it easier to share between them. For instance:</p>
+<p> <img alt="VennWeb" src="../../_images/VennWeb2.png" /></p>
+<p> <em>The</em> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code></a> <em>in gray are built-in to the Zero Engine</em></p>
+<p><!--
+<a class="reference internal" href="../../_images/Venn3.png"><img alt="VennBook" src="../../_images/Venn3.png" style="height: 3.0in;" /></a></p>
+<p><em>The</em> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code></a> <em>in white are built-in to the Zero Engine</em>
+--></p>
+<p><img alt="ComponentExample" src="../../_images/ComponentExample3.png" /></p>
+<p><em>Noticing shared functionality allows us to restructure our code</em></p>
+<p>By having these things separated you can more easily prototype and create new game objects.</p>
+<p>For example, say it is later decided to create a flying healthpack. By utilizing the <code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code> already made, Flying and ChangeOtherHealth, most of the work is done.</p>
+<p><img alt="FlyingPowerup" src="../../_images/FlyingPowerup3.png" /></p>
+<p><em>Something we</em> <strong>can&#8217;t</strong> <em>make with BatLogic, WolfLogic or BirdLogic</em> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code></a></p>
+<p><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">Components</span></code></a> are meant to be generic (when plausible), in
+order to allow for reuse. In many ways, <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code></a> can be
+made more generic by adding Properties to them.</p>
+<p>In our example, we could make our DropLoot <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> more generic by having a Property represent which loot is dropped. With this new property our <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> could allow our Bat to drop health, while the Wolf drops a power-up, etc.</p>
+<p></p>
+<p>Let&#8217;s explore a Property on the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Player object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a><ul>
+<li>Set Velocity to: [5, 0, 0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>This is the initial velocity that the object will have when the level starts.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame"><span>run the game</span></a></li>
+</ul>
+<p>Zero Engine has a lot of built-in <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code></a>; next we&#8217;ll explore the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/PhysicsEffect.html#_CPPv213PhysicsEffect" title="PhysicsEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">Physics</span> <span class="pre">effects</span></code></a>.</p>
+</div>
+<div class="section" id="physics-effects">
+<h2>Physics Effects</h2>
+<p>A <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/PhysicsEffect.html#_CPPv213PhysicsEffect" title="PhysicsEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">PhysicsEffect</span></code></a> is a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> that applies some sort of a force to an object. A <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/PhysicsEffect.html#_CPPv213PhysicsEffect" title="PhysicsEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">PhysicsEffect</span></code></a> can be attached in a variety of ways. This effect will then perform its action every frame according to the rules of the object it is attached to.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first">In the Objects Window</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the LevelSettings object</span></a></p>
+<p><img alt="OWSelectLevelSettings" src="../../_images/OWSelectLevelSettings2.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="the-levelsettings-object">
+<h2>The LevelSettings Object</h2>
+<p>The LevelSettings object is a special object that influences the behavior of the
+objects in a level. It has <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/GravityEffect.html#_CPPv213GravityEffect" title="GravityEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">GravityEffect</span></code></a> and <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/DragEffect.html#_CPPv210DragEffect" title="DragEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">DragEffect</span></code></a>
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code></a> by default. The <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/DragEffect.html#_CPPv210DragEffect" title="DragEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">DragEffect</span></code></a> and the
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/GravityEffect.html#_CPPv213GravityEffect" title="GravityEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">GravityEffect</span></code></a> both fall under the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/PhysicsEffect.html#_CPPv213PhysicsEffect" title="PhysicsEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">PhysicsEffect</span></code></a>
+category.</p>
+<p><img alt="PWLevelSettingsPhysicsEffects" src="../../_images/PWLevelSettingsPhysicsEffects2.png" /></p>
+<p></p>
+</div>
+<div class="section" id="drageffect">
+<h2>DragEffect</h2>
+<p>A <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/DragEffect.html#_CPPv210DragEffect" title="DragEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">drag</span> <span class="pre">effect</span></code></a> can apply drag to an object to slow it down based upon its mass and inertia.</p>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/DragEffect.html#_CPPv210DragEffect" title="DragEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">DragEffect</span></code></a></p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">Left-Click</span></code> (and hold) on the  <a class="reference internal" href="../../_images/RadialSliderButton2.png"><img alt="RadialSliderButton" src="../../_images/RadialSliderButton2.png" style="width: 0.35in;" /></a> symbol next to the Drag property</p>
+</li>
+<li><p class="first">This brings up the radial slider numerical editing interface</p>
+</li>
+<li><p class="first">Drag the mouse in a circle around the slider to edit the numerical value</p>
+<ul class="simple">
+<li>Set the Drag to: 0</li>
+</ul>
+<p><img alt="PWLevelSettingsDragZero" src="../../_images/PWLevelSettingsDragZero2.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="RunTheGame.html#runthegame"><span>Run the Game</span></a></p>
+</li>
+</ul>
+<p>Notice how the Player object falls faster now. This is because the drag is no longer slowing down objects (similar to how air-resistance would affect objects).</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the LevelSettings object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/DragEffect.html#_CPPv210DragEffect" title="DragEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">DragEffect</span></code></a><ul>
+<li>Set Drag to: 10</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="RunTheGame.html#runthegame"><span>Run the Game</span></a></li>
+</ul>
+<p>Notice how the Player object falls slower now as a result of the increase in drag. Let&#8217;s set it back to what its original value was.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the LevelSettings object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/DragEffect.html#_CPPv210DragEffect" title="DragEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">DragEffect</span></code></a><ul>
+<li>Set Drag to: 0.7</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a></li>
+</ul>
+</div>
+<div class="section" id="gravityeffect">
+<h2>GravityEffect</h2>
+<p>In real-world physics, we calculate a force with the equation: <strong>Force = Mass * Acceleration</strong>. A <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/GravityEffect.html#_CPPv213GravityEffect" title="GravityEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">gravity</span> <span class="pre">effect</span></code></a> will apply a mass-less force to an object. This means that the object&#8217;s mass is ignored (treated as 1.0 in the equation).</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the LevelSettings object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/GravityEffect.html#_CPPv213GravityEffect" title="GravityEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">GravityEffect</span></code></a></p>
+<ul>
+<li><p class="first">Set Direction to: [0, 0, 0]</p>
+<p><img alt="PWLevelSettingsGravityDirectionless" src="../../_images/PWLevelSettingsGravityDirectionless2.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="RunTheGame.html#runthegame"><span>Run the game</span></a></p>
+</li>
+</ul>
+<p>Notice that the Player object does not fall but the initial velocity set on the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> is still applied.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the LevelSettings object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/GravityEffect.html#_CPPv213GravityEffect" title="GravityEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">GravityEffect</span></code></a><ul>
+<li>Set Direction to: [0, -1, 0]</li>
+<li>Set Strength to: 30</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The Strength property is the magnitude of the gravitation force.</p>
+</div>
+<div class="section" id="rigidbodies-and-colliders">
+<h2>RigidBodies and Colliders</h2>
+<p>A <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> by itself is a movable point cloud that cannot collide
+with anything. Dealing with the physics of an object, <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a>
+defines the linear and angular velocity of an object as well as its force and
+torque (rotation force). It also works in conjunction with the associated
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Collider.html#_CPPv28Collider" title="Collider"><code class="xref cpp cpp-type docutils literal"><span class="pre">Collider</span></code></a> of the object to determine material density and the volume
+when doing mass-based calculation such as the inertia of the object. Basically,
+the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> deals with movement
+of the object.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Player object</span></a></p>
+</li>
+<li><p class="first">In the Tools Window</p>
+<ul>
+<li><p class="first">Select the TranslateTool from the drop down selection</p>
+</li>
+<li><p class="first">Set Snapping to: True</p>
+<p><img alt="TWTranslateSnapping" src="../../_images/TWTranslateSnapping2.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Hold the <code class="docutils literal"><span class="pre">Ctrl</span></code> key on the keyboard and then drag the Player object downward along the y-axis until its Translation is [0, -5, 0]</p>
+</li>
+</ul>
+<p>Holding the <code class="docutils literal"><span class="pre">Ctrl</span></code> key and then dragging an object with the TranslateTool will create a copy of the selected object.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the newly created object</span></a> (copied from the Player object)</li>
+<li>In the Properties Window<ul>
+<li>Set Name to: Ground</li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a><ul>
+<li>Set Scale to: [8, 1, 1]</li>
+</ul>
+</li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a><ul>
+<li>Set DynamicState to: Static</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p>Static objects cannot be moved by collisions, forces or velocity changes.</p>
+<p>Here is how the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code></a> should look:</p>
+<p> <img alt="LWPlayerAndGroundWeb" src="../../_images/LWPlayerAndGround2.png" /></p>
+<p><!--
+<a class="reference internal" href="../../_images/LWPlayerAndGround2.png"><img alt="LWPlayerAndGroundBook" src="../../_images/LWPlayerAndGround2.png" style="height: 3.0in;" /></a>
+--></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a>  and <a class="reference internal" href="RunTheGame.html#runthegame"><span>run the game</span></a></li>
+</ul>
+<p>The Player object falls through the Ground object.</p>
+</div>
+<div class="section" id="collision-between-objects">
+<h2>Collision Between Objects</h2>
+<p>In order to make collisions work, we need to add the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Collider.html#_CPPv28Collider" title="Collider"><code class="xref cpp cpp-type docutils literal"><span class="pre">Collider</span></code></a>. The
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> alone cannot determine
+the edges of the shape, so the movement works as if all your objects are ghosts.
+Once you add a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Collider.html#_CPPv28Collider" title="Collider"><code class="xref cpp cpp-type docutils literal"><span class="pre">collider</span></code></a>, it can determine when collisions
+happen and have things push back. Let&#8217;s see it in action.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Ground object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent"><span>Add the BoxCollider component</span></a></p>
+<p><a class="reference internal" href="../../_images/PWGroundAddBoxCollider2.png"><img alt="PWGroundAddBoxCollider" src="../../_images/PWGroundAddBoxCollider2.png" style="height: 1.5in;" /></a></p>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Player object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent"><span>Add the BoxCollider component</span></a></p>
+<p><a class="reference internal" href="../../_images/PWPlayerAddBoxCollider2.png"><img alt="PWPlayerAddBoxCollider" src="../../_images/PWPlayerAddBoxCollider2.png" style="height: 1.5in;" /></a></p>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>The Player object should fall and land on the Ground object as shown:</p>
+<p> <img alt="LWCollisionWeb" src="../../_images/LWCollision2.png" /></p>
+<p><!--
+<a class="reference internal" href="../../_images/LWCollision2.png"><img alt="LWCollisionBook" src="../../_images/LWCollision2.png" style="height: 2.0in;" /></a>
+--></p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Physics will not check for collisions between two Static objects.</p>
+<p>Static Objects include:</p>
+<ul class="simple">
+<li>Objects that have a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Collider.html#_CPPv28Collider" title="Collider"><code class="xref cpp cpp-type docutils literal"><span class="pre">Collider</span></code></a>, but <em>do not possess a</em> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a>.</li>
+<li>Objects with a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> that has its DynamicState set to Static.</li>
+</ul>
+<p class="last"><strong>Moving</strong> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Collider.html#_CPPv28Collider" title="Collider"><code class="xref cpp cpp-type docutils literal"><span class="pre">Colliders</span></code></a> <strong>that don&#8217;t have</strong>
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBodies</span></code></a> <strong>during run-time will cause performance
+to drop drastically.</strong> Therefore, avoid moving <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Collider.html#_CPPv28Collider" title="Collider"><code class="xref cpp cpp-type docutils literal"><span class="pre">Colliders</span></code></a> that don&#8217;t have
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBodies</span></code></a>; if you must, use a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a>
+with its DynamicState set to Static. By using a <code class="xref cpp cpp-type docutils literal"><span class="pre">Rigidbody</span></code> marked
+Static, you greatly increase performance and retain the option to change it
+to Dynamic or Kinematic, should you later need collision with other Static
+objects.</p>
+</div>
+</div>
+<div class="section" id="ignorespaceeffects">
+<h2>IgnoreSpaceEffects</h2>
+<p>Every once in a while there is an object you want to be an exception to the rule, e.g. implementing anti-gravity boots. A quick way to make an exception to the applied <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/PhysicsEffect.html#_CPPv213PhysicsEffect" title="PhysicsEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">physics</span> <span class="pre">effects</span></code></a> is to add the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/IgnoreSpaceEffects.html#_CPPv218IgnoreSpaceEffects" title="IgnoreSpaceEffects"><code class="xref cpp cpp-type docutils literal"><span class="pre">IgnoreSpaceEffects</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a>. Let&#8217;s try it out.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Player object</span></a></li>
+<li>In the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">Level</span></code></a> Window<ul>
+<li>Press <code class="docutils literal"><span class="pre">2</span></code> to select the TranslateTool</li>
+<li>Hold the <code class="docutils literal"><span class="pre">Ctrl</span></code> key on the keyboard and then drag the Player object upward along the y-axis until its Translation is [0, 1.5, 0]</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the newly created object</span></a> (copied from the Player object)</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Set Name to: Player2</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent"><span>Add the IgnoreSpaceEffects component</span></a></li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/IgnoreSpaceEffects.html#_CPPv218IgnoreSpaceEffects" title="IgnoreSpaceEffects"><code class="xref cpp cpp-type docutils literal"><span class="pre">IgnoreSpaceEffects</span></code></a><ul>
+<li>Set IgnoreDrag to: True</li>
+<li>Set IgnoreGravity to: True</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/PWPlayer22.png"><img alt="PWPlayer2" src="../../_images/PWPlayer22.png" style="height: 3.0in;" /></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a>  and <a class="reference internal" href="RunTheGame.html#runthegame"><span>run the game</span></a></li>
+</ul>
+<p><a class="reference internal" href="../../_images/LWIgnoreSpaceEffects2.png"><img alt="LWIgnoreSpaceEffects" src="../../_images/LWIgnoreSpaceEffects2.png" style="height: 3.0in;" /></a></p>
+<p>Player2 should be unaffected by the LevelSettings&#8217; effects. Now you have the basic concept behind <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a>-based design, learned to create a Sprite with a <code class="xref cpp cpp-type docutils literal"><span class="pre">Rigidbody</span></code> and <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Collider.html#_CPPv28Collider" title="Collider"><code class="xref cpp cpp-type docutils literal"><span class="pre">Collider</span></code></a>, found out where default <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/PhysicsEffect.html#_CPPv213PhysicsEffect" title="PhysicsEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">physics</span> <span class="pre">effects</span></code></a> came from and how to ignore, them while looking into the LevelSettings object.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="VectorMath1.html" class="btn btn-neutral float-right" title="Vector Math, part 1" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="GameObjects.html" class="btn btn-neutral" title="Game Objects" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2016/AddingComponents.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:13:16 GMT -->
+</html>

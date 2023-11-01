@@ -1,0 +1,136 @@
+.. _ReferenceStickJoint:
+
+.. rst-class:: searchtitle
+
+StickJoint
+==========
+
+.. rst-class:: searchdescription
+
+A stick joint is used to simulate a rope or a stick. This joint forces a constant distance between the anchor points on the objects. If there is no limit, this behaves as a stick. If there is a limit, then this behaves as a rope. Motors and springs are also applied to the axis of the rope. Add on definitions: Limit: A limit will provide a min/max distance that the anchors can be between. Motor: A motor will push/pull the objects in the direction of the rope. The motor will not have any effect unless a limit or spring is present. Spring: A spring will make the rope behave springlike at its boundaries.
+
+.. include:: Description/StickJoint.rst
+
+.. cpp:class:: StickJoint
+
+    Base Class: :cpp:type:`Joint`
+
+.. _ReferenceStickJointProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog StickJoint::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space StickJoint::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog StickJoint::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession StickJoint::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool StickJoint::Active
+
+            Determines if this joint is currently active. Used for runtime enabling/disabling of joints.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool StickJoint::SendsEvents
+
+            Determines if this joint will send any events. Used for a small efficiency boost and for reducing the number of events.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool StickJoint::AutoSnaps
+
+            Determines if this joint will automatically delete itself if it reaches the max force value. This will still send an event if it snaps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool StickJoint::CollideConnected
+
+            Determines if the two objects connected by this joint can collide. If any joint between this pair does not collide, then the pair does not collide. All joints have to be set to true in order to have the objects collide.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real StickJoint::MaxForce
+
+            The maximum force that this joint can apply to correct itself.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real StickJoint::Length
+
+            The desired length between the anchor points of object A and B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 StickJoint::LocalPointA
+
+            The local point of the anchor on object A.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 StickJoint::LocalPointB
+
+            The local point of the anchor on object B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 StickJoint::WorldPointA
+
+            The position of the anchor on object A in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 StickJoint::WorldPointB
+
+            The position of the anchor on object B in world space.
+
+.. _ReferenceStickJointMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void StickJoint::DebugDraw()
+
+            Draws the debug info associated with this joint.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog StickJoint::GetOtherObject(Cog cog)
+
+            If the passed in object is ObjectA, returns ObjectB. Prevents the user from having to write the if case all the time.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog StickJoint::GetCog(uint index)
+
+            Returns the cog associated with an index. Index of 0 is ObjectA, index 1 is ObjectB. Used to write more streamline functions where you index into the objects in a loop.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void StickJoint::SetWorldPointsVec3
+
+            Sets the position of the anchor on object A and B given a position in world space
+
+.. include:: Remarks/StickJoint.rst

@@ -1,0 +1,340 @@
+.. _ReferenceGameSession:
+
+.. rst-class:: searchtitle
+
+GameSession
+===========
+
+.. rst-class:: searchdescription
+
+The GameSession manages all spaces and data for a a game.
+
+.. include:: Description/GameSession.rst
+
+.. cpp:class:: GameSession
+
+    Base Class: :cpp:type:`Cog`
+
+.. _ReferenceGameSessionProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String GameSession::Name
+
+            Name of the Object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String GameSession::ArchetypeName
+
+            The name of the archetype this object was created from.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: u32 GameSession::RuntimeId
+
+            Gets a unique integer for this object(used primarily for debugging)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Actions GameSession::Actions
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SpaceMap::valueRange GameSession::AllSpaces
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GameSession::Focused
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 GameSession::Resolution
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GameSession::FullScreen
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GameSession::Editing
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space GameSession::Space
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog GameSession::Parent
+
+            Get the parent of this object in the Hierarchy.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GameSession::IsBeingDestroyed
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GameSession::Transient
+
+            Object will not be saved.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GameSession::Persistent
+
+            Object will not be destroyed on level load or change.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GameSession::EditorViewportHidden
+
+            Hidden from view used for editor.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GameSession::ObjectViewHidden
+
+            If the object needs to not show up in the object view.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GameSession::Locked
+
+            Not able to be modified or selected in the viewport.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: HierarchyList::range GameSession::Children
+
+            Grab the children directly from the hierarchy component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog GameSession::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession GameSession::GameSession
+
+            Get the GameSession that owns us and our space.
+
+.. _ReferenceGameSessionMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::Destroy()
+
+            Destroy an object removing it from the Space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::DispatchEvent(String eventId, Event event)
+
+            Dispatches an event on this object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool GameSession::AddComponentByName(String name)
+
+            Add a component by name.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool GameSession::RemoveComponentByName(String name)
+
+            Remove a component by name. Returns true if the component existed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::Start()
+
+            Start the game.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::Quit()
+
+            Quit the game and exit the engine if not in editor.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::RequestQuit()
+
+            Request to quit sending out the GameRequestQuit event.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Space GameSession::CreateSpace(Archetype archetype)
+
+            Create a space in the game. Use the archetype's name.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Space GameSession::CreateNamedSpace(String name, Archetype archetype)
+
+            Create a space from an archetype with the given name.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::ChangeResolution(bool fullscreen, Vec2 resolution)
+
+            Change display mode of primary window.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Space GameSession::FindSpaceByName(String name)
+
+            Find a named space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: SpaceMap::valueRange GameSession::FindAllSpacesByName(String name)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::DebugDraw()
+
+            Calls DebugDraw on all components in this cog.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::AttachTo(Cog parent)
+
+            Attach to a parent object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::Detach()
+
+            Detach from a parent object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::AttachToRelative(Cog parent)
+
+            Attach to a parent object and compute the new transform so that the objects are relative.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::DetachRelative()
+
+            Detach from a parent object and compute the new transform so that the objects are relative.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog GameSession::FindChildByName(String name)
+
+            Find a child object with the given name.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: HierarchyNameRange GameSession::FindAllChildrenByName(String name)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::DispatchUp(String eventId, Event event)
+
+            Dispatches an event up the tree on each parent recursively(pre-order traversal)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::DispatchDown(String eventId, Event event)
+
+            Dispatches an event down the tree on all children recursively(pre-order traversal)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog GameSession::FindRoot()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::UploadToArchetype()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::ModifiedFromArchetype()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog GameSession::Clone()
+
+            Game Session cannot be cloned, so throw an exception.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GameSession::ClearArchetype()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog GameSession::FindNextSibling()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog GameSession::FindPreviousSibling()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog GameSession::FindNextInOrder()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog GameSession::FindPreviousInOrder()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool GameSession::IsDescendant(Cog cog)
+
+            Returns whether or not the given cog is a descendant of us.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Component GameSession::GetComponentByName(String componentTypeName)
+
+            
+
+.. include:: Remarks/GameSession.rst

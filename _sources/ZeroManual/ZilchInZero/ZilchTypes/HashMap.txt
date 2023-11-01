@@ -1,0 +1,128 @@
+.. include:: <isonum.txt>
+
+.. _ZilchTypeHashMap:
+
+.. rst-class:: SearchTitle
+
+HashMap
+=======
+
+.. rst-class:: SearchDescription
+
+Zilch HashMap Reference.
+
+Constructors
+------------
++---------------------+---------------------+
+| Signature           | Row                 |
++=====================+=====================+
+| HashMap(key, value) | Default constructor |
++---------------------+---------------------+
+
+Instance Properties
+-------------------
++-------+----------------+-------------------------------------------+
+| Name  | Type           | Description                               |
++=======+================+===========================================+
+| Count | :doc:`Integer` | Returns number of elements in the HashMap |
++-------+----------------+-------------------------------------------+
+
+Instance Methods
+-----------------
++-------------------------------------------------------+---------------------------------------------------------------------+
+| Name / Signature                                      | Description                                                         |
++=======================================================+=====================================================================+
+| Add(key : Key, value : Value)                         | Add a value pair to the HashMap                                     |
++-------------------------------------------------------+---------------------------------------------------------------------+
+| Clear()                                               | Clear all elements in the HashMap                                   |
++-------------------------------------------------------+---------------------------------------------------------------------+
+| Contains(key : Key) : Boolean                         | Returns whether a given value exists in the HashMap                 |
++-------------------------------------------------------+---------------------------------------------------------------------+
+| GetOrDefault(key : Key, defaultValue : Value) : Value | Returns the value associated with the given key if it exists,       |
+|                                                       | if the key does not exist it returns the value passed in as default |
++-------------------------------------------------------+---------------------------------------------------------------------+
+| GetOrError(key : Key) : Value                         | Returns the value associated with the given key if it exists,       |
+|                                                       | if the key does not exist it throws a runtime exception             |
++-------------------------------------------------------+---------------------------------------------------------------------+
+| RemoveOrError(key : Key)                              | Removes the key and the value associated with it if they exist,     |
+|                                                       | if the key value pair does not exist it throws a runtime exception  | 
++-------------------------------------------------------+---------------------------------------------------------------------+
+| RemoveOrIgnore(key : Key) : Boolean                   | Removes the key and the value associated with and returns true      |
+|                                                       | If the key value pair does not exist it returns false               |
++-------------------------------------------------------+---------------------------------------------------------------------+
+| SetOrError(key : Key, value : Value)                  | Will hash the key and the given value associated with it            |
+|                                                       | if the pair does not already exist, if the key value pair           |
+|                                                       | does exist a runtime exception will be thrown                       |
++-------------------------------------------------------+---------------------------------------------------------------------+
+| SetOrIgnore(key : Key, value : Value) : Boolean       | Will hash the key and the given value associated with it            |
+|                                                       | if the pair does not already exist, if the key value pair           | 
+|                                                       | does exist nothing will happen                                      |
++-------------------------------------------------------+---------------------------------------------------------------------+
+| SetOrOverwrite(key : Key, value : Value) : Boolean    | Will hash the key and the given value associated with it            |
+|                                                       | if the pair does not already exist, if the key value pair           |
+|                                                       | does exist it will be overwritten with the new value association    |
++-------------------------------------------------------+---------------------------------------------------------------------+
+
+Samples
+-------
+
+.. code-block:: as
+
+    class HashMap : ZilchComponent
+    {
+        var Key : Integer = 0;
+        
+        var Value : String = "Hello";
+        
+        // This is how you declare a HashMap in Zilch
+        var ExampleHashMap : HashMap[Integer, String] = null;
+        
+        function Initialize(init : CogInitializer)
+        {
+            // This is how you allocated the new HashMap
+            this.ExampleHashMap = new HashMap[Integer, String]();
+            
+            // Add will add a key value pair to the HashMap
+            this.ExampleHashMap.Add(this.Key, this.Value);
+            
+            // Clear will delete all elements within the HashMap
+            this.ExampleHashMap.Clear();
+            
+            // Contains will return true if the key exists in the HashMap
+            var isContained : Boolean = this.ExampleHashMap.Contains(this.Key);
+            
+            // Count is the number key value piars in the HashMap
+            var numberOfElements : Integer = this.ExampleHashMap.Count;
+            
+            // Will return the value associated with the given key if it exists,
+            // if the key does not exist it will return the value passed in as default
+            var returnValue : String = this.ExampleHashMap.GetOrDefault(this.Key, "NoKey");
+            
+            // Will return the value associated with the given key if it exists,
+            // if the key does not exist it will throw a runtime exception
+            var returnValue2 : String = this.ExampleHashMap.GetOrError(this.Key);
+            
+            // Will remove the key and the value associated with it if they exists,
+            // if the key value pair does not exist it will throw a runtime exception
+            this.ExampleHashMap.RemoveOrError(this.Key);
+            
+            // Will remove the key and the value associated with it if they exists,
+            // if the key value pair does not exist nothing will happen
+            var isRemoved : Boolean = this.ExampleHashMap.RemoveOrIgnore(this.Key);
+            
+            // Will hash the key and the given value associated with it
+            // if the pair does not already exist, if the key value pair 
+            // does exist a runtime exception will be thrown
+            this.ExampleHashMap.SetOrError(this.Key, this.Value);
+            
+            // Will hash the key and the given value associated with it
+            // if the pair does not already exist, if the key value pair 
+            // does exist nothing will happen
+            var wasSet : Boolean = this.ExampleHashMap.SetOrIgnore(this.Key, this.Value);
+            
+            // Will hash the key and the given value associated with it
+            // if the pair does not already exist, if the key value pair 
+            // does exist it will be overwritten with the new value association
+            var wasSet2 : Boolean = this.ExampleHashMap.SetOrOverwrite(this.Key, this.Value);
+        }
+    }

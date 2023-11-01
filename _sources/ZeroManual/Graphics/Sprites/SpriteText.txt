@@ -1,0 +1,144 @@
+.. _ManualSpriteText:
+
+.. rst-class:: SearchTitle
+
+SpriteText
+==========
+
+.. rst-class:: SearchDescription
+
+:cpp:type:`SpriteText` is a useful component for quickly adding text into a project that allows the user to easily modify the properties of the text, such as the :ref:`Font<ManualFont>`, size, and runtime output. As with :cpp:type:`Sprites<Sprite>`, SpriteText can be added to any existing Game Object. 
+
+.. sidebar:: Recommended Reading
+
+    This section covers topics that may not have been addressed yet. To learn or review those topics, please see:
+
+        *   :ref:`Base Sprite<ManualBaseSprite>`
+        *   :ref:`TextBlock<ManualTextBlock>`
+
+|
+
+Common Uses
+-----------
+
+*   Scores, timers, and other HUD texts
+*   Title, menu and button text
+
+Using SpriteText
+----------------
+
+.. _ManualSpriteTextCreating:
+
+Creating SpriteText
+~~~~~~~~~~~~~~~~~~~
+
+SpriteText can be made in different two ways: using the :ref:`Command<ManualCommands>` : ``CreateSpriteText`` or adding the SpriteText Component to any existing Game Object. The only differences in the objects are the values of a few properties:  
+
+|SpriteTextDefaults|
+
+As can be seen above, only the values of the ``FontSize`` and ``Text`` differ between the two objects. Since there is such little difference between the two, the choice of whether to create a new SpriteText object can be based on whether there's already an object in the level that should have the SpriteText component attached to it, or if a completely new object is needed. 
+
+.. _ManualSpriteTextFonts:
+
+Adding new Fonts
+~~~~~~~~~~~~~~~~
+
+Importing and accessing different :cpp:type:`Font` resources is arguably the most important thing to understand regarding SpriteText. Luckily, Zero Engine makes this very simple, allowing the user to drag and drop the :ref:`Font<ManualFont>` into the Editor window. Alternatively, the user can use either :ref:`Command<ManualCommands>` : ``Add`` or click on the ``Add`` button. Either option brings up the ``Add a Resource`` window. From here select ``Font`` from the list, then click on "From File".
+
+|AddButton|
+
+|ImportFont|
+
+This will open a new file explorer window where the user may select the Font or Fonts to import. Once a Font is imported into Zero, simply select the ``Font`` property on the SpriteText component and choose the desired Font.
+
+|ChangeFont|
+
+Zero accepts both OpenType Font (OTF) and TrueType Font (TTF).
+
+.. _ManualSpriteTextChanging:
+
+Changing the Text
+~~~~~~~~~~~~~~~~~
+
+Typing the desired text into the ``Text`` property and changing the ``FontSize`` will adjust the text on screen, but that's also a bare minimum of what SpriteText is able to do. For example, by adjusting the ``PixelsPerUnit`` property, it becomes possible to create different sized Fonts without losing any visual clarity. 
+
+|PPUExample|
+
+TextBlock
+^^^^^^^^^
+
+Adding Text using a :ref:`TextBlock<ManualTextBlock>` requires two elements: a :cpp:type:`TextBlock` resource and the :cpp:type:`SpriteTextBlock` component. These two work in tandem to change the text of the SpriteText component. Much like adding a Font, simply use :ref:`Command<ManualCommands>` : ``Add`` and select ``TextBlock`` from the list. This will open a new TextBlock in a new Tab that allows text to be written in it. Once the desired text has been entered, simply add the ``SpriteTextBlock`` component to the Game Object and assign the new ``TextBlock`` to it. 
+
+.. Note:: 
+    While ``TextBlock.Text`` is bound in Zilch, it is **read only** and therefore cannot change the text at runtime. The TextBlock will need to be made as a resource and set prior to running the game. 
+
+|TextBlockExample|
+
+|SetTextBlock|
+
+Properties and Methods of SpriteText
+------------------------------------
+
+*   :ref:`SpriteText Code Reference<ReferenceSpriteText>`
+
+SpriteText Events
+-----------------
+
+*   ``EnterView`` : :cpp:type:`GraphicalEvent`
+    
+    * The Graphical Event dispatched to the Object with a SpriteText component entering the view of the current :cpp:type:`Camera`
+
+*   ``EnterViewAny``: :cpp:type:`GraphicalEvent`
+
+    * The Graphical Event dispatched to the Object with a SpriteText component entering the view of any Camera in the scene
+
+*   ``ExitView`` : :cpp:type:`GraphicalEvent`
+    
+    * The Graphical Event dispatched to the Object with a SpriteText component exiting the view of the current Camera
+
+*   ``ExitViewAll`` : :cpp:type:`GraphicalEvent`
+
+    * Graphical Event dispatched to the Object with a SpriteText component exiting the view of all Cameras in the scene
+
+*   ``SpriteTextChanged`` : :cpp:type:`TextEvent`
+
+    * Event sent to the Object with a SpriteText component when the Text has been changed
+
+.. _ManualSpriteTextRelated:
+
+Related Materials
+-----------------
+
+Manual Pages
+~~~~~~~~~~~~
+
+*   :ref:`BaseSprite<ManualBaseSprite>`
+*   :ref:`Area<ManualArea>`
+*   :ref:`TextBlock<ManualTextBlock>`
+
+Tutorials
+~~~~~~~~~
+
+*   :ref:`SpriteText<TutorialText>`
+
+Reference Pages
+~~~~~~~~~~~~~~~
+
+*   :cpp:type:`Sprite`
+*   :cpp:type:`SpriteText`
+*   :cpp:type:`Font`
+*   :cpp:type:`TextBlock`
+*   :cpp:type:`SpriteTextBlock`
+*   :cpp:type:`Camera`
+
+
+
+.. |SpriteTextDefaults|             image:: images/SpriteText/DefaultParameters.png
+.. |AddButton|                      image:: images/SpriteText/AddButton.png
+.. |ImportFont|                     image:: images/SpriteText/ImportFont.png
+.. |ChangeFont|                     image:: images/SpriteText/ChangeFont.gif
+.. |PPUExample|                     image:: images/SpriteText/PPUExample.png
+.. |TextBlockExample|               image:: images/SpriteText/TextBlockExample.png
+.. |SetTextBlock|                   image:: images/SpriteText/SetTextBlock.gif
+
+.. Started by Reuben Faux

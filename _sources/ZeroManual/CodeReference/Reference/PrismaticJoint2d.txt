@@ -1,0 +1,160 @@
+.. _ReferencePrismaticJoint2d:
+
+.. rst-class:: searchtitle
+
+PrismaticJoint2d
+================
+
+.. rst-class:: searchdescription
+
+A prismatic joint is used to create something similar to a piston. This is the 2d version of the prismatic joint. This joint is used in 2d mode for increased speed and stability. The slider axis is projected onto the z axis(the z component is ignored) so that the objects can be arbitrarily far apart. The x and y rotations are also ignored since the objects are only allowed to rotate about the z axis. Add on definitions: Limit: A limit will provide a min/max translational distance for the two objects on the slider axis. Motor: A motor will push/pull the objects on the slider axis. Spring: A spring will make the slider axis springy at its limits.
+
+.. include:: Description/PrismaticJoint2d.rst
+
+.. cpp:class:: PrismaticJoint2d
+
+    Base Class: :cpp:type:`Joint`
+
+.. _ReferencePrismaticJoint2dProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PrismaticJoint2d::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space PrismaticJoint2d::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PrismaticJoint2d::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession PrismaticJoint2d::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PrismaticJoint2d::Active
+
+            Determines if this joint is currently active. Used for runtime enabling/disabling of joints.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PrismaticJoint2d::SendsEvents
+
+            Determines if this joint will send any events. Used for a small efficiency boost and for reducing the number of events.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PrismaticJoint2d::AutoSnaps
+
+            Determines if this joint will automatically delete itself if it reaches the max force value. This will still send an event if it snaps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PrismaticJoint2d::CollideConnected
+
+            Determines if the two objects connected by this joint can collide. If any joint between this pair does not collide, then the pair does not collide. All joints have to be set to true in order to have the objects collide.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PrismaticJoint2d::MaxForce
+
+            The maximum force that this joint can apply to correct itself.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PrismaticJoint2d::LocalPointA
+
+            The local point of the anchor on object A.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PrismaticJoint2d::LocalPointB
+
+            The local point of the anchor on object B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PrismaticJoint2d::WorldPointA
+
+            The position of the anchor on object A in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PrismaticJoint2d::WorldPointB
+
+            The position of the anchor on object B in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Quat PrismaticJoint2d::LocalAngleA
+
+            The rotation on object A that is being aligned to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Quat PrismaticJoint2d::LocalAngleB
+
+            The rotation on object B that is being aligned to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PrismaticJoint2d::LocalAxisA
+
+            The locally defined axis on object A.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PrismaticJoint2d::LocalAxisB
+
+            The locally defined axis on object B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PrismaticJoint2d::WorldAxis
+
+            The axis in world space that is being rotated about.
+
+.. _ReferencePrismaticJoint2dMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PrismaticJoint2d::DebugDraw()
+
+            Draws the debug info associated with this joint.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog PrismaticJoint2d::GetOtherObject(Cog cog)
+
+            If the passed in object is ObjectA, returns ObjectB. Prevents the user from having to write the if case all the time.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog PrismaticJoint2d::GetCog(uint index)
+
+            Returns the cog associated with an index. Index of 0 is ObjectA, index 1 is ObjectB. Used to write more streamline functions where you index into the objects in a loop.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PrismaticJoint2d::SetWorldPointsVec3
+
+            Sets the position of the anchor on object A and B given a position in world space
+
+.. include:: Remarks/PrismaticJoint2d.rst

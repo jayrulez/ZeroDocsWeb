@@ -1,0 +1,1131 @@
+.. _ParticleEffectsGAM100:
+
+.. rst-class:: SearchTitle
+
+Particle Effects
+================
+
+.. rst-class:: SearchDescription
+
+This lesson introduces particle effects, and discusses their crucial components:
+**Particle Systems**, **Particle Emitters**, and **Particle Animators**.
+
+.. _ParticleEffectsVocabGAM100:
+
+Learning Objectives
+-------------------
+
+*	Understanding the three catagories of particle components.
+
+*	Experimenting with configuring particle effects.
+
+*	Understanding the basic purposes of particle effects.
+
+*	Creating basic weather effects using particles.
+
+.. rst-class:: VocabSection
+
++-------------------------------------------------------+
+| Vocabulary                                            |
++==================+=================+==================+
+| Particle         | Particle System | Particle Emitter |
++------------------+-----------------+------------------+
+| ParticleAnimator | Variance        |                  |
++------------------+-----------------+------------------+
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject`
+
+A **particle effect** is a way of using a large number of small sprites or
+meshes to simulate something chaotic, abstract, or "fuzzy," such as smoke, fire,
+explosions, rain, magical effects, and so on.
+
+Each individual object created by a particle effect is called a particle.
+Normally, the word *particle* is used to mean something very small, but the
+particles spawned by a particle effect may be any size. Each particle has its
+own individual properties, like Translation, Velocity, etc, and they may have
+different values from one particle to the next.
+
+In the Zero Engine, Particle Systems are composed of three main components and
+several extra optional components for added behavior.
+
+The required components for any particle system are
+
+* a **Particle System** component
+* a **Particle Emitter** component
+* a **Particle Animator** component
+
+Create a Particle Effect
+------------------------
+
+* :ref:`Command<CommandsGAM100>`: ``CreateTransform`` or
+  :menuselection:`Create --> Create Transform`
+* In the Properties Window
+
+  * Set Name to: ``SparkleParticles``
+  * Click on *Add Component...* and then enter: ``Particle``
+  
+  |AddComponentParticle|
+
+
+
+The particle-related components that we can add will appear in the pop-up list:
+
+|ParticleComponentsNoSystem|
+
+
+
+Particle System
+~~~~~~~~~~~~~~~
+
+* In the Properties Window
+  
+  * :ref:`Add a SpriteParticleSystem component <AddComponentGAM100>`
+    
+    |SpriteParticleSystemProperties|
+    
+    *The SpriteParticleSystem component*
+
+The ``SpriteParticleSystem`` component falls under the **Particle System**
+category. A Particle System component controls properties like
+
+* the type of particle used (Sprites, in this case)
+  
+  * the image resource used for the system's Sprites
+* the coordinate system the particles should live in
+* how the particles should be graphically displayed or **rendered**
+
+
+
+Let's see what other components we can add to our particle effect.
+
+* In the Properties Window
+  
+  * Click on *Add Component...* and then enter: ``Particle``
+  
+  |AddComponentParticle|
+
+Some of the choices that were grayed out before are now available because we
+have a ``SpriteParticleSystem`` component already. Here are the available
+particle effect-related components:
+
+|ParticleComponentsNoEmitter|
+
+Let's start out with the ``SphericalParticleEmitter``.
+
+
+
+Particle Emitter
+~~~~~~~~~~~~~~~~
+
+* In the Properties Window
+  
+  * :ref:`Add a SphericalParticleEmitter component <AddComponentGAM100>`
+    
+    |SphericalParticleEmitterProperties|
+    
+    *The SphericalParticleEmitter component*
+
+
+
+The ``SphericalParticleEmitter`` component falls under the **Particle Emitter**
+category. A Particle Emitter component controls the creation of particles using
+specified characteristics, like
+
+* the spawn location
+  
+  * in the case of a ``SphericalParticleEmitter``, it's a sphere around the
+    emitter's position
+* the number of particles to be spawned
+* the size of the particles
+* the particles' starting velocities
+* the life span of the particles
+
+Let's check the list of available components once more.
+
+* In the Properties Window
+  
+  * Click on *Add Component...* and then enter: ``Particle``
+  
+  |AddComponentParticle|
+
+
+
+We see, again, a list of additional particle-related components that we can add
+to this effect. Our focus turns now to the various *animators*.
+
+|ParticleComponentsNoAnimator|
+
+We'll go with the ``LinearParticleAnimator`` for now.
+
+Particle Animator
+~~~~~~~~~~~~~~~~~
+
+* In the Properties Window
+  
+  * :ref:`Add a LinearParticleAnimator component <AddComponentGAM100>`
+    
+    |LinearParticleAnimatorProperties|
+    
+    *The LinearParticleAnimator component*
+
+The ``LinearParticleAnimator`` component falls under the **Particle Animator**
+category. A Particle Animator component modifies the system's particles that
+already exist over the duration of their lifetimes. The
+``LinearParticleAnimator`` does things like changing the particles' sizes and
+applying forces to them.
+
+* :ref:`Select the SparkleParticles object <SelectObjectGAM100>`
+
+
+
+Particles are now being created in the Level Window:
+
+|NoBookBegin|
+|ActiveParticlePreviewGif|
+|NoBookEnd|
+
+|ActiveParticlePreviewPng|
+
+
+Notice that the particles are colorless squares, and are being created with
+random initial velocities. This is because the ``SpriteParticleSystem``
+component's **Texture** property is set to the default texture, and the
+``SphericalParticleEmitter`` component's **StartVelocity** property is
+``[0, 0, 0]`` and its **RandomVelocity** property is
+``[2, 2, 2]``.
+
+* :ref:`Save the project<SavingProjectGAM100>`
+
+Let's change the sprite the particles are using.
+
+
+
+Import Particle Sprites
+-----------------------
+
+We'll be using a handful of different sprites for our particles in this lesson.
+
+* :ref:`Download the following files from the Void: <UsingTheVoidGAM100>`
+  
+  * ``Cloud.png``
+  * ``FastSpark.png``
+  * ``Fire.png``
+  * ``Twinkle.png``
+* Select the SparkleParticles object
+* In the Properties Window
+  
+  * Under ``SpriteParticleSystem``
+    
+    * Set Texture to: ``Twinkle``
+    * Set RenderMode to: ``Additive``
+    
+    |SetRenderModeAndTexture|
+
+
+    
+Now let's get rid of the velocity and make the particles spawn in a sphere shape
+using the SphericalParticleEmitter.
+
+  * Make the ``SphericalParticleEmitter`` match these settings:
+    
+    * Set SpinVariance to: ``0``
+    * Set RandomSpin to: ``false``
+    * Set RandomVelocity to: ``[0, 0, 0]``
+    * Set EmitterSize to: ``[5, 5, 5]``
+    
+    |SparkleParticlesEmitterSettings|
+
+The particle effect is now emitting particles in the shape of a sphere with a
+radius of ``5`` (hence the 5's in the **EmitterSize** property). Let's make it
+more obvious that it's a sphere.
+
+    * Set EmitRate to: ``500``
+
+
+
+The **EmitRate** property controls how many particles are spawned per second, so
+particles should now be emitted more rapidly to fill the sphere before they die:
+
+|SparkleParticlesNoGrowth|
+
+  * Under LinearParticleAnimator
+    
+    * Set Growth to: ``-1``
+    
+The **Growth** property indicates how much each particle should change its size
+per second. Using a negative value for Growth causes the particles to shrink.
+
+Let's move on from the SparkleParticles effect for now.
+
+  * Under SphericalParticleEmitter
+    
+    * Set Active to: ``false``
+
+
+
+Particle Effect Properties
+--------------------------
+
+Here is a brief overview of the function of a few of the many properties of the
+constituent components of a particle effect.
+
++--------------------+-------------------------------------------------------------+
+| Particle System (in this case, ``SpriteParticleSystem``)                         |
++====================+=============================================================+
+| **RenderMode**     | Determines the way that the sprites blend with one another  |
+|                    | where they overlap. **Generally,** ``Additive`` **should be |
+| |RenderModeB1|     | used with sprites that have a black background.**           |
+|                    |                                                             |
+| |RenderModeB2|     |                                                             |
+|                    |                                                             |
++--------------------+-------------------------------------------------------------+
+
++--------------------+-------------------------------------------------------------+
+| **SystemSize**     | Defines the dimensions of an invisible box centered at the  |
+|                    | system's Transform. If no part of this box can be "seen" by |
+|                    | any active camera, then none of the system's particles are  |
+|                    | drawn.                                                      |
++--------------------+-------------------------------------------------------------+
+
++--------------------+-------------------------------------------------------------+
+| Particle Emitter (in this case, ``SphericalParticleEmitter``)                    |
++====================+=============================================================+
+| **EmitCount**      | How many particles the emitter will spawn. If this property |
+|                    | is set to ``0``, then the emitter will spawn an **infinite  |
+|                    | number of particles**.                                      |
++--------------------+-------------------------------------------------------------+
+
++--------------------+-------------------------------------------------------------+
+| **EmitRate**       | How many of the emitter's particles will be spawned per     |
+|                    | second. To effectively spawn them all at once, set this     |
+| |EmitRateB1|       | property to its maximum value of ``50000``.                 |
+|                    |                                                             |
+| |EmitRateB2|       |                                                             |
+|                    |                                                             |
++--------------------+-------------------------------------------------------------+
+
++--------------------+-------------------------------------------------------------+
+| **Spin**           | The rotational speed in degrees per second of each particle |
+|                    | spawned.                                                    |
++--------------------+-------------------------------------------------------------+
+
++--------------------+-------------------------------------------------------------+
+| -**Variance**      | Each of the various **Variance** properties defines a range |
+|                    | of random values that will additionally be applied to its   |
+| |SizeVarianceB1|   | corresponding invariant property. For instance, an emitter  |
+|                    | with a **Spin** of ``90`` and a **SpinVariance** of ``30``  |
+| |SizeVarianceB2|   | will spawn particles with rotational speeds ranging from    |
+|                    | ``60`` to ``120`` degrees per second.                       |
++--------------------+-------------------------------------------------------------+
+
++--------------------+-------------------------------------------------------------+
+| **RandomSpin**     | Whether or not the particles should be spawned with a       |
+|                    | random **initial rotation**.                                |
++--------------------+-------------------------------------------------------------+
+
++--------------------+-------------------------------------------------------------+
+| **RandomVelocity** | The random variance of the particles' starting velocities.  |
+|                    |                                                             |
+| |RandomVelocityB1| |                                                             |
+|                    |                                                             |
+| |RandomVelocityB2| |                                                             |
+|                    |                                                             |
++--------------------+-------------------------------------------------------------+
+
++--------------------+-------------------------------------------------------------+
+| **EmitterSize**    | The dimensions of the volume within which the emitter may   |
+|                    | spawn particles.                                            |
+| |EmitterSizeB1|    |                                                             |
+|                    | * In the case of a ``SphericalParticleEmitter``, this       |
+| |EmitterSizeB2|    |   determines the X, Y, and Z radii of the spheroid that is  |
+|                    |   the emitter volume.                                       |
+|                    |                                                             |
+|                    |   * With a ``SphericalParticleEmitter``, if one dimension   |
+|                    |     of the **EmitterSize** is ``0``, the emitter will be    |
+|                    |     **ring-shaped**.                                        |
+|                    | * In any case, an **EmitterSize** of ``[0, 0, 0]`` will     |
+|                    |   result in an emitter whose particles all spawn at a       |
+|                    |   single point, the emitter's Transform.                    |
++--------------------+-------------------------------------------------------------+
+
++--------------------+-------------------------------------------------------------+
+| Linear Particle Animator                                                         |
++--------------------+-------------------------------------------------------------+
+| **Force**          | Determines a constant acceleration vector applied to each   |
+|                    | particle over its lifetime.                                 |
+| |ForceB1|          |                                                             |
+|                    |                                                             |
+| |ForceB2|          |                                                             |
+|                    |                                                             |
++--------------------+-------------------------------------------------------------+
+
++--------------------+-------------------------------------------------------------+
+| **Growth**         | Indicates how much each particle should change its size per |
+|                    | second. Using a **negative value** will cause the particle  |
+|                    | to **shrink** instead of grow.                              |
++--------------------+-------------------------------------------------------------+
+
+
+
+Make Another Particle Effect
+----------------------------
+
+We made the last particle effect from scratch for learning purposes. Now we'll
+make another one, this time using the **CreateParticleSystem** command to make a
+basic particle effect that we can then modify to our liking.
+
+* :ref:`Command<CommandsGAM100>`: ``CreateParticleSystem`` or
+  :menuselection:`Create --> Create Particle System`
+* :ref:`Select the BasicParticleEffect object we just created <SelectObjectGAM100>`
+
+  |BasicParticleEffectProperties|
+
+  *The starter particle effect comes with some basic components*
+
+
+
+  * Use the TranslateGizmo to move the BasicParticleEffect object up and down
+    on the world Y axis (the green arrow):
+    
+    |WorldSpaceB1| |WorldSpaceB2|
+
+Observe how the particles do not move when you move their system. The position
+they are spawned in depends on the position of the emitter that spawned them,
+but after that, they're on their own. *This is because they are using the World
+coordinate system.* We can make the particles follow their emitter by changing
+the **SystemSpace** property on the ``SpriteParticleSystem`` component.
+
+* In the Properties Window
+  
+  * Under ``SpriteParticleSystem``
+    
+    * Set SystemSpace to: ``LocalSpace``
+
+
+
+This will confine the system's particles to the local coordinates of the
+BasicParticleEffect cog that spawned them.
+
+* Use the TranslateGizmo to move the BasicParticleEffect object again:
+
+    |LocalSpaceB1| |LocalSpaceB2|
+
+Now the particles remain locked in position relative to the BasicParticleEffect
+object, so that when it moves, they all move with it.
+
+* In the Properties Window
+  
+  * Under SpriteParticleSystem
+    
+    * Set Texture to: ``Square``
+    * Set RenderMode to: ``Additive``
+  * Under SphericalParticleEmitter
+    
+    * Set Size to: ``2``
+    * Set SizeVariance to: ``1.5``
+    * Set SpinVariance to: ``0``
+    * Set RandomSpin to: ``false``
+    * Set RandomVelocity to: ``[4, 4, 4]``
+
+
+
+Multiple Particle Animators
+---------------------------
+
+Unlike with the Emitter and System category of particle effect components,
+multiple Particle Animator components *can* live on the same particle effect at
+the same time. Different animators affect their particles in different ways, and
+we can combine them to get cool effects.
+
+Notice how the BasicParticleEffect object already has two of them: the
+``LinearParticleAnimator`` component, which we've seen before, and also the
+``ParticleColorAnimator`` component.
+
+
+
+ParticleColorAnimator
+~~~~~~~~~~~~~~~~~~~~~
+
+  * Under the **ParticleColorAnimator** component
+    
+    |ParticleColorAnimatorProperties|
+
+The **ParticleColorAnimator** component will make each particle's color change
+over its lifetime. Each particle will be created with a starting color of
+``Color0``, and then the color will *change over time*, or **interpolate**, to
+``Color1``, and then to ``Color2``, and so on. Keep in mind that the particles'
+colors will be multiplied by the **Tint** property of the
+``SpriteParticleSystem`` component to achieve the final color that is displayed,
+so they may not appear exactly as chosen.
+
+    * Set Color0 to: ``[R: 255, G:   0, B:   0, A: 1.00]``, ``#FF0000``
+    * Set Color1 to: ``[R: 255, G: 212, B:   0, A: 1.00]``, ``#FFD400``
+    * Set Color2 to: ``[R:   0, G: 192, B:  96, A: 1.00]``, ``#00C060``
+    * Set Color3 to: ``[R:  64, G: 128, B: 255, A: 1.00]``, ``#4080FF``
+    * Set Color4 to: ``[R: 255, G:   0, B:  64, A: 1.00]``, ``#FF0040``
+      
+      |ColorAnimatorWithColors|
+
+Notice how the BasicParticleEffect object's particles are now changing from one
+color to the next over each particle's lifetime.
+
+
+
+
+|FabulousParticlesPng|
+
+
+* In the Properties Window
+  
+  * Set Name to: ``FabulousParticles``
+* :ref:`Save the project <SavingProjectGAM100>`
+
+Now let's add another animator.
+
+
+
+ParticleAttractor
+~~~~~~~~~~~~~~~~~
+
+The **ParticleAttractor** component is a Particle Animator that causes its
+particles to be pulled toward their cog's center.
+
+* In the Properties Window
+  
+  * Click on *Add Component...* and then enter: ``Particle``
+  * :ref:`Add a ParticleAttractor component <AddComponentGAM100>`
+
+The ParticleAttractor's **Strength** property defines how strongly the particles
+are pulled toward the center. The **MinDistance** and **MaxDistance** properties
+define the bounds within which this pull is applied.
+
+When a particle is within the **MinDistance** from its center, it is pulled with
+100% of the ParticleAttractor's Strength. A particle that moves past the
+MinDistance is pulled less and less as it goes. When a particle is beyond the
+**MaxDistance** from its center, it is not pulled at all. Refer to the following
+diagram:
+
+|ParticleAttractorDiagram|
+
+Here, the black spot in the middle is centered at the location of a particle
+effect. The radius of the black spot is the attractor's **MinDistance**. Within
+that spot, a particle is pulled with full **Strength** toward the center. The
+white region outside of the largest circle represents the area where the
+attractor has no influence on its particles. The radius of the largest circle is
+the attractor's **MaxDistance**. As a particle moves through the gray areas, it
+is pulled more or less, depending on whether it is moving toward or away from
+the center.
+
+  * Under SphericalParticleEmitter
+    
+    * Set RandomVelocity to: ``[10, 10, 10]``
+
+
+
+With high-velocity particles, we'll need a high-strength attractor.
+
+  * Under ParticleAttractor
+    
+    * Set Strength to: ``20``
+
+
+Now the attractor is strong enough to noticeably pull its particles back toward
+its center.
+
+
+  * Under SpriteParticleSystem
+    
+    * Set SystemSpace to: ``WorldSpace``
+    
+* Use the TranslateGizmo to move the FabulousParticles object around
+
+Notice how, when the system's SystemSpace property is set to ``WorldSpace``, it
+is easy to "lose" some of the effect's particles if you move it quickly enough.
+
+* In the Properties Window
+  
+  * Under SpriteParticleSystem
+    
+    * Set SystemSpace back to: ``LocalSpace``
+* Use the TranslateGizmo to move the FabulousParticles object around again
+
+When the SystemSpace is set to ``LocalSpace``, nothing you can do through the
+Transform alone can cause the particles to escape.
+
+* In the Properties Window
+  
+  * Under Transform
+    
+    * Set Translation to: ``[0, 0, 0]``
+* :ref:`Save the project <SavingProjectGAM100>`
+
+Next, we'll learn how to build a fire.
+
+* In the Properties Window
+  
+  * Under SphericalParticleEmitter
+    
+    * Set Active to: ``false``
+
+
+
+Making Fire
+-----------
+
+Let's take what we've learned so far and apply it. We'll take what we know about
+the real-world phenomenon we're trying to emulate and use it to make our effect
+look great.
+
+* :ref:`Command<CommandsGAM100>` : ``CreateParticleSystem`` or
+  :menuselection:`Create --> Create Particle System`
+* :ref:`Select the BasicParticleEffect object we just created <SelectObjectGAM100>`
+* In the Properties Window
+  
+  * Set Name to: ``Fire``
+  * Under SpriteParticleSystem
+
+First of all, let's use a cool image for each wisp of flame.
+
+    * Set Texture to: ``Fire``
+
+This particular image has a black background that will not be visible if the
+RenderMode is set to ``Additive``.
+
+    * Set RenderMode to: ``Additive``
+
+Next, we know that fire is orange.
+
+    * Set Tint to: ``[R: 128, G: 102, B:  25, A: 1.00]``, ``#806619``
+
+|FirePostSystem|
+
+
+
+That's it for the system's properties. Let's move on to the emitter.
+
+  * Under SphericalParticleEmitter
+
+.. sidebar:: Additive Magic
+  
+  You may be curious about how it is that the flame has several colors within
+  it, even though we've only set a single color for the system's Tint property,
+  and we haven't touched the effect's ParticleColorAnimator component.
+  
+  |AdditiveFireColors|
+  
+  This is all thanks to the SpriteParticleSystem's **RenderMode** property being
+  set to ``Additive``.
+  
+  When two additive sprites overlap, the color of the pixels you see is
+  determined by adding the colors of the two sprites --- the ``R`` value is the
+  sum of the two overlapping ``R`` values, the ``G`` value is the sum of the two
+  overlapping ``G`` values, and so on. But this addition gets capped off --- a
+  sprite's color can't have an ``R``, ``G``, or ``B`` value above 255.
+  
+  This means that, when enough additive particles are grouped together, their
+  colors add up to white *as long as their R, G, and B values are greater than
+  zero.*
+
+
+
+Now, first off, it's kind of hard to really see what we're looking at, so let's
+crank the EmitRate up pretty high.
+
+    * Set EmitRate to: ``800``
+
+This fire is exploding in all directions, but we want it to go mostly up.
+
+    * Set StartVelocity to: ``[0, 4, 0]``
+
+A convincing flame generally has something of a teardrop shape, so we want to
+make the particles in our fire effect appear clustered at the base of the flame
+and taper upward from there. By making the Y-part of the RandomVelocity match
+the Y-part of the StartVelocity, we can ensure that the particles' upward speeds
+will range from zero to twice the Y-part of the StartVelocity. This will cause
+the bunching we want. Then, we can throw in a little bit of horizontal variance
+too, just to make the fire look a bit more chaotic.
+
+    * Set RandomVelocity to: ``[0.4, 4, 0.4]``
+
+Let's increase the chaos of the effect further by setting the SizeVariance to
+match the Size and the LifetimeVariance to match the Lifetime.
+
+    * Set SizeVariance to: ``1``
+    * Set LifetimeVariance to: ``1``
+
+Let's put a little bit more of a twist on each particle by increasing the
+SpinVariance.
+
+    * Set SpinVariance to: ``180``
+
+|FirePostEmitter|
+
+
+
+Now we can really drive the effect home in the LinearParticleAnimator component.
+
+  * Under LinearParticleAnimator
+
+Flickers of flame shrink as they rise, so we should apply a negative Growth.
+
+    * Set Growth to: ``-2``
+
+But as these flickers get further away from the source of the heat, they should
+also slow down a bit.
+
+    * Set Dampening to: ``1``
+
+Finally, we can make the fire dance by giving it plenty of RandomForce.
+
+    * Set RandomForce to: ``[10, 10, 10]``
+
+|FirePostAnimator|
+
+
+
+One good particle effect deserves another.
+
+  * Under Transform
+    
+    * Set Translation to: ``[-6, -6, 0]``
+    
+* **Duplicate** the object by pressing ``Ctrl + D``
+
+* In the Properties Window
+  
+  * Under Transform
+    
+    * Set Translation to: ``[6, -6, 0]``
+
+Let's turn on all of our effects and see how they all look together.
+
+* :ref:`Multi-select the SparkleParticles, FabulousParticles, and both Fire
+  objects<SelectObjectGAM100>`
+* In the Properties Window
+  
+  * Under SphericalParticleEmitter
+    
+    * Set Active to: ``true``
+
+
+
+* :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGame>`
+
+
+|SparklesFabulousFire|
+
+Finally, we'll learn how to control the weather.
+
+* :ref:`Stop the game <StopGame>`
+* In the Properties Window
+  
+  * Under SphericalParticleEmitter
+    
+    * Set Active to: ``false``
+
+
+
+Weather Effects
+---------------
+
+One common practical application of particle effects is simulation of weather.
+Let's try a couple of weather effects now.
+
+Make it Rain
+~~~~~~~~~~~~
+
+So far, the particle effects we've seen have all been tightly localized: our
+Sparkle effect has an emitter radius of 5, and our Fabulous particles all spawn
+in exactly the same point. But particles don't necessarily have to be in a tight
+group like that. Particle effects can quite effectively simulate, say, rain,
+regardless of the overall size of the area being rained on.
+
+* :ref:`Command<Commands>` : ``CreateParticleSystem`` or
+  :menuselection:`Create --> Create Particle System`
+* :ref:`Select the BasicParticleEffect object we just created <SelectObject>`
+* In the Properties Window
+  
+  * Set Name to: ``Rain``
+  * :ref:`Remove the SphericalParticleEmitter component <RemoveComponent>`
+  * :ref:`Remove the ParticleColorAnimator component <RemoveComponent>`
+  * :ref:`Add a BoxParticleEmitter component <AddComponent>`
+  * Under SpriteParticleSystem
+    
+    * Set Texture to: ``Circle``
+    * Set RenderMode to: ``Additive``
+    * Set Tint to: ``[R: 255, G: 255, B: 255, A: 0.4]``, ``#FFFFFF``
+    * Set SystemSize to: ``[50, 50, 4]``
+  * Under BoxParticleEmitter
+    
+    * Set EmitRate to: ``2000``
+    * Set Size to: ``0.1``
+    * Set SizeVariance to: ``0.1``
+    * Set Lifetime to: ``0.6``
+    * Set LifetimeVariance to: ``0``
+    * Set StartVelocity to: ``[0, -100, 0]``
+    * Set RandomVelocity to: ``[0, 0, 0]``
+    * Set EmitterSize to: ``[100, 50, 0]``
+  * Under Transform
+    
+    * Set Translation to: ``[0, 35, 0]``
+
+
+
+  |RainBillboarded|
+
+.. sidebar:: GeometryMode: Beam
+  
+  Setting the SpriteParticleSystem's **GeometryMode** property to ``Beam``
+  causes the particles to orient themselves automatically to the direction
+  they're moving in, and to stretch themselves in that direction as they go.
+  
+  * When using the ``Beam`` setting, you can alter the **VelocityScale**
+    property to change how much of an effect each particle's speed has on its
+    length.
+
+It looks alright, but raindrops tend to look better when they're stretched a
+bit. We can accomplish this by changing the particle system's **GeometryMode**
+property to ``Beam``. (We also have a better sprite we can use for the
+particles, so we'll make that switch too.)
+
+  * Under SpriteParticleSystem
+    
+    * Set GeometryMode to: ``Beam``
+    * Set VelocityScale to: ``0.5``
+    * Set Texture to: ``FastSpark``
+
+
+
+Observe how the raindrops are stretched in the direction they're moving. We can
+even make it a bit windy by applying some horizontal velocity, and the drops
+will still be stretched correctly:
+
+  * Under BoxParticleEmitter
+    
+    * Set StartVelocity to: ``[10, -100, 0]``
+
+We can make it even more blustery by adding some **RandomForce** to the effect:
+  
+  * Under LinearParticleAnimator
+    
+    * Set RandomForce to: ``[50, 50, 0]``
+    
+  |RainBeam|
+
+* :ref:`Save the project <SavingProject>`
+* In the Properties Window
+  
+  * Under BoxParticleEmitter
+    
+    * Set Active to: ``false``
+
+
+
+Make it Snow
+~~~~~~~~~~~~
+
+For our snow effect, let's begin by duplicating our rain and modifying the copy.
+
+* **Duplicate** the object by pressing ``Ctrl + D``
+* In the Properties Window
+  
+  * Set Name to: ``Snow``
+  * Under BoxParticleEmitter
+    
+    * Set Active to: ``true``
+  * Under SpriteParticleSystem
+    
+    * Set Texture to: ``Cloud``
+    * Set Tint to: ``[R: 255, G: 255, B: 255, A: 1.00]``, ``#FFFFFF``
+    * Set GeometryMode to: ``Billboarded``
+  * Under Transform
+    
+    * Set Translation to: ``[0, 15, 0]``
+  * Under BoxParticleEmitter
+    
+    * Set EmitRate to: ``200``
+    * Set Size to: ``0.2``
+    * Set SizeVariance to: ``0.2``
+    * Set Lifetime to: ``10``
+    * Set StartVelocity to: ``[0, -5, 0]``
+    * Set EmitterSize to: ``[100, 10, 0]``
+  * Under LinearParticleAnimator
+    
+    * Set RandomForce to: ``[3, 3, 0]``
+
+
+
+  |Snow|
+
+* :ref:`Save the project <SavingProject>`
+* In the Properties Window
+  
+  * Under BoxParticleEmitter
+    
+    * Set Active to: ``false``
+
+
+
+Clouds
+~~~~~~
+
+Let's cap off our weather systems with a standard Redmond, Washington cloudy
+sky.
+
+* :ref:`Command<Commands>` : ``CreateParticleSystem`` or
+  :menuselection:`Create --> Create Particle System`
+* :ref:`Select the BasicParticleEffect object we just created <SelectObject>`
+* In the Properties Window
+  
+  * Set Name to: ``Clouds``
+  * :ref:`Remove the SphericalParticleEmitter component <RemoveComponent>`
+  * :ref:`Add a BoxParticleEmitter component <AddComponent>`
+  * Under SpriteParticleSystem
+    
+    * Set Texture to: ``Cloud``
+    * Set Tint to: ``[R: 224, G: 224, B: 224, A: 1.00]``, ``#E0E0E0``
+    * Set SortMode to: ``Sorted``
+    * Set SystemSize to: ``[50, 50, 4]``
+  * Under BoxParticleEmitter
+    
+    * Set Size to: ``8``
+    * Set SizeVariance to: ``2``
+    * Set Lifetime to: ``20``
+    * Set LifetimeVariance to: ``10``
+    * Set SpinVariance to: ``0``
+    * Set StartVelocity to: ``[0.3, 0, 0]``
+    * Set RandomVelocity to: ``[0.25, 0.05, 0.05]``
+    * Set EmitterSize to: ``[50, 4, 0]``
+
+* Under Transform
+
+    * Set Translation to: ``[0, 10, 0]``
+    
+
+
+  |Clouds|
+
+* :ref:`Save the project <SavingProject>` and :ref:`run the game <RunTheGame>`
+
+Take note of how it takes several seconds for the sky to populate itself
+properly with clouds. We want the clouds to appear all at once, so we have to
+fix this problem. That's where the SpriteParticleSystem component's
+**WarmUpTime** property comes in: it "primes" the system by making it as if it
+had been already been running when it is first created.
+
+* :ref:`Stop the game <StopGame>`
+
+
+
+Using a high value for WarmUpTime can be somewhat expensive, so it's good
+practice to keep it as small as necessary to make its effect clear. In this
+case, with the way that we've created our cloud system, a WarmUpTime of about
+half the emitter's **Lifetime** should do the trick.
+
+* In the Properties Window
+  
+  * Under SpriteParticleSystem
+    
+    * Set WarmUpTime to: ``10``
+* :ref:`Save the project <SavingProject>`
+* :ref:`Select the LevelSettings object <SelectObject>`
+* In the Properties Window
+  
+  * Under CameraViewport
+    
+    * Set Scaling to: ``Letterbox``
+* :ref:`Select the Rain object <SelectObject>`
+* In the Properties Window
+  
+  * Under BoxParticleEmitter
+    
+    * Set Active to: ``true``
+* :ref:`Run the game <RunTheGame>` and watch the Clouds and Rain effects
+  together
+
+
+|CloudsAndRainPng|
+
+
+* :ref:`Stop the game <StopGame>`
+
+
+
+* In the Properties Window
+  
+  * Under BoxParticleEmitter
+    
+    * Set Active to: ``false``
+* :ref:`Select the Snow object <SelectObject>`
+* In the Properties Window
+  
+  * Under BoxParticleEmitter
+    
+    * Set Active to: ``true``
+* :ref:`Run the game <RunTheGame>` and watch the Clouds and Snow effects
+  together
+
+
+|CloudsAndSnowPng|
+
+
+Now we know the basics of particle effects and how to manipulate them through
+Particle Systems, Particle Emitters, and Particle Animators.
+
+
+.. |AddComponentParticle|
+    image:: images/ParticleEffects/AddComponentParticle.png
+
+.. |ParticleComponentsNoSystem|
+    image:: images/ParticleEffects/ParticleComponentsNoSystem.png
+    :height: 3.0in
+
+.. |SpriteParticleSystemProperties|
+    image:: images/ParticleEffects/SpriteParticleSystemProperties.png
+    :height: 3.0in
+
+.. |ParticleComponentsNoEmitter|
+    image:: images/ParticleEffects/ParticleComponentsNoEmitter.png
+    :height: 3.0in
+
+.. |SphericalParticleEmitterProperties|
+    image:: images/ParticleEffects/SphericalParticleEmitterProperties.png
+    :height: 3.0in
+
+.. |ParticleComponentsNoAnimator|
+    image:: images/ParticleEffects/ParticleComponentsNoAnimator.png
+    :height: 3.0in
+
+.. |LinearParticleAnimatorProperties|
+    image:: images/ParticleEffects/LinearParticleAnimatorProperties.png
+.. |ActiveParticlePreviewGif|
+    image:: images/ParticleEffects/ActiveParticlePreview.gif
+.. |ActiveParticlePreviewPng|
+    image:: images/ParticleEffects/ActiveParticlePreview.png
+    :height: 3.0in
+.. |SetRenderModeAndTexture|
+    image:: images/ParticleEffects/SetRenderModeAndTexture.png
+.. |SparkleParticlesEmitterSettings|
+    image:: images/ParticleEffects/SparkleParticlesEmitterSettings.png
+.. |SparkleParticlesNoGrowth|
+    image:: images/ParticleEffects/SparkleParticlesNoGrowth.png
+    :height: 3.0in
+
+.. |RenderMode|
+    image:: images/ParticleEffects/RenderMode.gif
+.. |RenderModeB1|
+    image:: images/ParticleEffects/RenderModeB1.png
+.. |RenderModeB2|
+    image:: images/ParticleEffects/RenderModeB2.png
+.. |EmitRate|
+    image:: images/ParticleEffects/EmitRate.gif
+.. |EmitRateB1|
+    image:: images/ParticleEffects/EmitRateB1.png
+.. |EmitRateB2|
+    image:: images/ParticleEffects/EmitRateB2.png
+.. |SizeVariance|
+    image:: images/ParticleEffects/SizeVariance.gif
+.. |SizeVarianceB1|
+    image:: images/ParticleEffects/SizeVarianceB1.png
+.. |SizeVarianceB2|
+    image:: images/ParticleEffects/SizeVarianceB2.png
+.. |RandomVelocity|
+    image:: images/ParticleEffects/RandomVelocity.gif
+.. |RandomVelocityB1|
+    image:: images/ParticleEffects/RandomVelocityB1.png
+    :height: 2.0in
+.. |RandomVelocityB2|
+    image:: images/ParticleEffects/RandomVelocityB2.png
+    :height: 2.0in
+.. |EmitterSize|
+    image:: images/ParticleEffects/EmitterSize.gif
+.. |EmitterSizeB1|
+    image:: images/ParticleEffects/EmitterSizeB1.png
+.. |EmitterSizeB2|
+    image:: images/ParticleEffects/EmitterSizeB2.png
+.. |Force|
+    image:: images/ParticleEffects/Force.gif
+.. |ForceB1|
+    image:: images/ParticleEffects/ForceB1.png
+    :height: 2.0in
+.. |ForceB2|
+    image:: images/ParticleEffects/ForceB2.png
+    :height: 2.0in
+
+.. |BasicParticleEffectProperties|
+    image:: images/ParticleEffects/BasicParticleEffectProperties.png
+.. |WorldSpaceGif|
+    image:: images/ParticleEffects/WorldSpace.gif
+.. |WorldSpaceB1|
+    image:: images/ParticleEffects/WorldSpaceB1.png
+    :height: 3.0in
+.. |WorldSpaceB2|
+    image:: images/ParticleEffects/WorldSpaceB2.png
+    :height: 3.0in
+.. |LocalSpaceGif|
+    image:: images/ParticleEffects/LocalSpace.gif
+.. |LocalSpaceB1|
+    image:: images/ParticleEffects/LocalSpaceB1.png
+    :height: 3.0in
+.. |LocalSpaceB2|
+    image:: images/ParticleEffects/LocalSpaceB2.png
+    :height: 3.0in
+
+.. |ParticleColorAnimatorProperties|
+    image:: images/ParticleEffects/ParticleColorAnimatorProperties.png
+.. |ColorAnimatorWithColors|
+    image:: images/ParticleEffects/ColorAnimatorWithColors.png
+.. |FabulousParticlesGif|
+    image:: images/ParticleEffects/FabulousParticles.gif
+.. |FabulousParticlesPng|
+    image:: images/ParticleEffects/FabulousParticles.png
+    :height: 3.0in
+.. |ParticleComponentsNoAttractor|
+    image:: images/ParticleEffects/ParticleComponentsNoAttractor.png
+.. |ParticleAttractorDiagram|
+    image:: images/ParticleEffects/ParticleAttractorDiagram.png
+    :width: 3.0in
+.. |FabulousAttractor|
+    image:: images/ParticleEffects/FabulousAttractor.gif
+
+.. |FireEffectNew|
+    image:: images/ParticleEffects/FireEffectNew.png
+.. |AdditiveFireColors|
+    image:: images/ParticleEffects/AdditiveFireColors.png
+    :width: 3.325in
+.. |FirePostSystem|
+    image:: images/ParticleEffects/FirePostSystem.png
+    :height: 3.0in
+.. |FirePostEmitter|
+    image:: images/ParticleEffects/FirePostEmitter.png
+    :height: 3.0in
+.. |FirePostAnimator|
+    image:: images/ParticleEffects/FirePostAnimator.png
+    :height: 3.0in
+.. |SparklesFabulousFire|
+    image:: images/ParticleEffects/SparklesFabulousFire.png
+    :height: 4.0in
+
+.. |RainBillboarded|
+    image:: images/ParticleEffects/RainBillboarded.png
+.. |RainBeam|
+    image:: images/ParticleEffects/RainBeam.png
+.. |Snow|
+    image:: images/ParticleEffects/Snow.png
+    :height: 3.0in
+.. |Clouds|
+    image:: images/ParticleEffects/Clouds.png
+.. |CloudsAndRainGif|
+    image:: images/ParticleEffects/CloudsAndRain.gif
+.. |CloudsAndRainPng|
+    image:: images/ParticleEffects/CloudsAndRain.png
+    :width: 5.0in
+.. |CloudsAndSnowGif|
+    image:: images/ParticleEffects/CloudsAndSnow.gif
+.. |CloudsAndSnowPng|
+    image:: images/ParticleEffects/CloudsAndSnow.png
+    :width: 5.0in
+

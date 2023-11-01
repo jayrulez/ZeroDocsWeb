@@ -1,0 +1,70 @@
+.. _ReferenceReactive:
+
+.. rst-class:: searchtitle
+
+Reactive
+========
+
+.. rst-class:: searchdescription
+
+Reactive component allows the object to react to mouse events. Uses the collision volume of the collider on this composition for picking.
+
+.. include:: Description/Reactive.rst
+
+.. cpp:class:: Reactive
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceReactiveProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Reactive::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Reactive::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Reactive::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Reactive::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Reactive::Active
+
+            Is the reactive component active.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Reactive::CaptureMouse
+
+            
+
+.. _ReferenceReactiveMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Reactive::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/Reactive.rst

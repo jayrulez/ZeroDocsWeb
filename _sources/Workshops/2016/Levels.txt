@@ -1,0 +1,576 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _2016Levels:
+
+.. rst-class:: SearchTitle
+
+Levels
+======
+
+.. rst-class:: SearchDescription
+
+This lesson covers reloading levels, changing levels, duplicating levels, and setting the starting level.
+
+.. _2016LevelsVocab:
+
+Learning Objectives
+-------------------
+
+Learn to...
+
+*   Understand the concept of seperate levels.
+
+*	Load and reload levels.
+
+*	Delay object destruction.
+
+*	Set the starting level.
+
+.. rst-class:: VocabSection
+
++-------------------------------------+
+| Vocabulary                          |
++==========+=========+================+
+| Level    | Loading | Starting Level |
++----------+---------+----------------+
+
+Level Setup
+-----------
+
+* :ref:`2016CreateNewProject`
+
+
+**Create a Sprite**
+
+*   :ref:`Command<2016Commands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In the Properties Window
+
+    *   :ref:`Add the RigidBody Component <2016AddComponent>`
+
+Here is what our level should look like:
+
+|LWLevel1Setup|
+
+*   :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+The Sprite should fall due to the default gravity in conjunction with our RigidBody component.
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+|pbr|
+
+Renaming a Level
+----------------
+
+* In the Library Window
+
+    * Under the Level tag
+    
+        * ``Right Click`` on Level 
+        
+            * ``Left Click`` on Rename
+            
+            * Set the Name to: ``Level1``    
+        
+* :ref:`Save the project <2016SavingProject>`
+
+Reloading a Level
+-----------------
+
+Now we will go over reloading the currently loaded level in code.
+
+* :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: ``GameLogic``
+
+* In the **GameLogic** script
+
+  * Update the **GameLogic** class with the following code:
+
+    *   Update the **Initialize** function with the following code:
+
+    .. code-block:: as    
+      :emphasize-lines: 3,4
+
+        function Initialize(init : CogInitializer)
+        {
+          // Connect to Keyboard events.
+          Zero.Connect(Zero.Keyboard, Events.KeyUp, this.OnKeyUp);
+        }
+
+    *  Add the **OnKeyUp** function with the following code:
+
+    .. code-block:: as    
+        
+      function OnKeyUp(event : KeyboardEvent)
+      {
+        // When Space is pressed,
+        if (event.Key == Keys.Space)
+        {
+          // reload the level.
+          this.Space.ReloadLevel();
+        }        
+      }    
+
+
+In this code we are calling the Space's **ReloadLevel** function to reload the currently loaded level when Space is pressed on the keyboard.
+
+* :ref:`Select the LevelSettings object <2016SelectObject>`
+* In the Properties Window
+
+  * :ref:`Add the GameLogic component <2016AddComponent>`
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+The Sprite will fall. Pressing the Space will reload the level.
+
+* :ref:`Stop the Game <2016StopGame>`
+
+|pbr|
+
+Adding Levels
+-------------
+
+Creating a new level is similar to creating a new ZilchScript.
+
+* :ref:`Add a new Level resource<2016ResourceAdding>` named: ``Level2``
+
+  |AddLevel2|
+
+  * ``Left Click`` the Create button
+
+The newly created level should now be the level you are editing in the editor.
+
+
+
+**Create two sprites**
+
+* :ref:`Command<2016Commands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+* In the Properties Window
+
+  * :ref:`Add the RigidBody Component <2016AddComponent>`
+
+* Press ``Ctrl + D`` to duplicate the object
+
+* In the Properties Window
+  
+  * Under Transform
+    
+    * Set Translation to: ``[2,0,0]``
+
+Here is what the level should look like:
+
+|Level2Screenshot|
+
+*   :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+This level has 2 sprites so that we know it's Level2. The Sprite objects are falling, but when we press Space, the level doesn't reload. This is because the newly created level doesn't have our GameLogic component attached to the LevelSettings object. *Making an archetype for the LevelSettings object is NOT what we want to do here* because the LevelSettings object is a special object that is handled internally, and doing so **will cause undefined behavior.** This can be avoided by simply making a template level and then duplicating it, but for now let's just do it from scratch.
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+
+
+*   :ref:`Select the LevelSettings object <2016SelectObject>`
+*   In the Properties Window
+
+    *   :ref:`Add the GameLogic component <2016AddComponent>`
+    
+    |AddGameLogic|
+
+The LevelSettings object in Level2 should have the same properties as LevelSettings object in Level1:
+
+|SameProperties|
+
+*   :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+The level should now be able to be reset just like in Level1.
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+
+
+Changing Levels
+---------------
+
+Now we will go over changing from one level to another. The Space's **LoadLevel** member function accepts a Level Resource. We can find the Levels by looking them up by name like we do with Archetypes, using the **Find** function. The Space's **CurrentLevel** member returns the current level's Level Resource.
+
+* In the **GameLogic** script
+  
+  * Update the **GameLogic** class with the following code:
+  
+    * Update **GameLogic** 's class member variables with the following code:
+  
+.. code-block:: as
+  :emphasize-lines: 3-9
+
+  class GameLogic : ZilchComponent
+  {
+    // Get the Levels to compare against:
+    // --Since the level resources already exist, it is 
+    // --much more performant to grab and store a reference to them than
+    // --to keep asking the engine to Find it every LogicUpdate.
+    var Level1: Level = Level.Find("Level1");
+    var Level2: Level = Level.Find("Level2");
+
+*
+
+  *
+  
+    * Update **GameLogic** 's **OnKeyUp** function to the following code:
+    
+.. code-block:: as
+  :emphasize-lines: 9-27
+
+    function OnKeyUp(event : KeyboardEvent)
+    {
+      // When Space is pressed,
+      if (event.Key == Keys.Space)
+      {
+        // reload the level.
+        this.Space.ReloadLevel();
+      }        
+      // If we press the right arrow:
+      else if (event.Key == Keys.Right)
+      {
+        // Get the name of the currently loaded level:
+        var currentLevelName = this.Space.CurrentLevel;
+        
+        // If we are on Level1,
+        if (currentLevelName == this.Level1)
+        {
+          // switch to Level2.
+          this.Space.LoadLevel(this.Level2);
+        }
+        // Otherwise, if we are on Level2
+        else if (currentLevelName == this.Level2)
+        {
+          // switch to Level1.
+          this.Space.LoadLevel(this.Level1);
+        }
+      }
+    }
+
+|pbr|
+
+This code gets the name of the current level and checks if it is Level1 or Level2. Then it loads the other level. In other words, if Level1 is the current level, then Level2 will be loaded, and if Level2 is the current level, then Level1 will be loaded.
+
+*   :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+Pressing the Right arrow key on the keyboard will switch between the two levels. We have one sprite in Level1, and we have two sprites in Level2.
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+.. _2016LevelDuplicating:
+
+Duplicating Levels
+------------------
+
+We have renamed the level that is created by default, and we added a brand new level. Now we will go over duplicating or making a copy of a level that already exists.
+
+* In the Library Window
+  
+  * Under the Level tag
+    
+    * ``Right Click`` on Level2
+      
+      * ``Left Click`` Duplicate
+
+      |DuplicateLevel|
+
+A copy of Level2 should be created:
+
+|LevelCopied|
+
+|pbr|
+
+* ``Right Click`` on Level2Copy1 
+
+  * ``Left Click`` on Rename
+  
+    * Set the Name to: ``Level3``    
+    
+    |RenameLevelCopied|
+        
+* :ref:`Save the project <2016SavingProject>`
+
+    |RenamedLevel3|
+
+    * ``Double Left Click`` on Level3 to open it for editing
+* :ref:`Select Sprite<2016SelectObject>`
+* Press ``Ctrl + D`` to duplicate the object
+* In the Properties Window
+  
+  * Set Translation to: ``[-2, 0, 0]``
+
+
+
+We now have 3 sprites in the level so that we know it is level 3 just by looking at it:
+
+|Level3Screenshot|
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+|pbr|
+
+The sprites fall and we are able to restart the level with the Space, but pressing the right arrow key on the keyboard isn't doing what it used to do. This is because our logic only accounted for the first two levels and switching back and forth between them.
+
+* :ref:`Stop the Game <2016StopGame>` 
+
+
+
+* In the **GameLogic** script
+  
+  * Update the **GameLogic** class with the following code:
+  
+    * Update **GameLogic** 's class member variables with the following code:
+  
+.. code-block:: as
+  :emphasize-lines: 2
+
+    var Level2: Level = Level.Find("Level2");
+    var Level3: Level = Level.Find("Level3");
+
+*
+
+  *
+  
+    * Update **GameLogic** 's **OnKeyUp** function to the following code:
+    
+.. code-block:: as
+  :emphasize-lines: 9-26
+
+    function OnKeyUp(event : KeyboardEvent)
+    {
+      // When Space is pressed,
+      if (event.Key == Keys.Space)
+      {
+        // reload the level.
+        this.Space.ReloadLevel();
+      }        
+      // If we press 1,
+      else if (event.Key == Keys.One)
+      {
+        // load Level1.
+        this.Space.LoadLevel(this.Level1);
+      } 
+      // Otherwise, if we press 2,
+      else if (event.Key == Keys.Two)
+      {
+        // load Level2.
+        this.Space.LoadLevel(this.Level2);
+      }
+      // Otherwise, if we press 3,
+      else if (event.Key == Keys.Three)
+      {
+        // load Level3.
+        this.Space.LoadLevel(this.Level3);
+      }
+    }
+    
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+Now pressing the numbers ``1``, ``2``, and ``3`` keys will load Level1, Level2, and Level3 respectively.
+
+* :ref:`Stop the Game <2016StopGame>`
+
+|pbr|
+
+Delayed Destruction
+-------------------
+
+When loading or reloading a level in a space the objects that are being cleaned up have their deletion delayed until the next frame. 
+This means that code searching for items in the new level before the next frame run the risk of either finding nothing, or finding an instance that is about to be destroyed *instead of the one about to be created.*
+
+We'll demonstrate this by changing the colors of our sprites. 
+
+  * Update the **GameLogic** class with the following code:
+  
+    * Update **GameLogic** 's class member variables with the following code:
+  
+.. code-block:: as
+  :emphasize-lines: 3-
+
+    var Level3: Level = Level.Find("Level3");
+    
+    [Static]
+    var Orange: Real4 = Real4(1.0, 0.27, 0.0, 1.0);
+    [Static]
+    var Blue: Real4 = Real4(0.0, 0.27, 1.0, 1.0);
+    [Static]
+    var Green: Real4 = Real4(0.27, 1.0, 0.0, 1.0);
+    [Static]
+    var Pink: Real4 = Real4(1.0, 0.0, 0.27, 1.0);
+
+*
+
+  *
+  
+    * Update **GameLogic** 's **OnKeyUp** function to the following code:
+    
+.. code-block:: as
+  :emphasize-lines: 8,15,22,29
+
+    function OnKeyUp(event : KeyboardEvent)
+    {
+      // When Space is pressed,
+      if (event.Key == Keys.Space)
+      {
+        // reload the level.
+        this.Space.ReloadLevel();
+        this.Space.FindFirstObjectByName("Sprite").Sprite.Color = GameLogic.Orange;
+      }        
+      // If we press 1,
+      else if (event.Key == Keys.One)
+      {
+        // load Level1.
+        this.Space.LoadLevel(this.Level1);
+        this.Space.FindFirstObjectByName("Sprite").Sprite.Color = GameLogic.Blue;
+      } 
+      // Otherwise, if we press 2,
+      else if (event.Key == Keys.Two)
+      {
+        // load Level2.
+        this.Space.LoadLevel(this.Level2);
+        this.Space.FindFirstObjectByName("Sprite").Sprite.Color = GameLogic.Green;
+      }
+      // Otherwise, if we press 3,
+      else if (event.Key == Keys.Three)
+      {
+        // load Level3.
+        this.Space.LoadLevel(this.Level3);
+        this.Space.FindFirstObjectByName("Sprite").Sprite.Color = GameLogic.Pink;
+      }
+    }
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+Press ``1``, ``2``, ``3``, and ``Space``. 
+
+|GifNoColor|
+
+What you may have noticed is that nothing changed. This is because the sprites whose colors changed were never drawn. 
+We will solve this by wrapping the call to LoadLevel so that we can work in a new space without worrying about delayed destruction with the space fetched via ``this.Space``. 
+
+|pbr|
+
+* In the **GameLogic** script
+
+  * Update the **GameLogic** class with the following code:
+
+    *   Update the **OnKeyUp** function with the following code:
+
+    .. code-block:: as    
+      :emphasize-lines: 7,8,14,15,21,22,28,29
+
+      function OnKeyUp(event : KeyboardEvent)
+      {
+        // When Space is pressed,
+        if (event.Key == Keys.Space)
+        {
+          // reload the level.
+          var space = this.LoadLevel(this.Space.CurrentLevel);
+          space.FindFirstObjectByName("Sprite").Sprite.Color = GameLogic.Orange;
+        }        
+        // If we press 1,
+        else if (event.Key == Keys.One)
+        {
+          // load Level1.
+          var space = this.LoadLevel(this.Level1);
+          space.FindFirstObjectByName("Sprite").Sprite.Color = GameLogic.Blue;
+        } 
+        // Otherwise, if we press 2,
+        else if (event.Key == Keys.Two)
+        {
+          // load Level2.
+          var space = this.LoadLevel(this.Level2);
+          space.FindFirstObjectByName("Sprite").Sprite.Color = GameLogic.Green;
+        }
+        // Otherwise, if we press 3,
+        else if (event.Key == Keys.Three)
+        {
+          // load Level3.
+          var space = this.LoadLevel(this.Level3);
+          space.FindFirstObjectByName("Sprite").Sprite.Color = GameLogic.Pink;
+        }
+      }
+
+    *  Add the **LoadLevel** function with the following code:
+
+    .. code-block:: as    
+      
+      function LoadLevel(level: Level) : Space
+      {
+        // Create a new Space to load our level into
+        var space = this.GameSession.CreateSpace(Archetype.Find("Space"));
+        
+        // Load the level passed in
+        space.LoadLevel(level);
+        
+        // Mark the old one for delayed destruction
+        this.Space.Destroy();
+        
+        // Pass back the new one to work with
+        return space;
+      }
+
+
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+ 
+Press ``1``, ``2``, ``3``, and ``Space``. 
+
+|GifColor|
+
+Now that we have worked in a new space directly, the sprites in the new level were correctly colored.    
+
+|pbr|
+
+.. sidebar:: Running the Game
+  
+  Running the game (F5) always launches *the level that was last open for editing.* 
+  This is independent of the StartingLevel set on the DefaultGameSetup component. 
+  
+  While the StartingLevel affects the exported game, running the game launches the current level 
+  as a feature to aid in quicker prototyping and testing of these different segments of the game.
+  
+  Beware, this means if your level depends on code ran in a previous level, it may display bugs that wouldn't appear during normal gameplay.
+
+Setting the Starting Level for the Game
+---------------------------------------
+
+What if we wanted a specific level (such as a main menu, intro level, or tutorial level) to be the first level that is loaded when the game starts. In other words, the initial level that is loaded when the user actually runs the game outside of the editor (from the executable or independent of the Zero Engine).
+
+One way of doing this is the **SetAsStartingLevel** command which sets the current level to the starting level. We'll set it manually:
+
+* In the Level Window
+
+  * Press ``Shift+G``
+
+  |Game|
+
+* In the Properties Window
+    
+  * Set the StartingLevel to: ``Level3``
+
+Level3 now will be the level that is loaded when the game starts outside of the Zero Engine.
+
+Now we know how to restart/reload, change, create, and duplicate levels.
+
+.. |LWLevel1Setup|                image:: images/Levels/LWLevel1Setup.png
+    :height: 3.0in
+.. |Game|                         image:: images/Levels/Game.png
+.. |LevelCopied|                  image:: images/Levels/LevelCopied.png
+.. |Level3Screenshot|             image:: images/Levels/Level3Screenshot.png
+    :height: 3.0in
+.. |AddLevel2|                    image:: images/Levels/AddLevel2.png
+  :height: 3.0in
+.. |AddGameLogic|                 image:: images/Levels/AddGameLogic.png
+  :height: 2.0in
+.. |RenameLevelCopied|            image:: images/Levels/RenameLevelCopied.png
+.. |Level2Screenshot|             image:: images/Levels/Level2Screenshot.png
+    :height: 2.5in
+.. |DuplicateLevel|               image:: images/Levels/DuplicateLevel.png
+.. |RenameLevel1|                 image:: images/Levels/RenameLevel1.png
+.. |RenamedLevel3|                image:: images/Levels/RenamedLevel3.png
+.. |SameProperties|               image:: images/Levels/SameProperties.png
+.. |GifNoColor|                   image:: images/Levels/3Levels.gif
+.. |GifColor|                     image:: images/Levels/3LevelsColor.gif
+

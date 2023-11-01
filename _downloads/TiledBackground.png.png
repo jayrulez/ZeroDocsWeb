@@ -1,0 +1,8 @@
+<?php
+if (file_exists("TiledBackground.png")) {
+header("Content-disposition: attachment; filename=\"TiledBackground.png\"");
+header("Content-type: application/octet-stream");
+header('Content-Length: ' . filesize("TiledBackground.png"));
+readfile("TiledBackground.png");
+}
+?>

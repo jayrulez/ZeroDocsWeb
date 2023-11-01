@@ -1,0 +1,49 @@
+.. _ReferenceGameEvent:
+
+.. rst-class:: searchtitle
+
+GameEvent
+=========
+
+.. rst-class:: searchdescription
+
+Event type used by the GameSession.
+
+.. include:: Description/GameEvent.rst
+
+.. cpp:class:: GameEvent
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceGameEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String GameEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String GameEvent::LevelName
+
+            Name of the current level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession GameEvent::Game
+
+            GameSession Object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GameEvent::Handled
+
+            Has this event been handled? Used to for the engine to poll for Request Quit and other operations.
+
+.. _ReferenceGameEventMethods:
+
+.. include:: Remarks/GameEvent.rst

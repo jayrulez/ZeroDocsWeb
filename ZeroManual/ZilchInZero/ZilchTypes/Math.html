@@ -1,0 +1,1079 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/ZilchInZero/ZilchTypes/Math.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:15 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Math &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Zilch In Zero" href="../index.html"/>
+        <link rel="next" title="Property [Type]" href="Property.html"/>
+        <link rel="prev" title="KeyValue [Key, Value]" href="KeyValue.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Zilch In Zero</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Variables_And_Data_Types.html">Variables, Data Types, &amp; Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Conditionals.html">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Looping.html">Looping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Functions.html">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Attributes.html">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Flags.html">Flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Structs.html">Structs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Classes.html">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Memory_Management.html">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Inheritance.html">Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Casting.html">Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Named_Parameters.html">Named Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Delegates.html">Delegates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Reflection.html">Reflection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Properties.html">Properties (Get-Sets)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Property_Delegates.html">Property Delegates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ConstructByValueVsByRef.html">Local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ConstructByValueVsByRef.html#new">New</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Operators_Precedence_Chart.html">Operator Precedence Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Keywords.html">Keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Array.html">Array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Boolean.html">Boolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Boolean2.html">Boolean2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Boolean3.html">Boolean3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Boolean4.html">Boolean4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Console.html">Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exception.html">Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HashMap.html">HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Integer.html">Integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Integer2.html">Integer2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Integer3.html">Integer3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Integer4.html">Integer4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="KeyValue.html">KeyValue [Key, Value]</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Math</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Property.html">Property [Type]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quaternion.html">Quaternion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Real.html">Real</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Real2.html">Real2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Real3.html">Real3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Real4.html">Real4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="String.html">String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StringBuilder.html">StringBuilder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zilch In Zero</a> &raquo;</li>
+      
+    <li>Math</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/ZilchInZero/ZilchTypes/Math.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="math">
+<span id="zilchtypemath"></span><h1>Math</h1>
+<p class="searchdescription">Standard math library reference for Zilch.</p>
+<div class="section" id="static-properties">
+<h2><strong>Static Properties</strong></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="36%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>E</td>
+<td><a class="reference internal" href="Real.html"><em>Real</em></a></td>
+<td>Euler&#8217;s number.</td>
+</tr>
+<tr class="row-odd"><td>Pi</td>
+<td><a class="reference internal" href="Real.html"><em>Real</em></a></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="static-methods">
+<h2><strong>Static Methods</strong></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name / Signature</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ACos(units : Real4) : Real4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ACos(units : Real3) : Real3</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ACos(units : Real2) : Real2</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ACos(units : Real) : Real</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ASin(units : Real4) : Real4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ASin(units : Real3) : Real3</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ASin(units : Real2) : Real2</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ASin(units : Real) : Real</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ATan(units : Real) : Real</td>
+<td>The transcendental function arctangent. The return type is in radians.</td>
+</tr>
+<tr class="row-odd"><td>ATan(units : Real2) : Real2</td>
+<td>The transcendental function arctangent. The return type is in radians. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>ATan(units : Real3) : Real3</td>
+<td>The transcendental function arctangent. The return type is in radians. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>ATan(units : Real4) : Real4</td>
+<td>The transcendental function arctangent. The return type is in radians. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>ATan2(y : Real4, x : Real4) : Real4</td>
+<td>Performs the arctangent using the signs of x and y to determine what quadrant the angle lies in. Returns a value in the range of [-pi, pi]. The return type is in radians. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>ATan2(y : Real, x : Real) : Real</td>
+<td>Performs the arctangent using the signs of x and y to determine what quadrant the angle lies in. Returns a value in the range of [-pi, pi]. The return type is in radians.</td>
+</tr>
+<tr class="row-even"><td>ATan2(y : Real2, x : Real2) : Real2</td>
+<td>Performs the arctangent using the signs of x and y to determine what quadrant the angle lies in. Returns a value in the range of [-pi, pi]. The return type is in radians. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>ATan2(y : Real3, x : Real3) : Real3</td>
+<td>Performs the arctangent using the signs of x and y to determine what quadrant the angle lies in. Returns a value in the range of [-pi, pi]. The return type is in radians. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Abs(Real4) : Real4</td>
+<td>Returns the absolute value of value. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Abs(Real3) : Real3</td>
+<td>Returns the absolute value of value. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Abs(Real2) : Real2</td>
+<td>Returns the absolute value of value. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Abs(Real) : Real</td>
+<td>Returns the absolute value of value.</td>
+</tr>
+<tr class="row-even"><td>Angle2D(Real3) : Real</td>
+<td>Computes the angle (in radians) about the z-axis between the vector and the x-axis.</td>
+</tr>
+<tr class="row-odd"><td>AngleBetween(Quaternion, Quaternion) : Real</td>
+<td>Returns the angle between two Quaternions in radians.</td>
+</tr>
+<tr class="row-even"><td>AngleBetween(Real3, Real3) : Real</td>
+<td>Returns the angle between two Real3s in radians.</td>
+</tr>
+<tr class="row-odd"><td>AngleBetween(Real2, Real2) : Real</td>
+<td>Returns the angle between two Real2s in radians.</td>
+</tr>
+<tr class="row-even"><td>AxisAngle(axis : Real3, radians : Real) : Quaternion</td>
+<td>Generates the quaternion that rotates about the axis vector by the given radians.</td>
+</tr>
+<tr class="row-odd"><td>Ceil(value : Real2, place : Integer, base : Integer) : Real2</td>
+<td>Rounds value upward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Ceil(value : Real4, place : Integer, base : Integer) : Real4</td>
+<td>Rounds value upward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Ceil(value : Real3, place : Integer, base : Integer) : Real3</td>
+<td>Rounds value upward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Ceil(value : Real, place : Integer, base : Integer) : Real</td>
+<td>Rounds value upward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc).</td>
+</tr>
+<tr class="row-odd"><td>Ceil(value : Real4, place : Integer) : Real4</td>
+<td>Rounds value upward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Ceil(value : Real3, place : Integer) : Real3</td>
+<td>Rounds value upward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Ceil(value : Real2, place : Integer) : Real2</td>
+<td>Rounds value upward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Ceil(value : Real, place : Integer) : Real</td>
+<td>Rounds value upward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc).</td>
+</tr>
+<tr class="row-odd"><td>Ceil(Real4) : Real4</td>
+<td>Rounds value upward. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Ceil(Real3) : Real3</td>
+<td>Rounds value upward. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Ceil(Real2) : Real2</td>
+<td>Rounds value upward. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Ceil(Real) : Real</td>
+<td>Rounds value upward.</td>
+</tr>
+<tr class="row-odd"><td>Clamp(value : Real4, min : Real4, max : Real4) : Real4</td>
+<td>Limits the value between the provided min and max. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Clamp(value : Real3, min : Real3, max : Real3) : Real3</td>
+<td>Limits the value between the provided min and max. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Clamp(value : Real2, min : Real2, max : Real2) : Real2</td>
+<td>Limits the value between the provided min and max. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Clamp(value : Real, min : Real, max : Real) : Real</td>
+<td>Limits the value between the provided min and max.</td>
+</tr>
+<tr class="row-odd"><td>Cos(radians : Real4) : Real4</td>
+<td>The transcendental function cosine. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Cos(radians : Real3) : Real3</td>
+<td>The transcendental function cosine. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Cos(radians : Real2) : Real2</td>
+<td>The transcendental function cosine. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Cos(radians : Real) : Real</td>
+<td>The transcendental function cosine.</td>
+</tr>
+<tr class="row-odd"><td>Cross(Real3, Real3) : Real3</td>
+<td>The vector cross product. Creates a new vector perpendicular to p0 and p1 using the right hand rule.</td>
+</tr>
+<tr class="row-even"><td>Distance(Real2, Real2) : Real</td>
+<td>Returns the absolute value of value.</td>
+</tr>
+<tr class="row-odd"><td>Distance(Real3, Real3) : Real</td>
+<td>Returns the absolute value of value.</td>
+</tr>
+<tr class="row-even"><td>Distance(Real4, Real4) : Real</td>
+<td>Returns the absolute value of value.</td>
+</tr>
+<tr class="row-odd"><td>Dot(Quaternion, Quaternion) : Real</td>
+<td>The vector dot product</td>
+</tr>
+<tr class="row-even"><td>Dot(Real4, Real4) : Real</td>
+<td>The vector dot product</td>
+</tr>
+<tr class="row-odd"><td>Dot(Real3, Real3) : Real</td>
+<td>The vector dot product</td>
+</tr>
+<tr class="row-even"><td>Dot(Real2, Real2) : Real</td>
+<td>The vector dot product</td>
+</tr>
+<tr class="row-odd"><td>Euler(eulerRadians : Real3) : Quaternion</td>
+<td>Generates the orientation from the given Euler angle vector.</td>
+</tr>
+<tr class="row-even"><td>Exp(Real) : Real</td>
+<td>Returns the base-e exponentation of value, which is e^value.</td>
+</tr>
+<tr class="row-odd"><td>Exp(Real2) : Real2</td>
+<td>Returns the base-e exponentation of value, which is e^value. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Exp(Real3) : Real3</td>
+<td>Returns the base-e exponentation of value, which is e^value. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Exp(Real4) : Real4</td>
+<td>Returns the base-e exponentation of value, which is e^value. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>FMod(numerator : Real3, denominator : Real3) : Real3</td>
+<td>Returns the floating-point remainder of numerator/denominator (rounded towards zero). Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>FMod(numerator : Real4, denominator : Real4) : Real4</td>
+<td>Returns the floating-point remainder of numerator/denominator (rounded towards zero). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>FMod(numerator : Real, denominator : Real) : Real</td>
+<td>Returns the floating-point remainder of numerator/denominator (rounded towards zero).</td>
+</tr>
+<tr class="row-odd"><td>FMod(numerator : Real2, denominator : Real2) : Real2</td>
+<td>Returns the floating-point remainder of numerator/denominator (rounded towards zero). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Floor(Real) : Real</td>
+<td>Rounds value downward.</td>
+</tr>
+<tr class="row-odd"><td>Floor(Real2) : Real2</td>
+<td>Rounds value downward. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Floor(Real3) : Real3</td>
+<td>Rounds value downward. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Floor(Real4) : Real4</td>
+<td>Rounds value downward. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Floor(value : Real4, place : Integer, base : Integer) : Real4</td>
+<td>Rounds value downward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Floor(value : Real3, place : Integer, base : Integer) : Real3</td>
+<td>Rounds value downward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Floor(value : Real, place : Integer) : Real</td>
+<td>Rounds value downward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc).</td>
+</tr>
+<tr class="row-odd"><td>Floor(value : Real2, place : Integer, base : Integer) : Real2</td>
+<td>Rounds value downward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Floor(value : Real, place : Integer, base : Integer) : Real</td>
+<td>Rounds value downward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc).</td>
+</tr>
+<tr class="row-odd"><td>Floor(value : Real4, place : Integer) : Real4</td>
+<td>Rounds value downward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Floor(value : Real3, place : Integer) : Real3</td>
+<td>Rounds value downward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Floor(value : Real2, place : Integer) : Real2</td>
+<td>Rounds value downward. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Frac(Real3) : Real3</td>
+<td>Returns the fractional part of value, a value between 0 and 1. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Frac(Real4) : Real4</td>
+<td>Returns the fractional part of value, a value between 0 and 1. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Frac(Real2) : Real2</td>
+<td>Returns the fractional part of value, a value between 0 and 1. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Frac(Real) : Real</td>
+<td>Returns the fractional part of value, a value between 0 and 1.</td>
+</tr>
+<tr class="row-even"><td>Invert(Quaternion) : Quaternion</td>
+<td>Returns the inverse rotation.</td>
+</tr>
+<tr class="row-odd"><td>Length(Real4) : Real</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Length(Real3) : Real</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Length(Real2) : Real</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Length(Quaternion) : Real</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>LengthSq(Quaternion) : Real</td>
+<td>The squared length of the vector. Used to avoid a square root when possible.</td>
+</tr>
+<tr class="row-even"><td>LengthSq(Real4) : Real</td>
+<td>The squared length of the vector. Used to avoid a square root when possible.</td>
+</tr>
+<tr class="row-odd"><td>LengthSq(Real3) : Real</td>
+<td>The squared length of the vector. Used to avoid a square root when possible.</td>
+</tr>
+<tr class="row-even"><td>LengthSq(Real2) : Real</td>
+<td>The squared length of the vector. Used to avoid a square root when possible.</td>
+</tr>
+<tr class="row-odd"><td>Lerp(start : Real4, end : Real4, t : Real) : Real4</td>
+<td>Linearly interpolates from start to end by the fraction t. T of 0 is start and t of 1 is end. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Lerp(start : Real3, end : Real3, t : Real) : Real3</td>
+<td>Linearly interpolates from start to end by the fraction t. T of 0 is start and t of 1 is end. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Lerp(start : Real2, end : Real2, t : Real) : Real2</td>
+<td>Linearly interpolates from start to end by the fraction t. T of 0 is start and t of 1 is end. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Lerp(start : Real, end : Real, t : Real) : Real</td>
+<td>Linearly interpolates from start to end by the fraction t. T of 0 is start and t of 1 is end.</td>
+</tr>
+<tr class="row-odd"><td>Log(Real4) : Real4</td>
+<td>Base e logorithm. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Log(Real3) : Real3</td>
+<td>Base e logorithm. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Log(Real) : Real</td>
+<td>Base e logorithm.</td>
+</tr>
+<tr class="row-even"><td>Log(Real2) : Real2</td>
+<td>Base e logorithm. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Log10(Real) : Real</td>
+<td>Base 10 logorithm.</td>
+</tr>
+<tr class="row-even"><td>Log10(Real2) : Real2</td>
+<td>Base 10 logorithm. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Log10(Real3) : Real3</td>
+<td>Base 10 logorithm. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Log10(Real4) : Real4</td>
+<td>Base 10 logorithm. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Max(Integer, Integer) : Integer</td>
+<td>Returns whichever value is larger.</td>
+</tr>
+<tr class="row-even"><td>Max(Real4, Real4) : Real4</td>
+<td>Returns whichever value is larger. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Max(Real, Real) : Real</td>
+<td>Returns whichever value is larger.</td>
+</tr>
+<tr class="row-even"><td>Max(Real2, Real2) : Real2</td>
+<td>Returns whichever value is larger. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Max(Real3, Real3) : Real3</td>
+<td>Returns whichever value is larger. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Min(Real4, Real4) : Real4</td>
+<td>Returns whichever value is smaller. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Min(Real3, Real3) : Real3</td>
+<td>Returns whichever value is smaller. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Min(Real2, Real2) : Real2</td>
+<td>Returns whichever value is smaller. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Min(Real, Real) : Real</td>
+<td>Returns whichever value is smaller.</td>
+</tr>
+<tr class="row-even"><td>Min(Integer, Integer) : Integer</td>
+<td>Returns whichever value is smaller.</td>
+</tr>
+<tr class="row-odd"><td>Normalize(Real2) : Real2</td>
+<td>Returns a vector that points in the same direction but has a length of 1.</td>
+</tr>
+<tr class="row-even"><td>Normalize(Real3) : Real3</td>
+<td>Returns a vector that points in the same direction but has a length of 1.</td>
+</tr>
+<tr class="row-odd"><td>Normalize(Real4) : Real4</td>
+<td>Returns a vector that points in the same direction but has a length of 1.</td>
+</tr>
+<tr class="row-even"><td>Normalize(Quaternion) : Quaternion</td>
+<td>Returns a unit quaternion that represents a pure rotation.</td>
+</tr>
+<tr class="row-odd"><td>PerpDot(Real2, Real2) : Real</td>
+<td>The dot product between p0 and a vector perpendicular to p1. This is the two-dimensional equivalent of a cross product. Can be used to get the angle between two vectors (PerpDot(p0, p1) = |p0|*|p1|*sin(theta)).</td>
+</tr>
+<tr class="row-even"><td>Pow(base : Real, exponent : Real) : Real</td>
+<td>Returns base raised to the power of the exponent.</td>
+</tr>
+<tr class="row-odd"><td>Pow(base : Real2, exponent : Real2) : Real2</td>
+<td>Returns base raised to the power of the exponent. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Pow(base : Real3, exponent : Real3) : Real3</td>
+<td>Returns base raised to the power of the exponent. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Pow(base : Real4, exponent : Real4) : Real4</td>
+<td>Returns base raised to the power of the exponent. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Project(vector : Real3, axis : Real3) : Real3</td>
+<td>Projects the vector onto the axis.</td>
+</tr>
+<tr class="row-odd"><td>RSqrt(Real2) : Real2</td>
+<td>Reciprocal square root approximation. Used for efficiency when higher accuracy is not need. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>RSqrt(Real4) : Real4</td>
+<td>Reciprocal square root approximation. Used for efficiency when higher accuracy is not need. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>RSqrt(Real3) : Real3</td>
+<td>Reciprocal square root approximation. Used for efficiency when higher accuracy is not need. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>RSqrt(Real) : Real</td>
+<td>Reciprocal square root approximation. Used for efficiency when higher accuracy is not need.</td>
+</tr>
+<tr class="row-odd"><td>Reflect(vector : Real3, axis : Real3) : Real3</td>
+<td>Reflects the vector across the axis.</td>
+</tr>
+<tr class="row-even"><td>RotateTowards(p0 : Quaternion, p1 : Quaternion, maxRadians : Real) : Quaternion</td>
+<td>Rotate a quaternion towards another quaternion changing at most maxRadians.</td>
+</tr>
+<tr class="row-odd"><td>RotateTowards(p0 : Real3, p1 : Real3, maxRadians : Real) : Real3</td>
+<td>Rotate a vector towards another vector changing at most maxRadians.</td>
+</tr>
+<tr class="row-even"><td>RotateTowards(p0 : Real2, p1 : Real2, maxRadians : Real) : Real2</td>
+<td>Rotate a vector towards another vector changing at most maxRadians.</td>
+</tr>
+<tr class="row-odd"><td>RotateVector(vector : Real3, axis : Real3, radians : Real) : Real3</td>
+<td>Rotate a vector about an axis by the given radians.</td>
+</tr>
+<tr class="row-even"><td>RotationQuaternionBetween(start : Real3, end : Real3) : Quaternion</td>
+<td>Generates the quaternion that rotates from parameter 1 to parameter 2.</td>
+</tr>
+<tr class="row-odd"><td>Round(value : Real2, place : Integer, base : Integer) : Real2</td>
+<td>Returns the integer value closest to value. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Round(value : Real4, place : Integer, base : Integer) : Real4</td>
+<td>Returns the integer value closest to value. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Round(value : Real3, place : Integer, base : Integer) : Real3</td>
+<td>Returns the integer value closest to value. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Round(value : Real, place : Integer, base : Integer) : Real</td>
+<td>Returns the integer value closest to value. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc).</td>
+</tr>
+<tr class="row-odd"><td>Round(value : Real4, place : Integer) : Real4</td>
+<td>Returns the integer value closest to value. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Round(value : Real3, place : Integer) : Real3</td>
+<td>Returns the integer value closest to value. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Round(value : Real2, place : Integer) : Real2</td>
+<td>Returns the integer value closest to value. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Round(value : Real, place : Integer) : Real</td>
+<td>Returns the integer value closest to value. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc).</td>
+</tr>
+<tr class="row-odd"><td>Round(Real4) : Real4</td>
+<td>Returns the integer value closest to value. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Round(Real3) : Real3</td>
+<td>Returns the integer value closest to value. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Round(Real2) : Real2</td>
+<td>Returns the integer value closest to value. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Round(Real) : Real</td>
+<td>Returns the integer value closest to value.</td>
+</tr>
+<tr class="row-odd"><td>SignedAngle(p0 : Real3, p1 : Real3, up : Real3) : Real</td>
+<td>Get the rotation angle between two vectors in radians.</td>
+</tr>
+<tr class="row-even"><td>Sin(radians : Real) : Real</td>
+<td>The transcendental function sine.</td>
+</tr>
+<tr class="row-odd"><td>Sin(radians : Real2) : Real2</td>
+<td>The transcendental function sine. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Sin(radians : Real3) : Real3</td>
+<td>The transcendental function sine. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Sin(radians : Real4) : Real4</td>
+<td>The transcendental function sine. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Slerp(start : Quaternion, end : Quaternion, t : Real) : Quaternion</td>
+<td>Spherical linear interpolation. Used to interpolate between two rotations by the parameter t.</td>
+</tr>
+<tr class="row-odd"><td>Slerp(start : Real2, end : Real2, t : Real) : Real2</td>
+<td>Spherical linear interpolation. Used to interpolate between two vectors by the parameter t.</td>
+</tr>
+<tr class="row-even"><td>Slerp(start : Real3, end : Real3, t : Real) : Real3</td>
+<td>Spherical linear interpolation. Used to interpolate between two vectors by the parameter t.</td>
+</tr>
+<tr class="row-odd"><td>Sqrt(Real4) : Real4</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Sqrt(Real3) : Real3</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Sqrt(Real2) : Real2</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Sqrt(Real) : Real</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Sqrt(DoubleReal) : DoubleReal</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Tan(radians : Real) : Real</td>
+<td>The transcendental function tangent.</td>
+</tr>
+<tr class="row-odd"><td>Tan(radians : Real2) : Real2</td>
+<td>The transcendental function tangent. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Tan(radians : Real3) : Real3</td>
+<td>The transcendental function tangent. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Tan(radians : Real4) : Real4</td>
+<td>The transcendental function tangent. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>ToDegrees(radians : Real2) : Real2</td>
+<td>Converts the given radians to degrees. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>ToDegrees(radians : Real3) : Real3</td>
+<td>Converts the given radians to degrees. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>ToDegrees(radians : Real) : Real</td>
+<td>Converts the given radians to degrees.</td>
+</tr>
+<tr class="row-odd"><td>ToDegrees(radians : Real4) : Real4</td>
+<td>Converts the given radians to degrees. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>ToQuaternion(eulerRadians : Real3) : Quaternion</td>
+<td>Generates the orientation from the given Euler angle vector</td>
+</tr>
+<tr class="row-odd"><td>ToQuaternion(xRadians : Real, yRadians : Real, zRadians : Real) : Quaternion</td>
+<td>Generates the orientation from the given Euler angles.</td>
+</tr>
+<tr class="row-even"><td>ToQuaternion(facing : Real3, up : Real3, right : Real3) : Quaternion</td>
+<td>Generates the orientation represented by the given facing, up, and right vectors.</td>
+</tr>
+<tr class="row-odd"><td>ToQuaternion(facing : Real3, up : Real3) : Quaternion</td>
+<td>Generates the orientation represented by the given facing and up vectors.</td>
+</tr>
+<tr class="row-even"><td>ToQuaternion(axis : Real3, radians : Real) : Quaternion</td>
+<td>Generates the quaternion that rotates about the axis vector by the given radians.</td>
+</tr>
+<tr class="row-odd"><td>ToRadians(degrees : Real4) : Real4</td>
+<td>Converts the given degrees to radians. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>ToRadians(degrees : Real3) : Real3</td>
+<td>Converts the given degrees to radians. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>ToRadians(degrees : Real2) : Real2</td>
+<td>Converts the given degrees to radians. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>ToRadians(degrees : Real) : Real</td>
+<td>Converts the given degrees to radians.</td>
+</tr>
+<tr class="row-odd"><td>Transform(the : Quaternion, by : Quaternion) : Quaternion</td>
+<td>Creates a new rotation that represents rotating by parameter 1 and then parameter 2.</td>
+</tr>
+<tr class="row-even"><td>Transform(the : Real3, by : Quaternion) : Real3</td>
+<td>Creates a new vector that represents parameter 1 being rotated by parameter 2.</td>
+</tr>
+<tr class="row-odd"><td>Truncate(Real4) : Real4</td>
+<td>Rounds value towards zero. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Truncate(value : Real4, place : Integer, base : Integer) : Real4</td>
+<td>Rounds value towards zero. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Truncate(value : Real3, place : Integer, base : Integer) : Real3</td>
+<td>Rounds value towards zero. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Truncate(value : Real2, place : Integer, base : Integer) : Real2</td>
+<td>Rounds value towards zero. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Truncate(value : Real, place : Integer, base : Integer) : Real</td>
+<td>Rounds value towards zero. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc).</td>
+</tr>
+<tr class="row-even"><td>Truncate(value : Real4, place : Integer) : Real4</td>
+<td>Rounds value towards zero. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Truncate(value : Real3, place : Integer) : Real3</td>
+<td>Rounds value towards zero. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Truncate(value : Real2, place : Integer) : Real2</td>
+<td>Rounds value towards zero. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc). Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Truncate(Real) : Real</td>
+<td>Rounds value towards zero.</td>
+</tr>
+<tr class="row-even"><td>Truncate(Real2) : Real2</td>
+<td>Rounds value towards zero. Performed component-wise.</td>
+</tr>
+<tr class="row-odd"><td>Truncate(Real3) : Real3</td>
+<td>Rounds value towards zero. Performed component-wise.</td>
+</tr>
+<tr class="row-even"><td>Truncate(value : Real, place : Integer) : Real</td>
+<td>Rounds value towards zero. The place represents where in the number we want to perform rounding (0 is the 1s place, 1 is the 10s place, -1 is the tenths place, etc).</td>
+</tr>
+<tr class="row-odd"><td>[GetE]() : Real</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>[GetPi]() : Real</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="samples">
+<h2>Samples</h2>
+<div class="section" id="vector-math">
+<h3>Vector Math</h3>
+<br /><div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">VectorMathDemo</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Note: Vector functions that have the following calling convention,</span>
+        <span class="c1">//        Math.Function(vec): vec, do not modify &quot;vec&quot;, but returns the solution</span>
+        <span class="c1">// Note: There is no &quot;Vector&quot; class, they are simply represented by the built-in</span>
+        <span class="c1">//       Real3 class, where the Vector functionality is contained within the </span>
+        <span class="c1">//       Math library. </span>
+
+        <span class="c1">// Vector construction.</span>
+        <span class="kt">var</span> <span class="n">vector0</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">();</span>
+
+        <span class="c1">// Vector assignment.</span>
+        <span class="kt">var</span> <span class="n">vector1</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+
+        <span class="c1">// Returns a normalized version of the given vector.</span>
+        <span class="kt">var</span> <span class="n">vectorNrm</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vector1</span><span class="p">);</span>
+
+        <span class="c1">// Returns a float equal to the length of a vector.</span>
+        <span class="kt">var</span> <span class="n">vectorLength</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Length</span><span class="p">(</span><span class="n">vector1</span><span class="p">);</span>
+
+        <span class="c1">// Returns the result of the cross product between &quot;vector0&quot; and &quot;vector1&quot;.</span>
+        <span class="c1">// Reminder: The result is a vector perpendicular to both &quot;vector0&quot; and &quot;vector1&quot;.</span>
+        <span class="kt">var</span> <span class="n">vectorCrossProduct</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Cross</span><span class="p">(</span><span class="n">vector0</span><span class="p">,</span> <span class="n">vector1</span><span class="p">);</span>
+
+        <span class="c1">// Returns the result of the dot product between &quot;vector0&quot; and &quot;vector1&quot;.</span>
+        <span class="c1">// Reminder: The result is a float that can be used in relating the angle</span>
+        <span class="c1">//           between the two vectors and projection.</span>
+        <span class="kt">var</span> <span class="n">vectorDotProduct</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">vector0</span><span class="p">,</span> <span class="n">vector1</span><span class="p">);</span>
+
+        <span class="c1">// Reflects &quot;vector0&quot; about &quot;vector1&quot;. See awesome ASCII art:</span>
+        <span class="c1">//</span>
+        <span class="c1">//             vector1</span>
+        <span class="c1">//  vector0       ^       vectorReflect</span>
+        <span class="c1">//        \       |       /</span>
+        <span class="c1">//         \      |      /</span>
+        <span class="c1">//          \     |     /</span>
+        <span class="c1">//           \    |    /</span>
+        <span class="c1">//            \   |   /</span>
+        <span class="c1">//             \  |  /</span>
+        <span class="c1">//              \ | /</span>
+        <span class="c1">// ______________\|/________________</span>
+        <span class="c1">//</span>
+        <span class="kt">var</span> <span class="n">vectorReflect</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Reflect</span><span class="p">(</span><span class="n">vector0</span><span class="p">,</span> <span class="n">vector1</span><span class="p">);</span>
+
+        <span class="c1">// Projects &quot;vector0&quot; onto &quot;vector1&quot;. See awesome ASCII art:</span>
+        <span class="c1">//</span>
+        <span class="c1">//           vector0</span>
+        <span class="c1">//          /</span>
+        <span class="c1">//         /</span>
+        <span class="c1">//        /                 vector0 ____</span>
+        <span class="c1">//       /                  becomes     |</span>
+        <span class="c1">//      /                               |</span>
+        <span class="c1">//     /                                V</span>
+        <span class="c1">//    /                           vectorProject</span>
+        <span class="c1">//   /                               ___|___</span>
+        <span class="c1">//  /                               /       \     vector1</span>
+        <span class="c1">// /--------------&gt; vector1         ---------&gt;----&gt;</span>
+        <span class="c1">//</span>
+        <span class="kt">var</span> <span class="n">vectorProject</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Project</span><span class="p">(</span><span class="n">vector0</span><span class="p">,</span> <span class="n">vector1</span><span class="p">);</span>
+
+        <span class="c1">// Linearly interpolate between the two vectors using the function:</span>
+        <span class="c1">// vectorLerp = vector0 + t * (vector1 - vector0)</span>
+        <span class="kt">var</span> <span class="n">t</span> <span class="p">=</span> <span class="m">0.5</span><span class="p">;</span>
+        <span class="kt">var</span> <span class="n">vectorLerp</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Lerp</span><span class="p">(</span><span class="n">vector0</span><span class="p">,</span> <span class="n">vector1</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+
+        <span class="c1">// Gets the angle of the vector about the z-plane. Think &quot;unit circle angle&quot;.</span>
+        <span class="kt">var</span> <span class="n">vectorAngleZ</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Angle2D</span><span class="p">(</span><span class="n">vector1</span><span class="p">);</span>
+
+        <span class="c1">// Returns the angle between the two vectors in radians.</span>
+        <span class="kt">var</span> <span class="n">vectorAngle</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">AngleBetween</span><span class="p">(</span><span class="n">vector0</span><span class="p">,</span> <span class="n">vector1</span><span class="p">);</span>
+
+        <span class="c1">// Gets the angle between two vectors, preserves the sign of the angle.</span>
+        <span class="c1">// Needs a 3rd vector to build a basis in order to make the &quot;sign&quot; have</span>
+        <span class="c1">// any sort of meaning.</span>
+        <span class="kt">var</span> <span class="n">upVector</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">vectorSignedAngle</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">SignedAngle</span><span class="p">(</span><span class="n">vector0</span><span class="p">,</span> <span class="n">vector1</span><span class="p">,</span> <span class="n">upVector</span><span class="p">);</span>
+
+        <span class="c1">// Rotates &quot;vector0&quot; toward &quot;vector1&quot; by, at most, &quot;maxAngle&quot; (in radians).</span>
+        <span class="kt">var</span> <span class="n">vectorRotateTowards</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">RotateTowards</span><span class="p">(</span><span class="n">vector0</span><span class="p">,</span> <span class="n">vector1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+
+        <span class="c1">// Rotates &quot;vector0&quot; about &quot;zAxis&quot; by half pi (90 degrees).</span>
+        <span class="kt">var</span> <span class="n">zAxis</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">rotatedVector</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">RotateVector</span><span class="p">(</span><span class="n">vector0</span><span class="p">,</span> <span class="n">zAxis</span><span class="p">,</span> <span class="m">1.5707</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="quaternions">
+<h3>Quaternions</h3>
+<br /><div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">QuaternionDemo</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Note: Quaternion functions that have the following calling convention,</span>
+        <span class="c1">//       Math.Function(quat): quat, do not modify &quot;quat&quot;, but returns the solution</span>
+        <span class="c1">//       Also, for quaternions to do any kind of useful rotations, </span>
+        <span class="c1">//       they must be unit length.</span>
+
+        <span class="c1">// Quaternion construction.</span>
+        <span class="kt">var</span> <span class="n">quat0</span> <span class="p">=</span> <span class="n">Quaternion</span><span class="p">();</span>
+        
+        <span class="c1">// Quaternion assignment.</span>
+        <span class="kt">var</span> <span class="n">quat1</span><span class="p">:</span> <span class="n">Quaternion</span> <span class="p">=</span> <span class="n">Quaternion</span><span class="p">.</span><span class="n">Identity</span><span class="p">;</span>
+
+
+        <span class="c1">// Returns a normalized version of the given quaternion.</span>
+        <span class="kt">var</span> <span class="n">quatNrm</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">quat0</span><span class="p">);</span>
+
+        <span class="c1">// Returns an inverted copy of the quaternion, one that does the opposite</span>
+        <span class="c1">// rotation of the original quaternion.</span>
+        <span class="kt">var</span> <span class="n">quatInv</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Invert</span><span class="p">(</span><span class="n">quat0</span><span class="p">);</span>
+        
+        <span class="c1">// Performs a spherical linear interpolation between two quaternions and</span>
+        <span class="c1">// returns the interpolated rotation at the given t-value.</span>
+        <span class="kt">var</span> <span class="n">quatSlerp</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Slerp</span><span class="p">(</span><span class="n">quat0</span><span class="p">,</span> <span class="n">quat1</span><span class="p">,</span> <span class="m">0.5</span><span class="p">);</span>
+
+        <span class="c1">// Rotates a 3D vector by the quaternion.</span>
+        <span class="kt">var</span> <span class="n">vector0</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">vecRotated</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Transform</span><span class="p">(</span><span class="n">vector0</span><span class="p">,</span> <span class="n">quat0</span><span class="p">);</span>
+
+        <span class="c1">// Rotates the quaternion towards the given quaternion by, at most, the</span>
+        <span class="c1">// max radians passed in.</span>
+        <span class="c1">// (quatRotate is quat0 rotated toward quat1 by, at most, 90 degrees)</span>
+        <span class="kt">var</span> <span class="n">quatRotate</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">RotateTowards</span><span class="p">(</span><span class="n">quat0</span><span class="p">,</span> <span class="n">quat1</span><span class="p">,</span> <span class="m">1.5708</span><span class="p">);</span>
+
+        <span class="c1">// Create a quaternion from an axis-angle pair.</span>
+        <span class="kt">var</span> <span class="n">vecAxis</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">angle</span> <span class="p">=</span> <span class="m">1.5707</span><span class="p">;</span>
+        <span class="kt">var</span> <span class="n">quatAxisAngle</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">ToQuaternion</span><span class="p">(</span><span class="n">vecAxis</span><span class="p">,</span> <span class="n">angle</span><span class="p">);</span>
+        
+        <span class="c1">// Alternate version of the above.</span>
+        <span class="n">quatAxisAngle</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">AxisAngle</span><span class="p">(</span><span class="n">vecAxis</span><span class="p">,</span> <span class="n">angle</span><span class="p">);</span> 
+
+        <span class="c1">// Creates a quaternion representing the rotation where the &quot;facing&quot; is</span>
+        <span class="c1">// the forward vector and the &quot;up&quot; is the up vector. Makes the most sense</span>
+        <span class="c1">// when applied as a camera&#39;s orientation.</span>
+        <span class="kt">var</span> <span class="n">vecFacing</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">vecUp</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">quatFacing</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">ToQuaternion</span><span class="p">(</span><span class="n">vecFacing</span><span class="p">,</span> <span class="n">vecUp</span><span class="p">);</span>
+
+        <span class="c1">// Creates the quaterion that rotates from &quot;vecAxisX&quot; to &quot;vecAxisZ&quot;.</span>
+        <span class="kt">var</span> <span class="n">vecAxisX</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">vecAxisZ</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">quatAtoB</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">RotationQuaternionBetween</span><span class="p">(</span><span class="n">vecAxisX</span><span class="p">,</span> <span class="n">vecAxisZ</span><span class="p">);</span>
+
+        <span class="c1">// Creates a quaternion from the given Euler angles (in radians).</span>
+        <span class="c1">// The angles here are 90, 60, and 30 degrees, respectively.</span>
+        <span class="kt">var</span> <span class="n">quatEuler</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">ToQuaternion</span><span class="p">(</span><span class="m">1.5707</span><span class="p">,</span> <span class="m">1.0472</span><span class="p">,</span> <span class="m">0.5236</span><span class="p">);</span>
+
+        <span class="c1">// Creates a quaternion from a vector representing Euler angles (in radians).</span>
+        <span class="kt">var</span> <span class="n">eulerAngles</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">1.5707</span><span class="p">,</span> <span class="m">1.0472</span><span class="p">,</span> <span class="m">0.5236</span><span class="p">);</span>
+        <span class="n">quatEuler</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Euler</span><span class="p">(</span><span class="n">eulerAngles</span><span class="p">);</span>
+
+        <span class="c1">// Alternate version of the above:</span>
+        <span class="n">quatEuler</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">ToQuaternion</span><span class="p">(</span><span class="n">eulerAngles</span><span class="p">);</span>
+
+        <span class="c1">// Gets the angle between two rotations. Quaternions must be unit length</span>
+        <span class="c1">// for the angle to make any sense.</span>
+        <span class="kt">var</span> <span class="n">angleDiff</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">AngleBetween</span><span class="p">(</span><span class="n">quat0</span><span class="p">,</span> <span class="n">quat1</span><span class="p">);</span>
+
+        <span class="c1">// To combine two quaternions (combining two rotations into one), use </span>
+        <span class="c1">// the multiplication operator. You&#39;ll need to normalize this result to</span>
+        <span class="c1">// guarantee a valid rotation. Order matters! quat0 * quat1 != quat1 * quat0</span>
+        <span class="kt">var</span> <span class="n">combinedRot</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Transform</span><span class="p">(</span><span class="n">quat0</span><span class="p">,</span> <span class="n">quat1</span><span class="p">);</span>        
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Property.html" class="btn btn-neutral float-right" title="Property [Type]" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="KeyValue.html" class="btn btn-neutral" title="KeyValue [Key, Value]" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/ZilchInZero/ZilchTypes/Math.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:15 GMT -->
+</html>

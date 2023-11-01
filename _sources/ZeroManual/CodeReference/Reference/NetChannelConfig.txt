@@ -1,0 +1,112 @@
+.. _ReferenceNetChannelConfig:
+
+.. rst-class:: searchtitle
+
+NetChannelConfig
+================
+
+.. rst-class:: searchdescription
+
+Network Channel Configuration Configures the replication of a set of properties on the network.
+
+.. include:: Description/NetChannelConfig.rst
+
+.. cpp:class:: NetChannelConfig
+
+    Base Class: :cpp:type:`Resource`
+
+.. _ReferenceNetChannelConfigProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetChannelConfig::Name
+
+            Name of resource for display.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetChannelConfig::EventOnOutgoingPropertyChange
+
+            Sets whether or not the event NetChannelOutgoingPropertyChange will be dispatched when an outgoing net property change is detected.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetChannelConfig::EventOnIncomingPropertyChange
+
+            Sets whether or not the event NetChannelIncomingPropertyChange will be dispatched when an incoming net property change is received.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: AuthorityMode::Enum NetChannelConfig::AuthorityMode
+
+            Sets the change authority mode Controls whether or not change authority may be modified after component initialize.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Authority::Enum NetChannelConfig::Authority
+
+            Sets the change authority Controls which peer has the authority to observe and replicate property changes Server Authority: Indicates only the server is allowed to observe and replicate property changes Client Authority: Indicates both the client and server are allowed to observe and replicate property changes Only a single client, specified by NetObject::NetUserOwnerPeerId, may possess client authority at any given time The server is still responsible for relaying all property changes to other clients, but will not replicate any property changes to the authority client However, the server is also still responsible for other replication commands(such as object creation/destruction), and these WILL be replicated to the authority client.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real NetChannelConfig::DetectionInterval
+
+            Sets the change detection interval(in seconds) Controls how often the net channel is observed for changes.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: DetectionMode::Enum NetChannelConfig::DetectionMode
+
+            Sets the change detection mode Controls how net channel changes are detected.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetChannelConfig::ReplicateOnOnline
+
+            Sets whether or not the net channel will be replicated when the net object comes online If enabled, all net channel property values are guaranteed to be set immediately before the NetObjectOnline event.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetChannelConfig::ReplicateOnChange
+
+            Sets whether or not the net channel will be replicated on net property change.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetChannelConfig::ReplicateOnOffline
+
+            Sets whether or not the net channel will be replicated when the net object goes offline If enabled, all net channel property values are guaranteed to be set immediately before the NetObjectOffline event.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SerializationMode::Enum NetChannelConfig::SerializationMode
+
+            Sets the change serialization mode Controls whether or not to serialize all net properties or only net properties that have changed(using bit flags in between) during change replication.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ReliabilityMode::Enum NetChannelConfig::ReliabilityMode
+
+            Sets the change reliability mode Controls whether or not net channel changes will be retransmitted should they get lost over the network.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: TransferMode::Enum NetChannelConfig::TransferMode
+
+            Sets the change transfer mode Controls how net channel changes are to be ordered and released once received.
+
+.. _ReferenceNetChannelConfigMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Resource NetChannelConfig::RuntimeClone()
+
+            Clone a resource for runtime modification.
+
+.. include:: Remarks/NetChannelConfig.rst

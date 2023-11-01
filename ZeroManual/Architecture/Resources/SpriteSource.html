@@ -1,0 +1,315 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Architecture/Resources/SpriteSource.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:22 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SpriteSource &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Resources" href="index.html"/>
+        <link rel="next" title="Components" href="../Components/index.html"/>
+        <link rel="prev" title="ZilchScript" href="ZilchScript.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Architecture</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Cogs/index.html">Cogs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Objects/index.html">Siginficant Objects</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Resources</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ResourceTable.html">ResourceTable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ColorGradient.html">Color Gradient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Font.html">Font</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Level.html">Level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Path.html">Path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SampleCurve.html">SampleCurve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TextBlock.html">TextBlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ZilchScript.html">ZilchScript</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SpriteSource</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Components/index.html">Components</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Architecture</a> &raquo;</li>
+      
+          <li><a href="index.html">Resources</a> &raquo;</li>
+      
+    <li>SpriteSource</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Architecture/Resources/SpriteSource.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="spritesource">
+<span id="manualspritesource"></span><h1>SpriteSource</h1>
+<p class="searchdescription"><a class="reference internal" href="../../CodeReference/Reference/SpriteSource.html#_CPPv212SpriteSource" title="SpriteSource"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteSources</span></code></a> are used to create two dimensional visual elements. SpriteSources can be added and modified as needed, and the same base image can be used to create several different SpriteSources if need be.</p>
+<div class="section" id="common-uses">
+<h2>Common Uses</h2>
+<ul class="simple">
+<li>Characters and other artwork in a two dimensional project</li>
+<li>Placing 2D pictures into a 3D landscape</li>
+<li>2D animations</li>
+</ul>
+</div>
+<div class="section" id="adding-a-spritesource">
+<h2>Adding a SpriteSource</h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Zero Engine only allows the importing of .PNG type images.</p>
+</div>
+<p>The Zero Engine has numerous resources available on <a class="reference internal" href="../../Editor/UsingTheVoid.html#manualusingthevoid"><span>The Void</span></a>, giving the user access to several Sprites and other animations. You can access The Void by clicking on the Void icon in the top right corner of the Engine.</p>
+<p><img alt="VoidIcon" src="../../../_images/VoidIcon.png" /></p>
+<p>It is possible to add SpriteSources of your own as well. By simply grabbing the file on your computer and dragging it into the Editor window, Zero Engine will import the chosen asset. Alternatively, using the <a class="reference internal" href="../../Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">Add</span></code> and selecting SpriteSource from the list followed by clicking on <code class="docutils literal"><span class="pre">From</span> <span class="pre">File</span></code>, will open a new window. The user may then select the image or images to import into the engine, keeping the saved Resolution and Size. Once imported, these files can then be assigned to a game object with the Sprite component by clicking on the current SpriteSource and finding the imported image in the drop-down menu that opens.</p>
+<p><img alt="SpriteSourceChanged" src="../../../_images/SpriteChoice.gif" /></p>
+<p>If changes need to be made, the SpriteSource can be modified in the <a class="reference internal" href="../../Editor/Tools/SpriteSourceEditor.html#manualspritesourceeditor"><span>Sprite Source Editor</span></a>.</p>
+</div>
+<div class="section" id="related-materials">
+<h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../Graphics/Sprites/Sprite.html#manualsprite"><span>Sprites</span></a></li>
+<li><a class="reference internal" href="../../Editor/Tools/SpriteSourceEditor.html#manualspritesourceeditor"><span>SpriteSource Editor</span></a></li>
+<li><a class="reference internal" href="../../Editor/UsingTheVoid.html#manualusingthevoid"><span>Using The Void</span></a></li>
+<li><a class="reference internal" href="../../Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Adding a Resource</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorials">
+<h3>Tutorials</h3>
+<ul class="simple">
+<li><span class="xref std std-ref">Sprites</span></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/SpriteSource.html#_CPPv212SpriteSource" title="SpriteSource"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteSource</span></code></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Components/index.html" class="btn btn-neutral float-right" title="Components" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ZilchScript.html" class="btn btn-neutral" title="ZilchScript" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Architecture/Resources/SpriteSource.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:22 GMT -->
+</html>

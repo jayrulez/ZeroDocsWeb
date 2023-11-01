@@ -1,0 +1,559 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Graphics/SpritesAndText/AnimatedSpritesSheets.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:25:31 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Animated Player &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Sprites &amp; Text" href="index.html"/>
+        <link rel="next" title="Tile Editor and Sprite Sheets" href="TileEditorAndSpriteSheets.html"/>
+        <link rel="prev" title="Area Component" href="Area.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Graphics</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Sprites &amp; Text</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Text.html">Sprite Text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Animated Player</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Particles/index.html">Particles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ParallaxBackground.html">Parallax Background</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Tutorials</a> &raquo;</li>
+      
+          <li><a href="../index.html">Graphics</a> &raquo;</li>
+      
+          <li><a href="index.html">Sprites &amp; Text</a> &raquo;</li>
+      
+    <li>Animated Player</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/Tutorials/Graphics/SpritesAndText/AnimatedSpritesSheets.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="animated-player">
+<span id="tutorialanimatedspritesheets"></span><h1>Animated Player</h1>
+<p class="searchdescription">This lesson explains how to use animated <a class="reference internal" href="../../../ZeroManual/CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">sprites</span></code></a> by animating the player.</p>
+<div class="section" id="learning-objectives">
+<span id="tutorialanimatedspritesheetsvocab"></span><h2>Learning Objectives</h2>
+<ul class="simple">
+<li>Create an animated player character using an animation sprite sheet</li>
+<li>Invoke and modify sprite animations within a ZilchScript</li>
+<li>Create a generic player animation component to use with sprite animations</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="64%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="../../../ZeroManual/CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a> Animation</td>
+<td>Importing</td>
+</tr>
+<tr class="row-odd"><td>Animation Frame</td>
+<td>Animation State</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="open-previous-project">
+<h2>Open Previous Project</h2>
+<p><em>Open the project created for the</em> <span class="xref std std-ref">Using the Swept Controller</span> <em>lesson</em></p>
+</div>
+<div class="section" id="using-the-player-controller">
+<h2>Using the Player Controller</h2>
+<p>Working with the Player Controller made in the <span class="xref std std-ref">Using the Swept Controller</span> lesson, we can easily implement animated <a class="reference internal" href="../../../ZeroManual/CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">sprites</span></code></a>. There is no generic animation stock script because every game&#8217;s controls are different, so we will have to decide for ourselves how to trigger the animations.</p>
+</div>
+<div class="section" id="import-animations">
+<h2>Import Animations</h2>
+<p>First we will need to obtain three Animations:</p>
+<ul class="simple">
+<li><a class="reference download internal" href="../../../_downloads/MonkeyWalk.png.png"><code class="xref download docutils literal"><span class="pre">MonkeyWalk.png</span></code></a></li>
+<li><a class="reference download internal" href="../../../_downloads/MonkeyStand.png.png"><code class="xref download docutils literal"><span class="pre">MonkeyStand.png</span></code></a></li>
+<li><a class="reference download internal" href="../../../_downloads/MonkeyJump.png.png"><code class="xref download docutils literal"><span class="pre">MonkeyJump.png</span></code></a></li>
+<li><span class="menuselection">Resources ‣ Add</span><ul>
+<li>Browse to and select MonkeyWalk.png, MonkeyJump.png, and MonkeyStand.png</li>
+</ul>
+</li>
+</ul>
+<p><img alt="CP0_MonkeyWalkImportWeb" src="../../../_images/CP0_5.png" /></p>
+<ul class="simple">
+<li>In the Library Window<ul>
+<li><code class="docutils literal"><span class="pre">Double-Click</span></code> the <a class="reference internal" href="../../../ZeroManual/CodeReference/Reference/SpriteSource.html#_CPPv212SpriteSource" title="SpriteSource"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteSource</span></code></a> tag<ul>
+<li><code class="docutils literal"><span class="pre">Double-Click</span></code> <code class="docutils literal"><span class="pre">MonkeyWalk</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>When we <code class="docutils literal"><span class="pre">Double-Click</span></code> a <a class="reference internal" href="../../../ZeroManual/CodeReference/Reference/SpriteSource.html#_CPPv212SpriteSource" title="SpriteSource"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteSource</span></code></a> it opens the sprite editor.</p>
+<p><img alt="SpriteEditor" src="../../../_images/SpriteEditor.png" /></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Click</span></code> <code class="docutils literal"><span class="pre">Convert</span> <span class="pre">To</span> <span class="pre">Animation</span></code></li>
+</ul>
+<p>We can see that we have 8 frames of animations from the png strip, so we can adjust the properties accordingly:</p>
+<ul class="simple">
+<li>Set the FramesPerRow to: 8</li>
+</ul>
+<p>Notice now how our frame width and height do not match up with the PixelsPerUnit:</p>
+<p><img alt="CP0_MismatchedPixelsPerUnit" src="../../../_images/CP0_6.png" /></p>
+<p><em>The FrameWidth and FrameHeight are recalculated when you change the FramesPerRow and NumberOfRows</em></p>
+<p>If we leave the PixelsPerUnit the same, the image resolution will be at a 2:1 ratio with its size, meaning that the size of the monkey will be half as large as intended.  Instead, the PixelsPerUnit should be set to match the FrameWidth and FrameHeight.</p>
+<ul class="simple">
+<li>Set PixelsPerUnit to: 32</li>
+</ul>
+<p>Now you can click on the &#8220;Add And Close&#8221; button to add the whole sprite sheet as an animation.</p>
+<p><img alt="CP0_AddAndClose" src="../../../_images/CP0_7.png" /></p>
+<ul class="simple">
+<li>Repeat importation process with the two remaining sprites</li>
+</ul>
+<p>Now That we have all three sprites imported, you can set the default player <a class="reference internal" href="../../../ZeroManual/CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">sprite</span></code></a> to the monkey standing sprite.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Player object</span></a><ul>
+<li>Under <a class="reference internal" href="../../../ZeroManual/CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a><ul>
+<li>Set <a class="reference internal" href="../../../ZeroManual/CodeReference/Reference/SpriteSource.html#_CPPv212SpriteSource" title="SpriteSource"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteSource</span></code></a> to: MonkeyWalk</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="CP0_MonkeyStandingOnPlatformWeb" src="../../../_images/CP0_8.png" /></p>
+</div>
+<div class="section" id="animation-switching-via-code">
+<h2>Animation Switching via Code</h2>
+<p>Now let&#8217;s look at our current <strong>Player Controller</strong>:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLogicUpdate</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">var</span> <span class="n">movement</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+
+  <span class="c1">// control left, right, and up</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Left</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="n">movement</span><span class="p">.</span><span class="n">X</span> <span class="p">-=</span> <span class="m">1.0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Right</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="n">movement</span><span class="p">.</span><span class="n">X</span> <span class="p">+=</span> <span class="m">1.0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsPressed</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Up</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">SweptController</span><span class="p">.</span><span class="n">Jump</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// if the jump key is not pressed, find the point of release and stop jumping</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Up</span><span class="p">)</span> <span class="p">==</span> <span class="k">false</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">SweptController</span><span class="p">.</span><span class="n">Jumping</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">SweptController</span><span class="p">.</span><span class="n">JumpCancel</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// at the end, update</span>
+  <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">SweptController</span><span class="p">.</span><span class="n">Update</span><span class="p">(</span><span class="n">movement</span><span class="p">,</span> <span class="k">event</span><span class="p">.</span><span class="n">Dt</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The first thing we can do is have the monkey flip his horizontal direction based on what Keys are pressed.  We can do this by updating our left and right key checks.</p>
+<ul class="simple">
+<li>Change the <strong>PlayerController script&#8217;s OnLogicUpdate</strong> function&#8217;s first two <code class="docutils literal"><span class="pre">if</span></code> cases to the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Left</span><span class="p">))</span>
+<span class="p">{</span>
+  <span class="n">movement</span><span class="p">.</span><span class="n">X</span> <span class="p">-=</span> <span class="m">1.0</span><span class="p">;</span>
+<span class="hll">  <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">FlipX</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</span><span class="p">}</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Right</span><span class="p">))</span>
+<span class="p">{</span>
+  <span class="n">movement</span><span class="p">.</span><span class="n">X</span> <span class="p">+=</span> <span class="m">1.0</span><span class="p">;</span>
+<span class="hll">  <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">FlipX</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You walk left and right, but you are always walking, even when you are jumping or not moving at all. We can improve the animations by implementing the other two states for the monkey: standing and jumping.  To easily switch between sprite animations, we will make the following properties for the Player Controller.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: &#8216;PlayerAnimation&#8217;</li>
+<li>Implement the following properties in <strong>PlayerAnimation</strong></li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">PlayerStand</span> <span class="p">:</span> <span class="n">SpriteSource</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">PlayerWalk</span> <span class="p">:</span> <span class="n">SpriteSource</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">PlayerJump</span> <span class="p">:</span> <span class="n">SpriteSource</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This script will determine how each animation is triggered.  The logic behind each animation is not linear like some of our previous logic.  For this we will need a <strong>finite state machine</strong>.  <strong>Finite state machines</strong> rely on the state itself to determine when to change states and to which state it should change.  States are exclusive i.e. an object is only in one state at a time.</p>
+<p>We have three states currently, so let&#8217;s create conditionals for each state in our OnLogicUpdate.</p>
+<ul class="simple">
+<li>Change the <strong>PlayerAnimation</strong> script to the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span>  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+<span class="hll">    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLogicUpdate</span><span class="p">);</span>
+</span>  <span class="p">}</span>
+
+  <span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+<span class="hll">    <span class="c1">// standing state</span>
+</span><span class="hll">    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">SpriteSource</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">PlayerStand</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="c1">// walking state</span>
+</span><span class="hll">    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">SpriteSource</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">PlayerWalk</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="c1">// jumping state</span>
+</span><span class="hll">    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">SpriteSource</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">PlayerJump</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>  <span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Standing State</strong></p>
+<ul class="simple">
+<li>When the player presses left OR right, he is now Walking</li>
+<li>When the player presses up, he is now Jumping</li>
+<li>Change the first case in the state machine to the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">// standing state</span>
+<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">SpriteSource</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">PlayerStand</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Left</span><span class="p">)</span> <span class="p">||</span> <span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Right</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">SpriteSource</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">PlayerWalk</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsPressed</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Up</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">SpriteSource</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">PlayerJump</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Walking State</strong></p>
+<ul class="simple">
+<li>When left AND right are both not pressed, he is now Standing</li>
+<li>When the player presses up, he is now Jumping</li>
+<li>Change the second case in the state machine to the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">// walking state</span>
+<span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">SpriteSource</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">PlayerWalk</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Left</span><span class="p">)</span> <span class="p">==</span> <span class="k">false</span> <span class="p">&amp;&amp;</span> <span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Right</span><span class="p">)</span> <span class="p">==</span> <span class="k">false</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">SpriteSource</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">PlayerStand</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsPressed</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Up</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">SpriteSource</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">PlayerJump</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Jumping State</strong></p>
+<ul class="simple">
+<li>When the player touches the ground, he is now Standing</li>
+<li>Change the third case in the state machine to the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">// jumping state</span>
+<span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">SpriteSource</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">PlayerJump</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">SweptController</span><span class="p">.</span><span class="n">Grounded</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">SpriteSource</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">PlayerStand</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first"><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Player object</span></a></p>
+</li>
+<li><p class="first">In Properties Window</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add a PlayerAnimation Component</span></a></li>
+<li>Under PlayerAnimation<ul>
+<li>Set PlayerStand to: MonkeyStand</li>
+<li>Set PlayerWalk to: MonkeyWalk</li>
+<li>Set PlayerJump to: MonkeyJump</li>
+</ul>
+</li>
+</ul>
+<p><img alt="CP0_PlayerAnimation" src="../../../_images/CP0_9.png" /></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="related-materials">
+<h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Selecting Objects</span></a></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Adding a Resource</span></a></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Adding Components</span></a></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Saving</span></a></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>Running the Project</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><span class="xref std std-ref">Using the Swept Controller</span></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/CodeReference/Reference/SpriteSource.html#_CPPv212SpriteSource" title="SpriteSource"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteSource</span></code></a></li>
+<li><a class="reference internal" href="../../../ZeroManual/CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="TileEditorAndSpriteSheets.html" class="btn btn-neutral float-right" title="Tile Editor and Sprite Sheets" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Area.html" class="btn btn-neutral" title="Area Component" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Graphics/SpritesAndText/AnimatedSpritesSheets.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:25:33 GMT -->
+</html>

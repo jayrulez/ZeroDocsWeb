@@ -1,0 +1,884 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/Audio.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:24:08 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Audio &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Introduction to 2D Video Game Programming" href="index.html"/>
+        <link rel="next" title="Saving and Loading Data" href="ObjectStore.html"/>
+        <link rel="prev" title="Area Component" href="Area.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Introduction to 2D Video Game Programming</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ScriptingEvents.html">Scripting Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Orientation.html">Rotating Towards a Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FireAtMouse.html">Firing At the Mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleSystems.html">Particle Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleAi.html">Ai Shooting and Movement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CameraParallax.html">Camera Parallax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Audio</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CreateProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting an Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Add a Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Introduction to 2D Video Game Programming</a> &raquo;</li>
+      
+    <li>Audio</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2014/Audio.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="audio">
+<span id="audio2014"></span><h1>Audio</h1>
+<p class="searchdescription">This lesson covers importing sound files, playing music and sound effects, persistent objects that are not destroyed in-between level loading/changing, and positional sound.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="CreateProject.html#createnewproject2014"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add a RigidBody Component</span></a></li>
+<li>Under Transform<ul>
+<li>Set Translation to: [5, 0, 0]</li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set SpriteSource to: Circle</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: BackgroundMusic</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="sound-emitters">
+<h2>Sound Emitters</h2>
+<ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add a SoundEmitter component</span></a> to the BackgroundMusic object</p>
+<p><img alt="BackgroundMusic" src="../../_images/BackgroundMusic.png" /></p>
+</li>
+</ul>
+<p>The SoundEmitter component emits sound at its location. It gives you the option of choosing whether or not to apply the positional effects to the sound.</p>
+<p></p>
+<p>Here is how the level should look after our initial setup:</p>
+<p><img alt="InitialSetup" src="../../_images/InitialSetup1.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>The Circle sprite should fall because it has a RigidBody being affected by gravity.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the BackgroundMusic object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under SoundEmitter<ul>
+<li>Set StartPlaying to: True</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>The DefaultSound that comes with the Zero Engine should play as soon as the level starts.</p>
+<div class="section" id="volume">
+<h3>Volume</h3>
+<p>The SoundEmitter has a Volume property that allows you to choose the percentage of the sound&#8217;s volume that should be used when the sound is played. In other words, if the SoundEmitter&#8217;s Volume is 1.0, then 100% of what the actual sound file&#8217;s volume is will be used, and if it&#8217;s 0.5 then 50% of what the actual sound file&#8217;s volume is will be used when the sound is played.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under SoundEmitter<ul>
+<li>Set Volume to: 0.25</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>The DefaultSound is now played by the SoundEmitter at ¼ or 25% of the actual volume of the DefaultSound.</p>
+<p></p>
+</div>
+<div class="section" id="pitch">
+<h3>Pitch</h3>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under SoundEmitter<ul>
+<li>Set Volume to: 1.0</li>
+<li>Set Pitch to: 4.0</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The pitch is how high or low it will sound when you hear it. This is not the same as volume. Pitch is related to the frequency of the sound. A higher frequency means a higher pitch.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Notice the effects of the higher pitch.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under SoundEmitter<ul>
+<li>Set Pitch to: 0.5</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Notice the effects of the lower pitch. The <strong>SoundCue</strong> known as the DefaultCue is currently being used. Now we will create our own SoundCue so that we can do more.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="adding-a-soundcue-resource">
+<h2>Adding a SoundCue Resource</h2>
+<p><a class="reference internal" href="ResourceAdding.html#resourceadding2014"><span>Add a new SoundCue resource</span></a> named: &#8216;Music1&#8217;</p>
+<blockquote>
+<div><img alt="AddSoundCue" src="../../_images/AddSoundCue1.png" /></div></blockquote>
+<p></p>
+<p>Our new SoundCue is displayed in the Properties Window:</p>
+<p><img alt="SoundCueProperties" src="../../_images/SoundCueProperties1.png" /></p>
+<p>There is currently no Sound added to the Music1 SoundCue that we just created.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under Sounds<ul>
+<li>Click the Add SoundEntry... area</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The DefaultSound is now added to the Music1 SoundCue. Not only do we have our own version of the DefaultCue, but we now have access to more properties to specify how the sound will be played.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the BackgroundMusic object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Under SoundEmitter</p>
+<ul>
+<li><p class="first">Set Cue to: Music1</p>
+<p> <img alt="SetCueToMusic1Web" src="../../_images/SetCueToMusic1.png" /> </p>
+<blockquote>
+<div><p><!-- <a class="reference internal" href="../../_images/SetCueToMusic1.png"><img alt="SetCueToMusic1Book" src="../../_images/SetCueToMusic1.png" style="height: 2.0in;" /></a> --></p>
+</div></blockquote>
+<ul class="simple">
+<li>Click on the <img alt="RightArrow" src="../../_images/RightArrow.png" /> right of Music1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Set PlayMode to: Looping</p>
+<p><img alt="Looping" src="../../_images/Looping.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>The sound is now looping so it gets played repeatedly as soon as it finishes.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="adding-a-sound-resource">
+<h2>Adding a Sound Resource</h2>
+<p></p>
+<ul class="simple">
+<li><a class="reference download internal" href="../../_downloads/Sounds1.zip"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">Sounds</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">lesson</span></code></a></li>
+</ul>
+<p></p>
+<p><a class="reference internal" href="ResourceAdding.html#resourceadding2014"><span>Import the provided Sound resource</span></a> named: Music1.wav</p>
+<p><a class="reference internal" href="../../_images/OpenSoundResource1.png"><img alt="OpenSoundResource" src="../../_images/OpenSoundResource1.png" style="width: 8.35in;" /></a></p>
+<p>The new Sound is added to the Library Window under the Sound tag.</p>
+<p><img alt="NewSoundInLib" src="../../_images/NewSoundInLib1.png" /></p>
+<p>The Sound resource is not the same as the SoundCue resource. The Sound resource refers to the sound file, while the SoundCue refers to the presets that determine <em>how</em> a sound file is played.</p>
+<ul class="simple">
+<li>In the Library Window<ul>
+<li>Under the SoundCue tag<ul>
+<li>Select the Music1 SoundCue</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Under Sounds</p>
+<ul>
+<li><p class="first">Under Sound: DefaultSound</p>
+<ul>
+<li><p class="first">Set Sound to: Music1</p>
+<p><img alt="SettingSoundOnSoundCue" src="../../_images/SettingSoundOnSoundCue1.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>The Music1 Sound we just added to the project is now being played instead of the DefaultSound. We now have background music.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="importing-multiple-sound-files-with-drag-and-drop">
+<h2>Importing Multiple Sound Files with Drag and Drop</h2>
+<ul class="simple">
+<li>Make sure the Level Window is visible</li>
+<li>Drag and Drop the following files from the same folder where Music1 was located (not in the editor but from your computer) onto the Level Window:<ul>
+<li>Music2.wav</li>
+<li>CoinPickup.wav</li>
+<li>ScoreV2.wav</li>
+</ul>
+</li>
+</ul>
+<p>The following window should appear:</p>
+<p><img alt="GroupImport" src="../../_images/GroupImport1.png" /></p>
+<p>This convenient feature allows us to specify import options for the group of files. There is an option that allows us to tell the Zero Engine to create a Cue for each Sound file automatically.</p>
+<ul>
+<li><p class="first">In the Group Import Options Window</p>
+<ul>
+<li><p class="first">Under AudioOptions</p>
+<ul>
+<li><p class="first">Set GenerateCue to: PerSound</p>
+<p><img alt="PerSound" src="../../_images/PerSound1.png" /></p>
+</li>
+<li><p class="first">Click the Import All button</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The Sound files have been imported and each has a corresponding SoundCue.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="pausing-sound-in-code">
+<h2>Pausing Sound in Code</h2>
+<p><a class="reference internal" href="ResourceAdding.html#resourceadding2014"><span>Add a new ZilchScript resource</span></a> named: &#8216;GameLogic&#8217;</p>
+<ul class="simple">
+<li>Update the <strong>GameLogic</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Receive LogicUpdate events:</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Pause/Resume all sounds in the space:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">SoundSpace</span><span class="p">.</span><span class="nx">Pause</span> <span class="o">=</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">SoundSpace</span><span class="p">.</span><span class="nx">Pause</span><span class="o">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The Space has SoundSpace component attached to it that provides sound for the Space.</p>
+<p><img alt="SoundSpaceComponent" src="../../_images/SoundSpaceComponent.png" /></p>
+<p>The SoundSpace component allows us to set the pitch scale and volume for all sounds in the Space. We are also able to pause/resume all sounds playing in the Space by setting the <strong>SoundSpace.Pause</strong> bool to True or False.</p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the GameLogic component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Pressing the <code class="docutils literal"><span class="pre">Space-bar</span></code> key on the keyboard allows us to pause/resume all sounds playing in the Space. Notice how the music resumes right where it left off. Keep in mind that this only affects sound.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+<li>Open the GameLogic script</li>
+<li>Add the following code to the <strong>OnLogicUpdate</strong> method:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Pause/Resume all sounds in the space:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">SoundSpace</span><span class="p">.</span><span class="nx">Pause</span> <span class="o">=</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">SoundSpace</span><span class="p">.</span><span class="nx">Pause</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="hll">    <span class="c1">// Restart the level</span>
+</span><span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">R</span><span class="p">))</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">ReloadLevel</span><span class="p">();</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Now the music plays, and the level is reloaded when we press the <code class="docutils literal"><span class="pre">R</span></code> key on the keyboard. Notice how the music restarts every time we reload the level. What if we wanted the music to continue playing throughout multiple levels and when the level is reloaded?</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="continue-playing-sounds-in-between-levels">
+<h2>Continue Playing Sounds In-Between Levels</h2>
+<ul class="simple">
+<li>Open the <strong>GameLogic</strong> script</li>
+<li>Replace the <strong>Initialize</strong> method with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="hll"><span class="k">var</span> <span class="nx">BackgroundMusicObject</span> <span class="o">:</span> <span class="nx">Cog</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span>
+<span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Receive LogicUpdate events:</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">BackgroundMusicObject</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">FindObjectByName</span><span class="p">(</span><span class="s2">&quot;BackgroundMusic&quot;</span><span class="p">);</span>
+    <span class="c1">// If the there is background music</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">BackgroundMusicObject</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+<span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// Make it persist</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">BackgroundMusicObject</span><span class="p">.</span><span class="nx">Persistent</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>In this code we are setting the Cog&#8217;s <strong>Persistent</strong> member on the BackgroundMusic object to True. This prevents the object from being destroyed when a level is loaded/reloaded. After calling this function, we will have to manually set the Persistent Cog member to False later on in order to allow it to be destroyed as it normally would be.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Pressing the <code class="docutils literal"><span class="pre">R</span></code> key on the keyboard will reload the level and the music will continue playing because the BackgroundMusic object was never destroyed,
+but observe what happens when the <code class="docutils literal"><span class="pre">R</span></code> key is repeatedly pressed. The music is still
+playing, and there are multiple
+instances of the music playing at the same time. This is because the Background object is still being created every time the level is loaded.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the BackgroundMusic object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Set Archetype to: BackgroundMusic</p>
+<blockquote>
+<div><p><img alt="SetArchetype" src="../../_images/SetArchetype.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Under SoundEmitter</p>
+<ul class="simple">
+<li>Set StartPlaying to: False</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>We will play the sound manually from in code.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Positional to: False</li>
+</ul>
+</div></blockquote>
+<p>We don&#8217;t need positional sound because it&#8217;s background music.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Upload the archetype by clicking the <img alt="upload" src="../../_images/upload.png" /> button</li>
+</ul>
+</div></blockquote>
+<p>The BackgroundMusic archetype should appear under the Archetype tag in the Library Window.</p>
+<p><img alt="ArchetypeMade" src="../../_images/ArchetypeMade.png" /></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a></p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Right-Click</span></code> on the BackgroundMusic object in the Objects Window</p>
+<ul>
+<li><p class="first">Select the Delete option</p>
+<p><img alt="DeletingObj" src="../../_images/DeletingObj.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>We will create the BackgroundMusic object in code by using the BackgroundMusic archetype. This gives us the ability to not create it if it already exists in the level.</p>
+<ul class="simple">
+<li>Open the <strong>GameLogic</strong> script</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li>Replace the <strong>Initialize</strong> method with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Receive LogicUpdate events:</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+
+<span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">BackgroundMusicObject</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">FindObjectByName</span><span class="p">(</span><span class="s2">&quot;BackgroundMusic&quot;</span><span class="p">);</span>
+</span><span class="hll">    <span class="c1">// If the there is no background music</span>
+</span><span class="hll">    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">BackgroundMusicObject</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// Make some and</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">BackgroundMusicObject</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="nx">Archetype</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;BackgroundMusic&quot;</span><span class="p">));</span>
+</span><span class="hll">        <span class="c1">// Make it persist</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">BackgroundMusicObject</span><span class="p">.</span><span class="nx">Persistent</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>    <span class="c1">// If we are not yet playing the music</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">BackgroundMusicObject</span><span class="p">.</span><span class="nx">SoundEmitter</span><span class="p">.</span><span class="nx">IsPlaying</span><span class="p">()</span> <span class="o">==</span> <span class="kc">false</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Get the music playing</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">BackgroundMusicObject</span><span class="p">.</span><span class="nx">SoundEmitter</span><span class="p">.</span><span class="nx">Play</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Don&#8217;t want to see the Archetype get created?</p>
+<ul class="simple">
+<li>In the Library Window<ul>
+<li>Under the Archetype tag<ul>
+<li>Select the BackgroundMusic Archetype</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Under Sprite<ul>
+<li>Set Visible to: False</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>or</strong></p>
+<blockquote class="last">
+<div><ul class="simple">
+<li>Remove the Sprite component altogether!</li>
+</ul>
+</div></blockquote>
+</div>
+<p>We search for the BackgroundMusic object, and if it wasn&#8217;t found, then we create it from the archetype. After that, the BackgroundMusic object should exist, so we manually play the current SoundCue on the SoundEmitter, but we only play it if it is not already playing.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>The music plays because the BackgroundMusic object is created by the GameLogic script. Pressing the <code class="docutils literal"><span class="pre">R</span></code> key on the keyboard will reload the level, but the music continues playing.</p>
+</div>
+<div class="section" id="playing-different-soundcues-from-a-sound-emitter-in-code">
+<h2>Playing Different SoundCues from a Sound Emitter in Code</h2>
+<p>The SoundEmitter component has a member function called <strong>PlayCue</strong> that accepts the SoundCue resource that you wish to play. We can also stop a sound that is playing by using the SoundEmitter&#8217;s <strong>Stop</strong> member function.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+<li>Open the <strong>GameLogic</strong> script</li>
+<li>Add the following code to the <strong>OnLogicUpdate</strong> method:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Pause/Resume all sounds in the space:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">SoundSpace</span><span class="p">.</span><span class="nx">Pause</span> <span class="o">=</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">SoundSpace</span><span class="p">.</span><span class="nx">Pause</span><span class="o">;</span>
+    <span class="p">}</span>
+    <span class="c1">// Restart the level</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">R</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">ReloadLevel</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="c1">// Change background music</span>
+</span><span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Right</span><span class="p">))</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// Stop the Current Music</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">BackgroundMusicObject</span><span class="p">.</span><span class="nx">SoundEmitter</span><span class="p">.</span><span class="nx">Stop</span><span class="p">();</span>
+</span><span class="hll">        <span class="c1">// Play Music2</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">BackgroundMusicObject</span><span class="p">.</span><span class="nx">SoundEmitter</span><span class="p">.</span><span class="nx">PlayCue</span><span class="p">(</span><span class="nx">SoundCue</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;Music2&quot;</span><span class="p">));</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This code stops the current SoundCue on the SoundEmitter and Plays the Music2 SoundCue from the BackgroundMusic object&#8217;s SoundEmitter.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Now if the <code class="docutils literal"><span class="pre">Right</span></code> arrow key is pressed on the keyboard, the Music1 SoundCue stops the Music1 Sound and the Music2 SoundCue plays the Music2 Sound from the BackgroundMusic object&#8217;s SoundEmitter.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="playing-sound-effects">
+<h2>Playing Sound Effects</h2>
+<p>So far, we have been playing music from the SoundEmitter component. Now we will go over playing sound effects and positional sound effects.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+<li>Open the <strong>GameLogic</strong> script</li>
+<li>Add the following code to the <strong>OnLogicUpdate</strong> method:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Up</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">SoundSpace</span><span class="p">.</span><span class="nx">PlayCue</span><span class="p">(</span><span class="nx">SoundCue</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;CoinPickup&quot;</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Down</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">SoundSpace</span><span class="p">.</span><span class="nx">PlayCue</span><span class="p">(</span><span class="nx">SoundCue</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;ScoreV2&quot;</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This code uses the SoundSpace&#8217;s <strong>PlayCue</strong> member function to play SoundCues.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>The CoinPickup Sound plays when the <code class="docutils literal"><span class="pre">Up</span></code> arrow key is pressed and the ScoreV2 Sound plays when the <code class="docutils literal"><span class="pre">Down</span></code> arrow key is pressed. An object with a SoundEmitter component could do the same thing. In addition to that, the object with some position in the world could play the Sounds with positional properties that take the distance into account so that sound far away sounds aren&#8217;t as loud as sounds that are closer.</p>
+</div>
+<div class="section" id="microphones">
+<h2>Microphones</h2>
+<p>Positional sounds require a Microphone component to be attached to an object located somewhere in the level in order to be heard. This mimics a person (such as the player) not being able to hear a sound from location that is very far from his or her location in the level. If there are no objects with microphone components in the level, then there will be an internal microphone used that is located at the origin (the [0,0,0] position). If we had a Player object and we wanted the player to hear sounds with distance taken into account as a person would in real-life, we would simply give that object a Microphone component.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Set Name to: Player</p>
+</li>
+<li><p class="first">Under Transform</p>
+<ul class="simple">
+<li>Set Translation to: [0,-50,0]</li>
+</ul>
+</li>
+<li><p class="first">Under Sprite</p>
+<ul class="simple">
+<li>Set Color to: [R: 255, G: 0, B: 128]</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add a Microphone component</span></a></p>
+<p><img alt="Player" src="../../_images/Player1.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">In the Objects Window</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the Sprite</span></a></li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add a SoundEmitter Component</span></a></li>
+<li>Under SoundEmitter<ul>
+<li>Set StartPlaying to: True</li>
+<li>Click on the <img alt="RightArrow" src="../../_images/RightArrow.png" /> right of DefaultCue</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Set PlayMode to: Looping</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the Camera from the Object Window</span></a><ul>
+<li>Under Camera<ul>
+<li>Set Size to: 101</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Here is what the Level looks like:</p>
+<p><a class="reference internal" href="../../_images/DroppingSound.png"><img alt="DroppingSound" src="../../_images/DroppingSound.png" style="width: 8.35in;" /></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Because the Player object has the Microphone component and its position is [0,-50, 0], the looping music gets loudest when the sprite it is attached to gets closest to the player. The pitch change is from the Doppler effect.</p>
+<p>Now we know how to import sound files, play music and sound effects, play music in-between levels, pause music, and use positional sounds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">orphan:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<!-- this is used as a file for inclusion in other .rst files --></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ObjectStore.html" class="btn btn-neutral float-right" title="Saving and Loading Data" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Area.html" class="btn btn-neutral" title="Area Component" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/Audio.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:24:13 GMT -->
+</html>

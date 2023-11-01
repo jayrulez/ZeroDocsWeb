@@ -1,0 +1,124 @@
+.. _ReferenceAnimationGraph:
+
+.. rst-class:: searchtitle
+
+AnimationGraph
+==============
+
+.. rst-class:: searchdescription
+
+The AnimationGraph component controls animation for an individual game object. It stores all needed per instance(vs what is shared in the animation resource) manages the current time and enumerates the animation sets. The AnimationGraph can animate multiple child objects and properties enabling bone animation, and other hierarchical animations.
+
+.. include:: Description/AnimationGraph.rst
+
+.. cpp:class:: AnimationGraph
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceAnimationGraphProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog AnimationGraph::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space AnimationGraph::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog AnimationGraph::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession AnimationGraph::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: AnimationNode AnimationGraph::ActiveNode
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool AnimationGraph::Active
+
+            Is the animGraph animating?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real AnimationGraph::TimeScale
+
+            
+
+.. _ReferenceAnimationGraphMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void AnimationGraph::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool AnimationGraph::IsPlayingInGraph(Animation animation)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void AnimationGraph::PrintGraph()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: BasicAnimation AnimationGraph::CreateBasicNode(Animation animation, AnimPlayMode::Enum mode)
+
+            Node creation functions.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: DirectBlend AnimationGraph::CreateDirectBlendNode()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: CrossBlend AnimationGraph::CreateCrossBlendNode()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: SelectiveNode AnimationGraph::CreateSelectiveNode()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: ChainNode AnimationGraph::CreateChainNode()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void AnimationGraph::PreviewGraph()
+
+            Editor preview functionality.
+
+.. include:: Remarks/AnimationGraph.rst

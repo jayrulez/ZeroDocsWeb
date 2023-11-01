@@ -1,0 +1,130 @@
+.. _ReferenceTriangleCollider:
+
+.. rst-class:: searchtitle
+
+TriangleCollider
+================
+
+.. rst-class:: searchdescription
+
+Triangle Collider is a basic collision primitive of a triangle.
+
+.. include:: Description/TriangleCollider.rst
+
+.. cpp:class:: TriangleCollider
+
+    Base Class: :cpp:type:`Collider`
+
+.. _ReferenceTriangleColliderProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog TriangleCollider::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space TriangleCollider::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog TriangleCollider::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession TriangleCollider::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: PhysicsMaterial TriangleCollider::Material
+
+            The material used to determine the density, restitution and friction of this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CollisionGroup TriangleCollider::CollisionGroup
+
+            The collision group is a tag used to alter collision behavior based upon the CollisionTable on this object's space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool TriangleCollider::Ghost
+
+            Ghosted colliders do not resolve collision. They do still detect collisions and send events. Ghosted colliders are typically used for trigger regions.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool TriangleCollider::SendsEvents
+
+            Determines if this object will send collision events. Used mainly for increasing performance by not sending unnecessary collision events.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 TriangleCollider::Offset
+
+            Moves the physics defined center of the object away from the transform's translation. Used to move physics to match a model.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: RigidBody TriangleCollider::ActiveBody
+
+            The rigid body that owns this collider. This is the body that forces/impulses/etc... should be applied to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint TriangleCollider::ContactCount
+
+            Returns the number of contacts on this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ContactRange TriangleCollider::Contacts
+
+            Range of all contacts on this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint TriangleCollider::JointCount
+
+            Returns the number of joints attached to this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: JointRange TriangleCollider::Joints
+
+            Range of all joints on this collider.
+
+.. _ReferenceTriangleColliderMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void TriangleCollider::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: real TriangleCollider::ComputeVolume()
+
+            Compute the world-space volume of this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 TriangleCollider::GetPointVelocity(Vec3 worldPoint)
+
+            Returns the point velocity of a world-space point with respect to the current rigid body's linear and angular velocity. If there is no rigid body this returns zero.
+
+.. include:: Remarks/TriangleCollider.rst

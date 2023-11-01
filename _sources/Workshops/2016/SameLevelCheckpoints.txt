@@ -1,0 +1,236 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _2016LevelCheckpoints:
+
+.. rst-class:: SearchTitle
+
+Level Checkpoints
+=================
+
+.. rst-class:: SearchDescription
+
+This lesson shows how to implement mid-level checkpoints. When a level resets, so does the player data, so the last checkpoint needs to be stored in the LevelSettings object.
+
+.. _2016LevelCheckpointsVocab:
+
+Learning Objectives
+-------------------
+
+* Create level checkpoints that saves player data
+* Reset a player character back to a specific checkpoint
+
+.. rst-class:: VocabSection
+
++------------+
+| Vocabulary |
++============+
+| Checkpoint |
++------------+
+
+Create a New Project
+--------------------
+
+:ref:`2016CreateNewProject`
+
+.. sidebar:: Using Past Scripts
+    
+    If you have already created the SweptController for the player in the previous lesson, feel free to import it:
+
+    * :ref:`Command<2016Commands>` : ``ShowProjectFolder`` or :menuselection:`Project --> Show Project Folder`
+
+    * Locate and enter the project folder for the :ref:`Using the Swept Controller<2016UsingTheSweptController>` lesson
+    * Enter the Content folder    
+    * Drag both SweptController.z and PlayerController.z into the Zero Editor
+    
+    *When going this route, don't forget to add Collider and RigidBody components to your player, as well as setting its Dynamic State to Kinematic.*
+
+Level Setup
+-----------
+
+*   Create a object named ``Player`` with :ref:`swept controls <2016UsingTheSweptController>`
+*   Create a Level for the player
+
+Forwarding Collision Events
+---------------------------
+
+We know how to make a Player with the swept controller. However, one problem we
+get with the swept controller is that it does not receive collision events,
+meaning the player doesn't know what it's colliding with. To fix this, we need
+to *forward the swept collision events*. We'll use a special script called
+**CustomCollisionEventTracker**.
+
+*   :ref:`Select the Player object <2016SelectObject>`
+*   In Properties Window
+
+    *   Under SweptController
+        
+        *   Set ForwardEvents to: ``true``
+
+Now all collision events handled by the SweptController will be forwarded to the Player object.
+
+|pbr|
+
+Checkpoints
+-----------
+
+We will distinguish checkpoints from other objects by the presence of a
+**Checkpoint** component. To do this, we will create an empty ZilchScript named
+``Checkpoint``.
+
+*   :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: ``Checkpoint``
+
+Checkpoint1 Object
+^^^^^^^^^^^^^^^^^^
+
+*   :ref:`Command<2016Commands>`: ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In the Properties Window
+    
+    *   Set Name to: ``Checkpoint1``
+    *   :ref:`Add a BoxCollider Component <2016AddComponent>`
+    *   :ref:`Add a Checkpoint Component <2016AddComponent>`
+    *   Under Transform
+        
+        *   Set Scale to: ``[1, 1000, 1]``
+    *   Under Sprite
+        
+        *   Set Color to: ``[R: 255, G: 255, B: 255, A: 0.10]``, ``#FFFFFF``
+    *   Under BoxCollider
+    
+        *   Set Ghost to: ``true``
+
+Checkpoint2 Object
+^^^^^^^^^^^^^^^^^^
+
+*   Copy and Paste Checkpoint1
+*   In the Properties Window
+    
+    *   Set Name to: ``Checkpoint2``
+*   In the Tools Window
+
+    * Select the ``TranslateTool``
+    * Move Checkpoint2 to the right
+    
+|pbr|
+        
+We want to make the checkpoint height infinitely tall because it's a boundary.
+To simulate this, we just scale along the Y axis so much so that the user can't
+tell where it starts and ends.
+
+|NoBookSingleLine| |CP2_CheckpointsWeb|
+
+|NoWebBegin|
+|CP2_CheckpointsBook|
+|NoWebEnd|
+
+Storing Player Data
+-------------------
+
+Now we will store the PlayerPosition in the level by making a Zilch Script
+
+*   :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: 'LevelVars'
+
+*   Include the following Property in the **LevelVars** Script
+
+.. code-block:: as
+
+    [Property]
+    var PlayerPosition : Real3 = Real3();
+
+*   :ref:`Select the LevelSettings object <2016SelectObject>`
+
+*   In Properties Window
+
+    *   :ref:`Add a LevelVars component <2016AddComponent>`
+    
+You can set the starting position of the player by changing PlayerPosition under the LevelVars component.  If you :ref:`run the game <2016RunTheGame>` now, however, you will notice the player position doesn't change as we have yet to use the variable.  We will fix that in a bit.
+
+|pbr|
+
+Resetting the Level
+-------------------
+Next let's make the level restart.
+
+*   :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: 'RkeyReset'
+
+*   Implement the following logic update in the **RkeyReset** script
+
+.. code-block:: as
+
+    function Initialize(init : CogInitializer)
+    {
+      Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+      // Reset the player when R is pressed
+      if(Zero.Keyboard.KeyIsPressed(Keys.R))
+      {
+        var player = this.Space.FindObjectByName("Player");
+        
+        if(player != null)
+        {
+          player.Transform.Translation = this.Owner.LevelVars.PlayerPosition;
+        }
+      }
+    }
+
+*   :ref:`Select the LevelSettings object <2016SelectObject>`
+*   In Properties Window
+
+    *   :ref:`Add a RkeyReset Component <2016AddComponent>`
+    
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`    
+
+Now you'll notice pressing ``R`` sets your player's position. 
+    
+*   :ref:`Stop the Game <2016StopGame>`
+
+|pbr|
+
+Saving the Last Checkpoint in the Level
+---------------------------------------
+
+Finally, we need to store the player's last checkpoint position in the LevelSettings object.
+
+*   In the **PlayerController**
+
+    *   Add the following to the **Initialize** function
+    
+    .. code-block:: as
+    
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        
+        var startPosition = this.Space.LevelSettings.LevelVars.PlayerPosition;
+        
+        this.Owner.Transform.Translation = startPosition;
+        
+    *   Create the following function to connect to the Collision Started Event:
+    
+    .. code-block:: as
+    
+        function OnCollisionStarted(event : CollisionEvent)
+        {
+          //when hitting a checkpoint, save this position in the level
+          if(event.OtherObject.Checkpoint != null)
+          {
+            var checkpointPosition = event.OtherObject.Transform.Translation;
+            
+            checkpointPosition.Y = this.Owner.Transform.Translation.Y;
+            
+            this.Space.LevelSettings.LevelVars.PlayerPosition = checkpointPosition;
+          }
+        }
+        
+*   :ref:`Run the project <2016RunTheGame>`
+
+*   Press the ``R`` key to reset the level and see your checkpoints in action.
+
+Now we have a simple checkpoint system.
+
+.. |CP2_CheckpointsWeb| image:: images/platformer/CP2_1.png
+  :width: 5.0in
+
+.. |CP2_CheckpointsBook| image:: images/platformer/CP2_1.png
+  :width: 5.0in
+  

@@ -1,0 +1,118 @@
+.. _ReferenceGodRayLight:
+
+.. rst-class:: searchtitle
+
+GodRayLight
+===========
+
+.. rst-class:: searchdescription
+
+Light component that provides god rays.
+
+.. include:: Description/GodRayLight.rst
+
+.. cpp:class:: GodRayLight
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceGodRayLightProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog GodRayLight::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space GodRayLight::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog GodRayLight::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession GodRayLight::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GodRayLight::Active
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint GodRayLight::LightType
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 GodRayLight::Color
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real GodRayLight::Intensity
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real GodRayLight::ScreenRadius
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real GodRayLight::OccluderClarity
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool GodRayLight::ScreenEdgeFade
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real GodRayLight::BeginFade
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real GodRayLight::EndFade
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real GodRayLight::DepthOffset
+
+            
+
+.. _ReferenceGodRayLightMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void GodRayLight::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/GodRayLight.rst

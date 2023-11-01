@@ -1,0 +1,119 @@
+.. _ManualHandlingQuitMessage:
+
+.. rst-class:: SearchTitle
+
+Handle the Quit Message (Stop Esc from Exiting Game)
+====================================================
+
+.. rst-class:: SearchDescription
+
+Quit Messages are sent by the engine to quit out of a game by closing the Game Window. This happens by default when the ``Esc`` (escape) key is pressed in game. Using the ``GameRequestQuit`` event, however, gives the user control over the ``Esc`` key press (which is otherwise inaccessible by Keyboard events). When connecting to the ``GameRequestQuit`` event, the user may assign any activity to the ``Esc`` key that they wish. 
+
+Common Uses
+-----------
+
+*   Using the ``Esc`` key to pause the game
+*   Using the ``Esc`` key to pause the game and bring up a confirmation-of-destructive-action window
+*   Using the ``Esc`` key to to exit out of the current level
+
+How to Use the GameRequestQuit Event
+------------------------------------
+
+This section will cover connecting to the event and setting up the response function.
+
+Connecting to the GameRequestQuit Event
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When connecting to the GameRequestQuit, it must be listening for the ``Events.GameRequestQuit`` dispatch (which is done by pressing the ``Esc`` key) onto ``this.GameSession``, as follows:
+
+.. code-block:: csharp
+
+    //Listening for Events.GameRequestQuit dispatch onto this.GameSession
+    Zero.Connect(this.GameSession, Events.GameRequestQuit, this.OnGameRequestQuit);
+
+The GameRequestQuit Response Function
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The GameRequestQuit event is of type ``GameEvent`` that includes a few properties that can be used inside the response function. The most notable of these, for the purposes of removing the game-exiting functionality, is ``event.Handled``. ``Handled`` is a boolean that if set to ``true``, tells the engine that the behavior for the ``Esc`` key will now **be handled** by the code inside the response function. If ``event.Handled`` is left ``false``, the event would persist to be handled by the engine (once again performing the default behavior of closing the Game Window *after* your response function completed).
+
+The following will code-block will show how the response function can create alternate behavior for the ``Esc`` key while still allowing for game-quitting functionality:
+
+.. code-block:: csharp
+
+    class GameQuitTest : ZilchComponent
+    {
+        // Boolean variable that when set to true, Esc key will keep game-quitting functionality
+        [Property]
+        var ApplyQuit : Boolean = false;
+
+        function Initialize(init : CogInitializer)
+        {
+             // Listening for Events.GameRequestQuit dispatch onto this.GameSession
+            Zero.Connect(this.GameSession, Events.GameRequestQuit, this.OnGameRequestQuit);
+        }
+
+        function OnGameRequestQuit(event : GameEvent)
+        {
+            // Let the engine know that this function will handle behavior for the Esc key
+            event.Handled = true;
+
+            // If this.ApplyQuit is set to true...
+            if(this.ApplyQuit)
+            {
+                // Call function to quit game from the GameSession object
+                event.Game.Quit();
+            }
+            // If this.ApplyQuit is set to false...
+            else
+            {
+                // Supply alternate behavior (pausing/unpausing the game) for Esc key
+                var spaces = this.GameSession.AllSpaces;
+                foreach (var space in spaces)
+                {
+                    space.TimeSpace.TogglePause();
+                }
+            }
+        }
+    }
+    
+GameRequestQuit Event Properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following table enumerates the properties that come with GameEvent, and therefore the GameRequestQuit event:
+
++--------------------------+-----------------------------------------------------+
+| Property           | Description                                               |
++====================+===========================================================+
+| EventId : String   | A string that provides the EventId for the current event. |
+|                    | In this case, it is: GameRequestQuit.                     |
++--------------------+-----------------------------------------------------------+
+| Game : GameSession | The GameSession object                                    |
++--------------------+-----------------------------------------------------------+
+| Handled : Boolean  | A boolean that when set to true will stop the ``Esc`` key |
+|                    | from quitting the game by default.                        |
++--------------------+-----------------------------------------------------------+
+| LevelName : String | A string that provides the name of the current level      |
++--------------------+-----------------------------------------------------------+
+
+
+Related Materials
+-----------------
+
+Manual Pages
+~~~~~~~~~~~~
+
+    *   :ref:`On Events: Events and Connections<ManualEventsAndConnections>`
+   
+Code Reference
+~~~~~~~~~~~~~~
+
+    *   :cpp:type:`GameEvent`
+    
+    
+    
+
+
+    
+    
+    
+

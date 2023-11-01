@@ -1,0 +1,111 @@
+.. _ManualGeneratedSound:
+
+.. rst-class:: SearchTitle
+
+GeneratedSound
+==============
+
+.. rst-class:: SearchDescription
+
+:cpp:type:`GeneratedSound` is a :ref:`resource<ManualResources>` used to generate user-defined sounds using various types of waveforms.
+
+.. sidebar:: Recommended Reading
+
+    This page includes topics one might not have encountered yet. To learn about or review these materials, the following list provides the links to their respective Manual or Tutorial pages:
+    
+    *   :ref:`Sounds<ManualSound>`
+
+    *   :ref:`SoundCue<ManualSoundCue>`
+
+Common Uses
+-----------
+
+*  In-game sound effects such as weapon noises, muffled and/or alien speech sounds, aural player feedback, etc.
+
+*  Sounds for menus and other UI elements
+
+Using GeneratedSound
+--------------------
+
+Creating a GeneratedSound
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There are two ways to create a GeneratedSound resource:
+
+*  Through the ``Add a Resource window``:
+
+|AddGSWindow|
+
+*  Through the :ref:`SoundCue<ManualSoundCue>` property grid, when adding a new Sound Entry. Note that to access the "Edit/Add" window inside the SoundEntry, one must right-click on either the arrow next to the ``GeneratedSound`` input property or the property field itself:
+
+|AddGSCue|
+
+Using either of these options will bring up the properties for the new GeneratedSound in the Properties window, seen at the end of the animated image above.
+
+The Properties of GeneratedSound
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There are three properties available to the user to edit a GeneratedSound: WaveType, WaveFrequency, and Length.
+
+|GSProperties|
+
+*   WaveType
+
+    *   The waveform used to produce the sound: SineWave, SquareWave, SawWave, TriangleWave, Noise
+
+*   WaveFrequency
+
+    *   A :ref:`Real<ZilchTypeReal>` used to set the frequency of the wave chosen above
+
+*   Length
+
+    *   A Real used to set how long, in seconds, the sound should play
+
+Experimenting with the properties is certainly a valid way to understand how each WaveType differs and what range of sounds may be produced. There are, however, various online tutorials and primers on waveforms generally as well as the specific types available in Zero. A pdf that covers the basics concerning these topics is provided below:
+
+:download:`The Physics of Sound <files/GeneratedSound/Physics_of_Sound.pdf_nophp>`
+
+
+Playing a GeneratedSound
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Just like user-imported :ref:`Sounds<ManualSound>`, GeneratedSounds must be placed on a :ref:`SoundCue<ManualSoundCue>` resource in order to be played in game. The only difference is that the ``WhichToUse`` property on the SoundEntry must be set to ``Generated`` instead of the default setting, ``FromFile``:
+
+|AddGSToCue|
+
+Properties and Methods of Generated Sound
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:ref:`GeneratedSound Code Reference<ReferenceGeneratedSound>`
+
+Related Material
+----------------
+
+Manual Pages
+^^^^^^^^^^^^
+
+*   :ref:`Sounds<ManualSound>`
+*   :ref:`SoundCue<ManualSoundCue>`
+*   :ref:`SoundSpace<ManualSoundSpace>`
+
+Reference Pages
+^^^^^^^^^^^^^^^
+
+*   :cpp:type:`GeneratedSound`
+*   :cpp:type:`Sound`
+*   :cpp:type:`SoundCue`
+*   :cpp:type:`SoundSpace`
+
+Files
+~~~~~
+
+*   :download:`The Physics of Sound <files/GeneratedSound/Physics_of_Sound.pdf_nophp>`
+
+
+
+
+.. |AddGSWindow|                  image:: images/GeneratedSound/AddGSWindow.png
+.. |AddGSCue|                     image:: images/GeneratedSound/AddGSCue.gif
+.. |GSProperties|                 image:: images/GeneratedSound/GSProperties.png
+.. |AddGSToCue|                   image:: images/GeneratedSound/AddGSToCue.gif
+

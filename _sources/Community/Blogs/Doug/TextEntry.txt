@@ -1,0 +1,1132 @@
+.. _CommunityBlogDougTextEntry:
+
+.. rst-class:: SearchTitle
+
+Text Entry
+==========
+|   *Doug Zwick*
+|   *Staff Writer*
+|   
+
+.. container:: rightfloat
+  
+  .. container:: stdfigure
+    
+    |MaturityOptional|
+    
+    Maturity is recommended but optional
+
+.. rst-class:: SearchDescription
+
+Okay, so let's say you're making a video game (I know what you're thinking, but
+stick with me, my story gets better) and you want the player to be able to type
+some text at you, and you're gonna do something with it. Maybe it's their name,
+I don't know. Whatever. Now, you're gonna need a **text field**, also known as a
+"text box", though it needn't necessarily appear explicitly as a box.
+
+Zero doesn't provide anything like this right out of the box (pun most certainly
+intended), but it's pretty easy to roll your own. Let's figure out how! (I've
+never done this before either, so bear with me.)
+
+What You'll Need
+----------------
+
+* **scissors**
+* **glue**
+* the **Zero Editor**
+* adult supervision
+
+The scissors and glue are a joke, but you should always have adult supervision.
+
+Let's talk about what this thing should do.
+
+Desired Features
+----------------
+
+What should our text box be like? What should it do? Let us look to some of the
+great text fields of history for inspiration.
+
+.. container:: stdfigure
+  
+  |SublimeCommand| |ChromeURLBar| |FileSaveDialog|
+  
+  Ye olde **Sublime Texte Commande Pallete**, ye olde **Google Chrome URL
+  Barre**, and ye olde **Windowes File Sayve Dialogue Boxe**.
+
+Our humble text box won't have *all* of the slick features they have, but we can
+at least identify a lot of the important ones and make sure to cover them.
+
+First off, you need to be able to type in it. This might mean that you'll be
+able to **select** it, though we could just say it's "selected" by default (and
+impossible to deselect). The idea here is that when you type, if a text field is
+selected, the stuff you type will appear in that field.
+
+You need to be able to make arbitrary text appear in it, and you need to be able
+to delete that text. You may want to make it change your cursor when you mouse
+over it and stuff too. And you'll probably want to have some kind of typing
+caret to show where the next character will appear.
+
+Also, it should have some kind of box shape.
+
+So far, it should support the following features:
+
+.. admonition:: Desired Features
+  
+  | |BoxEmpty|   Typing in it
+  | |BoxEmpty|   (Maybe) Selecting it
+  | |BoxEmpty|   (Maybe) Deselecting it
+  | |BoxEmpty|   Deleting text
+  | |BoxEmpty|   Changing the mouse cursor on mouse over
+  | |BoxEmpty|   Typing caret to show where the next character will appear
+  | |BoxEmpty|   Box shape
+
+...Probably lots more, too. We could go on for days. The truth is, a "simple"
+text field is actually far from simple: it has dozens of features that are very
+easy to take for granted when we're using it, but are far from trivial when
+we're making it.
+
+This list is long enough for now. I'll add stuff to it as it occurs to me.
+
+Getting Started
+---------------
+
+Let's start by making the box. We'll keep it simple for now --- we can (and
+absolutely will) make it fancier later. Let's just start with a sprite for the
+background. The editor's built-in ``Square`` sprite source will suffice.
+
+I started with an empty 2D project and made a sprite, and named it
+``TextBackground``. This is going to be the box the text goes in. Text boxes are
+generally wider than they are tall, so I gave it an Area component and made it,
+oh, 20 units wide:
+
+|TextFieldWhite|
+
+.. admonition:: Feature Progress
+  
+  | |BoxEmpty|   Typing in it
+  | |BoxEmpty|   (Maybe) Selecting it
+  | |BoxEmpty|   (Maybe) Deselecting it
+  | |BoxEmpty|   Deleting text
+  | |BoxEmpty|   Changing the mouse cursor on mouse over
+  | |BoxEmpty|   Typing caret to show where the next character will appear
+  | |BoxChecked| Box shape
+
+.. sidebar:: Colored Borders
+  
+  If you think I'm going to be content without the ability to change the color
+  of the border of the text box from black, well, you've got another think
+  coming. The problem is that in order to fix this in a satisfying way, we're
+  going to have to make at least one more sprite source, and then we have to
+  prep it and stuff, and blah blah blah. It's enough of a hassle that I'm going
+  to defer it to my next blog entry. Stay tuned.
+
+Next, we need a place for the text to live. I created a sprite text cog, and
+named it ``TextString``. Its size should match the size of the box it's
+contained in, so I gave it an Area component too, and made its size match that
+of the background sprite. I set its text color to black so that it could be
+seen against the white of the background sprite. (Don't worry, I'll change both
+colors to something cooler soon.) I set the text to a string from Lorem Ipsum,
+and then played with the font size until it was vertically centered nicely. 46
+worked well:
+
+.. container:: stdfigure
+  
+  |TextWithLoremIpsum|
+  
+  `...elit! Elit! <https://www.youtube.com/watch?v=Y4zfkeTsto0>`_
+
+The next thing we're going to have to do is to write a component that will
+contain all the logic for typing and displaying characters. So, basically, we're
+going to have one cog with a SpriteText component that holds the text box's
+text string, and we're going to have another cog with a Sprite component that is
+the text box's rectangular background, and somewhere in all of this, we're going
+to have a cog that has our typing logic component. How should the hierarchy tree
+be organized?
+
+I feel like the actual logic of the typing and receiving text characters and
+such should all live in another cog, separate from these two. We'll make the
+text and the background siblings, and their parent will be the actual text field
+cog itself.
+
+Take a look at this whiteboard diagram:
+
+.. container:: whiteboard-drawing
+  
+  |TreeWhiteboard|
+
+(Note that we could add any number of features to this text box, many of which
+would be additional children of the root.)
+
+I selected the TextString and the TextBackground and hit ``Ctrl + G`` to group
+them, then renamed their new parent from "Root" to ``TextField``. This I then
+uploaded as an archetype of the same name.
+
+|Tree|
+
+Okay, let's get cracking with that typing bit, shall we?
+
+Typing
+------
+
+I added a new ZilchScript called ``TextInput`` and added it to the TextField
+cog. For now, for the sake of simplicity, we're going to assume that the text
+field it's attached to is always selected. We'll get all the selection /
+deselection business out of the way later.
+
+Here's what I'm starting with for the TextInput component's code:
+
+.. code-block:: as
+  :emphasize-lines: 4, 6, 8, 9, 14, 15, 17
+  
+  class TextInput : ZilchComponent
+  {
+    [Property]
+    var TextCP : CogPath;
+    [Property]
+    var BGCP : CogPath;
+    
+    var ST : SpriteText;
+    var BG : Sprite;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+      this.ST = this.TextCP.Cog.SpriteText;
+      this.BG = this.BGCP.Cog.Sprite;
+      
+      this.ClearText();
+    }
+    
+    
+    function ClearText()
+    {
+      this.ST.Text = "";
+    }
+  }
+
+Not much there yet, but I'll explain a few things up front:
+
+* I'm using a couple of CogPath properties to give me access to the text and
+  background cogs. These are probably nothing new to you, but if you need a
+  review on how they work... well, the lesson doesn't exist yet. But it's like
+  high-priority. So it will exist soon. (Cassie, can we get someone on this?)
+* I've also given myself a couple of non-property members to hold onto a
+  SpriteText and a Sprite. As you can see, in ``Initialize``, I'm setting them
+  to the SpriteText of the TextString and the Sprite of the TextBackground,
+  respectively. This is because I want easy access to those components without
+  going through their owners all the time.
+  
+  * Effectively, this is kind of like having a ``[Dependency]`` for each, except
+    that neither is actually attached to the same cog as this component ---
+    they're on its children instead.
+* Finally, I wrote a function that clears the text, and I'm calling it in
+  Initialize. This is so that we can put whatever we like in the text string in
+  the editor to see what it looks like, and be confident that it will be gone by
+  the time the project is running.
+
+Now, we're going to need a function that will add characters to our SpriteText's
+text string. Each keystroke will potentially add a single character, so I guess
+this function should take a string (the character to add):
+
+.. code-block:: as
+  
+  function AddText(char : String)
+  {
+    Console.WriteLine(char);
+  }
+
+For now, we're just going to print to the console whenever the function is
+called, rather than doing anything useful, just for testing purposes.
+
+Now, we need to call this function whenever text is typed, so we're going to
+connect to an event. You may worry that we'll have to connect to the Keyboard's
+``KeyDown`` event and write some irritating logic that decides whether the key
+that was pressed is actually a text key that we care about and not just like a
+function key or Caps Lock or something like that.
+
+Worry not! This irritating logic is already written for you --- we just need to
+connect to the ``TextTyped`` event and (most of) our troubles will disappear:
+
+.. code-block:: as
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.ST = this.TextCP.Cog.SpriteText;
+    this.BG = this.BGCP.Cog.Sprite;
+    
+    this.ClearText();
+    
+    Zero.Connect(Zero.Keyboard, Events.TextTyped, this.OnTextTyped);
+  }
+  
+  
+  function OnTextTyped(event : KeyboardTextEvent)
+  {
+    this.AddText("Text typed");
+  }
+  
+  
+  function AddText(char : String)
+  {
+    Console.WriteLine(char);
+  }
+
+As you can see, we call the ``AddText`` function from ``OnTextTyped``.
+``AddText`` takes a string, so we pass in a message to tell us that text has
+been typed.
+
+Running the project causes, rather unsurprisingly, an error in ``Initialize``,
+because I forgot to hook the cog paths up to the children.
+
+.. container:: stdfigure
+  
+  |ErrorMessage|
+  
+  How do you like my color scheme?
+
+I fixed it and updated the TextField archetype:
+
+|TextFieldCogPaths|
+
+Now when we hit a key, it will print to the console, so long as that key was
+something we care about (i.e., a letter or a number, plus the Backspace key and
+a couple others).
+
+Console Output::
+  
+  ---------------- Begin Game ---------------
+  Level 'Level' was loaded.
+  Loaded level 0.01s
+  Text typed
+  Text typed
+  Text typed
+  Text typed
+
+Getting Text In There
+~~~~~~~~~~~~~~~~~~~~~
+
+Okay, so now we're ready to start putting text into the string. Trumpets blare
+as we hie excitedly to the ``OnTextTyped`` function.
+
+The ``TextTyped`` event sends a **KeyboardTextEvent**, while our old familiar
+``KeyDown`` event uses the more traditional **KeyboardEvent**. The KeyboardEvent
+has a member called *Key*, of type ``Keys``, and the KeyboardTextEvent has a
+similar member called *Character*, of type ``Integer``. *Key* is a **key code**,
+corresponding to the key that was typed. Every key on the keyboard has a key
+code, so every key can produce a KeyDown event. *Character*, on the other hand,
+is an **ASCII code**, corresponding to a character of text. Not every key is
+mapped to text, so not every key can result in a TextTyped event. Plus, pressing
+the Shift key will not trigger TextTyped, but a key that is pressed while
+holding it may produce a different *Character* code than that key alone (as with
+capital letters, etc.).
+
+If that was a bit confusing, these whiteboard sketches might help a bit:
+
+.. container:: whiteboard-drawing
+  
+  |KEWhiteboard|
+  
+  |KTEWhiteboard|
+
+So, in order to get the actual character out of the KeyboardTextEvent to add it
+to the string, we're going to need to use a static method of the String class
+called ``FromChar``, which takes an ASCII code and produces a single-character
+string that is the corresponding character.
+
+Let's change our ``OnTextTyped`` function accordingly:
+
+.. code-block:: as
+  
+  function OnTextTyped(event : KeyboardTextEvent)
+  {
+    this.AddText(String.FromChar(event.Character));
+  }
+
+Now typing will give us something more useful:
+
+Console Output::
+  
+  ---------------- Begin Game ---------------
+  Level 'Level' was loaded.
+  Loaded level 0.00s
+  a
+  s
+   
+  d
+  f
+
+So now all we have to do is append the text we get from the KeyboardTextEvent's
+Character to the text field's string, and we'll be making some good progress.
+
+Putting What You Type Into the Field
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Making the text field show what the user is typing is as simple as taking
+whatever is already in there and sticking what was just typed on the end of it.
+Now, if you're already familiar with some programming languages, you might
+expect to be able to use the ``+`` or ``+=`` operators with strings, but you
+can't do that in Zilch (for complicated reasons). Instead, you must use one of
+two different ways of doing this.
+
+First, Zilch has this thing called a **StringBuilder**. It's a class that's
+designed to concatenate two or more strings into one. You feed it text and it
+appends it onto what it already had; when you're ready, it can give you the
+complete resultant string.
+
+I prefer the second method, which is a neat kind of trick you can do with
+*string interpolation* (remember that from the :ref:`TutorialScripting` lesson?). This
+method is a little more compact and, in my opinion, harder to screw up. Let's
+learn about it!
+
+String Interpolation, Revisited
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If ``str`` is a variable of type String, then the string ``"`str`"`` is equal to
+the value of ``str`` itself, thanks to how string interpolation works.
+
+Consider the following:
+
+.. code-block:: as
+  
+  var str : String = "Hello";
+  
+  Console.WriteLine("Hello");
+  Console.WriteLine("`str`");
+  Console.WriteLine(str);
+
+All three ``WriteLine`` calls will produce the same console output:
+
+Console Output::
+  
+  Hello
+  Hello
+  Hello
+
+Makes sense, right? Inside of the "" quotes, putting an expression between a
+pair of \`\` marks will cause that expression to be replaced in the string with
+the value of that expression itself. In this case, since the expression is a
+string, there's no difference when we send it to the ``WriteLine`` function.
+
+So now consider this:
+
+.. code-block:: as
+  :emphasize-lines: 4
+  
+  var str : String = "He";
+  
+  Console.WriteLine("Hello");
+  Console.WriteLine("`str`llo");
+  Console.WriteLine(str, "llo");
+
+This shouldn't be too surprising either:
+
+Console Output::
+  
+  Hello
+  Hello
+  He, llo
+
+That last one looks a little goofy, because of the way that the ``WriteLine``
+function works, but you can see what happened, right? In the call that used
+string interpolation, the "llo" text got stuck right on the end of the "He" text
+to produce "Hello".
+
+Let's take this one step further:
+
+.. code-block:: as
+  :emphasize-lines: 3, 6
+  
+  var str : String = "He";
+  var ing : String = "llo";
+  str = "`str``ing`";
+  
+  Console.WriteLine("Hello");
+  Console.WriteLine("`str`");
+  Console.WriteLine(str);
+
+Now here's where it gets interesting:
+
+Console Output::
+  
+  Hello
+  Hello
+  Hello
+
+We've just appended some characters to the end of our string! We can go even
+further with it, to make it more obvious:
+
+.. code-block:: as
+  :emphasize-lines: 9-13
+  
+  var str : String = "";
+  
+  var char0 : String = "H";
+  var char1 : String = "e";
+  var char2 : String = "l";
+  var char3 : String = "l";
+  var char4 : String = "o";
+  
+  str = "`str``char0`";
+  str = "`str``char1`";
+  str = "`str``char2`";
+  str = "`str``char3`";
+  str = "`str``char4`";
+  
+  Console.WriteLine("Hello");
+  Console.WriteLine("`str`");
+  Console.WriteLine(str);
+
+Console Output::
+  
+  Hello
+  Hello
+  Hello
+
+So...
+~~~~~
+
+... **it seems that a quick and easy way to add characters to a string is**
+
+.. code-block:: as
+  
+  baseString = "`baseString``charactersToAdd`";
+
+The result will be that ``baseString`` now has all the characters it started
+with, plus all the characters of ``charactersToAdd`` stuck on the end of it.
+
+With this handy trick, we can easily append characters to the end of our text
+field's string. Let's use it in our ``AddText`` function:
+
+.. code-block:: as
+  
+  function AddText(char : String)
+  {
+    this.ST.Text = "`this.ST.Text``char`";
+  }
+
+Now, as you type, characters will be added to the string in the game window.
+
+|HelloMyNameIsDoug|
+
+.. admonition:: Feature Progress
+  
+  | |BoxChecked| Typing in it
+  | |BoxEmpty|   (Maybe) Selecting it
+  | |BoxEmpty|   (Maybe) Deselecting it
+  | |BoxEmpty|   Deleting text
+  | |BoxEmpty|   Changing the mouse cursor on mouse over
+  | |BoxEmpty|   Typing caret to show where the next character will appear
+  | |BoxChecked| Box shape
+
+This is great! We're well on our way to having a functional text field! Of
+course, we can't actually correct our mistakes yet, because we still need to
+catch the case when the keystroke was the Backspace key, but we're getting
+there.
+
+Keeping the Wrong Text Out of There
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You may have noticed that the Backspace key doesn't work properly, but it also
+doesn't do exactly *nothing* --- it appears to add a space to our string. In
+reality, the Backspace key produces an ASCII code, just like a letter or number.
+If you add
+
+.. code-block:: as
+  
+  Console.WriteLine(String.FromChar(event.Character));
+
+to the ``OnTextTyped`` function, you'll see the character that Backspace "types"
+appearing in the console. In fact, there are a number of keys and key
+combinations that will add unwanted characters to our string. (Try ``Ctrl`` +
+various keys if you're curious, but remember, the editor's still running, so
+don't be surprised if you do something you weren't expecting.) What we need is a
+way to keep out the stuff we don't want while retaining the stuff we do want.
+
+.. admonition:: Feature Progress
+  
+  | |BoxChecked| Typing in it
+  | |BoxEmpty|   **Keeping unwanted characters out of it** *(New!)*
+  | |BoxEmpty|   (Maybe) Selecting it
+  | |BoxEmpty|   (Maybe) Deselecting it
+  | |BoxEmpty|   Deleting text
+  | |BoxEmpty|   Changing the mouse cursor on mouse over
+  | |BoxEmpty|   Typing caret to show where the next character will appear
+  | |BoxChecked| Box shape
+
+To that end, let's add another function to our component.
+
+.. code-block:: as
+  
+  function IsRenderable(code : Integer) : Boolean
+  {
+    return false;
+  }
+
+The ``IsRenderable`` function takes a character code and returns a Boolean.
+Right now it's just always returning ``false``, but that's just so that it will
+compile properly. It should return true if the character is something we might
+want to type into a text field, and false otherwise. To make that happen, we'll
+need to know a little bit about ASCII codes.
+
+Every character that gets added to your field's string has an ASCII code. It is
+this code that tells the computer what each letter is. The string ``Hello,
+World!``, for instance, looks like this to the computer:
+
+.. container:: codetable
+  
+  +----+----+----+----+----+----+----+----+----+----+----+----+----+
+  |H   |e   |l   |l   |o   |,   |    |W   |o   |r   |l   |d   |!   |
+  +====+====+====+====+====+====+====+====+====+====+====+====+====+
+  |0x48|0x65|0x6C|0x6C|0x6F|0x2C|0x20|0x57|0x6F|0x72|0x6C|0x64|0x21|
+  +----+----+----+----+----+----+----+----+----+----+----+----+----+
+
+.. sidebar:: The ASCII
+  
+  Goodness, look at me, prattling on about ASCII codes, and here I haven't even
+  said one word about what the ASCII is! The **A**\ merican **S**\ tandard
+  **C**\ ode for **I**\ nformation **I**\ nterchange is a character-encoding
+  scheme. It provides a one-to-one mapping of the letters, numbers, and
+  punctuation used in the English language, as well as a collection of so-called
+  **control codes**, that are not intended to represent graphical characters.
+  
+  Following ASCII, alternate encoding schemes arose that could accommodate other
+  writing systems, including the accented alphabets you see in many European
+  languages, as well as the vast logographic character sets of East Asia. Some
+  of these schemes are based closely on the ASCII, and while these writing
+  systems are not actually supported by the ASCII format, it is not uncommon to
+  see their character codes referred to as *ASCII codes* nonetheless.
+  
+  Admittedly, I'm being a bit lazy here --- I should probably just be safe and
+  call them **character codes**, but then I'd have to go back and rewrite a
+  bunch of this post, and it's probably gonna mess with my line widths.
+
+Those are the codes for each character in the string on the bottom there, in
+hexadecimal. When the computer encounters character code ``48`` in a string, it
+renders it as a capital **H**. When it sees a ``6C``, you get a lowercase **l**,
+and so on. In Zilch, you can get the code for any character in a string by
+indexing into the string --- try ``Console.WriteLine("a"[0])`` and see what I
+mean.
+
+The way that the ASCII codes are organized, all the non-renderable control
+characters come before all the stuff we care about, and all the stuff that
+English doesn't use comes afterward. Thus, it's just a simple matter of checking
+the code to see whether it's in the renderable range before adding it to the
+string. Now, if you're like me, you want to be able to use that non-English
+stuff, but the engine doesn't support it yet, so for now, we'll filter it out
+with the control characters.
+
+So, we have to know that the first renderable character is the humble **space**,
+also known as ``" "``, occuring at character position ``32``, and the last
+character in the renderable range is the *swung dash*, or **tilde**, also known
+as ``"~"``, which occupies spot number ``126``. Knowing this, we can modify our
+``IsRenderable`` function to filter out unwanted characters.
+
+Now, there's two ways to do this. You can either go like
+
+.. code-block:: as
+  
+  function IsRenderable(code : Integer) : Boolean
+  {
+    // magic numbers are bad
+    return code >= 32 && code <= 126;
+  }
+
+like a loser, or you can say
+
+.. code-block:: as
+  
+  function IsRenderable(code : Integer) : Boolean
+  {
+    // no magic numbers! huzzah
+    return code >= " "[0] && code <= "~"[0];
+    // ...I mean, 0 doesn't count as a magic number
+  }
+
+like one of the cool kids. It's up to you; I don't know whether you're a loser
+or a cool kid. Anyway, with this new functionality in place, we can make further
+changes to the structure of our component. First of all, I want to change what
+happens when text is typed. Right now, we're just directly adding it to the
+string, but what should occur is that when text is typed, we should *process the
+incoming character code*, to make sure it's something we care about. Thus, I
+propose the following function:
+
+.. code-block:: as
+  
+  function ProcessCode(code : Integer)
+  {
+    if(this.IsRenderable(code))
+    {
+      this.AddText(String.FromChar(code));
+    }
+  }
+
+Then, we'll just call the ``ProcessCode`` function from the ``OnTextTyped``
+function:
+
+.. code-block:: as
+  
+  function OnTextTyped(event : KeyboardTextEvent)
+  {
+    this.ProcessCode(event.Character);
+  }
+
+With these modifications, we still can't backspace, but at least we're keeping
+stuff out of our string that we don't want.
+
+.. admonition:: Feature Progress
+  
+  | |BoxChecked| Typing in it
+  | |BoxChecked| Keeping unwanted characters out of it
+  | |BoxEmpty|   (Maybe) Selecting it
+  | |BoxEmpty|   (Maybe) Deselecting it
+  | |BoxEmpty|   Deleting text
+  | |BoxEmpty|   Changing the mouse cursor on mouse over
+  | |BoxEmpty|   Typing caret to show where the next character will appear
+  | |BoxChecked| Box shape
+
+Now we can move on to getting text out of there.
+
+Getting Text Out of There
+-------------------------
+
+So far, we've just been using the ``TextTyped`` event for this component, but
+we're going to have to do more than that to get all the functionality we want.
+For this, we turn to the ol' ``KeyDown`` event --- perfect for such occasions
+--- and its lesser-known cousin, ``KeyRepeated``. Here's my ``Initialize``
+function:
+
+.. code-block:: as
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.ST = this.TextCP.Cog.SpriteText;
+    this.BG = this.BGCP.Cog.Sprite;
+    
+    this.ClearText();
+    
+    Zero.Connect(Zero.Keyboard, Events.TextTyped, this.OnTextTyped);
+    Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    Zero.Connect(Zero.Keyboard, Events.KeyRepeated, this.OnKeyDown);
+  }
+
+Note that both ``KeyDown`` and ``KeyRepeated`` are using the same callback
+function: they both do the same thing for our purposes, so this works just fine.
+Here's the ``OnKeyDown`` function:
+
+.. code-block:: as
+  
+  function OnKeyDown(event : KeyboardEvent)
+  {
+    this.ProcessKey(event.Key);
+  }
+
+It calls a ``ProcessKey`` function, paralleling nicely the ``ProcessCode``
+function called by ``OnTextTyped``. Here's that function:
+
+.. code-block:: as
+  
+  function ProcessKey(key : Keys)
+  {
+    
+  }
+
+Now we can look at the key code and decide what to do depending on which key it
+was. If it's the Backspace key, then we can call our cool new ``Backspace``
+function:
+
+.. code-block:: as
+  
+  function Backspace()
+  {
+    
+  }
+
+Ultimately, this will remove text from the end of the string. Before we write
+that logic, though, let's hook it up in ``ProcessKey``.
+
+.. code-block:: as
+  
+  function ProcessKey(key : Keys)
+  {
+    if(key == Keys.Back)
+    {
+      this.Backspace();
+    }
+  }
+
+*Please don't ask why the Backspace key is called* ``Back`` *in the Keys enum
+because I do not know the answer.*
+
+Pretty straightforward, right?
+
+Okay, so now let's get the ``Backspace`` function to actually do something. In
+order to remove a character from the end of the string, we need to **replace the
+string with itself, minus the last character**. We can do that by taking a
+**substring** of the full thing. The String class has a method called
+``SubString`` --- given a string ``str``, the ``SubString`` method will return a
+specified range of characters from the interior of ``str``. Its syntax is as
+follows:
+
+.. code-block:: as
+  
+  String.SubString(start : Integer, length : Integer) : String
+
+...where ``start`` is the index of the character from which to start the
+substring, and ``length`` is the length of the desired substring. Since we want
+the whole string minus the very end, our ``start`` will be ``0``, the index of
+the first character in the string, and our ``length`` will be one shy of the
+length of the entire string.
+
+.. code-block:: as
+  
+  function Backspace()
+  {
+    this.ST.Text = this.ST.Text.SubString(0, this.ST.Text.Count - 1);
+  }
+
+This works fine, as you can see if you run it, though it does give us some grief
+if we try to backspace when there's nothing to delete. All we have to do to get
+around that is check whether the string has any characters in it to begin with
+before we delete anything:
+
+.. code-block:: as
+  
+  function Backspace()
+  {
+    if(this.ST.Text.Count > 0)
+    {
+      this.ST.Text = this.ST.Text.SubString(0, this.ST.Text.Count - 1);
+    }
+  }
+
+That's nice, but I'm using ``this.ST.Text.Count`` a bit excessively, so let's
+store it in a local variable.
+
+.. code-block:: as
+  
+  function Backspace()
+  {
+    var length = this.ST.Text.Count;
+    
+    if(length > 0)
+    {
+      this.ST.Text = this.ST.Text.SubString(0, length - 1);
+    }
+  }
+
+Now we're talking. Go ahead and run the project, and you'll see that it works
+just about perfectly.
+
+|ConstantSorrow|
+
+.. admonition:: Feature Progress
+  
+  | |BoxChecked| Typing in it
+  | |BoxChecked| Keeping unwanted characters out of it
+  | |BoxEmpty|   (Maybe) Selecting it
+  | |BoxEmpty|   (Maybe) Deselecting it
+  | |BoxChecked| Deleting text
+  | |BoxEmpty|   Changing the mouse cursor on mouse over
+  | |BoxEmpty|   Typing caret to show where the next character will appear
+  | |BoxChecked| Box shape
+
+Let's make that ``ClearText`` function we have lying around useful by expanding
+the ``ProcessKey`` function a bit. I say we make it so that the Backspace key
+will call it if you press it while holding Control and Shift. Does that sound
+alright?
+
+.. admonition:: Feature Progress
+  
+  | |BoxChecked| Typing in it
+  | |BoxChecked| Keeping unwanted characters out of it
+  | |BoxEmpty|   (Maybe) Selecting it
+  | |BoxEmpty|   (Maybe) Deselecting it
+  | |BoxChecked| Deleting text
+  | |BoxEmpty|   **Clearing the whole line at once** *(New!)*
+  | |BoxEmpty|   Changing the mouse cursor on mouse over
+  | |BoxEmpty|   Typing caret to show where the next character will appear
+  | |BoxChecked| Box shape
+
+.. code-block:: as
+  
+  function ProcessKey(key : Keys)
+  {
+    if(key == Keys.Back)
+    {
+      if(Zero.Keyboard.KeyIsDown(Keys.Control) &&
+         Zero.Keyboard.KeyIsDown(Keys.Shift))
+      {
+        this.ClearText();
+      }
+      else
+      {
+        this.Backspace();
+      }
+    }
+  }
+
+Does that look reasonable? When you press Backspace, you delete a character from
+the end of the string, unless you're also holding Control and Shift, in which
+case you clear the whole thing. Cool.
+
+.. admonition:: Feature Progress
+  
+  | |BoxChecked| Typing in it
+  | |BoxChecked| Keeping unwanted characters out of it
+  | |BoxEmpty|   (Maybe) Selecting it
+  | |BoxEmpty|   (Maybe) Deselecting it
+  | |BoxChecked| Deleting text
+  | |BoxChecked| Clearing the whole line at once
+  | |BoxEmpty|   Changing the mouse cursor on mouse over
+  | |BoxEmpty|   Typing caret to show where the next character will appear
+  | |BoxChecked| Box shape
+
+This is going great! Let's keep adding more and more! That's what my heart is
+telling me, but my brain is saying, no, this blog entry is too long already; we
+can do a Part II later. For now, let's add in just one more thing and then we
+can wrap it up and go home, okay? It's getting late and they only give me so
+many hours per week.
+
+Just One More Thing
+-------------------
+
+This wouldn't be a Doug Zwick ZE project without a **custom event** of some
+kind! See, the utility of a text field is held back a bit when the text just
+sits there. It would be better if we could somehow tell the world, "hey, world,
+I just submitted some text!", and maybe somebody cares about that? That's what I
+think.
+
+.. admonition:: Feature Progress
+  
+  | |BoxChecked| Typing in it
+  | |BoxChecked| Keeping unwanted characters out of it
+  | |BoxEmpty|   **Submitting the text** *(New!)*
+  | |BoxEmpty|   (Maybe) Selecting it
+  | |BoxEmpty|   (Maybe) Deselecting it
+  | |BoxChecked| Deleting text
+  | |BoxChecked| Clearing the whole line at once
+  | |BoxEmpty|   Changing the mouse cursor on mouse over
+  | |BoxEmpty|   Typing caret to show where the next character will appear
+  | |BoxChecked| Box shape
+
+Submitting
+~~~~~~~~~~
+
+.. sidebar:: Naming Custom Events
+  
+  So I'm calling this new event **TextSubmitted**, right? And I'm making its
+  custom event class and calling it **TextFieldEvent**. Why not call it
+  **TextSubmittedEvent**? Well, consider the old beloved **CollisionEvent**: it
+  is sent out with ``CollisionStarted``, ``CollisionPersisted``, and
+  ``CollisionEnded``. Three different events all use the same class. In my case,
+  it doesn't seem too farfetched that this component might end up sending out
+  more than just one event, and rather than making a new custom class for each
+  one, I'll make a single class, and any future events that I hypothetically
+  decide to create can use it too.
+
+This romantic notion led me to add the ``TextSubmitted`` event, and its
+associated ``TextFieldEvent`` class, to my project. As with any custom event
+class, you can feel free to add it to any script in your project, but it
+generally makes the most sense to add it to the file that defines the component
+that primarily dispatches it.
+
+.. code-block:: as
+  
+  class TextFieldEvent : ZilchEvent
+  {
+    var Field : TextInput;
+    var Text : String;
+  }
+
+And, of course, we'll add it to the Events object by adding this sweet little
+line of code to our TextInput script:
+
+.. code-block:: as
+  :emphasize-lines: 3
+  
+  class TextInput : ZilchComponent
+  {
+    sends TextSubmitted : TextFieldEvent;
+    
+    .
+    .
+    .
+
+This, of course, makes it so that when you type ``Events`` and then a period,
+you'll see ``TextSubmitted`` among the events listed in the code completion
+pane.
+
+Okay, this is going to be fairly straightforward: the event object will store
+the TextInput component of the text field cog, and the text in its string at the
+moment of dispatching. Now let's write a function that will send it out.
+
+.. code-block:: as
+  
+  function Submit()
+  {
+    var teEvent = TextFieldEvent();
+    teEvent.Field = this;
+    teEvent.Text = this.ST.Text;
+    
+    this.Space.DispatchEvent(Events.TextSubmitted, teEvent);
+  }
+
+This is the part where we have to decide how we want to proceed. See, the way
+I've written this function, when we submit text, the whole world knows about it,
+and anyone who's listening to ``TextSubmitted`` on the Space will get all such
+events from every text field in that Space. This may be a bit more than what we
+actually want. It would be better if the text had a specific place to go: a
+**receiver**, if you will. (We can still dispatch to the Space too, just in case
+we want to make something that will receive all ``TextSubmitted`` events, like
+an output log or something.)
+
+So let's add CogPath to our component:
+
+.. code-block:: as
+  
+  [Property]
+  var Receiver : CogPath;
+
+And now we'll modify our ``Submit`` function to send directly to the receiver,
+if it exists:
+
+.. code-block:: as
+  :emphasize-lines: 7-10
+  
+  function Submit()
+  {
+    var teEvent = TextFieldEvent();
+    teEvent.Field = this;
+    teEvent.Text = this.ST.Text;
+    
+    if(this.Receiver.Cog != null)
+    {
+      this.Receiver.Cog.DispatchEvent(Events.TextSubmitted, teEvent);
+    }
+    
+    this.Space.DispatchEvent(Events.TextSubmitted, teEvent);
+  }
+
+Lookin' good, ``Submit`` function. Now we'll just make something call it.
+``ProcessKey``, you're up.
+
+.. code-block:: as
+  :emphasize-lines: 15-18
+  
+  function ProcessKey(key : Keys)
+  {
+    if(key == Keys.Back)
+    {
+      if(Zero.Keyboard.KeyIsDown(Keys.Control) &&
+         Zero.Keyboard.KeyIsDown(Keys.Shift))
+      {
+        this.ClearText();
+      }
+      else
+      {
+        this.Backspace();
+      }
+    }
+    else if(key == Keys.Enter)
+    {
+      this.Submit();
+    }
+  }
+
+Okay. At this point, we can type text and submit it, but nothing's receiving it,
+so we can't tell. Let's throw in a simple receiver of some kind, just to show
+our friends that we know what we're doing. Then we can knock off and head to the
+Raven. Sound good? Let's do it.
+
+Receiving
+~~~~~~~~~
+
+Here's a new component for us: the **TextEcho** component. It just receives text
+from the ``TextSubmitted`` event and sets its SpriteText component to display
+it.
+
+.. code-block:: as
+  
+  class TextEcho : ZilchComponent
+  {
+    [Dependency]
+    var ST : SpriteText;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+      Zero.Connect(this.Owner, Events.TextSubmitted, this.OnTextSubmitted);
+    }
+    
+    
+    function OnTextSubmitted(event : TextFieldEvent)
+    {
+      this.ShowText(event.Text);
+    }
+    
+    
+    function ShowText(text : String)
+    {
+      this.ST.Text = text;
+    }
+  }
+
+Simple as can be. I've made a sprite text cog and called it ``EchoReceiver``,
+and thrown the TextEcho component on it. Then I hooked the **Receiver** CogPath
+of the TextInput component of our text field up to it, and we're ready to roll.
+
+|GoodEnoughForVideoGames|
+
+.. admonition:: Feature Progress
+  
+  | |BoxChecked| Typing in it
+  | |BoxChecked| Keeping unwanted characters out of it
+  | |BoxChecked| Submitting the text
+  | |BoxEmpty|   (Maybe) Selecting it
+  | |BoxEmpty|   (Maybe) Deselecting it
+  | |BoxChecked| Deleting text
+  | |BoxChecked| Clearing the whole line at once
+  | |BoxEmpty|   Changing the mouse cursor on mouse over
+  | |BoxEmpty|   Typing caret to show where the next character will appear
+  | |BoxChecked| Box shape
+
+Okay, we'll call it quits for now. We can tackle more of this list next time.
+Thanks for reading, etc.
+
+..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..
+
+.. |MaturityOptional|        image:: images/TextEntry/MaturityOptional.gif
+    :width: 208px
+.. |SublimeCommand|          image:: images/TextEntry/SublimeCommand.gif
+    :width: 2.39in
+.. |ChromeURLBar|            image:: images/TextEntry/ChromeURLBar.gif
+    :width: 2.39in
+.. |FileSaveDialog|          image:: images/TextEntry/FileSaveDialog.gif
+    :width: 2.39in
+.. |Sprite|                  image:: images/TextEntry/Sprite.png
+.. |TextFieldWhite|          image:: images/TextEntry/TextFieldWhite.png
+.. |TextWithLoremIpsum|      image:: images/TextEntry/TextWithLoremIpsum.png
+    :width: 4in
+.. |TreeWhiteboard|          image:: images/TextEntry/TreeWhiteboard.jpg
+    :width: 8in
+.. |Tree|                    image:: images/TextEntry/Tree.png
+.. |ErrorMessage|            image:: images/TextEntry/ErrorMessage.png
+.. |TextFieldCogPaths|       image:: images/TextEntry/TextFieldCogPaths.png
+.. |KEWhiteboard|            image:: images/TextEntry/KEWhiteboard.jpg
+    :width: 8in
+.. |KTEWhiteboard|           image:: images/TextEntry/KTEWhiteboard.jpg
+    :width: 8in
+.. |HelloMyNameIsDoug|       image:: images/TextEntry/HelloMyNameIsDoug.png
+.. |ConstantSorrow|          image:: images/TextEntry/ConstantSorrow.gif
+.. |GoodEnoughForVideoGames| image:: images/TextEntry/GoodEnoughForVideoGames.gif
+.. |AddDialog|               image:: images/TextEntry/AddDialog.png
+.. |AddDialogNameField|      image:: images/TextEntry/AddDialogNameField.png
+.. |BeamCursor|              image:: images/TextEntry/BeamCursor.png
+
+.. |BoxEmpty| raw:: html
+    
+    &#x2610;
+
+.. |BoxChecked| raw:: html
+    
+    &#x2611;

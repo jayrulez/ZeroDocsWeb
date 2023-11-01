@@ -1,0 +1,289 @@
+.. _CollisionEvents2014:
+
+.. rst-class:: SearchTitle
+
+Collision Events
+================
+
+.. rst-class:: SearchDescription
+
+This lesson covers basic collision, collision events, checking for collision with specific objects.
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2014`
+
+Level Setup
+-----------
+
+**Ball Object**
+
+*   :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In the Properties Window
+
+    *   Set Name to: Ball
+    *   :ref:`Add a RigidBody component <AddComponent2014>`
+    *   :ref:`Add a SphereCollider component <AddComponent2014>`
+    *   Under Transform
+
+        *   Set Translation to: [-5, 0, 0]
+    *   Under Sprite
+
+        *   Set SpriteSource to: Circle
+    *   Under RigidBody
+
+        *   Set DynamicState to: Kinematic
+    *   Under SphereCollider
+
+        *   Set Radius to: 0.5
+
+**Block Object**
+
+*   :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In the Properties Window
+
+    *   Set Name to: Block
+    *   :ref:`Add a RigidBody component <AddComponent2014>`
+    *   :ref:`Add a BoxCollider component <AddComponent2014>`
+    *   Under Transform
+
+        *   Set Translation to: [3, 0, 0]
+        *   Set Scale to: [2, 2, 2]
+    *   Under Sprite
+
+        *   Set Color to: [R: 255, G: 255, B: 255, A: 0.10] `to make it transparent`
+    *   Under RigidBody
+
+        *   Set DynamicState to: Kinematic
+
+
+**BigBlock Object**
+
+*   Create a Copy of the Block object we just created
+*   In the Properties Window
+*   Set Name to: BigBlock
+
+    *   Under Transform
+
+        *   Set Translation to: [8, 0, 0]
+        *   Set Scale to: [3, 3, 3]
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+Here what our level should look like:
+
+|10000000000002F5000000AD47EDFEE5_png|
+
+Simple Movement
+---------------
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   :ref:`Add a new ZilchScript resource<ResourceAdding2014>` named: 'Movement' 
+*   :ref:`Save the project <SavingProject2014>` 
+*   :ref:`Add the Movement script component <AddComponent2014>` that we just created to the Ball object:
+
+    |100000000000011F000000C05A1B7E2C_png|
+
+|pbr|
+    
+*   Open the **Movement** script and update it with the following code:
+
+.. code-block:: as
+    
+    class Movement : ZilchComponent
+    {
+        function Initialize(init : CogInitializer)
+        {
+            // Connect to the LogicUpdate event:
+            Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        }
+
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+            // Get current position:
+            var position = this.Owner.Transform.Translation;
+            // Move to the right:
+            position.X += event.Dt * 10.0;
+
+            // If past a certain point,
+            if (position.X >= 12.0)
+            {
+                // reset the position.
+                position.X = -5.0;
+            }
+
+            // Update Translation with changes:
+            this.Owner.Transform.Translation = position;
+        }
+    }
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+The Ball object should be moving to the right and passing through the Block and BigBlock objects. Our next step is to detect when the Ball collides with another object. When this happens, a **collision event** is dispatched.
+
+Collision Events
+----------------
+
+We discussed how LogicUpdate event is a type of UpdateEvent. **CollisionEvent** is another type of event. Three events fall under the CollisionEvent category: CollisionStarted, CollisionEnded, and CollisionPersisted. 
+
+1. **CollisionPersisted** is when the object was and still is colliding. 
+2. **CollisionEnded** is when the object was but is no longer colliding. 
+3. **CollisionStarted** is when the object is colliding but was not colliding previously.
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   :ref:`Add a new ZilchScript resource<ResourceAdding2014>` named: 'CollisionLogic' 
+*   :ref:`Select the Ball object <SelectObject2014>`
+
+|pbr|
+
+*   Add the CollisionLogic script that we just created to the Ball object
+
+    |10000000000001160000003D5B43D7B9_png|
+
+*   Update **CollisionLogic** script with the following code:
+
+.. code-block:: as
+    
+    function Initialize(init : CogInitializer)
+    {
+        // Connect to CollisionStarted event
+        //           when I      get a CollisionStarted event call my OnCollisionStarted function
+        Zero.Connect(this.Owner, Events.CollisionStarted,     this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        // Change model color to Orange.
+          // Color orange is    [R:1, G: 0.5, B:0, A:1.0].
+        var orange = local Real4(1.0,    0.5, 0.0,   1.0);
+          // Apply color to the Sprite:
+        this.Owner.Sprite.Color = orange;
+        
+    }
+
+In this code, we connect to the CollisionStarted event and provide our OnCollisionStarted function as the callback function. Notice that we are connecting to the **Owner** object and `not the Space` like we do for LogicUpdate events. This is because the Owner object is dispatching the CollisionEvent. In our OnCollisionStarted function, we change the model color to visually show that we have collided.
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+The color of the Ball object changes to orange when we collide. Next, we will change the color back to white when we are no longer colliding by using the CollisionEnded event.
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   In the **CollisionLogic** script
+
+    *   Update the **Initialize** function by appending the following:
+    
+.. code-block:: as
+         
+        // Connect to CollisionEnded  event
+        //           when I      get a CollisionEnded event call my OnCollisionEnded function
+        Zero.Connect(this.Owner, Events.CollisionEnded,     this.OnCollisionEnded);
+        
+|pbr|
+
+    *   Add the following function to the **CollisionLogic** class:
+
+.. code-block:: as
+    
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        // Change model color to back to white.
+          // White is          [R:1,  G:1, B:1, A:1].
+        var white = local Real4(1.0,  1.0, 1.0, 1.0);
+          // Apply color to the Sprite:
+        this.Owner.Sprite.Color = white;
+        
+    }    
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+The color of the Ball object now changes back to white when we stop colliding, but we won't stop there. What if we wanted to check for collision with a specific object?
+
+Checking for Collision with Specific Objects
+--------------------------------------------
+
+Now we will go over colliding with specific objects by getting information about the object we collided with from the **CollisionEvent** . Similar to how an UpdateEvent has Dt and CurrentTime as accessible data members, every CollisionEvent provides a way of getting the other object that we either were colliding with, are still colliding with, or just started colliding with.
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   In the **CollisionLogic** script
+
+    *   Update the **OnCollisionStarted function** with the following code:
+
+.. code-block:: as
+  :emphasize-lines: 1,2,4-6,12
+    
+    // Get the object we collided with:
+    var otherObject = event.OtherObject;
+    
+    // If we collided with the block,
+    if (otherObject.Name == "Block")
+    {
+        // change model color to Orange.
+          // Orange is          [R:1, G: 0.5, B:0, A:1].
+        var orange = local Real4(1.0,    0.5, 0.0, 1.0);
+          // Apply color to the Sprite:
+        this.Owner.Sprite.Color = orange;
+    }
+
+Notice we use the **CollisionEvent.** **OtherObject** property of the CollisionEvent in order to get the other object from the CollisionEvent.
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+The color of the Ball object **only** changes to orange whenever we collide with the Block object. Now we know how to use specific information about the other colliding object in order to react differently when colliding with different objects.
+
+|pbr|
+
+On Your Own
+-----------
+
+**Disabling Collision Events at Run-Time**
+
+Disabling collision events at run-time is pretty simple. Collider components have a boolean value called **SendsEvents.** If we set SendsEvents to False, the object will not dispatch collision events. Even if we connect to the event, we still can't get an event that was never sent.
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   In the **CollisionLogic** script
+
+    *   Update the **Initialize** function by appending the following code:
+
+.. code-block:: as
+
+    // Connect to the LogicUpdate event fired by the space:
+    //           when the space  gets a LogicUpdate event   call my OnLogicUpdate function
+    Zero.Connect(this.Space,     Events.LogicUpdate,        this.OnLogicUpdate);
+
+*   In the **CollisionLogic** script
+
+    *   Add the following function:
+
+.. code-block:: as
+    
+    function OnLogicUpdate(event: UpdateEvent)
+    {
+        // If we are holding down space,
+        if (Zero.Keyboard.KeyIsDown(Keys.Space))
+        {
+            // do NOT send the event.
+            this.Owner.Collider.SendsEvents = false;
+        }
+        else // Otherwise, if we aren't holding down space,
+        {
+            // make sure we dispatch collision events.
+            this.Owner.Collider.SendsEvents = true;
+        }
+    }
+        
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+If you hold down Space, you'll see that the Ball object no longer changes color because collision events are no longer being sent.
+
+.. |10000000000002F5000000AD47EDFEE5_png| image:: images/CollisionEvents/10000000000002F5000000AD47EDFEE5.png
+
+.. |10000000000001160000003D5B43D7B9_png| image:: images/CollisionEvents/10000000000001160000003D5B43D7B9.png
+
+.. |100000000000021D0000005B84EB0E0D_png| image:: images/CollisionEvents/100000000000021D0000005B84EB0E0D.png
+
+.. |100000000000011F000000C05A1B7E2C_png| image:: images/CollisionEvents/100000000000011F000000C05A1B7E2C.png
+
+.. |AddZilchScript|                       image:: images/CollisionEvents/AddZilchScript.png
+
+.. include:: BookFormattingShortcuts.rst

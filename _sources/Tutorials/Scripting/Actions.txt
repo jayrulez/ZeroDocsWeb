@@ -1,0 +1,485 @@
+.. _TutorialActions:
+
+.. rst-class:: SearchTitle
+
+Actions
+=======
+
+.. rst-class:: SearchDescription
+
+This lesson covers the basics of using **Actions**.
+
+Create a New Project
+--------------------
+
+:ref:`ManualCreateNewProject`
+
+Actions are a handy way to animate properties with just a few lines of code.
+This means that you can make an object's properties change over time with very
+little hassle.
+
+Let's say you want to make a rectangle triple its height over the course of one
+second.
+
+|BasicDemonstration|
+
+Normally, to do this would require at least one extra boolean member variable,
+a crowded update function, and probably a minor headache.
+
+Now let's say, at the same time, you also want it to move five units to the
+right, but then you want it to move two units upward when that movement is done.
+On top of all that, you want it to change its color from white to red *and*
+rotate ninety degrees counterclockwise, but these two changes should start half
+a second into the initial movement, and they should take two seconds to
+complete.
+
+|ComplexDemonstration|
+
+At this point, the programmers are rolling their eyes and the designers are
+crying. But with actions, you can do all this and more, all without breaking a
+sweat. Let's learn how!
+
+Setting Up
+----------
+
+First, create the sprite we're going to manipulate.
+
+* :ref:`Command<ManualCommands>` : ``CreateSprite`` or
+  :menuselection:`Create --> Create Sprite`
+* In the Properties Window
+  
+  * Set Name to: ``ActionDemonstrator``
+  * :ref:`Add an Area component <ManualAddRemoveComponents>`
+
+Now we need to make a new Zilch component to control our actions.
+
+
+
+Creating the Component
+~~~~~~~~~~~~~~~~~~~~~~
+
+* :ref:`Add a new ZilchScript resource<ManualResourceAdding>` named:
+  ``ActionController``
+* Update your new script to look like this:
+
+.. code-block:: csharp
+  
+  class ActionController : ZilchComponent
+  {
+      [Dependency]
+      var Area : Area;
+      
+      
+      function Initialize(init : CogInitializer)
+      {
+          Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+      }
+      
+      
+      function OnKeyDown(event : KeyboardEvent)
+      {
+          if(event.Key == Keys.Space)
+          {
+              this.BeginDemonstration();
+          }
+      }
+      
+      
+      function BeginDemonstration()
+      {
+          
+      }
+  }
+
+* :ref:`Select the ActionDemonstrator object <ManualSelectObject>`
+* In the Properties Window
+  
+  * :ref:`Add an ActionController component <ManualAddRemoveComponents>`
+* :ref:`Save the project <ManualSavingProject>`
+
+Now we're ready to start making the magic happen.
+
+
+
+Making the Magic Happen
+-----------------------
+
+Actions work by changing a specified **property** to a specified **value** over
+a specified **duration**, with a specified **easing function**.
+
+* In the ActionController script
+  
+  * Update the ``BeginDemonstration`` function with the following code:
+
+.. code-block:: csharp
+  
+  function BeginDemonstration()
+  {
+      var specifiedProperty  =  @this.Area.Size;
+      var specifiedValue     =  Real2(1.0, 3.0);
+      var specifiedDuration  =  1.0;
+      var specifiedEase      =  Ease.QuadInOut;
+      
+      Action.Property(this.Owner.Actions,
+                      specifiedProperty,
+                      specifiedValue,
+                      specifiedDuration,
+                      specifiedEase);
+  }
+
+Let's break this down. You create an action by calling one of various functions
+on the **Action** object. In this case, we're using an action to modify a value,
+so we're calling the ``Action.Property`` function. (There are other kinds of
+actions as well, but we'll get to those later.)
+
+.. sidebar:: Properties and the @ Sign
+  
+  What does the following expression mean to the Zero Engine?
+    
+    ``this.Area.Size``
+
+  If you answered "the Size property of the cog's Area component," you're only
+  mostly correct. In truth, since this expression evaluates to whatever the
+  *current value of the Area property* is, it's actually a **Real2**. Thus, the
+  correct answer would be, "a Real2 that is equal to the Size of the cog's Area
+  component."
+  
+  This distinction is important because the second argument of the
+  ``Action.Property`` function can never be a Real2, even when you want to
+  modify a Real2 property. Instead, it's looking for a **property delegate** ---
+  you need to specify which property to modify. Putting the ``@`` sign in front
+  of the property's name tells the function to use *that property*, not its
+  current value.
+
+
+  
+This function takes five parameters:
+
+* First, you need to specify what action set "owns" the action. Here, we specify
+  the ActionDemonstrator's action set.
+* Next, we say which property we're going to modify. In this case, we're
+  changing the size of the sprite through its Area component.
+  
+  * Make sure that when you specify the property to modify, you use the **at
+    sign** (``@``) --- otherwise, the code will not compile.
+* Then we say the value that we want that property to end up with. We're
+  tripling the height of the ActionDemonstrator sprite, so we pass in
+  ``Real2(1.0, 3.0)`` to effectively set the Area component's Size property to
+  ``[1, 3]``.
+* Next, we say how long it should take. This is a duration in seconds, so we say
+  ``1.0``.
+* Finally, we tell the action what easing function it should use. Easing
+  functions provide a way for the action to **change the rate at which the
+  the property reaches its end value** over the course of the action. The
+  ``QuadInOut`` ease is nice looking, so we'll go with that.
+
+* :ref:`Save the project <ManualSavingProject>`
+* :ref:`Run the project <ManualRunTheGame>` and press the ``Space Bar``.
+
+|BasicDemonstrationB1| |BasicDemonstrationB2| |BasicDemonstrationB3|
+
+The sprite changes its size as specified.
+
+Now let's make this a bit more complex.
+
+
+
+Action Sequences
+----------------
+
+An **action sequence** is a chain of actions. Each action in a sequence waits to
+begin until all the other actions before it are completed.
+
+* In the ActionController script
+  
+  * Update the ``BeginDemonstration`` function with the following code:
+
+.. code-block:: csharp
+  
+  function BeginDemonstration()
+  {
+      var moveSeq = Action.Sequence(this.Owner.Actions);
+      
+      Action.Property(moveSeq, @this.Owner.Transform.Translation,
+                      Real3(5.0, 0.0, 0.0), 1.0, Ease.QuadInOut);
+      Action.Property(moveSeq, @this.Owner.Transform.Translation,
+                      Real3(5.0, 2.0, 0.0), 1.0, Ease.QuadInOut);
+  }
+
+* :ref:`Save the project <ManualSavingProject>`
+* :ref:`Run the project <ManualRunTheGame>` and press the ``Space Bar``.
+
+|Sequences1| |Sequences2| |Sequences3|
+
+Notice how the sprite waits until it's finished moving to the side before it
+begins moving upward. This is because we've put its two movement actions into an
+action sequence.
+
+
+
+Action Groups
+-------------
+
+An **action group** is a collection of actions that do not wait for each other
+the way that actions in a sequence do.
+
+* In the ActionController script
+  
+  * Update the ``BeginDemonstration`` function with the following code:
+
+.. code-block:: csharp
+  
+  function BeginDemonstration()
+  {
+      var colorGrp = Action.Group(this.Owner.Actions);
+      
+      Action.Property(colorGrp, @this.Owner.Sprite.Color,
+                      Real4(1.0, 0.0, 0.0, 1.0),
+                      2.0, Ease.QuadInOut);
+      Action.Property(colorGrp, @this.Owner.Transform.EulerAngles,
+                      Real3(0.0, 0.0, Math.ToRadians(90.0)),
+                      2.0, Ease.QuadInOut);
+  }
+
+* :ref:`Save the project <ManualSavingProject>`
+* :ref:`Run the project <ManualRunTheGame>` and press the ``Space Bar``.
+
+.. sidebar:: this.Owner.Actions
+  
+  As it happens, ``this.Owner.Actions`` is an **action group**, the same kind as
+  can be created with the ``Action.Group`` function.
+
+|Groups1| |Groups2| |Groups3|
+
+Now the sprite rotates and changes colors simultaneously. This is because these
+two actions were put into a group.
+
+
+
+Combining Sequences and Groups
+------------------------------
+
+Action groups can be put into action sequences, and sequences can be put into
+groups.
+
+* In the ActionController script
+  
+  * Update the ``BeginDemonstration`` function with the following code:
+
+.. code-block:: csharp
+  
+  function BeginDemonstration()
+  {
+      var moveSeq = Action.Sequence(this.Owner.Actions);
+      
+      Action.Property(moveSeq, @this.Owner.Transform.Translation,
+                      Real3(5.0, 0.0, 0.0), 1.0, Ease.QuadInOut);
+      Action.Property(moveSeq, @this.Owner.Transform.Translation,
+                      Real3(5.0, 2.0, 0.0), 1.0, Ease.QuadInOut);
+      
+      var colorGrp = Action.Group(moveSeq);
+      
+      Action.Property(colorGrp, @this.Owner.Sprite.Color,
+                      Real4(1.0, 0.0, 0.0, 1.0),
+                      2.0, Ease.QuadInOut);
+      Action.Property(colorGrp, @this.Owner.Transform.EulerAngles,
+                      Real3(0.0, 0.0, Math.ToRadians(90.0)),
+                      2.0, Ease.QuadInOut);
+  }
+
+* :ref:`Save the project <ManualSavingProject>`
+* :ref:`Run the project <ManualRunTheGame>` and press the ``Space Bar``.
+
+|Sequences1| |Sequences2| |Sequences3|
+
+|Groups1| |Groups2| |Groups3|
+
+This time, the sprite moved to the right and then up, as it did before, and then
+it simultaneously rotated and changed colors.
+
+
+
+Delay Actions
+-------------
+
+Actions in a sequence can be delayed by using **delay actions**. These are
+created with the ``Action.Delay`` function.
+
+* In the ActionController script
+  
+  * Update the ``BeginDemonstration`` function with the following code:
+
+.. code-block:: csharp
+  
+  function BeginDemonstration()
+  {
+      var moveSeq = Action.Sequence(this.Owner.Actions);
+      
+      Action.Property(moveSeq, @this.Owner.Transform.Translation,
+                      Real3(5.0, 0.0, 0.0), 1.0, Ease.QuadInOut);
+      Action.Property(moveSeq, @this.Owner.Transform.Translation,
+                      Real3(5.0, 2.0, 0.0), 1.0, Ease.QuadInOut);
+      
+      
+      
+      var colorSeq = Action.Sequence(this.Owner.Actions);
+      
+      Action.Delay(colorSeq, 0.5);
+      
+      var colorGrp = Action.Group(colorSeq);
+      
+      Action.Property(colorGrp, @this.Owner.Sprite.Color,
+                      Real4(1.0, 0.0, 0.0, 1.0),
+                      2.0, Ease.QuadInOut);
+      Action.Property(colorGrp, @this.Owner.Transform.EulerAngles,
+                      Real3(0.0, 0.0, Math.ToRadians(90.0)),
+                      2.0, Ease.QuadInOut);
+  }
+
+* :ref:`Save the project <ManualSavingProject>`
+* :ref:`Run the project <ManualRunTheGame>` and press the ``Space Bar``.
+
+Now, notice how the sprite begins moving right away, and its rotation and color
+change begin a few moments after it starts moving. This is because the movement
+is on one sequence, and the rotation and color change are on another sequece
+that begins with a half-second delay.
+
+
+
+Let's add back in the size change from before.
+
+* In the ActionController script
+  
+  * Update the ``BeginDemonstration`` function with the following code:
+
+.. code-block:: csharp
+  
+  function BeginDemonstration()
+  {
+      Action.Property(this.Owner.Actions, @this.Area.Size,
+                      Real2(1.0, 3.0), 1.0, Ease.QuadInOut);
+      
+      
+      
+      var moveSeq = Action.Sequence(this.Owner.Actions);
+      
+      Action.Property(moveSeq, @this.Owner.Transform.Translation,
+                      Real3(5.0, 0.0, 0.0), 1.0, Ease.QuadInOut);
+      Action.Property(moveSeq, @this.Owner.Transform.Translation,
+                      Real3(5.0, 2.0, 0.0), 1.0, Ease.QuadInOut);
+      
+      
+      
+      var colorSeq = Action.Sequence(this.Owner.Actions);
+      
+      Action.Delay(colorSeq, 0.5);
+      
+      var colorGrp = Action.Group(colorSeq);
+      
+      Action.Property(colorGrp, @this.Owner.Sprite.Color,
+                      Real4(1.0, 0.0, 0.0, 1.0),
+                      2.0, Ease.QuadInOut);
+      Action.Property(colorGrp, @this.Owner.Transform.EulerAngles,
+                      Real3(0.0, 0.0, Math.ToRadians(90.0)),
+                      2.0, Ease.QuadInOut);
+  }
+
+* :ref:`Save the project <ManualSavingProject>`
+
+* :ref:`Run the project <ManualRunTheGame>` and press the ``Space Bar``.
+
+|ComplexDemonstrationB1| |ComplexDemonstrationB2| |ComplexDemonstrationB3|
+
+Now it looks just like the sample from the beginning of the lesson.
+
+
+
+
+Call Actions
+------------
+
+Actions can also call functions. This can be done using **call actions**, which
+are created using the ``Action.Call`` function.
+
+* In the ActionController script
+  
+  * Update the ``BeginDemonstration`` function with the following code:
+
+.. code-block:: csharp
+  :emphasize-lines: 3, 5, 9, 14, 23, 36
+  
+  function BeginDemonstration()
+  {
+      var masterSeq = Action.Sequence(this.Owner.Actions);
+      
+      var masterGrp = Action.Group(masterSeq);
+      
+      
+      
+      Action.Property(masterGrp, @this.Area.Size,
+                      Real2(1.0, 3.0), 1.0, Ease.QuadInOut);
+      
+      
+      
+      var moveSeq = Action.Sequence(masterGrp);
+      
+      Action.Property(moveSeq, @this.Owner.Transform.Translation,
+                      Real3(5.0, 0.0, 0.0), 1.0, Ease.QuadInOut);
+      Action.Property(moveSeq, @this.Owner.Transform.Translation,
+                      Real3(5.0, 2.0, 0.0), 1.0, Ease.QuadInOut);
+      
+      
+      
+      var colorSeq = Action.Sequence(masterGrp);
+      
+      Action.Delay(colorSeq, 0.5);
+      
+      var colorGrp = Action.Group(colorSeq);
+      
+      Action.Property(colorGrp, @this.Owner.Sprite.Color,
+                      Real4(1.0, 0.0, 0.0, 1.0),
+                      2.0, Ease.QuadInOut);
+      Action.Property(colorGrp, @this.Owner.Transform.EulerAngles,
+                      Real3(0.0, 0.0, Math.ToRadians(90.0)),
+                      2.0, Ease.QuadInOut);
+      
+      Action.Call(masterSeq, this.Owner.Destroy);
+  }
+
+Take careful note that some of the actions from before have now been assigned to
+different action sets.
+
+* :ref:`Save the project <ManualSavingProject>`
+* :ref:`Run the project <ManualRunTheGame>` and press the ``Space Bar``.
+
+Now the entire process occurs as earlier, except the sprite is deleted at the
+very end. This is because all the action sequences and sets from before have
+been put in a master group together. That group was put in a sequence, and that
+sequence ended with a call action that destroyed the sprite.
+
+Now we know how to animate properties and call functions using actions.
+
+..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..
+
+ 
+
+.. |BasicDemonstration|        image:: images/ActionsWIP/BasicDemonstration.gif
+.. |BasicDemonstrationB1|     image:: images/ActionsWIP/BasicDemonstrationB1.png
+.. |BasicDemonstrationB2|     image:: images/ActionsWIP/BasicDemonstrationB2.png
+.. |BasicDemonstrationB3|     image:: images/ActionsWIP/BasicDemonstrationB3.png
+.. |ComplexDemonstration|     image:: images/ActionsWIP/ComplexDemonstration.gif
+.. |ComplexDemonstrationB1| image:: images/ActionsWIP/ComplexDemonstrationB1.png
+        :width: 2.0in
+.. |ComplexDemonstrationB2| image:: images/ActionsWIP/ComplexDemonstrationB2.png
+        :width: 2.0in
+.. |ComplexDemonstrationB3| image:: images/ActionsWIP/ComplexDemonstrationB3.png
+        :width: 2.0in
+.. |Sequences1|             image:: images/ActionsWIP/Sequences1.png
+        :width: 2.0in
+.. |Sequences2|             image:: images/ActionsWIP/Sequences2.png
+        :width: 2.0in
+.. |Sequences3|             image:: images/ActionsWIP/Sequences3.png
+        :width: 2.0in
+.. |Groups1|                 image:: images/ActionsWIP/Groups1.png
+.. |Groups2|                 image:: images/ActionsWIP/Groups2.png
+.. |Groups3|                 image:: images/ActionsWIP/Groups3.png

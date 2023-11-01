@@ -1,0 +1,112 @@
+.. _ReferenceShadow:
+
+.. rst-class:: searchtitle
+
+Shadow
+======
+
+.. rst-class:: searchdescription
+
+Shadow component for dynamic shadowing with lights.
+
+.. include:: Description/Shadow.rst
+
+.. cpp:class:: Shadow
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceShadowProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Shadow::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Shadow::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Shadow::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Shadow::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Shadow::Active
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: unsigned Shadow::Quality
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ShadowMapping::Type Shadow::ShadowMapping
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ShadowSoftening::Type Shadow::ShadowSoftening
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 Shadow::Color
+
+            Color of the shadow.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Shadow::NormalOffsetBias
+
+            How far to move the shadow sample in world units along the surface normal.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Shadow::MinFrustumDepth
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Shadow::SplitPlaneDistribution
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Shadow::ShowCascadeColors
+
+            Alters the light colors to visualize where the cascaded splits are(white, red, green, blue) from near to far.
+
+.. _ReferenceShadowMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Shadow::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/Shadow.rst

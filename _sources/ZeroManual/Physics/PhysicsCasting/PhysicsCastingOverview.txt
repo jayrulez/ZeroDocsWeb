@@ -1,0 +1,142 @@
+.. _ManualPhysicsCastingOverview:
+
+.. rst-class:: SearchTitle
+
+Physics Casting Overview
+========================
+
+.. rst-class:: SearchDescription
+
+**Physics casting** can be used to check for the existence of objects based on
+where they are in a Space. The most commonly-used form of physics casting is
+**ray casting**, which checks for colliders along a ray, but there are other
+varieties that check for colliders within a volume, and so on.
+
+Here's a quick rundown of the different kinds of physics casting available
+within the Zero Engine.
+
+.. _ManualRayCasting:
+
+Ray Casting
+-----------
+
+* Ray casting checks for colliders found along a specified **ray**.
+* Ray casting requires a **ray**, which in turn is defined by a **starting
+  point** and a **direction**.
+* Ray casting is useful for "hitscan" weapon logic (like with lasers), and also
+  for line-of-sight calculations, etc.
+  
+  Example:
+  
+  .. code-block:: as
+    :emphasize-lines: 6
+    
+    var ray = Ray();
+    ray.Start = this.Owner.Transform.Translation;
+    ray.Direction = this.Owner.Orientation.WorldForward;
+    var count = 10;
+    
+    var results = this.Space.PhysicsSpace.CastRayResults(ray, count);
+
+.. _ManualSegmentCasting:    
+
+Segment Casting
+---------------
+
+* Segment casting checks for colliders found along a specified **line segment**.
+* Rather than taking a ray, segment casting requires a **starting point** and an
+  **ending point**.
+* Segment casting is useful when you would normally use ray casting, except
+  either you have two points instead of a point and a direction, or you know
+  that the "ray" should have a specific length.
+  
+  Example:
+  
+  .. code-block:: as
+    :emphasize-lines: 5
+    
+    var start = this.Owner.Transform.Translation;
+    var end = this.Target.Transform.Translation;
+    var count = 10;
+    
+    var results = this.Space.PhysicsSpace.CastSegmentResults(start, end, count);
+
+.. _ManualSphereCasting:
+    
+Sphere Casting
+--------------
+
+* Sphere casting checks for colliders found within (either completely or
+  partially) a specified **sphere**.
+* Sphere casting requires a **center** and a **radius** for the sphere to be
+  used.
+* Sphere casting is useful when you want to find all objects within a certain
+  distance of a given point.
+  
+  Example:
+  
+  .. code-block:: as
+    :emphasize-lines: 7
+    
+    var center = this.Owner.Transform.Translation;
+    var radius = this.BlastRadius; // let's just say it's 5.0 units
+    var count = 10;
+    var filter = CastFilter();
+    filter.IgnoreCog = this.Owner;
+    
+    var results = this.Space.PhysicsSpace.CastSphereResults(center, radius, count, filter);
+
+.. _ManualColliderCasting:
+    
+Collider Casting
+----------------
+
+* Collider casting checks for colliders that would be in contact with an
+  **existing collider**, if it were at a different location.
+* Collider casting requires an reference to an **existing collider** and an
+  **offset** to the collider's current position
+* Collider casting is useful when you want to know if a collider would collide
+  with anything if it were in a different location.
+  
+  Example:
+  
+  .. code-block:: as
+    :emphasize-lines: 7
+    
+    var offset = this.TeleportDestination - this.Owner.Transform.Translation;
+    var collider = this.Owner.Collider;
+    var filter = CastFilter();
+    filter.IgnoreCog = this.Owner;
+    filter.IgnoreGhost = true;
+    
+    var results = this.Space.PhysicsSpace.CastColliderResults(offset, collider, filter);
+
+.. _ManualAABBCasting
+    
+AABB Casting
+------------
+
+* AABB casting checks for colliders found within (either completely or
+  partially) a specified **axis-aligned bounding box**.
+* AABB casting requires a **center** and **dimensions** for the box to be used.
+* AABB casting is actually only rarely useful --- you'll usually want to use
+  **collider casting** instead --- except in cases when you want to know whether
+  something is in a broad, general area and collider casting is too slow (say,
+  because you're doing a very large number of them every frame).
+  
+  Example:
+  
+  .. code-block:: as
+    :emphasize-lines: 10
+    
+    // let's say that there are hundreds of potential destinations
+    foreach(var position in this.PotentialDestinations)
+    {
+      var size = Real3(2.0, 2.0, 2.0);
+      var count = 10;
+      var filter = CastFilter();
+      filter.IgnoreCog = this.Owner;
+      filter.IgnoreGhost = true;
+      
+      var results = this.Space.PhysicsSpace.CastAabbResults(position, size, count, filter);
+    }

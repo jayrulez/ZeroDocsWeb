@@ -1,0 +1,154 @@
+.. _ReferenceCapsuleCollider:
+
+.. rst-class:: searchtitle
+
+CapsuleCollider
+===============
+
+.. rst-class:: searchdescription
+
+Capsule Collider is a basic collision primitive of a capsule.
+
+.. include:: Description/CapsuleCollider.rst
+
+.. cpp:class:: CapsuleCollider
+
+    Base Class: :cpp:type:`Collider`
+
+.. _ReferenceCapsuleColliderProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CapsuleCollider::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space CapsuleCollider::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CapsuleCollider::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession CapsuleCollider::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: PhysicsMaterial CapsuleCollider::Material
+
+            The material used to determine the density, restitution and friction of this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CollisionGroup CapsuleCollider::CollisionGroup
+
+            The collision group is a tag used to alter collision behavior based upon the CollisionTable on this object's space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CapsuleCollider::Ghost
+
+            Ghosted colliders do not resolve collision. They do still detect collisions and send events. Ghosted colliders are typically used for trigger regions.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CapsuleCollider::SendsEvents
+
+            Determines if this object will send collision events. Used mainly for increasing performance by not sending unnecessary collision events.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 CapsuleCollider::Offset
+
+            Moves the physics defined center of the object away from the transform's translation. Used to move physics to match a model.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: RigidBody CapsuleCollider::ActiveBody
+
+            The rigid body that owns this collider. This is the body that forces/impulses/etc... should be applied to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint CapsuleCollider::ContactCount
+
+            Returns the number of contacts on this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ContactRange CapsuleCollider::Contacts
+
+            Range of all contacts on this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint CapsuleCollider::JointCount
+
+            Returns the number of joints attached to this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: JointRange CapsuleCollider::Joints
+
+            Range of all joints on this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real CapsuleCollider::Radius
+
+            The local space radius of the spheres at the capsule edges.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real CapsuleCollider::Height
+
+            The local space distance from the center of one sphere to another.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: AxisDirection::Enum CapsuleCollider::Direction
+
+            The direction that the height is defined along. Allows the user to change whether the capsule's height is along the x, y, or z axis.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CapsuleScalingMode::Enum CapsuleCollider::ScalingMode
+
+            How should non-uniform scale affect the capsules size. Should a scale of 2 on the height axis double the total capsule size or should it double the capsule height?
+
+.. _ReferenceCapsuleColliderMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void CapsuleCollider::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: real CapsuleCollider::ComputeVolume()
+
+            Compute the world-space volume of this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 CapsuleCollider::GetPointVelocity(Vec3 worldPoint)
+
+            Returns the point velocity of a world-space point with respect to the current rigid body's linear and angular velocity. If there is no rigid body this returns zero.
+
+.. include:: Remarks/CapsuleCollider.rst

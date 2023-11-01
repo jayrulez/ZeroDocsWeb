@@ -1,0 +1,415 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Physics/Collision/CollisionGroups/CollisionGroupAndCollisionTable.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:47:16 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CollisionGroup and CollisionTable &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../../index-2.html"/>
+        <link rel="up" title="Collision" href="../index.html"/>
+        <link rel="next" title="Collision Events" href="../CollisionEvents.html"/>
+        <link rel="prev" title="SphereCollider" href="../Colliders/SphereCollider.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../PhysicsSpace.html">PhysicsSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../RigidBody.html">RigidBody</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Collision</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../CollisionOverview.html">Collision Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Colliders/Collider.html">Collider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Colliders/BoxCollider.html">Box Collider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Colliders/CapsuleCollider.html">CapsuleCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Colliders/ConvexMeshCollider.html">ConvexMeshCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Colliders/CylinderCollider.html">CylinderCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Colliders/EllipsoidCollider.html">EllipsoidCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Colliders/HeightMapCollider.html">HeightMapCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Colliders/MeshCollider.html">MeshCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Colliders/MultiConvexMeshCollider.html">MultiConvexMeshCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Colliders/SphereCollider.html">SphereCollider</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">CollisionGroup and CollisionTable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CollisionGroupEvents.html">Group Collision Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../WhyNoCollision.html">Why is my object not colliding?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../PhysicsCasting/PhysicsCastingOverview.html">Physics Casting Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../PhysicsEffects/index.html">Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Joints.html">Joints</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Physics</a> &raquo;</li>
+      
+          <li><a href="../index.html">Collision</a> &raquo;</li>
+      
+    <li>CollisionGroup and CollisionTable</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/ZeroManual/Physics/Collision/CollisionGroups/CollisionGroupAndCollisionTable.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="collisiongroup-and-collisiontable">
+<span id="manualcollisiongroupandtable"></span><h1>CollisionGroup and CollisionTable</h1>
+<p class="searchdescription"><a class="reference internal" href="../../../CodeReference/Reference/CollisionGroup.html#_CPPv214CollisionGroup" title="CollisionGroup"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionGroup</span></code></a> is a resource used to group together <a class="reference internal" href="../../../CodeReference/Reference/Collider.html#_CPPv28Collider" title="Collider"><code class="xref cpp cpp-type docutils literal"><span class="pre">Colliders</span></code></a>. Once a new group is created, the user can assign a Collider to that group by setting the Collider&#8217;s <code class="docutils literal"><span class="pre">CollisionGroup</span></code> property. CollisionGroups are inextricably tied to <a class="reference internal" href="../../../CodeReference/Reference/CollisionTable.html#_CPPv214CollisionTable" title="CollisionTable"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionTables</span></code></a> &#8211;interactions of groups are governed by the table. Finally, the CollisionTable is made up of CollisionFilters that allow the user to set each group-to-group&#8217;s CollisionFilter to resolve, skip resolution, or skip detection.</p>
+<div class="sidebar">
+<p class="first sidebar-title">Recommended Reading</p>
+<p>This page includes topics one might not have encountered yet. To learn about or review these materials, the following list provides the links to their respective Manual or Tutorial pages:</p>
+<ul class="last simple">
+<li><a class="reference internal" href="../CollisionOverview.html#manualcollisionoverview"><span>Collision Overview</span></a></li>
+<li><a class="reference internal" href="CollisionGroupEvents.html#manualgroupcollisionevents"><span>Group Collision Events</span></a></li>
+</ul>
+</div>
+<div class="section" id="common-uses">
+<span id="collisiongroupandtablecommon"></span><h2>Common Uses</h2>
+<ul class="simple">
+<li>Creating separate CollisionGroups for player(s), enemies, bullets, and anything else in a game where the user will some things to collide with only certain things and not all.</li>
+<li>Creating separate CollisionGroups for different sets of players in a multi-player game, along with certain regions or volumes that only react to certain player &#8220;teams&#8221;.</li>
+<li>Creating separate CollisionGroups  for any scenario in which the user find themselves in need of differentiating which objects may or may not collide with other objects.</li>
+</ul>
+</div>
+<div class="section" id="using-collisiongroup-and-collisiontable-resource">
+<span id="manualcollisiongroupandtableusing"></span><h2>Using CollisionGroup and CollisionTable Resource</h2>
+<p>This section will take a look at a basic player/enemy shooter game in which one would want the player&#8217;s bullets to collide with the enemy, but not other players or player-friendly objects and vice versa with the enemies&#8217; bullets.</p>
+<p>To demonstrate the CollisionGroup and CollisionTable Resources, a simple top-down shooter demonstration will be used, as seen below:</p>
+<p><img alt="FinalGameSample" src="../../../../_images/FinalGameSample.gif" /></p>
+<p>The objects whose Colliders will belong to new, user-created CollisionGroups fall into two groups:</p>
+<ul class="simple">
+<li>The player-controlled object (the blue and white rotating sphere), the three player-friendly objects (the light blue spheres), and the bullets shot from these objects</li>
+<li>The five enemy objects (the red squares) and the bullets shot from these objects</li>
+</ul>
+<p id="manualcollisiongroupandtablecollisiontable">Two different CollisionGroups are required for the demonstration: Player and Enemy. Once they are created, a CollisionTable resource is needed to define the behavior between these groups. Below is a picture of a user-created CollisionTable after the creation of the two user-defined CollisionGroups:</p>
+<p><img alt="DefaultTable" src="../../../../_images/DefaultTable.png" /></p>
+<p>As can be seen, there are three CollisionGroup Resources listed on successive rows:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">DefaultGroup</span></code> is the CollisionGroup that all Colliders are assigned by default.</li>
+<li><code class="docutils literal"><span class="pre">Enemy</span></code> is a user-made CollisionGroup that will group together all enemy objects and the bullets shot by those objects</li>
+<li><code class="docutils literal"><span class="pre">Player</span></code> is a user-made CollisionGroup that will group together the player and friendly-to-the-player objects as well as the bullets shot by those objects</li>
+</ul>
+<p>To change which collisions should resolve and which should not, each CollisionFilter (i.e., the elements that make up the table) has a property named <code class="docutils literal"><span class="pre">CollisionFlag</span></code>.</p>
+<p>The CollisionFlag property may be set to one of three values: <code class="docutils literal"><span class="pre">Resolve</span></code>, <code class="docutils literal"><span class="pre">SkipDetection</span></code>, or <code class="docutils literal"><span class="pre">SkipResolution</span></code>. The table above shows that each CollisionFilter has its CollisionFlag property set to <code class="docutils literal"><span class="pre">Resolve</span></code> (signified on the table itself by the letter &#8220;R&#8221;). To understand how collision resolution between CollisionGroups may be changed, a closer look at CollisionFilter is required.</p>
+<div class="section" id="collisionfilter-and-collisionflag">
+<span id="manualcollisiongroupandtablecollisionfilterandcollisionflag"></span><h3>CollisionFilter and CollisionFlag</h3>
+<p>The following picture shows the CollisionFilter belonging to the objects belonging to the <code class="docutils literal"><span class="pre">Player</span></code> CollisionGroup colliding with others of the same group:</p>
+<p><img alt="PlayerCollisionFilter" src="../../../../_images/PlayerCollisionFilter.png" /></p>
+<p>The orange arrow has been added to indicate the CollisionFlag property. By hovering over a particular CollisionFilter, a window appears explicitly stating the CollisionGroup(s) that are being filtered (<code class="docutils literal"><span class="pre">Player</span></code> and <code class="docutils literal"><span class="pre">Player</span></code> in this case) as well as the current value of the filter&#8217;s CollisionFlag property (currently set to <code class="docutils literal"><span class="pre">Resolve</span></code>).</p>
+<p>To change this <code class="docutils literal"><span class="pre">(Player</span> <span class="pre">/</span> <span class="pre">Player)</span></code> filter to reflect demonstration above, one must change the CollisionFlag to <code class="docutils literal"><span class="pre">SkipDetection</span></code>. The following animation illustrates the entire process from selecting the CollisionFilter to changing the value of the CollisionFlag:</p>
+<p><img alt="ChangingFilterFlag" src="../../../../_images/ChangingFilterFlag.gif" /></p>
+<p>The finalized CollisionTable used in the demonstration is shown here:</p>
+<p><img alt="ChangedCollisionTable" src="../../../../_images/ChangedCollisionTable.png" /></p>
+<p>Ignoring the DefaultGroup for a moment, the only type of collision that will be resolved is between objects in the Player and Enemy groups. This is why the movable player object can pass straight through the player-friendly objects and not be affected by any bullets shot by them.</p>
+<p>The DefaultGroup can still be very useful for non-gameplay essential elements. In the game above, the walls surrounding the player and enemies have Collider components belonging to the DefaultGroup ColllisionGroup. Since the CollisionTable has both <code class="docutils literal"><span class="pre">Player</span></code> and <code class="docutils literal"><span class="pre">Enemy</span></code> CollisionGroups resolving collision when they collide with an object belonging to the <code class="docutils literal"><span class="pre">DefaultGroup</span></code> CollisionGroup, both types of bullets collide upon impact with the wall.</p>
+</div>
+<div class="section" id="collision-filter-blocks">
+<span id="manualcollisiongroupandtablecollisionfilterblock"></span><h3>Collision Filter Blocks</h3>
+<p>Collision Filter Blocks are sub-components that may be added to a CollisionFilter to control the <a class="reference internal" href="CollisionGroupEvents.html#manualgroupcollisionevents"><span>GroupCollisionEvents</span></a> sent by that particular type of collision. To add one to a particular CollisionFilter, simply select a filter and directly below the CollisionFlag property, click on the <code class="docutils literal"><span class="pre">+</span> <span class="pre">Add</span> <span class="pre">Collision</span> <span class="pre">Filter</span> <span class="pre">Block</span></code> bar. The following screenshot shows a <code class="docutils literal"><span class="pre">CollisionEndBlock</span></code> sub-component added to the <code class="docutils literal"><span class="pre">(Player</span> <span class="pre">/</span> <span class="pre">Player)</span></code> CollisionFilter:</p>
+<p><img alt="CollisionFilterBlock" src="../../../../_images/CollisionFilterBlock.png" /></p>
+<p>The types of Collision Filter Blocks available to add to CollisionFilters are as follows:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">CollisionStartBlock</span></code><ul>
+<li>CollisionStartBlock is used for changing whom among the two CollisionGroups in the CollisionFilter receives <span class="xref std std-ref">GroupCollisionStarted CollisionEvents</span></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">CollisionPersistedBlock</span></code><ul>
+<li>CollisionPersistedBlock is used for changing whom among the two CollisionGroups in the Collision filter receives <span class="xref std std-ref">GroupCollisionPersisted CollisionEvents</span></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">CollisionEndBlock</span></code><ul>
+<li>CollisionEndBlock is used for changing whom among the two CollisionGroups in the CollisionFilter receives <span class="xref std std-ref">GroupCollisionEnded CollisionEvents</span></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">PreSolveBlock</span></code><ul>
+<li>PreSolveBlock is used for changing whom among the two CollisionGroups in the CollisionFilter receives  <span class="xref std std-ref">GroupCollisionPreSolve CollisionEvents</span></li>
+</ul>
+</li>
+</ul>
+<p>All of the Collision Filter Blocks share the same In-Editor properties. The property names use the letters &#8220;A&#8221; and &#8220;B&#8221; to refer to the two CollisionGroups present in any given CollisionFilter where &#8220;A&#8221; refers to the first and &#8220;B&#8221; the second. The properties and their descriptions are as follows:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">SendsEventsToA</span> <span class="pre">:</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">Boolean</span></code><ul>
+<li>When set to true sends the GroupCollisionEvent to the A object of the CollsionFilter selected</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">SendsEventsToB</span> <span class="pre">:</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">Boolean</span></code><ul>
+<li>When set to true sends the GroupCollisionEvent to the B object of the CollisionFilter selected</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">SendsEventsToSpace</span> <span class="pre">:</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">Boolean</span></code><ul>
+<li>When set to true sends the GroupCollisionEvent to the Space where the CollisionTable is in use</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">EventOverride</span> <span class="pre">:</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">String</span></code><ul>
+<li>A String that will rename this Collision Filter Block&#8217;s GroupCollisionEvent. Note: If you use this feature and wish to adhere to the current custom event naming conventions (i.e., the event name is accessible through the Events.xxxx syntax), create a new ZilchScript that resembles the following template:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="na">[Static]</span>
+<span class="k">class</span> <span class="nc">NewEventTypeName</span>
+<span class="p">{</span>
+    <span class="n">sends</span> <span class="n">EventOverrideName</span> <span class="p">:</span> <span class="n">CollisionGroupEvent</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="updating-the-physics-space">
+<h3>Updating the Physics Space</h3>
+<p>To apply all of the changes made in a new CollisionTable, the <code class="docutils literal"><span class="pre">CollisionTable</span></code> property in the PhysicsSpace must be set to the user-created table. If this is not changed, the default CollisionTable (in which only the DefaultGroup exists) will be used.</p>
+</div>
+<div class="section" id="the-properties-and-methods-of-collisiongroup-and-collisiontable">
+<h3>The Properties and Methods of CollisionGroup and CollisionTable</h3>
+<p><a class="reference internal" href="../../../CodeReference/Reference/CollisionGroup.html#referencecollisiongroup"><span>CollisionGroup Code Reference</span></a></p>
+<p><a class="reference internal" href="../../../CodeReference/Reference/CollisionTable.html#referencecollisiontable"><span>CollisionTable Code Reference</span></a></p>
+</div>
+</div>
+<div class="section" id="related-material">
+<span id="manualcollisiongroupandtablerelated"></span><h2>Related Material</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../CollisionOverview.html#manualcollisionoverview"><span>Collision Overview</span></a></li>
+<li><a class="reference internal" href="CollisionGroupEvents.html#manualgroupcollisionevents"><span>ManualGroupCollisionEvents</span></a></li>
+<li><a class="reference internal" href="../CollisionEvents.html#manualcollisionevents"><span>Collision Events</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../../Tutorials/Physics/Collision/CollisionEvents.html#tutorialcollisionevents"><span>Collision Events</span></a></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../CodeReference/Reference/Collider.html#_CPPv28Collider" title="Collider"><code class="xref cpp cpp-type docutils literal"><span class="pre">Collider</span></code></a></li>
+<li><a class="reference internal" href="../../../CodeReference/Reference/CollisionGroup.html#_CPPv214CollisionGroup" title="CollisionGroup"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionGroup</span></code></a></li>
+<li><a class="reference internal" href="../../../CodeReference/Reference/CollisionTable.html#_CPPv214CollisionTable" title="CollisionTable"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionTable</span></code></a></li>
+<li><a class="reference internal" href="../../../CodeReference/Reference/CollisionEvent.html#_CPPv214CollisionEvent" title="CollisionEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionEvent</span></code></a></li>
+<li><a class="reference internal" href="../../../CodeReference/Reference/CollisionGroupEvent.html#_CPPv219CollisionGroupEvent" title="CollisionGroupEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionGroupEvent</span></code></a></li>
+<li><code class="xref cpp cpp-type docutils literal"><span class="pre">Boolean</span></code></li>
+<li><code class="xref cpp cpp-type docutils literal"><span class="pre">String</span></code></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../CollisionEvents.html" class="btn btn-neutral float-right" title="Collision Events" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Colliders/SphereCollider.html" class="btn btn-neutral" title="SphereCollider" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Physics/Collision/CollisionGroups/CollisionGroupAndCollisionTable.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:48:05 GMT -->
+</html>

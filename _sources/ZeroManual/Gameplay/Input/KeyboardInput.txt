@@ -1,0 +1,306 @@
+.. _ManualKeyboardInput:
+
+.. rst-class:: SearchTitle
+
+Keyboard Input
+==============
+
+.. rst-class:: SearchDescription
+
+Keyboard input is one of the main methods of control for a Zero project, and can be set up quickly to be use a keyboard as a gameplay control device. 
+
+Common Uses
+-----------
+
+*   Controlling an on-screen character
+*   Hotkey implementation for game and/or character events
+*   Text entry
+
+Using Keyboard Input
+--------------------
+
+Like other methods of Input (e.g., :ref:`Mouse Input<ManualMouseInput>` and :ref:`Gamepad Input<ManualGamePadInput>`), :cpp:type:`Keyboard` Input can be separated into two different forms: Frame-Based Input using the LogicUpdate event, and Event-Based Input using :cpp:type:`KeyboardEvents<KeyboardEvent>`. 
+
+.. _ManualKeyboardInputFrameBased:
+
+Frame-Based Keyboard Input
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. Note::
+
+    Because Frame-Based Input is repeatedly checking to see if any keys have been pressed or let go, it can end up affecting performance especially if there are multiple key presses being looked for. It is best to be mindful of how much is called every frame amongst all ZilchScripts in use. 
+
+In Frame-Based Keyboard Input, the Engine is queried every frame to see if the desired key has been pressed, is continuing to be held down, or let go. This can be done by using either the *Zero.Keyboard.KeyIsPressed*, *KeyIsDown*, or *KeyIsReleased* functions, respectively. 
+
+.. code-block:: csharp
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (Zero.Keyboard.KeyIsDown(Keys.Space))
+        {
+            // Insert code here
+        }
+    }
+
+In this case, the code repeatedly asks the engine if the Space bar is being held down, running the code inside the ``if`` statement repeatedly for as long as the key is held.
+
+.. _ManualKeyboardInputEventBased:
+
+Event-Based Keyboard Input
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. Sidebar:: Events and Paused Spaces
+
+    Keep in mind that if a Game Space has been paused, then OnLogicUpdate will no longer be dispatched as it is connected to the space, and therefore no Frame-Based system can be used to unpause the Space from within that same Space. Keyboard Events will still be sent however, so it's possible to use them to unpause the Space, or it can be unpaused from another Space as well.
+
+In an Event-Based Input system, the component connects to the Keyboard and listens for specific events to be dispatched, such as a KeyDown or KeyUp event. 
+
+.. code-block:: csharp
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(Zero.Keyboard, 
+                     Events.KeyDown,
+                     this.OnKeyDown);
+    }
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        // Insert code here
+    }
+
+The code inside the ``OnKeyDown`` function above will be called whenever a keyboard key is pressed. As with frame-based keyboard input, it is possible to check if a certain key has been pressed or released. Checking for KeyDown and KeyUp require two different event connections, as is demonstrated in the following code-block:
+
+.. code-block:: csharp
+
+    function Initialize(init : CogInitializer)
+    {
+        // Connect to the KeyDown event
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+        // Connect to the KeyUp event
+        Zero.Connect(Zero.Keyboard, Events.KeyUp, this.OnKeyUp);
+    }
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        // If the Spacebar key is pressed
+        if(event.Key == Keys.Space)
+        {
+            // Code to change a value goes here
+        }
+    }
+
+    function OnKeyUp(event : KeyboardEvent)
+    {
+        // If the Spacebar key is released
+        if(event.Key == Keys.Space)
+        {
+            // Code to reset the value goes here
+        }
+    }
+
+.. Note:: There is an Event of note to consider for projects that wish to use Text Entry: ``Events.TextTyped``. If this is the the desired use of Keyboard Events, please see :ref:`this Blog post<CommunityBlogDougTextEntry>`. 
+This can be used as a method to stop a player character from stopping completely if two movement keys were being pressed but only one was released. 
+
+.. code-block:: csharp
+
+    // Make sure the object has the RigidBody Component
+    [Dependency]
+    var RigidBody : RigidBody;
+
+    // A variable to be used to set the player speed
+    [Property]
+    var Speed : Real = 10;
+
+    // A variable that will be set to determine the movement vector
+    var Movement : Real3;
+
+    function Initialize(init : CogInitializer)
+    {
+        // Connect both the KeyDown and KeyRepeated events to the same function
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.MoveCode);
+        Zero.Connect(Zero.Keyboard, Events.KeyRepeated, this.MoveCode);
+
+        // Connect to the KeyUp event
+        Zero.Connect(Zero.Keyboard, Events.KeyUp, this.OnKeyUp);
+
+        // Connect to the LogicUpdate event
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function MoveCode(event : KeyboardEvent)
+    {
+        // If the A key is pressed, move left. If it is the D key, move right
+        if (event.Key == Keys.A)
+        {
+            this.Movement = Real3(-this.Speed, 0, 0);
+        }
+        if (event.Key == Keys.D)
+        {
+            this.Movement = Real3(this.Speed,0,0);
+        }
+    }
+
+    function OnKeyUp(event : KeyboardEvent)
+    {
+        // If either the A or D key are released, and the other is already up
+        if ((event.Key == Keys.A && event.Keyboard.KeyIsUp(Keys.D)) 
+        || (event.Key == Keys.D && event.Keyboard.KeyIsUp(Keys.A)))
+        {
+            // Reset Movement to 0 to begin coming to a stop
+            this.Movement = Real3(0, 0, 0);
+        }
+        // However, if either the A or D key are released, and the other is still held down
+        else if ((event.Key == Keys.A && event.Keyboard.KeyIsDown(Keys.D)) 
+        || (event.Key == Keys.D && event.Keyboard.KeyIsDown(Keys.A)))
+        {
+            // Rather than stopping, simply start moving in the opposite direction
+            this.Movement = this.Movement * -1;
+        }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        // If the players velocity is less than 25 in either direction
+        if (this.RigidBody.Velocity.X < 25 && this.RigidBody.Velocity.X > -25)
+        {
+            // Apply the movement vector to the player character
+            this.RigidBody.ApplyLinearVelocity(this.Movement * event.Dt);
+        }
+    }
+
+
+
+Properties of KeyboardEvents
+----------------------------
+
+Because they are all the same type of event, all of the different Keyboard Events have access to shared properties that are brought up whenever ``event.`` is typed in the event function. Several of these have been used above, such as ``event.Keyboard`` which gives a reference to the Keyboard used (and therefore all of its methods), and ``event.Key`` which shows which key was changed. Several of the others are in place to allow the user to see if other keys are also depressed, specifically the ``Shift``, ``Alt``, ``Ctrl`` and ``Space`` keys. These can be used to add functionality to the above example. 
+
+.. code-block:: csharp 
+ :emphasize-lines: 12-21, 18
+
+    function MoveCode(event : KeyboardEvent)
+    {
+        // If the A key is pressed, move left. If it is the D key, move right
+        if (event.Key == Keys.A)
+        {
+            this.Movement = Real3(-this.Speed, 0, 0);
+        }
+        if (event.Key == Keys.D)
+        {
+            this.Movement = Real3(this.Speed,0,0);
+        }
+        // If the Shift key is also pressed
+        if (event.ShiftPressed)
+        {
+            // And if it hasn't gone outside a specified range
+            if (this.Movement.X < 20 && this.Movement.X > -20)
+            {
+                // Double the Movement vector
+                this.Movement = this.Movement*2;
+            }
+        }
+    }
+
+``Event.ShiftPressed`` returns a Bool that is either ``true`` if the Shift key is pressed or ``false`` if it is not. This way, the player character should "sprint" when the Shift key is down and slow down when it is released. 
+
+While ``KeyDown`` events work well for movement, if it's to create a text entry system ``TextTyped`` events are the better choice. 
+
+.. code-block:: csharp
+
+    // An Array used to hold the Key being pressed
+    var KeyUsed : Array[String] = Array[String]();
+
+    // A StringBuilder used to concatenate and print the String to the Console
+    var Sentence : StringBuilder = StringBuilder();
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+        Zero.Connect(Zero.Keyboard, Events.TextTyped, this.OnTextTyped);
+    }
+
+    function OnTextTyped(event : KeyboardTextEvent)
+    {
+        // Index into the string to get the character position of Space and Tilde
+        // By comparing these to the typed key, it can be determined if the key is renderable
+        if (event.Character >= " "[0] && event.Character <= "~"[0])
+        {
+            // Add the key that was pressed to the array from pressed characters
+            this.KeyUsed.Add(String.FromChar(event.Character));
+        }
+    }
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        if (event.Key == Keys.Enter)
+        {
+            // Loop through the KeyUsed Array, and add each element to the Sentence
+            foreach(var letter in this.KeyUsed)
+            {
+                this.Sentence.Write(letter);
+            }
+            // Output the full sentence to the console
+            Console.WriteLine("The sentence is: `this.Sentence.ToString()`");
+
+            // Clear the current sentence from the Array then the StringBuilder
+            this.KeyUsed.Clear();
+            this.Sentence.Clear();   
+        }
+    }
+
+All renderable characters start at character code ``32`` which is ``Space``, and end at ``126`` which is ``~``. ``" "[0]`` will index into the string ``" "`` at position ``[0]`` and return the character code of ``Space``, likewise with ``"~"[0]``. This allows ``event.Character``, which returns an ``int`` of the character code of the keyboard key that dispatched the event, to compare and see if it is a renderable character. See :ref:`This Blog Post<CommunityBlogDougTextEntry>` for more information on using the ``TextTyped`` event for text entry. 
+
+Other properties available to Keyboard Events is ``event.EventID`` which returns a string of the dispatched event, for example the ``KeyDown`` event would return "KeyDown" as its EventID. 
+
+Properties and Methods of Keyboard
+----------------------------------
+
+*   :ref:`Keyboard Code Reference<ReferenceKeyboard>`
+
+Keyboard Events
+---------------
+
+*   ``KeyDown`` : :cpp:type:`KeyboardEvent`
+    
+    * An Event dispatched from the Keyboard when a Keyboard key is depressed. 
+
+*   ``KeyUp`` : :cpp:type:`KeyboardEvent`
+    
+    * An Event dispatched from the Keyboard when a Keyboard key is released. 
+
+*   ``KeyRepeated`` : :cpp:type:`KeyboardEvent`
+    
+    * An Event dispatched from the Keyboard when a Keyboard key is held down.
+
+*   ``TextTyped`` : :cpp:type:`KeyboardTextEvent`
+    
+    * An Event dispatched from the Keyboard with data holding the text character of the Keyboard key pressed. 
+
+.. _ManualKeyboardInputRelated:
+
+Related Materials
+-----------------  
+
+Manual Pages
+~~~~~~~~~~~~
+
+*   :ref:`Events and Connections<ManualEventsAndConnections>`
+
+Tutorial Pages
+~~~~~~~~~~~~~~
+
+*   :ref:`Events<TutorialEvents>`
+
+Blog Posts
+~~~~~~~~~~
+
+*   :ref:`Text Entry<CommunityBlogDougTextEntry>`
+
+Reference Pages
+~~~~~~~~~~~~~~~
+
+*   :cpp:type:`Keyboard`
+*   :cpp:type:`KeyboardEvent`
+
+.. Started by Reuben Faux

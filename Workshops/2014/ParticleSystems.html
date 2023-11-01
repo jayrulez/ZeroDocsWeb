@@ -1,0 +1,960 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/ParticleSystems.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:23:36 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Particle Systems &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Introduction to 2D Video Game Programming" href="index.html"/>
+        <link rel="next" title="Ai Shooting and Movement" href="SimpleAi.html"/>
+        <link rel="prev" title="Levels" href="Levels.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Introduction to 2D Video Game Programming</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ScriptingEvents.html">Scripting Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Orientation.html">Rotating Towards a Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FireAtMouse.html">Firing At the Mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Particle Systems</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleAi.html">Ai Shooting and Movement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CameraParallax.html">Camera Parallax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CreateProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting an Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Add a Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Introduction to 2D Video Game Programming</a> &raquo;</li>
+      
+    <li>Particle Systems</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2014/ParticleSystems.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="particle-systems">
+<span id="particlesystems2014"></span><h1>Particle Systems</h1>
+<p class="searchdescription">This lesson introduces Particle Systems, Particle Emitters, and Particle Animators.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="CreateProject.html#createnewproject2014"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="particle-effects">
+<h2>Particle Effects</h2>
+<p>Many games use particle effects to create lots of visual effects such as fire,
+smoke, snow, and clouds. Particle Systems are like a group of pictures or <strong>Sprites</strong> that
+have different transformational behaviors, colors, and blending effects. In the
+Zero Engine, Particle Systems are composed of 3 main components and several
+extra optional components for added behavior.</p>
+<p>The three required components are any type of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Particle System</strong> component</li>
+<li><strong>Particle Animator</strong> component</li>
+<li><strong>Particle Emitter</strong> component.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="creating-a-particle-effect">
+<h2>Creating a Particle Effect</h2>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateTransform</span></code> or <span class="menuselection">Create ‣ Create Transform</span></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Set Name to: ParticleEffectA</p>
+</li>
+<li><p class="first">Click the Add Component... area and then enter: Particle</p>
+<p><img alt="ParticleTag" src="../../_images/ParticleTag.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<div class="section" id="particle-system">
+<h3>Particle System</h3>
+<p>The particle related components that we are able to add will appear in the
+drop-down selection:</p>
+<p><img alt="ParticleRelatedComponents" src="../../_images/ParticleRelatedComponents.png" /></p>
+<blockquote>
+<div><ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add a SpriteParticleSystem component</span></a></p>
+<p><img alt="SpriteParticleSystem" src="../../_images/SpriteParticleSystem.png" /></p>
+<p><em>The SpriteParticleSystem Component</em></p>
+</li>
+</ul>
+</div></blockquote>
+<p>The SpriteParticleSystem component falls under the Particle System category,
+which controls properties such as:</p>
+<ul>
+<li><p class="first">Type of particle (Sprites in this case) used</p>
+</li>
+<li><p class="first">The sprite to use for the particles</p>
+</li>
+<li><p class="first">Coordinate system the particle effects should live in</p>
+</li>
+<li><p class="first">How the particles should be graphically displayed or <strong>rendered</strong>.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Again, click the Add Component... area and then enter: Particle</p>
+<p><img alt="ParticleTag" src="../../_images/ParticleTag.png" /></p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>More valid particle related components appear because we have a
+SpriteParticleSystem component already. Here are the
+available particle effect related components:</p>
+<p><img alt="MoreParticleOptions" src="../../_images/MoreParticleOptions.png" /></p>
+</div>
+<div class="section" id="particle-emitter">
+<h3>Particle Emitter</h3>
+<p>We are going to start out with the BoxParticleEmitter.</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add a BoxParticleEmitter component</span></a></p>
+<p><a class="reference internal" href="../../_images/BoxParticleEmitter.png"><img alt="BoxParticleEmitter" src="../../_images/BoxParticleEmitter.png" style="height: 3.25in;" /></a></p>
+<p><em>The BoxParticleEmitter Component</em></p>
+</li>
+</ul>
+</div></blockquote>
+<p></p>
+<p>The BoxParticleEmitter component falls under the Particle Emitter category,
+which is responsible for creating the particles with specified characteristics
+such as:</p>
+<ul>
+<li><p class="first">Spawn location (in this case it&#8217;s a box shape around the Transform&#8217;s position)</p>
+</li>
+<li><p class="first">Amount of particles</p>
+</li>
+<li><p class="first">Size of particles</p>
+</li>
+<li><p class="first">Starting velocity</p>
+</li>
+<li><p class="first">Lifetime of particles</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Again, click the Add Component... area and then enter: Particle</p>
+<p><img alt="ParticleTag" src="../../_images/ParticleTag.png" /></p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>More valid particle related components appear because we have the
+SpriteParticleSystem and BoxParticleEmitter components already. Here you can see the available particle effect related components appearing:</p>
+<p><img alt="ExtraParticleComponents" src="../../_images/ExtraParticleComponents.png" /></p>
+<p></p>
+</div>
+<div class="section" id="particle-animator">
+<h3>Particle Animator</h3>
+<p>We will use the LinearParticleAnimator for now.</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add a LinearParticleAnimator component</span></a></p>
+<p><img alt="LinearParticleAnimator" src="../../_images/LinearParticleAnimator.png" /></p>
+<p><em>The LinearParticleAnimator Component</em></p>
+</li>
+</ul>
+</div></blockquote>
+<p>The LinearParticleAnimator component falls under the Particle Animator category
+and is responsible for modifying the particles after they are
+created. The LinearParticleAnimator does things like changing the size and
+applying forces on the particles.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the ParticleEffectA object</span></a></li>
+</ul>
+<p>Notice how the particles are being created in the Level Window:</p>
+<p><a class="reference internal" href="../../_images/FirstParticleSystem.png"><img alt="FirstParticleSystem" src="../../_images/FirstParticleSystem.png" style="height: 2.5in;" /></a></p>
+<p>Notice that the particle sprites are plain white and are being a random initial velocity. This is because the SpriteParticleSystem component&#8217;s <strong>Texture</strong> property is set to the DefaultTexture, and the BoxParticleEmitter component&#8217;s StartingVelocity
+property is [0,0,0] and RandomVelocity is [2,2,2]. Let&#8217;s change the sprite the particles are using.</p>
+</div>
+</div>
+<div class="section" id="importing-particle-sprites">
+<h2>Importing Particle Sprites</h2>
+<p></p>
+<ul class="simple">
+<li><a class="reference download internal" href="../../_downloads/Particles.zip"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">external</span> <span class="pre">resources</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">lesson</span></code></a></li>
+<li>Locate the Assets folder you downloaded</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li>Drag and drop the provided sprite files Twinkle.png, Smoke2.png, and FireCloud.png files onto the Level Window</li>
+<li>In the Group Import Options Window<ul>
+<li>Click the &#8220;Import All&#8221; button</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the ParticleEffectA object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: Twinkle</li>
+<li>Set RenderMode to: Additive</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now let&#8217;s get rid of the velocity and make the particles spawn in a box shape
+using the BoxParticleEmitter.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Make BoxParticleEmitter match the settings below:<ul>
+<li>Set SpinVariance to: 0</li>
+<li>Set RandomSpin to: false</li>
+<li>Set RandomVelocity to: [0.0, 0.0, 0.0]</li>
+<li>Set EmitterSize to: [5, 5, 1]</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>The particle effect is now emitting particles in the shape of a box that has
+[5, 5, 1] (which is the <strong>EmitterSize</strong> property) as its dimensions. Let&#8217;s
+make it a little more obvious that it is a box.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set EmitRate to: 500</li>
+</ul>
+</div></blockquote>
+<p>The <strong>EmitRate</strong> is how many particles are emitted per second, so particles
+should emit more rapidly now to fill the box more before they die:</p>
+<p><a class="reference internal" href="../../_images/BoxOParticles.png"><img alt="BoxOParticles" src="../../_images/BoxOParticles.png" style="height: 2.5in;" /></a></p>
+<blockquote>
+<div><ul class="simple">
+<li>Under Transform<ul>
+<li>Set Translation to: [-8, 0, 0]</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="make-another-particle-effect">
+<h2>Make Another Particle Effect</h2>
+<p>We just made the last particle effect from scratch for learning purposes. Now
+we will use the <strong>CreateParticleSystem</strong> command to make a simple particle
+effect to start with. It will already have a system, animator, and emitter
+component.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or <span class="menuselection">Create ‣ Create Particle System</span></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the BasicParticleEffect object we just created</span></a></p>
+<p><img alt="QuickStartParticles" src="../../_images/QuickStartParticles.png" /></p>
+</li>
+</ul>
+<p><em>Properties of the BasicParticleEffect object we just made with the CreateParticleSystem command</em></p>
+<p>Observe how, instead of the BoxParticleEmitter, the BasicParticleEffect object
+has a SphericalParticleEmitter by default.</p>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Set Name to: ParticleEffectB</li>
+</ul>
+</li>
+<li><p class="first">Use the TranslateGizmo to move the ParticleEffectB object up and down on
+the world y-axis (the green arrows):</p>
+<p>
+<img alt="WebWorldSpace" src="../../_images/WorldSpace.png" />
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/WorldSpace.png"><img alt="BookWorldSpace" src="../../_images/WorldSpace.png" style="height: 2.5in;" /></a>
+--></p>
+</li>
+</ul>
+<p>Observe how the particles do not move when you move the ParticleEffectB object.
+They are only emitted at the position of the object but do not move when the
+object moves. <em>This is because the particles are being confined to the world
+coordinate system.</em> We can have the particles follow the emitter by changing the
+<strong>SystemSpace</strong> property on the SpriteParticleSystem component.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under SpriteParticleSystem<ul>
+<li>Set SystemSpace to: LocalSpace</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>This will make the particles that are emitted be confined to the local
+coordinate system of the ParticleEffectB object.</p>
+<ul class="simple">
+<li>Use the TranslateGizmo to move the ParticleEffectB object again</li>
+</ul>
+<p>The particles remain in their relative positions to the ParticleEffectB object,
+so when it moves, they all move with it.</p>
+</div>
+<div class="section" id="multiple-particle-animators">
+<h2>Multiple Particle Animators</h2>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: [8, 0, 0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Unlike the emitter and system category of particle effect components, multiple
+particle animator components <cite>are</cite> possible. Different particle
+animators affect the particles in different ways, and we are able to combine
+them to get different effects.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Under the <strong>ParticleColorAnimator</strong> component</p>
+<p><img alt="ColorAnimatorComponent" src="../../_images/ColorAnimatorComponent.png" /></p>
+</li>
+</ul>
+</div></blockquote>
+<p>The ParticleColorAnimator component will make each particle&#8217;s color change over
+its lifetime. Color0 will be the starting color and the color will change to, or <strong>interpolate</strong>
+to, Color1 and so on. Keep in mind that the Tint color on the SpriteParticleSystem
+component will be multiplied by these colors, so they may not appear exactly as chosen.</p>
+<p></p>
+<blockquote>
+<div><ul>
+<li><p class="first">Under ParticleColorAnimator</p>
+<ul>
+<li><p class="first">Set Color0 to: [R: 0,   G: 148, B: 255, A: 1.00]</p>
+</li>
+<li><p class="first">Set Color1 to: [R: 255, G: 128, B: 0,   A: 1.00]</p>
+</li>
+<li><p class="first">Set Color2 to: [R: 166, G: 0,   B: 255, A: 1.00]</p>
+</li>
+<li><p class="first">Set Color3 to: [R: 255, G: 0,   B: 115, A: 1.00]</p>
+</li>
+<li><p class="first">Set Color4 to: [R: 255, G: 255, B: 255, A: 1.00]</p>
+<p><img alt="ColorsChosen" src="../../_images/ColorsChosen.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>Notice how the ParticleEffectB object&#8217;s particles are now changing from one
+color to the next over each particle&#8217;s lifetime.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a></li>
+</ul>
+</div>
+<div class="section" id="additional-particle-effect-components-particle-attractor">
+<h2>Additional Particle Effect Components (Particle Attractor)</h2>
+<p>There are other components that we can add to the required system, animator,
+and emitter components.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Click the Add Component... area and then enter: Particle</p>
+<p><img alt="ParticleTag" src="../../_images/ParticleTag.png" /></p>
+</li>
+</ul>
+</div></blockquote>
+<p>The additional particle effect components that we are able to add will appear
+in the drop-down selection:</p>
+<p><img alt="AddParticleAttractor" src="../../_images/AddParticleAttractor.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add a ParticleAttractor component</span></a></li>
+</ul>
+</div></blockquote>
+<p></p>
+<p>The Strength property is how much of a &#8220;pull&#8221; towards the center that it will
+have on the particles. They will get pulled with a strength equal to 100
+percent of the <strong>Strength</strong> value if they are anywhere between the emitter&#8217;s
+position and the <strong>MinDistance</strong> from there. Between the MinDistance and the
+MaxDistance from the emitter&#8217;s position, the percentage decreases. After a
+particle reaches a distance that is greater than the MaxDistance, it will not
+be affected by the ParticleAttractor component (0 percent). The following
+diagram attempts to briefly summarize the situation:</p>
+<p><a class="reference internal" href="../../_images/ParticleAttractorDiagram1.png"><img alt="Diagram" src="../../_images/ParticleAttractorDiagram1.png" style="width: 3.0in;" /></a></p>
+<p>In that diagram, the black dot is the center/position of the emitter. The
+white area is where the ParticleAttractor component has no influence on the
+particles, and in the darkest grey area, its &#8220;pull&#8221; is 100% of the <strong>Strength</strong> value
+(from the center to the <strong>MinDistance</strong>). The percentage decreases to 0 % as it
+gets closer to the <strong>MaxDistance</strong>. In the case of the ParticleEffectB object,
+these values are in the object&#8217;s local coordinate system because we set the
+SpriteParticleSystem&#8217;s <strong>SystemSpace</strong> property to to LocalSpace.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Under ParticleAttractor</p>
+<ul>
+<li><p class="first">Set Strength to: 5</p>
+</li>
+<li><p class="first">Set MinDistance to: 0</p>
+</li>
+<li><p class="first">Set MaxDistance to: 10</p>
+<p><img alt="AttractorSettings" src="../../_images/AttractorSettings.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>The ParticleEffectB object&#8217;s particles should be getting pulled towards and
+past the center repeatedly because of the Strength causing them to get pulled
+back before they get past the <strong>MaxDistance</strong>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a></li>
+</ul>
+</div>
+<div class="section" id="fire-particle-effect">
+<h2>Fire Particle Effect</h2>
+<p>Now we will make a fire particle effect, but we won&#8217;t just make any fire
+particle effect. We are going to make a pink fire particle effect.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or <span class="menuselection">Create ‣ Create Particle System</span></p>
+</li>
+<li><p class="first">Select the BasicParticleEffect object we just created</p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Set Name to: Fire</p>
+</li>
+<li><p class="first">Under SpriteParticleSystem</p>
+<ul>
+<li><p class="first">Set Texture to: FireCloud</p>
+</li>
+<li><p class="first">Make sure all properties match these:</p>
+<p>
+<img alt="WebFireCloudSPS" src="../../_images/FireCloudSPS.png" />
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/FireCloudSPS.png"><img alt="BookFireCloudSPS" src="../../_images/FireCloudSPS.png" style="height: 2.5in;" /></a>
+--></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Under LinearParticleAnimator</p>
+<ul>
+<li><p class="first">Make sure all properties match these:</p>
+<p><img alt="FireCloudLPA" src="../../_images/FireCloudLPA.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul>
+<li><p class="first">Under SphericalParticleEmitter</p>
+<ul>
+<li><p class="first">Make sure all properties match these:</p>
+<p><img alt="FireCloudSPE" src="../../_images/FireCloudSPE.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Here is our Fire object&#8217;s particles in the Level Window:</p>
+<p><img alt="FireParticles" src="../../_images/FireParticles.png" /></p>
+<p></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the Fire object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Under SpriteParticleSystem</p>
+<ul>
+<li><p class="first">Set Tint to: [R: 255, G: 64, B: 255, A: 1.00]</p>
+<p><img alt="PinkTint" src="../../_images/PinkTint.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Under Transform</p>
+<ul class="simple">
+<li>Set Translation to: [10, 0, 0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>We are moving the Fire object out of the way so that we can see the Smoke particle effect.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="smoke-particle-effect">
+<h2>Smoke Particle Effect</h2>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or <span class="menuselection">Create ‣ Create Particle System</span></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the BasicParticleEffect object we just created</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Set Name to: Smoke</p>
+</li>
+<li><p class="first">Under SpriteParticleSystem</p>
+<ul>
+<li><p class="first">Set Texture to: Smoke2</p>
+</li>
+<li><p class="first">Make sure all properties match these:</p>
+<p><img alt="SmokeSPS" src="../../_images/SmokeSPS.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Under LinearParticleAnimator</p>
+<ul>
+<li><p class="first">Make sure all properties match these:</p>
+<p><img alt="SmokeLPA" src="../../_images/SmokeLPA.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul>
+<li><p class="first">Under SphericalParticleEmitter</p>
+<ul>
+<li><p class="first">Make sure all properties match these:</p>
+<p>
+<img alt="WebSmokeSPE" src="../../_images/SmokeSPE.png" />
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/SmokeSPE.png"><img alt="BookSmokeSPE" src="../../_images/SmokeSPE.png" style="height: 4.0in;" /></a>
+--></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Here is our Smoke object&#8217;s particles in the Level Window:</p>
+<p><a class="reference internal" href="../../_images/SmokeinLW.png"><img alt="SmokeinLW" src="../../_images/SmokeinLW.png" style="height: 2.8in;" /></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="combining-the-fire-and-smoke">
+<h2>Combining the Fire and Smoke</h2>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the Fire object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: [0, 0, 0]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateTransform</span></code> or <span class="menuselection">Create ‣ Create Transform</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: FallingFireAndSmoke</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="parent-child-hierarchies">
+<h3>Parent-Child Hierarchies</h3>
+<p>A hierarchy allows one object to be attached to another. A parent is an object that has one or more children. When you attach an object to another, the attached object becomes a child, and the other object that you attached it to is now a parent.</p>
+<p>Hierarchies like this are useful for making multiple objects behave according to how a single parent behaves. For us, we want both particle systems, Fire and Smoke, to move as if they are one object, so we will create a single parent for them to reference when updating their position.</p>
+</div>
+<div class="section" id="creating-a-hierarchy">
+<h3>Creating a Hierarchy</h3>
+<p>Lets create a simple hierarchy with one parent object and one child object. The parent object should be the FallingFireAndSmoke Transform object we made and the child object
+should be the Fire. To create this hierarchy follow these steps:</p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li>Click and drag the Fire object onto the FallingFireAndSmoke object</li>
+</ul>
+</li>
+</ul>
+<p><img alt="ParentFire" src="../../_images/ParentFire.png" /></p>
+<p>The FallingFireAndSmoke object can now be expanded to show its child object. This is what it should look like right after parenting:</p>
+<blockquote>
+<div><img alt="Parented" src="../../_images/Parented.png" /></div></blockquote>
+<p></p>
+<ul class="simple">
+<li>Click on the small orange arrow to the left of FallingFireAndSmoke</li>
+</ul>
+<blockquote>
+<div><img alt="ShowChildren" src="../../_images/ShowChildren.png" /></div></blockquote>
+<p><em>The FallingFireAndSmoke object&#8217;s child objects are now visible</em></p>
+<p>Repeat this process for the Smoke Object:</p>
+<blockquote>
+<div><img alt="BothParented" src="../../_images/BothParented.png" /></div></blockquote>
+<p><em>The FallingFireAndSmoke object now has both Fire and Smoke as children</em></p>
+<p>Now that we have made the Smoke and Fire objects children of the
+FallingFireAndSmoke object, let&#8217;s give the FallingFireAndSmoke a RigidBody component so that the hierarchy will fall due to gravity.</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add a RigidBody component</span></a></p>
+<p><img alt="AddRigidBody" src="../../_images/AddRigidBody.png" /></p>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>FallingFireAndSmoke object falling in Game:</p>
+<p><!--
+<a class="reference internal" href="../../_images/FallingFireAndSmokeInGame.png"><img alt="BookFallingFireAndSmokeInGame" src="../../_images/FallingFireAndSmokeInGame.png" style="height: 3.0in;" /></a>
+--></p>
+<p>
+<a class="reference internal" href="../../_images/FallingFireAndSmokeInGame.png"><img alt="WebFallingFireAndSmokeInGame" src="../../_images/FallingFireAndSmokeInGame.png" style="width: 8.35in;" /></a>
+</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<div class="section" id="creating-particle-effects-at-run-time">
+<h2>Creating Particle Effects at Run-Time</h2>
+<p>Creating particles effects at run-time is the same as creating any other object
+at run-time.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the FallingFireAndSmoke object</span></a></li>
+</ul>
+<p>The FallingFireAndSmoke object just falls forever instead of ever being destroyed. We don&#8217;t want these objects to persist because over time this could cause performance problems. There is a component that will destroy the object it is attached to after a specified amount of time.</p>
+</div>
+<div class="section" id="importing-scripts">
+<h2>Importing Scripts</h2>
+<ul>
+<li><p class="first">Locate the provided TimedDeath Stock Script</p>
+</li>
+<li><p class="first">Drag and drop the TimedDeath file onto the Level Window</p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the FallingFireAndSmoke object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add a TimedDeath component</span></a> with the following properties:</p>
+<p><img alt="TimedDeath" src="../../_images/TimedDeath.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The <strong>Lifetime</strong> property is set to 4, which means that the object will be
+destroyed after 4 seconds.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Archetype to: FallingFireAndSmoke</li>
+<li>Click the <img alt="Upload" src="../../_images/upload.png" /> button to upload the archetype</li>
+</ul>
+</div></blockquote>
+<p>The FallingFireAndSmoke object should appear under the Archetype tab in the
+Library Window.</p>
+<p><img alt="NewArchetype" src="../../_images/NewArchetype.png" /></p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the FallingFireAndSmoke object</span></a></li>
+<li>Delete it (<code class="docutils literal"><span class="pre">Right-Click</span></code> and select delete)</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2014"><span>Add a new ZilchScript resource</span></a> named: GameLogic</li>
+<li>Change the <strong>GameLogic</strong> script to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">KeyDown</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnKeyDown</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnKeyDown</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nb">KeyboardEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nb">Key</span> <span class="o">==</span> <span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Get a reference to the FallingFireAndSmoke archetype:</span>
+            <span class="k">var</span> <span class="nx">particleSystem</span> <span class="o">=</span> <span class="nx">Archetype</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;FallingFireAndSmoke&quot;</span><span class="p">);</span>
+
+            <span class="c1">// Get a random X position from the RandomContext:</span>
+            <span class="k">var</span> <span class="nx">randomX</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">RandomContext</span><span class="p">.</span><span class="nx">Range</span><span class="p">(</span><span class="o">-</span><span class="mf">10.0</span><span class="o">,</span> <span class="mf">10.0</span><span class="p">);</span>
+            <span class="c1">// Create an instance of of the FallingFireAndSmokeArchetype:</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">CreateAtPosition</span><span class="p">(</span><span class="nx">particleSystem</span><span class="o">,</span> <span class="nx">local</span> <span class="nx">Real3</span><span class="p">(</span><span class="nx">randomX</span><span class="o">,</span> <span class="mf">5.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the LevelSettings object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the GameLogic script component</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the RandomContext component</span></a></p>
+<p><img alt="RandomContext" src="../../_images/RandomContext.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></p>
+</li>
+</ul>
+<p></p>
+<p>Now we have both ParticleEffectA and ParticleEffectB emitting particle effects, and if you press Space on the keyboard, an instance of the FallingFireAndSmoke object will be created.</p>
+<p>Here our FallingFireAndSmoke objects are being created at run-time:</p>
+<p><a class="reference internal" href="../../_images/FallingFire.png"><img alt="FallingFire" src="../../_images/FallingFire.png" style="width: 8.35in;" /></a></p>
+<p>Now we know the basics of Particle Systems, Particle Emitters, and Particle
+Animators.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">orphan:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<!-- this is used as a file for inclusion in other .rst files --></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SimpleAi.html" class="btn btn-neutral float-right" title="Ai Shooting and Movement" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Levels.html" class="btn btn-neutral" title="Levels" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/ParticleSystems.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:23:46 GMT -->
+</html>

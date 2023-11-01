@@ -1,0 +1,77 @@
+.. _ReferenceObjectStore:
+
+.. rst-class:: searchtitle
+
+ObjectStore
+===========
+
+.. rst-class:: searchdescription
+
+Object cache is use to store objects at runtime.
+
+.. include:: Description/ObjectStore.rst
+
+.. cpp:class:: ObjectStore
+
+.. _ReferenceObjectStoreProperties:
+
+.. _ReferenceObjectStoreMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool ObjectStore::IsStored(String name)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: StoreResult::Enum ObjectStore::Store(String name, Cog object)
+
+            Store an object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog ObjectStore::Restore(String name, Space space)
+
+            Restore an object to the space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog ObjectStore::RestoreOrArchetype(String name, Archetype archetype, Space space)
+
+            Restore an object if it is not stored use the archetype to create it.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ObjectStore::Erase(String name)
+
+            Attempts to remove an object from the store.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ObjectStore::ClearStore()
+
+            Clear the store.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: ObjectStore ObjectStore::FindOrCreateSubStore(String name)
+
+            Create a substore of this objectstore(basically a child store)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: ResourceTable ObjectStore::GetObjectList()
+
+            Returns list of all the objects currently stored.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ObjectStore::UpdateObjectListCache()
+
+            Force updating list of files that were on the disk.
+
+.. include:: Remarks/ObjectStore.rst

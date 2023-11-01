@@ -1,0 +1,55 @@
+.. _ReferenceNetEventReceived:
+
+.. rst-class:: searchtitle
+
+NetEventReceived
+================
+
+.. rst-class:: searchdescription
+
+Dispatched before a received net event is dispatched.
+
+.. include:: Description/NetEventReceived.rst
+
+.. cpp:class:: NetEventReceived
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceNetEventReceivedProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetEventReceived::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetPeerId NetEventReceived::TheirNetPeerId
+
+            Data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Event NetEventReceived::NetEvent
+
+            Their net peer ID.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NetEventReceived::Destination
+
+            Network event received.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetEventReceived::ReturnAllow
+
+            Dispatch destination object(null if the net object could not be found locally)
+
+.. _ReferenceNetEventReceivedMethods:
+
+.. include:: Remarks/NetEventReceived.rst

@@ -1,0 +1,166 @@
+.. _ReferenceRevoluteJoint:
+
+.. rst-class:: searchtitle
+
+RevoluteJoint
+=============
+
+.. rst-class:: searchdescription
+
+A revolute joint is used to create a wheel or a hinge. A revolute joint bring the two locally defined axes together and allows free rotation on only that axis. This axis is also where the motor is applied. The two axes that are orthogonal to the motor axis have their rotation locked(objects rotate together unless on the motor axis). Add on definitions: Limit: A limit will provide a min/max angle on the motor axis. Motor: A motor will turn the objects about the motor axis. Spring: A spring will make the motor axis springy at the limits.
+
+.. include:: Description/RevoluteJoint.rst
+
+.. cpp:class:: RevoluteJoint
+
+    Base Class: :cpp:type:`Joint`
+
+.. _ReferenceRevoluteJointProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog RevoluteJoint::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space RevoluteJoint::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog RevoluteJoint::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession RevoluteJoint::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RevoluteJoint::Active
+
+            Determines if this joint is currently active. Used for runtime enabling/disabling of joints.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RevoluteJoint::SendsEvents
+
+            Determines if this joint will send any events. Used for a small efficiency boost and for reducing the number of events.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RevoluteJoint::AutoSnaps
+
+            Determines if this joint will automatically delete itself if it reaches the max force value. This will still send an event if it snaps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RevoluteJoint::CollideConnected
+
+            Determines if the two objects connected by this joint can collide. If any joint between this pair does not collide, then the pair does not collide. All joints have to be set to true in order to have the objects collide.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real RevoluteJoint::MaxForce
+
+            The maximum force that this joint can apply to correct itself.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 RevoluteJoint::LocalPointA
+
+            The local point of the anchor on object A.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 RevoluteJoint::LocalPointB
+
+            The local point of the anchor on object B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 RevoluteJoint::WorldPointA
+
+            The position of the anchor on object A in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 RevoluteJoint::WorldPointB
+
+            The position of the anchor on object B in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RevoluteJoint::UseFrameA
+
+            Should the default frame of the constraint be object A or B? This determines which object's world axis is used when constructing the basis for the constraint. In the case of a dynamic and static object, the static object is generally the better choice. As a general rule of thumb, it should be the heavier/most important object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 RevoluteJoint::WorldAxis
+
+            The axis of freedom for the joint in world space. This is the axis that rotational movement is allowed on. Which object's axis is used to compute this is determined by UseFrameA.
+
+.. _ReferenceRevoluteJointMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RevoluteJoint::DebugDraw()
+
+            Draws the debug info associated with this joint.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog RevoluteJoint::GetOtherObject(Cog cog)
+
+            If the passed in object is ObjectA, returns ObjectB. Prevents the user from having to write the if case all the time.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog RevoluteJoint::GetCog(uint index)
+
+            Returns the cog associated with an index. Index of 0 is ObjectA, index 1 is ObjectB. Used to write more streamline functions where you index into the objects in a loop.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RevoluteJoint::SetWorldPointsVec3
+
+            Sets the position of the anchor on object A and B given a position in world space
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RevoluteJoint::EditBasisA()
+
+            Spawns a proxy transform widget that allows the user to configure the basis for object A. The basis is used to specify the rotation basis and the other two axes used for computing the reference angles for limits.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RevoluteJoint::EditBasisB()
+
+            Spawns a proxy transform widget that allows the user to configure the basis for object B. The basis is used to specify the rotation basis and the other two axes used for computing the reference angles for limits.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RevoluteJoint::EditWorldBasis()
+
+            Same as Basis1 except this sets the basis for both objects simultaneously.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RevoluteJoint::SetWorldFrame(QuatParam rot)
+
+            Used to set the entire frame in world space for this joint. The x and y axes are used as a basis for limiting the joint. The x axis is at angle 0 and the y axis is at angle 90. The z axis is the axis of rotational freedom.
+
+.. include:: Remarks/RevoluteJoint.rst

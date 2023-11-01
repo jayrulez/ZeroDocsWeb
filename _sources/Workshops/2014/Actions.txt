@@ -1,0 +1,228 @@
+.. _Actions2014:
+
+.. rst-class:: SearchTitle
+
+Actions
+=======
+
+.. rst-class:: SearchDescription
+
+This lesson explains the basics of using actions. Actions allow you to animate properties using code.
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2014`
+
+Level Setup
+-----------
+
+Create the Test Sprite
+
+*   :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+     
+        
+Create the Action Testing Script
+-----------------------------------
+
+:ref:`Add a new ZilchScript resource<ResourceAdding2014>` named: 'ActionTest' 
+
+Update your script to look like this:
+
+.. code-block:: as
+    
+    class ActionTest : ZilchComponent
+    {
+        function Initialize(init : CogInitializer)
+        {
+            // Create an Action Sequence attach to this object
+            var seq = Action.Sequence(this.Owner.Actions);
+            
+            // Move up
+            Action.Property(seq, @this.Owner.Transform.Translation, Real3(0, 10, 0), 1.0, Ease.Linear);
+        }
+
+    }
+
+**Remember to add your script component ActionTest to your object.**
+
+|pbr|
+
+Now :ref:`run your project <RunTheGame2014>`.
+
+|FirstMove|
+
+Now let's add more actions.
+
+.. code-block:: as
+     
+        function Initialize(init : CogInitializer)
+        {
+            // Create an Action Sequence attach to this object
+            var seq = Action.Sequence(this.Owner.Actions);
+            
+            // Move up
+            Action.Property(seq, @this.Owner.Transform.Translation, Real3(0, 10, 0), 1.0, Ease.Linear);
+            
+            // Move top right
+            Action.Property(seq, @this.Owner.Transform.Translation, Real3(10, 10, 0), 1.0, Ease.Linear);
+            
+            // Scale up
+            Action.Property(seq, @this.Owner.Transform.Scale, Real3(5, 5, 5), 1.0, Ease.Linear);
+        }
+
+|pbr|
+
+Now you will have something that looks like this:
+
+|DoubleMove|
+
+
+|pbr|
+
+Break Down
+-----------------------------------
+
+First is ``var seq = Action.Sequence(this.Owner.Actions);``
+This creates an ActionSequence attached to the actions of the owning game object.
+An ActionSequence will run each action attached to it one at a time until all are completed. 
+There is also an ``Action.Group`` that will run all actions simultaneously.
+
+Next is ``@this.Owner.Transform.Translation``
+This captures the property of the Translation on the Transform component of this camera object. Almost any property can
+be interpolated by actions, even strings.
+
+Next is ``Real3(0, 10, 0)``
+This is the destination value for the property. The action will **interpolate** from the value when the action starts
+to the destination value. Try setting this to different positions.
+
+Next is ``1.0``
+This is duration of the action. This is how long the action will take to interpolate the value. Try setting different values to see the result.
+
+Last is ``Ease.Linear``
+This controls the acceleration and deceleration of the interpolation. This is used to give the movement a more natural organic motion. The action will accelerate at the beginning and decelerate at the end but still take
+the same amount of time. Try ``Ease.QuadOut`` to see nicer movement.
+
+Delay Actions
+-----------------
+
+You can put in delay actions to wait for time to pass.
+
+.. code-block:: as
+     
+        function Initialize(init : CogInitializer)
+        {        
+            // Create an Action Sequence attach to this object
+            var seq = Action.Sequence(this.Owner.Actions);
+            
+            // Move up
+            Action.Property(seq, @this.Owner.Transform.Translation, Real3(0, 10, 0), 0.5, Ease.Linear);
+            
+            // Move top right
+            Action.Property(seq, @this.Owner.Transform.Translation, Real3(10, 10, 0), 0.5, Ease.Linear);
+            
+            // Scale up
+            Action.Property(seq, @this.Owner.Transform.Scale, Real3(5, 5, 5), 0.5, Ease.Linear);
+            
+            // Wait half a second
+            Action.Delay(seq, 0.5);
+            
+            // Change color to red
+            Action.Property(seq, @this.Owner.Sprite.Color, Real4(1, 0, 0, 1), 0.5, Ease.Linear);
+            
+        }
+
+
+|pbr|
+
+Here is what this would look like:
+    
+    |Delay|
+
+|pbr|    
+
+Call Actions
+---------------------------
+
+Call Actions will call a function.
+
+.. code-block:: as
+
+    class ActionTest : ZilchComponent
+    {
+        function Initialize(init : CogInitializer)
+        {        
+            // Create an Action Sequence attach to this object
+            var seq = Action.Sequence(this.Owner.Actions);
+                    
+            // Wait half a second
+            Action.Delay(seq, 0.5);
+            
+            // Change color to red
+            Action.Property(seq, @this.Owner.Sprite.Color, Real4(1, 0, 0, 0), 0.5, Ease.Linear);
+            
+            // Call SayHello
+            Action.Call(seq, this.DestroySelf);
+
+        }
+        
+        function DestroySelf()
+        {
+            Console.WriteLine("Oh No!");
+            this.Owner.Destroy();
+        }
+
+    }
+
+Here is what this would look like:
+    
+|FadeOut|
+
+|pbr|
+
+Action Groups and More
+---------------------------
+
+Actions groups run attached actions simultaneously.
+
+.. code-block:: as
+
+    class ActionTest : ZilchComponent
+    {
+        function Initialize(init : CogInitializer)
+        {        
+            // Create an Action Sequence attach to this object
+            var seq = Action.Sequence(this.Owner.Actions);
+            
+            // Create a group of actions to do at the same time
+            var group = Action.Group(seq);                    
+            
+            // Move up
+            Action.Property(group, @this.Owner.Transform.Translation, Real3(0, 10, 0), 0.5, Ease.Linear);
+                        
+            // Change color to red
+            Action.Property(group, @this.Owner.Sprite.Color, Real4(1, 0, 0, 1), 0.5, Ease.Linear);
+            
+            // After the group (both above actions) are done destory self
+            
+            // Call the Destory function on owner
+            Action.Call(seq, this.Owner.Destroy);
+        }        
+
+    }
+    
+Here is what this would look like:
+
+|Final|  
+
+.. |FadeOut|         image:: images/Actions/FadeOut.gif
+
+.. |Delay|         image:: images/Actions/Delay.gif
+
+.. |Final|         image:: images/Actions/Final.gif
+
+.. |FirstMove|         image:: images/Actions/FirstMove.gif
+    
+.. |DoubleMove|         image:: images/Actions/DoubleMove.gif 
+
+.. include:: BookFormattingShortcuts.rst

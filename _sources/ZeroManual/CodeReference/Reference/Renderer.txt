@@ -1,0 +1,88 @@
+.. _ReferenceRenderer:
+
+.. rst-class:: searchtitle
+
+Renderer
+========
+
+.. rst-class:: searchdescription
+
+Scene rendering interface used to render 3d scene in a DisplayScene.
+
+.. include:: Description/Renderer.rst
+
+.. cpp:class:: Renderer
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceRendererProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Renderer::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Renderer::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Renderer::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Renderer::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 Renderer::ClearColor
+
+            Color to clear the screen.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Renderer::DrawNonVisible
+
+            Draw editor only materials.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Renderer::DrawDebugObjects
+
+            Do debug drawing.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Renderer::DrawEditorIcons
+
+            Draw editor icons.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Renderer::EditorIconDepth
+
+            Depth for editor icons.
+
+.. _ReferenceRendererMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Renderer::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/Renderer.rst

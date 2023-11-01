@@ -1,0 +1,94 @@
+.. _ReferenceDynamicMotor:
+
+.. rst-class:: searchtitle
+
+DynamicMotor
+============
+
+.. rst-class:: searchdescription
+
+A controller to move an object with physics. This gives the controller realistic reactions to the physics world for free.
+
+.. include:: Description/DynamicMotor.rst
+
+.. cpp:class:: DynamicMotor
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceDynamicMotorProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DynamicMotor::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space DynamicMotor::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DynamicMotor::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession DynamicMotor::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real DynamicMotor::MaxMoveForce
+
+            Max movement force.
+
+.. _ReferenceDynamicMotorMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMotor::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMotor::MoveInDirection(Vec3 direction, Vec3 up)
+
+            Attempts to move the character in the given direction.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMotor::SetReferenceFrameToWorld()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMotor::SetReferenceFrameToObject(Cog object)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMotor::Deactivate()
+
+            Deactivates all functionality of the dynamic controller.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMotor::Activate()
+
+            Activates all functionality of the dynamic controller.
+
+.. include:: Remarks/DynamicMotor.rst

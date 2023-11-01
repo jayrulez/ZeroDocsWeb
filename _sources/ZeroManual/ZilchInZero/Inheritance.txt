@@ -1,0 +1,267 @@
+.. _ZilchInheritance:
+
+.. rst-class:: SearchTitle
+
+Inheritance
+===========
+
+.. rst-class:: SearchDescription
+
+One class can inherit from another:
+
+.. code-block:: csharp
+    
+    class Feline
+    {
+        constructor()
+        {
+        }
+    }
+
+            // A colon designates an identifier for a base class follows.
+    class Lion : Feline
+    {
+      // a constructor is not necessary when one is inherited from the base class.  
+    }
+
+.. code-block:: as
+
+    var cat = new Feline();
+    var simba = new Lion(); // Instantiated from the inherited constructor
+
+
+**base** keyword is for use with inheritance; it allows you to call your parent's constructor.
+
+.. code-block:: csharp
+    
+    class Animal
+    {
+        var Legs:Integer = 4;
+        
+        constructor()
+        {
+        }
+        constructor(legs: Integer)
+        {
+            this.Legs = legs;
+        }
+
+        function ToString() : String
+        {
+            var builder = new StringBuilder();
+            builder.Write("Legs: ");
+            builder.Write(this.Legs);
+            return builder.ToString();
+        }
+    }
+
+
+    class Human : Animal
+    {
+        // Here we use the base keyword to call the constructor to 
+        // make our base class portion only possess 2 legs.
+        constructor() : base(2)
+        {
+        }
+    }
+    
+.. code-block:: csharp   
+
+    // If we were to test it:
+    
+    var animal: Animal = new Animal();
+    Console.WriteLine(animal.ToString()); // Legs: 4
+    
+    var jerry = new Human();
+    Console.WriteLine(jerry.ToString());  // Legs: 2
+    
+Console Output::
+
+      ---------------- Begin Game ---------------
+      Legs: 4
+      Legs: 2  
+    
+As shown in the previous example, Human inherits the functionality of Animal as you'd expect. 
+
+.. warning::
+  Although Zilch currently does not throw an error, erratic and unexpected behavior will result from having a class inherit from a struct and vice versa.
+  i.e.
+  
+  .. code-block:: csharp
+  
+    // Mismatching the struct/class between parent and child
+    struct MyBaseStruct
+    {
+      constructor()
+      {
+      }
+    }
+    class MyClass: MyBaseStruct
+    {
+      constructor(): base()
+      {
+      }
+    }
+    
+    // Leads to issues such as the inability to cast to the base class type. 
+    var incompatible: MyClass = new MyClass();
+    Console.WriteLine(typeid(incompatible).Name);                 // MyClass
+    Console.WriteLine(typeid(incompatible as MyBaseStruct).Name); // This won't compile.
+
+The Virtual Keyword
+-------------------
+
+
+Another tool that we can use when dealing with inheritance is the idea of having virtual functions and properties. The **virtual** keyword is used to allow a property or function to do one thing in a parent class and then do something different (or overridden) in a derived class.
+
+For example, we may want to add in the functionality for our Animal class to speak. So in this case, we can add in a new Speak function which will look like the following:
+
+.. code-block:: csharp
+    :emphasize-lines: 25-29
+
+    class Animal
+    {
+        
+        var Legs:Integer = 4;
+    
+        constructor()
+        {
+        }
+        
+        constructor(legs: Integer)
+        {
+            this.Legs = legs;
+        }
+        
+        function ToString() : String
+        {
+            var builder = new StringBuilder();
+            builder.Write("Legs: ");
+            builder.Write(this.Legs);
+            return builder.ToString();
+        }
+        
+        [Virtual]
+        function Speak():String
+        {
+            return "...";
+        }
+    }
+
+By default, animals don't say anything, so we just return a string that says ``...``. We do know that there are animals that do, so we put down the ``[Virtual]`` attribute to let other coders know that if we derive this class we can modify this function to do something differently. 
+
+With that in mind, Humans do speak, so we can replace this default functionality with our child Human class by rewriting the function with the ``[Override]`` keyword:
+
+
+.. code-block:: csharp
+    :emphasize-lines: 9-13
+
+    class Human : Animal
+    {
+        // Here we use the base keyword to call the constructor to
+        // make our base class portion only possess 2 legs.
+        constructor() : base(2)
+        {
+        }
+        
+        [Override]
+        function Speak() : String
+        {
+            return "Hello";
+        }
+    }
+ 
+Now we have made it so that when this class will call the Speak function it will return ``Hello`` instead of the original value. 
+
+We can also extend this so other classes like a Cat:
+
+.. code-block:: csharp
+
+    class Cat : Animal
+    {
+        // Cats have 4 legs, so let's update the constructor
+        constructor() : base(4)
+        {
+        }
+        
+        [Override]
+        function Speak() : String
+        {
+            return "Meow";
+        }
+    }
+
+Now, this is great in the fact that we can now do something like the following:
+
+
+.. code-block:: csharp
+
+    function Initialize(init : CogInitializer)
+    {
+        var a:Animal = Animal();
+        Console.WriteLine(a.Speak());
+        
+        var b:Human = Human();
+        Console.WriteLine(b.Speak());
+        
+    }
+
+The console will print out: 
+
+Console Output::
+
+    ...
+    Hello
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+But the real magic of inheritance comes in the idea that we can use:
+
+.. code-block:: csharp
+
+        var c : Animal = Human();
+        Console.WriteLine(c.Speak());
+
+Even though the variable is of type Animal, we call the Human version of the function:
+
+Console Output::
+
+    Hello
+
+This is because whenever a virtual method is called, the run-time type of the object is checked for an overriding member. The overriding member in the most derived class will then be called, which might be the original function if no derived class has overridden it.
+
+This can be quite useful in the fact that we can have an array of Animals and we can have them all speak correctly.
+
+    function Initialize(init : CogInitializer)
+    {
+        var a:Animal = Animal();
+        var b:Human = Human();
+        var c:Animal = Human();
+        var d:Cat = Cat();
+        
+        var array:Array[Animal] = Array[Animal](){a,b,c,d};
+        
+        foreach (var animal in array)
+        {
+            Console.WriteLine(animal.Speak());
+        }
+    }
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    ...
+    Hello
+    Hello
+    Meow
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+    
+Calling Parent Functions
+------------------------
+
+It's also possible to call the parent version of a function from a child class. In order to do this, you will need to cast the object into the parent class and then use the non-virtual operator (~>) to call the base version:
+
+    (d as Animal)~>Speak();
+
+Will print out ``...``

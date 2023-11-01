@@ -1,0 +1,88 @@
+.. _ReferenceMainWindowConfig:
+
+.. rst-class:: searchtitle
+
+MainWindowConfig
+================
+
+.. rst-class:: searchdescription
+
+Configuration component that Contains data for the main window. Used to control window size and placement. Also stores graphics context shared between graphics and the platform.
+
+.. include:: Description/MainWindowConfig.rst
+
+.. cpp:class:: MainWindowConfig
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceMainWindowConfigProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MainWindowConfig::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space MainWindowConfig::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MainWindowConfig::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession MainWindowConfig::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String MainWindowConfig::Title
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool MainWindowConfig::MaxSize
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int MainWindowConfig::DesktopIndex
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int MainWindowConfig::Width
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int MainWindowConfig::Height
+
+            
+
+.. _ReferenceMainWindowConfigMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void MainWindowConfig::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/MainWindowConfig.rst

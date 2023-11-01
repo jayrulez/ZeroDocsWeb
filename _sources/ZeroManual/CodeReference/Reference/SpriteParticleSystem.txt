@@ -1,0 +1,178 @@
+.. _ReferenceSpriteParticleSystem:
+
+.. rst-class:: searchtitle
+
+SpriteParticleSystem
+====================
+
+.. rst-class:: searchdescription
+
+Sprite Particles system component. Renders particles system as billboarded sprites.
+
+.. include:: Description/SpriteParticleSystem.rst
+
+.. cpp:class:: SpriteParticleSystem
+
+    Base Class: :cpp:type:`ParticleSystemCommonData`
+
+.. _ReferenceSpriteParticleSystemProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SpriteParticleSystem::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space SpriteParticleSystem::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SpriteParticleSystem::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession SpriteParticleSystem::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SpriteParticleSystem::Visible
+
+            If object should be rendered.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SpriteParticleSystem::VisibilityCulling
+
+            If object is culled and not graphically updated when it's not visible.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SpriteParticleSystem::VisibilityEvents
+
+            If object receives events when entering/exiting the view of a rendering camera or shadow.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SpriteParticleSystem::CastShadows
+
+            If object is rendered to shadow maps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint SpriteParticleSystem::ChildMode
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint SpriteParticleSystem::SystemSpace
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint SpriteParticleSystem::DrawOrder
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SpriteParticleSystem::WarmUpTime
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 SpriteParticleSystem::Tint
+
+            Color to tint/multiply all particles in the system.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint SpriteParticleSystem::GeometryMode
+
+            How the geometry of the particle generated. Screen aligned, Axis, Stretched.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint SpriteParticleSystem::RenderMode
+
+            How the particles are blended. Additive, Alpha Blended, etc.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint SpriteParticleSystem::SortMode
+
+            Particle sort mode(individually sorted by z?)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint SpriteParticleSystem::ParticleAnimation
+
+            ParticleAnimation.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: TextureRegion SpriteParticleSystem::Texture
+
+            TextureRegion used for particle System.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SpriteParticleSystem::VelocityScale
+
+            How much to scale a particle horizontally by its velocity.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SpriteParticleSystem::LengthScale
+
+            How much to scale particles horizontally.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SpriteParticleSystem::MaxParticleSize
+
+            Max size of particles in the system.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 SpriteParticleSystem::SystemSize
+
+            Size of the particles system for visibility culling.
+
+.. _ReferenceSpriteParticleSystemMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SpriteParticleSystem::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: ParticleListRange SpriteParticleSystem::AllParticles()
+
+            Allows direct editing of particles.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SpriteParticleSystem::Clear()
+
+            
+
+.. include:: Remarks/SpriteParticleSystem.rst

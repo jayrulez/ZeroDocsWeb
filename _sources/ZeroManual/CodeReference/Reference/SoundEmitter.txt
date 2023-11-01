@@ -1,0 +1,154 @@
+.. _ReferenceSoundEmitter:
+
+.. rst-class:: searchtitle
+
+SoundEmitter
+============
+
+.. rst-class:: searchdescription
+
+Sound Emitter component emits 3d sound at its location.
+
+.. include:: Description/SoundEmitter.rst
+
+.. cpp:class:: SoundEmitter
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceSoundEmitterProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SoundEmitter::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space SoundEmitter::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SoundEmitter::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession SoundEmitter::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SoundEmitter::UsePitchSemitones
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SoundEmitter::Pitch
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SoundEmitter::PitchSemitones
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SoundEmitter::UseVolumeDB
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SoundEmitter::Volume
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SoundEmitter::VolumeDB
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SoundEmitter::Positional
+
+            
+
+.. _ReferenceSoundEmitterMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundEmitter::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundEmitter::Stop()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundEmitter::Pause()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundEmitter::Continue()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: SoundInstance SoundEmitter::PlayCue(SoundCue cue)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool SoundEmitter::IsPlaying()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundEmitter::InterpolatePitch(Real pitch, Real interpolationTime)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundEmitter::InterpolatePitchSemitones(Real pitch, Real interpolationTime)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundEmitter::InterpolateVolume(Real volume, Real interpolationTime)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundEmitter::InterpolateVolumeDB(Real volumeDecibels, Real interpolationTime)
+
+            
+
+.. include:: Remarks/SoundEmitter.rst

@@ -1,0 +1,331 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _UsingTheSweptController2015:
+
+.. rst-class:: SearchTitle
+
+Using the Swept Controller
+==========================
+
+.. rst-class:: SearchDescription
+
+This lesson shows how to use the SweptController stock script to create a player that has physics-based abilities, such as jumping and collision.
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2015`
+
+Level Setup
+-----------
+
+**Ground Object**
+
+* :ref:`Command<Commands2015>`: ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+* In Properties Window
+    
+  * Set Name to: ``Ground``
+    
+  * :ref:`Add a BoxCollider Component <AddComponent2015>`
+    
+  * Under Transform
+    
+    * Set the Translation to: ``[0, 0, 0]``
+    
+    * Set the Scale to: ``[10, 1, 1]``
+        
+**Platform Object**
+
+* :ref:`Command<Commands2015>`: ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+* In Properties Window
+    
+  * Set Name to: ``Platform``
+    
+  * :ref:`Add a BoxCollider Component <AddComponent2015>`
+    
+  * Under Transform
+    
+    * Set the Translation to: ``[4, 4, 0]``
+    
+    * Set the Scale to: ``[5, 1, 1]``
+        
+        |NoBookSingleLine| |CP0_LevelSetupWeb|
+        
+        |NoWebBegin|
+        |CP0_LevelSetupBook|
+        |NoWebEnd|
+        
+|NoBookSingleLine| **Acquiring Stock Scripts**
+|NoBookSingleLine| 
+
+|NoBookSingleLine| Generally, Stock Scripts are obtained through the :ref:`Void <UsingTheVoid2015>` as it has the latest versions. However, to ensure compatibility with the instructions provided in this lesson, we recommend using the file here: 
+
+ |NoBookSingleLine|  :download:`Download the SweptController <files/SweptController.z>`
+
+Implementing Stock Scripts
+--------------------------
+
+Next we will import the provided platformer scripts into our project.
+
+* Go to Platformer_Resources via your File Explorer
+
+* Drag and Drop SweptController into the Zero Editor
+
+You should now find the SweptController under ZilchScript tag in the Library Window.
+
+* Open up the Code for SweptController
+
+It is not the responsibility of the high-level programmer to know how this code works.  We just need to be able to integrate it correctly.
+
+If you look at the top of the code, you will see the instructions that we need to use.  We will come back to this once are done creating the player.
+
+**Player Object**
+
+* :ref:`Command<Commands2015>`: ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+* In Properties Window
+    
+  * Set Name to: ``Player``
+    
+  * :ref:`Add a BoxCollider Component <AddComponent2015>`
+    
+  * :ref:`Add a RigidBody Component <AddComponent2015>`
+    
+  * :ref:`Add a SweptController Component <AddComponent2015>`
+    
+  * Under Transform
+    
+    * Set the Translation to: ``[0, 1, 0]``
+    
+  * Under RigidBody
+    
+    * Set AllowSleep to: ``False``
+        
+        |NoBookSingleLine| |CP0_LevelSetupPlayerWeb|
+        
+        |NoWebBegin|
+        |CP0_LevelSetupPlayerBook|
+        |NoWebEnd|
+        
+|pbr|
+
+
+The first and foremost instruction in the SweptController script is:
+
+.. code-block:: as
+
+  // The user will need to make their own script for peripheral input.
+
+This means we need to implement a PlayerController to use with our SweptController.
+
+* :ref:`Add a new ZilchScript resource<ResourceAdding2015>` named: ``PlayerController``
+
+* Go back to SweptController
+
+Now we need to follow the rest of the instructions at the top of the SweptController.
+
+.. code-block:: as
+    :emphasize-lines: 3-5
+
+    // Usage:
+    // The user will need to make their own script for peripheral input.
+    // Each LogicUpdate, the input script should determine the direction of
+    // desired movement (does not need to be normalized) and pass it to the
+    // Update function of this script, along with the Dt from the UpdateEvent.
+    
+    // Character controller is independent of physics update.
+    // The RigidBody is expected to be Kinematic when using this controller.
+
+This tells us we need to:
+
+Step 1: Connect to the built-in LogicUpdate event 
+
+Step 2: In the LogicUpdate event callback 
+
+-  Step 2a: Generate a movement vector 
+
+-  Step 2b: Call the SweptController's Update function |br| Passing: 
+
+      - (2b.i)  the movement vector |br| and 
+
+      - (2b.ii) the Dt variable (Provided by the UpdateEvent parameter of the LogicUpdate event callback) 
+    
+      |br|
+    
+* In the **PlayerController** script
+
+  * Update the **PlayerController**'s **Initialize** function with the following code:
+
+.. code-block:: as
+    :emphasize-lines: 4
+
+    function Initialize(init : CogInitializer)
+    {
+        // Step 1
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+* 
+
+  * Update the **PlayerController**'s **OnLogicUpdate** function with the following code:
+
+.. code-block:: as
+    :emphasize-lines: 5,8,10
+
+    // Step 2
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        // Step 2a
+        var movement = Real3(0.0, 0.0, 0.0);
+        
+        // Step 2b
+        // at the end, update             
+        //                                2b.i      2b.ii        
+        this.Owner.SweptController.Update(movement, event.Dt);
+    }
+
+    
+|pbr|
+
+Now we can change the movement by checking for key presses.
+
+* In the **PlayerController** script
+
+  * Update the **PlayerController**'s **OnLogicUpdate** function with the following code:
+
+.. code-block:: as
+    :emphasize-lines: 5-9,11-14,16-19
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var movement = Real3(0.0, 0.0, 0.0);
+        
+        // control left, right, and up
+        if(Zero.Keyboard.KeyIsDown(Keys.Left))
+        {
+            movement.X -= 1.0;
+        }
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.Right))
+        {
+            movement.X += 1.0;
+        }
+        
+        if(Zero.Keyboard.KeyIsPressed(Keys.Up))
+        {
+            this.Owner.SweptController.Jump();
+        }
+        
+        // at the end, update
+        this.Owner.SweptController.Update(movement, event.Dt);
+    }
+    
+* :ref:`Select the Player object <SelectObject2015>`
+* In the Properties Window
+  
+  * :ref:`Add the PlayerController component <AddComponent2015>`
+  
+* :ref:`Run the game <RunTheGame2015>`
+
+  * Use the controls
+
+|pbr|  
+
+At this point, all the controls are implemented for the Player, but the user cannot control the height of the player.  We want to tell the SweptController to stop jumping when the key is released.
+
+* In the **PlayerController** script
+
+  * Update the **PlayerController**'s **OnLogicUpdate** function with the following code:
+
+.. code-block:: as
+    :emphasize-lines: 21-28
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var movement = Real3(0.0, 0.0, 0.0);
+        
+        // control left, right, and up
+        if(Zero.Keyboard.KeyIsDown(Keys.Left))
+        {
+            movement.X -= 1.0;
+        }
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.Right))
+        {
+            movement.X += 1.0;
+        }
+        
+        if(Zero.Keyboard.KeyIsPressed(Keys.Up))
+        {
+            this.Owner.SweptController.Jump();
+        }
+        
+        // if the jump key is not pressed, find the point of release and stop jumping
+        if(Zero.Keyboard.KeyIsDown(Keys.Up) == false)
+        {
+            if(this.Owner.SweptController.Jumping)
+            {
+                this.Owner.SweptController.JumpCancel();
+            }
+        }
+        
+        // at the end, update
+        this.Owner.SweptController.Update(movement, event.Dt);
+    }
+    
+* :ref:`Run the game <RunTheGame2015>`
+
+  * Use the controls
+
+By quickly tapping the ``Up Arrow`` you can see the player's jump height is lower.  
+    
+Now we can continue following the SweptController instructions:
+
+.. code-block:: as
+    :emphasize-lines: 8
+
+    // Usage:
+    // The user will need to make their own script for peripheral input.
+    // Each LogicUpdate, the input script should determine the direction of
+    // desired movement (does not need to be normalized) and pass it to the
+    // Update function of this script, along with the Dt from the UpdateEvent.
+    
+    // Character controller is independent of physics update.
+    // The RigidBody is expected to be Kinematic when using this controller.
+    
+* :ref:`Select the Player object <SelectObject2015>`
+* In Properties Window
+   
+  * Under RigidBody
+    
+    * Set DynamicState to: ``Kinematic``
+        
+    |CP0_RigidBody|
+
+Changeable Properties
+---------------------
+By running the game, you will notice everything should work correctly, but the player can't jump high enough to reach the upper platform.  We can change the JumpSpeed for the Player.
+
+* :ref:`Select the Player object <SelectObject2015>`
+* In Properties Window
+
+  * Under SweptController
+    
+    * Set JumpSpeed to: ``10``
+        
+    |CP0_SweptControllerJumpSpeed|
+
+Now we know how to integrate the SweptController to make a platform character controller.
+
+.. |CP0_RigidBody|                image:: images/platformer/CP0_1.png
+.. |CP0_SweptControllerJumpSpeed| image:: images/platformer/CP0_2.png
+
+.. |CP0_LevelSetupPlayerBook|     image:: images/platformer/CP0_3.png
+    :height: 2.5in
+
+.. |CP0_LevelSetupPlayerWeb|      image:: images/platformer/CP0_3.png
+
+.. |CP0_LevelSetupBook|           image:: images/platformer/CP0_4.png
+    :height: 2.5in
+
+.. |CP0_LevelSetupWeb|            image:: images/platformer/CP0_4.png
+

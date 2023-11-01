@@ -1,0 +1,55 @@
+.. _ReferenceLockStepUpdateEvent:
+
+.. rst-class:: searchtitle
+
+LockStepUpdateEvent
+===================
+
+.. rst-class:: searchdescription
+
+A frame update event that is expected to be synced.
+
+.. include:: Description/LockStepUpdateEvent.rst
+
+.. cpp:class:: LockStepUpdateEvent
+
+    Base Class: :cpp:type:`UpdateEvent`
+
+.. _ReferenceLockStepUpdateEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String LockStepUpdateEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real LockStepUpdateEvent::Dt
+
+            The amount of time that passed between this frame and the last(scaled by TimeSpace.TimeScale).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real LockStepUpdateEvent::TimePassed
+
+            The amount of time that has passed since this space was created(TimeSpace.TimeScale affects this value).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real LockStepUpdateEvent::RealTimePassed
+
+            The real amount of time that has passed since this space was created(uncaped and unclamped).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Frame LockStepUpdateEvent::CurrentFrame
+
+            The current synced frame(it is ok to reply upon this value)
+
+.. _ReferenceLockStepUpdateEventMethods:
+
+.. include:: Remarks/LockStepUpdateEvent.rst

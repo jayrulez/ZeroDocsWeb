@@ -1,0 +1,64 @@
+.. _ReferenceAmbientLight:
+
+.. rst-class:: searchtitle
+
+AmbientLight
+============
+
+.. rst-class:: searchdescription
+
+component that provides ambient light
+
+.. include:: Description/AmbientLight.rst
+
+.. cpp:class:: AmbientLight
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceAmbientLightProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog AmbientLight::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space AmbientLight::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog AmbientLight::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession AmbientLight::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 AmbientLight::Color
+
+            Color of the ambient light.
+
+.. _ReferenceAmbientLightMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void AmbientLight::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/AmbientLight.rst

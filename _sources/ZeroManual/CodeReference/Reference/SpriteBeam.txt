@@ -1,0 +1,136 @@
+.. _ReferenceSpriteBeam:
+
+.. rst-class:: searchtitle
+
+SpriteBeam
+==========
+
+.. rst-class:: searchdescription
+
+SpriteBeam is a repeated series of sprites rendering along a link.
+
+.. include:: Description/SpriteBeam.rst
+
+.. cpp:class:: SpriteBeam
+
+    Base Class: :cpp:type:`BaseSprite`
+
+.. _ReferenceSpriteBeamProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SpriteBeam::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space SpriteBeam::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SpriteBeam::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession SpriteBeam::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SpriteBeam::Visible
+
+            If object should be rendered.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SpriteBeam::VisibilityCulling
+
+            If object is culled and not graphically updated when it's not visible.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SpriteBeam::VisibilityEvents
+
+            If object receives events when entering/exiting the view of a rendering camera or shadow.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SpriteBeam::CastShadows
+
+            If object is rendered to shadow maps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 SpriteBeam::Color
+
+            Modulation color of this sprite.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: BlendMode::Type SpriteBeam::BlendMode
+
+            Blend Mode of the sprite.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SpriteGeometryMode::Type SpriteBeam::GeometryMode
+
+            Geometry mode determines how the sprite is mapped to 3d.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SpriteLayer SpriteBeam::SpriteLayer
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: BeamGeometryMode::Type SpriteBeam::BeamGeometryMode
+
+            How is the beams geometry generated?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SpriteSource SpriteBeam::SpriteSource
+
+            Sprite used to render this beam.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SpriteBeam::SpriteThickness
+
+            Thickness of the beam. 0 is default sprite height.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SpriteBeam::SpriteLength
+
+            How long each sprite is in beam. O is default sprite width.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SpriteBeam::RepeatCount
+
+            How many times does the sprite repeat?
+
+.. _ReferenceSpriteBeamMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SpriteBeam::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/SpriteBeam.rst

@@ -1,0 +1,94 @@
+.. _ReferenceForwardRenderer:
+
+.. rst-class:: searchtitle
+
+ForwardRenderer
+===============
+
+.. rst-class:: searchdescription
+
+Base Forward Renderer.
+
+.. include:: Description/ForwardRenderer.rst
+
+.. cpp:class:: ForwardRenderer
+
+    Base Class: :cpp:type:`Renderer`
+
+.. _ReferenceForwardRendererProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ForwardRenderer::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space ForwardRenderer::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ForwardRenderer::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession ForwardRenderer::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 ForwardRenderer::ClearColor
+
+            Color to clear the screen.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ForwardRenderer::DrawNonVisible
+
+            Draw editor only materials.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ForwardRenderer::DrawDebugObjects
+
+            Do debug drawing.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ForwardRenderer::DrawEditorIcons
+
+            Draw editor icons.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ForwardRenderer::EditorIconDepth
+
+            Depth for editor icons.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ForwardRenderer::Wireframe
+
+            
+
+.. _ReferenceForwardRendererMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ForwardRenderer::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/ForwardRenderer.rst

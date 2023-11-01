@@ -1,0 +1,65 @@
+.. _ReferenceContactHolder:
+
+.. rst-class:: searchtitle
+
+ContactHolder
+=============
+
+.. rst-class:: searchdescription
+
+A"specialization" of the Base Constraint Holder that has contact specific helpers.
+
+.. include:: Description/ContactHolder.rst
+
+.. cpp:class:: ContactHolder
+
+.. _ReferenceContactHolderProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ContactHolder::Object
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ContactHolder::OtherObject
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ContactHolder::IsGhost
+
+            Returns whether or not this was a ghost collision.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint ContactHolder::ContactPointCount
+
+            Returns how many points of contact there are.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ContactPointRange ContactHolder::ContactPoints
+
+            Returns a range to iterate through all of the contact points.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ContactHolder::IsNew
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ContactPoint ContactHolder::FirstPoint
+
+            Just a helper when we don't care about iterating through the points and we just want a point to sample.
+
+.. _ReferenceContactHolderMethods:
+
+.. include:: Remarks/ContactHolder.rst

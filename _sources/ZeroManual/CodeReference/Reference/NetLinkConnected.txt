@@ -1,0 +1,49 @@
+.. _ReferenceNetLinkConnected:
+
+.. rst-class:: searchtitle
+
+NetLinkConnected
+================
+
+.. rst-class:: searchdescription
+
+Dispatched after sending or receiving a connect confirmation.
+
+.. include:: Description/NetLinkConnected.rst
+
+.. cpp:class:: NetLinkConnected
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceNetLinkConnectedProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetLinkConnected::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetPeerId NetLinkConnected::TheirNetPeerId
+
+            Data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: IpAddress NetLinkConnected::TheirIpAddress
+
+            Their net peer ID.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: TransmissionDirection::Enum NetLinkConnected::Direction
+
+            Their IP address(as seen from our perspective)
+
+.. _ReferenceNetLinkConnectedMethods:
+
+.. include:: Remarks/NetLinkConnected.rst

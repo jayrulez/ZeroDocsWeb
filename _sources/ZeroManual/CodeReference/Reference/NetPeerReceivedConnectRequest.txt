@@ -1,0 +1,67 @@
+.. _ReferenceNetPeerReceivedConnectRequest:
+
+.. rst-class:: searchtitle
+
+NetPeerReceivedConnectRequest
+=============================
+
+.. rst-class:: searchdescription
+
+Dispatched after receiving a connect request If accepted, their net peer ID is assigned immediately after this Return true to accept the connect request, else false.
+
+.. include:: Description/NetPeerReceivedConnectRequest.rst
+
+.. cpp:class:: NetPeerReceivedConnectRequest
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceNetPeerReceivedConnectRequestProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetPeerReceivedConnectRequest::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: IpAddress NetPeerReceivedConnectRequest::TheirIpAddress
+
+            Data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EventBundle NetPeerReceivedConnectRequest::TheirRequestBundle
+
+            Their IP address(as seen from our perspective)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint NetPeerReceivedConnectRequest::TheirPendingUserAddRequestCount
+
+            Their bundled request event data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: IpAddress NetPeerReceivedConnectRequest::OurIpAddress
+
+            Their pending user add requests following this connect request(within the same frame)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetPeerReceivedConnectRequest::ReturnOurConnectResponse
+
+            Our IP address(as seen from their perspective)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EventBundle NetPeerReceivedConnectRequest::ReturnOurResponseBundle
+
+            Return: Our connect response(accept the connect request?)
+
+.. _ReferenceNetPeerReceivedConnectRequestMethods:
+
+.. include:: Remarks/NetPeerReceivedConnectRequest.rst

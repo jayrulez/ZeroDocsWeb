@@ -1,0 +1,312 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Architecture/Cogs/GameObjectsConcept.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:25:45 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Game Objects &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Cogs" href="index.html"/>
+        <link rel="next" title="Save and Load Data" href="ObjectStore.html"/>
+        <link rel="prev" title="Cogs" href="index.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Architecture</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Cogs</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Game Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ObjectStore.html">Save and Load Data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Objects/index.html">Siginficant Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Resources/index.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Components/index.html">Components</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Architecture</a> &raquo;</li>
+      
+          <li><a href="index.html">Cogs</a> &raquo;</li>
+      
+    <li>Game Objects</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Architecture/Cogs/GameObjectsConcept.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="game-objects">
+<span id="manualgameobjects"></span><h1>Game Objects</h1>
+<p class="searchdescription">Game objects are pieces of interactive content.</p>
+<p>Objects in the Zero Engine (game object compositions, or Cogs) are not defined using classes. Instead they are collections of components, each of which provide a certain functionality to the object. A component can be data, behavior, and/or a link to a system. For example, an object called &#8220;Ball&#8221; might be a composition that includes the Transform (position, rotation, etc.), Model (geometry, textures, etc.), Rigid Body (movement), and Collider (shape, collision, etc.) components, while a &#8220;Main Camera&#8221; object would include Transform, Controller (mouse or keyboard input, etc.), and Camera (field of view, zoom, etc.). Or you could create a &#8220;Ball Camera,&#8221; with Transform, Model, Rigid Body, Collider, Controller, and Camera.</p>
+<p>One of the keys to working with a component based engine is to think of objects in terms of what they do, not what they are. If you have a hospital, a soldier, and a medic, the hospital and the medic have a healing component, while the soldier and the medic have a mobility component, but you don&#8217;t need to group one as a building and the other two as infantry. All the game engine cares about is what the object can do. You might see a ball and a car as different types of things, but to the game engine they are both objects composed of Transform, Model, Rigid Body and Collider. They have the same functionality: the only difference is their data.</p>
+<div class="section" id="creating-a-cog">
+<h2>Creating a Cog</h2>
+<p>The easiest way to start creating your own cog is to start with a command that generates one for you, e.g. CreateSprite, CreateCube, CreateTransform, etc. These create cogs that you can then customize by adding or removing components and setting their properties in the Properties Window.</p>
+<p><img alt="CreateSearch_png" src="../../../_images/CreateSearch.png" /></p>
+</div>
+<div class="section" id="copy-paste">
+<h2>Copy &amp; Paste</h2>
+<p>When creating a new object, you can always copy and paste other objects and alter their properties from there. The copy and paste functionality places the same information on the clipboard that it does when saving.
+Here is what we see when copy our Sprite generated from CreateSprite into a text editor:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nb">Selection</span> <span class="nx">selection</span> <span class="o">=</span> 
+<span class="p">{</span>
+	<span class="nx">Cog</span> <span class="o">=</span> 
+	<span class="p">{</span>
+		<span class="nx">LinkId</span> <span class="o">=</span> 
+		<span class="p">{</span>
+			<span class="nb">uint</span> <span class="nx">Id</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span>
+		<span class="p">}</span><span class="o">,</span>
+		<span class="nx">Named</span> <span class="o">=</span> 
+		<span class="p">{</span>
+			<span class="nx">string</span> <span class="nx">Name</span> <span class="o">=</span> <span class="s2">&quot;Sprite&quot;</span><span class="o">,</span>
+		<span class="p">}</span><span class="o">,</span>
+		<span class="nb">Transform</span> <span class="o">=</span> 
+		<span class="p">{</span>
+			<span class="nx">Vec3</span> <span class="nx">Translation</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.97043</span><span class="o">,</span> <span class="mf">6.45429</span><span class="o">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">,</span>
+			<span class="nx">Vec3</span> <span class="nx">Scale</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">,</span>
+			<span class="nx">Quat</span> <span class="nx">Rotation</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">,</span>
+		<span class="p">}</span><span class="o">,</span>
+		<span class="nb">Sprite</span> <span class="o">=</span> 
+		<span class="p">{</span>
+			<span class="nx">string</span> <span class="nx">SpriteSource</span> <span class="o">=</span> <span class="s2">&quot;5275aa4d802dd6dc:Square&quot;</span><span class="o">,</span>
+			<span class="nx">bool</span> <span class="nx">FlipX</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span>
+			<span class="nx">bool</span> <span class="nx">FlipY</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span>
+			<span class="nx">Vec4</span> <span class="nb">Color</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">,</span>
+			<span class="nx">bool</span> <span class="nx">Visible</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span>
+			<span class="nx">bool</span> <span class="nx">OnTop</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span>
+			<span class="nx">bool</span> <span class="nx">AnimationActive</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span>
+			<span class="nx">float</span> <span class="nx">AnimationSpeed</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span>
+			<span class="nb">uint</span> <span class="nx">StartFrame</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span>
+			<span class="nb">BlendMode</span> <span class="nb">BlendMode</span> <span class="o">=</span> <span class="nx">Alpha</span><span class="o">,</span>
+			<span class="nx">SpriteGeometryMode</span> <span class="nx">GeometryMode</span> <span class="o">=</span> <span class="nx">ZPlane</span><span class="o">,</span>
+		<span class="p">}</span><span class="o">,</span>
+	<span class="p">}</span><span class="o">,</span>
+<span class="p">}</span><span class="o">,</span>
+</pre></div>
+</div>
+<p>This code can be copy and pasted into other projects. This works because, unless you manually remove them, you have all the default <a class="reference internal" href="../ResourcesConcept.html#manualresources"><span>resources</span></a> necessary to create this object. In many cases this won&#8217;t work with your cogs because the copied object references resources that differ between your destination project and the source project.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ObjectStore.html" class="btn btn-neutral float-right" title="Save and Load Data" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Cogs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Architecture/Cogs/GameObjectsConcept.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:25:46 GMT -->
+</html>

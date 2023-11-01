@@ -1,0 +1,609 @@
+
+
+.. _TutorialsScripting1:
+
+.. rst-class:: SearchTitle
+
+Scripting 1
+===========
+
+.. rst-class:: SearchDescription
+
+This lesson introduces basic scripting using Zilch in the Zero Engine, including printing to the Console Window, creating **variables**, **classes**, **data types**, and **functions**.
+
+.. _TutorialsScripting1Vocab:
+
+Learning Objectives
+-------------------
+
+*   Understanding the purpose of variables, functions, classes, and conditionals.
+
+*   Know the purpose of the different built in data types.
+
+*   Comprehension of basic object oriented programming concepts.
+
+*   Using boolean operators and boolean algebra.
+
+*   Interpreting and resolving errors in Zilch.
+
+*   Printing custom text and data to the console window.
+
+
+.. rst-class:: VocabSection
+
++------------------------------------------+
+| Vocabulary                               |
++================+=============+===========+
+| Zilch          | Game Logic  | Script    |
++----------------+-------------+-----------+
+| Class          | Inheritance | Component |
++----------------+-------------+-----------+
+| Initialization | Variable    | Data Type |
++----------------+-------------+-----------+
+| Assignment     | Function    | Parameter |
++----------------+-------------+-----------+
+| Console        |             |           |
++----------------+-------------+-----------+
+
+What is Code?
+-------------
+
+Code is simply a system of words and/or symbols used to communicate instructions to the computer. In Zero, Zilch (a custom programming language made at DigiPen) is used to program behaviors and functionality through components. You can think of the game objects in a project as the bones of the game and the components as muscles that make them move. Without code to make custom components our game would be very boring and static.
+
+Object Oriented Programming
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Zilch is an object-oriented programming (OOP) language. This means that instead of thinking of the structure of the program in verbs and actions, one needs to think in terms of nouns and objects. We use objects to model anything and everything in Zilch; in other words, objects can be anything physical, visual, or conceptual. Now keep in mind when we refer to `code objects` we are not refering to `game objects`. Components are `code objects` which are attached to `game objects`.
+
+Create a New Project
+--------------------
+
+The best way to learn is to do. Create a new project to experiment with Zilch.
+
+:ref:`Create a new 2D Project <ManualCreateNewProject>`
+
+Like many things in Zero, a ``ZilchScript`` is a resource that will need to be added to your project.
+
+:ref:`Add a new ZilchScript resource<ManualResourceAdding>` named: GameLogic
+
+.. sidebar:: Game Logic
+
+    While all code should be logical and all code in Zero works towards making a game, `Game Logic` refers to a specific category of game programming. Where as the game engine has code which simulates physics and graphics these are not part of any specific game. The Zero Engine is made generically in order to support any given game idea. It is the unique rules of these individual games that falls under the category of `Game Logic`. Behavior such as how the player moves, scoring and health systems, and game modes all fall under `Game Logic`.
+
+The newly created GameLogic script should open in a new tab next to the Level tab, and it should appear in the Library Window:
+
+|Library1| |Library2|
+
+*  :ref:`Save your project <ManualSavingProject>`
+
+We can use ZilchScripts to write code using the Zilch programming language. Then
+we can add these scripts to our cogs as components.
+
+.. admonition:: Cogs
+    
+    A game object in the Zero Engine is a collection of components --- it is a
+    **G**\ ame **O**\ bject **C**\ omposition, and that's what **cog** stands
+    for, backwards. Almost everything that you make and use in your game is a
+    cog.
+    
+    In this text, you will find the terms **cog** and **game object** used
+    interchangeably.
+
+Your new GameLogic script should look like this:
+
+.. code-block:: csharp
+    
+    class GameLogic : ZilchComponent
+    {
+        function Initialize(init : CogInitializer)
+        {
+            //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        }
+
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+        }
+    }
+
+Classes
+^^^^^^^
+
+Take a look at this first line of code.
+
+.. sidebar:: Classes
+    
+    A **class** is like a blueprint --- it's the instructions for making an object. Classes can have functions and variables, and every object made from that class will have those same functions and variables.
+
+.. code-block:: csharp
+    
+    class GameLogic : ZilchComponent
+
+*   The ``class`` keyword here means that ``GameLogic`` is a new Zilch **class** or `code object`.
+    
+    To make your own new component, you have to declare it as a class. Two important rules to remember about classes: one, classes must have unique names; two, the name of a class must always begin with a capital letter.
+    
+    
+    
+.. sidebar:: Inheritance
+    
+    **Inheritance** is a concept in object-oriented programming, or OOP, that allows one class to gain all the features of another, plus any additional features that the programmer wishes to add.
+    
+    In order for your new component to show up in the editor, and to be able to add it to a cog, its class must inherit from the ``ZilchComponent`` class.
+    
+    |AddingCustomComponent|
+    
+    *A class will show up in the editor if it inherits from* ``ZilchComponent``
+
+.. admonition:: Case Sensitivity
+    
+    Zilch is a **case-sensitive** language. That means that you could declare a class called ``ExampleClass`` and another one called ``Exampleclass``, and the engine would have no trouble distinguishing the two. Likewise, if you create a component called ``GameLogic`` and add it to a cog, you won't be able to find it if you look for ``Gamelogic``.
+    
+    Remember, though --- just because you **can** does not mean that you **should**. Generally, it's a bad idea to give things names that are differentiated only by capitalization.
+ 
+*   The colon ``:`` between ``GameLogic`` and ``ZilchComponent`` tells the engine that your new class *inherits from* the ``ZilchComponent`` class.
+
+|
+|
+
+Functions
+^^^^^^^^^
+
+.. sidebar:: Functions and Parameters
+    
+    A **function** is a block of code that may be *called* when it is needed. The code of a function may use any number of **parameters** that are *passed* to it. These parameters may be numbers, such as an ``Integer`` or a ``Real``, or any other type or custom class --- it's up to the programmer who wrote the function.
+
+.. code-block:: csharp
+    
+    function Initialize(init : CogInitializer)
+
+*   The ``function`` keyword is used to declare a new **function**. ``Initialize`` is the name of the function that we have declared. ``Initialize`` is a special function that is inherited from the ``ZilchComponent`` class. The engine automatically calls the ``Initialize`` function of every component on a cog when that cog is first created.
+    
+*   Next is ``(init : CogInitializer)``. This is called the **parameter list** of this function. You can think of a function's parameter list as a part of its name.
+    
+    Note that the colon ``:`` between ``init`` and ``CogInitializer`` does *not* do the same thing as the colon between ``GameLogic`` and ``ZilchComponent``. This one specifies the **data type** of the ``init`` parameter. 
+
+.. sidebar:: Data Types
+    
+    The way that data is interpreted by the engine is determined by its **type**. Types will be covered in the next lesson.
+    
+    If a component's ``Initialize`` function does not take a single parameter of type ``CogInitializer``, the engine will not call it when it is created.    
+
+*   Also, notice how in our code here, ``function`` is printed in bold text and in a different color from the rest of the code (and so is ``class``). This is because it is a **reserved** word. You can't name anything ``function`` or ``class`` (or any of a number of other keywords).
+
+.. admonition:: Reserved Words
+    
+    In Zilch, no function, class, or anything else can be named ``function`` or ``class`` because those words are **reserved** --- they already mean something to the language and we can't change that.
+
+Scopes
+^^^^^^
+
+Pay special attention to the position and alignment of curly brackets.
+
+.. code-block:: as
+    :emphasize-lines: 2, 6
+    
+    class GameLogic : ZilchComponent
+    {
+        [...]
+        
+        // code that is part of the class
+    }
+    
+    // code that is not part of the class
+
+.. sidebar:: Whitespace
+
+    Zilch is a **whitespace-insensitive** language. This means that any number of spaces inserted by the Space bar or Tab key are treated just the same by the engine as a single space. (The same is true of newlines inserted by the Enter key.)
+
+*   A pair of **curly braces** ``{}`` encloses everything in the ``GameLogic`` class. Everything between them is a part of the class; anything outside of them is not.
+
+.. code-block:: as
+    :emphasize-lines: 2, 6
+    
+        function Initialize(init : CogInitializer)
+        {
+            [...]
+            
+            // code that is inside the function
+        }
+        
+        // code that is outside the function
+
+*   Similarly, another pair of braces surrounds the ``Initialize`` function. Any code written between them is a part of the function, and will be executed every time the function is called.
+
+Your ``GameLogic`` class could be written in the following manner, with no impact on how well it works:
+
+.. code-block:: as
+    
+    class GameLogic:ZilchComponent{function Initialize(init:CogInitializer){
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }function OnLogicUpdate(event:UpdateEvent){}}
+
+Of course, it's much harder to read that way! Conversely, you could write it like this:
+
+.. code-block:: as
+    
+    class   GameLogic   :   ZilchComponent
+    {
+        
+        
+        function   Initialize   (   init   :   CogInitializer   )
+        {
+            
+            
+            //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+            
+            
+        }
+        
+        
+        function   OnLogicUpdate   (   event   :   UpdateEvent   )
+        {
+            
+            
+        }
+        
+        
+    }
+
+.\ .\ . but this might be a bit excessive. Remember that you are free to use as much or as little whitespace as you like in writing your code, as long as you don't put it in the middle of words.
+
+.. sidebar:: "Commenting Out"
+    
+    In Zilch, it's possible to turn a line of code into a comment by adding ``//`` to the beginning of the line. This causes the compiler to ignore that line, just as if it were an actual, literal comment. The advantage of this is that you haven't deleted that code, you've just *commented it out*, so it can easily be put back in if needed. Commenting code out rather than deleting it can be a good habit *if you think you may want to get that code back later*, but don't go overboard and comment out every single thing you aren't using anymore.
+
+Comments
+--------
+
+Comments allow us to leave notes to ourselves and others reading our code in our human language (instead of a programming language) so that we can quickly understand what we were doing. Commenting not only allows us to write the logic behind what we are doing beforehand, but it helps us quickly remember what the code was for when we haven’t looked at it in a long time. We create comments in Zilch by placing ``//`` at the beginning of the comment; it extends until the end of the line. The comment will be ignored when the script is processed, so it doesn't affect the script's functionality.
+
+You can see some code "commented out" in your generated file inside the Initialize function. 
+
+*   In the GameLogic ZilchScript Window
+
+    *   In the Initialize function
+        
+        *   Change:
+
+            .. code-block:: csharp
+
+                //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+            to
+        
+            .. code-block:: csharp
+
+                // This is a comment.
+        
+    A comment does not affect the program, but allows you to leave notes to yourself.
+
+
+Printing
+--------
+
+Now we will print to our Console Window using Zilch's Console library. We will print a number in our GameLogic's Initialize function.
+
+*   In the GameLogic ZilchScript Window
+
+    *   In the Initialize function
+    
+        *   On the line after the comment
+        
+            *   Type: ``Console.WriteLine(9001);``
+
+This line of code will print the number 9001 in the Console Window. Don't forget about the semicolon at the end of the line! Your **GameLogic** script should look like this:
+ 
+|
+|
+|
+|
+
+.. sidebar:: Dot Operator
+
+    The period ``.`` between ``Console`` and ``WriteLine`` is referred to as a **Dot Operator**. Its role is to access specific functions or variables of a class; in this case it's the ``WriteLine`` function of the ``Console`` class.  
+
+.. code-block:: as
+    :emphasize-lines: 6
+    
+    class GameLogic : ZilchComponent
+    {
+        function Initialize(init : CogInitializer)
+        {
+            // This is a comment. 
+            Console.WriteLine(9001);
+        }
+
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+        }
+    }
+
+*  :ref:`Save your project <ManualSavingProject>`
+
+Errors
+------
+
+If you make a mistake, such as putting an extra closing parenthesis at the end, you will get a compiler error that looks something like this:
+
+Console Output::
+
+    The statement must end with a semicolon. We found ')' but we expected to find ';'.
+
+.. sidebar:: What is a Compiler?
+    
+    A **compiler** is a program that takes code written in a language that you can understand (in this case, Zilch) and turns it into program logic (in this case, your game project). The Zero Engine *compiles* your Zilch code into parts of your game. When it comes across something in your code that confuses it, it produces a **compiler error**.
+    
+Errors occur the moment the compiler finds a symbol or word it doesn't recognize in context. Therefore, when looking for your bug you should always investigate the code at or before the area indicated by the error. **Always READ the errors.** They are helpful! 
+
+Here it does not know what to do with a closing parenthesis when it did not see a matching open one come before it. It was expecting a semicolon right then. *Note:* Error messages clear upon typing or erasing within the script editor, but this doesn't mean the error is gone. If you do not fix an error, the message will reappear the next time you compile (i.e. when you try to save or run your game). 
+
+Once your code is bug-free we can see the new component in action. 
+
+
+
+Running the Script
+------------------
+
+Let's see our statement print to the console:
+
+*   Open the Console Window via the ``Console`` command
+
+*   In the Console Window
+
+    *   Press ``Ctrl+Delete`` to clear the console
+
+*   Press the ``F5`` key to :ref:`run the game <ManualRunTheGame>`
+
+Now if we look at the Console Window, it should have printed the number. Why wasn't the number printed? Oh! We forgot to add the script to an object. An object uses or **calls** the Initialize function on all of its components when it is first created. Since it wasn't on any object, it never got called, and our code wasn't used.
+
+Typically, when a script's logic applies to all objects in a current level, we put it on that Level's LevelSettings object:
+
+*   Close the Game Window via: ``Escape`` key when in the Game Window OR the X button on the Game Window tab
+
+*   In the Objects Window
+
+    *   :ref:`Select the LevelSettings object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Click the Add Component button 
+
+    *   Type: GameLogic
+
+        |AddingGameLogic|
+    
+    *   Select GameLogic via: a ``Left-Click`` on the drop down list OR ``Enter``
+
+        Note that ``GameLogic`` shows up here because there is a **class** by that name. The project does also contain a file called "GameLogic.z" --- but the names of a class and the file that contains it do not necessarily have to match. If you renamed the ``GameLogic`` class to ``MyGameLogicClass``, then ``MyGameLogicClass`` would be what you would see when you went to add it to the LevelSettings cog. Conversely, if you were to rename the "GameLogic.z" script to "MyGameLogicScript.z", you would still see ``GameLogic`` when you added it to LevelSettings.
+
+*   :ref:`Save your project <ManualSavingProject>`
+*   :ref:`Run the Game <ManualRunTheGame>`
+*   :ref:`Stop the Game <ManualStopGame>`
+
+.. sidebar:: Console.Write
+    
+    The ``Console.WriteLine`` function will always print the given text then add a new line. If you want to append (attach to the end) text to the last line printed you can use the ``Console.Write`` function:
+    
+    .. code-block:: as
+      
+        Console.Write("Hello");
+        Console.Write(" ");
+        Console.Write("World");
+    
+    will print
+    
+    ``Hello World``
+
+
+
+Now if we look at the Console Window, it should have printed the number. This is the console output we should get:
+
+    Console Output::
+    
+        Saved level file 'Level'.
+        Saved : Project and all scripts saved.
+        ----------------  End  Game ---------------
+        ---------------- Begin Game ---------------
+        9001
+        Level 'Level' was loaded.
+        Loaded level 0.00s
+
+Notice that after the game begins, our number is printed in the console. This lets us know that our script is working and that our Initialize function is getting called.
+
+
+
+Order of Execution
+------------------
+
+*   Go back to the GameLogic script via: Clicking on the GameLogic tab OR
+    Double-clicking on the GameLogic script in the Library Window: :menuselection:`ZilchScript --> GameLogic`
+
+What else can we print? How about a message? Text between quotation marks can be stored by the computer; we call such text a **string**, more will be explained on this data type in the next lesson.
+
+*   In the GameLogic ZilchScript Window
+
+    *   In the Initialize function
+    
+        *   On the line after ``Console.WriteLine(9001);``
+        
+            *   Type: ``Console.WriteLine("Here be dragons.");``
+
+Your **Initialize** function should look like this:
+
+.. code-block:: as
+    :emphasize-lines: 5
+    
+        function Initialize(init : CogInitializer)
+        {
+            // This is a comment.
+            Console.WriteLine(9001);
+            Console.WriteLine("Here be dragons.");
+        }
+    
+*Make sure your sentence, or String, is in between quotation marks!*        
+
+*   In the Console Window
+
+    *   Press ``Ctrl+Delete`` to clear the console
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`          
+*   :ref:`Stop the Game <ManualStopGame>`
+            
+            
+Console Output::
+
+    Saved : Project and all scripts saved.
+    ---------------- Begin Game ---------------
+    9001
+    Here be dragons.
+    Level 'Level' was loaded.
+    Loaded level 0.01s
+    ----------------  End  Game ---------------
+
+Notice how the outputs of our print statements in the console window are in the same order as the print statements themselves in our code. This is because programs execute one statement at a time. If we were to switch the order of the lines, it would change the order they print in.
+
+
+
+Random
+------
+
+Our program is static and does the same thing every time. Let's add a little excitement --- let's roll a die.
+
+*   In the GameLogic ZilchScript Window
+
+    *   In the **Initialize** function change your code to:
+
+.. sidebar:: Operators
+    
+    Operators are symbols which take the value to its left and right and perform some operation such as addition or subtraction with the two values. Multiple operators can be used on the same line (i.e. ``var i = 1 + 2;``) and strung together. Some operators will always execute before others in the same line, this is call **operator precedence**. You can find a list of all Zilch operators and the precedence of each :ref:`here<ManualOperatorPrecedenceChart>`.
+
+
+.. code-block:: as
+    :emphasize-lines: 5-12
+    
+        function Initialize(init : CogInitializer)
+        {
+            Console.WriteLine("Here be dragons.");
+            
+            // Create a random number generator
+            var randNumGen = new Random();
+            
+            // In honor of dragons and D&D, roll a d20:
+            var randNum = randNumGen.DieRoll(20);
+            
+            // See what we rolled:
+            Console.WriteLine(randNum);
+        }
+
+This new code creates a random number generator, and then *calls its* ``DieRoll`` *function*. This function simulates rolling a die, but it requires a parameter to be passed to it to specify the number of sides on the die to roll. We want to roll a d20, so we *pass in* ``20``. If we had passed in ``6``, ``DieRoll`` would give us the result of a d6 roll.
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+You'll see your random number printed out in the Console Window.
+
+*   :ref:`Rerun the game <ManualRunTheGame>` multiple times.
+
+You should see that the number printed is changing between runs.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+
+
+Variables
+---------
+
+Here you used the **var** keyword to make a **variable**. Variables are like buckets. They are simple containers you can store stuff in. When you come back, the last thing you put inside it will still be there and you can change the contents of the bucket as you see fit. You can fill it with explicit items or **literals**, such as ``3`` or ``"Hello!"``. You can mimic the contents of another bucket via assignment, as in the following example:
+
+*   In the GameLogic ZilchScript Window
+
+    *   In the **Initialize** function change your code to:
+    
+.. code-block:: csharp
+    
+        function Initialize(init : CogInitializer)
+        {
+            //Create and print our buckets
+            var bucket1 = 1;
+            var bucket2 = 2;
+            var bucket3 = 3;
+            Console.WriteLine(bucket1);
+            Console.WriteLine(bucket2);
+            Console.WriteLine(bucket3);
+
+            // Set bucket1's contents equal to bucket2's contents:
+            bucket1 = bucket2;
+            Console.WriteLine(bucket1);
+            
+            // bucket1 now has a value of 2
+            // bucket2's contents remain unchanged, having a value of 2
+            
+            // Set bucket3's contents equal to the sum of the contents of bucket3 and bucket1
+            bucket3 += bucket1;
+            Console.WriteLine(bucket3);
+            
+            // The value of bucket1 is still 2 because that is the last thing we stored in         
+            //it, so:
+            // bucket3 += bucket 1          becomes:
+            // bucket3  = bucket3 + bucket1 becomes:
+            // bucket3  = 3       + 2         
+            // The contents of bucket3 are now updated to 5.
+            
+        }
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+The output should look like this:
+
+Console Output::
+
+    1
+    2
+    3
+    2
+    5
+
+First the values of ``bucket1``, ``bucket2``, and ``bucket3`` are printed. This is followed by the value of ``bucket1`` after it has been assigned the value of ``bucket2``. Finally ``bucket3`` is printed after the modified value of ``bucket1`` is added to it.
+
+Conclusions
+-----------
+
+In this script, you've used variables to store:
+
+* the object created by ``new Random()`` and
+* the value returned by the ``DieRoll`` function
+* various Integer values
+
+Because you had the ability to store the value from the ``DieRoll``, you were able to pass it along to the ``Console.WriteLine`` function to see its value: ``Console.WriteLine(randNum);``. You were able to do the same with with Integers. The next lesson will experiment more with these concepts as well as others.
+
+On Your Own
+-----------
+
+*   Experiment with different :ref:`operators<ManualOperatorPrecedenceChart>` and variables.
+
+*   Look at the variable :ref:`data types<ManualBuiltInVariableTypes>` we didn't look at in this lesson.
+
+*   Mix and match the order of operation on line, and the order lines are written in to see what outputs you get from the example above.
+
+*   Make sure you know the difference between ``+``, ``=``, and ``+=``.
+
+*   Experiment with using ``=``, ``+=``, ``-=``, ``*=``, and ``/=`` on the same line.
+
+*   Use the ``==`` operator and print the results.
+
+
+.. |AddingGameLogic| image:: images/Scripting/AddingGameLogic.png
+
+.. |FirstCompilerError| image:: images/Scripting/FirstCompilerError.png
+
+.. |Library1| image:: images/Scripting/Library1.png
+
+.. |Library2| image:: images/Scripting/Library2.png
+
+.. |AddingCustomComponent| image:: images/Scripting/AddingCustomComponent.png
+
+.. |Console| image:: images/Scripting/Console.png
+
+.. |Console2| image:: images/Scripting/Console2.png
+
+.. |ConsoleCrit20| image:: images/Scripting/ConsoleCrit20.png
+
+.. |ConsoleCrit20Else| image:: images/Scripting/ConsoleCrit20Else.png

@@ -1,0 +1,49 @@
+.. _ReferenceNetPeerSentUserAddRequest:
+
+.. rst-class:: searchtitle
+
+NetPeerSentUserAddRequest
+=========================
+
+.. rst-class:: searchdescription
+
+Dispatched after sending a net user add request.
+
+.. include:: Description/NetPeerSentUserAddRequest.rst
+
+.. cpp:class:: NetPeerSentUserAddRequest
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceNetPeerSentUserAddRequestProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetPeerSentUserAddRequest::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetPeerId NetPeerSentUserAddRequest::TheirNetPeerId
+
+            Data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: IpAddress NetPeerSentUserAddRequest::TheirIpAddress
+
+            Their net peer ID.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EventBundle NetPeerSentUserAddRequest::OurRequestBundle
+
+            Their IP address(as seen from our perspective)
+
+.. _ReferenceNetPeerSentUserAddRequestMethods:
+
+.. include:: Remarks/NetPeerSentUserAddRequest.rst

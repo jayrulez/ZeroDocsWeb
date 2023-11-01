@@ -1,0 +1,596 @@
+.. _SimpleAI2014:
+
+.. rst-class:: SearchTitle
+
+Ai Shooting and Movement
+========================
+
+.. rst-class:: SearchDescription
+
+This snippet will cover artificial intelligence and adding simple behaviors to objects such as pacing back and forth, chasing, and shooting.
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2014`
+
+Level Setup
+-----------
+
+**Player object**
+
+*   :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   :ref:`Select the Sprite object that was just created<SelectObject2014>`
+*   In Properties Window
+
+    *   Set Name to: ``Player``
+    *   Under Transform
+
+        *   Set Translation to: [-10, 0, 0]
+
+**Enemy object**
+
+*   :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   :ref:`Select the Sprite object that was just created<SelectObject2014>`
+*   In Properties Window
+
+    *   Set Name to: ``Enemy``
+    *   Under Sprite
+
+        *   Set SpriteSource to: Circle
+
+* :ref:`Save your project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>` 
+
+Here is how our level should look after we do our initial level setup:
+
+|PlayerAndEnemyCreated|
+
+Moving The Player Object
+------------------------
+
+*   :ref:`Add a new ZilchScript resource<ResourceAdding2014>` named: ``PlayerController``
+*   :ref:`Select the Player object <SelectObject2014>`
+*   In the Properties Window
+    
+    *   :ref:`Add the PlayerController component <AddComponent2014>` 
+* :ref:`Save your project. <SavingProject2014>`
+
+*   Update the **PlayerController** script with the following code:
+
+.. code-block:: as
+
+  class PlayerController : ZilchComponent
+  {
+      // Variables trakcing player state
+      // Movement
+      var MoveLeft : Boolean = false;
+      var MoveRight: Boolean = false;
+      var MoveSpeed: Real    = 10.0;
+      
+      [Dependency]
+      var Transform: Transform = null;
+      
+      function Initialize(init : CogInitializer)
+      {
+          // We will update the player every logic update
+          Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+          // Get all input from the Player Here
+          this.UpdatePlayerInput();
+          // Apply Logic for player movement
+          this.ApplyMovement(event);
+      }
+      
+      function UpdatePlayerInput()
+      {
+          // Set flags marking player movement
+          this.MoveLeft  = Zero.Keyboard.KeyIsDown(Keys.A);
+          this.MoveRight = Zero.Keyboard.KeyIsDown(Keys.D);
+      }
+      
+      function ApplyMovement(event: UpdateEvent)
+      {
+          var moveDirection = Real3(0.0, 0.0, 0.0);
+          
+          // Apply movement based on player input
+          if (this.MoveLeft)
+          {
+              moveDirection += Real3(-1.0, 0.0, 0.0);
+          }
+          if (this.MoveRight)
+          {
+              moveDirection += Real3(1.0, 0.0, 0.0);
+          }
+          
+          // Only want the direction, do not want it to affect speed.
+          moveDirection = Math.Normalize(moveDirection);
+          
+          // Apply Movement
+          this.Owner.Transform.Translation += moveDirection * event.Dt * this.MoveSpeed;
+          
+      }
+  }
+
+
+* :ref:`Save your project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>` 
+
+|HorizontalMotion|
+
+We now have basic horizontal movement of the Player object through the use of the A and D keys.
+
+Basic Game A.I. (Artificial Intelligence)
+-----------------------------------------
+
+Artificial Intelligence in games is about having non-player controlled objects (NPCs) behave with a sense of reasoning or self-awareness. Some examples include chasing an object, fleeing from an object, navigating to a specific destination, swarming, and just wandering around with no destination. The ghosts in the game *Pac-Man* will chase *Pac-man* when they see him, and then they flee when his power pellet is active. Having object's make decisions and change their behavior in similar ways that a human would is what helps to create an illusion of intellect or cunning. This allows for clever game play experiences.
+
+Simple A.I. Movement
+--------------------
+
+Now that we have an idea of basic AI in games, let's add some behavior to the Enemy object. We'll start with some simple movement.
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   :ref:`Add a new ZilchScript resource<ResourceAdding2014>` named: ``EnemyController``
+*   :ref:`Select the Enemy object <SelectObject2014>`
+*   In the Properties Window
+    
+    *   :ref:`Add the EnemyController component <AddComponent2014>`
+*  :ref:`Save your project <SavingProject2014>`
+
+Now we are going to make the Enemy object move up and down as if it was pacing back and forth or patrolling a specific area.
+
+*   Update the EnemyController script with the following code:
+
+.. code-block:: as
+
+  class EnemyController : ZilchComponent
+  {
+      [Property]
+      var PaceSpeed: Real = 5.0;
+      var PaceDirection: Real3 = Real3(0.0, 1.0, 0.0);
+      
+      [Dependency]
+      var Transform: Transform = null;
+      function Initialize(init : CogInitializer)
+      {
+          // We need to update the enemy's behavior every logic update
+          Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+          // Logic for pacing back and forth
+          this.PaceBackAndForth(event);
+      }
+      
+      function PaceBackAndForth(event: UpdateEvent)
+      {
+          // Apply movement
+          this.Owner.Transform.Translation += this.PaceDirection * event.Dt * this.PaceSpeed;
+      }
+  }
+
+
+* :ref:`Save your project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>` 
+
+The Enemy object moves upward. The next step is to make the object change its direction after it moves past a maximum distance from its starting position.
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   Update the **EnemyController** with the following code:
+
+    *   Update the class variables by adding the following code:
+    
+.. code-block:: as    
+  :emphasize-lines: 3,4,6
+  
+    [Property]
+    var PaceSpeed: Real = 5.0;
+    [Property] 
+    var MaxMoveDistance: Real = 10.0;
+    var PaceDirection: Real3 = Real3(0.0, 1.0, 0.0);
+    var StartPosition: Real3 = Real3();
+
+|
+
+    *   Update the **Initialize** function by adding the following code:
+        
+.. code-block:: as       
+  :emphasize-lines: 3,4
+  
+    // We need to update the enemy's behavior every logic update
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    // Have to know where we started to know how far we've moved
+    this.StartPosition = this.Owner.Transform.Translation;
+
+|
+
+    *   Update the **PaceBackAndForth** function with the following code:
+        
+.. code-block:: as        
+  :emphasize-lines: 1-13
+  
+    // Find out how far we've travelled from our start position
+    var displacement = this.Owner.Transform.Translation - this.StartPosition;
+    var distanceFromStart = Math.Length(displacement);
+    
+    // If we have travelled past our max distance
+    if (distanceFromStart >= this.MaxMoveDistance)
+    {
+        // Change direction to go back the way we came
+        this.PaceDirection = -displacement;
+    }
+    
+    // Ensure the PaceDirection is only a direction via normlization
+    this.PaceDirection = Math.Normalize(this.PaceDirection);
+    
+    // Apply movement
+    this.Owner.Transform.Translation += this.PaceDirection * event.Dt * this.PaceSpeed;
+
+|
+
+*  :ref:`Save your project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>` 
+
+|Pacing|  
+
+The Enemy object moves upward until it reaches the specified distance from its starting position, and then it goes in the opposite direction.
+
+Chasing An Object When It Gets Close
+------------------------------------
+
+Our new goal is to make the Enemy object chase after the Player object whenever the Player object gets within a specified range or distance from the Enemy object. We will start by detecting that the player is within range. We will visually test that our code works by simply changing the Enemy object's color depending on whether or not the Player object is close by.
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   Update the **EnemyController** script with the following code:
+
+    *   Update the class variables with the following code:
+    
+.. code-block:: as     
+
+     // Pacing Properties and variables
+    [Property]
+    var PaceSpeed: Real = 5.0;
+    [Property] 
+    var MaxMoveDistance: Real = 10.0;
+    var PaceDirection: Real3 = Real3(0.0, 1.0, 0.0);
+    var StartPosition: Real3 = Real3();
+        
+    // Chasing Properties and variables
+    [Property]
+    var TargetObject: CogPath = null;
+    var ChaseTriggerDistance: Real = 7.0;
+    var DistanceFromTarget: Real = 0.0;
+    var ChaseDirection: Real3 = Real3();
+    var ChaseColor:Real4 = Real4(1.0, 0.0, 0.0, 1.0);
+    var TargetIsWithinRange: Boolean = false;
+    
+    // Variables for smoothing state transitions
+    var OriginalColor: Real4 = Real4();
+    
+    // Dependencies
+    [Dependency]
+    var Transform: Transform = null;
+    [Dependency]
+    var Sprite: Sprite = null;
+ 
+*Notice that some things have been rearranged for readability*
+
+    *   Update the **Initialize** function with the following code:
+    
+.. code-block:: as        
+  :emphasize-lines: 2
+        
+    this.StartPosition = this.Owner.Transform.Translation;
+    this.OriginalColor = this.Owner.Sprite.Color;
+    
+|
+    
+    *   Update the **OnLogicUpdate**  function with the following code:
+    
+.. code-block:: as        
+  
+  // Reevaluate the situation to determine if our object should pursue
+  this.TargetIsWithinRange = false;
+  
+  // If our target exists
+  if (this.TargetObject.Cog != null)
+  {
+      // Calculate the direction and distance of target
+      this.CalculateChaseDirectionAndDistance();
+      // Evaluate whether Ai should chase or pace
+      this.TargetIsWithinRange = (this.DistanceFromTarget <= this.ChaseTriggerDistance);
+      
+      if (this.TargetIsWithinRange)
+      {
+          // Chase target
+          this.ChaseTarget();
+      }
+      else // If target not in range
+      {
+          // Pace back and forth
+          this.PaceBackAndForth(event);
+      }
+  }
+  else // if there is no target, pace
+  {
+      // Logic for pacing back and forth
+      this.PaceBackAndForth(event);
+  }
+
+|
+
+    *   Update the **PaceBackAndForth** function by adding the following code:
+    
+.. code-block:: as        
+  :emphasize-lines: 3,4
+
+    function PaceBackAndForth(event: UpdateEvent)
+    {
+        // Set pacing color
+        this.Owner.Sprite.Color = this.OriginalColor;        
+
+|
+
+    *   Add the following function to the **EnemyController** class:
+    
+.. code-block:: as        
+        
+    function CalculateChaseDirectionAndDistance()
+    {
+        // Get direction toward target
+        this.ChaseDirection = this.TargetObject.Cog.Transform.Translation - this.Owner.Transform.Translation;
+        // Extract distance by finding magnitude
+        this.DistanceFromTarget = Math.Length(this.ChaseDirection);
+        // Extract direction by normalizing
+        this.ChaseDirection = Math.Normalize(this.ChaseDirection);
+    }
+
+|
+
+    *   Add the following function to the **EnemyController** class:
+    
+.. code-block:: as        
+
+    function ChaseTarget()
+    {
+        // Set Chase Color
+        this.Owner.Sprite.Color = this.ChaseColor;
+    }
+    
+*  :ref:`Save your project <SavingProject2014>`
+*   In the Objects Window 
+    
+    *   :ref:`Select the Enemy object <SelectObject2014>`
+*   In the Properties Window
+
+    *   Under EnemyController
+    
+        *   Set targetObject to: Player
+*  :ref:`Save your project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>` 
+
+|ChaseRed|
+
+The Enemy object moves moves up and down. If you move the Player object close enough, the Enemy object's color will change to red. It also stops moving because, at the moment, the only thing we are doing in the ChaseTarget function is changing the color. We calculated the ChaseDirection already, so let's go ahead and make the Enemy object chase the Player object.
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   Update the **EnemyController** script with the following code:
+
+    *   Update the class variables by adding the following code:
+
+.. code-block:: as   
+  :emphasize-lines: 4,5
+  
+    // Chasing Properties and variables
+    [Property]
+    var TargetObject: CogPath = null;
+    [Property]
+    var ChaseSpeed: Real = 5.0;
+    var ChaseTriggerDistance: Real = 7.0;
+    var DistanceFromTarget: Real = 0.0;
+    var ChaseDirection: Real3 = Real3();
+    var ChaseColor:Real4 = Real4(1.0, 0.0, 0.0, 1.0);
+    var TargetIsWithinRange: Boolean = false;
+
+|
+
+    *   Update the **ChaseTarget** function:
+
+.. code-block:: as   
+  :emphasize-lines: 1,6-7
+  
+    function ChaseTarget(event: UpdateEvent)
+    {
+        // Set Chase Color
+        this.Owner.Sprite.Color = this.ChaseColor;
+        
+        // Apply movement
+        this.Owner.Transform.Translation += this.ChaseDirection * event.Dt * this.ChaseSpeed;
+    }
+
+|
+
+    *   Update the **LogicUpdate** function by altering the following line:
+    
+.. code-block:: as
+  :emphasize-lines: 4
+  
+    if (this.TargetIsWithinRange)
+    {
+        // Chase target
+        this.ChaseTarget(event);
+    }
+    
+
+*  :ref:`Save your project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>` 
+
+|Chasing|
+
+The Enemy object now chases the Player object when the Player object gets near. In this situation, the Enemy object is already in the level. This is why we were able to simply set its targetObject Cog Property to the Player object which is also already in the level. If we had created the Enemy object at run-time, from an archetype, then the Cog Property wouldn't work (it becomes invalid). This is because the Cog Property can't have a reference to an object that doesn't exist yet.
+
+Shooting
+--------
+
+*   :ref:`Stop the Game <StopGame2014>`
+
+*   :ref:`Add a new ZilchScript resource<ResourceAdding2014>` named: ``Projectile``
+*   :ref:`Save your project. <SavingProject2014>`
+
+**Create a Sprite**
+    
+*   :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   :ref:`Select the Sprite object that was just created<SelectObject2014>`
+*   In the Properties Window
+
+    *   Set Name to: EnemyProjectile
+    *   :ref:`Add the Projectile component <AddComponent2014>`
+    *   Under Transform
+
+        *   Set Scale to: [0.5, 0.5, 0.5]
+    *   Under Sprite
+        
+        *   Set SpriteSource to: Circle
+        *   Set Color to: [R: 128, G: 128, B: 0, A: 1.00]
+    *   Set Archetype to: EnemyProjectile
+    *   Click the button to upload (save) the archetype
+
+Here is the EnemyProjectile archetype's properties:
+
+|ArchetypeEnemyProjectile|
+
+*   Update the Projectile script with the following code:
+
+.. code-block:: as
+
+  class Projectile : ZilchComponent
+  {
+      [Property]
+      var Speed: Real = 2.0;
+      [Property]
+      var Direction: Real3 = Real3();
+      function Initialize(init : CogInitializer)
+      {
+          // We need to update the projectile's movement every logic update
+          Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+          // Apply movement
+          this.Owner.Transform.Translation += this.Direction * event.Dt * this.Speed;
+      }
+  }
+
+
+* :ref:`Save your project. <SavingProject2014>`
+
+Make sure the EnemyProjectile archetype was saved to the Library Window.
+
+* In the Library Window
+
+  * Start typing ``EnemyProjectile`` in the search bar
+    
+|InLibrary|    
+    
+* In the Objects Window
+   
+  * :ref:`Select the EnemyProjectile <SelectObject2014>`
+* Delete the EnemyProjectile object
+
+|DeleteObject|  
+
+*   Open the **EnemyController** script
+*   Update the **EnemyController** script with the following code:
+
+    *   Update the **OnLogicUpdate** function with the following code:
+
+.. code-block:: as    
+  :emphasize-lines: 3,4
+  
+    // Chase target
+    this.ChaseTarget(event);
+    // Shoot target
+    this.ShootAtTarget(event);
+
+|
+    
+    *   Add the following function to the **EnemyController** class:
+        
+.. code-block:: as
+
+    function ShootAtTarget(event: UpdateEvent)
+    {
+        // Create a projectile originating from the enemy's position
+        var projectileObject = this.Space.CreateAtPosition(Archetype.Find("EnemyProjectile"), this.Owner.Transform.Translation);
+        if (projectileObject != null)
+        {
+            // Shoot in the direction of the target (which is the same as the chase Direction)
+            projectileObject.Projectile.Direction = this.ChaseDirection;
+            // Make sure projectile moves faster than the enemy
+            projectileObject.Projectile.Speed = 15.0 + this.ChaseSpeed;
+        }
+    }
+
+*   :ref:`Save your project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+|RapidFire|
+
+If you move the Player object close to the Enemy object, it will create an EnemyProjectile object using the EnemyProjectile archetype, and then send it flying in the direction of the Player object. It works, but we have a problem. It is creating a really large number of objects really, really fast. This will lead to performance problems such lagging and memory shortage. Let's limit the rate at which projectiles are being shot.
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   Update the **EnemyController** script with the following code:
+
+    *   Update the class variables by adding the following code:
+    
+.. code-block:: as    
+
+    // Shooting Properties
+    [Property]
+    var ShootDelay: Real = 1.0;
+    var NextShot: Real = 0.0;
+
+|
+
+    *   Update the **ShootAtTarget** function with the following code:
+
+.. code-block:: as    
+  :emphasize-lines: 1-5,15
+  
+    // Don't shoot until the next shot timer is reached
+    if (event.TimePassed > this.NextShot)
+    {
+        // Update next shot timer
+        this.NextShot = event.TimePassed + this.ShootDelay;
+        // Create a projectile originating from the enemy's position
+        var projectileObject = this.Space.CreateAtPosition(Archetype.Find("EnemyProjectile"), this.Owner.Transform.Translation);
+        if (projectileObject != null)
+        {
+            // Shoot in the direction of the target (which is the same as the chase Direction)
+            projectileObject.Projectile.Direction = this.ChaseDirection;
+            // Make sure projectile moves faster than the enemy
+            projectileObject.Projectile.Speed = 15.0 + this.ChaseSpeed;
+        }
+    }
+
+
+*  :ref:`Save your project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+When the Player object gets near the Enemy object, the Enemy object will shoot a projectile every second now because we set the **ShootDelay** variable to 1.0 (seconds).
+
+Right now, the Enemy object simply paces back and forth in the specified direction after traveling a specified distance. You could add additional behavior by adding logic for giving the Enemy object a random **PaceDirection** and **MaxMoveDistance** when it moves past its MaxMoveDistance. 
+
+For efficiency and good practice, you should also equip the projectile archetype with self-deleting behavior, such as a timed death component used in the  :ref:`Particle System lesson <ParticleSystems2014>` or make one that deletes it upon leaving the screen. 
+
+Now you know how to code a simple Ai.
+
+.. |PlayerAndEnemyCreated|     image:: images/SimpleAi/PlayerAndEnemyCreated.png
+.. |HorizontalMotion|          image:: images/SimpleAi/HorizontalMotion.png
+.. |Pacing|                    image:: images/SimpleAi/Pacing.png
+.. |ChaseRed|                  image:: images/SimpleAi/ChaseRed.png
+.. |Chasing|                   image:: images/SimpleAi/Chasing.png
+.. |ArchetypeEnemyProjectile|  image:: images/SimpleAi/ArchetypeEnemyProjectile.png
+.. |InLibrary|                 image:: images/SimpleAi/InLibrary.png
+.. |DeleteObject|              image:: images/SimpleAi/DeleteObject.png
+.. |RapidFire|                 image:: images/SimpleAi/RapidFire.png
+
+.. include:: BookFormattingShortcuts.rst

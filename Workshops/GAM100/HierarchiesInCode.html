@@ -1,0 +1,470 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/GAM100/HierarchiesInCode.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:10:13 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Hierarchies in Code &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="GAM100" href="index.html"/>
+        <link rel="next" title="Events" href="Events1.html"/>
+        <link rel="prev" title="Scripting 4" href="Scripting4.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">GAM100</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath1.html">Vector Math, part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hierarchies.html">Hierarchies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprite Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting4.html">Scripting 4</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Hierarchies in Code</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events3.html">Events 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events4.html">Events 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogPaths.html">Cog Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Spaces.html">Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath2.html">Vector Math, part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">GAM100</a> &raquo;</li>
+      
+    <li>Hierarchies in Code</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/GAM100/HierarchiesInCode.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="hierarchies-in-code">
+<span id="hierarchiesincodegam100"></span><h1>Hierarchies in Code</h1>
+<p class="searchdescription">This lesson covers the basics of interacting with hierarchies through code.</p>
+<div class="section" id="learning-objectives">
+<span id="hierarchiesincodevocabgam100"></span><h2>Learning Objectives</h2>
+<ul class="simple">
+<li>Attach and detach objects from ech other in code.</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="47%" />
+<col width="29%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Game Object ( Cog )</td>
+<td>Parent</td>
+<td>Child</td>
+</tr>
+<tr class="row-odd"><td>Composite</td>
+<td>Attach</td>
+<td>Detach</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<ul class="simple">
+<li>Open the previous project from the <a class="reference internal" href="Hierarchies.html#hierarchiesgam100"><span>Hierarchies lesson</span></a></li>
+</ul>
+<p>While most hierarchies will be created through the editor there are times when the user may wish to attach or detach object from a hierarchy while the game is running.</p>
+<p><a class="reference internal" href="ResourceAdding.html#resourceaddinggam100"><span>Add a new ZilchScript resource named:</span></a> <code class="docutils literal"><span class="pre">Hierarchies</span></code></p>
+<ul class="simple">
+<li>In the Hierarchies ZilchScript Window<ul>
+<li>Update the <strong>Hierarchies</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hierarchies</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">CubeArchetype</span> <span class="p">:</span> <span class="n">Archetype</span> <span class="p">=</span> <span class="n">Archetype</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="s">&quot;Cube&quot;</span><span class="p">);</span>
+
+  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Create a new default cube and attach it to the ParentSquare Object</span>
+    <span class="kt">var</span> <span class="n">cube1</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CubeArchetype</span><span class="p">);</span>
+    <span class="n">cube1</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(-</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+    <span class="n">cube1</span><span class="p">.</span><span class="n">AttachTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the ParentSquare object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add the **Hierarchies** component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p>You should see the new cube be spawned and fall. Once again this is because the cube has a dynamic <code class="docutils literal"><span class="pre">RigidBody</span></code> meaning it is part of the hierarchy but not part of the composite object of the root of the hierarchy. It is not very easy to tell that the new cube is part of the hierarchy, printing out the hierarchy would make that easier.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+</ul>
+<p><a class="reference internal" href="UsingTheVoid.html#usingthevoidgam100"><span>Download The HierarchyDisplay Script from the DebugScripts package on The Void.</span></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the ParentSquare object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add the HierarchyDisplay component</span></a></li>
+</ul>
+</li>
+<li>In the Hierarchies ZilchScript Window<ul>
+<li>Update the <strong>Hierarchies</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hierarchies</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">CubeArchetype</span> <span class="p">:</span> <span class="n">Archetype</span> <span class="p">=</span> <span class="n">Archetype</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="s">&quot;Cube&quot;</span><span class="p">);</span>
+
+  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Create a new default cube and attach it to the ParentSquare Object</span>
+    <span class="kt">var</span> <span class="n">cube1</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CubeArchetype</span><span class="p">);</span>
+<span class="hll">    <span class="n">cube1</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">&quot;Cube1&quot;</span><span class="p">;</span>
+</span>    <span class="n">cube1</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(-</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+    <span class="n">cube1</span><span class="p">.</span><span class="n">AttachTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">);</span>
+<span class="hll">    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">HierarchyDisplay</span><span class="p">.</span><span class="n">DisplayHierarchy</span><span class="p">();</span>
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p>You should see the following output in the console.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ----------------
+ ParentSquare
+     ChildSquare
+     Cube1
+ Total Children Count: 3
+ Level &#39;Level&#39; was loaded.
+ Loaded level 0.01s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+</ul>
+<p>We added a name to the new cube so that we can identify when it is printed in the console. The HierarchyDisplay component has also been added to the object. This component prints our the object hierarchy in the console indented by each object depth in the hierarchy. There is only one sections of important code in HierarchyDisplay.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">// Add one to the childCount for this level of recursion</span>
+<span class="kt">var</span> <span class="n">childCount</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+<span class="hll"><span class="k">foreach</span><span class="p">(</span><span class="kt">var</span> <span class="n">child</span> <span class="k">in</span> <span class="n">obj</span><span class="p">.</span><span class="n">Children</span><span class="p">.</span><span class="n">All</span><span class="p">)</span>
+</span><span class="p">{</span>
+  <span class="c1">// Print the sub hierarchy tree of the given child</span>
+  <span class="c1">// and record the number of its children</span>
+  <span class="n">childCount</span> <span class="p">+=</span> <span class="k">this</span><span class="p">.</span><span class="n">PrintChildren</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">level</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is an example of how you could iterate through the children of an object in code using the <code class="docutils literal"><span class="pre">foreach</span></code> loop structure we saw in <a class="reference internal" href="Scripting4.html#scripting4"><span>Scripting 4</span></a>.</p>
+<ul class="simple">
+<li>In the Hierarchies ZilchScript Window<ul>
+<li>Update the <strong>Hierarchies</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hierarchies</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">CubeArchetype</span> <span class="p">:</span> <span class="n">Archetype</span> <span class="p">=</span> <span class="n">Archetype</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="s">&quot;Cube&quot;</span><span class="p">);</span>
+
+  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Create a new default cube and attach it to the ParentSquare Object</span>
+    <span class="kt">var</span> <span class="n">cube1</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CubeArchetype</span><span class="p">);</span>
+    <span class="n">cube1</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">&quot;Cube1&quot;</span><span class="p">;</span>
+    <span class="n">cube1</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(-</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+    <span class="n">cube1</span><span class="p">.</span><span class="n">AttachTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">HierarchyDisplay</span><span class="p">.</span><span class="n">DisplayHierarchy</span><span class="p">();</span>
+<span class="hll">    <span class="n">cube1</span><span class="p">.</span><span class="n">Detach</span><span class="p">();</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">HierarchyDisplay</span><span class="p">.</span><span class="n">DisplayHierarchy</span><span class="p">();</span>
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p>The new console output should look like this.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ----------------
+ParentSquare
+    ChildSquare
+    Cube1
+Total Children Count: 3
+ParentSquare
+    ChildSquare
+Total Children Count: 2
+Level &#39;Level&#39; was loaded.
+Loaded level 0.01s
+</pre></div>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions</h2>
+<p>Now we can manipulate object hierarchies through code.</p>
+<div class="section" id="on-you-own">
+<h3>On You Own</h3>
+<ul class="simple">
+<li>Manipulate the <code class="docutils literal"><span class="pre">DynamicState</span></code> on parented object&#8217;s RigidBodies at runtime.</li>
+<li>Experiment with the <code class="docutils literal"><span class="pre">DetachRelative</span></code> function on <code class="docutils literal"><span class="pre">this.Owner</span></code>.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Events1.html" class="btn btn-neutral float-right" title="Events" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Scripting4.html" class="btn btn-neutral" title="Scripting 4" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/GAM100/HierarchiesInCode.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:10:14 GMT -->
+</html>

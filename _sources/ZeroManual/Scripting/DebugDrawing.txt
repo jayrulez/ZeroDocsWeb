@@ -1,0 +1,132 @@
+.. _ManualDebugDrawing:
+
+.. rst-class:: SearchTitle
+
+Debug Drawing
+=============
+
+.. rst-class:: SearchDescription
+
+Debug drawing is a feature in Zero that allows you to draw lines and shapes within the editor for the purpose of debugging your game. They can be customized to a limited degree by design, existing solely to be used for debugging purposes, not to actually exist as graphics in a game. This page will look at the two most commonly used types of Debug Draw (Line and Triangle) and their parameters.
+
+DebugLine
+---------
+
+DebugLine, as you might have deduced from the name, draws a line between two points. You can define the start and end points, add "heads" to one or both of the ends of the line, choose its color, and a few other options. To begin creating a new DebugLine you must first instantiate a new variable of DebugLine, as shown in the code-block below:
+
+.. code-block:: csharp
+
+    {    
+         //Instantiates a new instance of DebugLine
+         var debugLine = DebugLine();
+         
+         //Sets parameters for the debug line
+         debugLine.Start(Real3(0,0,0));
+         debugLine.End(Real3(4,5,0));
+         //etc...
+    }
+
+
+All of the available parameters for DebugLine, descriptions of each, and the syntax to use them in Zilch are listed below:
+
++--------------------+-------------------------------------+----------------------------------------------+
+|    Parameter       |            Description              |          Zilch Syntax                        |
++====================+=====================================+==============================================+
+|      Start         | A Real3 that defines the starting   | DebugLine.Start(startPos : Real3)            |
+|                    | position of the line                |                                              |
++--------------------+-------------------------------------+----------------------------------------------+
+|       End          | A Real3 that defines the end        | DebugLine.End(endPos : Real3)                |
+|                    | position of the line                |                                              |
++--------------------+-------------------------------------+----------------------------------------------+
+|    Duration        | A Real that defines the length of   | DebugLine.Duration(duration : Real)          |
+|                    | time (in seconds) that the line is  |                                              |
+|                    | displayed                           |                                              |
++--------------------+-------------------------------------+----------------------------------------------+
+|   Float4Color      | A Real4 that defines the color of   | DebugLine.Float4Color(color : Real4)         |
+|                    | the line                            |                                              |
++--------------------+-------------------------------------+----------------------------------------------+
+|     Width          | A Real that defines the width of    | DebugLine.Width(width : Real)                |
+|                    | the line                            |                                              |
++--------------------+-------------------------------------+----------------------------------------------+
+|    HeadSize        | A Real that defines the size of     | DebugLine.HeadSize(size : Real)              |
+|                    | the head at the top of the line     |                                              |
+|                    | (default shape is an arrow)         |                                              |
++--------------------+-------------------------------------+----------------------------------------------+
+|    BoxHeads        | A Boolean that when set to true     | DebugLine.BoxHeads(hasBoxHeads : Boolean)    |
+|                    | changes the heads to boxes          |                                              |
++--------------------+-------------------------------------+----------------------------------------------+
+|    DualHeads       | A Boolean that when set to true     | DebugLine.DualHeads(hasDualHeads : Boolean)  |
+|                    | places Heads on both ends of the    |                                              |
+|                    | line                                |                                              |
++--------------------+-------------------------------------+----------------------------------------------+
+|     Filled         | A Boolean that when set to true     | DebugLine.Filled(isFilled : Boolean)         |
+|                    | fills in the heads of the line      |                                              |
++--------------------+-------------------------------------+----------------------------------------------+
+|    SpaceId         | An Integer that sets which space    | DebugLine.SpaceId(id : Integer)              |
+|                    | to draw the line in (to get the     |                                              |
+|                    | Integer, use this.Space.RuntimeId)  |                                              |
++--------------------+-------------------------------------+----------------------------------------------+
+|     Draw           | This is what actually draws the     | DebugLine.Draw()                             |
+|                    | line. Without it, there is no line  |                                              |
++--------------------+-------------------------------------+----------------------------------------------+
+
+In the component where you add the DebugLine, you can make most of the parameters (with the exception of ``SpaceId`` and ``Draw``) variables that have the ``Property`` attribute, allowing you to change and tweak the parameters on the fly. This could allow you to debug certain parts of your game even quicker. A simple example of such a component is shown in the screenshot below:
+
+|DebugLineExample|
+
+DebugTriangle
+-------------
+
+DebugTriangle draws a triangle defined by three vertices (the parameters named Position0, Position1, and Position2). It can have a border and be filled in with a user-defined color. Otherwise, the options for this type are a bit more limited. As with DebugLine, to begin creating a new DebugTriangle you must first instantiate a new variable of DebugTriangle, as is shown in the code-block below:
+
+.. code-block:: csharp
+
+    {    
+         //Instantiates a new instance of DebugTriangle
+         var debugTriangle = DebugTriangle();
+         
+         //Sets parameters for the debug line
+         debugTriangle.Position0(Real3(-2,0,0));
+         debugTriangle.Position1(Real3(0,3,0));
+         //etc...
+    }
+	
+All of the available parameters for DebugTriangle, descriptions of each, and the syntax to use them in Zilch are listed below:
+
++--------------------+-------------------------------------+-------------------------------------------------+
+|    Parameter       |            Description              |          Zilch Syntax                           |
++====================+=====================================+=================================================+
+|    Position0       | A Real3 that defines the first      | DebugTriangle.Position0(firstVert : Real3)      |
+|                    | vertex of the triangle              |                                                 |
++--------------------+-------------------------------------+-------------------------------------------------+
+|    Position1       | A Real3 that defines the second     | DebugTriangle.Position1(secondVert : Real3)     |
+|                    | vertex of the triangle              |                                                 |
++--------------------+-------------------------------------+-------------------------------------------------+
+|    Position2       | A Real3 that defines the third      | DebugTriangle.Position2(thirdVert : Real3)      |
+|                    | vertex of the triangle              |                                                 |
++--------------------+-------------------------------------+-------------------------------------------------+
+|    Float4Color     | A Real4 that defines the color of   | DebugTriangle.Float4Color(color : Real4)        |
+|                    | the border/fill of the triangle     |                                                 |
++--------------------+-------------------------------------+-------------------------------------------------+
+|     Border         | A Boolean that when set to true     | DebugTriangle.Border(hasBorder : Boolean)       |
+|                    | draws a border around the triangle  |                                                 |
++--------------------+-------------------------------------+-------------------------------------------------+
+|    BackShade       | A Boolean that when set to true     | DebugTriangle.BackShade(hasBackShade : Boolean) |
+|                    | fills in the area of the triangle   |                                                 |
++--------------------+-------------------------------------+-------------------------------------------------+
+|    SpaceId         | An Integer that sets which space    | DebugTriangle.SpaceId(id : Integer)             |
+|                    | to draw the triangle in (to get the |                                                 |
+|                    | Integer, use this.Space.RuntimeId)  |                                                 |
++--------------------+-------------------------------------+-------------------------------------------------+
+|     Draw           | This is what actually draws the     | DebugTriangle.Draw()                            |
+|                    | triangle.                           |                                                 |
++--------------------+-------------------------------------+-------------------------------------------------+
+
+In the component where you add the DebugTriangle, you can make most of the parameters (with the exception of ``SpaceId`` and ``Draw``) variables that have the ``Property`` attribute, allowing you to change and tweak the parameters on the fly. This could allow you to debug certain parts of your game even quicker. A simple example of such a component is shown in the screenshot below:
+
+|DebugTriangleExample|
+
+
+
+.. |DebugLineExample|               image:: images/DebugDrawing/DebugLineExample.png
+.. |DebugTriangleExample|           image:: images/DebugDrawing/DebugTriangleExample.png

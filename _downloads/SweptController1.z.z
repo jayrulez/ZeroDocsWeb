@@ -1,0 +1,8 @@
+<?php
+if (file_exists("SweptController1.z")) {
+header("Content-disposition: attachment; filename=\"SweptController1.z\"");
+header("Content-type: application/octet-stream");
+header('Content-Length: ' . filesize("SweptController1.z"));
+readfile("SweptController1.z");
+}
+?>

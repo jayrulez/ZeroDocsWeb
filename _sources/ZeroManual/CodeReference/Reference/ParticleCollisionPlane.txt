@@ -1,0 +1,60 @@
+.. _ReferenceParticleCollisionPlane:
+
+.. rst-class:: searchtitle
+
+ParticleCollisionPlane
+======================
+
+.. include:: Description/ParticleCollisionPlane.rst
+
+.. cpp:class:: ParticleCollisionPlane
+
+    Base Class: :cpp:type:`ParticleAnimator`
+
+.. _ReferenceParticleCollisionPlaneProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ParticleCollisionPlane::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space ParticleCollisionPlane::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ParticleCollisionPlane::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession ParticleCollisionPlane::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real ParticleCollisionPlane::Restitution
+
+            
+
+.. _ReferenceParticleCollisionPlaneMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ParticleCollisionPlane::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/ParticleCollisionPlane.rst

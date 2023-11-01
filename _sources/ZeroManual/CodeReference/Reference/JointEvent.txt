@@ -1,0 +1,55 @@
+.. _ReferenceJointEvent:
+
+.. rst-class:: searchtitle
+
+JointEvent
+==========
+
+.. rst-class:: searchdescription
+
+Sent out when a joint signals some kind of event. For example, when a joint exceeds its force limit or when a joint hits a limit.
+
+.. include:: Description/JointEvent.rst
+
+.. cpp:class:: JointEvent
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceJointEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String JointEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog JointEvent::ObjectA
+
+            Get the ObjectA that was connected in the joint.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog JointEvent::ObjectB
+
+            Get the ObjectB that was connected in the joint.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog JointEvent::JointCog
+
+            Returns the Owner of the Joint that signaled the event.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Joint JointEvent::Joint
+
+            The joint that triggered the event.
+
+.. _ReferenceJointEventMethods:
+
+.. include:: Remarks/JointEvent.rst

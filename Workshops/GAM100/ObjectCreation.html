@@ -1,0 +1,555 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/GAM100/ObjectCreation.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:10:37 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Object Creation &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="GAM100" href="index.html"/>
+        <link rel="next" title="Vector Math, part 2" href="VectorMath2.html"/>
+        <link rel="prev" title="Spaces" href="Spaces.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">GAM100</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath1.html">Vector Math, part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hierarchies.html">Hierarchies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprite Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting4.html">Scripting 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HierarchiesInCode.html">Hierarchies in Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events3.html">Events 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events4.html">Events 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogPaths.html">Cog Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Spaces.html">Spaces</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Object Creation</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath2.html">Vector Math, part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">GAM100</a> &raquo;</li>
+      
+    <li>Object Creation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/GAM100/ObjectCreation.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="object-creation">
+<span id="objectcreationgam100"></span><h1>Object Creation</h1>
+<p class="searchdescription">This lesson covers creating archetypes and using those archetypes to create objects at run-time.</p>
+<div class="section" id="learning-objectives">
+<span id="objectcreationvocabgam100"></span><h2>Learning Objectives</h2>
+<ul class="simple">
+<li>Create archetypes.</li>
+<li>Spawning instances of archetypes at runtime.</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="25%" />
+<col width="16%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Archetype</td>
+<td>Spawn</td>
+<td>Instance of an Archetype</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<ul class="simple">
+<li><span class="xref std std-ref">CreateNewProject</span></li>
+</ul>
+</div>
+<div class="section" id="creating-objects-with-code">
+<h2>Creating Objects with Code</h2>
+<p>Let&#8217;s make a ball projectile Archetype.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commandsgam100"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Ball</span></code></li>
+<li>Under Transform<ul>
+<li>Set Scale to: <code class="docutils literal"><span class="pre">[0.2,</span> <span class="pre">0.2,</span> <span class="pre">0.2]</span></code></li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">0,</span> <span class="pre">B:</span> <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code> , <code class="docutils literal"><span class="pre">#FF0000</span></code></li>
+<li>Set SpriteSource to: <code class="docutils literal"><span class="pre">Circle</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add Component RigidBody</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add Component SphereCollider</span></a></li>
+<li>Under SphereCollider<ul>
+<li>Set Radius to: <code class="docutils literal"><span class="pre">0.5</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Upload to the Archetype Ball</strong></p>
+<blockquote>
+<div><ul>
+<li><p class="first">Set Archetype to: <code class="docutils literal"><span class="pre">Ball</span></code></p>
+</li>
+<li><p class="first">Upload the archetype</p>
+<p><img alt="UploadBall" src="../../_images/UploadBall4.png" /></p>
+</li>
+<li><p class="first">Now that it is uploaded, you can delete your object</p>
+</li>
+</ul>
+</div></blockquote>
+<p>Now let&#8217;s add the ButtonSpawner script</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceaddinggam100"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">ButtonSpawner</span></code><ul>
+<li>Change the <strong>ButtonSpawner</strong> script to this code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">ButtonSpawner</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">KeyDown</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnKeyDown</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">OnKeyDown</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nb">KeyboardEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// When space key is pressed</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nb">Key</span> <span class="o">==</span> <span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Spawn at this object&#39;s current position</span>
+      <span class="k">var</span> <span class="nx">spawnPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+
+      <span class="c1">// Find the Ball archetype:</span>
+      <span class="k">var</span> <span class="nx">archetypeToSpawn</span> <span class="o">=</span> <span class="nx">Archetype</span><span class="p">.</span><span class="nx">Ball</span><span class="o">;</span>
+
+      <span class="c1">// Pass the archetype and position to the Space to make our object</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">CreateAtPosition</span><span class="p">(</span><span class="nx">archetypeToSpawn</span><span class="o">,</span> <span class="nx">spawnPosition</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>ButtonSpawner object</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="Commands.html#commandsgam100"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>Under Properties<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add Component ButtonSpawner</span></a></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/ButtonSpawnerSettings4.png"><img alt="ButtonSpawnerSettings" src="../../_images/ButtonSpawnerSettings4.png" style="height: 3.0in;" /></a></p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Name to: <code class="docutils literal"><span class="pre">Spawner</span></code></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run your game</span></a></li>
+<li>Now press the <code class="docutils literal"><span class="pre">Space</span></code> bar</li>
+</ul>
+<p><img alt="ButtonSpawner" src="../../_images/ButtonSpawner4.gif" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="modifying-created-objects">
+<h2>Modifying Created Objects</h2>
+<p>After you have created the object, you can access its components and modify their properties
+Replace your <strong>ButtonSpawner</strong> script&#8217;s <strong>OnKeyDown</strong> function with the following code to set the velocity so the ball will fire out.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnKeyDown</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nb">KeyboardEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// When space key is pressed</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nb">Key</span> <span class="o">==</span> <span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">var</span> <span class="nx">spawnPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+
+    <span class="c1">// Find the Ball archetype:</span>
+    <span class="k">var</span> <span class="nx">archetypeToSpawn</span> <span class="o">=</span> <span class="nx">Archetype</span><span class="p">.</span><span class="nx">Ball</span><span class="o">;</span>
+
+    <span class="c1">// Pass the archetype and position to the Space to make our object</span>
+    <span class="k">var</span> <span class="nx">createdBall</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">CreateAtPosition</span><span class="p">(</span><span class="nx">archetypeToSpawn</span><span class="o">,</span> <span class="nx">spawnPosition</span><span class="p">);</span>
+
+    <span class="nx">createdBall</span><span class="p">.</span><span class="nx">RigidBody</span><span class="p">.</span><span class="nx">Velocity</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run your game</span></a></li>
+</ul>
+<p>You should now see the balls travelling up instead of down when they spawn.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="timed-spawning">
+<h2>Timed Spawning</h2>
+<p>Let&#8217;s do a more complete example by making a TimedSpawner class.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceaddinggam100"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">TimedSpawner</span></code><ul>
+<li>Change the <strong>TimedSpawner</strong> script to this code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">TimedSpawner</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">WhatToSpawn</span> <span class="o">:</span> <span class="nx">Archetype</span><span class="o">;</span>
+
+  <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Connect to LogicUpdate event:</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">var</span> <span class="nx">spawnPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">CreateAtPosition</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">WhatToSpawn</span><span class="o">,</span> <span class="nx">spawnPosition</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the Spawner object</span></a></li>
+<li>Under Properties<ul>
+<li><span class="xref std std-ref">Remove the ButtonSpawner component</span></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add the TimedSpawner component</span></a></li>
+<li>Under TimedSpawner component<ul>
+<li>Set WhatToSpawn to: <code class="docutils literal"><span class="pre">Ball</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div><img alt="TimedSpawnerSettingsWeb" src="../../_images/TimedSpawnerSettings4.png" /></div></blockquote>
+<p><a class="reference internal" href="../../_images/TimedSpawnerSettings4.png"><img alt="TimedSpawnerSettingsBook" src="../../_images/TimedSpawnerSettings4.png" style="height: 4.0in;" /></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p><img alt="UpdateSpawner" src="../../_images/UpdateSpawner4.gif" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+</ul>
+<p>We have connected the OnLogicUpdate function to the LogicUpdate event so that it will be called every time game logic is updated. In the OnLogicUpdate method, we are creating an instance of the Ball. That will create a lot of balls very quickly. Instead, we want to create a ball only after a fixed period of time has passed.</p>
+<p>Change the <strong>TimedSpawner</strong> code to look like this:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">TimedSpawner</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">WhatToSpawn</span> <span class="o">:</span> <span class="nx">Archetype</span><span class="o">;</span>
+
+  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">SpawnTime</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">;</span>
+
+  <span class="k">var</span> <span class="nx">TimeSinceLastSpawn</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+
+  <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Connect to LogicUpdate event:</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Add the amount of time that has just passed (Delta Time)</span>
+    <span class="c1">// to the time since last spawn</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">TimeSinceLastSpawn</span> <span class="o">+=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="o">;</span>
+
+    <span class="c1">// If enough time has passed, spawn the ball</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TimeSinceLastSpawn</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">SpawnTime</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">var</span> <span class="nx">spawnPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+
+      <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">CreateAtPosition</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">WhatToSpawn</span><span class="o">,</span> <span class="nx">spawnPosition</span><span class="p">);</span>
+
+      <span class="c1">// Need to reset the value</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">TimeSinceLastSpawn</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p><img alt="TimedSpawner" src="../../_images/TimedSpawner4.gif" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="on-your-own">
+<h2>On Your Own</h2>
+<p>Try:</p>
+<ul class="simple">
+<li>changing SpawnTime</li>
+<li>creating new archetypes to spawn</li>
+<li>adding properties to the spawning component, for example:<ul>
+<li>number to spawn</li>
+<li>direction to fire</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="VectorMath2.html" class="btn btn-neutral float-right" title="Vector Math, part 2" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Spaces.html" class="btn btn-neutral" title="Spaces" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/GAM100/ObjectCreation.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:10:42 GMT -->
+</html>

@@ -1,0 +1,1142 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Scripting/Events4.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 22:38:36 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Events 4 &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Scripting" href="index.html"/>
+        <link rel="next" title="Actions" href="Actions.html"/>
+        <link rel="prev" title="Events 3" href="Events3.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Scripting</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting4.html">Scripting 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events3.html">Events 3</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Events 4</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingCustomEaseInActionsTutorial.html">Using Custom Eases in Actions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Tutorials</a> &raquo;</li>
+      
+          <li><a href="index.html">Scripting</a> &raquo;</li>
+      
+    <li>Events 4</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Tutorials/Scripting/Events4.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="events-4">
+<span id="tutorialsevents4"></span><h1>Events 4</h1>
+<div class="searchdescription section" id="learning-objectives">
+<h2>Learning Objectives</h2>
+<ul class="simple">
+<li>Learn how custom events are a powerful tool to easily implement game-wide changes whenever they are needed.</li>
+<li>Learn how to create a custom input manager using custom events, applying it a simple game</li>
+<li>Learn how to integrate and implement previously defined custom events in your own project.</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Custom Event</td>
+<td>ZilchEvent</td>
+</tr>
+<tr class="row-odd"><td>sends</td>
+<td>String Type Identifier</td>
+</tr>
+<tr class="row-even"><td>Dependency</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>Events are the main way that objects and <span class="xref std std-ref">components</span> talk to each other in the Zero Engine. When a component has information it needs to share, the easiest way is to package the information into an Event, and then dispatch it (i.e., send it out to other objects). Then, any objects (and the component(s) on it) that need the information can &#8220;listen&#8221; for it, accessing that information in a special response function (if this isn&#8217;t clear, don&#8217;t worry; it will all be explained in greater detail below).</p>
+<p>In the Zero Engine, there are two main categories of events: predefined Engine events (e.g., Update events, such as <a class="reference internal" href="Events1.html#tutorialsevents1thelogicupdateevent"><span>LogicUpdate</span></a>, and Collision events, such as CollisionStarted) that are that ready-made for you to connect to, and Custom ZilchScript Events that you define, decide when and where to send them out, choose what information is sent with them, and specify which component(s) listens for the event once it&#8217;s dispatched. This page will provide a brief recap of predefined events while focusing specifically on Custom Events (see <a class="reference internal" href="Events1.html#tutorialsevents1"><span>Events</span></a> for more information on predefined events).</p>
+</div>
+<div class="section" id="predefined-engine-events">
+<h2>Predefined Engine Events</h2>
+<p>There are a number of predefined events you have access to and can use in Zilch. At the bottom of this page, you can find a comprehensive list of the predefined events offered by the Zero Engine, though the ones you will probably see and use most frequently are <span class="xref std std-ref">The LogicUpdate Event</span>, <a class="reference internal" href="Events2.html#tutorialsevents2"><span>Collision Events</span></a> (which comes in three variations: Started, Ended, and Persisted), and  <a class="reference internal" href="Events2.html#tutorialsevents2keyboardinput"><span>Keyboard Input Events</span></a>.</p>
+</div>
+<div class="section" id="custom-zilchevents">
+<h2>Custom ZilchEvents</h2>
+<p>These are the events that you will define and dispatch yourself; that is, you will define the event in its own class as well as what occurrence causes it to be dispatched, such as: the player or enemy dying, a certain amount of points being reached, or pretty much anything else you can imagine. A helpful way to think about why you would want to use custom events in the first place is that custom events move the focus away from whatever dispatches an event (such as collision or a frame update) to the component that is responding to the dispatched event (e.g., the player&#8217;s health and its HUD element, such as a health bar, that is changed as a result of the collision). There are many benefits to this approach, including:</p>
+<ul class="simple">
+<li>One event dispatch on an object can cause many behaviors to occur.<ul>
+<li>i.e., PlayersDamagedEvent is dispatched on the player object<ul>
+<li>The player&#8217;s hp lowers in the Health component attached to the player</li>
+<li>The object representing the player&#8217;s health in the HUD scales to reflect the player&#8217;s new health</li>
+<li>The AnimationController changes the player sprite to the DamagedAnimation</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Multiple components on different objects can all respond to the same event dispatch.<ul>
+<li>This is another way of saying the first bullet point; that is, you can have as many components listening and responding to a single event as you want.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition-when-to-use-custom-events admonition">
+<p class="first admonition-title">When to Use Custom Events</p>
+<p class="last">Keep in mind that the user will only want to use custom events when there is more than one component &#8220;listening&#8221; for the event. The user will get the most use out of custom events when the events that are created are things that affect multiple objects in your game. Using a custom event when only one object is listening adds an unnecessary layer of abstraction, whereas a simple, direct function call to enact the desired behavior change is much simpler.</p>
+</div>
+</div>
+<div class="section" id="using-custom-events-in-a-game">
+<h2>Using Custom Events in a Game</h2>
+<p>Just so it&#8217;s crystal clear what custom events do, let&#8217;s look at a brief analogy. Imagine a game set in a world just like ours, but where vampires and ghosts happen to exist alongside humans. In this scenario, the custom event we want to define would be dispatched with the rising of the sun in the morning. In this world we&#8217;re imagining, the appearance of the sun causes specific behaviors in some of the objects; for others, however it means nothing at all. For the humans, the sun rising means it&#8217;s time to wake up; for the vampires, it can mean instant death if they happen to be outside; for the ghosts, it means they are banished back to the grave; for rocks, however, it means nothing at all. Humans, vampires, and ghosts all have an interest in when the sun rises and will respond to it in different ways. Rocks couldn&#8217;t care less.</p>
+<p>This scenario could translate into a game as follows:</p>
+<ul class="simple">
+<li>When the sun rises, a custom event is &#8220;sent out&#8221; to the entire game space.</li>
+<li>One must then decide what objects should be “listening” for this event. In our example, these objects would include all humans, vampires, and ghosts. We don&#8217;t even have to think about the rocks anymore.</li>
+<li>The &#8220;listening&#8221; objects respond to the event in different ways, requiring you to define how each object responds when they &#8220;hear&#8221; the event. These responses are written in behavior-changing functions in the components attached to the &#8220;listening&#8221; objects (humans, vampires, ghosts) that are called as a result of the component &#8220;hearing&#8221; the event.</li>
+<li>Here&#8217;s the entire sequence: Sun Rises &#8211;&gt; Custom Event dispatched to Space &#8211;&gt; Components on humans, ghosts, and vampires hear the event has happened &#8211;&gt; Components on humans, ghosts, and vampires call their respective response functions.</li>
+<li>All the other objects that are not affected by the event (rocks, buildings, grass, etc...) have no need to listen to the event.</li>
+</ul>
+<p>Now that we have a theoretical understanding of Custom Events and how they can be used, let&#8217;s make a simple game that uses custom events in different ways to accomplish a number of common and useful functions that you might find applicable in your own projects. We&#8217;ll be looking at events that control player input, change player health upon collision, and cause certain actions upon player death.</p>
+</div>
+<div class="section" id="setting-up-the-level">
+<h2>Setting Up the Level</h2>
+<p><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/LauncherNewProject.html#manualcreatenewproject"><span>Create a New Project</span></a></p>
+<p>Before we get started with adding any sprites, we&#8217;re going to need to grab a few ZilchScript components from The Void.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/UsingTheVoid.html#manualusingthevoid"><span>Go to the Void</span></a> and, from the <code class="docutils literal"><span class="pre">BasicGamePlay</span></code> package,  grab the components <code class="docutils literal"><span class="pre">DamageOnCollide</span></code>, <code class="docutils literal"><span class="pre">Health</span></code>, and <code class="docutils literal"><span class="pre">AreaMeter</span></code>.</li>
+</ul>
+<p>One more thing we&#8217;ll want to do before anything is else is to turn off the GravityEffect on our level since our game has no need for gravity.</p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li>Select the <code class="docutils literal"><span class="pre">LevelSettings</span></code> object</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Under GravityEffect<ul>
+<li>Set <code class="docutils literal"><span class="pre">Active</span></code> to: <code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now that we have these three components imported and we&#8217;ve turned off gravity we can start adding our sprite objects to the level. First, we&#8217;re going to create a simple player sprite and change the values of some of its properties.</p>
+<p><strong>Player</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">Create</span> <span class="pre">Sprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Change Name to: <code class="docutils literal"><span class="pre">Player</span></code></li>
+<li><span class="xref std std-ref">Add an Area component</span></li>
+<li><span class="xref std std-ref">Add a RigidBody component</span></li>
+<li><span class="xref std std-ref">Add a BoxCollider component</span></li>
+<li><span class="xref std std-ref">Add a Health component</span></li>
+<li><span class="xref std std-ref">Add a DamageOnCollide component</span></li>
+<li>Under Transform<ul>
+<li>Change Translation to: <code class="docutils literal"><span class="pre">[-3,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Change Color Property to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">0,</span> <span class="pre">G:</span> <span class="pre">0,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">1.0]</span></code></li>
+</ul>
+</li>
+<li>Under RigidBody<ul>
+<li>Set Rotation Blocked to: <code class="docutils literal"><span class="pre">true</span></code></li>
+</ul>
+</li>
+<li>Under Health<ul>
+<li>Change MaxHealth to: <code class="docutils literal"><span class="pre">100</span></code></li>
+<li>Set DestroyAtZeroHealth to: <code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+<li>Under DamageOnCollide<ul>
+<li>Set Damage to: <code class="docutils literal"><span class="pre">50</span></code></li>
+<li>Set SendsDeathEvent to: <code class="docutils literal"><span class="pre">false</span></code></li>
+<li>Set DieOnCollide to: <code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>With all of this done, the Property Window and your Player should look like this:</p>
+<p><a class="reference internal" href="../../_images/PlayerProperties.png"><img alt="PlayerProperties" src="../../_images/PlayerProperties.png" style="height: 4.0in;" /></a></p>
+<p>Now we&#8217;re going to create three enemy objects and set the values of some of their properties.</p>
+<p><strong>Enemies</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or
+<span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Enemy</span></code></li>
+<li><span class="xref std std-ref">Add an Area component</span></li>
+<li><span class="xref std std-ref">Add a RigidBody component</span></li>
+<li><span class="xref std std-ref">Add a SphereCollider component</span></li>
+<li><span class="xref std std-ref">Add a DamageOnCollide component</span></li>
+<li><span class="xref std std-ref">Add a Health component</span></li>
+<li>Under Transform<ul>
+<li>Set Translation to <code class="docutils literal"><span class="pre">[3,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">0,</span> <span class="pre">B:</span> <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code></li>
+<li>Set SpriteSource to: <code class="docutils literal"><span class="pre">Circle</span></code></li>
+</ul>
+</li>
+<li>Under Area<ul>
+<li>Change Size to: <code class="docutils literal"><span class="pre">[1.5,</span> <span class="pre">1.5]</span></code></li>
+</ul>
+</li>
+<li>Under SphereCollider<ul>
+<li>Change Radius to: <code class="docutils literal"><span class="pre">0.75</span></code></li>
+</ul>
+</li>
+<li>Under DamageOnCollide<ul>
+<li>Set Damage to: <code class="docutils literal"><span class="pre">35</span></code></li>
+<li>Set SendsDeathEvent to: <code class="docutils literal"><span class="pre">false</span></code></li>
+<li>Set DieOnCollide to: <code class="docutils literal"><span class="pre">true</span></code></li>
+</ul>
+</li>
+<li>Under Health<ul>
+<li>Set MaxHealth to: <code class="docutils literal"><span class="pre">50</span></code></li>
+<li>Set DestroyAtZeroHealth to: <code class="docutils literal"><span class="pre">true</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>With all of this done, the Property Window and your Enemy should look like this:</p>
+<p><a class="reference internal" href="../../_images/EnemyProperties.png"><img alt="EnemyProperties" src="../../_images/EnemyProperties.png" style="height: 4.0in;" /></a></p>
+<p>Now we need to make two more copies of this Enemy.</p>
+<ul class="simple">
+<li>In the Level window<ul>
+<li>Select the <code class="docutils literal"><span class="pre">Enemy</span></code> object</li>
+<li><code class="docutils literal"><span class="pre">Ctrl+D</span></code> to Duplicate the object</li>
+</ul>
+</li>
+<li>In the Objects window<ul>
+<li>Select the new copy of the object</li>
+</ul>
+</li>
+<li>In the Properties window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[3,</span> <span class="pre">3,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Repeat the previous steps to make a third enemy, but this time set Translation to: <code class="docutils literal"><span class="pre">[3,</span> <span class="pre">-3,</span> <span class="pre">0]</span></code></p>
+<p>Finally, lets make a small health bar for the player and parent it to the Player object</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or
+<span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">HealthMeter</span></code></li>
+<li><span class="xref std std-ref">Add an Area component</span></li>
+<li><span class="xref std std-ref">Add an AreaMeter component</span></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[-3,</span> <span class="pre">1,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">0,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">1.0]</span></code></li>
+</ul>
+</li>
+<li>Under Area<ul>
+<li>Change Size to: <code class="docutils literal"><span class="pre">[4,</span> <span class="pre">0.25]</span></code></li>
+</ul>
+</li>
+<li>Under AreaMeter<ul>
+<li>Set InitMaxVal to: <code class="docutils literal"><span class="pre">100</span></code></li>
+<li>Set InitStartVal to: <code class="docutils literal"><span class="pre">100</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>With all this done, your Property Window and HealthMeter object should look like this:</p>
+<p><a class="reference internal" href="../../_images/HealthMeterProperties.png"><img alt="HealthMeterProperties" src="../../_images/HealthMeterProperties.png" style="height: 4.0in;" /></a></p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> , <code class="docutils literal"><span class="pre">Hold</span></code> and <code class="docutils literal"><span class="pre">Drag</span></code> <code class="docutils literal"><span class="pre">HealthMeter</span></code> on top of <code class="docutils literal"><span class="pre">Player</span></code></li>
+<li>Release <code class="docutils literal"><span class="pre">Left</span> <span class="pre">Mouse</span> <span class="pre">Button</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+</ul>
+<p>After parenting the health meter object to the player object, your object window should look like this:</p>
+<p><img alt="ObjectsWindow" src="../../_images/ObjectsWindow.png" /></p>
+<p>Now that we have all of our level objects placed, your level editor window should look like this:</p>
+<p><a class="reference internal" href="../../_images/InitialLevelSetup1.png"><img alt="InitialLevelSetup" src="../../_images/InitialLevelSetup1.png" style="width: 5.0in;" /></a></p>
+<p>At this point we need to start making some components to add basic functionality. The first two things we&#8217;ll add is an event-based input manager and a basic player controller.</p>
+</div>
+<div class="section" id="creating-the-inputevents-component">
+<h2>Creating the InputEvents Component</h2>
+<p>If you remember back from our first <a class="reference internal" href="Events1.html#tutorialsevents1"><span>Events lesson</span></a>, we finished up by making a player controller that used Keyboard events. In order to be consistent and to keep everything as efficient as possible, we&#8217;re going to be doing the same thing here, only now we will add changes that will ultimately give our player controller much more flexibility. As before, let&#8217;s start small by just getting our player to move up.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">InputEvents</span></code></li>
+<li>Update the new script to look like this:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">InputEvents</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="c1">//Registering the string identifier &quot;MoveRight&quot; to the events Namespace</span>
+  <span class="c1">//MoveRight is now an event of type ZilchEvent</span>
+  <span class="n">sends</span> <span class="n">MoveRight</span> <span class="p">:</span> <span class="n">ZilchEvent</span><span class="p">;</span>
+
+  <span class="c1">//The keyboard key that will be used to move the player right</span>
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">MoveRight</span> <span class="p">:</span> <span class="n">Keys</span> <span class="p">=</span> <span class="n">Keys</span><span class="p">.</span><span class="n">D</span><span class="p">;</span>
+
+  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">KeyDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnKeyDown</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">//Response function for the KeyDown keyboard event</span>
+  <span class="c1">//Called whenever a key is pressed</span>
+  <span class="n">function</span> <span class="nf">OnKeyDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//If the key assigned to this.MoveRight is pressed</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveRight</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">//Dispatch the the MoveRight event on to this.Owner</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">MoveRight</span><span class="p">,</span> <span class="n">ZilchEvent</span><span class="p">());</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Player object</span></a></li>
+<li>In the Properties Window<ul>
+<li><span class="xref std std-ref">Add an InputEvents component</span></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+</ul>
+<p>Let&#8217;s review the code above by looking at the <code class="docutils literal"><span class="pre">MoveRight</span></code> variable (lines 8 - 9) that holds the individual key we wish to use for moving around. Since <code class="docutils literal"><span class="pre">MoveRight</span></code> has the Property attribute, we can change it to whatever key we like through the Property window. Now look at the OnKeyDown function. You’ll see that we’re checking to see if the key we’ve assigned to our <code class="docutils literal"><span class="pre">MoveRight</span></code> variable is being pressed; if it is, we create a ZilchEvent and dispatch it onto <code class="docutils literal"><span class="pre">this.Owner</span></code> (the Player object that has this component on it) using a string type identifier. The string type identifier we are using (named &#8220;MoveRight&#8221; as well) is setup at the very beginning of the script where we use the <code class="docutils literal"><span class="pre">sends</span></code> keyword. Before moving on, let&#8217;s take a quick look at exactly what the <code class="docutils literal"><span class="pre">sends</span></code> keyword is doing for us.</p>
+<div class="section" id="the-sends-keyword">
+<h3>The Sends Keyword</h3>
+<p>The <code class="docutils literal"><span class="pre">sends</span></code> keyword may seem a bit confusing at first, but will help you in a couple of ways after it becomes clear. The <code class="docutils literal"><span class="pre">sends</span></code> keyword registers the string type identifier (that&#8217;s a fancy way of saying &#8220;the name that identifies the event&#8221;; in our script, the identifier is <code class="docutils literal"><span class="pre">MoveRight</span></code>) so that it&#8217;s associated with the event type itself. This allows us to send and connect to the event using the <code class="docutils literal"><span class="pre">Events.MyCustomEvent</span></code> syntax (or in our case <code class="docutils literal"><span class="pre">Events.MoveRight</span></code>), keeping us from making annoying typo errors. It also keeps the event <em>type safe</em>; that is, an error will be thrown if you try to connect to a different event that doesn&#8217;t exist or hasn&#8217;t been dispatched.</p>
+<p>Another thing to keep in mind is that you can only use the <code class="docutils literal"><span class="pre">sends</span></code> keyword within the outermost class-scope (of either the class defining the custom event, which we will get to a bit later, or the class in which it is dispatched) <em>outside of any function</em> within that class. In other words, it must be used outside of <code class="docutils literal"><span class="pre">Initialize</span></code>, <code class="docutils literal"><span class="pre">OnLogicUpdate</span></code>, or any other function. If you look at the code-block above, you will see that it is the very first line inside the <code class="docutils literal"><span class="pre">InputEvents</span></code> class. As a general rule, placing the <code class="docutils literal"><span class="pre">sends</span></code> keyword within the class that defines the event itself is a good way to keep track of what you are registering it as. Ultimately it is up to you where you wish to put it so long as it not used inside any function.</p>
+<p>With that said, we can continue on and fill out our <code class="docutils literal"><span class="pre">InputEvents</span></code> script with the rest of the Move events we need.</p>
+</div>
+</div>
+<div class="section" id="finishing-the-inputevents-component">
+<h2>Finishing the InputEvents Component</h2>
+<ul class="simple">
+<li>Update the <code class="docutils literal"><span class="pre">InputEvents</span></code> ZilchScript as follows:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">InputEvents</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="c1">//Registering the string type identifiers for the Move events</span>
+  <span class="n">sends</span> <span class="n">MoveRight</span> <span class="p">:</span> <span class="n">ZilchEvent</span><span class="p">;</span>
+<span class="hll">  <span class="n">sends</span> <span class="n">MoveLeft</span> <span class="p">:</span> <span class="n">ZilchEvent</span><span class="p">;</span>
+</span><span class="hll">  <span class="n">sends</span> <span class="n">MoveDown</span> <span class="p">:</span> <span class="n">ZilchEvent</span><span class="p">;</span>
+</span><span class="hll">  <span class="n">sends</span> <span class="n">MoveUp</span> <span class="p">:</span> <span class="n">ZilchEvent</span><span class="p">;</span>
+</span>
+  <span class="c1">//The keyboard keys that will be used to move the player</span>
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">MoveRight</span> <span class="p">:</span> <span class="n">Keys</span> <span class="p">=</span> <span class="n">Keys</span><span class="p">.</span><span class="n">D</span><span class="p">;</span>
+
+<span class="hll"><span class="na">  [Property]</span>
+</span><span class="hll">  <span class="kt">var</span> <span class="n">MoveLeft</span> <span class="p">:</span> <span class="n">Keys</span> <span class="p">=</span> <span class="n">Keys</span><span class="p">.</span><span class="n">A</span><span class="p">;</span>
+</span><span class="hll">
+</span><span class="hll"><span class="na">  [Property]</span>
+</span><span class="hll">  <span class="kt">var</span> <span class="n">MoveUp</span> <span class="p">:</span> <span class="n">Keys</span> <span class="p">=</span> <span class="n">Keys</span><span class="p">.</span><span class="n">W</span><span class="p">;</span>
+</span><span class="hll">
+</span><span class="hll"><span class="na">  [Property]</span>
+</span><span class="hll">  <span class="kt">var</span> <span class="n">MoveDown</span> <span class="p">:</span> <span class="n">Keys</span> <span class="p">=</span> <span class="n">Keys</span><span class="p">.</span><span class="n">S</span><span class="p">;</span>
+</span>
+  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+      <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">KeyDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnKeyDown</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">//Response function for the KeyDown keyboard event</span>
+  <span class="c1">//Called whenever a key is pressed</span>
+  <span class="n">function</span> <span class="nf">OnKeyDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//If the key assigned to this.MoveRight is pressed</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveRight</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">//Dispatch the MoveRight event onto this.Owner</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">MoveRight</span><span class="p">,</span> <span class="n">ZilchEvent</span><span class="p">());</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="c1">//If the key assigned to this.MoveLeft is pressed</span>
+</span><span class="hll">    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveLeft</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">      <span class="c1">//Dispatch the MoveLeft event onto this.Owner</span>
+</span><span class="hll">      <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">MoveLeft</span><span class="p">,</span> <span class="n">ZilchEvent</span><span class="p">());</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">//If the key assigned to this.MoveUp is pressed</span>
+</span><span class="hll">    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveUp</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">      <span class="c1">//Dispatch the MoveUp event onto this.Owner</span>
+</span><span class="hll">      <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">MoveUp</span><span class="p">,</span> <span class="n">ZilchEvent</span><span class="p">());</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">//If the key assigned to this.MoveDown is pressed</span>
+</span><span class="hll">    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveDown</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">      <span class="c1">//Dispatch the MoveDown event onto this.Owner</span>
+</span><span class="hll">      <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">MoveDown</span><span class="p">,</span> <span class="n">ZilchEvent</span><span class="p">());</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now that we all movement directions accounted for, we can move on to our PlayerController component where we&#8217;ll be listening for all these events that are being dispatched and moving our player accordingly.</p>
+</div>
+<div class="section" id="creating-the-playercontroller-component">
+<h2>Creating the PlayerController Component</h2>
+<p>Again looking back to the first <a class="reference internal" href="Events1.html#tutorialsevents1"><span>Events lesson</span></a>, you&#8217;ll find that the logic in this next code-block below is very similar to logic we used before with the exception that we&#8217;re now moving using the physics engine via the RigidBody component. The other changes we&#8217;ll be making allow this component to interact with the <code class="docutils literal"><span class="pre">InputEvents</span></code> component via custom events.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">PlayerController</span></code></li>
+<li>Update the new script to look like this:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PlayerController</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="c1">//We need the RigidBody component on the object for this component to work</span>
+<span class="na">  [Dependency]</span>
+  <span class="kt">var</span> <span class="n">RigidBody</span> <span class="p">:</span> <span class="n">RigidBody</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+  <span class="c1">//The speed at which we want to accelerate</span>
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">Speed</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">0.0</span><span class="p">;</span>
+
+  <span class="c1">//Variable to store our current movement direction that is changed by the</span>
+  <span class="c1">//custom Move event response functions</span>
+  <span class="kt">var</span> <span class="n">Movement</span> <span class="p">:</span> <span class="n">Real3</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">();</span>
+
+  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Connect to all the custom Move events we dispatched in the InputEvents component</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MoveRight</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMoveRight</span><span class="p">);</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MoveLeft</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMoveLeft</span><span class="p">);</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MoveUp</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMoveUp</span><span class="p">);</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MoveDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMoveDown</span><span class="p">);</span>
+
+    <span class="c1">//Connect to the LogicUpdate event</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLogicUpdate</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">//Response function for the MoveRight event</span>
+  <span class="n">function</span> <span class="nf">OnMoveRight</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">Event</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Set Movement to 1.0 on the x-axis (i.e., right direction)</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">//Response function for the MoveLeft event</span>
+  <span class="n">function</span> <span class="nf">OnMoveLeft</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">Event</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Set Movement to -1.0 on the x-axis (i.e., left direction)</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(-</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">//Response function for the MoveUp event</span>
+  <span class="n">function</span> <span class="nf">OnMoveUp</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">Event</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Set Movement to 1.0 on the y-axis (i.e., up direction)</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">//Response function for the MoveDown event</span>
+  <span class="n">function</span> <span class="nf">OnMoveDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">Event</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Set Movement to -1.0 on the y-axis (i.e., down direction)</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="p">-</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Increment the velocity by the current Movement value multiplied by Speed</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">RigidBody</span><span class="p">.</span><span class="n">Velocity</span> <span class="p">=</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">*</span> <span class="k">this</span><span class="p">.</span><span class="n">Speed</span><span class="p">);</span>
+
+    <span class="c1">//Resets Movement to (0,0,0) so we don&#39;t keep applying movement after releasing key input</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Player object</span></a></li>
+<li>In the Properties Window<ul>
+<li><span class="xref std std-ref">Add a PlayerController component</span></li>
+<li>Under PlayerController<ul>
+<li>Set Speed to: <code class="docutils literal"><span class="pre">0.25</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+</ul>
+<p>If you look in the Initialize function above you&#8217;ll notice that we&#8217;re connecting to (or &#8220;listening for&#8221;) the events we dispatched in our InputEvents component. These events are dispatched according to the keyboard input from the person playing the game.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You should now be able to move the Player object around the level using the WASD keys. Just to test it out, try changing the values of <code class="docutils literal"><span class="pre">MoveRight</span></code>, <code class="docutils literal"><span class="pre">MoveLeft</span></code>, <code class="docutils literal"><span class="pre">MoveUp</span></code>, and <code class="docutils literal"><span class="pre">MoveDown</span></code> under the InputEvents component in the Property window to the arrow keys instead of WASD. Once you&#8217;ve successfully done that, you&#8217;ll know everything is working as intended, and can change them back to their original, WASD values.</p>
+<p>One issue we have, however, is that even though you might be holding down a direction key, the player is only moving a short distance. The reason is because we&#8217;re using acceleration to move to player (i.e, we&#8217;re incrementing the player&#8217;s velocity instead of setting it directly). In its current state, if we set the velocity directly, the player would only move one unit in whichever direction that corresponds to the key pressed, as we are immediately setting <code class="docutils literal"><span class="pre">this.Movement</span></code> back to <code class="docutils literal"><span class="pre">Real3(0,0,0)</span></code>. In order to have our player move at a constant speed while keys are still pressed down, we&#8217;ll need to make a significant change: we&#8217;ll be defining and implementing our own custom event.</p>
+</div>
+<div class="section" id="defining-our-own-custom-event">
+<h2>Defining Our Own Custom Event</h2>
+<p>So far we&#8217;ve created four different <code class="docutils literal"><span class="pre">ZilchEvents</span></code>, but we&#8217;ve yet to define our own custom event in its own class. To finish up this player controller, let&#8217;s create a Move custom event that will handle all movement.</p>
+<p>The first script we&#8217;ll need to change is <code class="docutils literal"><span class="pre">InputEvents</span></code> where we&#8217;ll define and dispatch the new Move event.</p>
+<ul class="simple">
+<li>Update <code class="docutils literal"><span class="pre">InputEvents</span></code> to look like this:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="hll"> <span class="c1">//Class defining our custom Move event</span>
+</span><span class="hll"> <span class="k">class</span> <span class="nc">MoveEvent</span> <span class="p">:</span> <span class="n">ZilchEvent</span>
+</span><span class="hll"> <span class="p">{</span>
+</span><span class="hll">   <span class="c1">//sending Move as the string type identifier</span>
+</span><span class="hll">   <span class="n">sends</span> <span class="n">Move</span> <span class="p">:</span> <span class="n">MoveEvent</span><span class="p">;</span>
+</span><span class="hll">
+</span><span class="hll">   <span class="c1">//Booleans to keep track of whether our direction-assigning</span>
+</span><span class="hll">   <span class="c1">//buttons are still pressed down</span>
+</span><span class="hll">   <span class="kt">var</span> <span class="n">IsRightDown</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class="hll">   <span class="kt">var</span> <span class="n">IsLeftDown</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class="hll">   <span class="kt">var</span> <span class="n">IsUpDown</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class="hll">   <span class="kt">var</span> <span class="n">IsDownDown</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class="hll"> <span class="p">}</span>
+</span>
+ <span class="k">class</span> <span class="nc">InputEvents</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+ <span class="p">{</span>
+   <span class="c1">//The keyboard keys that will be used to move the player</span>
+<span class="na">   [Property]</span>
+   <span class="kt">var</span> <span class="n">MoveRight</span> <span class="p">:</span> <span class="n">Keys</span> <span class="p">=</span> <span class="n">Keys</span><span class="p">.</span><span class="n">D</span><span class="p">;</span>
+
+<span class="na">   [Property]</span>
+   <span class="kt">var</span> <span class="n">MoveLeft</span> <span class="p">:</span> <span class="n">Keys</span> <span class="p">=</span> <span class="n">Keys</span><span class="p">.</span><span class="n">A</span><span class="p">;</span>
+
+<span class="na">   [Property]</span>
+   <span class="kt">var</span> <span class="n">MoveUp</span> <span class="p">:</span> <span class="n">Keys</span> <span class="p">=</span> <span class="n">Keys</span><span class="p">.</span><span class="n">W</span><span class="p">;</span>
+
+<span class="na">   [Property]</span>
+   <span class="kt">var</span> <span class="n">MoveDown</span> <span class="p">:</span> <span class="n">Keys</span> <span class="p">=</span> <span class="n">Keys</span><span class="p">.</span><span class="n">S</span><span class="p">;</span>
+
+<span class="hll">   <span class="c1">//Booleans to check if a key is being pressed</span>
+</span><span class="hll">   <span class="kt">var</span> <span class="n">RightIsDown</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class="hll">   <span class="kt">var</span> <span class="n">LeftIsDown</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class="hll">   <span class="kt">var</span> <span class="n">UpIsDown</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class="hll">   <span class="kt">var</span> <span class="n">DownIsDown</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span>
+   <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+   <span class="p">{</span>
+       <span class="c1">//Connect, or &quot;listen&quot;, to the KeyDown, KeyUp, and LogicUpdate events</span>
+       <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">KeyDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnKeyDown</span><span class="p">);</span>
+<span class="hll">       <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">KeyUp</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnKeyUp</span><span class="p">);</span>
+</span><span class="hll">       <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLogicUpdate</span><span class="p">);</span>
+</span>   <span class="p">}</span>
+
+   <span class="c1">//Response function for whenever a key is pressed</span>
+   <span class="n">function</span> <span class="nf">OnKeyDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+   <span class="p">{</span>
+     <span class="c1">//If the key assigned to this.MoveRight is pressed</span>
+     <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveRight</span><span class="p">)</span>
+     <span class="p">{</span>
+<span class="hll">       <span class="c1">//Set RightIsDown to true, as it is being pressed</span>
+</span><span class="hll">       <span class="k">this</span><span class="p">.</span><span class="n">RightIsDown</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</span>     <span class="p">}</span>
+
+     <span class="c1">//If the key assigned to this.MoveLeft is pressed</span>
+     <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveLeft</span><span class="p">)</span>
+     <span class="p">{</span>
+<span class="hll">       <span class="c1">//Set RightIsDown to true, as it is being pressed</span>
+</span><span class="hll">       <span class="k">this</span><span class="p">.</span><span class="n">LeftIsDown</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</span>     <span class="p">}</span>
+
+     <span class="c1">//If the key assigned to this.MoveUp is pressed</span>
+     <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveUp</span><span class="p">)</span>
+     <span class="p">{</span>
+<span class="hll">       <span class="c1">//Set RightIsDown to true, as it is being pressed</span>
+</span><span class="hll">       <span class="k">this</span><span class="p">.</span><span class="n">UpIsDown</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</span>     <span class="p">}</span>
+
+     <span class="c1">//If the key assigned to this.MoveDown is pressed</span>
+     <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveDown</span><span class="p">)</span>
+     <span class="p">{</span>
+<span class="hll">       <span class="c1">//Set RightIsDown to true, as it is being pressed</span>
+</span><span class="hll">       <span class="k">this</span><span class="p">.</span><span class="n">DownIsDown</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</span>     <span class="p">}</span>
+   <span class="p">}</span>
+
+<span class="hll">   <span class="c1">//Response function called when a key being pressed is released</span>
+</span><span class="hll">   <span class="n">function</span> <span class="nf">OnKeyUp</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+</span><span class="hll">   <span class="p">{</span>
+</span><span class="hll">     <span class="c1">//If MoveRight key has been released...</span>
+</span><span class="hll">     <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveRight</span><span class="p">)</span>
+</span><span class="hll">     <span class="p">{</span>
+</span><span class="hll">       <span class="c1">//Set RightIsDown to false</span>
+</span><span class="hll">       <span class="k">this</span><span class="p">.</span><span class="n">RightIsDown</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class="hll">     <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">     <span class="c1">//If MoveLeft key has been released...</span>
+</span><span class="hll">     <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveLeft</span><span class="p">)</span>
+</span><span class="hll">     <span class="p">{</span>
+</span><span class="hll">       <span class="c1">//Set LeftIsDown to false</span>
+</span><span class="hll">       <span class="k">this</span><span class="p">.</span><span class="n">LeftIsDown</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class="hll">     <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">     <span class="c1">//If MoveUp key has been released...</span>
+</span><span class="hll">     <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveUp</span><span class="p">)</span>
+</span><span class="hll">     <span class="p">{</span>
+</span><span class="hll">       <span class="c1">//Set UpIsDown to false</span>
+</span><span class="hll">       <span class="k">this</span><span class="p">.</span><span class="n">UpIsDown</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class="hll">     <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">     <span class="c1">//If MoveDown key has been released...</span>
+</span><span class="hll">     <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">MoveDown</span><span class="p">)</span>
+</span><span class="hll">     <span class="p">{</span>
+</span><span class="hll">       <span class="c1">//Set DownIsDown to false</span>
+</span><span class="hll">       <span class="k">this</span><span class="p">.</span><span class="n">DownIsDown</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span><span class="hll">     <span class="p">}</span>
+</span><span class="hll">   <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">   <span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+</span><span class="hll">   <span class="p">{</span>
+</span><span class="hll">     <span class="c1">//Create new instance of MoveEvent</span>
+</span><span class="hll">     <span class="kt">var</span> <span class="n">moveEvent</span> <span class="p">=</span> <span class="n">MoveEvent</span><span class="p">();</span>
+</span><span class="hll">
+</span><span class="hll">     <span class="c1">//Set event booleans to the component booleans, which check if keys are pressed</span>
+</span><span class="hll">     <span class="n">moveEvent</span><span class="p">.</span><span class="n">IsRightDown</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">RightIsDown</span><span class="p">;</span>
+</span><span class="hll">     <span class="n">moveEvent</span><span class="p">.</span><span class="n">IsLeftDown</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">LeftIsDown</span><span class="p">;</span>
+</span><span class="hll">     <span class="n">moveEvent</span><span class="p">.</span><span class="n">IsUpDown</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">UpIsDown</span><span class="p">;</span>
+</span><span class="hll">     <span class="n">moveEvent</span><span class="p">.</span><span class="n">IsDownDown</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">DownIsDown</span><span class="p">;</span>
+</span><span class="hll">
+</span><span class="hll">     <span class="c1">//Dispatch event onto the player (i.e., this.Owner since the Player</span>
+</span><span class="hll">     <span class="c1">//owns this component)</span>
+</span><span class="hll">     <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">Move</span><span class="p">,</span> <span class="n">moveEvent</span><span class="p">);</span>
+</span><span class="hll">   <span class="p">}</span>
+</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>At the top of the script, we&#8217;re adding an entirely new class. When you need your custom events to send information, you <em>must</em> create a new class for that event (as opposed to the previous MoveRight, MoveLeft, etc... events we used in the previous version of the script). This doesn&#8217;t mean you have to send information in a custom event defined in a new class. As mentioned before, placing the <code class="docutils literal"><span class="pre">sends</span></code> keyword for the event in the class that defines it is good practice and can be the only thing you need to place inside the class.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>On Instantiating a Custom Event</p>
+<p>It might not make sense at first why we&#8217;re creating a new instance of <code class="docutils literal"><span class="pre">MoveEvent</span></code> (<code class="docutils literal"><span class="pre">moveEvent</span></code> is what we&#8217;re calling the new instance in the above code-block) when we need to dispatch it. The first reason is that, as <code class="docutils literal"><span class="pre">MoveEvent</span></code> is defined within its own class, it only exists as an <strong>event type</strong> until we actually instantiate it as a variable.</p>
+<p>Consider when you create a new <code class="docutils literal"><span class="pre">Integer</span></code> variable. You&#8217;re actually creating a variable of the type <code class="docutils literal"><span class="pre">Integer</span></code> that contains all of the member properties and functions of <code class="docutils literal"><span class="pre">Integer</span></code>. The same applies here. <code class="docutils literal"><span class="pre">MoveEvent</span></code> has been defined as a new event type, thus to use the class we have to create a new instance of that event type.</p>
+<p class="last">The second reason is that, often times, custom events send information, requiring a new instance for each time we dispatch the event in case the information changes from the initial value set in the event class definition. In the above code-block, we&#8217;re changing the value of four <code class="xref cpp cpp-type docutils literal"><span class="pre">Boolean</span></code> variables every time a key is pressed down or released. We create a new instance of the <code class="docutils literal"><span class="pre">MoveEvent</span></code> event type event frame so that the <code class="docutils literal"><span class="pre">PlayerController</span></code> changes the <code class="docutils literal"><span class="pre">Movement</span></code> variable to the direction we wish to move. Since all the events are being dispatched within the scope of <code class="docutils literal"><span class="pre">OnLogicUpdate</span></code>, however, we only need to create one instance of <code class="docutils literal"><span class="pre">MoveEvent</span></code> (as every time a key is pressed, and <code class="docutils literal"><span class="pre">OnKeyDown</span></code> is called, a new instance of <code class="docutils literal"><span class="pre">MoveEvent</span></code> will be created and used for the event dispatch for that specific, singular key press).</p>
+</div>
+<p>The information we&#8217;re sending are four <code class="xref cpp cpp-type docutils literal"><span class="pre">Boolean</span></code> variables that flag whether or not the keys assigned to the movement directions are being pressed or not. In the <code class="docutils literal"><span class="pre">PlayerController</span></code> script, these <code class="xref cpp cpp-type docutils literal"><span class="pre">Booleans</span></code> are responsible for changing the <code class="docutils literal"><span class="pre">Movement</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">Real3</span></code> variable, either incrementing by the direction or resetting it to zero if no keys are down.  If you look through the <code class="docutils literal"><span class="pre">OnMove</span></code> function, you&#8217;ll see that the booleans that were sent are accessed through the custom event&#8217;s instance name (e.g., <code class="docutils literal"><span class="pre">moveEvent.IsRightDown</span></code> accesses the value of <code class="docutils literal"><span class="pre">this.RightIsDown</span></code> in the <code class="docutils literal"><span class="pre">InputEvents</span></code> script within the <code class="docutils literal"><span class="pre">OnLogicUpdate</span></code> function).</p>
+<p>Our final step is to update the <code class="docutils literal"><span class="pre">PlayerController</span></code> script to listen for this new event and respond appropriately.</p>
+<ul class="simple">
+<li>In <code class="docutils literal"><span class="pre">PlayerController</span></code>, replace:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Connect to all the custom Move events we dispatched in the InputEvents component</span>
+<span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MoveRight</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMoveRight</span><span class="p">);</span>
+<span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MoveLeft</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMoveLeft</span><span class="p">);</span>
+<span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MoveUp</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMoveUp</span><span class="p">);</span>
+<span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MoveDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMoveDown</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>with</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Connect to the custom Move event we dispatched in the InputEvents component</span>
+<span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">Move</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMove</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>And replace:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Response function for the MoveRight event</span>
+<span class="n">function</span> <span class="nf">OnMoveRight</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">Event</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">//Set Movement to 1.0 on the x-axis (i.e., right direction)</span>
+  <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">//Response function for the MoveLeftevent</span>
+<span class="n">function</span> <span class="nf">OnMoveLeft</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">Event</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">//Set Movement to -1.0 on the x-axis (i.e., left direction)</span>
+  <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(-</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">//Response function for the MoveUp event</span>
+<span class="n">function</span> <span class="nf">OnMoveUp</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">Event</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">//Set Movement to 1.0 on the y-axis (i.e., up direction)</span>
+  <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">//Response function for the MoveDown event</span>
+<span class="n">function</span> <span class="nf">OnMoveDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">Event</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">//Set Movement to -1.0 on the y-axis (i.e., down direction)</span>
+  <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="p">-</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>with</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">OnMove</span><span class="p">(</span><span class="n">moveEvent</span> <span class="p">:</span> <span class="n">MoveEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">moveEvent</span><span class="p">.</span><span class="n">IsRightDown</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Increment Movement by pos-X (right)</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">moveEvent</span><span class="p">.</span><span class="n">IsLeftDown</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Increment Movement by neg-X (left)</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(-</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">moveEvent</span><span class="p">.</span><span class="n">IsUpDown</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Increment Movement by pos-Y (up)</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">moveEvent</span><span class="p">.</span><span class="n">IsDownDown</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Increment Movement by pos-X (right)</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0</span><span class="p">,-</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The only thing in the above code-block we haven&#8217;t gone over is in the last few lines. There is another <code class="xref cpp cpp-type docutils literal"><span class="pre">Boolean</span></code> (<code class="docutils literal"><span class="pre">this.AreKeysDown</span></code>) that&#8217;s only purpose is to keep track of whether <strong>any</strong> key we&#8217;ve assigned to a movement direction is currently pressed down. We accomplish this by checking all four key-down checking <code class="xref cpp cpp-type docutils literal"><span class="pre">Booleans</span></code> that are sent with our custom event.</p>
+<p>We now have an input-customizable player controller that takes advantage of a user-defined custom event.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The Component-Based Connection</p>
+<p>You may have realized that all of the basic functionality that we&#8217;ve written in these two components could have been accomplished in one script in about half the lines of code. This does not mean, however, that it would be the best or most efficient way. What you gain through making your player controller in two different components is a separation of logic that allows you to use either one for any number of other objects and purposes. For example, <code class="docutils literal"><span class="pre">InputEvents</span></code> could be used for any type of player input, not just movement. By adding the Property attribute to the movement directions keyboard keys variables, you can quickly and easily remap them to whichever keys you want. You can also add more variables with the Property attribute to account for more player input, whatever it may be.</p>
+<p class="last">In a similar vein, the <code class="docutils literal"><span class="pre">PlayerController</span></code> could be used for more than just the player. It could be used for any object that requires movement, whether it be user-controlled or not. It would require a little bit of refactoring, such as listening for whatever other custom event you create for other objects that require movement. While the primary purpose of this lesson is to teach the basics of custom events, it also serves as an example of how to create multi-use, robust components that you can keep and use in other projects, a concept which is at the heart of component-based programming.</p>
+</div>
+<p>The next part of the project will be to integrate the scripts we downloaded from The Void, working with the custom events already defined within them. Let&#8217;s take a closer look at those components: <code class="docutils literal"><span class="pre">DamageOnCollide</span></code>, <code class="docutils literal"><span class="pre">Health</span></code>, and <code class="docutils literal"><span class="pre">AreaMeter</span></code>.</p>
+</div>
+<div class="section" id="the-damageoncollide-and-health-components">
+<h2>The DamageOnCollide and Health Components</h2>
+<p>These two components work together to provide a clear and simple health and damage system. Let&#8217;s look at the Health component first.</p>
+<ul class="simple">
+<li>In the Library window<ul>
+<li>Under ZilchScript<ul>
+<li>Open the <code class="docutils literal"><span class="pre">Health</span></code> ZilchScript</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>As you can see at the top of the script, we are defining a custom Damage event that will be dispatched onto objects with a Health component when they collide with an object that has the DamageOnCollide component. The function called by the response function for the damage event&#8211;<code class="docutils literal"><span class="pre">ApplyDamage()</span></code>&#8211;calculates the player&#8217;s current health based on damage taken. It then checks to see if the object&#8217;s health has reached less than or equal to zero; if so, it sends out a death event, which we will be connecting to a bit later in the tutorial. For now, we need to add three lines of code that will make use of custom events to interact with our AreaMeter component, which will scale our health meter <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a> according to the current value of our health.</p>
+<ul class="simple">
+<li>Update the <code class="docutils literal"><span class="pre">Health</span></code> script with the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span> <span class="n">function</span> <span class="nf">ApplyDamage</span><span class="p">(</span><span class="n">damage</span> <span class="p">:</span> <span class="n">Real</span><span class="p">)</span>
+ <span class="p">{</span>
+   <span class="c1">// Compute the total damage based upon our damage scalar.</span>
+   <span class="n">damage</span> <span class="p">=</span> <span class="n">damage</span> <span class="p">*</span> <span class="k">this</span><span class="p">.</span><span class="n">DamageScalar</span><span class="p">;</span>
+
+   <span class="c1">//Decrement our health by passed-in damage</span>
+   <span class="k">this</span><span class="p">.</span><span class="n">CurrentHealth</span> <span class="p">-=</span> <span class="n">damage</span><span class="p">;</span>
+
+   <span class="c1">// Clamp our current health (in my case I don&#39;t want to have</span>
+   <span class="c1">// to heal through negative health so I clamp to 0).</span>
+   <span class="k">this</span><span class="p">.</span><span class="n">CurrentHealth</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Clamp</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CurrentHealth</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">MaxHealth</span><span class="p">);</span>
+
+<span class="hll">   <span class="c1">//Instantiate and dispatch a MeterUpdate event carrying the</span>
+</span><span class="hll">   <span class="c1">//value for our current health</span>
+</span><span class="hll">   <span class="kt">var</span> <span class="n">meterUpdate</span> <span class="p">=</span> <span class="n">MeterUpdate</span><span class="p">();</span>
+</span><span class="hll">   <span class="n">meterUpdate</span><span class="p">.</span><span class="n">Val</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">CurrentHealth</span><span class="p">;</span>
+</span><span class="hll">   <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">DispatchDown</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">MeterUpdate</span><span class="p">,</span> <span class="n">meterUpdate</span><span class="p">);</span>
+</span>
+   <span class="c1">// If we have no health.</span>
+   <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CurrentHealth</span> <span class="p">&lt;=</span> <span class="m">0.0</span><span class="p">)</span>
+   <span class="p">{</span>
+     <span class="c1">// Let anyone listening know we just died.</span>
+     <span class="kt">var</span> <span class="n">toSend</span> <span class="p">=</span> <span class="n">ZilchEvent</span><span class="p">();</span>
+     <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">Death</span><span class="p">,</span> <span class="n">toSend</span><span class="p">);</span>
+
+     <span class="c1">// And if the property is set destroy ourself.</span>
+     <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">DestroyAtZeroHealth</span><span class="p">)</span>
+     <span class="p">{</span>
+       <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Destroy</span><span class="p">();</span>
+     <span class="p">}</span>
+   <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>Now let&#8217;s take a look at the <code class="docutils literal"><span class="pre">DamageOnCollide</span></code> component. The only event it&#8217;s connecting to is the built-in CollisionStarted event. What we&#8217;re concerned with is what&#8217;s going on within the response function for this collision event. In <code class="docutils literal"><span class="pre">OnCollisionStarted()</span></code>, the following code-block calls the damage event we just saw in the Health component:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">// If what we hit has a health component then damage it.</span>
+<span class="kt">var</span> <span class="n">health</span> <span class="p">=</span> <span class="n">otherObject</span><span class="p">.</span><span class="n">Health</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="n">health</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">var</span> <span class="n">firstPoint</span> <span class="p">=</span> <span class="n">collisionEvent</span><span class="p">.</span><span class="n">FirstPoint</span><span class="p">;</span>
+  <span class="kt">var</span> <span class="n">damageEvent</span> <span class="p">=</span> <span class="n">DamageEvent</span><span class="p">();</span>
+  <span class="n">damageEvent</span><span class="p">.</span><span class="n">Normal</span> <span class="p">=</span> <span class="n">firstPoint</span><span class="p">.</span><span class="n">WorldNormalTowardsOther</span><span class="p">;</span>
+  <span class="n">damageEvent</span><span class="p">.</span><span class="n">Damage</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Damage</span><span class="p">;</span>
+  <span class="n">damageEvent</span><span class="p">.</span><span class="n">WorldPoint</span> <span class="p">=</span> <span class="n">firstPoint</span><span class="p">.</span><span class="n">WorldPoint</span><span class="p">;</span>
+  <span class="n">otherObject</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">ApplyDamage</span><span class="p">,</span> <span class="n">damageEvent</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We can break down what is happening here into a few steps:</p>
+<ol class="arabic simple">
+<li>First, we have to check to make sure the object we&#8217;re colliding with has the Health component. If it does not, then we&#8217;re not going to be doing any damage to its health and there&#8217;s not much use in using this component in the first place.</li>
+<li>Second, we set the variables defined in the DamageEvent definition with information we&#8217;re receiving from the collision. Also, and more importantly for us in this tutorial, we are setting the amount of damage to inflict on the other object to <code class="docutils literal"><span class="pre">this.Damage</span></code>, our property that we set when we first attached the DamageOnCollide component to the player and enemy objects.</li>
+<li>Finally, we dispatch the event to the object we collided with (<code class="docutils literal"><span class="pre">otherObject</span></code>).</li>
+</ol>
+<p>So now that we&#8217;ve looked at how these two components work, and have made a slight addition that calls on the AreaMeter component, lets take a quick look at exactly what the AreaMeter component is doing and how it is using its own custom events.</p>
+<div class="sidebar">
+<p class="first sidebar-title">Dependency</p>
+<p>The Dependency attribute is used whenever you have a component that directly relies upon another component to work. In our AreaMeter component, an object&#8217;s Area values are changed, but if an object is lacking the Area component this change cannot happen. So, to make sure that this type of confusing situation doesn&#8217;t occur, a component with a dependency <em>cannot</em> be added to an object unless the component that it is dependent on is already attached to the same object. In our example, that is the Area component. If you&#8217;ve followed the tutorial thus far, this should not be an issue as there was an instruction to add an Area component to the HealthMeter object back when it was created. Also, you can now use the dependency variable to access the component upon which we are dependent. So for example if you have a:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="na">[Dependency]</span>
+<span class="kt">var</span> <span class="n">RigidBody</span> <span class="p">:</span> <span class="n">RigidBody</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>you can just type</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">this.RigidBody</span></code></div></blockquote>
+<p>to access the RigidBody component, instead of the more verbose</p>
+<blockquote class="last">
+<div><code class="docutils literal"><span class="pre">this.Owner.RigidBody</span></code></div></blockquote>
+</div>
+</div>
+<div class="section" id="the-areameter-component">
+<h2>The AreaMeter Component</h2>
+<p>In a nutshell, this script will control the size of the health meter according to values set in the properties of the component. Let&#8217;s break it down into a few steps:</p>
+<ul class="simple">
+<li>When you set <code class="docutils literal"><span class="pre">InitMaxVal</span></code> that was essentially telling the component that the number 100 will be used as the highest value possible, which aligns directly with our player&#8217;s health.</li>
+<li>The same is true for the <code class="docutils literal"><span class="pre">InitStartVal</span></code> property. We want the player to start with 100 health, so our health meter should represent a full health bar at the start.</li>
+<li>If you look at the top of the script, you will see that the fourth and last custom event is named <code class="docutils literal"><span class="pre">MeterUpdate</span></code>. This is the event that we will concern ourselves with, as we will need to update the value of the meter to    match our player&#8217;s changing health.</li>
+<li>According to the rest of script, as the value gets lower from its maximum value, the Area of the object that the component is attached to will scale smaller along the X-axis; in short, as the player is damaged, its health bar will grow smaller.</li>
+</ul>
+<p>Now that we finally have everything set up in the level, all that&#8217;s left to do is: update our PlayerController script with the appropriate connections to the events we&#8217;ve already dispatched, create our player death event, and write the response functions that will run upon successful connection to our dispatched events.</p>
+</div>
+<div class="section" id="adding-event-connection-to-the-playercontroller-component">
+<h2>Adding Event Connection to the PlayerController Component</h2>
+<p>We need to update the PlayerController script in three ways:</p>
+<ol class="arabic simple">
+<li>Connect to the death event dispatched by the Health component</li>
+<li>Write our response function to the event connection</li>
+</ol>
+<ul class="simple">
+<li>Update the <code class="docutils literal"><span class="pre">PlayerController</span></code> script with the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span> <span class="k">class</span> <span class="nc">PlayerController</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+ <span class="p">{</span>
+<span class="na">   [Dependency]</span>
+   <span class="kt">var</span> <span class="n">RigidBody</span> <span class="p">:</span> <span class="n">RigidBody</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+   <span class="c1">//The speed at which we want to accelerate</span>
+<span class="na">   [Property]</span>
+   <span class="kt">var</span> <span class="n">Speed</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">0.0</span><span class="p">;</span>
+
+   <span class="kt">var</span> <span class="n">Movement</span> <span class="p">:</span> <span class="n">Real3</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">();</span>
+
+<span class="hll">   <span class="c1">//A boolean to track whether or not the object has run out of health</span>
+</span><span class="hll">   <span class="kt">var</span> <span class="n">IsDead</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span>
+   <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+   <span class="p">{</span>
+<span class="hll">     <span class="c1">//Connect to the custom Move event we dispatched in the InputEvents component</span>
+</span><span class="hll">     <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">Move</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMove</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">     <span class="c1">//Connect to the custom Death event dispatched from the Health component</span>
+</span><span class="hll">     <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">Death</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnDeath</span><span class="p">);</span>
+</span>
+     <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLogicUpdate</span><span class="p">);</span>
+   <span class="p">}</span>
+
+<span class="hll">   <span class="c1">//The response function called upon hearing the custom Move event</span>
+</span><span class="hll">   <span class="n">function</span> <span class="nf">OnMove</span><span class="p">(</span><span class="n">moveEvent</span> <span class="p">:</span> <span class="n">MoveEvent</span><span class="p">)</span>
+</span><span class="hll">   <span class="p">{</span>
+</span><span class="hll">       <span class="c1">//If MoveRight key is being pressed...</span>
+</span><span class="hll">     <span class="k">if</span><span class="p">(</span><span class="n">moveEvent</span><span class="p">.</span><span class="n">IsRightDown</span><span class="p">)</span>
+</span><span class="hll">     <span class="p">{</span>
+</span><span class="hll">       <span class="c1">//Increment Movement by pos-X (right)</span>
+</span><span class="hll">       <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+</span><span class="hll">     <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">     <span class="c1">//If MoveLeft key is being pressed...</span>
+</span><span class="hll">     <span class="k">if</span><span class="p">(</span><span class="n">moveEvent</span><span class="p">.</span><span class="n">IsLeftDown</span><span class="p">)</span>
+</span><span class="hll">     <span class="p">{</span>
+</span><span class="hll">       <span class="c1">//Increment Movement by neg-X (left)</span>
+</span><span class="hll">       <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(-</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+</span><span class="hll">     <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">     <span class="c1">//If MoveUp key is being pressed...</span>
+</span><span class="hll">     <span class="k">if</span><span class="p">(</span><span class="n">moveEvent</span><span class="p">.</span><span class="n">IsUpDown</span><span class="p">)</span>
+</span><span class="hll">     <span class="p">{</span>
+</span><span class="hll">       <span class="c1">//Increment Movement by pos-Y (up)</span>
+</span><span class="hll">       <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+</span><span class="hll">     <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">     <span class="c1">//If MoveDown key is being pressed...</span>
+</span><span class="hll">     <span class="k">if</span><span class="p">(</span><span class="n">moveEvent</span><span class="p">.</span><span class="n">IsDownDown</span><span class="p">)</span>
+</span><span class="hll">     <span class="p">{</span>
+</span><span class="hll">       <span class="c1">//Increment Movement by pos-X (right)</span>
+</span><span class="hll">       <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0</span><span class="p">,-</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+</span><span class="hll">     <span class="p">}</span>
+</span><span class="hll">   <span class="p">}</span>
+</span>
+   <span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+   <span class="p">{</span>
+     <span class="c1">//Increment the velocity by the current Movement value multiplied by Speed</span>
+     <span class="k">this</span><span class="p">.</span><span class="n">RigidBody</span><span class="p">.</span><span class="n">Velocity</span> <span class="p">=</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">*</span> <span class="k">this</span><span class="p">.</span><span class="n">Speed</span><span class="p">);</span>
+
+     <span class="c1">//Resets Movement to (0,0,0) so we don&#39;t keep applying movement after releasing key input</span>
+     <span class="k">this</span><span class="p">.</span><span class="n">Movement</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">();</span>
+   <span class="p">}</span>
+
+   <span class="c1">//The response function called upon hearing the custom Death event</span>
+   <span class="n">function</span> <span class="nf">OnDeath</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">ZilchEvent</span><span class="p">)</span>
+   <span class="p">{</span>
+     <span class="c1">//Destroys the player object</span>
+     <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Destroy</span><span class="p">();</span>
+   <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+</ul>
+<p>In the <code class="docutils literal"><span class="pre">Initialize</span></code> function, we&#8217;re now connecting to the death event sent out from our player&#8217;s Health component. At the bottom of the script, in our response script to the player death event, all we have to do is destroy the player object by calling the <code class="docutils literal"><span class="pre">Destroy()</span></code> function on <code class="docutils literal"><span class="pre">this.Owner</span></code> (recall that <code class="docutils literal"><span class="pre">this.Owner</span></code> refers to the object that the component is attached to, so in this case it refers to the player object).</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>Run the project</span></a></li>
+</ul>
+<p>You should now be able to move around the level and hit the enemies, which will reduce the player&#8217;s health meter. When the player hits the last enemy, the player should die, and destroy itself</p>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions</h2>
+<p>In this tutorial, we&#8217;ve seen many different examples of both built-in engine events and user-defined custom events. We&#8217;ve also seen numerous ways in which events are dispatched, connected to, and disconnected from. If you would like to practice creating and connecting your own custom events, here are a few ideas you can use that can be applied directly to this project, allowing you to explore different aspects of custom events so that you are completely comfortable with them when you&#8217;re ready to use them in your own games.</p>
+</div>
+<div class="section" id="on-your-own">
+<h2>On Your Own</h2>
+<ul class="simple">
+<li>Make a few different enemy types that each react differently to being damaged by the player (i.e. one explodes, one shrinks to nothing, and another flies off the screen), but all listen for the same damage event.</li>
+<li>Make a &#8220;PlayerRevive&#8221; event that reconnects all the controls, resets the player and its health meter, and brings back the enemies, essentially resetting the level without reloading the level. You could dispatch this event   on a certain once the player has died.</li>
+<li>Add some power-ups or state-changing objects to the level that cause changes in both the player and the enemies when the player collides with them. You could change current player health, the size of the player using the    Area component, spawn a shield around the player, cause the enemies to change color and start moving around, or anything else you might see yourself wanting to use in later projects.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Actions.html" class="btn btn-neutral float-right" title="Actions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Events3.html" class="btn btn-neutral" title="Events 3" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Scripting/Events4.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 22:39:21 GMT -->
+</html>

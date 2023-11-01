@@ -1,0 +1,194 @@
+.. _CommunityEdgeCatching:
+
+.. rst-class:: SearchTitle
+
+Edge Catching: Why Players Trip on Flat Ground
+===============================================
+
+.. rst-class:: SearchDescription
+
+This lesson covers the concept of edge catching and how it applies to 2D games.
+
+What Edge Catching Is 
+---------------------
+
+Imagine having a player approximated as a rectangle. To keep his animations from looking weird or creating potentially confusing controls, you decide to lock his rotation. 
+
+.. sidebar:: With rotation locked, it does this:
+
+    |Stuck_PNG| 
+
+    *Player appears inexplicably stuck to the floor*
+
+    
+**As your player moves it might have done this:**
+    |Rotate_PNG|
+
+    *Notice the player rotating to land face first*
+ 
+|
+|
+ 
+This phenomena is known as **edge** **catching**. Even though there is one ground layer, there are separate colliders. Edge catching occurs at the seams that exist at the boundaries between colliders.
+
+.. admonition:: Let's take a look again at the ground with the debug draw on for our collision data:
+
+    |Seams_PNG|
+
+    *The collision boundary, shown here in aqua, form seams where they touch*
+
+Why It Happens
+--------------
+
+.. sidebar:: Quick Physics Primer
+    :subtitle: Box Collider Resolution
+
+    When two boxes collide, they are resolved by pushing out of each other by the smallest straight line distance otherwise known as the *minimal* *translational* *distance*.
+
+    When one of the boxes is **static**, only one box will be moved when resolving the collision. This makes it easier to visualize the options:
+
+    |PushDown_PNG| |PushUp_PNG| |PushLeft_PNG| |PushRight_PNG| 
+
+    *The red arrows' length designates the distance necessary to push the dynamic box so that it no longer collides*
+
+    In the diagram above, the physics engine would push the box up because that option provides the minimal translational distance to resolve collision.
+
+    For reasons of stability (think physically simulated stack of boxes), instead of immediately popping objects out of the ground, the physics engine uses forces to push it out over time. 
+
+
+When the physics engine applies the forces that move your character (to include gravity), the player comes in contact with both colliders making up the ground. 
+
+|Embedded_PNG|
+
+More importantly, the player is coming in contact at the corners of these colliders. Provided the strength of the player and gravity are reasonable, we only have to worry about two possibilities of collision resolution:
+
+**1.  The player is penetrating more from the side than from the top.**
+
+    Looking at an equivalent collision up close we get a situation like this:
+    
+    |PushOutTop_PNG|   
+    
+    *Red arrow shows minimal translational distance*
+    
+The physics engine determines the best solution is to push the object out the top. This is happens when you walk along your typical ground surface: you stay on top without moving in any other direction.
+
+This happened in our example when our player resolved collision with the left ground collider.
+
+|LeftCollider_PNG|
+
+.. sidebar:: Quick Physics Primer:
+    :subtitle: Independent Collisions
+
+    Every collision is dealt with individually. When three objects collide they are resolved separately.    
+        
+    |3way_PNG| |becomes_PNG| |3way1_PNG| |3way2_PNG|
+    
+    *This 3-way collision is resolved as two separate collisions*   
+    
+**2.  The player is penetrating more from the top than from the side.**
+
+    When the player is further sunk into the ground, however, we can run into this:
+    
+    |PushOutSide_PNG|
+    
+    *Red arrow shows how the physics engine with resolve the collision*
+
+and determine the best solution is to push the player back. Here you can see the the minimal translational distance is actually *opposite* the direction of travel. Thus instead of moving up to resolve, we are stuck on the edge unable to pass it.
+
+This happened in our example when our player got stuck when resolving collision with the right ground collider.
+    
+|RightCollider_PNG|
+
+Ways To Work Around It
+----------------------
+
+Player As A Capsule
+~~~~~~~~~~~~~~~~~~~
+
+One easy option for your player is to use a capsule collider. 
+
+|Capsule_PNG|
+
+The rounded bottom of the capsule collider significantly reduces the possibility of penetrating further along the top than the side when going over flat surfaces. 
+
+|CapsuleEffect_PNG|
+
+*The red arrows show the penetration from the top is less than its rectangular counterpart*
+
+Although this helps a lot, you'll notice that your player will look like he still does little hops as he overcomes the seams in the geometry.
+
+Seamless Colliders
+~~~~~~~~~~~~~~~~~~
+
+As seams are the site of edge catching, it follows that removing them gets rid of the problem. 
+
+Visual vs Physical Boundaries
++++++++++++++++++++++++++++++++++
+
+When game objects share the same behavior, and differ only by visuals, you can group them together in game. 
+
+.. admonition:: Consider the following
+    
+    In your level there is a park that turns into a beach shore. The player is unaffected by being either on the sand or grass as it is there just there for atmosphere.
+
+    You can reduce the seams by creating a hierarchy for the ground. Make a parent object with children for the sand sprites, grass sprites, and the collider.
+
+Mergeable Tiles
++++++++++++++++
+
+When using the TileEditor2D tool, tiles that can be merged can do so easily by making sure the Mergeable flag is set to True for the tiles you are painting with. You can check the colliders generated by setting the ShowCollision flag to True.
+
+Swept Player Controller
+~~~~~~~~~~~~~~~~~~~~~~~
+
+On the :ref:`Void <ManualUsingTheVoid>` you can find the Swept Controller. Unlike typical physic objects that move first and then resolve collision later, the swept controller uses math to determine where it should stop just before the collision occurs. Since it never collides, it never catches the edge. Beware that this is a more mathematically intensive operation, so it should be used only as necessary. 
+
+.. |Rotate_PNG|             image:: images/EdgeCatching/EdgeCatching_Rotate.PNG
+    :width: 3.25in
+.. |Stuck_PNG|                 image:: images/EdgeCatching/EdgeCatching_Stuck.PNG
+    :width: 3.25in
+.. |Seams_PNG|                 image:: images/EdgeCatching/EdgeCatching_Seams.PNG
+
+.. |Embedded_PNG|             image:: images/EdgeCatching/EdgeCatching_Embedded.PNG
+    :width: 3.5in
+    
+.. |LeftCollider_PNG|         image:: images/EdgeCatching/EdgeCatching_LeftCollider.PNG
+    :width: 3.5in
+
+.. |RightCollider_PNG|         image:: images/EdgeCatching/EdgeCatching_RightCollider.PNG
+    :width: 3.5in    
+
+.. |3way_PNG|                 image:: images/EdgeCatching/EdgeCatching_3way.png
+    :height: .75in
+
+.. |becomes_PNG|             image:: images/EdgeCatching/EdgeCatching_becomes.png 
+    :width: 0.5in
+    
+.. |3way1_PNG|                 image:: images/EdgeCatching/EdgeCatching_3way1.png
+    :height: .75in
+    
+.. |3way2_PNG|                 image:: images/EdgeCatching/EdgeCatching_3way2.png
+    :height: .75in
+    
+.. |PushOutSide_PNG|         image:: images/EdgeCatching/EdgeCatching_PushOutSide.PNG
+    :width: 3.5in   
+    
+.. |PushOutTop_PNG|         image:: images/EdgeCatching/EdgeCatching_PushOutTop.png
+    :width: 3.5in   
+    
+.. |PushDown_PNG|             image:: images/EdgeCatching/EdgeCatching_PushDown.png
+    :width: 1.6in
+    
+.. |PushUp_PNG|             image:: images/EdgeCatching/EdgeCatching_PushUp.png
+    :width: 1.6in
+    
+.. |PushLeft_PNG|             image:: images/EdgeCatching/EdgeCatching_PushLeft.png
+    :width: 1.6in
+    
+.. |PushRight_PNG|             image:: images/EdgeCatching/EdgeCatching_PushRight.png
+    :width: 1.6in
+    
+.. |Capsule_PNG|             image:: images/EdgeCatching/EdgeCatching_Capsule.png 
+
+.. |CapsuleEffect_PNG|         image:: images/EdgeCatching/EdgeCatching_CapsuleEffect.png 
+    

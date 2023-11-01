@@ -1,0 +1,84 @@
+.. include:: <isonum.txt>
+
+.. _ZilchTypeString:
+
+.. rst-class:: SearchTitle
+
+String
+======
+
+.. rst-class:: SearchDescription
+
+The basic string type of Zilch used to form sequences for characters.
+
+Instance Properties
+-------------------
++-------+----------------+-------------+
+| Name  | Type           | Description |
++=======+================+=============+
+| Count | :doc:`Integer` |             |
++-------+----------------+-------------+
+
+Instance Methods
+----------------
++-------------------------------------------------------+------------------------------------------------------------------+
+| Name / Signature                                      | Description                                                      |
++=======================================================+==================================================================+
+| Get(index : Integer) : Integer                        | Gets an individual character's value by index (Ascii or Unicode) |
++-------------------------------------------------------+------------------------------------------------------------------+
+| SubString(start : Integer, length : Integer) : String | Gets a part of a string using start and length. A 'start' of 0   |
+|                                                       | means the front of the string.                                   |
++-------------------------------------------------------+------------------------------------------------------------------+
+| [GetCount]() : Integer                                |                                                                  |
++-------------------------------------------------------+------------------------------------------------------------------+
+
+Static Methods
+--------------
++-------------------------------------------------------+-------------------------------------------------------------+
+| Name / Signature                                      | Description                                                 |
++=======================================================+=============================================================+
+| Concatenate(String, String) : String                  | Allows for small concatenations of Strings. (To concatenate |
+|                                                       | more than two strings, use :doc:`StringBuilder`)            |
++-------------------------------------------------------+-------------------------------------------------------------+
+| FormatC(format : String, any...) : String             |                                                             |
++-------------------------------------------------------+-------------------------------------------------------------+
+| FromChar(Integer) : String                            | Converts a character value (Ascii or Unicode) into a String |
++-------------------------------------------------------+-------------------------------------------------------------+
+
+Samples
+-------
+
+.. code-block:: as
+
+    // String interpolation:
+    var myNumber: Integer = 42;
+    
+    // The variable name is placed between tick marks.
+    Console.WriteLine("My number is `myNumber`");  // My number is 42
+    
+    // Making a String:
+    var greeting = "Hello there!";
+    
+    // Using Static Concatenation function returns the result:
+    Console.WriteLine(String.Concatenate(greeting, " I'll be your tour guide."));
+    // Hello there! I'll be your tour guide.
+    
+    // Get retrieves the actual ascii value of the char.
+    // Like other languages, String has 0-based indexing:
+    // 0 1 2 3 4    5    6 7 8 9 10 11 12
+    // H e l l o [space] t h e r  e  !  null 
+    myNumber = greeting.Get(11); // Ascii value of ! is 33:
+    Console.WriteLine(myNumber); // 33
+    
+    // The Static function FromChar does the reverse of the Get() function:
+    Console.WriteLine(String.FromChar(myNumber));// !
+    
+    // SubString is NOT a side-effect operator, you must store the output.
+    // Count is an instance variable giving the length of a string. '
+    // Substring will throw a run-time exception if you index out of bounds.
+    // 0 1 2 3 4    5    6     substr: | 7 8 9 10 11 |
+    // H e l l o [space] t     substr: | h e r  e  ! | 
+    var exclamation = greeting.SubString(7, greeting.Count - 7);
+    Console.WriteLine(greeting);       // Hello there!
+    Console.WriteLine(greeting.Count); // 12
+    Console.WriteLine(exclamation);    // here!

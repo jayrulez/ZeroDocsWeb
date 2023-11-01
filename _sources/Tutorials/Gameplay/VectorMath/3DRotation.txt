@@ -1,0 +1,1227 @@
+.. _Tutorial3DRotation:
+
+.. rst-class:: SearchTitle
+
+3D Rotation
+===========
+
+.. rst-class:: SearchDescription
+
+This lesson will cover the main methods of rotating an object. 
+
+Create a New Project
+--------------------
+
+:ref:`ManualCreateNewProject`
+
+Level Setup
+-----------
+
+*   :ref:`Command<ManualCommands>` : ``CreateCube`` or :menuselection:`Create --> Create Cube`
+
+*   :ref:`Select the Cube you created <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Set name to: Wheel
+        
+    *   Remove the ``RigidBody`` component
+    
+    *   Remove the ``BoxCollider`` component
+        
+|img1|
+
+*   Under Transform
+
+    *   Hover over the name of the `Rotation` Property
+
+|RotationHover|
+
+As you can see, **Rotation** is saved as a Quaternion. As a high-level developer, you do not need to know how Quaternions work, but you will need to know how to use them. In the property grid, Quaternions are represented by three angles that are the rotation of the object around the corresponding axes; these are called Euler (pronounced "oil-er") angles.
+
+*   In the Properties Window
+
+    *   Under Transform
+    
+        *   Set Rotation to: [45,0,0]
+
+|img2|
+
+As you can see, the object is now rotated 45 degrees around its X-axis.
+
+*   In the Properties Window
+
+    *   Under Transform
+    
+        *   Set Rotation to: [0,0,45]
+
+|img3|
+
+Now the object is rotated 45 degrees around its Z-axis. These Euler angles are usually a much more pratical way of thinking about rotations.
+
+Local and World Rotation
+------------------------
+
+Before we get into rotating objects while the game is running, we need to understand the difference between the **LocalRotation** and **WorldRotation** values of an object. The easiest way to understand this is to think of two objects rotating independently, and one of them is parented to the other. Let's use the example of a car and its wheel. In the example below you can see a car and its outlined wheel aligned on their axes. In this case, the Y-axis is perpendicular to the screen.
+
+|CarExample1|
+
+Let's say the car and the wheel above have a **Rotation** value of ``[0,0,0]``. Since the wheel is parented to the Car, and has no rotation, we can see the local axes of the car and the local axes of the wheel are aligned with the world origin axes. As the car moves forward, the wheel will rotate around its local Z-axis, which is aligned with the car and world's Z-axis. Then, as the car begins to turn, the wheel will rotate around its Y-axis as seen below.
+
+|CarExample2|
+
+Now fast forward a moment: the car has turned the corner. Since we took the car's initial **Rotation** value as the world rotation ``[0,0,0]``, it would now have a **WorldRotation** value of ``[0,-90,0]``, and its **LocalRotation** value would also be ``[0,-90,0]``. The wheel's initial **Rotation** value was ``[0,0,0]``, and now its **WorldRotation** value is ``[0,-90,0]`` and its **LocalRotation** value is ``[0,0,0]``.
+
+|CarExample3|
+
+Now let's look at the wheel again as the car continues to turn. After making the first 90 degrees of the turn, the wheel is still rotated 30 degrees around its local Y-axis. But since the car has rotated, it now also has an additional 90 degree rotation around the world Y-axis, making its **WorldRotation** ``[0,-60,0]``. However, if we consider the wheel's **LocalRotation** value, it would still be ``[0,30,0]``. This is because we measure the **LocalRotation** of an object relative to the object it is parented to.
+
+|CarExample4|
+
+Let's take this example into the engine.
+
+*   :ref:`Command<ManualCommands>` : ``CreateCube`` or :menuselection:`Create --> Create Cube`
+
+*   :ref:`Select the Cube you created <ManualSelectObject>`
+
+    *   In the Properties Window
+    
+        *   Set name to: Car
+        
+        *   Remove the ``RigidBody`` component
+        
+        *   Remove the ``BoxCollider`` component
+        
+        *   Under Transform
+            
+            *   Set Scale to: [5,5,5]
+        
+    *   Parent the wheel to the car
+    
+*   :ref:`Select the Wheel object <ManualSelectObject>`
+
+    *   In the Properties Window
+        
+        *   Under Transform
+    
+            *   Set Translation to: [0.4, 0, 0.5]
+            *   Set Rotation to: [0,0,0]
+            *   Set Scale to: [0.5,0.5,0.5]
+            
+*  :ref:`Save your project <ManualSavingProject>`
+
+|img4|
+
+Now we have a hierarchy of objects that represents the car and wheel we started with in the example.
+
+:ref:`Add a new ZilchScript resource<ManualResourceAdding>` named: RotationDisplay
+
+*   :ref:`Select the Car object <ManualSelectObject>`
+
+    *   Add the ``RotationDisplay`` component to the ``Car`` object.
+    
+*   :ref:`Select the Wheel object <ManualSelectObject>`
+
+    *   Add the ``RotationDisplay`` component to the ``Wheel`` object.
+    
+*   Update the **RotationDisplay** script with the following code:
+
+.. code-block:: as
+
+    class RotationDisplay : ZilchComponent
+    {
+        function Initialize(init : CogInitializer)
+        {
+            Console.WriteLine("`this.Owner.Name`, Init Rotation: `this.Owner.Transform.Rotation`");
+            Console.WriteLine("`this.Owner.Name`, Init World Rotation: `this.Owner.Transform.WorldRotation`");
+            Console.WriteLine("`this.Owner.Name`, Init Local Rotation: `this.Owner.Transform.LocalRotation`");
+        }
+    }
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+*   Press ``~`` to open the console window.
+
+Now if we look at the Console Window, we will see the **LocalRotation** and **WorldRotation** values of each object next to their names like this:
+
+    Console Output::
+    
+        ---------------- Begin Game ---------------
+        Car, Init Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+        Car, Init World Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+        Car, Init Local Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+        Wheel, Init Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+        Wheel, Init World Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+        Wheel, Init Local Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+        Level 'Level' was loaded.
+        Loaded level 0.00s
+
+Notice the ``Real4`` that starts off the printed **Rotation**. These are the Quaternion rotation values. We can ignore these because the Euler values we have been using are shown as the ``Real3`` that comes next in each line. As we can see, both objects have **LocalRotation** and **WorldRotation** values of ``[0,0,0]``. Let's add a print statement that just prints the Euler angles.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   :ref:`Select the Wheel object <ManualSelectObject>`
+
+    *   In the Properties Window
+        
+        *   Under Transform
+        
+            *   Set Rotation to: [0,0,90]
+
+*   Update the **RotationDisplay** script with the following code:
+
+    .. code-block:: as
+        :emphasize-lines: 3
+        
+        function Initialize(init : CogInitializer)
+        {
+            Console.WriteLine("90 degrees is equal to Pi/2 radians: Pi/2 = `Math.Pi/2.0`");
+            Console.WriteLine("`this.Owner.Name`, Init Euler Angles: `this.Owner.Transform.EulerAngles`");
+            Console.WriteLine("`this.Owner.Name`, Init Rotation: `this.Owner.Transform.Rotation`");
+            Console.WriteLine("`this.Owner.Name`, Init World Rotation: `this.Owner.Transform.WorldRotation`");
+            Console.WriteLine("`this.Owner.Name`, Init Local Rotation: `this.Owner.Transform.LocalRotation`");
+        }
+     
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+Now if we look at the Console Window, we will see the **LocalRotation** and **WorldRotation** values of each object next to their names again. We also added a line to just help us confirm the radian value of 90 degrees. Since all rotation values are stored in Radians we will need to know how to compare degree and radian values.
+
+    Console Output::
+    
+        ---------------- Begin Game ---------------
+        90 degrees is equal to Pi/2 radians: Pi/2 = 1.5708
+        Car, Init Euler Angles: (0, -0, 0)
+        Car, Init Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+        Car, Init World Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+        Car, Init Local Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+        90 degrees is equal to Pi/2 radians: Pi/2 = 1.5708
+        Wheel, Init Euler Angles: (0, -0, 1.5708)
+        Wheel, Init Rotation: (0, 0, 0.707107, 0.707107), Euler: (0, -0, 1.5708), Axis: (0, 0, 1), Angle: 1.5708
+        Wheel, Init World Rotation: (0, 0, 0.707107, 0.707107), Euler: (0, -0, 1.5708), Axis: (0, 0, 1), Angle: 1.5708
+        Wheel, Init Local Rotation: (0, 0, 0.707107, 0.707107), Euler: (0, -0, 1.5708), Axis: (0, 0, 1), Angle: 1.5708
+        Level 'Level' was loaded.
+        Loaded level 0.00s
+
+
+In our new output, we can see that the car still has its default **LocalRotation** and **WorldRotation** values, while the wheel now has **LocalRotation** and **WorldRotation** values of ``[0,0,90]`` in degrees, or ``[0,0,1.5708]`` in radians. 
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   :ref:`Select the Car object <ManualSelectObject>`
+
+    *   In the Properties Window
+        
+        *   Under Transform
+        
+            *   Set Rotation to: [0,90,0]
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+Now if we look at the Console Window, we will see the **LocalRotation** and **WorldRotation** values of each object next to its name again. This time, the car has the **LocalRotation** and **WorldRotation** values of ``[0,90,0]`` in degrees, as that is what we set it to. Now look at the **LocalRotation** and **WorldRotation** values of the wheel: the **WorldRotation** value is now ``[0,90,90]`` and the **LocalRotation** value is still ``[0,0,90]``. 
+
+    Console Output::
+    
+        ---------------- Begin Game ---------------
+        90 degrees is equal to Pi/2 radians: Pi/2 = 1.5708
+        Car, Init Euler Angles: (-0, 1.5708, 0)
+        Car, Init Rotation: (0, 0.707107, 0, 0.707107), Euler: (-0, 1.5708, 0), Axis: (0, 1, 0), Angle: 1.5708
+        Car, Init World Rotation: (0, 0.707107, 0, 0.707107), Euler: (-0, 1.5708, 0), Axis: (0, 1, 0), Angle: 1.5708
+        Car, Init Local Rotation: (0, 0.707107, 0, 0.707107), Euler: (-0, 1.5708, 0), Axis: (0, 1, 0), Angle: 1.5708
+        90 degrees is equal to Pi/2 radians: Pi/2 = 1.5708
+        Wheel, Init Euler Angles: (0, -0, 1.5708)
+        Wheel, Init Rotation: (0, 0, 0.707107, 0.707107), Euler: (0, -0, 1.5708), Axis: (0, 0, 1), Angle: 1.5708
+        Wheel, Init World Rotation: (0.5, 0.5, 0.5, 0.5), Euler: (1.5708, -5.96046e-007, 1.5708), Axis: (0.57735, 0.57735, 0.57735), Angle: 2.0944
+        Wheel, Init Local Rotation: (0, 0, 0.707107, 0.707107), Euler: (0, -0, 1.5708), Axis: (0, 0, 1), Angle: 1.5708
+        Level 'Level' was loaded.
+        Loaded level 0.00s
+
+
+Using this example, we've shown that **LocalRotation** is the object's rotation around its intial origin axis, while the **WorldRotation** is the object's rotation around the world origin axis. We can get this by adding the **WorldRotation** value of the parent to the child's **LocalRotation**. In this case, because the wheel is attached (parented) to the car, we add the car's **WorldRotation** to the wheel's **LocalRotation** to get the wheel's **WorldRotation**.
+
+You should also notice that we are printing out each object's **Rotation** in addition to its **WorldRotation** and its **LocalRotation**. Look at the Wheel's **Rotation**: it is the same as its **LocalRotation**. This is because it *is* the **LocalRotation**. **Rotation** is dependent upon the object's hierarchy position. If the object is the root of a hierarchy, then it has no parent, so its **WorldRotation** is the same as its **LocalRotation**; thus, getting its **Rotation** will return its **WorldRotation**. However, if the object is a child of another object, **Rotation** will return the **LocalRotation**.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+          
+Rotating Objects With Transform
+-------------------------------
+
+Now that we can set the initial rotations of an object, and we understand how a parent's rotation affects the rotation of its child, let's make the wheel rotate while the game is running.
+
+*   :ref:`Select the Wheel object <ManualSelectObject>`
+
+    *   In the Properties Window
+        
+        *   Under Transform
+        
+            *   Set Rotation to: [0,0,0]
+            
+:ref:`Add a new ZilchScript resource<ManualResourceAdding>` named: RotationQuaternion
+
+*   In the RotationQuaternion ZilchScript Window
+
+    *   Update the **RotationQuaternion** script with the following code:
+        
+.. code-block:: as
+    
+    class RotationQuaternion : ZilchComponent
+    {
+        [Property]
+        var RotationSpeed : Real3 = Real3(5,0,0);
+        
+        function Initialize(init : CogInitializer)
+        {
+            Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        }
+    
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+            this.Owner.Transform.RotateAnglesWorld(this.RotationSpeed * event.Dt);
+        }
+    }
+
+The above function uses the three rotation speeds in **RotationSpeed** and adds them to the object's **WorldRotation**. This means the rotation we are going to apply to the Wheel (the **RotationSpeed**) will be rotated by the parent's **WorldRotation**. This is because the RotationSpeed will be applied to the object's WorldRotation rather than its LocalRotation, the rotation we're applying will itself be rotated by the parent's WorldRotation.
+
+*   :ref:`Select the Car object <ManualSelectObject>`
+
+    *   Remove the ``RotationDisplay`` component from the ``Car`` object.
+
+*   :ref:`Select the Wheel object <ManualSelectObject>`
+
+    *   Add the ``RotationQuaternion`` component to the ``Wheel`` object.
+    *   Remove the ``RotationDisplay`` component from the ``Wheel`` object.
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|RotatingWheel1|
+
+Now you should see the Wheel object rotating around the parent's X-axis, which is also the world Z-axis. When we call **RotateAnglesWorld**, the rotation passed into the function is rotated by each parent in the hierarchy. So, in this example, the wheel's rotation around the X-axis is rotated 90 degrees around the world Y-axis by the car object's **Rotation**, making it a rotation around the world Z-axis.
+
+.. [DZ: The problem here is that it's impossible to tell the sides of the cube apart and there's no indication of which axis is which. In the first sentence, it doesn't actually look particularly much like the wheel is rotating around the parent's X-axis, since we can't tell the X-axis from the Z-axis. Also, here, again, we refer to rotations being rotated. I'd like to get another opinion on whether there's a better way to say this.]
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   :ref:`Select the Wheel object <ManualSelectObject>`
+
+    *   In the Properties Window
+    
+        *   Under RotationQuaternion
+        
+            *   Set RotationSpeed to: [0,0,5]
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|RotatingWheel2|
+
+Now you should see the Wheel object rotating around the car object's Z-axis, which is also the world X-axis. So, in this example, the wheel's **Rotation** being applied to the wheel around its Z-axis is rotated 90 degrees around the world Y-axis by the car object's Y-axis **Rotation**, making the wheel **Rotation** around the world X-axis.
+
+.. [DZ: I don't quite understand this paragraph.]
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+Now that we've seen some **WorldRotation**, let's try some **LocalRotation**.
+
+*   In the RotationQuaternion ZilchScript Window
+
+    *   Update the **RotationQuaternion** script with the following code:
+        
+.. code-block:: as
+    :emphasize-lines: 3
+    
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+            this.Owner.Transform.RotateAnglesLocal(this.RotationSpeed * event.Dt);
+        }
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|RotatingWheel2|
+
+Now you should see the Wheel rotating around its local Z-axis, which was rotated 90 degrees around the world Y-axis by the car's **Rotation** to be aligned with the world X-axis. In this example, the **WorldRotation** and **LocalRotation** values looked the same. Let's make them a little easier to distinguish.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   :ref:`Select the Wheel object <ManualSelectObject>`
+
+    *   In the Properties Window
+        
+        *   Under Transform
+        
+            *   Set Rotation to: [0,-90,0] 
+            
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|RotatingWheel3|
+            
+The Wheel is still rotating around its local Z-axis, but since we rotated the wheel by ``-90`` degrees around its Y-axis, its local Z-axis now is aligned with the world Z-axis.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+.. [DZ: Maybe add "Select the Wheel object" here]
+
+*   In the Properties Window
+
+    *   Under RotationQuaternion
+    
+        *   Set RotationSpeed to: [5,0,0]
+            
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|RotatingWheel4|
+
+The wheel is now rotating around its local X-axis, and, once again, because we rotated the wheel, the local rotation axis is aligned with the world rotation axis (X-axis).
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   :ref:`Select the Car object <ManualSelectObject>`
+
+    *   In the Properties Window
+        
+        *   Under Transform
+        
+            *   Set Rotation to: [0,0,0] 
+            
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|RotatingWheel5|
+
+The Wheel is still rotating around its local X-axis, but since we removed the initial Y-axis rotation on the car and not the wheel, the wheel's local X-axis is now aligned with the world Z-axis. Let's switch back to world rotation with the same values so we can see the difference.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   In the RotationQuaternion ZilchScript Window
+
+    *   Update the **RotationQuaternion** script with the following code:
+        
+.. code-block:: as
+    :emphasize-lines: 3
+    
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+            this.Owner.Transform.RotateAnglesWorld(this.RotationSpeed * event.Dt);
+        }
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|RotatingWheel6|
+
+The object is now rotating around the world X-axis. Even though the wheel has an initial Y-axis rotation, it does not affect the world axis the object is told to rotate around. On the other hand, a rotation on the parent would affect the initial rotation of the child before the **WorldRotation** is applied.
+
+.. [DZ: "... a rotation on the parent would " ...affect? You were missing a word before so I guessed "affect"]
+
+.. [DZ: A general note here: it would probably be helpful to put screenshots of the property grid next to each animated gif to show the initial values, to help clarify how the changes to these initial values will affect the outcome. Overall, this section has been confusing. It's easy to do the things you're asking me to do, but I fear that it might be a little hard to wrap one's head around the concepts behind it all, especially for a beginner. It's hard for me to tell because I more or less get it already, so we really need to run usability testing on this lesson as ASAP as possible.]
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+There are three more functions on the Transform component that can rotate the object. **RotateLocal** and **RotateWorld** preform the same functionality as **RotateAnglesLocal** and **RotateAnglesWorld**, except they take the axis rotation angles as individual arguments as opposed to having them all in a single ``Real3``. The third function is **RotateAround** which lets you pick a point to rotate the object around.
+
+*   In the RotationQuaternion ZilchScript Window
+
+    *   Update the **RotationQuaternion** script with the following code:
+        
+.. code-block:: as
+    :emphasize-lines: 3
+    
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+            this.Owner.Transform.RotateAround(this.Owner.Parent.Transform.Translation,
+                                              Math.ToQuaternion(this.RotationSpeed * event.Dt));
+        }
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|RotatingWheel7|
+
+Now we are telling the wheel to rotate around the car's origin on the X-axis at a speed of five radians per second. Because the wheel has an initial **Z-Translation** of ``0.5``, the wheel appears to orbit around the X-axis with a radius of ``0.5``. What is actually happening is the X-axis and Z-axis offset of wheel are being rotated around the X-axis. Since the initial **X-Translation** of ``0.4`` is along the X-axis, rotating around a point that is on the X-axis does not change it.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   :ref:`Select the Car object <ManualSelectObject>`
+    
+    *   In the Properties Window
+
+        *   Under RotationQuaternion
+    
+            *   Set RotationSpeed to: [0,0,5]
+        
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|RotatingWheel8|
+
+Now we are telling the wheel to rotate around the car's origin on the Z-axis at a speed of five radians per second. Just as the **X-Rotation** was applied to the offset previously, this **Z-Rotation** will be applied. Since the car's origin falls on the Z-axis, the Z-component of the **Translation** is not affected by the **Z-Rotation**. However, just as the Z-component was affected in the previous step, the X-component of the **Translation** is rotated around the origin on the Z-axis. The wheel appears to orbit with a radius equal to the initial **X-Translation** of ``0.5``, which is then scaled by the Car's rotation to give the wheel a world **X-Translation** of ``2.5``.
+
+.. [DZ: At the end maybe consider replacing "give the wheel a world **X-Translation**" with "give the wheel an orbital radius", since I think that's what it's doing, and not just keeping its X-Translation at 2.5 like this text seems to suggest.]
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+Rotating With Orientation
+-------------------------
+
+Now that we have the basics down of using the **Transform** component to rotate, we will learn how to use the **Orientation** component to achieve more control over our rotation.
+
+At this point, we can perform world and local rotations on the wheel, as well as make it rotate around a given point. What if we wanted to rotate an object to "face" a particular direction or point? In other words, we want to *orient* the object to a specific point or direction. Such objects will be treated as if they have their own coordinate system, which we can then use as we see fit. In the Zero Engine, this can be done using the **Orientation** component, which allows us to define and change our object's **Forward**, **Up**, and **Right** directions. We are going to use the **Orientation** component to steer the car, but first, let's make it look a bit more like a car.
+
+*   :ref:`Select the Car object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Under Transform
+    
+        *   Set Translation to: [0,2,0]
+        
+        *   Set Rotation to: [0,0,0]
+        
+        *   Set Scale to: [10,3,5]
+        
+|SquishedCar1|
+
+Notice how the Wheel object is now squished. This is because, just like for the **Translation** and **Rotation** properties, the wheel will apply its parent's **Scale** property to its own. When constructing objects, we usually try and keep the **Scale** for parent objects *uniform* (meaning the X-Scale = Y-Scale = Z-Scale), as both the **Translation** and **Rotation** properties are scaled before they are applied to the object.
+
+*   :ref:`Select the Wheel object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Under Transform
+    
+        *   Set Rotation to: [0,45,0]
+        
+|SkewedWheel|
+
+Now the wheel appears skewed. This is because, when the car's **Rotation** is applied to the wheel, the **Scale** is non-uniform. This results in the rotations around each axis being scaled differently, resulting in a skewed shape. Let's fix that.
+
+*   :ref:`Select the Car object <ManualSelectObject>`
+
+    *   In the Properties Window
+    
+        *   Set Name to: CarModel
+
+*   :ref:`Command<ManualCommands>` : ``CreateTransform`` or :menuselection:`Create --> Create Transform`
+
+    *   In the Properties Window
+    
+        *   Set Name to: Car
+
+.. [DZ: You should probably make sure at this point that this new transform has the correct translation; if it doesn't, things will get a bit ugly in the next few steps, as I discovered]
+
+*   :ref:`Select the Wheel object <ManualSelectObject>`
+
+    *   Parent the Wheel object to the Car Object
+
+*   :ref:`Select the CarModel object <ManualSelectObject>`
+
+    *   Parent the CarModel object to the Car Object
+
+Notice the wheel object is no longer skewed. This is because the new Car object has uniform **Scale**. Now let's give the car some more realistic wheels.
+
+*   :ref:`Select the Wheel object <ManualSelectObject>`
+
+    *   In the Properties Window
+    
+        *   Set Name to: WheelFront
+        
+        *   Under Model
+        
+            *   Set Mesh to: Cylinder
+            
+        *   Under Transform
+        
+            *   Set Translation to: [4,0.5,2.5]
+            
+            *   Set Rotation to: [90,0,0]
+            
+            *   Set Scale to: [1,1,1]
+            
+        *   Remove ``RotationDisplay``
+        
+        *   Remove ``RotationQuaternion``
+
+.. [DZ: I'm pretty sure they already removed RotationDisplay]
+
+*   Press ``Ctrl+C`` to copy WheelFront
+
+*   Press ``Ctrl+V`` to paste a new copy
+
+*   In the Properties Window
+
+        *   Under Transform
+        
+            *   Set Translation to: [4,0.5,-2.5]
+
+*   Press ``Ctrl+C`` to copy WheelFront
+
+*   Press ``Ctrl+V`` to paste a new copy
+
+*   In the Properties Window
+
+    *   Set Name to: WheelBack
+    
+    *   Under Transform
+    
+        *   Set Translation to: [-4,0.5,-2.5]
+
+*   Press ``Ctrl+C`` to copy WheelBack
+
+*   Press ``Ctrl+V`` to paste a new copy
+
+*   In the Properties Window
+
+    *   Set Name to: WheelBack
+    
+    *   Under Model
+    
+        *   Set Mesh to: Cylinder
+        
+    *   Under Transform
+    
+        *   Set Translation to: [-4,0.5,2.5]
+
+.. [DZ: Why not multi-select the two front wheels and duplicate them, and then rename and move both copies at the same time?]
+
+|InitialCar|
+
+Now that we have an object that actually resembles a car, let's work on making it move and steer.
+
+*   :ref:`Select the LevelSettings object <ManualSelectObject>`
+
+    *   In the Properties Window
+    
+        *   Under GridDraw
+        
+            *   Set DrawInGame to: True
+
+Making the debug grid draw in game will allow us to see what the car is doing a little easier when we get it running.
+
+:ref:`Add a new ZilchScript resource<ManualResourceAdding>` named: CarController
+
+*   :ref:`Select the Car object <ManualSelectObject>`
+
+    *   Add the ``Orientation`` component to the ``Car`` object.
+    
+    *   Add the ``CarController`` component to the ``Car`` object.
+    
+    *   Update the **CarController** script with the following code:
+        
+.. code-block:: as
+
+    class CarController : ZilchComponent
+    {
+        // When we add a dependency to a component, we are saying the object must
+        // have that component before we can add this component to the object.
+        [Dependency]
+        var Transform : Transform;
+        
+        [Dependency]
+        var Orientation : Orientation;
+        
+        [Property]
+        var MoveSpeed : Real = 5.0;
+        
+        [Property]
+        var SteeringSpeed : Real = 10.0;
+        
+        function Initialize(init : CogInitializer)
+        {
+            Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
+        }
+    
+        function OnMouseDown(event : ViewportMouseEvent)
+        {
+            var targetPos = this.GetMousePosition();
+            
+            this.OrientCar(targetPos);
+        }
+        
+        function OrientCar(steeringTarget : Real3)
+        {
+            this.Orientation.LookAtPoint(steeringTarget);
+        }
+        
+        function GetMousePosition() : Real3
+        {
+            var mouseScreenPos = Zero.Mouse.ScreenPosition;
+            var viewport = this.LevelSettings.CameraViewport;
+            var mouseWorldPos = viewport.ScreenToWorldPlane(mouseScreenPos, Real3(0,1,0),
+                                                            this.Transform.Translation);
+            return mouseWorldPos;
+        }
+    }
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+You can now click around the screen to rotate the car. We are doing this by telling the car to align its **Forward** axis with the vector that connects its origin to the mouse's position on the grid. However, as you click, the car will turn to make its side, not its front, face the mouse. This is because we constructed the car to be X-axis-aligned, but we have its local Z-axis set as its **Forward** axis.
+
+Click around the screen, and the car will turn to make its side face the mouse. This is because we have the car's local Z-axis set as its **Forward** axis, and we are telling it to align with the vector from it's origin to the point the on the grid where the mouse is.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   :ref:`Select the Car object <ManualSelectObject>`
+
+    *   In the Properties Window
+    
+        *   Under Orientation
+        
+            *   Set Default Orientation to: "ForwardXUpY"
+
+Clicking around in the game, we can now make the car snap to face the position of the mouse. The ``LookAtPoint`` function calculates the required rotation around the object's **Up** axis to rotate the object to point its **Forward** at the point. After calculating this rotation, it immediately applies it. Now let's make the car rotate to face the point over time, as opposed to instantly.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   Update the **CarController** script with the following code:
+        
+.. code-block:: as
+
+    class CarController : ZilchComponent
+    {
+        // When we add a dependency to a component, we are saying the object must
+        // have that component before we can add this component to the object.
+        [Dependency]
+        var Transform : Transform;
+        
+        [Dependency]
+        var Orientation : Orientation;
+        
+        [Property]
+        var MoveSpeed : Real = 5.0;
+        
+        [Property]
+        var SteeringSpeed : Real = 10.0;
+        
+        var TargetPosition : Real3 = Real3();
+        
+        function Initialize(init : CogInitializer)
+        {
+            Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        }
+        
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+            this.TargetPosition = this.GetMousePosition();
+            
+            this.OrientCar(event);
+        }
+        
+        function OrientCar(event : UpdateEvent)
+        {
+            var targetRotation = this.Orientation.GetLookAtPointRotation(this.TargetPosition);
+            var currentRotation = this.Transform.Rotation;
+            var newRotation = Math.Slerp(currentRotation, targetRotation, this.SteeringSpeed * event.Dt);
+            this.Transform.Rotation = newRotation;
+        }
+        
+        function GetMousePosition() : Real3
+        {
+            var mouseScreenPos = Zero.Mouse.ScreenPosition;
+            var viewport = this.LevelSettings.CameraViewport;
+            var mouseWorldPos = viewport.ScreenToWorldPlane(mouseScreenPos, Real3(0,1,0), this.Transform.Translation);
+            return mouseWorldPos;
+        }
+    }
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|CarRotateWithMouse|
+
+Now when we move the mouse, the car turns over time until it faces the target point. Now let's make it move. 
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   :ref:`Select the LevelSettings object <ManualSelectObject>`
+
+    *   In the Properties Window
+    
+        *   Remove the ``GravityEffect`` component
+        
+
+*   :ref:`Select the Car object <ManualSelectObject>`
+
+    *   In the Properties Window
+    
+        *   Add the ``RigidBody`` component to the ``Car`` object.
+
+*   Update the **CarController** script with the following code:
+        
+.. code-block:: as
+    :emphasize-lines: 7-12
+    
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+            this.TargetPosition = this.GetMousePosition();
+            if(Math.Distance(this.TargetPosition, this.Transform.Translation) > 0.1)
+            {
+                this.OrientCar(event);
+                this.MoveCar();
+            }
+            else
+            {
+                this.StopCar();
+            }
+        }
+
+*   Add following dependency and functions to the **CarController** script:
+        
+.. code-block:: as
+    
+        [Dependency]
+        var RigidBody : RigidBody;
+
+.. [DZ: Aaarrrgh curse Sphinx, I can't figure out a way to make these code blocks appear indented >:( It's so easy when we have lines to highlight, but not when we don't]
+
+.. code-block:: as
+    
+        function MoveCar()
+        {
+            this.RigidBody.Velocity = this.Orientation.WorldForward * this.MoveSpeed;
+        }
+        
+        function StopCar()
+        {
+            this.RigidBody.Velocity = Real3();
+        }
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|SteeringCar1|
+
+Now when we move the mouse, the car steers towards it and moves along its **Forward** axis. Let's try using the **LookAtDirection** function on the Orientation component to use the keyboard to steer the car.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   :ref:`Select the Car object <ManualSelectObject>`
+
+    *   In the Properties Window
+    
+        *   Under CarController
+        
+            *   Set SteeringSpeed to: 45
+
+*   Update the **CarController** script with the following code:
+        
+.. code-block:: as
+    
+    class CarController : ZilchComponent
+    {
+        // When we add a dependency to a component, we are saying the object must
+        // have that component before we can add this component to the object.
+        [Dependency]
+        var Transform : Transform;
+        
+        [Dependency]
+        var RigidBody : RigidBody;
+        
+        [Dependency]
+        var Orientation : Orientation;
+        
+        [Property]
+        var MoveSpeed : Real = 5.0;
+        
+        [Property]
+        var SteeringSpeed : Real = 10.0;
+        
+        function Initialize(init : CogInitializer)
+        {
+            Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        }
+        
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+            var inputDirection = this.GetKeyboardMovement();
+            if(inputDirection.Y != 0.0)
+            {
+                if(inputDirection.X != 0.0)
+                {
+                    this.OrientCar(inputDirection.X, event);
+                }
+                
+                this.MoveCar(inputDirection.Y);
+            }
+            else
+            {
+                this.StopCar();
+            }
+        }
+        
+        function OrientCar(steerDirection : Real, event : UpdateEvent)
+        {
+            var currentForward = this.Orientation.WorldForward;
+            var currentUp = this.Orientation.WorldUp;
+            var steerSpeed = Math.ToRadians(this.SteeringSpeed);
+            var newForward = Math.RotateVector(currentForward, currentUp, steerSpeed * steerDirection * event.Dt);
+            
+            this.Orientation.LookAtDirection(newForward);
+        }
+        
+        function MoveCar(moveDirection : Real)
+        {
+            this.RigidBody.Velocity = this.Orientation.WorldForward * moveDirection * this.MoveSpeed;
+        }
+        
+        function StopCar()
+        {
+            this.RigidBody.Velocity = Real3();
+        }
+        
+        function GetKeyboardMovement() : Real3
+        {
+            var movement = Real3();
+            
+            if(Zero.Keyboard.KeyIsDown(Keys.W))
+            {
+                movement += Real3(0,1,0);
+            }
+            if(Zero.Keyboard.KeyIsDown(Keys.S))
+            {
+                movement += Real3(0,-1,0);
+            }
+            if(Zero.Keyboard.KeyIsDown(Keys.A))
+            {
+                movement += Real3(1,0,0);
+            }
+            if(Zero.Keyboard.KeyIsDown(Keys.D))
+            {
+                movement += Real3(-1,0,0);
+            }
+            return movement;
+        }
+    }
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|KeyboardCarSteering1|
+
+Now when we run the game, we can use the ``W`` and ``S`` keys to move forward and backward along the Car's **WorldForward** axis. We can also use the ``A`` and ``D`` keys to turn left and right. Now instead of using a point to get a direction to move in, we are using keyboard input to get a rotated version of the Car's **WorldForward** vector as a direction to steer towards. Now let's make the wheels spin as the car moves.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+    
+*   Update the **CarController** script with the following code:
+
+.. code-block:: as
+    :emphasize-lines: 10, 18-24
+    
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+            var inputDirection = this.GetKeyboardMovement();
+            if(inputDirection.Y != 0.0)
+            {
+                if(inputDirection.X != 0.0)
+                {
+                    this.OrientCar(inputDirection.X, event);
+                }
+                
+                this.MoveCar(inputDirection.Y, event);
+            }
+            else
+            {
+                this.StopCar();
+            }
+        }
+        
+        function MoveCar(moveDirection : Real, event : UpdateEvent)
+        {
+            this.RigidBody.Velocity = this.Orientation.WorldForward * moveDirection * this.MoveSpeed;
+            var distanceCovered = Math.Length(this.RigidBody.Velocity * event.Dt);
+            
+            this.SpinWheels(moveDirection, distanceCovered);
+        }
+
+*   Add the following functions to **CarController** script.
+
+.. code-block:: as
+
+    function SpinWheels(moveDirection : Real, distanceCovered : Real)
+    {
+        var frontWheels = this.Owner.FindAllChildrenByName("WheelFront");
+        var backWheels = this.Owner.FindAllChildrenByName("WheelBack");
+        
+        foreach(var wheel in frontWheels)
+        {
+            this.SpinWheel(wheel, moveDirection, distanceCovered);
+        }
+        
+        foreach(var wheel in backWheels)
+        {
+            this.SpinWheel(wheel, moveDirection, distanceCovered);
+        }
+    }
+    
+    function SpinWheel(wheel : Cog, moveDirection : Real, distanceCovered : Real)
+    {
+        var wheelRadius = wheel.Transform.Scale.X;
+        var angle = distanceCovered / wheelRadius;
+        angle *= -moveDirection;
+        wheel.Transform.RotateAnglesLocal(Real3(0,angle,0));
+    }
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|SpinningWheels|
+
+Now as we steer the car around the plane, the wheels spin to match the distance covered each frame. By dividing the distance the car should cover this frame by the radius of the wheel, we can get the angle we should rotate the wheel by. Now that we have spinning wheels, let's make the front wheels turn as the car is directed to turn.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   :ref:`Select the WheelFront objects <ManualSelectObject>`
+
+    *   Add the ``Orientation`` component to the ``WheelFront`` objects.
+
+|WheelFrontSelect|
+    
+*   :ref:`Select the first WheelFront object <ManualSelectObject>`
+
+    *   Under Orientation
+    
+        *   Click ``EditBasis``
+
+|RotationProxySelection|
+
+This creates and selects a Proxy (temporary) object that allows us to manually define the rotation that is applied to create the object's custom **Forward**, **Up**, and **Right** axes. By redefining which standard (X,Y,Z) axes are which orientation (forward, up, right) axes we can make orienting objects to face a particular direction very easy.
+
+*   In the Properties Window
+
+    *   Under Transform
+    
+        *   Set Rotation to: [-90,-90,0]
+        
+|RotationProxyProperties|
+        
+*   :ref:`Select the second WheelFront object <ManualSelectObject>`
+
+    *   Under Orientation
+    
+        *   Click ``EditBasis``
+
+Notice when we selected the second WheelFront object, the first RotationProxy disappeared and the orientation axes of the first WheelFront have been aligned with those of the Car object.
+
+*   In the Properties Window
+
+    *   Under Transform
+    
+        *   Set Rotation to: [-90,-90,0]
+        
+*   :ref:`Select the second WheelFront object <ManualSelectObject>`
+
+Once again the RotationProxy object has been deleted, and now the second WheelFront object's Orientation axes are aligned with those of the Car object as well.
+
+*   Update the **CarController** script with the following code:
+
+.. code-block:: as
+  
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var inputDirection = this.GetKeyboardMovement();
+        if(inputDirection.Y != 0.0)
+        {
+            if(inputDirection.X != 0.0)
+            {
+                this.OrientCar(inputDirection.X, event);
+            }
+            
+            this.MoveCar(inputDirection.Y, event);
+        }
+        else
+        {
+            this.StopCar();
+        }
+        
+        this.OrientWheels(inputDirection.X, event);
+    }
+
+
+*   Add the following functions to **CarController** script:
+
+.. code-block:: as
+
+    function OrientWheels(steerDirection : Real, event : UpdateEvent)
+    {
+        var currentForward = this.Orientation.WorldForward;
+        var currentUp = this.Orientation.WorldUp;
+        var steerSpeed = Math.ToRadians(this.SteeringSpeed);
+        
+        var targetForward = Math.RotateVector(currentForward, Real3(0,1,0), steerSpeed * steerDirection);
+    
+        
+        var frontWheels = this.Owner.FindAllChildrenByName("WheelFront");
+        var backWheels = this.Owner.FindAllChildrenByName("WheelBack");
+        
+        foreach(var wheel in frontWheels)
+        {
+            this.TurnWheel(wheel, targetForward, event);
+        }
+    }
+    
+    function TurnWheel(wheel : Cog, steerDirection : Real3, event : UpdateEvent)
+    {
+        var currentRotation = wheel.Transform.WorldRotation;
+        var targetRotation = wheel.Orientation.GetLookAtDirectionWithUpRotation(steerDirection, Real3(0,1,0));
+        var newRotation = Math.Slerp(currentRotation, targetRotation, this.SteeringSpeed * event.Dt);
+        wheel.Transform.WorldRotation = newRotation;
+    }
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|TurningNoSpinWheels|
+
+Try driving the Car around the plane. If you just drive straight, you will see the WheelFront objects rotate slightly around their spin axis and then stop. If you steer to the right or left the wheels will turn but not spin at all. This is because of the way in which we are turning the wheel.
+
+.. [DZ: I didn't see the WheelFront objects rotate at all.]
+
+.. code-block:: as
+    :emphasize-lines: 4,6
+    
+        function TurnWheel(wheel : Cog, steerDirection : Real3, event : UpdateEvent)
+        {
+            var currentRotation = wheel.Transform.WorldRotation;
+            var targetRotation = wheel.Orientation.GetLookAtDirectionWithUpRotation(steerDirection, Real3(0,1,0));
+            var newRotation = Math.Slerp(currentRotation, targetRotation, this.SteeringSpeed * event.Dt);
+            wheel.Transform.WorldRotation = newRotation;
+        }
+
+.. [DZ: You've got a line of code that is different in this block than in the previous one. Did you mean for the reader to replace "wheel.Orientation.WorldUp" with "Real3(0,1,0)"? If so, you didn't mention it anywhere.]
+
+Looking at the code we added above to turn the wheel, we are using the ``GetLookAtDirectionWithUpRotation`` function to get the rotation the object needs to face the correct direction. This function is based on rotating the object around the provided **Up** axis to align the object's **WorldForward** axis with the given direction. The **Get** versions of the **Orientation** component's **LookAt** functions will only calculate the desired **Rotation** and return it; the non-**Get** versions will actually set the **Rotation** as we are when we assign **newRotation** to ``wheel.Transform.Rotation``. While we are slerping to make the rotation more gradual instead of an immdiate snap, we are still overwriting the applied rotations that are intended to spin the wheel. The ``GetLookAtDirectionWithUpRotation`` function calculates the **Rotation** based of the initial **Orientation** axes that we defined, causing the spin rotation to be ignored.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+We can fix this using a similar solution to how we solved the non-uniform scaling issue earlier.
+
+*   :ref:`Command<ManualCommands>` : ``CreateTransform`` or :menuselection:`Create --> Create Transform`
+
+    *   In the Properties Window
+    
+        *   Set Name to: WheelJoint
+        
+        *   Add the ``Orientation`` component to the ``WheelJoint`` object.
+    
+    *   Parent the ``WheelJoint`` object to the ``Car`` object.
+    
+    *   Parent the first ``WheelFront`` object to the ``WheelJoint`` object.
+
+*   :ref:`Command<ManualCommands>` : ``CreateTransform`` or :menuselection:`Create --> Create Transform`
+
+    *   In the Properties Window
+    
+        *   Set Name to: WheelJoint
+        
+        *   Add the ``Orientation`` component to the ``WheelJoint`` object.
+    
+    *   Parent the new ``WheelJoint`` object to the ``Car`` object.
+    
+    *   Parent the second ``WheelFront`` object to the ``WheelJoint`` object.
+
+*   :ref:`Select the first WheelJoint object <ManualSelectObject>`
+
+    *   Under Transform
+    
+        *   Set Translation to: [4, 0.5, 2.5]
+        
+    *   Under Orientation
+    
+        *   Click ``EditBasis``
+
+*   In the Properties Window
+
+    *   Under Transform
+    
+        *   Set Rotation to: [-90,-90,0]
+
+*   :ref:`Select the WheelFront object that is parented to the first WheelJoint object <ManualSelectObject>`
+
+    *   In the Properties Window
+    
+        *   Under Transform
+        
+            *   Set Translation to: [0,0,0]
+
+*   :ref:`Select the second WheelJoint object <ManualSelectObject>`
+
+    *   Under Transform
+    
+        *   Set Translation to: [4, 0.5, -2.5]
+        
+    *   Under Orientation
+    
+        *   Click ``EditBasis``
+
+*   In the Properties Window
+
+    *   Under Transform
+    
+        *   Set Rotation to: [-90,-90,0]
+
+*   :ref:`Select the WheelFront object that is parented to the second WheelJoint object <ManualSelectObject>`
+
+    *   In the Properties Window
+    
+        *   Under Transform
+        
+            *   Set Translation to: [0,0,0]
+
+*   Update the **CarController** script with the following code:
+
+.. code-block:: as
+    :emphasize-lines: 9
+    
+        function OrientWheels(steerDirection : Real, event : UpdateEvent)
+        {
+            var currentForward = this.Orientation.WorldForward;
+            var currentUp = this.Orientation.WorldUp;
+            var steerSpeed = Math.ToRadians(this.SteeringSpeed);
+            
+            var targetForward = Math.RotateVector(currentForward, Real3(0,1,0), steerSpeed * steerDirection);
+            
+            var frontWheels = this.Owner.FindAllChildrenByName("WheelJoint");
+            var backWheels = this.Owner.FindAllChildrenByName("WheelBack");
+            
+            foreach(var wheel in frontWheels)
+            {
+                this.TurnWheel(wheel, targetForward, event);
+            }
+        }
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>` 
+
+|FinalCar|
+
+Now, driving the car around the plane, we can see the wheels spinning and the front wheels turning. We are using **Transform** component functions to modify **LocalRotation** values on the wheel objects to make them spin, and **Orientation** component functions to turn the WheelJoint object. By adding the WheelJoint objects into the hierarchy, we create another independent **Rotation** that will be applied to the WheelFront objects.
+
+Using this method of adding another pivot to the hierarchy, we can spin the wheel object with out worrying about how the rotation will be affected by turning the WheelJoint object.
+
+.. [DZ: In "... functions to perform **LocalRotation** values ...", I changed "perform" to "modify". I also broke this into two paragraphs just for the sake of readability.]
+
+.. |CarExample1|                image:: images/3DRotation/Rotation_CarExample1.png
+.. |CarExample2|                image:: images/3DRotation/Rotation_CarExample2.png
+.. |CarExample3|                image:: images/3DRotation/Rotation_CarExample3.png
+.. |CarExample4|                image:: images/3DRotation/Rotation_CarExample4.png
+    
+.. |img1|                       image:: images/3DRotation/Rotation_img1.png
+    :height: 2.5in
+.. |img2|                       image:: images/3DRotation/Rotation_img2.png
+    :height: 2.5in
+.. |img3|                       image:: images/3DRotation/Rotation_img3.png
+    :height: 2.5in
+.. |img4|                       image:: images/3DRotation/Rotation_img4.png
+    :height: 2.5in
+    
+.. |RotatingWheel1|             image:: images/3DRotation/RotatingWheel1.gif
+.. |RotatingWheel2|             image:: images/3DRotation/RotatingWheel2.gif
+.. |RotatingWheel3|             image:: images/3DRotation/RotatingWheel3.gif
+.. |RotatingWheel4|             image:: images/3DRotation/RotatingWheel4.gif
+.. |RotatingWheel5|             image:: images/3DRotation/RotatingWheel5.gif
+.. |RotatingWheel6|             image:: images/3DRotation/RotatingWheel6.gif
+.. |RotatingWheel7|             image:: images/3DRotation/RotatingWheel7.gif
+.. |RotatingWheel8|             image:: images/3DRotation/RotatingWheel8.gif
+    
+.. |CarRotateWithMouse|         image:: images/3DRotation/CarRotateWithMouse.gif
+.. |FinalCar|                   image:: images/3DRotation/FinalCar.gif
+.. |WheelFrontSelect|           image:: images/3DRotation/FrontWheelSelection.PNG
+.. |InitialCar|                 image:: images/3DRotation/InitialCar.PNG
+.. |KeyboardCarSteering1|       image:: images/3DRotation/KeyboardCarSteering1.gif
+.. |RotationProxyProperties|    image:: images/3DRotation/RotationProxyProperties.PNG
+.. |RotationProxySelection|     image:: images/3DRotation/RotationProxySelection.PNG
+.. |SkewedWheel|                image:: images/3DRotation/SkewedWheel.PNG
+.. |SpinningWheels|             image:: images/3DRotation/SpinningWheels.gif
+.. |SquishedCar1|               image:: images/3DRotation/SquishedCar1.PNG
+.. |SteeringCar1|               image:: images/3DRotation/SteeringCar1.gif
+.. |TurningNoSpinWheels|        image:: images/3DRotation/TurningNoSpinWheels.gif
+.. |RotationHover|              image:: images/3DRotation/RotationQuatHover.png
+
+
+ 

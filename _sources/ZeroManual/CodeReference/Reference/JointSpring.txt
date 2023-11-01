@@ -1,0 +1,82 @@
+.. _ReferenceJointSpring:
+
+.. rst-class:: searchtitle
+
+JointSpring
+===========
+
+.. rst-class:: searchdescription
+
+A spring for a joint. Used to make a joint soft and therefore behave spring-like. A joint spring has a frequency in hertz at which to oscillate as well as a dampening ratio. The ratio should vary from 0 to 1 where 0 is no dampening and 1 is critical dampening. See each joint for a description of how it reacts to a spring.
+
+.. include:: Description/JointSpring.rst
+
+.. cpp:class:: JointSpring
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceJointSpringProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog JointSpring::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space JointSpring::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog JointSpring::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession JointSpring::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool JointSpring::Active
+
+            Determines if this motor is currently active.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real JointSpring::FrequencyHz
+
+            The oscillation frequency of the spring in Hertz(cycles per second).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real JointSpring::DampRatio
+
+            The dampening ratio of this spring. The value should range from 0 to 1 where 0 is no dampening and 1 is critical dampening.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint JointSpring::AtomIds
+
+            Signifies what atoms on the joint this effects.
+
+.. _ReferenceJointSpringMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void JointSpring::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/JointSpring.rst

@@ -1,0 +1,60 @@
+.. _ReferenceZilchPluginConfig:
+
+.. rst-class:: searchtitle
+
+ZilchPluginConfig
+=================
+
+.. include:: Description/ZilchPluginConfig.rst
+
+.. cpp:class:: ZilchPluginConfig
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceZilchPluginConfigProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ZilchPluginConfig::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space ZilchPluginConfig::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ZilchPluginConfig::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession ZilchPluginConfig::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ZilchPluginConfig::AttemptedIdeToolsInstall
+
+            If on this machine we attempted to install IDE tools for plugins.
+
+.. _ReferenceZilchPluginConfigMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ZilchPluginConfig::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/ZilchPluginConfig.rst

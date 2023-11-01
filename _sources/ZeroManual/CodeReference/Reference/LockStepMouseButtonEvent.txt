@@ -1,0 +1,109 @@
+.. _ReferenceLockStepMouseButtonEvent:
+
+.. rst-class:: searchtitle
+
+LockStepMouseButtonEvent
+========================
+
+.. rst-class:: searchdescription
+
+A synced mouse event.
+
+.. include:: Description/LockStepMouseButtonEvent.rst
+
+.. cpp:class:: LockStepMouseButtonEvent
+
+    Base Class: :cpp:type:`LockStepMouseEvent`
+
+.. _ReferenceLockStepMouseButtonEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String LockStepMouseButtonEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: LockStepPeer LockStepMouseButtonEvent::Peer
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 LockStepMouseButtonEvent::WorldStart
+
+            The start of the mouse position in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 LockStepMouseButtonEvent::WorldDirection
+
+            The direction of the mouse position in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 LockStepMouseButtonEvent::ScreenPosition
+
+            A screen position of the mouse from[0, 1] on each axis where[0, 0] is the top left,[1, 1] is the bottom right.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 LockStepMouseButtonEvent::ScreenDelta
+
+            The motion of the mouse on the screen(see ScreenPosition)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LockStepMouseButtonEvent::LeftPressed
+
+            Is the left mouse button down?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LockStepMouseButtonEvent::MiddlePressed
+
+            Is the middle mouse button down?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LockStepMouseButtonEvent::RightPressed
+
+            Is the right mouse button down?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LockStepMouseButtonEvent::ShiftPressed
+
+            Is shift pressed with this mouse action?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LockStepMouseButtonEvent::AltPressed
+
+            Is alt pressed with this mouse action?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LockStepMouseButtonEvent::CtrlPressed
+
+            Is ctrl pressed with this mouse action?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: MouseButtons::Type LockStepMouseButtonEvent::Button
+
+            The mouse button that was changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LockStepMouseButtonEvent::ButtonDown
+
+            State of the mouse button(if it was down or not)
+
+.. _ReferenceLockStepMouseButtonEventMethods:
+
+.. include:: Remarks/LockStepMouseButtonEvent.rst

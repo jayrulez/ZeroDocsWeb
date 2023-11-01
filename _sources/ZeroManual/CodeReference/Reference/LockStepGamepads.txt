@@ -1,0 +1,70 @@
+.. _ReferenceLockStepGamepads:
+
+.. rst-class:: searchtitle
+
+LockStepGamepads
+================
+
+.. rst-class:: searchdescription
+
+Provides synced gamepads input across lock step.
+
+.. include:: Description/LockStepGamepads.rst
+
+.. cpp:class:: LockStepGamepads
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceLockStepGamepadsProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog LockStepGamepads::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space LockStepGamepads::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog LockStepGamepads::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession LockStepGamepads::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint LockStepGamepads::MaxGamepadsPerPeer
+
+            
+
+.. _ReferenceLockStepGamepadsMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void LockStepGamepads::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: LockStepGamepad LockStepGamepads::GetGamepad(LockStepPeer peer, uint index)
+
+            
+
+.. include:: Remarks/LockStepGamepads.rst

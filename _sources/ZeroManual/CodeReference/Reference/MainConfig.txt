@@ -1,0 +1,76 @@
+.. _ReferenceMainConfig:
+
+.. rst-class:: searchtitle
+
+MainConfig
+==========
+
+.. rst-class:: searchdescription
+
+Main configuration component.
+
+.. include:: Description/MainConfig.rst
+
+.. cpp:class:: MainConfig
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceMainConfigProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MainConfig::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space MainConfig::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MainConfig::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession MainConfig::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String MainConfig::ApplicationName
+
+            Name of the application for separating config files.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String MainConfig::BuildDate
+
+            Build date.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String MainConfig::BuildVersion
+
+            Repository version.
+
+.. _ReferenceMainConfigMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void MainConfig::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/MainConfig.rst

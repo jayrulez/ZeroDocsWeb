@@ -1,0 +1,60 @@
+.. _ReferenceSpriteTextBlock:
+
+.. rst-class:: searchtitle
+
+SpriteTextBlock
+===============
+
+.. include:: Description/SpriteTextBlock.rst
+
+.. cpp:class:: SpriteTextBlock
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceSpriteTextBlockProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SpriteTextBlock::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space SpriteTextBlock::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SpriteTextBlock::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession SpriteTextBlock::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: TextBlock SpriteTextBlock::TextBlock
+
+            Text block to display on Sprite Text.
+
+.. _ReferenceSpriteTextBlockMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SpriteTextBlock::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/SpriteTextBlock.rst

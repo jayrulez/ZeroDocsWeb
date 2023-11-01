@@ -1,0 +1,58 @@
+.. _ReferenceMotion:
+
+.. rst-class:: searchtitle
+
+Motion
+======
+
+.. rst-class:: searchdescription
+
+Motion component used for systems to communicate to physics changes in object velocity.
+
+.. include:: Description/Motion.rst
+
+.. cpp:class:: Motion
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceMotionProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Motion::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Motion::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Motion::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Motion::GameSession
+
+            Get the GameSession that owns us and our space.
+
+.. _ReferenceMotionMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Motion::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/Motion.rst

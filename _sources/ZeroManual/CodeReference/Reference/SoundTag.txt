@@ -1,0 +1,114 @@
+.. _ReferenceSoundTag:
+
+.. rst-class:: searchtitle
+
+SoundTag
+========
+
+.. include:: Description/SoundTag.rst
+
+.. cpp:class:: SoundTag
+
+    Base Class: :cpp:type:`Resource`
+
+.. _ReferenceSoundTagProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String SoundTag::Name
+
+            Name of resource for display.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SoundTag::Volume
+
+            Sets the volume of all tagged sounds(multiplies with other volumes)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SoundTag::VolumeDB
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SoundTag::Pitch
+
+            Adjusts the pitch of all tagged sounds(multiplies with other pitch changes)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SoundTag::PitchSemitones
+
+            Adjusts the pitch of all tagged sounds using cents.
+
+.. _ReferenceSoundTagMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Resource SoundTag::RuntimeClone()
+
+            Clone a resource for runtime modification.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundTag::TagSound(SoundInstance instance)
+
+            Tag a new sound instance.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundTag::UnTagSound(SoundInstance instance)
+
+            Remove this tag from a sound instance.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundTag::PauseSounds()
+
+            Pause all sounds with this tag.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundTag::StopSounds()
+
+            Stop all sounds with this tag.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundTag::ContinueSounds()
+
+            Continue all sounds with this tag.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundTag::InterpolateVolume(Real value, Real interpolationTime)
+
+            Sets the volume of tagged sounds over a certain time, in seconds.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundTag::InterpolateVolumeDB(Real volumeDecibels, Real interpolationTime)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundTag::InterpolatePitch(Real pitch, Real time)
+
+            Sets the pitch of tagged sounds over a certain time, in seconds.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SoundTag::InterpolatePitchSemitones(Real pitch, Real time)
+
+            Sets the pitch of tagged sounds over a certain time, in seconds.
+
+.. include:: Remarks/SoundTag.rst

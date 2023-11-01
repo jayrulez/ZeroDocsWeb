@@ -1,0 +1,76 @@
+.. _ReferenceTranslateGizmo:
+
+.. rst-class:: searchtitle
+
+TranslateGizmo
+==============
+
+.. rst-class:: searchdescription
+
+Updates the translation of the gizmo when it's being dragged.
+
+.. include:: Description/TranslateGizmo.rst
+
+.. cpp:class:: TranslateGizmo
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceTranslateGizmoProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog TranslateGizmo::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space TranslateGizmo::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog TranslateGizmo::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession TranslateGizmo::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: UpdateMode::Enum TranslateGizmo::UpdateMode
+
+            Whether or not to automatically translate the gizmo as it's moved.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GizmoSnapMode::Enum TranslateGizmo::SnapMode
+
+            Snapping.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real TranslateGizmo::SnapDistance
+
+            
+
+.. _ReferenceTranslateGizmoMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void TranslateGizmo::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/TranslateGizmo.rst

@@ -1,0 +1,88 @@
+.. _ReferenceAnimationNode:
+
+.. rst-class:: searchtitle
+
+AnimationNode
+=============
+
+.. include:: Description/AnimationNode.rst
+
+.. cpp:class:: AnimationNode
+
+.. _ReferenceAnimationNodeProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool AnimationNode::CollapseToPoseOnFinish
+
+            Whether or not to collapse to a pose node when finished playing.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool AnimationNode::Paused
+
+            Whether or not the node is currently paused.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real AnimationNode::Time
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real AnimationNode::Duration
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real AnimationNode::TimeScale
+
+            A scalar to dt when updating the node.
+
+.. _ReferenceAnimationNodeMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: AnimationNode AnimationNode::Clone()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool AnimationNode::IsActive()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void AnimationNode::PrintNode(uint tabs)=0
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void AnimationNode::CollapseToPose()
+
+            Collapses all children to a pose node on the next Update.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void AnimationNode::SetNormalizedTime(Real normalizedTime)
+
+            A value between[0-1].
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Real AnimationNode::GetNormalizedTime()
+
+            
+
+.. include:: Remarks/AnimationNode.rst

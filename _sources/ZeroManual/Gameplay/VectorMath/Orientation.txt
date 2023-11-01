@@ -1,0 +1,164 @@
+.. _ManualOrientation:
+
+.. rst-class:: SearchTitle
+
+Orientation
+===========
+
+.. rst-class:: SearchDescription
+
+The orientation component is a utility component that helps makes the manipulation of the transform of an object easier. It can be particularly useful when your object has its own sense of forward (for example where a person or a spaceship is facing). 
+By using the Orientation Component, the object can then be easily manipulated relatively to the object's forward instead of being restricted to the world axis.
+
+Using the Orientation Component, you can easily find out:
+
+*  WorldForward of an object (direction the object is facing)
+*  WorldUp of an object (top of the object from the center of the object)
+*  WorldRight of an object (right of the object from the center of the object) 
+*  LocalForward of an object
+*  LocalUp of an object
+*  LocalRight of an object
+
+Attaching the Orientation Component
+-----------------------------------
+
+The Orientation component can be added to a game object just like every other component. 
+
+*   :ref:`Adding a component<ManualAddRemoveComponents>`
+   
+|Orientation09|
+
+`Orientation & Transform components version 11093`
+
+As the component is based on making it easier to manipulating an objects orientation, it follows that it needs access to the object's rotation. Thus, in order to add the Orientation component, the object must already have the Transform component. 
+
+Notable Properties
+------------------
+
+Let's take a look at some of the information the Orientation Component provides for you:
+
+*  WorldForward
+*  WorldUp
+*  WorldRight
+
+*  LocalForward
+*  LocalUp
+*  LocalRight
+
+Let's take a look at this example cube, in this example, we have arrows that correspond to the object's up (green), forward (blue) and right (red). This gives us the following result:
+
+|Orientation01|
+
+*  ``WorldForward  -> (  0,  0,  1)``
+*  ``WorldUp       -> (  0,  1,  0)``
+*  ``WorldRight    -> ( -1,  0,  0)``
+
+*  ``LocalForward  -> (  0,  0,  1)``
+*  ``LocalUp       -> (  0,  1,  0)``
+*  ``LocalRight    -> ( -1,  0,  0)``
+
+Here we have a baseline of the information about the object obtained from the Orientation component. If we rotate the object 90 degrees around the Y axis, we get the following result:
+
+|Orientation02|
+
+*  ``WorldForward  -> (  1,  0,  0)``
+*  ``WorldUp       -> (  0,  1,  0)``
+*  ``WorldRight    -> (  0,  0,  1)``
+                                 
+*  ``LocalForward  -> (  0,  0,  1)``
+*  ``LocalUp       -> (  0,  1,  0)``
+*  ``LocalRight    -> ( -1,  0,  0)``
+
+Notice that how the World information changes while the Local information stays the same.
+
+By using these information, we can easily find the forward vector of an object and move it using the forward vector. This is useful to make a character move forward in the direction it is facing.
+
+There are also some other conveniences that the Orientation provides:
+
+* **AbsoluteAngle** : The angle of the object about the up vector.
+* **Rotation**      : The rotation that this orientation defines. Useful to align the object’s bases with the world bases (i.e. using the inverse rotation).
+* **WorldRotation** : The rotation that brings your defined bases into the world. The inverse of this brings a world space vector into the object’s local space.
+
+Rotating Objects
+----------------
+
+There are a few ways to rotate the object by using the Orientation component, however it boils down to two functions:
+
+*  **LookAtPoint** : sets the forward of the object to look at a given point
+*  **LookAtDirection** : sets the forward of the object to the given direction
+
+Let's take a look at the following example.
+
+|Orientation03|
+
+Here we have our white cube with the Orientation component surrounded by three other cubes. We can call the **LookAtPoint** function to have our white cube look at the position of the other cubes:
+
+.. code-block:: as   
+
+  ...
+  this.Owner.Orientation.LookAtPoint( YellowCubePosition ); 
+  ...
+
+|Orientation04|
+
+We can do this for the pink cube.
+
+|Orientation05| 
+
+And, of course to the cyan cube as well.
+
+|Orientation06|
+
+Another way to rotate the cube is by using the **LookAtDirection** function.
+
+.. code-block:: as
+  
+  var CurrentAngle : Real = 0.0;
+  ...
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+      var lookAt = Real3(Math.Cos( this.CurrentAngle ), 0.0, Math.Sin( this.CurrentAngle ));
+      this.Owner.Orientation.LookAtDirection( lookAt );
+      
+      this.CurrentAngle += event.Dt;
+  }
+
+In this example, we have the object rotate around the Y-Axis based on a vector that we constructed by incrementing the CurrentAngle variable.
+
+|Orientation07|
+
+Up until now we have been rotating an object without specifying the Up vector. This means that a rotation could result in the object being upside down. The following example shows us rotating the object around the Z-Axis, notice the Up vector (green arrow) of the object isn't behaving as intended.
+
+|Orientation08|
+
+These are some functions that rotate the object with a user-specified Up vector:
+
+*  **LookAtPointWithUp** : same as LookAtPoint but allows the user to specify the up vector
+*  **LookAtDirectionWithUp** : same as LookAtDirection but allows the user to specify the up vector
+
+Getting the Rotation Quaternion
+-------------------------------
+
+Now that we've learned about rotating the object towards another point or to a direction, there are also ways to calculate the rotation that is required of the object instead of rotating the object itself:
+
+* **GetLookAtPointRotation** : Get the rotation so that the forward will look at the given point. Keeps the current world up.
+* **GetLookAtDirectionRotation** : Gets the forward to look in the given direction. Keeps the current world up.
+* **GetLookAtPointWithUpRotation** : Same as GetLookAtPointRotation but allows the user to specify the up vector.
+* **GetLookAtDirectionWithUpRotation** : Same as GetLookAtDirectionRotation but allows the user to specify the up vector.
+
+.. |Orientation01| image:: images/Orientation/Orientation1.png
+    :width: 8.35in
+.. |Orientation02| image:: images/Orientation/Orientation2.png
+.. |Orientation03| image:: images/Orientation/Orientation3.png
+    :width: 8.35in
+.. |Orientation04| image:: images/Orientation/Orientation4.png
+.. |Orientation05| image:: images/Orientation/Orientation5.png
+    :width: 8.35in
+.. |Orientation06| image:: images/Orientation/Orientation6.png
+.. |Orientation07| image:: images/Orientation/Orientation7.gif
+.. |Orientation08| image:: images/Orientation/Orientation8.gif
+.. |Orientation09| image:: images/Orientation/ComponentAttachment.png
+
+
+

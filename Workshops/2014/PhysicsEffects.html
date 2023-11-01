@@ -1,0 +1,665 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/PhysicsEffects.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:23:03 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Regions &amp; Physics Effects &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Introduction to 2D Video Game Programming" href="index.html"/>
+        <link rel="next" title="Text" href="Text.html"/>
+        <link rel="prev" title="Resources" href="Resources.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Introduction to 2D Video Game Programming</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Regions &amp; Physics Effects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ScriptingEvents.html">Scripting Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Orientation.html">Rotating Towards a Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FireAtMouse.html">Firing At the Mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleSystems.html">Particle Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleAi.html">Ai Shooting and Movement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CameraParallax.html">Camera Parallax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CreateProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting an Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Add a Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Introduction to 2D Video Game Programming</a> &raquo;</li>
+      
+    <li>Regions &amp; Physics Effects</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2014/PhysicsEffects.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="regions-physics-effects">
+<span id="physicseffects2014"></span><h1>Regions &amp; Physics Effects</h1>
+<p class="searchdescription">This lesson covers using Regions as trigger volumes and applying PhysicsEffects to Regions. It covers the VortexEffect, FlowEffect, and WindEffect.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="CreateProject.html#createnewproject2014"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<p><strong>WhiteBlock Object</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In Properties Window<ul>
+<li>Set Name to: WhiteBlock</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the RigidBody component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the BoxCollider component</span></a></li>
+<li>Under Transform<ul>
+<li>Set Translation to: [-7.5, 8, 0]</li>
+</ul>
+</li>
+<li>Under RigidBody<ul>
+<li>Set AllowSleep to: False</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>PlatformGround Object</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In Properties Window<ul>
+<li>Set Name to: PlatformGround</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the RigidBody component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the BoxCollider component</span></a></li>
+<li>Under Transform<ul>
+<li>Set Translation to: [0, -6, 0.03]</li>
+<li>Set Scale to: [20, 1,1]</li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set Color to: [R: 0, G: 0, B: 0]</li>
+</ul>
+</li>
+<li>Under RigidBody<ul>
+<li>Set DynamicState to: Static</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p></p>
+<p>The WhiteBlock object should fall due to the default gravity of LevelSettings object:</p>
+<p><a class="reference internal" href="../../_images/FirstRun.png"><img alt="FirstRun" src="../../_images/FirstRun.png" style="width: 8.35in;" /></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Close the Game Window</span></a></li>
+</ul>
+</div>
+<div class="section" id="physics-effects-review">
+<h2>Physics Effects Review</h2>
+<p>In the Physics Effects Intro snippet, we covered the DragEffect and GravityEffect components which were two different PhysicsEffects. A PhysicsEffect is a component that applies some sort of a force to an object. A PhysicsEffect can be attached in a variety of ways. This effect will then perform its action every frame according to the <strong>rules of the object</strong> it&#8217;s attached to.</p>
+</div>
+<div class="section" id="regions">
+<h2>Regions</h2>
+<p>A Region is a component primarily used for <strong>trigger</strong> volumes. A region requires a <strong>Collider</strong> to define what the collision volume is. Regions contain the info of the objects inside of it (if they have a Collider). This allows us to conveniently do things with only the objects that are within a specific area.</p>
+</div>
+<div class="section" id="regions-and-physics-effects">
+<h2>Regions and Physics Effects</h2>
+<p>What will happen if we applied a PhysicsEffect to an object that has been marked as a Region? In the PhysicsEffects Intro snippet, we attached PhysicsEffects to objects and Spaces. Only objects that had a RigidBody component with a DynamicState set to Dynamic were affected. One of the main features of a region is that the PhysicsEffects attached to a region will be automatically applied to any objects with a RigidBody component inside of it. Let&#8217;s see it in action.</p>
+</div>
+<div class="section" id="attaching-physics-effects-to-regions">
+<h2>Attaching Physics Effects to Regions</h2>
+<div class="section" id="windeffect">
+<h3>WindEffect</h3>
+<p><strong>WindRegion Object</strong></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></p>
+</li>
+<li><p class="first">In Properties Window</p>
+<ul class="simple">
+<li>Set Name to: WindRegion</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the RigidBody component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the BoxCollider component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the Region component</span></a></li>
+<li>Under Transform<ul>
+<li>Set Translation to: [-6, -3.5, 0.01]</li>
+<li>Set Scale to: [5, 5, 1]</li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set Color to: [R: 255, G: 255, B: 255, A: 0.25]</li>
+</ul>
+</li>
+<li>Under RigidBody<ul>
+<li>Set DynamicState to: Static</li>
+</ul>
+</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the WindEffect component</span></a></li>
+</ul>
+<p></p>
+<ul>
+<li><p class="first">Make sure the <strong>WindRegion</strong> object&#8217;s <strong>WindEffect</strong> component has the following properties:</p>
+<p><img alt="1000000000000111000001AC5A547AE4_png" src="../../_images/1000000000000111000001AC5A547AE4.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>Here the wind pushes our WhiteBlock up when the WhiteBlock comes in contact with the top of the WindRegion, making it appear to jump:</p>
+<p>
+<img alt="JumpingBlockWeb" src="../../_images/JumpingBlock.png" />
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/JumpingBlock.png"><img alt="JumpingBlockBook" src="../../_images/JumpingBlock.png" style="height: 2.75in;" /></a>
+--></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Close the Game Window</span></a></li>
+</ul>
+<div class="section" id="ghost-collider">
+<h4>Ghost Collider</h4>
+<p>What if we wanted to allow objects to exist or move in and out of a Region? We can achieve this by
+setting the Collider&#8217;s <strong>Ghost</strong> property to True.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the WindRegion object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under BoxCollider<ul>
+<li>Set Ghost to: True</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Now our WhiteBlock should pass through the region:</p>
+<p><img alt="GhostCollision" src="../../_images/GhostCollision.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Close the Game Window</span></a></li>
+</ul>
+<p>The WhiteBlock object falls and lands on the PlatformGround object. As soon as it is within the WindRegion object&#8217;s Collider area, the WhiteBlock object is affected by the WindEffect attached to the WindRegion object. Let&#8217;s experiment by adding another object.</p>
+<p><strong>HeavyBlock Object</strong></p>
+<ul>
+<li><p class="first">In the Level Window</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the WhiteBlock object</span></a></li>
+<li><code class="docutils literal"><span class="pre">Ctrl+C</span></code> to Copy</li>
+<li><code class="docutils literal"><span class="pre">Ctrl+V</span></code> to Paste</li>
+</ul>
+<p></p>
+</li>
+<li><p class="first">In Properties Window</p>
+<ul class="simple">
+<li>Set Name to: HeavyBlock</li>
+<li>Under Transform<ul>
+<li>Set Translation to: [-4.5, 8, 0]</li>
+<li>Set Scale to: [3, 3, 1]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>With our HeavyBlock:</p>
+<p>
+<img alt="HeavyBlockSinksWeb" src="../../_images/HeavyBlockSinks.png" />
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/HeavyBlockSinks.png"><img alt="HeavyBlockSinksBook" src="../../_images/HeavyBlockSinks.png" style="height: 2.5in;" /></a>
+--></p>
+<p>Notice how the HeavyBlock is not moved as easily by the WindEffect as the WhiteBlock. This is because the increased size of the HeavyBlock results in a larger mass. You can compare these by looking at the Mass property in the RigidBody component:</p>
+<p><img alt="HeavyBlockMass" src="../../_images/HeavyBlockMass1.png" /></p>
+<p>Larger mass means that a larger force is required to accelerate it to the same speed.</p>
+</div>
+</div>
+<div class="section" id="vortexeffect">
+<h3>VortexEffect</h3>
+<p>A vortex effect applies a force on an object in way that is similar to how a tornado would. Here is a diagram showing a summary of the VortexEffect:</p>
+<blockquote>
+<div><p><!--
+<a class="reference internal" href="../../_images/VortexDiagram1.png"><img alt="BookVortexDiagram_png" src="../../_images/VortexDiagram1.png" style="width: 3.0in; height: 3.0in;" /></a>
+--></p>
+<p>
+<a class="reference internal" href="../../_images/VortexDiagram1.png"><img alt="WebVortexDiagram_png" src="../../_images/VortexDiagram1.png" style="width: 4.0in; height: 4.0in;" /></a>
+</p>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Close the Game Window</span></a></li>
+</ul>
+<p><strong>VortexRegion Object</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In Properties Window<ul>
+<li>Set Name to: VortexRegion</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the RigidBody component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the BoxCollider component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the Region component</span></a></li>
+<li>Under Transform<ul>
+<li>Set Translation to: [3, -1, 0.01]</li>
+<li>Set Scale to: [5, 9, 1]</li>
+</ul>
+</li>
+<li>Under Sprite
+*   Set Color to: [R: 255, G: 128, B: 0, A: 0.25]</li>
+<li>Under RigidBody<ul>
+<li>Set DynamicState to: Static</li>
+</ul>
+</li>
+<li>Under BoxCollider<ul>
+<li>Set Ghost to: True</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the VortexEffect component</span></a> to the VortexRegion object with the following properties:</p>
+<p><img alt="1000000000000102000001BA7BE03CE3_png" src="../../_images/1000000000000102000001BA7BE03CE3.png" /></p>
+</li>
+</ul>
+<p>The <strong>ForceStrengthAtMinDistance</strong> and <strong>ForceStrengthAtMaxDistance</strong> properties of the VortexEffect are referring to the <strong>perpendicular force</strong> as shown in the diagram above. The <strong>InwardStrengthAtMinDistance</strong> and <strong>InwardStrengthAtMaxDistance</strong> properties are referring to the <strong>inward force</strong> as shown in the diagram above.</p>
+<p>You can see the MinDistance and MaxDistance properties governing where those values are used in the debug display:</p>
+<p><img alt="MinMaxDebug_png" src="../../_images/MinMaxDebug.png" /></p>
+<p><em>The Red circle Marks the MinDistance and the Green circle marks the MaxDistance</em></p>
+<p>When viewed from an angle, you can more clearly see the VortexAxis:</p>
+<p><img alt="VortexAxis_png" src="../../_images/VortexAxis.png" /></p>
+<p><em>The black vector protruding from the center of the object indicates the vortex axis</em></p>
+<p>The <strong>EndCondition</strong> property controls how objects are affected by the vortex when still in contact with the region applying the effect, but beyond the MaxDistance range (in our case the corners of our region falling outside of our green circle). We&#8217;ll leave ours at ClampToMax, so the ForceStrengthAtMaxDistance will be applied.</p>
+<p>Those items falling inside the rec circle have the ForceStrengthAtMinDistance applied to them.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the WindRegion object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under WindEffect<ul>
+<li>Set WindDirection to: [1, 0, 0]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Delete the HeavyBlock object</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>The WhiteBlock object falls into the &#8220;wind region&#8221; and is &#8220;blown&#8221; towards the &#8220;vortex region&#8221; where the VortexEffect that has been applied to the VortexRegion object is applying forces to the WhiteBlock object in a vortex-like manner as shown in the diagram above.</p>
+<p></p>
+<p>Running the game we see this:</p>
+<p>
+<img alt="VortexRegionWeb" src="../../_images/VortexRegion.png" />
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/VortexRegion.png"><img alt="VortexRegionBook" src="../../_images/VortexRegion.png" style="height: 3.0in;" /></a>
+--></p>
+</div>
+<div class="section" id="floweffect">
+<h3>FlowEffect</h3>
+<p>A flow effect will apply a force in a direction to make the objects inside it move at a desired speed. By changing the <strong>MaxFlowForce</strong> you change the acceleration of the affected objects by controlling how strongly they can be pushed. The flow effect applies a force up to <strong>MaxFlowForce</strong> in strength in order to align it with the <strong>FlowDirection</strong> and reach the desired <strong>FlowSpeed</strong>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Close the Game Window</span></a></li>
+</ul>
+<p><strong>FlowRegion Object</strong></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></p>
+</li>
+<li><p class="first">In Properties Window</p>
+<ul class="simple">
+<li>Set Name to: FlowRegion</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the RigidBody component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the BoxCollider component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the Region component</span></a></li>
+<li>Under Transform<ul>
+<li>Set Translation to: [8, 2, 0.02]</li>
+<li>Set Rotation to: [0, 0, -75]</li>
+<li>Set Scale to: [15, 4, 1]</li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set Color to: [R: 255, G: 0, B: 255, A: 0.25]</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul>
+<li><p class="first">Under RigidBody</p>
+<ul class="simple">
+<li>Set DynamicState to: Static</li>
+</ul>
+</li>
+<li><p class="first">Under BoxCollider</p>
+<ul class="simple">
+<li>Set Ghost to: True</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the FlowEffect component</span></a> to the <strong>FlowRegion</strong> object; make sure it has the following properties:</p>
+<blockquote>
+<div><p><img alt="1000000000000117000001AB22A131DD_png" src="../../_images/1000000000000117000001AB22A131DD.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></p>
+</li>
+</ul>
+<p></p>
+<p>After including our FlowRegion:</p>
+<p><img alt="WorldAxisFlow" src="../../_images/WorldAxisFlow.png" /></p>
+<p>When the WhiteBlock comes into the FlowRegion&#8217;s Collider area it looks like it bounces off of the FlowRegion. What happened? We set the BoxCollider component of the FlowRegion Ghost property to True, right? Yes, it just so happens we also set the FlowEffect&#8217;s <strong>FlowDirection</strong> property is set to [-1, 0, 0], so it appears like our blocks are bouncing off the Flow Region as they are pushed strongly along the negative x-axis. This slows down objects entering the flow from the side. Notice how the WhiteBlock object moves along the <strong>world&#8217;s</strong> <strong>x-axis</strong>. What if we wanted to make the flow direction be along the FlowRegion object&#8217;s local x-axis?</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Close the Game Window</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the FlowRegion object</span></a></li>
+<li>In the Property Window<ul>
+<li>Under FlowEffect<ul>
+<li>Set <strong>LocalForce</strong> to: True</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p></p>
+<p>Here you can see it is pulled along the its local x-axis:</p>
+<p><img alt="LocalAxisFlow" src="../../_images/LocalAxisFlow.png" /></p>
+<p>The flow effect can pull objects to the &#8220;center&#8221; of the flow field, where the center is defined as the center of the object along the perpendicular of the flow direction.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Close the Game Window</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the FlowRegion object</span></a></li>
+<li>In the Property Window<ul>
+<li>Under FlowEffect<ul>
+<li>Set <strong>AttractToFlowCenter</strong> to: True</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Now when the WhiteBlock enters the flow region, it not only moves along the local x-axis of the FlowRegion object, but also moves to the center of the flow region (perpendicular to the flow direction).</p>
+<p></p>
+<p>Here we can see the FlowRegion acting like a cannon:</p>
+<p><img alt="AttractedToCenter" src="../../_images/AttractedToCenter.png" /></p>
+<p><em>If you wait long enough it should fall back into the White block as a perpetual machine.</em></p>
+</div>
+</div>
+<div class="section" id="what-physicseffects-affects">
+<h2>What PhysicsEffects Affects</h2>
+<p>These are some of the ways PhysicsEffects will behave based on what they are attached to:</p>
+<ul class="simple">
+<li><strong>Space:</strong> If attached to a Space, the effect will be applied to all objects inside of the Space.</li>
+<li><strong>Region:</strong> If attached to an object that has a Region component, it will be applied to all of the objects inside of the Region.</li>
+<li><strong>RigidBody:</strong> If attached to an object that has a RigidBody component and does not have a Region component, then the effect will be applied to the RigidBody itself (only that object).</li>
+<li><strong>Collider:</strong> If attached to an object that has a Collider component and does not have a RigidBody or Region component, then the effect will be applied to the parent object (attaching objects to parent objects will be covered in the particle systems lesson). This is primarily useful for creating a piece that should apply an effect based upon its position relative to its parent, such as a thruster object attached to a rocket.</li>
+</ul>
+<p>Now we know how to use Regions as trigger volumes, and apply PhysicsEffects to Regions.</p>
+<p></p>
+</div>
+<div class="section" id="on-your-own">
+<h2>On Your Own</h2>
+<p>Explore attaching the PhysicsEffects you learned at different levels to make interesting behavior on your game objects.</p>
+<ul class="simple">
+<li>Try adding new PhysicsEffects to the level.</li>
+<li>What happens if you add multiple PhysicsEffects to the WhiteBlock? <br /> How do they interact?</li>
+<li>What happens if a Region applies a PhysicsEffect that negates one on the Level? <br /> (e.g. the same magnitude gravity, but in the opposite direction) <br /> Do they cancel out? <br /> Does the Region override the Level? <br /> Does the Level override the Region?</li>
+</ul>
+<p>Explore other components that fall under the PhysicsEffect tag and their properties, e.g. PointGravityEffect.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">orphan:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<!-- this is used as a file for inclusion in other .rst files --></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Text.html" class="btn btn-neutral float-right" title="Text" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Resources.html" class="btn btn-neutral" title="Resources" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/PhysicsEffects.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:23:07 GMT -->
+</html>

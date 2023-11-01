@@ -1,0 +1,1397 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2016/ParticleEffects.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:51:54 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Particle Effects &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2016" href="index.html"/>
+        <link rel="next" title="Using the Swept Controller" href="UsingTheSweptController.html"/>
+        <link rel="prev" title="Levels" href="Levels.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2016</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath1.html">Vector Math, part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hierarchies.html">Hierarchies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprite Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting4.html">Scripting 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HierarchiesInCode.html">Hierarchies in Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events3.html">Events 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events4.html">Events 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogPaths.html">Cog Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Spaces.html">Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath2.html">Vector Math, part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Particle Effects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2016</a> &raquo;</li>
+      
+    <li>Particle Effects</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2016/ParticleEffects.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- this is used as a file for inclusion in other .rst files --><div class="searchtitle section" id="particle-effects">
+<span id="particleeffects"></span><h1>Particle Effects</h1>
+<p class="searchdescription">This lesson introduces particle effects, and discusses their crucial components:
+<strong>Particle Systems</strong>, <strong>Particle Emitters</strong>, and <strong>Particle Animators</strong>.</p>
+<div class="section" id="learning-objectives">
+<span id="particleeffectsvocab"></span><h2>Learning Objectives</h2>
+<ul class="simple">
+<li>Understanding the three catagories of particle components.</li>
+<li>Experimenting with configuring particle effects.</li>
+<li>Understanding the basic purposes of particle effects.</li>
+<li>Creating basic weather effects using particles.</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="34%" />
+<col width="32%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Particle</td>
+<td>Particle System</td>
+<td>Particle Emitter</td>
+</tr>
+<tr class="row-odd"><td>ParticleAnimator</td>
+<td>Variance</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="LauncherNewProject.html#createnewproject"><span>Create a New Project</span></a></p>
+<p>A <strong>particle effect</strong> is a way of using a large number of small sprites or
+meshes to simulate something chaotic, abstract, or &#8220;fuzzy,&#8221; such as smoke, fire,
+explosions, rain, magical effects, and so on.</p>
+<p>Each individual object created by a particle effect is called a particle.
+Normally, the word <em>particle</em> is used to mean something very small, but the
+particles spawned by a particle effect may be any size. Each particle has its
+own individual properties, like Translation, Velocity, etc, and they may have
+different values from one particle to the next.</p>
+<p>In the Zero Engine, Particle Systems are composed of three main components and
+several extra optional components for added behavior.</p>
+<p>The required components for any particle system are</p>
+<ul class="simple">
+<li>a <strong>Particle System</strong> component</li>
+<li>a <strong>Particle Emitter</strong> component</li>
+<li>a <strong>Particle Animator</strong> component</li>
+</ul>
+</div>
+<div class="section" id="create-a-particle-effect">
+<h2>Create a Particle Effect</h2>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateTransform</span></code> or
+<span class="menuselection">Create ‣ Create Transform</span></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Set Name to: <code class="docutils literal"><span class="pre">SparkleParticles</span></code></li>
+<li>Click on <em>Add Component...</em> and then enter: <code class="docutils literal"><span class="pre">Particle</span></code></li>
+</ul>
+<p><img alt="AddComponentParticle" src="../../_images/AddComponentParticle2.png" /></p>
+</li>
+</ul>
+<p></p>
+<p>The particle-related components that we can add will appear in the pop-up list:</p>
+<p><a class="reference internal" href="../../_images/ParticleComponentsNoSystem2.png"><img alt="ParticleComponentsNoSystem" src="../../_images/ParticleComponentsNoSystem2.png" style="height: 3.0in;" /></a></p>
+<div class="section" id="particle-system">
+<h3>Particle System</h3>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent"><span>Add a SpriteParticleSystem component</span></a></p>
+<p><a class="reference internal" href="../../_images/SpriteParticleSystemProperties2.png"><img alt="SpriteParticleSystemProperties" src="../../_images/SpriteParticleSystemProperties2.png" style="height: 3.0in;" /></a></p>
+<p><em>The SpriteParticleSystem component</em></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The <code class="docutils literal"><span class="pre">SpriteParticleSystem</span></code> component falls under the <strong>Particle System</strong>
+category. A Particle System component controls properties like</p>
+<ul class="simple">
+<li>the type of particle used (Sprites, in this case)<ul>
+<li>the image resource used for the system&#8217;s Sprites</li>
+</ul>
+</li>
+<li>the coordinate system the particles should live in</li>
+<li>how the particles should be graphically displayed or <strong>rendered</strong></li>
+</ul>
+<p>Let&#8217;s see what other components we can add to our particle effect.</p>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Click on <em>Add Component...</em> and then enter: <code class="docutils literal"><span class="pre">Particle</span></code></li>
+</ul>
+<p><img alt="AddComponentParticle" src="../../_images/AddComponentParticle2.png" /></p>
+</li>
+</ul>
+<p>Some of the choices that were grayed out before are now available because we
+have a <code class="docutils literal"><span class="pre">SpriteParticleSystem</span></code> component already. Here are the available
+particle effect-related components:</p>
+<p><a class="reference internal" href="../../_images/ParticleComponentsNoEmitter2.png"><img alt="ParticleComponentsNoEmitter" src="../../_images/ParticleComponentsNoEmitter2.png" style="height: 3.0in;" /></a></p>
+<p>Let&#8217;s start out with the <code class="docutils literal"><span class="pre">SphericalParticleEmitter</span></code>.</p>
+<p></p>
+</div>
+<div class="section" id="particle-emitter">
+<h3>Particle Emitter</h3>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent"><span>Add a SphericalParticleEmitter component</span></a></p>
+<p><a class="reference internal" href="../../_images/SphericalParticleEmitterProperties2.png"><img alt="SphericalParticleEmitterProperties" src="../../_images/SphericalParticleEmitterProperties2.png" style="height: 3.0in;" /></a></p>
+<p><em>The SphericalParticleEmitter component</em></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The <code class="docutils literal"><span class="pre">SphericalParticleEmitter</span></code> component falls under the <strong>Particle Emitter</strong>
+category. A Particle Emitter component controls the creation of particles using
+specified characteristics, like</p>
+<ul class="simple">
+<li>the spawn location<ul>
+<li>in the case of a <code class="docutils literal"><span class="pre">SphericalParticleEmitter</span></code>, it&#8217;s a sphere around the
+emitter&#8217;s position</li>
+</ul>
+</li>
+<li>the number of particles to be spawned</li>
+<li>the size of the particles</li>
+<li>the particles&#8217; starting velocities</li>
+<li>the life span of the particles</li>
+</ul>
+<p>Let&#8217;s check the list of available components once more.</p>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Click on <em>Add Component...</em> and then enter: <code class="docutils literal"><span class="pre">Particle</span></code></li>
+</ul>
+<p><img alt="AddComponentParticle" src="../../_images/AddComponentParticle2.png" /></p>
+</li>
+</ul>
+<p></p>
+<p>We see, again, a list of additional particle-related components that we can add
+to this effect. Our focus turns now to the various <em>animators</em>.</p>
+<p><a class="reference internal" href="../../_images/ParticleComponentsNoAnimator2.png"><img alt="ParticleComponentsNoAnimator" src="../../_images/ParticleComponentsNoAnimator2.png" style="height: 3.0in;" /></a></p>
+<p>We&#8217;ll go with the <code class="docutils literal"><span class="pre">LinearParticleAnimator</span></code> for now.</p>
+</div>
+<div class="section" id="particle-animator">
+<h3>Particle Animator</h3>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent"><span>Add a LinearParticleAnimator component</span></a></p>
+<p><img alt="LinearParticleAnimatorProperties" src="../../_images/LinearParticleAnimatorProperties2.png" /></p>
+<p><em>The LinearParticleAnimator component</em></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The <code class="docutils literal"><span class="pre">LinearParticleAnimator</span></code> component falls under the <strong>Particle Animator</strong>
+category. A Particle Animator component modifies the system&#8217;s particles that
+already exist over the duration of their lifetimes. The
+<code class="docutils literal"><span class="pre">LinearParticleAnimator</span></code> does things like changing the particles&#8217; sizes and
+applying forces to them.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the SparkleParticles object</span></a></li>
+</ul>
+<p></p>
+<p>Particles are now being created in the Level Window:</p>
+<p>
+<img alt="ActiveParticlePreviewGif" src="../../_images/ActiveParticlePreview2.gif" />
+
+<!--
+<a class="reference internal" href="../../_images/ActiveParticlePreview2.png"><img alt="ActiveParticlePreviewPng" src="../../_images/ActiveParticlePreview2.png" style="height: 3.0in;" /></a>
+--></p>
+<p>Notice that the particles are colorless squares, and are being created with
+random initial velocities. This is because the <code class="docutils literal"><span class="pre">SpriteParticleSystem</span></code>
+component&#8217;s <strong>Texture</strong> property is set to the default texture, and the
+<code class="docutils literal"><span class="pre">SphericalParticleEmitter</span></code> component&#8217;s <strong>StartVelocity</strong> property is
+<code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code> and its <strong>RandomVelocity</strong> property is
+<code class="docutils literal"><span class="pre">[2,</span> <span class="pre">2,</span> <span class="pre">2]</span></code>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a></li>
+</ul>
+<p>Let&#8217;s change the sprite the particles are using.</p>
+</div>
+</div>
+<div class="section" id="import-particle-sprites">
+<h2>Import Particle Sprites</h2>
+<p>We&#8217;ll be using a handful of different sprites for our particles in this lesson.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="UsingTheVoid.html#usingthevoid"><span>Download the following files from the Void:</span></a></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Cloud.png</span></code></li>
+<li><code class="docutils literal"><span class="pre">FastSpark.png</span></code></li>
+<li><code class="docutils literal"><span class="pre">Fire.png</span></code></li>
+<li><code class="docutils literal"><span class="pre">Twinkle.png</span></code></li>
+</ul>
+</li>
+<li><p class="first">Select the SparkleParticles object</p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Under <code class="docutils literal"><span class="pre">SpriteParticleSystem</span></code></p>
+<ul class="simple">
+<li>Set Texture to: <code class="docutils literal"><span class="pre">Twinkle</span></code></li>
+<li>Set RenderMode to: <code class="docutils literal"><span class="pre">Additive</span></code></li>
+</ul>
+<p><img alt="SetRenderModeAndTexture" src="../../_images/SetRenderModeAndTexture2.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now let&#8217;s get rid of the velocity and make the particles spawn in a sphere shape
+using the SphericalParticleEmitter.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Make the <code class="docutils literal"><span class="pre">SphericalParticleEmitter</span></code> match these settings:</p>
+<ul class="simple">
+<li>Set SpinVariance to: <code class="docutils literal"><span class="pre">0</span></code></li>
+<li>Set RandomSpin to: <code class="docutils literal"><span class="pre">false</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+<li>Set EmitterSize to: <code class="docutils literal"><span class="pre">[5,</span> <span class="pre">5,</span> <span class="pre">5]</span></code></li>
+</ul>
+<p><img alt="SparkleParticlesEmitterSettings" src="../../_images/SparkleParticlesEmitterSettings2.png" /></p>
+</li>
+</ul>
+</div></blockquote>
+<p>The particle effect is now emitting particles in the shape of a sphere with a
+radius of <code class="docutils literal"><span class="pre">5</span></code> (hence the 5&#8217;s in the <strong>EmitterSize</strong> property). Let&#8217;s make it
+more obvious that it&#8217;s a sphere.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">500</span></code></li>
+</ul>
+</div></blockquote>
+<p>The <strong>EmitRate</strong> property controls how many particles are spawned per second, so
+particles should now be emitted more rapidly to fill the sphere before they die:</p>
+<p><a class="reference internal" href="../../_images/SparkleParticlesNoGrowth2.png"><img alt="SparkleParticlesNoGrowth" src="../../_images/SparkleParticlesNoGrowth2.png" style="height: 3.0in;" /></a></p>
+<blockquote>
+<div><ul class="simple">
+<li>Under LinearParticleAnimator<ul>
+<li>Set Growth to: <code class="docutils literal"><span class="pre">-1</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>The <strong>Growth</strong> property indicates how much each particle should change its size
+per second. Using a negative value for Growth causes the particles to shrink.</p>
+<p>Let&#8217;s move on from the SparkleParticles effect for now.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under SphericalParticleEmitter<ul>
+<li>Set Active to: <code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="particle-effect-properties">
+<h2>Particle Effect Properties</h2>
+<p>Here is a brief overview of the function of a few of the many properties of the
+constituent components of a particle effect.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Particle System (in this case, <code class="docutils literal"><span class="pre">SpriteParticleSystem</span></code>)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first"><strong>RenderMode</strong></p>
+<p><img alt="RenderModeB1" src="../../_images/RenderModeB12.png" /></p>
+<p class="last"><img alt="RenderModeB2" src="../../_images/RenderModeB22.png" /></p>
+</td>
+<td>Determines the way that the sprites blend with one another
+where they overlap. <strong>Generally,</strong> <code class="docutils literal"><span class="pre">Additive</span></code> <strong>should be
+used with sprites that have a black background.</strong></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>SystemSize</strong></td>
+<td>Defines the dimensions of an invisible box centered at the
+system&#8217;s Transform. If no part of this box can be &#8220;seen&#8221; by
+any active camera, then none of the system&#8217;s particles are
+drawn.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Particle Emitter (in this case, <code class="docutils literal"><span class="pre">SphericalParticleEmitter</span></code>)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>EmitCount</strong></td>
+<td>How many particles the emitter will spawn. If this property
+is set to <code class="docutils literal"><span class="pre">0</span></code>, then the emitter will spawn an <strong>infinite
+number of particles</strong>.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>EmitRate</strong></p>
+<p><img alt="EmitRateB1" src="../../_images/EmitRateB12.png" /></p>
+<p class="last"><img alt="EmitRateB2" src="../../_images/EmitRateB22.png" /></p>
+</td>
+<td>How many of the emitter&#8217;s particles will be spawned per
+second. To effectively spawn them all at once, set this
+property to its maximum value of <code class="docutils literal"><span class="pre">50000</span></code>.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Spin</strong></td>
+<td>The rotational speed in degrees per second of each particle
+spawned.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first">-<strong>Variance</strong></p>
+<p><img alt="SizeVarianceB1" src="../../_images/SizeVarianceB12.png" /></p>
+<p class="last"><img alt="SizeVarianceB2" src="../../_images/SizeVarianceB22.png" /></p>
+</td>
+<td>Each of the various <strong>Variance</strong> properties defines a range
+of random values that will additionally be applied to its
+corresponding invariant property. For instance, an emitter
+with a <strong>Spin</strong> of <code class="docutils literal"><span class="pre">90</span></code> and a <strong>SpinVariance</strong> of <code class="docutils literal"><span class="pre">30</span></code>
+will spawn particles with rotational speeds ranging from
+<code class="docutils literal"><span class="pre">60</span></code> to <code class="docutils literal"><span class="pre">120</span></code> degrees per second.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>RandomSpin</strong></td>
+<td>Whether or not the particles should be spawned with a
+random <strong>initial rotation</strong>.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>RandomVelocity</strong></p>
+<p><a class="reference internal" href="../../_images/RandomVelocityB12.png"><img alt="RandomVelocityB1" src="../../_images/RandomVelocityB12.png" style="height: 2.0in;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/RandomVelocityB22.png"><img alt="RandomVelocityB2" src="../../_images/RandomVelocityB22.png" style="height: 2.0in;" /></a></p>
+</td>
+<td>The random variance of the particles&#8217; starting velocities.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>EmitterSize</strong></p>
+<p><img alt="EmitterSizeB1" src="../../_images/EmitterSizeB12.png" /></p>
+<p class="last"><img alt="EmitterSizeB2" src="../../_images/EmitterSizeB22.png" /></p>
+</td>
+<td><p class="first">The dimensions of the volume within which the emitter may
+spawn particles.</p>
+<ul class="last simple">
+<li>In the case of a <code class="docutils literal"><span class="pre">SphericalParticleEmitter</span></code>, this
+determines the X, Y, and Z radii of the spheroid that is
+the emitter volume.<ul>
+<li>With a <code class="docutils literal"><span class="pre">SphericalParticleEmitter</span></code>, if one dimension
+of the <strong>EmitterSize</strong> is <code class="docutils literal"><span class="pre">0</span></code>, the emitter will be
+<strong>ring-shaped</strong>.</li>
+</ul>
+</li>
+<li>In any case, an <strong>EmitterSize</strong> of <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code> will
+result in an emitter whose particles all spawn at a
+single point, the emitter&#8217;s Transform.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td colspan="2">Linear Particle Animator</td>
+</tr>
+<tr class="row-even"><td><p class="first"><strong>Force</strong></p>
+<p><a class="reference internal" href="../../_images/ForceB12.png"><img alt="ForceB1" src="../../_images/ForceB12.png" style="height: 2.0in;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/ForceB22.png"><img alt="ForceB2" src="../../_images/ForceB22.png" style="height: 2.0in;" /></a></p>
+</td>
+<td>Determines a constant acceleration vector applied to each
+particle over its lifetime.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Growth</strong></td>
+<td>Indicates how much each particle should change its size per
+second. Using a <strong>negative value</strong> will cause the particle
+to <strong>shrink</strong> instead of grow.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="make-another-particle-effect">
+<h2>Make Another Particle Effect</h2>
+<p>We made the last particle effect from scratch for learning purposes. Now we&#8217;ll
+make another one, this time using the <strong>CreateParticleSystem</strong> command to make a
+basic particle effect that we can then modify to our liking.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or
+<span class="menuselection">Create ‣ Create Particle System</span></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the BasicParticleEffect object we just created</span></a></p>
+<p><img alt="BasicParticleEffectProperties" src="../../_images/BasicParticleEffectProperties2.png" /></p>
+<p><em>The starter particle effect comes with some basic components</em></p>
+<ul>
+<li><p class="first">Use the TranslateGizmo to move the BasicParticleEffect object up and down
+on the world Y axis (the green arrow):</p>
+<p><a class="reference internal" href="../../_images/WorldSpaceB12.png"><img alt="WorldSpaceB1" src="../../_images/WorldSpaceB12.png" style="height: 3.0in;" /></a> <a class="reference internal" href="../../_images/WorldSpaceB22.png"><img alt="WorldSpaceB2" src="../../_images/WorldSpaceB22.png" style="height: 3.0in;" /></a></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Observe how the particles do not move when you move their system. The position
+they are spawned in depends on the position of the emitter that spawned them,
+but after that, they&#8217;re on their own. <em>This is because they are using the World
+coordinate system.</em> We can make the particles follow their emitter by changing
+the <strong>SystemSpace</strong> property on the <code class="docutils literal"><span class="pre">SpriteParticleSystem</span></code> component.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under <code class="docutils literal"><span class="pre">SpriteParticleSystem</span></code><ul>
+<li>Set SystemSpace to: <code class="docutils literal"><span class="pre">LocalSpace</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>This will confine the system&#8217;s particles to the local coordinates of the
+BasicParticleEffect cog that spawned them.</p>
+<ul>
+<li><p class="first">Use the TranslateGizmo to move the BasicParticleEffect object again:</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/LocalSpaceB12.png"><img alt="LocalSpaceB1" src="../../_images/LocalSpaceB12.png" style="height: 3.0in;" /></a> <a class="reference internal" href="../../_images/LocalSpaceB22.png"><img alt="LocalSpaceB2" src="../../_images/LocalSpaceB22.png" style="height: 3.0in;" /></a></p>
+</div></blockquote>
+</li>
+</ul>
+<p>Now the particles remain locked in position relative to the BasicParticleEffect
+object, so that when it moves, they all move with it.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">Square</span></code></li>
+<li>Set RenderMode to: <code class="docutils literal"><span class="pre">Additive</span></code></li>
+</ul>
+</li>
+<li>Under SphericalParticleEmitter<ul>
+<li>Set Size to: <code class="docutils literal"><span class="pre">2</span></code></li>
+<li>Set SizeVariance to: <code class="docutils literal"><span class="pre">1.5</span></code></li>
+<li>Set SpinVariance to: <code class="docutils literal"><span class="pre">0</span></code></li>
+<li>Set RandomSpin to: <code class="docutils literal"><span class="pre">false</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[4,</span> <span class="pre">4,</span> <span class="pre">4]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="multiple-particle-animators">
+<h2>Multiple Particle Animators</h2>
+<p>Unlike with the Emitter and System category of particle effect components,
+multiple Particle Animator components <em>can</em> live on the same particle effect at
+the same time. Different animators affect their particles in different ways, and
+we can combine them to get cool effects.</p>
+<p>Notice how the BasicParticleEffect object already has two of them: the
+<code class="docutils literal"><span class="pre">LinearParticleAnimator</span></code> component, which we&#8217;ve seen before, and also the
+<code class="docutils literal"><span class="pre">ParticleColorAnimator</span></code> component.</p>
+<p></p>
+<div class="section" id="particlecoloranimator">
+<h3>ParticleColorAnimator</h3>
+<blockquote>
+<div><ul>
+<li><p class="first">Under the <strong>ParticleColorAnimator</strong> component</p>
+<p><img alt="ParticleColorAnimatorProperties" src="../../_images/ParticleColorAnimatorProperties2.png" /></p>
+</li>
+</ul>
+</div></blockquote>
+<p>The <strong>ParticleColorAnimator</strong> component will make each particle&#8217;s color change
+over its lifetime. Each particle will be created with a starting color of
+<code class="docutils literal"><span class="pre">Color0</span></code>, and then the color will <em>change over time</em>, or <strong>interpolate</strong>, to
+<code class="docutils literal"><span class="pre">Color1</span></code>, and then to <code class="docutils literal"><span class="pre">Color2</span></code>, and so on. Keep in mind that the particles&#8217;
+colors will be multiplied by the <strong>Tint</strong> property of the
+<code class="docutils literal"><span class="pre">SpriteParticleSystem</span></code> component to achieve the final color that is displayed,
+so they may not appear exactly as chosen.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Set Color0 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span>&nbsp;&nbsp; <span class="pre">0,</span> <span class="pre">B:</span>&nbsp;&nbsp; <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#FF0000</span></code></p>
+</li>
+<li><p class="first">Set Color1 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">212,</span> <span class="pre">B:</span>&nbsp;&nbsp; <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#FFD400</span></code></p>
+</li>
+<li><p class="first">Set Color2 to: <code class="docutils literal"><span class="pre">[R:</span>&nbsp;&nbsp; <span class="pre">0,</span> <span class="pre">G:</span> <span class="pre">192,</span> <span class="pre">B:</span>&nbsp; <span class="pre">96,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#00C060</span></code></p>
+</li>
+<li><p class="first">Set Color3 to: <code class="docutils literal"><span class="pre">[R:</span>&nbsp; <span class="pre">64,</span> <span class="pre">G:</span> <span class="pre">128,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#4080FF</span></code></p>
+</li>
+<li><p class="first">Set Color4 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span>&nbsp;&nbsp; <span class="pre">0,</span> <span class="pre">B:</span>&nbsp; <span class="pre">64,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#FF0040</span></code></p>
+<p><img alt="ColorAnimatorWithColors" src="../../_images/ColorAnimatorWithColors2.png" /></p>
+</li>
+</ul>
+</div></blockquote>
+<p>Notice how the BasicParticleEffect object&#8217;s particles are now changing from one
+color to the next over each particle&#8217;s lifetime.</p>
+<p></p>
+<p><!--
+<a class="reference internal" href="../../_images/FabulousParticles2.png"><img alt="FabulousParticlesPng" src="../../_images/FabulousParticles2.png" style="height: 3.0in;" /></a>
+--></p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">FabulousParticles</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a></li>
+</ul>
+<p>Now let&#8217;s add another animator.</p>
+</div>
+<div class="section" id="particleattractor">
+<h3>ParticleAttractor</h3>
+<p>The <strong>ParticleAttractor</strong> component is a Particle Animator that causes its
+particles to be pulled toward their cog&#8217;s center.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Click on <em>Add Component...</em> and then enter: <code class="docutils literal"><span class="pre">Particle</span></code></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent"><span>Add a ParticleAttractor component</span></a></li>
+</ul>
+</li>
+</ul>
+<p>The ParticleAttractor&#8217;s <strong>Strength</strong> property defines how strongly the particles
+are pulled toward the center. The <strong>MinDistance</strong> and <strong>MaxDistance</strong> properties
+define the bounds within which this pull is applied.</p>
+<p>When a particle is within the <strong>MinDistance</strong> from its center, it is pulled with
+100% of the ParticleAttractor&#8217;s Strength. A particle that moves past the
+MinDistance is pulled less and less as it goes. When a particle is beyond the
+<strong>MaxDistance</strong> from its center, it is not pulled at all. Refer to the following
+diagram:</p>
+<p><a class="reference internal" href="../../_images/ParticleAttractorDiagram3.png"><img alt="ParticleAttractorDiagram" src="../../_images/ParticleAttractorDiagram3.png" style="width: 3.0in;" /></a></p>
+<p>Here, the black spot in the middle is centered at the location of a particle
+effect. The radius of the black spot is the attractor&#8217;s <strong>MinDistance</strong>. Within
+that spot, a particle is pulled with full <strong>Strength</strong> toward the center. The
+white region outside of the largest circle represents the area where the
+attractor has no influence on its particles. The radius of the largest circle is
+the attractor&#8217;s <strong>MaxDistance</strong>. As a particle moves through the gray areas, it
+is pulled more or less, depending on whether it is moving toward or away from
+the center.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under SphericalParticleEmitter<ul>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[10,</span> <span class="pre">10,</span> <span class="pre">10]</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>With high-velocity particles, we&#8217;ll need a high-strength attractor.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under ParticleAttractor<ul>
+<li>Set Strength to: <code class="docutils literal"><span class="pre">20</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p><!--
+Now the attractor is strong enough to noticeably pull its particles back toward
+its center.
+--></p>
+<blockquote>
+<div><ul class="simple">
+<li>Under SpriteParticleSystem<ul>
+<li>Set SystemSpace to: <code class="docutils literal"><span class="pre">WorldSpace</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Use the TranslateGizmo to move the FabulousParticles object around</li>
+</ul>
+<p>Notice how, when the system&#8217;s SystemSpace property is set to <code class="docutils literal"><span class="pre">WorldSpace</span></code>, it
+is easy to &#8220;lose&#8221; some of the effect&#8217;s particles if you move it quickly enough.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under SpriteParticleSystem<ul>
+<li>Set SystemSpace back to: <code class="docutils literal"><span class="pre">LocalSpace</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Use the TranslateGizmo to move the FabulousParticles object around again</li>
+</ul>
+<p>When the SystemSpace is set to <code class="docutils literal"><span class="pre">LocalSpace</span></code>, nothing you can do through the
+Transform alone can cause the particles to escape.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a></li>
+</ul>
+<p>Next, we&#8217;ll learn how to build a fire.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under SphericalParticleEmitter<ul>
+<li>Set Active to: <code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="making-fire">
+<h2>Making Fire</h2>
+<p>Let&#8217;s take what we&#8217;ve learned so far and apply it. We&#8217;ll take what we know about
+the real-world phenomenon we&#8217;re trying to emulate and use it to make our effect
+look great.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or
+<span class="menuselection">Create ‣ Create Particle System</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the BasicParticleEffect object we just created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Fire</span></code></li>
+<li>Under SpriteParticleSystem</li>
+</ul>
+</li>
+</ul>
+<p>First of all, let&#8217;s use a cool image for each wisp of flame.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Texture to: <code class="docutils literal"><span class="pre">Fire</span></code></li>
+</ul>
+</div></blockquote>
+<p>This particular image has a black background that will not be visible if the
+RenderMode is set to <code class="docutils literal"><span class="pre">Additive</span></code>.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set RenderMode to: <code class="docutils literal"><span class="pre">Additive</span></code></li>
+</ul>
+</div></blockquote>
+<p>Next, we know that fire is orange.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Tint to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">128,</span> <span class="pre">G:</span> <span class="pre">102,</span> <span class="pre">B:</span>&nbsp; <span class="pre">25,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#806619</span></code></li>
+</ul>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/FirePostSystem2.png"><img alt="FirePostSystem" src="../../_images/FirePostSystem2.png" style="height: 3.0in;" /></a></p>
+<p>That&#8217;s it for the system&#8217;s properties. Let&#8217;s move on to the emitter.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under SphericalParticleEmitter</li>
+</ul>
+</div></blockquote>
+<div class="sidebar">
+<p class="first sidebar-title">Additive Magic</p>
+<p>You may be curious about how it is that the flame has several colors within
+it, even though we&#8217;ve only set a single color for the system&#8217;s Tint property,
+and we haven&#8217;t touched the effect&#8217;s ParticleColorAnimator component.</p>
+<p><a class="reference internal" href="../../_images/AdditiveFireColors2.png"><img alt="AdditiveFireColors" src="../../_images/AdditiveFireColors2.png" style="width: 3.325in;" /></a></p>
+<p>This is all thanks to the SpriteParticleSystem&#8217;s <strong>RenderMode</strong> property being
+set to <code class="docutils literal"><span class="pre">Additive</span></code>.</p>
+<p>When two additive sprites overlap, the color of the pixels you see is
+determined by adding the colors of the two sprites &#8212; the <code class="docutils literal"><span class="pre">R</span></code> value is the
+sum of the two overlapping <code class="docutils literal"><span class="pre">R</span></code> values, the <code class="docutils literal"><span class="pre">G</span></code> value is the sum of the two
+overlapping <code class="docutils literal"><span class="pre">G</span></code> values, and so on. But this addition gets capped off &#8212; a
+sprite&#8217;s color can&#8217;t have an <code class="docutils literal"><span class="pre">R</span></code>, <code class="docutils literal"><span class="pre">G</span></code>, or <code class="docutils literal"><span class="pre">B</span></code> value above 255.</p>
+<p class="last">This means that, when enough additive particles are grouped together, their
+colors add up to white <em>as long as their R, G, and B values are greater than
+zero.</em></p>
+</div>
+<p>Now, first off, it&#8217;s kind of hard to really see what we&#8217;re looking at, so let&#8217;s
+crank the EmitRate up pretty high.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">800</span></code></li>
+</ul>
+</div></blockquote>
+<p>This fire is exploding in all directions, but we want it to go mostly up.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set StartVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">4,</span> <span class="pre">0]</span></code></li>
+</ul>
+</div></blockquote>
+<p>A convincing flame generally has something of a teardrop shape, so we want to
+make the particles in our fire effect appear clustered at the base of the flame
+and taper upward from there. By making the Y-part of the RandomVelocity match
+the Y-part of the StartVelocity, we can ensure that the particles&#8217; upward speeds
+will range from zero to twice the Y-part of the StartVelocity. This will cause
+the bunching we want. Then, we can throw in a little bit of horizontal variance
+too, just to make the fire look a bit more chaotic.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[0.4,</span> <span class="pre">4,</span> <span class="pre">0.4]</span></code></li>
+</ul>
+</div></blockquote>
+<p>Let&#8217;s increase the chaos of the effect further by setting the SizeVariance to
+match the Size and the LifetimeVariance to match the Lifetime.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set SizeVariance to: <code class="docutils literal"><span class="pre">1</span></code></li>
+<li>Set LifetimeVariance to: <code class="docutils literal"><span class="pre">1</span></code></li>
+</ul>
+</div></blockquote>
+<p>Let&#8217;s put a little bit more of a twist on each particle by increasing the
+SpinVariance.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set SpinVariance to: <code class="docutils literal"><span class="pre">180</span></code></li>
+</ul>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/FirePostEmitter2.png"><img alt="FirePostEmitter" src="../../_images/FirePostEmitter2.png" style="height: 3.0in;" /></a></p>
+<p>Now we can really drive the effect home in the LinearParticleAnimator component.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under LinearParticleAnimator</li>
+</ul>
+</div></blockquote>
+<p>Flickers of flame shrink as they rise, so we should apply a negative Growth.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Growth to: <code class="docutils literal"><span class="pre">-2</span></code></li>
+</ul>
+</div></blockquote>
+<p>But as these flickers get further away from the source of the heat, they should
+also slow down a bit.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Dampening to: <code class="docutils literal"><span class="pre">1</span></code></li>
+</ul>
+</div></blockquote>
+<p>Finally, we can make the fire dance by giving it plenty of RandomForce.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set RandomForce to: <code class="docutils literal"><span class="pre">[10,</span> <span class="pre">10,</span> <span class="pre">10]</span></code></li>
+</ul>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/FirePostAnimator2.png"><img alt="FirePostAnimator" src="../../_images/FirePostAnimator2.png" style="height: 3.0in;" /></a></p>
+<p>One good particle effect deserves another.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[-6,</span> <span class="pre">-6,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><strong>Duplicate</strong> the object by pressing <code class="docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code></li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[6,</span> <span class="pre">-6,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Let&#8217;s turn on all of our effects and see how they all look together.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Multi-select the SparkleParticles, FabulousParticles, and both Fire
+objects</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under SphericalParticleEmitter<ul>
+<li>Set Active to: <code class="docutils literal"><span class="pre">true</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame"><span>run the game</span></a></li>
+</ul>
+<p><a class="reference internal" href="../../_images/SparklesFabulousFire2.png"><img alt="SparklesFabulousFire" src="../../_images/SparklesFabulousFire2.png" style="height: 4.0in;" /></a></p>
+<p>Finally, we&#8217;ll learn how to control the weather.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the game</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under SphericalParticleEmitter<ul>
+<li>Set Active to: <code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="weather-effects">
+<h2>Weather Effects</h2>
+<p>One common practical application of particle effects is simulation of weather.
+Let&#8217;s try a couple of weather effects now.</p>
+<div class="section" id="make-it-rain">
+<h3>Make it Rain</h3>
+<p>So far, the particle effects we&#8217;ve seen have all been tightly localized: our
+Sparkle effect has an emitter radius of 5, and our Fabulous particles all spawn
+in exactly the same point. But particles don&#8217;t necessarily have to be in a tight
+group like that. Particle effects can quite effectively simulate, say, rain,
+regardless of the overall size of the area being rained on.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or
+<span class="menuselection">Create ‣ Create Particle System</span></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the BasicParticleEffect object we just created</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Set Name to: <code class="docutils literal"><span class="pre">Rain</span></code></li>
+<li><a class="reference internal" href="AddComponent.html#removecomponent"><span>Remove the SphericalParticleEmitter component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#removecomponent"><span>Remove the ParticleColorAnimator component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent"><span>Add a BoxParticleEmitter component</span></a></li>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">Circle</span></code></li>
+<li>Set RenderMode to: <code class="docutils literal"><span class="pre">Additive</span></code></li>
+<li>Set Tint to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">0.4]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+<li>Set SystemSize to: <code class="docutils literal"><span class="pre">[50,</span> <span class="pre">50,</span> <span class="pre">4]</span></code></li>
+</ul>
+</li>
+<li>Under BoxParticleEmitter<ul>
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">2000</span></code></li>
+<li>Set Size to: <code class="docutils literal"><span class="pre">0.1</span></code></li>
+<li>Set SizeVariance to: <code class="docutils literal"><span class="pre">0.1</span></code></li>
+<li>Set Lifetime to: <code class="docutils literal"><span class="pre">0.6</span></code></li>
+<li>Set LifetimeVariance to: <code class="docutils literal"><span class="pre">0</span></code></li>
+<li>Set StartVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">-100,</span> <span class="pre">0]</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+<li>Set EmitterSize to: <code class="docutils literal"><span class="pre">[100,</span> <span class="pre">50,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">35,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+<p><img alt="RainBillboarded" src="../../_images/RainBillboarded2.png" /></p>
+</li>
+</ul>
+<div class="sidebar">
+<p class="first sidebar-title">GeometryMode: Beam</p>
+<p>Setting the SpriteParticleSystem&#8217;s <strong>GeometryMode</strong> property to <code class="docutils literal"><span class="pre">Beam</span></code>
+causes the particles to orient themselves automatically to the direction
+they&#8217;re moving in, and to stretch themselves in that direction as they go.</p>
+<ul class="last simple">
+<li>When using the <code class="docutils literal"><span class="pre">Beam</span></code> setting, you can alter the <strong>VelocityScale</strong>
+property to change how much of an effect each particle&#8217;s speed has on its
+length.</li>
+</ul>
+</div>
+<p>It looks alright, but raindrops tend to look better when they&#8217;re stretched a
+bit. We can accomplish this by changing the particle system&#8217;s <strong>GeometryMode</strong>
+property to <code class="docutils literal"><span class="pre">Beam</span></code>. (We also have a better sprite we can use for the
+particles, so we&#8217;ll make that switch too.)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under SpriteParticleSystem<ul>
+<li>Set GeometryMode to: <code class="docutils literal"><span class="pre">Beam</span></code></li>
+<li>Set VelocityScale to: <code class="docutils literal"><span class="pre">0.5</span></code></li>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">FastSpark</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>Observe how the raindrops are stretched in the direction they&#8217;re moving. We can
+even make it a bit windy by applying some horizontal velocity, and the drops
+will still be stretched correctly:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under BoxParticleEmitter<ul>
+<li>Set StartVelocity to: <code class="docutils literal"><span class="pre">[10,</span> <span class="pre">-100,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>We can make it even more blustery by adding some <strong>RandomForce</strong> to the effect:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under LinearParticleAnimator<ul>
+<li>Set RandomForce to: <code class="docutils literal"><span class="pre">[50,</span> <span class="pre">50,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+<p><img alt="RainBeam" src="../../_images/RainBeam2.png" /></p>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under BoxParticleEmitter<ul>
+<li>Set Active to: <code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="make-it-snow">
+<h3>Make it Snow</h3>
+<p>For our snow effect, let&#8217;s begin by duplicating our rain and modifying the copy.</p>
+<ul>
+<li><p class="first"><strong>Duplicate</strong> the object by pressing <code class="docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Set Name to: <code class="docutils literal"><span class="pre">Snow</span></code></li>
+<li>Under BoxParticleEmitter<ul>
+<li>Set Active to: <code class="docutils literal"><span class="pre">true</span></code></li>
+</ul>
+</li>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">Cloud</span></code></li>
+<li>Set Tint to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+<li>Set GeometryMode to: <code class="docutils literal"><span class="pre">Billboarded</span></code></li>
+</ul>
+</li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">15,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Under BoxParticleEmitter<ul>
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">200</span></code></li>
+<li>Set Size to: <code class="docutils literal"><span class="pre">0.2</span></code></li>
+<li>Set SizeVariance to: <code class="docutils literal"><span class="pre">0.2</span></code></li>
+<li>Set Lifetime to: <code class="docutils literal"><span class="pre">10</span></code></li>
+<li>Set StartVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">-5,</span> <span class="pre">0]</span></code></li>
+<li>Set EmitterSize to: <code class="docutils literal"><span class="pre">[100,</span> <span class="pre">10,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Under LinearParticleAnimator<ul>
+<li>Set RandomForce to: <code class="docutils literal"><span class="pre">[3,</span> <span class="pre">3,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/Snow2.png"><img alt="Snow" src="../../_images/Snow2.png" style="height: 3.0in;" /></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Under BoxParticleEmitter<ul>
+<li>Set Active to: <code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="clouds">
+<h3>Clouds</h3>
+<p>Let&#8217;s cap off our weather systems with a standard Redmond, Washington cloudy
+sky.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or
+<span class="menuselection">Create ‣ Create Particle System</span></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the BasicParticleEffect object we just created</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Set Name to: <code class="docutils literal"><span class="pre">Clouds</span></code></li>
+<li><a class="reference internal" href="AddComponent.html#removecomponent"><span>Remove the SphericalParticleEmitter component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent"><span>Add a BoxParticleEmitter component</span></a></li>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">Cloud</span></code></li>
+<li>Set Tint to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">224,</span> <span class="pre">G:</span> <span class="pre">224,</span> <span class="pre">B:</span> <span class="pre">224,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#E0E0E0</span></code></li>
+<li>Set SortMode to: <code class="docutils literal"><span class="pre">Sorted</span></code></li>
+<li>Set SystemSize to: <code class="docutils literal"><span class="pre">[50,</span> <span class="pre">50,</span> <span class="pre">4]</span></code></li>
+</ul>
+</li>
+<li>Under BoxParticleEmitter<ul>
+<li>Set Size to: <code class="docutils literal"><span class="pre">8</span></code></li>
+<li>Set SizeVariance to: <code class="docutils literal"><span class="pre">2</span></code></li>
+<li>Set Lifetime to: <code class="docutils literal"><span class="pre">20</span></code></li>
+<li>Set LifetimeVariance to: <code class="docutils literal"><span class="pre">10</span></code></li>
+<li>Set SpinVariance to: <code class="docutils literal"><span class="pre">0</span></code></li>
+<li>Set StartVelocity to: <code class="docutils literal"><span class="pre">[0.3,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[0.25,</span> <span class="pre">0.05,</span> <span class="pre">0.05]</span></code></li>
+<li>Set EmitterSize to: <code class="docutils literal"><span class="pre">[50,</span> <span class="pre">4,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Under Transform</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">10,</span> <span class="pre">0]</span></code></li>
+</ul>
+</div></blockquote>
+<p><img alt="Clouds" src="../../_images/Clouds2.png" /></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>Take note of how it takes several seconds for the sky to populate itself
+properly with clouds. We want the clouds to appear all at once, so we have to
+fix this problem. That&#8217;s where the SpriteParticleSystem component&#8217;s
+<strong>WarmUpTime</strong> property comes in: it &#8220;primes&#8221; the system by making it as if it
+had been already been running when it is first created.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the game</span></a></li>
+</ul>
+<p>Using a high value for WarmUpTime can be somewhat expensive, so it&#8217;s good
+practice to keep it as small as necessary to make its effect clear. In this
+case, with the way that we&#8217;ve created our cloud system, a WarmUpTime of about
+half the emitter&#8217;s <strong>Lifetime</strong> should do the trick.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under SpriteParticleSystem<ul>
+<li>Set WarmUpTime to: <code class="docutils literal"><span class="pre">10</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the LevelSettings object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under CameraViewport<ul>
+<li>Set Scaling to: <code class="docutils literal"><span class="pre">Letterbox</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Rain object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under BoxParticleEmitter<ul>
+<li>Set Active to: <code class="docutils literal"><span class="pre">true</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="RunTheGame.html#runthegame"><span>Run the game</span></a> and watch the Clouds and Rain effects
+together</li>
+</ul>
+<p><!--
+<a class="reference internal" href="../../_images/CloudsAndRain2.png"><img alt="CloudsAndRainPng" src="../../_images/CloudsAndRain2.png" style="width: 5.0in;" /></a>
+--></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the game</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under BoxParticleEmitter<ul>
+<li>Set Active to: <code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Snow object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under BoxParticleEmitter<ul>
+<li>Set Active to: <code class="docutils literal"><span class="pre">true</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="RunTheGame.html#runthegame"><span>Run the game</span></a> and watch the Clouds and Snow effects
+together</li>
+</ul>
+<p><!--
+<a class="reference internal" href="../../_images/CloudsAndSnow2.png"><img alt="CloudsAndSnowPng" src="../../_images/CloudsAndSnow2.png" style="width: 5.0in;" /></a>
+--></p>
+<p>Now we know the basics of particle effects and how to manipulate them through
+Particle Systems, Particle Emitters, and Particle Animators.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="UsingTheSweptController.html" class="btn btn-neutral float-right" title="Using the Swept Controller" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Levels.html" class="btn btn-neutral" title="Levels" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2016/ParticleEffects.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:52:11 GMT -->
+</html>

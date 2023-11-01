@@ -1,0 +1,557 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/GAM100/Hierarchies.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:09:41 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Hierarchies &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="GAM100" href="index.html"/>
+        <link rel="next" title="Resources" href="Resources.html"/>
+        <link rel="prev" title="Vector Math, part 1" href="VectorMath1.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">GAM100</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath1.html">Vector Math, part 1</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Hierarchies</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprite Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting4.html">Scripting 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HierarchiesInCode.html">Hierarchies in Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events3.html">Events 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events4.html">Events 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogPaths.html">Cog Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Spaces.html">Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath2.html">Vector Math, part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">GAM100</a> &raquo;</li>
+      
+    <li>Hierarchies</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/GAM100/Hierarchies.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="hierarchies">
+<span id="hierarchiesgam100"></span><h1>Hierarchies</h1>
+<p class="searchdescription">This lesson covers the basics of game object hierarchies.</p>
+<div class="section" id="learning-objectives">
+<span id="hierarchiesvocabgam100"></span><h2>Learning Objectives</h2>
+<ul class="simple">
+<li>Create and dismantle object hierarchies.</li>
+<li>Understand the relationship between the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a> of a child and parent.</li>
+<li>Understand how <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> interacts with  object hierarchies.</li>
+<li>See the effect of non-uniform scaling on parent and child objects.</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="47%" />
+<col width="29%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Game Object ( Cog )</td>
+<td>Parent</td>
+<td>Child</td>
+</tr>
+<tr class="row-odd"><td>Composite</td>
+<td>Collision</td>
+<td>Transform</td>
+</tr>
+<tr class="row-even"><td>Local</td>
+<td>World</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<ul class="simple">
+<li><a class="reference internal" href="LauncherNewProject.html#createnewprojectgam100"><span>Create a New 2D Project</span></a></li>
+</ul>
+<p>In Zero there is a concept that allows the user to combine objects into a single structure. There are different configurations to these <cite>combo objects</cite> that result in different behaviors, but they all follow a tree-based hierarchical structure. We call this act of <strong>attaching</strong> one object to another <strong>parenting</strong>. This allows us to view the relationship between the two object as a parent-child relationship. This is a useful metaphor, as just like in real life, in Zero, while a child&#8217;s behavior affects the parent, a parent still has much more power over the child. In order to explore this concept of <strong>composite objects</strong> further, we must first create one. There are a few ways to do this in Zero. Lets look at some.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commandsgam100"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the Sprite you created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set name to: <code class="docutils literal"><span class="pre">ParentSquare</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="Commands.html#commandsgam100"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the Sprite you created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set name to: <code class="docutils literal"><span class="pre">ChildSquare</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[5,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/NotParentSquares2.png"><img alt="NotParentSquares" src="../../_images/NotParentSquares2.png" style="width: 5.0in;" /></a></p>
+<div class="section" id="parenting-in-the-object-window">
+<h3>Parenting in the Object Window</h3>
+<p>One object can be attached to another quite easily in the object view.</p>
+<ul class="simple">
+<li>In the Object Window<ul>
+<li>Left Click and Drag the <code class="docutils literal"><span class="pre">ChildSquare</span></code> object onto the <code class="docutils literal"><span class="pre">ParentSquare</span></code> object to parent it to the <code class="docutils literal"><span class="pre">ParentSquare</span></code>.</li>
+</ul>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/ParentedSquares2.png"><img alt="ParentedSquares" src="../../_images/ParentedSquares2.png" style="width: 5.0in;" /></a></p>
+<p>You can see the <code class="docutils literal"><span class="pre">ParentSquare</span></code> object now has a little orange arrow point at it.</p>
+<p><img alt="ParentedObjectView" src="../../_images/ParentedObjectView2.png" /></p>
+<p>This means it has a child object.</p>
+<ul class="simple">
+<li>Click on the Orange arrow next to the <code class="docutils literal"><span class="pre">ParentSquare</span></code> object in the Object Window.</li>
+</ul>
+<p>The triangle should rotate to point down revealing the <code class="docutils literal"><span class="pre">ChildSquare</span></code> object underneath as a child object.</p>
+<p><img alt="ParentedObjectViewOpen" src="../../_images/ParentedObjectViewOpen2.png" /></p>
+<ul class="simple">
+<li>Click, hold, and drag the <code class="docutils literal"><span class="pre">ChildSquare</span></code> object to the left so your cursor is under the orange arrow next to the <code class="docutils literal"><span class="pre">ParentSquare</span></code> object.</li>
+</ul>
+<p><img alt="UnparentObjectView" src="../../_images/UnparentObjectView2.png" /></p>
+<p>This action of draging the child to the left edge of the Object Window detaches it from its parent object.</p>
+</div>
+<div class="section" id="the-parenting-tool">
+<h3>The Parenting Tool</h3>
+<p>One could also use the Parenting Tool in the Level Window if both objects can be seen in the scene.</p>
+<ul>
+<li><p class="first">In the Level Window</p>
+<ul>
+<li><p class="first">Press <code class="docutils literal"><span class="pre">0</span></code> to switch to the Parenting Tool</p>
+</li>
+<li><p class="first">Left Click + Drag from the ParentSquare to the ChildSquare.</p>
+<p><a class="reference internal" href="../../_images/ParentingTool2.png"><img alt="ParentingTool" src="../../_images/ParentingTool2.png" style="height: 2.0in;" /></a></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="transform-and-hierarchies">
+<h2>Transform and Hierarchies</h2>
+<p>Now that the hierarchy is created again, it can be pointed out that the visible position of the <code class="docutils literal"><span class="pre">ChildSquare</span></code> object has not changed. This is because the position of a child object relative to its new parent is maintained during the action of parenting.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the ParentSquare object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">5,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>It can now be seen that as a parent object moves, so will its child  objects move with it. This is the first time it should be obvious that a child object&#8217;s <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a> is relative to the Transform of its parent. The next step will demonstrate the relative relationship of <code class="docutils literal"><span class="pre">Rotation</span></code> between parent and child objects.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the ParentSquare object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Rotation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">45]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/ParentRotated2.png"><img alt="ParentRotated" src="../../_images/ParentRotated2.png" style="height: 3.0in;" /></a></p>
+<p>Notice that not only has the position of the <code class="docutils literal"><span class="pre">ChildSquare</span></code> object changed, it has also been rotated along with the <code class="docutils literal"><span class="pre">ParentSquare</span></code> object. This is somewhat the opposite of the example you saw at the end of the <span class="xref std std-ref">GameObject</span> lesson where the child was rotated. You may recall <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform’s</span></code></a> properties always affect the object in the order: Scale first, Rotation second, and Translation third. Because of this order of operations, and because the parent Transform is also applied to the child, both the <code class="docutils literal"><span class="pre">ChildSquare</span></code> object&#8217;s <code class="docutils literal"><span class="pre">Translation</span></code> and <code class="docutils literal"><span class="pre">Rotation</span></code> have had the <code class="docutils literal"><span class="pre">ParentSquare</span></code> object&#8217;s <code class="docutils literal"><span class="pre">Rotation</span></code> applied to it.</p>
+<p>Now there is still one property left on Transform which has not been used in this example: <code class="docutils literal"><span class="pre">Scale</span></code>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the ParentSquare object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Scale to: <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">1]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/ParentScaled2.png"><img alt="ParentScaled" src="../../_images/ParentScaled2.png" style="height: 3.0in;" /></a></p>
+<p>In this example the <code class="docutils literal"><span class="pre">ParentSquare</span></code> object has a <strong>non-uniform</strong> scale. In general this is usually a bad practice as it leads to unexpected behavior in both graphics and physics. However, for the sake of example you can see here that after changing the Y-Scale of the <code class="docutils literal"><span class="pre">ParentSquare</span></code> object, the rotated Y-Scale of the <code class="docutils literal"><span class="pre">ChildSquare</span></code> is affected as well.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the ChildSquare object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Scale to: <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">1]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/ParentAndChildScaled2.png"><img alt="ParentAndChildScaled" src="../../_images/ParentAndChildScaled2.png" style="height: 3.0in;" /></a></p>
+<p>Now we can see the scale of the parent affect the child. In this case, the Parent&#8217;s Y-Scale is <code class="docutils literal"><span class="pre">3</span></code> and the child&#8217;s is <code class="docutils literal"><span class="pre">2</span></code>. Because <code class="docutils literal"><span class="pre">Scale</span></code> is multiplicative, <code class="docutils literal"><span class="pre">2</span></code> can be multiplied by <code class="docutils literal"><span class="pre">3</span></code> to get the apparent Y-Scale (<code class="docutils literal"><span class="pre">6</span></code>) of the child.</p>
+</div>
+<div class="section" id="rigidbody-hierarchies">
+<h2>RigidBody &amp; Hierarchies</h2>
+<p>Another behavior of hierarchies is how they interact with RigidBodies. Set up the following example.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the ParentSquare object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+<li>Set Rotation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+<li>Set Scale to: <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add the RigidBody component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the ChildSquare object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Scale to: <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p>You should see both objects falling. Since the child must maintain its <code class="docutils literal"><span class="pre">Translation</span></code> relative to it&#8217;s parent, it moves with the parent as it falls.</p>
+<div class="sidebar">
+<p class="first sidebar-title">DynamicState</p>
+<p class="last">The <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> component allows the Physics engine to manipulate the Transform of an item to simulate physics. <code class="docutils literal"><span class="pre">DynamicState</span></code> tells the physics engine how it should treat the object in general. Looking at the default value of <code class="docutils literal"><span class="pre">DynamicState</span></code> first, <code class="docutils literal"><span class="pre">Dynamic</span></code> tells the physics engine that it should treat this object as normal. The second <code class="docutils literal"><span class="pre">DynamicState</span></code> option is <code class="docutils literal"><span class="pre">Kinematic</span></code> which is probably the trickiest. A <code class="docutils literal"><span class="pre">Kinematic</span></code> RigidBody has a mass of <code class="docutils literal"><span class="pre">0</span></code>. This results in it not being able to move using normal physics method such as velocity or forces. It also means that <code class="docutils literal"><span class="pre">Kinematic</span></code> objects will not be affected by collision; dynamic will still collide normally with them. <code class="docutils literal"><span class="pre">Kinematic</span></code> RigidBodies will be seen again when you implement your first platformer, but you do not need to worry about them until then. The last <code class="docutils literal"><span class="pre">DynamicState</span></code> option is <code class="docutils literal"><span class="pre">Static</span></code>. When a RigidBody is marked as <code class="docutils literal"><span class="pre">Static</span></code> it is telling the physics engine that the object will never move.</p>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the ParentSquare object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under RigidBody<ul>
+<li>Set <code class="docutils literal"><span class="pre">DynamicState</span></code> to: <code class="docutils literal"><span class="pre">Static</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p>Now when the game is run neither of the blocks will move.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the ChildSquare object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add the RigidBody component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p>You should see the <code class="docutils literal"><span class="pre">ChildSquare</span></code> object falling now that it has its own <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> component. Hierarchies that contain objects with Rigidbodies undergo a process when they are created called compositing. You have already seen this in action before the RigidBody was added to the child. A parent object will look through it&#8217;s children and <cite>composite</cite> all static objects so that they and the parent behave as one physical object. In this case the child is not static as it has its own <code class="docutils literal"><span class="pre">Dynamic</span></code> RigidBody.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the ChildSquare object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under RigidBody<ul>
+<li>Set <code class="docutils literal"><span class="pre">DynamicState</span></code> to: <code class="docutils literal"><span class="pre">Static</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p>You should now see both blocks remaining still. This is because the <code class="docutils literal"><span class="pre">DynamicState</span></code> of the child was changed to <code class="docutils literal"><span class="pre">Static</span></code>. Due to this change, the <code class="docutils literal"><span class="pre">ParentSquare</span></code> object does composite the <code class="docutils literal"><span class="pre">ChildSquare</span></code> object resulting in the maintained relative Transform.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="colliders-and-hierarchies">
+<h2>Colliders and Hierarchies</h2>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the ParentSquare object</span></a></li>
+</ul>
+<div class="sidebar">
+<p class="first sidebar-title">Colliders &amp; RigidBody</p>
+<p class="last">You may notice in this example that we attach a collider component to an object with no <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a>. In this case the physics engine treats it as if it had a <code class="docutils literal"><span class="pre">Static</span></code> Rigidbody even though it has none. In that case of an child object that has a collider but no <code class="docutils literal"><span class="pre">RigidBody</span></code> the child object will behave as if it also had a <code class="docutils literal"><span class="pre">RigidBody</span></code>, marked as <code class="docutils literal"><span class="pre">Static</span></code>.</p>
+</div>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under RigidBody<ul>
+<li>Set <code class="docutils literal"><span class="pre">DynamicState</span></code> to: <code class="docutils literal"><span class="pre">Dynamic</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add the BoxCollider component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="Commands.html#commandsgam100"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the Sprite you created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">-2,</span> <span class="pre">0]</span></code></li>
+<li>Set Scale to: <code class="docutils literal"><span class="pre">[2,</span> <span class="pre">1,</span> <span class="pre">1]</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add the BoxCollider component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p>You should now see both squares fall and stop when the parent collides with the new sprite.</p>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions</h2>
+<p>After this lesson you should feel comfortable creating object hierarchies. You should also understand how <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBodies</span></code></a> and Colliders interact with hierarchies. This is a complex subject and will be reiterated on throughout further lessons.</p>
+<div class="section" id="on-your-own">
+<h3>On Your Own</h3>
+<ul class="simple">
+<li>Create an object hierarchy that is more than 2 objects deep.</li>
+<li>Create an object hierarchy with more than 1 object on each level of the hierarchy.</li>
+<li>Experiment with different collider types.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Resources.html" class="btn btn-neutral float-right" title="Resources" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="VectorMath1.html" class="btn btn-neutral" title="Vector Math, part 1" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/GAM100/Hierarchies.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:09:44 GMT -->
+</html>

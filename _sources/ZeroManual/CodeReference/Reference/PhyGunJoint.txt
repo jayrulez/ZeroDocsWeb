@@ -1,0 +1,130 @@
+.. _ReferencePhyGunJoint:
+
+.. rst-class:: searchtitle
+
+PhyGunJoint
+===========
+
+.. rst-class:: searchdescription
+
+A Physics gun joint is just a tool for the editor. This acts as a weld between an object and the world.
+
+.. include:: Description/PhyGunJoint.rst
+
+.. cpp:class:: PhyGunJoint
+
+    Base Class: :cpp:type:`Joint`
+
+.. _ReferencePhyGunJointProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PhyGunJoint::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space PhyGunJoint::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PhyGunJoint::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession PhyGunJoint::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhyGunJoint::Active
+
+            Determines if this joint is currently active. Used for runtime enabling/disabling of joints.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhyGunJoint::SendsEvents
+
+            Determines if this joint will send any events. Used for a small efficiency boost and for reducing the number of events.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhyGunJoint::AutoSnaps
+
+            Determines if this joint will automatically delete itself if it reaches the max force value. This will still send an event if it snaps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhyGunJoint::CollideConnected
+
+            Determines if the two objects connected by this joint can collide. If any joint between this pair does not collide, then the pair does not collide. All joints have to be set to true in order to have the objects collide.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhyGunJoint::MaxForce
+
+            The maximum force that this joint can apply to correct itself.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PhyGunJoint::TargetPoint
+
+            The point in space that the object's point should match.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PhyGunJoint::LocalPoint
+
+            The body point on the object that should match the target point.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PhyGunJoint::WorldPoint
+
+            The world point on the object that should match the target point.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Quat PhyGunJoint::TargetRotation
+
+            The world space rotation that the basis of the object should match. Used to set the desired rotation of the object in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Quat PhyGunJoint::WorldRotation
+
+            Used to set the world rotation basis of the object that should be matched to the target rotation.
+
+.. _ReferencePhyGunJointMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhyGunJoint::DebugDraw()
+
+            Draws the debug info associated with this joint.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog PhyGunJoint::GetOtherObject(Cog cog)
+
+            If the passed in object is ObjectA, returns ObjectB. Prevents the user from having to write the if case all the time.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog PhyGunJoint::GetCog(uint index)
+
+            Returns the cog associated with an index. Index of 0 is ObjectA, index 1 is ObjectB. Used to write more streamline functions where you index into the objects in a loop.
+
+.. include:: Remarks/PhyGunJoint.rst

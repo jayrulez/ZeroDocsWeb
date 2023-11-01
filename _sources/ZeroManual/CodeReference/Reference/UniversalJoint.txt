@@ -1,0 +1,154 @@
+.. _ReferenceUniversalJoint:
+
+.. rst-class:: searchtitle
+
+UniversalJoint
+==============
+
+.. rst-class:: searchdescription
+
+A universal joint locks positional movement of two points together as well as locks rotation about 1 axis. This means it is a joint that constrains 4 axes and leaves 2 free rotational axes. This joint is most useful to model something like a arm or leg that has a nice range of rotational movement.
+
+.. include:: Description/UniversalJoint.rst
+
+.. cpp:class:: UniversalJoint
+
+    Base Class: :cpp:type:`Joint`
+
+.. _ReferenceUniversalJointProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog UniversalJoint::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space UniversalJoint::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog UniversalJoint::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession UniversalJoint::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool UniversalJoint::Active
+
+            Determines if this joint is currently active. Used for runtime enabling/disabling of joints.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool UniversalJoint::SendsEvents
+
+            Determines if this joint will send any events. Used for a small efficiency boost and for reducing the number of events.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool UniversalJoint::AutoSnaps
+
+            Determines if this joint will automatically delete itself if it reaches the max force value. This will still send an event if it snaps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool UniversalJoint::CollideConnected
+
+            Determines if the two objects connected by this joint can collide. If any joint between this pair does not collide, then the pair does not collide. All joints have to be set to true in order to have the objects collide.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real UniversalJoint::MaxForce
+
+            The maximum force that this joint can apply to correct itself.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 UniversalJoint::LocalPointA
+
+            The local point of the anchor on object A.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 UniversalJoint::LocalPointB
+
+            The local point of the anchor on object B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 UniversalJoint::WorldPointA
+
+            The position of the anchor on object A in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 UniversalJoint::WorldPointB
+
+            The position of the anchor on object B in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 UniversalJoint::LocalAxis0OfBodyA
+
+            One of the two axes in local space of object A that the objects are allowed to rotate about.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 UniversalJoint::LocalAxis1OfBodyA
+
+            One of the two axes in local space of object A that the objects are allowed to rotate about.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 UniversalJoint::LocalAxis0OfBodyB
+
+            One of the two axes in local space of object B that the objects are allowed to rotate about.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 UniversalJoint::LocalAxis1OfBodyB
+
+            One of the two axes in local space of object B that the objects are allowed to rotate about.
+
+.. _ReferenceUniversalJointMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void UniversalJoint::DebugDraw()
+
+            Draws the debug info associated with this joint.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog UniversalJoint::GetOtherObject(Cog cog)
+
+            If the passed in object is ObjectA, returns ObjectB. Prevents the user from having to write the if case all the time.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog UniversalJoint::GetCog(uint index)
+
+            Returns the cog associated with an index. Index of 0 is ObjectA, index 1 is ObjectB. Used to write more streamline functions where you index into the objects in a loop.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void UniversalJoint::SetWorldPointsVec3
+
+            Sets the position of the anchor on object A and B given a position in world space
+
+.. include:: Remarks/UniversalJoint.rst

@@ -1,0 +1,76 @@
+.. _ReferenceMotionBlur:
+
+.. rst-class:: searchtitle
+
+MotionBlur
+==========
+
+.. rst-class:: searchdescription
+
+A camera component that provides motion blur.
+
+.. include:: Description/MotionBlur.rst
+
+.. cpp:class:: MotionBlur
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceMotionBlurProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MotionBlur::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space MotionBlur::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MotionBlur::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession MotionBlur::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int MotionBlur::Samples
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real MotionBlur::Density
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool MotionBlur::RadialOnly
+
+            
+
+.. _ReferenceMotionBlurMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void MotionBlur::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/MotionBlur.rst

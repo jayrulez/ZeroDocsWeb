@@ -1,0 +1,61 @@
+.. _ReferencePreSolveEvent:
+
+.. rst-class:: searchtitle
+
+PreSolveEvent
+=============
+
+.. rst-class:: searchdescription
+
+Event sent out from collision groups with the PreSolve block type. This event is sent out after collision detection but before collision resolution. This can be used to slightly alter the state of the two objects in a collision before they're resolved(say turn one from static to dynamic). Warning: Do not delete objects or do any other significant changes as this may destabilize the system.
+
+.. include:: Description/PreSolveEvent.rst
+
+.. cpp:class:: PreSolveEvent
+
+    Base Class: :cpp:type:`BaseCollisionEvent`
+
+.. _ReferencePreSolveEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String PreSolveEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PreSolveEvent::Object
+
+            The object that this event was sent to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PreSolveEvent::OtherObject
+
+            The other object in this event. There were two objects A and B, we sent to A so this is B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint PreSolveEvent::ContactPointCount
+
+            Returns how many points of contact there are.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PreSolveEvent::IsGhost
+
+            Returns whether or not this was a ghost collision.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ContactPointRange PreSolveEvent::ContactPoints
+
+            Returns a range to iterate through all of the contact points.
+
+.. _ReferencePreSolveEventMethods:
+
+.. include:: Remarks/PreSolveEvent.rst

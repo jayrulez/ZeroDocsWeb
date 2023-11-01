@@ -1,0 +1,454 @@
+.. _TutorialsEvents2:
+
+.. rst-class:: SearchTitle
+
+Events 2
+========
+
+.. rst-class:: SearchDescription
+
+Events are used for many features in the engine beyond just running the update loop. While both **Time** & **Frame Based Movement** depend on update events, there are many other event types which can drive object behavior and even play character movement. 
+
+.. _TutorialsEvents2LearningObjectives:
+
+Learning Objectives
+-------------------
+
+*   Learn how to use the LogicUpdate event to make a player controller
+
+*   Learn how to use Keyboard events with the LogicUpdate event to make a more efficient player controller
+
+*   Learn how to use Mouse events with the LogicUpdate event to make an interpolating player controller
+
+.. rst-class:: VocabSection
+
++--------------------------------------------+
+| Vocabulary                                 |
++======================+=====================+
+| Nine-Slice Scaling   | Tiling              |
++----------------------+---------------------+
+
+
+Level Setup
+-----------
+
+*   :ref:`ManualCreateNewProject`
+
+*   :ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+*   :ref:`Select the Sprite you created<ManualSelectObject>`
+
+*   In the Properties window
+
+    *   Set Name to: ``Player``
+
+*   :ref:`Save the project <ManualSavingProject>`
+
+Adding the PlayerController ZilchScript
+---------------------------------------
+
+* :ref:`Add a new ZilchScript resource<ManualResourceAdding>` Named: ``PlayerController``
+* In the **PlayerController** script
+
+  * Update the **PlayerController** component with the following code:
+  
+.. code-block:: csharp
+
+  class PlayerController : ZilchComponent
+  {
+    // This function is called when the object is created
+    function Initialize(init : CogInitializer)
+    {
+      Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+  }
+
+*   :ref:`Save the project <ManualSavingProject>` 
+*   :ref:`Select the Player Object <ManualSelectObject>`
+*   In the Properties Window
+
+    *   :ref:`Add a PlayerController component <ManualAddComponent>`
+
+
+
+.. _TutorialsEvents2KeyboardInput:	
+	
+Keyboard Input
+--------------
+
+Now we will detect keyboard input in the ``OnLogicUpdate`` function. In the Zero Engine, we can use the ``Zero.Keyboard.KeyIsPressed`` function to detect user input. This function accepts a key id argument that is associated with specific keys on the keyboard.
+
+Let's detect if the Up arrow key is pressed:
+
+*   :ref:`Stop the Game <ManualStopGame>`
+*   Open the **PlayerController** script
+*   Update the **OnLogicUpdate** function with the following code:
+
+.. code-block:: csharp
+ :emphasize-lines: 3-8
+    
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    // If I press the up arrow key,
+    if (Zero.Keyboard.KeyIsPressed(Keys.Up))
+    {
+      // print confirmation it happened.
+      Console.WriteLine("Up Arrow Pressed");
+    }
+  }
+
+The Zero.Keyboard.KeyIsPressed function returns a **Boolean** value. This value can either be **true** or **false**; therefore, the function call can be used by the if statement as its boolean condition. 
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+Now when you pressed the Up arrow key on the keyboard, it should print "Up Arrow Pressed" in the Console Window.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+Frame-based Movement
+--------------------
+
+Up until now, we have been detecting input from the keyboard and printing to the Console Window. Now we are going to make our Player object move using code in our PlayerController script. We know from setting our properties in the editor that the **Transform** component is where our **Translation** (position) is held. Our Translation is stored as a 3D Vector. Now we will update the Translation vector inside the Transform component from within our PlayerController script.
+
+
+
+Let's make our Player move along the positive world y-axis when we press the Up arrow key:
+
+*   Open the **PlayerController** script
+
+*   Update the **OnLogicUpdate** function with the following line of code:
+
+.. code-block:: csharp
+ :emphasize-lines: 8,9
+    
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    // If I press the up arrow key,
+    if (Zero.Keyboard.KeyIsPressed(Keys.Up))
+    {
+      // print confirmation it happened.
+      Console.WriteLine("Up Arrow Pressed");
+      // Move up along world y-axis.
+      this.Owner.Transform.Translation +=  Real3(0.0, 1.0, 0.0);
+    }
+  }
+
+With this code, we are adding a 3D vector to our Transform's 3D translation vector. This should move our object in the positive direction along the world y-axis.
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+*   Press the Up arrow key repeatedly
+
+Now in addition to printing, the Player object should be moving by one unit in the positive direction along the world y-axis. We have been checking for the up arrow key being **pressed**. Let's check for if the up arrow key is being **held down**.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+*   Open the **PlayerController** script
+*   In the **OnLogicUpdate** function, change ``KeyIsPressed`` to ``KeyIsDown``:
+
+.. code-block:: csharp 
+    
+    // If I hold down the up arrow key,
+    if (Zero.Keyboard.KeyIsDown(Keys.Up))
+
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+*   Hold the up arrow key down
+
+
+The Player object continues moving as long as the Up arrow key is held down. 
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+
+
+Now let's add the logic that will allow the Player object to move in all four arrow directions.
+
+*   Open the **PlayerController** script
+
+*   change the **OnLogicUpdate** to the following code:
+
+.. code-block:: csharp
+ :emphasize-lines: 3-36
+    
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    // Have a place to record the total movement we want to make:
+    var movement =  Real3();
+    
+    // If I hold down the up arrow key,
+    if (Zero.Keyboard.KeyIsDown(Keys.Up))
+    {
+      // Record desired upward motion along the world y-axis:
+      movement +=  Real3(0.0, 1.0, 0.0);
+    }
+    // If I hold down the down arrow key,
+    if (Zero.Keyboard.KeyIsDown(Keys.Down))
+    {
+      // Record desired downward motion along the world y-axis:
+      movement +=  Real3(0.0, -1.0, 0.0);
+    }
+    // If I hold down the right arrow key,
+    if (Zero.Keyboard.KeyIsDown(Keys.Right))
+    {
+      // Record desired rightward motion along the world x-axis:
+      movement +=  Real3(1.0, 0.0, 0.0);
+    }
+    // If I hold down the left arrow key,
+    if (Zero.Keyboard.KeyIsDown(Keys.Left))
+    {
+      // Record desired leftward motion along the world x-axis:
+      movement +=  Real3(-1.0, 0.0, 0.0);
+    }
+    
+    // Apply the recorded movement to our Transform
+    this.Owner.Transform.Translation += movement;
+  }
+
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+Now you can move the player up, down, left, and right; however it is moving incredibly fast. This is because currently the player is being moved one unit each frame, and at sixty frames per second the block is moving too fast. 
+
+
+
+*   Update the **OnLogicUpdate** with the following code:
+
+.. code-block:: csharp
+ :emphasize-lines: 8
+ 
+    // If I hold down the left arrow key,
+    if (Zero.Keyboard.KeyIsDown(Keys.Left))
+    {
+      // Record desired leftward motion along the world x-axis:
+      movement +=  Real3(-1.0, 0.0, 0.0);
+    }
+    // Apply the recorded movement to our Transform
+    this.Owner.Transform.Translation += movement * event.Dt;
+  }
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+By multiplying our movement vector by Dt we can scale the speed to move the object at a time scale of units per second instead of units per frame. This is a far more practical way of moving objects and keeping them at a consistent timescale. If Dt is used consistently throughout the project it also makes it easy to do time sensitive effects such as slow motion.
+
+The only problem with the current setup is that the player is moving too slow. Multiplying the movement vector by ``event.Dt`` greatly decreases how far the Player moves along the x- and y-axes--a decrease that would be too much for most games. To fix this, while also adding the ability to change the speed of the Player at will, let's add a new speed variable with the Property attribute.
+
+*   Update the ``PlayerController`` with the following code:
+
+.. code-block:: csharp
+ :emphasize-lines: 3-5,41-42
+
+  class PlayerController : ZilchComponent
+  {
+    //Variable to set the speed of the Player
+    [Property]
+    var Speed : Real = 5.0;
+    
+    // This function is called when the object is created
+    function Initialize(init : CogInitializer)
+    {
+      Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+      // Have a place to record the total movement we want to make:
+      var movement =  Real3();
+      // If I hold down the up arrow key,
+      if (Zero.Keyboard.KeyIsDown(Keys.Up))
+      {
+        // Record desired upward motion along the world y-axis:
+        movement +=  Real3(0.0, 1.0, 0.0);
+      }
+      // If I hold down the down arrow key,
+      if (Zero.Keyboard.KeyIsDown(Keys.Down))
+      {
+        // Record desired downward motion along the world y-axis:
+        movement +=  Real3(0.0, -1.0, 0.0);
+      }
+      // If I hold down the right arrow key,
+      if (Zero.Keyboard.KeyIsDown(Keys.Right))
+      {
+        // Record desired rightward motion along the world x-axis:
+        movement +=  Real3(1.0, 0.0, 0.0);
+      }
+      // If I hold down the left arrow key,
+      if (Zero.Keyboard.KeyIsDown(Keys.Left))
+      {
+        // Record desired leftward motion along the world x-axis:
+        movement +=  Real3(-1.0, 0.0, 0.0);
+      }
+      // Apply the recorded movement to our Transform
+      this.Owner.Transform.Translation += movement * event.Dt * this.Speed;
+    }
+  }
+  
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+You should now be be moving at nice, smooth speed around the level. If you wish the change the speed, simply open the ``PlayerController`` Component on the Player object and change the ``Speed`` property to whatever value you wish.
+
+Using Keyboard Events
+---------------------
+
+As you now know, LogicUpdate gets called every frame. Since we're updating movement inside of ``OnLogicUpdate``, the PlayerController script is constantly checking to see if the four arrow keys are being pressed. This is not very efficient. What if there was a way to check what key has been pressed *only* when a key is pressed on the keyboard? Enter Keyboard Events.
+
+The two events we'll be using are ``KeyDown`` and ``KeyUp``. They both are dispatched onto Zero's Keyboard object, requiring a different syntax when connecting to the events--``Zero.Keyboard``--which will be demonstrated in the code block below. As the names suggests, ``KeyDown`` is dispatched when a key is pressed down while ``KeyUp`` is dispatched when a key that is being pressed down is released.
+
+In terms of the changes we need to make to our script, most of the logic stays exactly the same--it's just moved to different places, as we will now see.
+
+*   Update the ``PlayerController`` ZilchScript with the following code:
+
+.. code-block:: csharp
+ :emphasize-lines: 7-8,13-15,18-60
+
+
+  class PlayerController : ZilchComponent
+  {
+    //Variable to set the speed of the Player
+    [Property]
+    var Speed : Real = 5.0;
+  
+    //Variable to track the changes to the players movement
+    var Movement : Real3 = Real3();
+  
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        //Listen for the KeyDown and KeyUp events
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+        Zero.Connect(Zero.Keyboard, Events.KeyUp, this.OnKeyUp);
+    }
+  
+    //Response function called when a key is pressed down
+    function OnKeyDown(event : KeyboardEvent)
+    {
+      // If I hold down the up arrow key,
+      if (event.Key == Keys.Up)
+      {
+        // Record desired upward motion along the world y-axis:
+        this.Movement +=  Real3(0.0, 1.0, 0.0);
+      }
+      // If I hold down the down arrow key,
+      if (event.Key == Keys.Down)
+      {
+        // Record desired downward motion along the world y-axis:
+        this.Movement +=  Real3(0.0, -1.0, 0.0);
+      }
+      // If I hold down the right arrow key,
+      if (event.Key == Keys.Right)
+      {
+        // Record desired rightward motion along the world x-axis:
+        this.Movement +=  Real3(1.0, 0.0, 0.0);
+      }
+      // If I hold down the left arrow key,
+      if (event.Key == Keys.Left)
+      {
+        // Record desired leftward motion along the world x-axis:
+        this.Movement +=  Real3(-1.0, 0.0, 0.0);
+      }
+    }
+  
+    //Response function called when a key is released
+    //Used to set change Movement back to it's value before a key was pressed
+    function OnKeyUp(event : KeyboardEvent)
+    {
+      // If I hold down the up arrow key,
+      if (event.Key == Keys.Up)
+      {
+        // Record desired upward motion along the world y-axis:
+        this.Movement -=  Real3(0.0, 1.0, 0.0);
+      }
+      // If I hold down the down arrow key,
+      if (event.Key == Keys.Down)
+      {
+        // Record desired downward motion along the world y-axis:
+        this.Movement -=  Real3(0.0, -1.0, 0.0);
+      }
+      // If I hold down the right arrow key,
+      if (event.Key == Keys.Right)
+      {
+        // Record desired rightward motion along the world x-axis:
+        this.Movement -=  Real3(1.0, 0.0, 0.0);
+      }
+      // If I hold down the left arrow key,
+      if (event.Key == Keys.Left)
+      {
+        // Record desired leftward motion along the world x-axis:
+        this.Movement -=  Real3(-1.0, 0.0, 0.0);
+      }
+    }
+  
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+      // Apply the recorded movement to our Transform
+      this.Owner.Transform.Translation += this.Movement * event.Dt * this.Speed;
+    }
+  }
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+You now have an efficient, keyboard-controlled, event-based Player Controller script.
+
+So far, we've been making player controllers that only takes input from the keyboard. But what if you wanted to make a game where the player is controlled by the mouse? Let's see if we can make a smooth, working mouse-based player controller with just a few changes to our ``PlayerController`` component.
+
+Mouse Events
+------------
+
+As in the Keyboard Events section directly above, all we'll need to use is the MouseDown event. MouseDown is dispatched onto the :cpp:type:`space` when either the left or right mouse button is pressed.
+
+This time, the logic will change extensively, but instead of adding more, we'll be removing a significant portion of the script:
+
+*   Update the ``PlayerController`` script with the following code:
+ 
+.. code-block:: csharp
+ :emphasize-lines: 7-8, 13-15, 18-23, 25-29, 33-34
+ 
+  class PlayerController : ZilchComponent
+  {
+    //Variable to set the speed of the Player
+    [Property]
+    var Speed : Real = 5.0;
+  
+    //The position we want the player to move to
+    var TargetPosition  : Real3;
+  
+    function Initialize(init : CogInitializer)
+    {
+      Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      //Listen for the MouseDown event
+      Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
+    }
+    
+    function OnMouseDown(event : ViewportMouseEvent)
+    {
+      //Target position is set to the world-point in the level derived from the mouse's
+      //current position on the screen
+      this.TargetPosition = event.CameraViewport.ScreenToWorldZPlane(event.Position, 0.0);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+      // Move the player from its current position to the TargetPosition using linear interpolation
+      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, this.TargetPosition, event.Dt * this.Speed);
+    }
+  }
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+When you click anywhere on the level with the mouse, the player will move to that point. Let's break down what exactly is happening in the code to cause this behavior.
+
+The ``OnMouseDown()`` response function only has one line of code. It sets our new ``TargetPosition`` variable to the world-point in the level at the point where the mouse cursor was when it was clicked. Both MouseDown and MouseUp are :cpp:type:`ViewportMouseEvent``-type events, meaning that they send information about the mouse as it applies to the viewport (which, for the time being, you can just consider as the portion of the screen where the game is being played). The mouse's position on the viewport is passed into a function called ``ScreenToWorldPlaneZ``, which translates this position to a world-point (which of type :cpp:type:`Real3`) in the level that we can use. This is how we get the position we want the player to move to. 
+
+
+
+In ``OnLogicUpdate``, we're still updating the player's translation, but this time we are setting it equal to a value that we get through a function called ``Math.Lerp``. "Lerp" (short for "linear interpolation) is a math function that allows you to interpolate between two values (in our case, these values are the player's current translation and the value of ``TargetPosition``). 
+
+Interpolation is the act of getting a value at some percentage between a starting and target value. If we were to pass ``1.0`` into the last parameter of ``Lerp`` (the lerp percentage) the object would instantly jump to the target position. As we are calling ``Lerp`` in the ``OnLogicUpdate`` function, which runs the logic inside of it every frame, the object moves 100% of the distance between our two positions. Try it out for yourself by replacing ``event.Dt * this.Speed`` with ``1.0``.
+
+For our player controller, however, we don't want to move nearly that fast. So, in the code-block above, we multiply our desired speed (``this.Speed``) by ``event.Dt`` in order to account for the fact that the object is being updated every ``1/60th`` of a second. This allows us to scale ``this.Speed`` by the rate of time at which the game is being updated. In plain English, this means we are moving the object approximately 0.08% of the distance between the two points 60 times a second, which still gets us there pretty quickly. This results in a smooth movement at a given speed per second instead jumping positions each frame.
+
+And now you know how to implement a mouse-based, event-driven player controller.
+
+.. Written by: Jason Clark

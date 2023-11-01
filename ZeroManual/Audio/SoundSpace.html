@@ -1,0 +1,437 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Audio/SoundSpace.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:57:19 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SoundSpace &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Audio" href="index.html"/>
+        <link rel="next" title="SoundTag" href="SoundTags.html"/>
+        <link rel="prev" title="SoundListener" href="SoundListener.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Audio</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Sounds.html">Sounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundCue.html">SoundCue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundEmitterAndSimpleSound.html">SoundEmitter and SimpleSound</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundListener.html">SoundListener</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SoundSpace</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="SoundTags.html">SoundTag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundInstance.html">SoundInstance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="index.html">Audio</a> &raquo;</li>
+      
+    <li>SoundSpace</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/ZeroManual/Audio/SoundSpace.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="soundspace">
+<span id="manualsoundspace"></span><h1>SoundSpace</h1>
+<p class="searchdescription">The SoundSpace is one of the four default components of a Space. It is the only one of these default components that have no properties that can be set in the editor and can therefore only be accessed through a ZilchScript. Within a ZilchScript, the SoundSpace can be used to set many helpful properties and has a number of member functions that allow the user to play SoundCues and affect SoundTags without the use of the SoundEmitter and SimpleSound components.</p>
+<div class="section" id="common-uses">
+<h2>Common Uses</h2>
+<ul class="simple">
+<li>Playing <a class="reference internal" href="SoundCue.html#manualsoundcue"><span>SoundCues</span></a> at specific positions and across the entire level</li>
+<li>Directly setting Volume and Pitch for all the <a class="reference internal" href="SoundCue.html#manualsoundcue"><span>SoundCues</span></a> in a level</li>
+<li>Interpolating the Volume and Pitch for all the <a class="reference internal" href="SoundCue.html#manualsoundcue"><span>SoundCues</span></a> in a level</li>
+<li>Manipulating the properties (stopping, pausing, interpolating volume and pitch) of <a class="reference internal" href="SoundCue.html#manualsoundcue"><span>SoundCues</span></a> grouped under a <a class="reference internal" href="SoundTags.html#manualsoundtags"><span>SoundTag</span></a></li>
+<li>Creating <a class="reference internal" href="SoundInstance.html#manualsoundinstance"><span>SoundInstance</span></a> objects of individual plays of <a class="reference internal" href="SoundCue.html#manualsoundcue"><span>SoundCues</span></a></li>
+</ul>
+</div>
+<div class="section" id="using-the-soundspace">
+<h2>Using the SoundSpace</h2>
+<p>As mentioned above, the SoundSpace is only accessible through a ZilchScript. The following code-blocks will demonstrate the various properties and functions accessible through the SoundSpace.</p>
+<div class="section" id="soundspace-code-samples">
+<h3>SoundSpace Code Samples</h3>
+<div class="section" id="playing-a-soundcue-on-the-soundspace">
+<span id="playsoundcue"></span><h4>Playing a SoundCue on the SoundSpace</h4>
+<p>The following code-block illustrates how to play a SoundCue from the SoundSpace both non-positionally (using <code class="docutils literal"><span class="pre">PlayCue()</span></code>) and positionally (using <code class="docutils literal"><span class="pre">PlayCutAt()</span></code>).</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Create a variable with the Property attribute to set the SoundCue to use</span>
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">MySoundCue</span> <span class="p">:</span> <span class="n">SoundCue</span><span class="p">;</span>
+
+<span class="c1">//Create a variable with the Property attribute to set the position to play a specific SoundCue</span>
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">PosToPlayCue</span> <span class="p">:</span> <span class="n">Real3</span><span class="p">;</span>
+
+<span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">//Playing a SoundCue at the position of the Owner of the ZilchScript</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">PlayCue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">MySoundCue</span><span class="p">);</span>
+
+    <span class="c1">//Playing a SoundCue at a user-defined Position</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">PlayCueAt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">MySoundCue</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">PosToPlayCue</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="playing-a-soundcue-while-creating-a-soundinstance-resource">
+<span id="playsoundcuewithsoundinstance"></span><h4>Playing a SoundCue While Creating a SoundInstance Resource</h4>
+<p>The following code-block illustrates how using the two functions from the code-block immediately above this one (Playing a SoundCue) also creates a <a class="reference internal" href="SoundInstance.html#manualsoundinstance"><span>SoundInstance object</span></a>. SoundInstance objects are the exact instance of the SoundCue that is being played. In other words, it is the SoundCue as it is coming through one&#8217;s speakers or headphones at that moment. One very important thing to note is that during runtime, it is <strong>always</strong> preferable to alter the properties of the SoundInstance rather than the SoundCue. The SoundCue is a resource shared by potentially many SoundInstances, while a SoundInstance represents only itself</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Create a variable with the Property attribute to set the SoundCue to use</span>
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">MySoundCue</span> <span class="p">:</span> <span class="n">SoundCue</span><span class="p">;</span>
+
+<span class="c1">//Create a variable with the Property attribute to set the position to play a specific SoundCue</span>
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">PosToPlayCue</span> <span class="p">:</span> <span class="n">Real3</span><span class="p">;</span>
+
+<span class="c1">//Create a variable for the first SoundInstance object</span>
+<span class="kt">var</span> <span class="n">MySoundInstance1</span> <span class="p">:</span> <span class="n">SoundInstance</span><span class="p">;</span>
+
+<span class="c1">//Create a variable for the second SoundInstance object</span>
+<span class="kt">var</span> <span class="n">MySoundInstance2</span> <span class="p">:</span> <span class="n">SoundInstance</span><span class="p">;</span>
+
+<span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+
+    <span class="c1">//Playing a SoundCue while creating SoundInstance object for this particular</span>
+    <span class="c1">//instance of playing the SoundCue</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">MySoundInstance1</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">PlayCue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">MySoundCue</span><span class="p">);</span>
+
+    <span class="c1">//Playing a SoundCue at a user-defined Position while creating SoundInstance</span>
+    <span class="c1">//object for this particular instance of playing the SoundCue</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">MySoundInstance2</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">PlayCueAt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">MySoundCue</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">PosToPlayCue</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-the-volume-and-pitch-for-all-sounds-currently-playing-on-the-soundspace">
+<span id="setvolpitchwithwarning"></span><h4>Setting the Volume and Pitch for All Sounds Currently Playing on the SoundSpace</h4>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p>Changing Volume and Pitch in Multiple Places</p>
+<p>When changing the Volume and Pitch in the audio, one must be extremely careful that they are aware of what happens when multiple Volume or Pitch changes happen in separate parts of the Engine (e.g changing the Volume for the entire SoundSpace while also changing the Volume for a number of SoundInstances grouped by SoundTags).</p>
+<p>If the user changes the Volume in more than one place (and those changes will have an effect on the same instance of a SoundCue that is playing) the following rule applies:</p>
+<p>All of the different Volume values will be <em>multiplied</em> together to form a single, new Volume that will be used for that instance. For example, if the Volume on a SoundCue Resource is changed during runtime to <code class="docutils literal"><span class="pre">0.8</span></code>, while at the same time in another part of one&#8217;s code a SoundInstance object derived from that SoundCue has its Volume changed to <code class="docutils literal"><span class="pre">0.5</span></code>, the two Volume changes will be multiplied and the final Volume for the SoundInstance will be <code class="docutils literal"><span class="pre">0.4</span></code> (0.8 * 0.5  = 0.4). This is most likely not what the user will have intended.</p>
+<p>If the user changes the Pitch in more than one place (and those changes will have an effect on the same instance of a SoundCue that is playing) the following rule applies:</p>
+<p>All of the different Pitch values will be <em>added</em> together to form a single, new Pitch that will be used for that Instance. For example, if the Pitch on a the entire SoundSpace is changed during runtime to <code class="docutils literal"><span class="pre">1.2</span></code>, while at the same time in another part of one&#8217;s code a SoundInstance object has its Pitch changed to <code class="docutils literal"><span class="pre">-0.2</span></code>, the two Pitch changes will be added and the final Pitch for the SoundInstance will be <code class="docutils literal"><span class="pre">1.0</span></code> (1.2 + -0.2 = 1.0). Again, this is most likely not what the user will have intended.</p>
+<p class="last">So, in conclusion, it&#8217;s best not to change the Volume or Pitch (or Interpolate the Volume or Pitch) during runtime while any other changes are taking place. If there is a need for an identical sound to be played at a different Pitch or Volume, create another SoundInstance and modify that particular SoundInstance alone.</p>
+</div>
+<p>The following code-block illustrates how to set the Volume and Pitch for all sounds currently being played in the SoundSpace.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Directly set the Volume for the SoundCues to value of 0.8 (Range: [0.0, 1.0])</span>
+<span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Volume</span> <span class="p">=</span> <span class="m">0.8</span><span class="p">;</span>
+
+<span class="c1">//Volume can also be set using decibel levels (Range: [-32, 6])</span>
+<span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">VolumeDB</span> <span class="p">=</span> <span class="p">-</span><span class="m">2</span><span class="p">;</span>
+
+<span class="c1">//Directly set the Pitch for the SoundCues to value of 0.5 (Range: [-2.0, 2.0])</span>
+<span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Pitch</span> <span class="p">=</span> <span class="m">0.5</span><span class="p">;</span>
+
+<span class="c1">//Pitch can be changed using Semitones as well (Range: [-24, 24])</span>
+<span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">PitchSemitones</span> <span class="p">=</span> <span class="m">8</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="interpolating-the-volume-and-pitch-for-all-sounds-currently-playing-on-the-soundspace">
+<h4>Interpolating the Volume and Pitch for All Sounds Currently Playing on the SoundSpace</h4>
+<p>The following code-block illustrates how to interpolate the Volume and Pitch for all sounds currently playing in the SoundSpace. See the Caution notice directly above for more information on how to avoid problems with changing Volume and Pitch at the same time in different places.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">OnKeyDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">//Define a variable for interpolation time</span>
+    <span class="kt">var</span> <span class="n">timeToInterpolate</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">2.0</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">V</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Interpolate the Volume of all currently playing sounds over time to value of 0.8</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">InterpolateVolume</span><span class="p">(</span><span class="m">0.8</span><span class="p">,</span> <span class="n">timeToInterpolate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">D</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Interpolation of volume can also use decibel levels</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">InterpolateVolumeDB</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="n">timeToInterpolate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">P</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Interpolate the Pitch of all currently playing sounds over time to value of 0.5</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">InterpolatePitch</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span> <span class="n">timeToInterpolate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">S</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Pitch interpolation can also Semitones</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">InterpolatePitchSemitones</span><span class="p">(-</span><span class="m">2</span><span class="p">,</span> <span class="n">timeToInterpolate</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pausing-all-sounds-currently-playing-on-the-soundspace">
+<span id="pausesoundspacewithwarning"></span><h4>Pausing All Sounds Currently Playing on the SoundSpace</h4>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p><strong>Effects of Pausing in Multiple Locations</strong></p>
+<p class="last">Pausing the SoundSpace works independently of pausing a particular SoundInstance or a SoundTag group. That is, Pausing and Unpausing will have no effect on the Pausing and Unpausing functionality found on the SoundInstance and SoundTag (even though the function for pausing by SoundTag is found in the SoundSpace). For example, if a group of SoundInstances have been paused by SoundTag, setting the SoundSpace Pause property to false will not unpause those sounds. However, if the SoundSpace Pause property is set to true, all sounds will continue be paused whether or not they are individually paused (through SoundInstance) or paused by group (through SoundTags).</p>
+</div>
+<p>The following code-block illustrates how to pause all currently playing sounds on the SoundSpace.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Pauses all SoundCues</span>
+<span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Pause</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="properties-and-methods-of-soundspace">
+<h2>Properties and methods of SoundSpace</h2>
+<p><a class="reference internal" href="../CodeReference/Reference/SoundSpace.html#referencesoundspace"><span>SoundSpace Code Reference</span></a></p>
+</div>
+<div class="section" id="related-materials">
+<h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="SoundCue.html#manualsoundcue"><span>SoundCue</span></a></li>
+<li><a class="reference internal" href="SoundInstance.html#manualsoundinstance"><span>SoundInstance</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../Tutorials/Audio/Audio.html#tutorialaudio"><span>Using Audio</span></a></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><code class="xref cpp cpp-type docutils literal"><span class="pre">Boolean</span></code></li>
+<li><code class="xref cpp cpp-type docutils literal"><span class="pre">Real</span></code></li>
+<li><a class="reference internal" href="../CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a></li>
+<li><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundInstance</span></code></li>
+<li><code class="xref cpp cpp-type docutils literal"><span class="pre">Real3</span></code></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SoundTags.html" class="btn btn-neutral float-right" title="SoundTag" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SoundListener.html" class="btn btn-neutral" title="SoundListener" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Audio/SoundSpace.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:57:20 GMT -->
+</html>

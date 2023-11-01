@@ -1,0 +1,313 @@
+.. include:: BookFormattingShortcuts.rst 
+
+.. _AnimatedSpriteSheets2015:
+
+.. rst-class:: SearchTitle
+
+Animated Player
+===============
+
+.. rst-class:: SearchDescription
+
+This lesson explains how to use animated sprites by animating the player.
+
+Open Previous Project
+---------------------
+
+*Open the project created for the* :ref:`Using the Swept Controller<UsingTheSweptController2015>` *lesson*
+
+Using the Player Controller
+----------------------------
+
+Working with the Player Controller made in the :ref:`Using the Swept Controller <UsingTheSweptController2015>` lesson, we can easily implement animated sprites.  There is no generic animation stock script because every game's controls are different, so we will have to decide for ourselves how to trigger the animations.
+
+Import Animations
+-----------------
+
+First we will need to obtain three Animations:
+
+*   :download:`MonkeyWalk.png<images/platformer/MonkeyWalk.png>`
+
+*   :download:`MonkeyStand.png<images/platformer/MonkeyStand.png>`
+
+*   :download:`MonkeyJump.png<images/platformer/MonkeyJump.png>`
+
+
+* :menuselection:`Resources --> Add`
+  
+  * Browse to and select MonkeyWalk.png, MonkeyJump.png, and MonkeyStand.png
+
+|NoBookSingleLine| |CP0_MonkeyWalkImportWeb|
+
+*   In the Library Window
+    
+    *   ``Double-Click`` the SpriteSource tag
+    
+        *   ``Double-Click`` ``MonkeyWalk``
+
+When we ``Double-Click`` a SpriteSource it opens the sprite editor.
+
+|SpriteEditor|
+
+*   ``Click`` ``Convert To Animation``
+
+We can see that we have 8 frames of animations from the png strip, so we can adjust the properties accordingly:
+
+* Set the FramesPerRow to: 8
+
+|pbr|
+
+Notice now how our frame width and height do not match up with the PixelsPerUnit:
+
+|CP0_MismatchedPixelsPerUnit|
+
+*The FrameWidth and FrameHeight are recalculated when you change the FramesPerRow and NumberOfRows*
+
+If we leave the PixelsPerUnit the same, the image resolution will be at a 2:1 ratio with its size, meaning that the size of the monkey will be half as large as intended.  Instead, the PixelsPerUnit should be set to match the FrameWidth and FrameHeight.
+
+* Set PixelsPerUnit to: 32
+
+Now you can click on the "Add And Close" button to add the whole sprite sheet as an animation.
+
+|CP0_AddAndClose|
+
+*   Repeat importation process with the two remaining sprites
+
+|pbr|
+
+Now That we have all three sprites imported, you can set the default player sprite to the monkey standing sprite.
+
+* :ref:`Select the Player object <SelectObject2015>`
+
+  * Under Sprite
+  
+    * Set SpriteSource to: MonkeyWalk
+
+|CP0_MonkeyStandingOnPlatformWeb|
+
+|pbr|
+
+Animation Switching via Code
+----------------------------
+
+Now let's look at our current **Player Controller**:
+
+.. code-block:: as
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var movement = Real3(0.0, 0.0, 0.0);
+        
+        // control left, right, and up
+        if(Zero.Keyboard.KeyIsDown(Keys.Left))
+        {
+            movement.X -= 1.0;
+        }
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.Right))
+        {
+            movement.X += 1.0;
+        }
+        
+        if(Zero.Keyboard.KeyIsPressed(Keys.Up))
+        {
+            this.Owner.SweptController.Jump();
+        }
+        
+        // if the jump key is not pressed, find the point of release and stop jumping
+        if(Zero.Keyboard.KeyIsDown(Keys.Up) == false)
+        {
+            if(this.Owner.SweptController.Jumping)
+            {
+                this.Owner.SweptController.JumpCancel();
+            }
+        }
+        
+        // at the end, update
+        this.Owner.SweptController.Update(movement, event.Dt);
+    }
+
+|pbr|
+    
+The first thing we can do is have the monkey flip his horizontal direction based on what Keys are pressed.  We can do this by updating our left and right key checks.
+
+* Change the **PlayerController script's OnLogicUpdate** function's first two ``if`` cases to the following code:
+
+.. code-block:: as
+    :emphasize-lines: 4, 10
+
+    if(Zero.Keyboard.KeyIsDown(Keys.Left))
+    {
+        movement.X -= 1.0;
+        this.Owner.Sprite.FlipX = true;
+    }
+    
+    if(Zero.Keyboard.KeyIsDown(Keys.Right))
+    {
+        movement.X += 1.0;
+        this.Owner.Sprite.FlipX = false;
+    }
+
+* :ref:`Save your project <SavingProject2015>` and :ref:`run the game <RunTheGame2015>`  
+
+You walk left and right, but you are always walking, even when you are jumping or not moving at all. We can improve the animations by implementing the other two states for the monkey: standing and jumping.  To easily switch between sprite animations, we will make the following properties for the Player Controller.
+
+*   :ref:`Add a new ZilchScript resource<ResourceAdding2015>` named: 'PlayerAnimation'
+
+*   Implement the following properties in **PlayerAnimation**
+
+.. code-block:: as
+
+    [Property]
+    var PlayerStand : SpriteSource = null;
+    
+    [Property]
+    var PlayerWalk : SpriteSource = null;
+    
+    [Property]
+    var PlayerJump : SpriteSource = null;
+    
+This script will determine how each animation is triggered.  The logic behind each animation is not linear like some of our previous logic.  For this we will need a **finite state machine**.  **Finite state machines** rely on the state itself to determine when to change states and to which state it should change.  States are exclusive i.e. an object is only in one state at a time. 
+
+|pbr|
+
+We have three states currently, so let's create conditionals for each state in our OnLogicUpdate.
+
+* Change the **PlayerAnimation** script to the following code:
+
+.. code-block:: as
+  :emphasize-lines: 3,8-19
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        // standing state
+        if(this.Owner.Sprite.SpriteSource == this.PlayerStand)
+        {
+        }
+        // walking state
+        else if(this.Owner.Sprite.SpriteSource == this.PlayerWalk)
+        {
+        }
+        // jumping state
+        else if(this.Owner.Sprite.SpriteSource == this.PlayerJump)
+        {
+        }
+    }
+
+**Standing State**
+
+*   When the player presses left OR right, he is now Walking
+
+*   When the player presses up, he is now Jumping
+
+*   Change the first case in the state machine to the following code:
+
+.. code-block:: as
+
+    // standing state
+    if(this.Owner.Sprite.SpriteSource == this.PlayerStand)
+    {
+        if(Zero.Keyboard.KeyIsDown(Keys.Left) || Zero.Keyboard.KeyIsDown(Keys.Right))
+        {
+            this.Owner.Sprite.SpriteSource = this.PlayerWalk;
+        }
+        
+        if(Zero.Keyboard.KeyIsPressed(Keys.Up))
+        {
+            this.Owner.Sprite.SpriteSource = this.PlayerJump;
+        }
+    }
+
+|pbr|
+
+**Walking State**
+
+*   When left AND right are both not pressed, he is now Standing
+
+*   When the player presses up, he is now Jumping
+
+*   Change the second case in the state machine to the following code:
+
+.. code-block:: as
+
+    // walking state
+    else if(this.Owner.Sprite.SpriteSource == this.PlayerWalk)
+    {
+        if(Zero.Keyboard.KeyIsDown(Keys.Left) == false && Zero.Keyboard.KeyIsDown(Keys.Right) == false)
+        {
+            this.Owner.Sprite.SpriteSource = this.PlayerStand;
+        }
+        
+        if(Zero.Keyboard.KeyIsPressed(Keys.Up))
+        {
+            this.Owner.Sprite.SpriteSource = this.PlayerJump;
+        }
+    }
+
+**Jumping State**
+
+*   When the player touches the ground, he is now Standing
+
+*   Change the third case in the state machine to the following code:
+
+.. code-block:: as
+
+    // jumping state
+    else if(this.Owner.Sprite.SpriteSource == this.PlayerJump)
+    {
+        if(this.Owner.SweptController.Grounded)
+        {
+            this.Owner.Sprite.SpriteSource = this.PlayerStand;
+        }
+    }
+
+
+*   :ref:`Select the Player object <SelectObject2015>`
+*   In Properties Window
+
+    *   :ref:`Add a PlayerAnimation Component <AddComponent2015>`
+    
+    *   Under PlayerAnimation
+    
+        *   Set PlayerStand to: MonkeyStand
+        
+        *   Set PlayerWalk to: MonkeyWalk
+        
+        *   Set PlayerJump to: MonkeyJump
+        
+
+    |CP0_PlayerAnimation|        
+    
+* :ref:`Save your project <SavingProject2015>` and :ref:`run the game <RunTheGame2015>`    
+
+
+
+.. |CP0_MonkeyWalkImportWeb| image:: images/platformer/CP0_5.png
+
+.. |CP0_MonkeyWalkImportBook| image:: images/platformer/CP0_5.png
+    :height: 4.0in
+
+.. |CP0_MismatchedPixelsPerUnit| image:: images/platformer/CP0_6.png
+
+.. |CP0_AddAndClose| image:: images/platformer/CP0_7.png
+
+.. |CP0_MonkeyStandingOnPlatformBook| image:: images/platformer/CP0_8.png
+    :height: 2.25in
+
+.. |CP0_MonkeyStandingOnPlatformWeb| image:: images/platformer/CP0_8.png
+
+.. |CP0_PlayerAnimation| image:: images/platformer/CP0_9.png       
+
+.. |SpriteEditor| image:: images/AnimatedPlayer/SpriteEditor.png
+
+

@@ -1,0 +1,405 @@
+.. _AddingComponents2015:
+
+.. include:: BookFormattingShortcuts.rst
+
+.. rst-class:: SearchTitle
+
+Adding Components
+=================
+
+.. rst-class:: SearchDescription
+
+This lesson covers component-based design, including how to create a sprite, rigid bodies, collision, physics effects, and an overview of the LevelSettings object.
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2015`
+
+Level Setup
+-----------
+
+**Create a Sprite**
+
+*   :ref:`Command<Commands2015>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+        
+    |MICreateSprite| 
+
+This is what the Level should look like:
+
+|LWDefaultSprite|
+
+*   :ref:`Save the project <SavingProject2015>`  and :ref:`run the game <RunTheGame2015>`
+
+Nothing happens.
+
+*   :ref:`Stop the Game <StopGame2015>`
+*   In the Object Window
+
+    *   :ref:`Select the Sprite object <SelectObject2015>`
+
+    |OWDefaultSprite|
+
+    |pbr|
+    
+*   In the Properties Window
+
+    *   Set Name to: Player
+
+        |PWSetNamePlayer|
+
+    *   :ref:`Add the RigidBody component <AddComponent2015>`
+
+|PWAddRigidBodyPlayer|
+
+        |PWRigidBodyonPlayer|   
+
+*   :ref:`Save the project <SavingProject2015>`  and :ref:`run the game <RunTheGame2015>`
+
+The Player object is falling because its RigidBody component is affected by the default gravity in the level.
+
+|pbr|
+
+Components
+----------
+
+Components are bits of functionality that can be added to a game object. You can see 
+the three components on our Player in the Properties window: Transform, Sprite, and RigidBody. 
+
+* Transform gives our game object a position, rotation, and scale. 
+* Sprite, which requires a Transform, allows us to visualize our game object.
+* RigidBody allows our Transform's Translation (position) and Rotation to be altered by the Physics engine. 
+
+While these come with Zero, others we'll create ourself by coding in Zilch.
+By using components to create our game objects we can easily reuse our code to make new and different items. 
+This set-up can aid you in rapid prototyping when making your own games. 
+
+Lets imagine we are making Bats, Wolves, and Birds. You could create 3 components:
+
+* BatLogic
+* WolfLogic 
+* BirdLogic
+
+|BadComponentsExample| 
+
+While making them you find they have some things in common. Rather than copying and pasting (which becomes messy fast), we can use the 
+component-based engine to our advantage and rearrange our logic. By making smaller components of functionality, we can
+factor out the code into common components making it easier to share between them, for instance:
+
+|NoBookSingleLine| |VennWeb|
+
+|NoBookSingleLine| *The components in gray are built-in to the Zero Engine*
+
+|NoWebBegin|
+|VennBook|
+
+*The components in white are built-in to the Zero Engine*
+|NoWebEnd|
+
+
+
+|ComponentExample| 
+
+*Noticing shared functionality allows us to restructure our code*
+
+By having these things separated you can more easily prototype and create new game objects. 
+
+
+For instance, in our example you later decide to create a flying healthpack. By utilizing the components you already 
+made, Flying and ChangeOtherHealth, most of the work is done.
+
+|FlyingPowerup|
+
+*Something we* **can't** *make with BatLogic, WolfLogic or BirdLogic components*
+
+Components are meant to be generic (when plausible), in order to allow for reuse. In many ways, components can be 
+made more generic by adding Properties to components. 
+
+In our example, we could make our DropLoot component more generic by having a Property represent which loot is dropped. With this new property our component could allow our Bat to drop health, while the Wolf drops a power-up, etc.
+
+|pbr|
+
+Let's explore a Property on the RigidBody component.
+
+*   :ref:`Stop the Game <StopGame2015>`
+*   :ref:`Select the Player object <SelectObject2015>`
+*   In the Properties Window
+
+    *   Under RigidBody
+
+        *   Set Velocity to: [5, 0, 0]
+
+This is the initial velocity that the object will have when the level starts.
+
+*   :ref:`Save the project <SavingProject2015>` and :ref:`run the game <RunTheGame2015>`
+
+Zero Engine has a lot of built-in components; next we'll explore the Physics effects.
+
+Physics Effects
+---------------
+
+A PhysicsEffect is a component that applies some sort of a force to an object. A PhysicsEffect can be attached in a variety of ways. This effect will then perform its action every frame according to the rules of the object it is attached to.
+
+*   :ref:`Stop the Game <StopGame2015>`
+*   In the Objects Window
+
+    *   :ref:`Select the LevelSettings object <SelectObject2015>`
+
+        |OWSelectLevelSettings|
+
+The LevelSettings Object
+------------------------
+
+The LevelSettings object is a special object that influences the behavior of the objects in a level. It has GravityEffect and DragEffect components by default. The DragEffect and the GravityEffect both fall under the **PhysicsEffect** category.
+
+|PWLevelSettingsPhysicsEffects|
+
+|pbr|
+
+DragEffect
+----------
+
+A drag effect will apply drag to an object to slow it down based upon its mass and inertia.
+
+*   In the Properties Window
+
+    *   Under DragEffect
+
+        *   ``Left-Click`` (and hold) on the  |RadialSliderButton| symbol next to the Drag property
+        *   This brings up the radial slider numerical editing interface
+        *   Drag the mouse in a circle around the slider to edit the numerical value
+
+            *   Set the Drag to: 0
+
+            |PWLevelSettingsDragZero|
+
+*   :ref:`Run the Game <RunTheGame2015>`
+
+Notice how the Player object falls faster now. This is because the drag is no longer slowing down objects (similar to how air-resistance would affect objects).
+
+*   :ref:`Stop the Game <StopGame2015>`
+*   :ref:`Select the LevelSettings object <SelectObject2015>`
+*   In the Properties Window
+
+    *   Under DragEffect
+
+        *   Set Drag to: 10
+
+*   :ref:`Run the Game <RunTheGame2015>`
+
+Notice how the Player object falls slower now as a result of the increase in drag. Let's set it back to what its original value was.
+
+*   :ref:`Stop the Game <StopGame2015>`
+
+|pbr|
+
+*   :ref:`Select the LevelSettings object <SelectObject2015>`
+*   In the Properties Window
+
+    *   Under DragEffect
+
+        *   Set Drag to: 0.7
+
+*   :ref:`Save the project <SavingProject2015>` 
+
+GravityEffect
+-------------
+
+In real-world physics, we calculate a force with the equation: **Force = Mass * Acceleration**. A gravity effect will apply a mass-less force to an object. This means that the object's mass is ignored (treated as 1.0 in the equation).
+
+*   :ref:`Select the LevelSettings object <SelectObject2015>`
+*   In the Properties Window
+
+    *   Under GravityEffect
+
+        *   Set Direction to: [0, 0, 0]
+
+            |PWLevelSettingsGravityDirectionless|
+
+*   :ref:`Save the project <SavingProject2015>` 
+*   :ref:`Run the game <RunTheGame2015>`
+
+Notice that the Player object does not fall but the initial velocity set on the RigidBody component is still applied.
+
+*   :ref:`Stop the Game <StopGame2015>`
+
+|pbr|
+
+*   :ref:`Select the LevelSettings object <SelectObject2015>`
+*   In the Properties Window
+
+    *   Under GravityEffect
+
+        *   Set Direction to: [0, -1, 0]
+        *   Set Strength to: 30
+
+The Strength property is the magnitude of the gravitation force.
+
+RigidBodies and Colliders
+-------------------------
+
+A RigidBody by itself is a moving point cloud that cannot collide with anything. Dealing with the physics of an object, RigidBody defines the linear and angular velocity of an object as well as its force and torque (rotation force). It also works in conjunction with the associated Collider of the object to determine material density and the volume when doing mass-based calculation such as the inertia of the object. Basically, the RigidBody component deals with movement of the object. 
+
+*   :ref:`Select the Player object <SelectObject2015>`
+*   In the Tools Window
+
+    *   Select the TranslateTool from the drop down selection
+    *   Set Snapping to: True
+
+        |TWTranslateSnapping|
+
+*   Hold the ``Ctrl`` key on the keyboard and then drag the Player object downward along the y-axis until its Translation is [0, -5, 0]
+
+Holding the ``Ctrl`` key, and then dragging an object with the TranslateTool will create a copy of the selected object.
+
+*   :ref:`Select the newly created object <SelectObject2015>` (copied from the Player object)
+
+|pbr|
+
+*   In the Properties Window
+
+    *   Set Name to: Ground
+
+        |PWGround|
+
+    *   Under Transform
+        
+        *   Set Scale to: [8, 1, 1]
+    
+    *   Under RigidBody
+
+        *   Set DynamicState to: Static
+
+Static objects cannot be moved by collisions, forces or velocity changes.
+
+Here is how the level should look:
+
+|NoBookSingleLine| |LWPlayerAndGroundWeb|
+
+|NoWebBegin|
+|LWPlayerAndGroundBook|
+|NoWebEnd|
+
+*   :ref:`Save the project <SavingProject2015>`  and :ref:`run the game <RunTheGame2015>`
+
+The Player object falls through the Ground object.
+
+|pbr|
+
+Collision Between Objects
+-------------------------
+
+In order to make collisions work, we need to add the Collider. The RigidBody component alone cannot determine the edges of the shape, so the movement works as if all your objects are ghosts. Once you 
+add a collider it can determine when collisions happen and have things push back. Let's see it in action.
+
+
+*   :ref:`Stop the Game <StopGame2015>`
+*   :ref:`Select the Ground object <SelectObject2015>`
+*   In the Properties Window
+
+    *   :ref:`Add the BoxCollider component <AddComponent2015>`
+
+        |PWGroundAddBoxCollider|
+
+*   :ref:`Select the Player object <SelectObject2015>`
+
+*   In the Properties Window
+
+    *   :ref:`Add the BoxCollider component <AddComponent2015>`
+
+        |PWPlayerAddBoxCollider|
+
+*   :ref:`Save the project <SavingProject2015>` and :ref:`run the game <RunTheGame2015>`
+
+|pbr|
+
+The Player object should fall and land on the Ground object as shown:
+
+|NoBookSingleLine| |LWCollisionWeb|
+
+|NoWebBegin|
+|LWCollisionBook|
+|NoWebEnd|
+
+.. Warning:: 
+
+    Physics will not check for collisions between two Static objects.
+    
+    Static Objects include:
+    
+    *   Objects that have a Collider, but *do not possess a RigidBody.*
+    *   Objects with a RigidBody that has  its DynamicState set to Static.
+    
+    **Moving Colliders that don't have RigidBodies during run-time will cause performance to drop drastically.**
+
+    Therefore, avoid moving Colliders that don't have RigidBodies; if you must, use a RigidBody with its DynamicState set to Static. By using a Rigidbody marked Static, you greatly increase performance and retain the option to change it to Dynamic or Kinematic, should you later need collision with other Static objects.
+ 
+IgnoreSpaceEffects
+------------------
+
+Every once in a while there is an object you want to be an exception to the rule, e.g. implementing anti-gravity boots. A quick way to make an exception to the applied physics effects is to add the IgnoreSpaceEffects component. Let's try it out.
+
+
+*   :ref:`Select the Player object <SelectObject2015>`
+*   In the Level Window
+
+    *   Press ``2`` to select the TranslateTool 
+    *   Hold the ``Ctrl`` key on the keyboard and then drag the Player object upward along the y-axis until its Translation is [0, 1.5, 0]
+*   :ref:`Select the newly created object <SelectObject2015>` (copied from the Player object)
+
+|pbr|
+
+*   In the Properties Window
+
+    *   Set Name to: Player2
+    *   :ref:`Add the IgnoreSpaceEffects component <AddComponent2015>`
+    *   Under IgnoreSpaceEffects
+    
+        *   Set IgnoreDrag to: True
+        *   Set IgnoreGravity to: True
+    
+|PWPlayer2| 
+        
+*   :ref:`Save the project <SavingProject2015>`  and :ref:`run the game <RunTheGame2015>`
+
+ |LWIgnoreSpaceEffects|  
+
+The now you can see our Player2 is unaffected by the LevelSettings' effects. 
+
+Now you have the basic concept behind component-based design, learned to create a Sprite with a Rigidbody and Collider, found out where default physics effects came from and how to ignore them while looking into the LevelSettings object. 
+ 
+    
+
+.. |MICreateSprite|                       image:: images/Components/MICreateSprite.png
+.. |OWDefaultSprite|                      image:: images/Components/OWDefaultSprite.png
+.. |PWLevelSettingsPhysicsEffects|        image:: images/Components/PWLevelSettingsPhysicsEffects.png
+.. |PWGroundAddBoxCollider|               image:: images/Components/PWGroundAddBoxCollider.png
+.. |TWTranslateSnapping|                  image:: images/Components/TWTranslateSnapping.png
+.. |PWRigidBodyonPlayer|                  image:: images/Components/PWRigidBodyonPlayer.png
+.. |PWLevelSettingsGravityDirectionless|  image:: images/Components/PWLevelSettingsGravityDirectionless.png
+.. |PWPlayerAddBoxCollider|               image:: images/Components/PWPlayerAddBoxCollider.png
+.. |PWLevelSettingsDragZero|              image:: images/Components/PWLevelSettingsDragZero.png
+.. |LWCollisionWeb|                       image:: images/Components/LWCollision.png
+.. |LWCollisionBook|                      image:: images/Components/LWCollision.png
+    :height: 3.0in
+
+.. |PWGround|                             image:: images/Components/PWGround.png
+.. |PWSetNamePlayer|                      image:: images/Components/PWSetNamePlayer.png
+.. |LWDefaultSprite|                      image:: images/Components/LWDefaultSprite.PNG
+.. |OWSelectLevelSettings|                image:: images/Components/OWSelectLevelSettings.png
+.. |RadialSliderButton|                   image:: images/Components/RadialSliderButton.png
+.. |PWAddRigidBodyPlayer|                 image:: images/Components/PWAddRigidBodyPlayer.png
+.. |LWPlayerAndGroundWeb|                 image:: images/Components/LWPlayerAndGround.png
+.. |LWPlayerAndGroundBook|                image:: images/Components/LWPlayerAndGround.png
+    :height: 4.0in
+
+.. |BadComponentsExample|                 image:: images/Components/BadComponentExample.png
+.. |ComponentExample|                     image:: images/Components/ComponentExample.png
+.. |FlyingPowerup|                        image:: images/Components/FlyingPowerup.png
+.. |VennWeb|                              image:: images/Components/VennWeb.png
+.. |VennBook|                             image:: images/Components/Venn.png
+    :height: 3.0in
+    
+.. |PWPlayer2|                            image:: images/Components/PWPlayer2.png    
+.. |LWIgnoreSpaceEffects|                 image:: images/Components/LWIgnoreSpaceEffects.png
+

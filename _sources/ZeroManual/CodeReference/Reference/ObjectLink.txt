@@ -1,0 +1,106 @@
+.. _ReferenceObjectLink:
+
+.. rst-class:: searchtitle
+
+ObjectLink
+==========
+
+.. rst-class:: searchdescription
+
+Forms a link between two positions on two objects. ObjectLinks are used primarily by physics to represent joints, but can also be used by graphics, gameplay, etc... to represent some connection between two objects.
+
+.. include:: Description/ObjectLink.rst
+
+.. cpp:class:: ObjectLink
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceObjectLinkProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ObjectLink::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space ObjectLink::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ObjectLink::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession ObjectLink::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CogPath ObjectLink::ObjectAPath
+
+            CogPath to object A.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CogPath ObjectLink::ObjectBPath
+
+            CogPath to object B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ObjectLink::ObjectA
+
+            The first object that is being connected to. Set this to null to clear the link.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ObjectLink::ObjectB
+
+            The second object that is being connected to. Set this to null to clear the link.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ObjectLink::WorldPointA
+
+            The point on object A in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ObjectLink::WorldPointB
+
+            The point on object B in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ObjectLink::LocalPointA
+
+            The Point on Object A in local space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ObjectLink::LocalPointB
+
+            The Point on Object B in local space.
+
+.. _ReferenceObjectLinkMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ObjectLink::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/ObjectLink.rst

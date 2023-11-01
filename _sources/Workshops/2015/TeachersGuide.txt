@@ -1,0 +1,132 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _VG12015TeachersGuide:
+
+.. rst-class:: SearchTitle
+
+Teacher's Guide
+===============
+
+.. rst-class:: SearchDescription
+
+The Teacher's Guide for ProjectFUN 2015.
+
+.. Warning:: This Page is Outdated
+
+	This page is from Project Fun Workshops in Summer 2015. Information here may no longer be up to date. This page will remain on the site for legacy purposes
+
+Installation Instructions
+-------------------------
+
+-Zero Engine:
+-`Download the latest installer of Zero Engine for ProjectFUN <http://zero.digipen.edu/Builds/ZeroLauncherSetup.exe>`_ (use your DigiPen login & password) |br|
+More about installation can be found on the :ref:`Launcher page<ZeroLauncher2015>`.
+
+Other useful Programs
++++++++++++++++++++++
+
+#. Paint.NET (For image editing)
+#. Audacity (For sound editing)
+#. Sfxr (For sound generation)
+
+Backups and History Folder
+--------------------------
+On a regular basis remind your student to backup their projects with the ``BackupProject`` command. 
+All edited files store backups in the history folder. Here is how to recover lost files: :ref:`File Recovery<SupportFileRecovery>`
+
+When you run into issues as a teacher, you can use the request help button to talk with a developer about your issue, or if they are unavailable, send an inquiry via the BugReporter. (This functionality requires you login to the Zero Engine)
+
+
+The Void
+--------
+
+You will be using the Void to grab assets as needed to complete the lessons. 
+
+:ref:`Quick Void Tutorial<UsingTheVoid2015>`
+The Void already has other useful items posted for the students' game projects including free-to-use art assets, sound (specifically, the wav files used in prior ProjectFUN workshops), and Stock Scripts. 
+
+Video Game Development Level 1
+------------------------------
+
+Your goal is to teach kids as young 13 with no programming experience enough to make their own (simple) games without assistance, while having fun. 
+
+The first week focuses on learning via lessons and projects while the second week is focused on creating their own games.  
+
+You can :download:`download the Scope and Sequence here <files/Scope_and_Sequence_for_VD1.xlsx>` for an overview.
+
+|NoWebBegin|
+
+.. notyetincluded VGP1LessonOutline.rst
+
+|NoWebEnd|
+
+The Marshmallow Challenge suggested for the first days' icebreaker can be understood by watching the `TEDTalk <http://marshmallowchallenge.com/TED_Talk.html>`_. As the talk covers the material more succinctly, I generally prefer it to the `website's instructions <http://marshmallowchallenge.com/Instructions.html>`_; however it does provide more facilitation notes and may be of use to you. Be sure to get the supplies from your supervisor. 
+
+Projects & PowerPoints
+----------------------
+
+There is quite a bit of material. The following lesson outline is a recommended structure for the 
+course and the general placement of the provided PPTs. 
+
+* :download:`VGP_1_LessonOutline.odt <files/VGP_1_LessonOutline.odt>`
+
+In the order of suggested presentation:
+
+* :download:`WhatMakesAGame.odp <files/Day_1_RubeGoldberg/WhatMakesAGame.odp>`
+* :download:`RubeGoldbergSampleProject.zip <files/Day_1_RubeGoldberg/RubeGoldberg_Update>`
+* :doc:`P1`
+* :download:`ShooterCP.odp <files/Day_2_Shooter/ShooterCP.odp>`
+* :download:`ShooterExample.zip <files/Day_2_Shooter/ShooterExample>`
+* :doc:`P2`
+* :download:`ShooterContCP.odp <files/Day_3_ShooterCont/ShooterContCP.odp>`
+* :download:`ShooterExampleContinued.zip <files/Day_3_ShooterCont/ShooterExampleContinued>`
+* :doc:`P3`
+* :download:`PlatformerCP.odp <files/Day_4_Platformer/PlatformerCP.odp>`
+* :download:`PlatformerCheckpoints.zip <files/Day_4_Platformer/PlatformerCheckpoints>` (up to level CP5)
+* :doc:`P4`
+* :download:`PolishCP.odp <files/Day_5_Polish/PolishCP.odp>`
+* :download:`PolishAndPlayerFeedback.odp <files/Day_5_Polish/PolishAndPlayerFeedback.odp>`
+* :download:`PlatformerCheckpoints.zip <files/Day_4_Platformer/PlatformerCheckpoints>` (same as above; levels CP6-CP9)
+* :doc:`P5`
+* :download:`HighConcept.odp <files/Day_5_Polish/HighConcept.odp>`
+* :download:`GameJam.odp <files/Day_6_GameJam/GameJam.odp>`
+* :download:`IronDesigner.zip <files/Day_6_GameJam/IronDesigner>`
+* :download:`Postmortem.odp <files/Day_6_GameJam/Postmortem.odp>`
+* :download:`GameProductionAndExpectations.odp <files/Day_789_PGP/GameProductionAndExpectations.odp>`
+* :download:`Playtesting.odp <files/Day_789_PGP/Playtesting.odp>`
+* :download:`ProjectParing.odp <files/Day_789_PGP/ProjectParing.odp>`
+* :download:`TCRs.odp <files/Day_789_PGP/TCRs.odp>`
+* :download:`PresentationTips.odp <files/Day_789_PGP/PresentationTips.odp>`
+
+Saving and Loading Data Lesson
+++++++++++++++++++++++++++++++
+
+This :ref:`lesson <ObjectStore2015>` will help address a common request for the ability to have persistent data across levels. I've heard some teachers asked for the information as early as Day 3, although most of the time it will be wanted for their personal game projects, and is naturally covered in the polish section. If the kids are ahead of schedule and doing well, you can point them to this lesson, `but no sooner than the end of Day 2`, as they need all the content in Day 2 to understand what is happening in the lesson. 
+
+It is also a good Lesson to look over as a teacher if you are rusty or unacquainted with ObjectStore.
+
+Why is my object not colliding?
+-------------------------------
+
+* **It isn't colliding:** check to make sure they are in fact colliding. In orthographic camera settings it is impossible to perceive when the z-values of the objects are misaligned. Try looking at the property grid of the objects or changing to a perspective camera view to confirm if they are actually colliding. |br|
+* **They don't have a collider:** Check to make sure both objects in question have a collider component of some variety (e.g. SphereCollider, BoxCollider, etc.).
+  
+ If you are specifically looking for visual collision resolution, be sure that neither are set for `Ghost Collision`.
+ 
+* **The object is static:** Check that The object that is supposed to be colliding has a RigidBody component and that its DynamicState is set to Dynamic or Kinematic. 
+
+  If it is static (or treated as static; `which is the default for things with a collider component but no RigidBody component` ), then it won't register the collision because, marked as a non-moving object, it is not checking for it. Moreover, if it collides with other static object, you'll have no collision. If you collide with a dynamic object that is sleeping (i.e. it became stable and stopped running physics updates), it won't wake up, and thus, it won't collide. 
+
+ If you are moving your player via code, such as using the SweptController, RigidBody should still be present, with the DynamicState set to Kinematic. 
+
+* **The message isn't being sent:** Ensure the SendEvents property for the colliders is marked True. 
+
+ If using the SweptController make sure the CustomCollisionEventsTracker component is attached to the same object as the SweptController, and that the ForwardEvents boolean property on the SweptController is set to true;
+ 
+Look also at the :ref:`collision events<CollisionEvents2015>` lesson about using the WhyAreTheyNotColliding function. 
+
+Game Jam Project: IronDesigner
+------------------------------
+
+Regarding the Game Jam, we encourage you to take liberties with your class. If they like it you can make it longer. If they hate it, or simply are doing miserably, you can shorten the time to an hour just to get the point across. If you have a mixed set-up allow those who want to get a head start on their project to do so, but require them to pay attention when discussing the outcomes, i.e. the lessons on scoping, etc.
+

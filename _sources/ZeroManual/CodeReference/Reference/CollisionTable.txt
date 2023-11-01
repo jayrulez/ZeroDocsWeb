@@ -1,0 +1,46 @@
+.. _ReferenceCollisionTable:
+
+.. rst-class:: searchtitle
+
+CollisionTable
+==============
+
+.. rst-class:: searchdescription
+
+Stores the filters between collision group instances. This is space specific data. Also bakes out the filters into the internal flags of each instance for faster runtime operations.
+
+.. include:: Description/CollisionTable.rst
+
+.. cpp:class:: CollisionTable
+
+    Base Class: :cpp:type:`Resource`
+
+.. _ReferenceCollisionTableProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String CollisionTable::Name
+
+            Name of resource for display.
+
+.. _ReferenceCollisionTableMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Resource CollisionTable::RuntimeClone()
+
+            Clone a resource for runtime modification.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: CollisionFilter CollisionTable::FindFilter(CollisionGroup groupA, CollisionGroup groupB)
+
+            
+
+.. include:: Remarks/CollisionTable.rst

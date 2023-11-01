@@ -1,0 +1,727 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Graphics/ParallaxBackground.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:07:49 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parallax Background &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Graphics" href="index.html"/>
+        <link rel="next" title="Physics" href="../Physics/index.html"/>
+        <link rel="prev" title="Following Camera" href="FollowingCamera.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Graphics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="SpritesAndText/index.html">Sprites &amp; Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Particles/index.html">Particles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Parallax Background</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Tutorials</a> &raquo;</li>
+      
+          <li><a href="index.html">Graphics</a> &raquo;</li>
+      
+    <li>Parallax Background</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Tutorials/Graphics/ParallaxBackground.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="parallax-background">
+<span id="tutorialsparallaxbackground"></span><h1>Parallax Background</h1>
+<p class="searchdescription">In this lesson we will cover how to implement a parallax background via tile maps, the TileEditor2D tool and two custom ZilchScripts.</p>
+<div class="section" id="parallax-overview">
+<h2>Parallax Overview</h2>
+<p>In a 2D game we usually use a an orthographic camera which can cause us to lose our sense of depth. A parallax background is a way of simulating depth in the background of a 2D game that is usually horizontally or vertically scrolling. We use a method of creating several background layers that are placed behind the scene. We then move these layers based off player movement. We can move deeper layers at slower speeds to increase the sense of depth.</p>
+</div>
+<div class="section" id="learning-objectives">
+<span id="tutorialsparallaxbackgroundvocab"></span><h2>Learning Objectives</h2>
+<ul class="simple">
+<li>Understanding orthographic projection.</li>
+<li>Creating backgrounds that scroll at different speeds.</li>
+<li>Creating repeating backgrounds.</li>
+<li>Basing environment behavior off of player behavior.</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Parallax Scrolling</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/LauncherNewProject.html#manualcreatenewproject"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<ul class="simple">
+<li>Download the <cite>GrassTiles</cite> package from The Void</li>
+</ul>
+<p>First let&#8217;s make a mountain for a deepest background layer.</p>
+<ul>
+<li><p class="first">In the Tools Window</p>
+<ul>
+<li><p class="first">Set the tool drop-down to: <code class="docutils literal"><span class="pre">TileEditor2D</span></code></p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> the <code class="docutils literal"><span class="pre">CreateTileMap</span></code> button</p>
+</li>
+<li><p class="first">Set TilePalette to: <code class="docutils literal"><span class="pre">GrassTiles</span></code></p>
+<p><a class="reference internal" href="../../_images/PWTilePallete.png"><img alt="PWTilePallete" src="../../_images/PWTilePallete.png" style="height: 2.5in;" /></a></p>
+</li>
+<li><p class="first">Update the tile palette to have these tiles</p>
+<p><img alt="TilePallette" src="../../_images/TilePallette.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">In the Level Window</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Create that mountain that looks similar to this:</p>
+<p><a class="reference internal" href="../../_images/MountainLayer.png"><img alt="MountainLayer" src="../../_images/MountainLayer.png" style="width: 5.0in;" /></a></p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the TileMap object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Set the Name to: <code class="docutils literal"><span class="pre">Mountain</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">-3]</span></code></li>
+</ul>
+</li>
+<li>Set the Archetype to: <code class="docutils literal"><span class="pre">Mountain</span></code></li>
+</ul>
+</li>
+</ul>
+<p>Next let&#8217;s make some medium sized hills for our middle background layer.</p>
+<ul>
+<li><p class="first">In the Tools Window</p>
+<ul class="simple">
+<li>Set the tool drop-down to: <code class="docutils literal"><span class="pre">TileEditor2D</span></code></li>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> the <code class="docutils literal"><span class="pre">CreateTileMap</span></code> button</li>
+<li>Set TilePalette to: <code class="docutils literal"><span class="pre">GrassTiles</span></code></li>
+</ul>
+</li>
+<li><p class="first">In the Level Window</p>
+<blockquote>
+<div><ul class="simple">
+<li>Create a hill that looks similar to this:</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/HillLayer.png"><img alt="HillLayer" src="../../_images/HillLayer.png" style="width: 5.0in;" /></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the TileMap object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Set the Name to: <code class="docutils literal"><span class="pre">Hill</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">-2]</span></code></li>
+</ul>
+</li>
+<li>Set the Archetype to: <code class="docutils literal"><span class="pre">Hill</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Next let&#8217;s make some small sized hills for our front most background layer.</p>
+<ul>
+<li><p class="first">In the Tools Window</p>
+<ul class="simple">
+<li>Set the tool drop-down to: <code class="docutils literal"><span class="pre">TileEditor2D</span></code></li>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> the <code class="docutils literal"><span class="pre">CreateTileMap</span></code> button</li>
+<li>Set TilePalette to: <code class="docutils literal"><span class="pre">GrassTiles</span></code></li>
+</ul>
+</li>
+<li><p class="first">In the Level Window</p>
+<blockquote>
+<div><ul class="simple">
+<li>Create a small hill that looks similar to this:</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/SmallHillLayer.png"><img alt="SmallHillLayer" src="../../_images/SmallHillLayer.png" style="width: 5.0in;" /></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the TileMap object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Set the Name to: <code class="docutils literal"><span class="pre">SmallHill</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">-1]</span></code></li>
+</ul>
+</li>
+<li>Set the Archetype to: <code class="docutils literal"><span class="pre">SmallHill</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now that we have archetypes for each part of our scrolling background let&#8217;s make a foreground for the player to walk on.</p>
+<ul>
+<li><p class="first">In the Tools Window</p>
+<ul class="simple">
+<li>Set the tool drop-down to: <code class="docutils literal"><span class="pre">TileEditor2D</span></code></li>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> the <code class="docutils literal"><span class="pre">CreateTileMap</span></code> button</li>
+<li>Set TilePalette to: <code class="docutils literal"><span class="pre">GrassTiles</span></code></li>
+</ul>
+</li>
+<li><p class="first">In the Level Window</p>
+<blockquote>
+<div><ul class="simple">
+<li>Create a foreground layer that is flat:</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/ForegroundLayer.png"><img alt="ForegroundLayer" src="../../_images/ForegroundLayer.png" style="width: 5.0in;" /></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the TileMap object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set the Name to: <code class="docutils literal"><span class="pre">Foreground</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">-1]</span></code></li>
+</ul>
+</li>
+<li>Set the Archetype to: <code class="docutils literal"><span class="pre">Foreground</span></code></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="adding-a-player">
+<h2>Adding a Player</h2>
+<p>Let&#8217;s add a simple player for the parallax background to track.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">MovementController</span></code></li>
+<li>Update the <strong>MovementController</strong> script to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">MovementController</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">MovementSpeed</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">5.0</span><span class="o">;</span>
+
+  <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">//Get the direction the player wants to move from the keyboard</span>
+    <span class="k">var</span> <span class="nx">keyInput</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">GetKeyboardMovement</span><span class="p">();</span>
+
+    <span class="c1">//Move the player in the intend direction at &quot;MovementSpeed&quot;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+=</span> <span class="nx">keyInput</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">MovementSpeed</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="o">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">GetKeyboardMovement</span><span class="p">()</span> <span class="o">:</span> <span class="nx">Real3</span>
+  <span class="p">{</span>
+    <span class="k">var</span> <span class="nx">movement</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">();</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">A</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="nx">movement</span><span class="p">.</span><span class="nx">X</span> <span class="o">+=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">D</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="nx">movement</span><span class="p">.</span><span class="nx">X</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">movement</span><span class="o">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Set the Name to: <code class="docutils literal"><span class="pre">Player</span></code></p>
+</li>
+<li><p class="first">Under Transform</p>
+<ul class="simple">
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0.5,</span> <span class="pre">0]</span></code></li>
+</ul>
+<p><img alt="CreatePlayer" src="../../_images/CreatePlayer.png" /></p>
+<ul class="simple">
+<li><span class="xref std std-ref">Add the MovementController component</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The depth affect of the parallax background will be even more effective if we move the camera with the player.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Camera Object in the Object Window</span></a></p>
+<ul class="simple">
+<li>Make the <code class="docutils literal"><span class="pre">Camera</span></code> object a child of the <code class="docutils literal"><span class="pre">Player</span></code> object</li>
+</ul>
+<p><img alt="ParentedCamera" src="../../_images/ParentedCamera.png" /></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>We can now make our <code class="docutils literal"><span class="pre">Player</span></code> sprite move left and right by pressing the <code class="docutils literal"><span class="pre">A</span></code> and <code class="docutils literal"><span class="pre">D</span></code> keys.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="adding-a-background">
+<h2>Adding a Background</h2>
+<p>Now let&#8217;s start working on adding our background.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">ParallaxBackground</span></code></li>
+<li>Update the <strong>ParallaxBackground</strong> script to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">ParallaxBackground</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">RelativeSpeed</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">;</span>
+
+  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">PlayerObject</span> <span class="o">:</span> <span class="nx">CogPath</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+  <span class="k">var</span> <span class="nx">PreviousPlayerPosition</span> <span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">();</span>
+
+  <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">var</span> <span class="nx">currentPlayerPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">PlayerObject</span><span class="p">.</span><span class="nx">Cog</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">displacement</span> <span class="o">=</span> <span class="nx">currentPlayerPosition</span><span class="p">.</span><span class="nx">X</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">PreviousPlayerPosition</span><span class="p">.</span><span class="nx">X</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">movement</span> <span class="o">=</span> <span class="nx">displacement</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">RelativeSpeed</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">newPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+    <span class="nx">newPosition</span><span class="p">.</span><span class="nx">X</span> <span class="o">-=</span> <span class="nx">movement</span><span class="o">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">=</span> <span class="nx">newPosition</span><span class="o">;</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">PreviousPlayerPosition</span> <span class="o">=</span> <span class="nx">currentPlayerPosition</span><span class="o">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Mountain Object in the Object Window</span></a></li>
+<li>In the Properties Window<ul>
+<li><span class="xref std std-ref">Add the ParallaxBackground component</span></li>
+<li>Under ParallaxBackground<ul>
+<li>Set <code class="docutils literal"><span class="pre">PlayerObject</span></code> to the <code class="docutils literal"><span class="pre">Player</span></code> Object, <code class="docutils literal"><span class="pre">:/Player</span></code></li>
+</ul>
+</li>
+<li>Upload the archetype</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Hill Object in the Object Window</span></a></li>
+<li>In the Properties Window<ul>
+<li><span class="xref std std-ref">Add the ParallaxBackground component</span></li>
+<li>Under ParallaxBackground<ul>
+<li>Set <code class="docutils literal"><span class="pre">PlayerObject</span></code> to the <code class="docutils literal"><span class="pre">Player</span></code> Object, <code class="docutils literal"><span class="pre">:/Player</span></code></li>
+</ul>
+</li>
+<li>Upload the archetype</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the SmallHill Object in the Object Window</span></a></li>
+<li>In the Properties Window<ul>
+<li><span class="xref std std-ref">Add the ParallaxBackground component</span></li>
+<li>Under ParallaxBackground<ul>
+<li>Set <code class="docutils literal"><span class="pre">PlayerObject</span></code> to the <code class="docutils literal"><span class="pre">Player</span></code> Object, <code class="docutils literal"><span class="pre">:/Player</span></code></li>
+</ul>
+</li>
+<li>Upload the archetype</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><a class="reference internal" href="../../_images/ScrollingSameSpeedNonRepeat.gif"><img alt="ScrollingSameSpeedNonRepeat" src="../../_images/ScrollingSameSpeedNonRepeat.gif" style="width: 8.35in;" /></a></p>
+<p>Now when we move left or right the background layers will move the opposite direction which starts to make it look more like the player is walking past them. Let&#8217;s increase the depth illusion the backgrounds add by making them move at different speeds.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>Now we will update the <strong>ParallaxBackground</strong> script to make the layer pieces repeat to cover the width of the screen.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Mountain Object in the Object Window</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under ParallaxBackground<ul>
+<li>Set RelativeSpeed to: <code class="docutils literal"><span class="pre">0.25</span></code></li>
+<li>Upload the archetype</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Hill Object in the Object Window</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under ParallaxBackground<ul>
+<li>Set RelativeSpeed to: <code class="docutils literal"><span class="pre">0.5</span></code></li>
+<li>Upload the archetype</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the SmallHill Object in the Object Window</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under ParallaxBackground<ul>
+<li>Set RelativeSpeed to: <code class="docutils literal"><span class="pre">0.75</span></code></li>
+<li>Upload the archetype</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><a class="reference internal" href="../../_images/ScrollingDifferentSpeed.gif"><img alt="ScrollingDifferentSpeed" src="../../_images/ScrollingDifferentSpeed.gif" style="width: 8.35in;" /></a></p>
+<p>As the player moves left or right the background layers move in the opposite direction. The illusion of depth is even more pronounced as layers that are farther back appear to move slower.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="repeating-the-background">
+<h2>Repeating the Background</h2>
+<p>So far this our background layers are just single objects, let&#8217;s make them repeat to fill the screen as they scroll.</p>
+<ul>
+<li><p class="first">In the <strong>ParallaxBackground</strong> script window</p>
+<ul>
+<li><p class="first">Add the following properties</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+<span class="k">var</span> <span class="nx">RepeatLength</span> <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+
+<span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+<span class="k">var</span> <span class="nx">LayerWidth</span> <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">14</span><span class="o">;</span>
+
+<span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+<span class="k">var</span> <span class="nx">Original</span> <span class="o">:</span> <span class="nb">Boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+<span class="k">var</span> <span class="nx">MyArchetype</span> <span class="o">:</span> <span class="nx">Archetype</span><span class="o">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Update the <strong>Initialize</strong> function to the following:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll">  <span class="c1">//Initialize the player&#39;s starting position</span>
+</span><span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">PreviousPlayerPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">PlayerObject</span><span class="p">.</span><span class="nx">Cog</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+</span><span class="hll">
+</span><span class="hll">  <span class="c1">//Only create duplicates if this object is the original</span>
+</span><span class="hll">  <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Original</span><span class="p">)</span>
+</span><span class="hll">  <span class="p">{</span>
+</span><span class="hll">    <span class="c1">//Create &quot;RepeatLength&quot; copies in a repeating pattern</span>
+</span><span class="hll">    <span class="k">for</span><span class="p">(</span><span class="k">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">RepeatLength</span><span class="o">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">      <span class="k">var</span> <span class="nx">leftDisplacement</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">LayerWidth</span> <span class="o">*</span>
+</span><span class="hll">                                   <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">TileMap</span><span class="p">.</span><span class="nx">UnitsPerTile</span> <span class="o">*</span>
+</span><span class="hll">                                   <span class="o">-</span><span class="nx">i</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="p">);</span>
+</span><span class="hll">      <span class="k">var</span> <span class="nx">objLeftPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+</span> <span class="nx">leftDisplacement</span><span class="o">;</span>
+</span><span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">CreateAtPosition</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">MyArchetype</span><span class="o">,</span> <span class="nx">objLeftPosition</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">
+</span><span class="hll">      <span class="k">var</span> <span class="nx">rightDisplacement</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">LayerWidth</span> <span class="o">*</span>
+</span><span class="hll">                                    <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">TileMap</span><span class="p">.</span><span class="nx">UnitsPerTile</span> <span class="o">*</span>
+</span><span class="hll">                                    <span class="nx">i</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="p">);</span>
+</span><span class="hll">      <span class="k">var</span> <span class="nx">objRightPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+</span> <span class="nx">rightDisplacement</span><span class="o">;</span>
+</span><span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">CreateAtPosition</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">MyArchetype</span><span class="o">,</span> <span class="nx">objRightPosition</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">  <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">  <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Mountain Object in the Object Window</span></a></p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under ParallaxBackground<ul>
+<li>Set RepeatWidth to: <code class="docutils literal"><span class="pre">5</span></code></li>
+<li>Set Original to: <code class="docutils literal"><span class="pre">True</span></code></li>
+<li>Set LayerWidth to: <code class="docutils literal"><span class="pre">14</span></code></li>
+</ul>
+</li>
+<li>Upload the archetype</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Hill Object in the Object Window</span></a></p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under ParallaxBackground<ul>
+<li>Set RepeatWidth to: <code class="docutils literal"><span class="pre">5</span></code></li>
+<li>Set Original to: <code class="docutils literal"><span class="pre">True</span></code></li>
+<li>Set LayerWidth to: <code class="docutils literal"><span class="pre">10</span></code></li>
+</ul>
+</li>
+<li>Upload the archetype</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the SmallHill Object in the Object Window</span></a></p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under ParallaxBackground<ul>
+<li>Set RepeatWidth to: <code class="docutils literal"><span class="pre">5</span></code></li>
+<li>Set Original to: <code class="docutils literal"><span class="pre">True</span></code></li>
+<li>Set LayerWidth to: <code class="docutils literal"><span class="pre">6</span></code></li>
+</ul>
+</li>
+<li>Upload the archetype</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></p>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/ScrollingDifferentSpeedRepeating.gif"><img alt="RepeatingLayers" src="../../_images/ScrollingDifferentSpeedRepeating.gif" style="width: 8.35in;" /></a></p>
+<p>Now when we start the game the <strong>ParallaxBackground</strong> creates copies of itself places them so they repeat in the background.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>We raise the RepeatLength if we want the level to be longer, and lower the LayerWidth if we want the background to be more cluttered. If we wanted to &#8220;hand craft&#8221; our landscape, we can turn the repeating feature off by simply setting the Original property to <code class="docutils literal"><span class="pre">False</span></code> on the Parallax component of the relevant objects. The code would still make it parallax like we&#8217;ve seen before.</p>
+</div>
+<div class="section" id="on-your-own">
+<h2>On Your Own</h2>
+<p>Extend this script to also account for a jumping player and scroll the parallax background on the Y-axis. You will probably want slower <code class="docutils literal"><span class="pre">RelativeSpeed</span></code> on vertical scrolling of the layers as normally depth is not as pronounced on the Y-axis.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Physics/index.html" class="btn btn-neutral float-right" title="Physics" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="FollowingCamera.html" class="btn btn-neutral" title="Following Camera" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Graphics/ParallaxBackground.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:07:53 GMT -->
+</html>

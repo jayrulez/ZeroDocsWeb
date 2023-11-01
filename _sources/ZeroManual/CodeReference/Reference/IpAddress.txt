@@ -1,0 +1,74 @@
+.. _ReferenceIpAddress:
+
+.. rst-class:: searchtitle
+
+IpAddress
+=========
+
+.. rst-class:: searchdescription
+
+IPv4/IPv6 network host identifier Provided for convenience Note: This class is not slice-able, it has extra data.
+
+.. include:: Description/IpAddress.rst
+
+.. cpp:class:: IpAddress
+
+.. _ReferenceIpAddressProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool IpAddress::IsValid
+
+            Returns true if this is a non-empty IPv4/IPv6 address, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: InternetProtocol::Enum IpAddress::InternetProtocol
+
+            Returns the valid IP address protocol version, else InternetProtocol::Unspecified.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: const IpAddress::String
+
+            Returns the valid IP address as a numeric"host:port" string, else String()
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: size_t IpAddress::Hash
+
+            Returns the valid IP address as a hash value, else 0.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String IpAddress::Host
+
+            Returns the valid IP address host as a numeric string, else String()
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint IpAddress::Port
+
+            Returns the valid IP address port, else 0.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String IpAddress::PortString
+
+            Returns the valid IP address port as a numeric string, else String()
+
+.. _ReferenceIpAddressMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void IpAddress::Clear()
+
+            Clears the IP address.
+
+.. include:: Remarks/IpAddress.rst

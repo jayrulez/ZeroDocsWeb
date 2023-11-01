@@ -1,0 +1,72 @@
+.. _ReferenceMouseCapture:
+
+.. rst-class:: searchtitle
+
+MouseCapture
+============
+
+.. include:: Description/MouseCapture.rst
+
+.. cpp:class:: MouseCapture
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceMouseCaptureProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MouseCapture::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space MouseCapture::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MouseCapture::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession MouseCapture::GameSession
+
+            Get the GameSession that owns us and our space.
+
+.. _ReferenceMouseCaptureMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void MouseCapture::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool MouseCapture::Capture(ViewportMouseEvent e)
+
+            Starts the mouse manipulation. All mouse events will now only go to the owner of this Component. Returns whether or not the manipulation can be started.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void MouseCapture::ReleaseCapture()
+
+            Releases the mouse manipulation.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool MouseCapture::IsCaptured()
+
+            Returns whether or not this has an active mouse capture.
+
+.. include:: Remarks/MouseCapture.rst

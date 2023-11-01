@@ -1,0 +1,166 @@
+.. _ReferenceWheelJoint:
+
+.. rst-class:: searchtitle
+
+WheelJoint
+==========
+
+.. rst-class:: searchdescription
+
+A joint that models a wheel with shocks. A wheel aligns the two local axes together and allows free rotation about this axis. The specified shock axis is turned into a soft constraint to model the shocks. Note: object 0 should be the root object as the shock axis rotates with this object. If object 0 is the wheel, then the shock axis will rotate with the wheel, causing the shocks to not stay aligned. Add on definitions: Limit: A limit will provide a min/max angle on the motor axis. Motor: A motor will turn the objects about the motor axis. Spring: A spring will make the shock axis springy. A spring is attached by default to a wheel.
+
+.. include:: Description/WheelJoint.rst
+
+.. cpp:class:: WheelJoint
+
+    Base Class: :cpp:type:`Joint`
+
+.. _ReferenceWheelJointProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog WheelJoint::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space WheelJoint::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog WheelJoint::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession WheelJoint::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool WheelJoint::Active
+
+            Determines if this joint is currently active. Used for runtime enabling/disabling of joints.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool WheelJoint::SendsEvents
+
+            Determines if this joint will send any events. Used for a small efficiency boost and for reducing the number of events.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool WheelJoint::AutoSnaps
+
+            Determines if this joint will automatically delete itself if it reaches the max force value. This will still send an event if it snaps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool WheelJoint::CollideConnected
+
+            Determines if the two objects connected by this joint can collide. If any joint between this pair does not collide, then the pair does not collide. All joints have to be set to true in order to have the objects collide.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real WheelJoint::MaxForce
+
+            The maximum force that this joint can apply to correct itself.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 WheelJoint::LocalPointA
+
+            The local point of the anchor on object A.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 WheelJoint::LocalPointB
+
+            The local point of the anchor on object B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 WheelJoint::WorldPointA
+
+            The position of the anchor on object A in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 WheelJoint::WorldPointB
+
+            The position of the anchor on object B in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Quat WheelJoint::LocalAngleA
+
+            The rotation on object A that is being aligned to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Quat WheelJoint::LocalAngleB
+
+            The rotation on object B that is being aligned to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 WheelJoint::LocalAxisA
+
+            The locally defined axis on object A.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 WheelJoint::LocalAxisB
+
+            The locally defined axis on object B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 WheelJoint::WorldAxis
+
+            The axis in world space that is being rotated about.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 WheelJoint::WorldShockAxis
+
+            The shock axis after it has been translated into world coordinates.
+
+.. _ReferenceWheelJointMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void WheelJoint::DebugDraw()
+
+            Draws the debug info associated with this joint.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog WheelJoint::GetOtherObject(Cog cog)
+
+            If the passed in object is ObjectA, returns ObjectB. Prevents the user from having to write the if case all the time.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog WheelJoint::GetCog(uint index)
+
+            Returns the cog associated with an index. Index of 0 is ObjectA, index 1 is ObjectB. Used to write more streamline functions where you index into the objects in a loop.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void WheelJoint::SetWorldPointsVec3
+
+            Sets the position of the anchor on object A and B given a position in world space
+
+.. include:: Remarks/WheelJoint.rst

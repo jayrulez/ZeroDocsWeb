@@ -1,0 +1,572 @@
+.. _SpacesGAM100:
+
+.. rst-class:: SearchTitle
+
+Spaces
+======
+
+.. rst-class:: SearchDescription
+
+This lesson covers the basics of :cpp:type:`Spaces<Space>` and demonstrates how
+they do and don't interact with each other.
+
+.. _SpacesVocabGAM100:
+
+Learning Objectives
+-------------------
+
+*   To learn what :cpp:type:`spaces<Space>` are, and see how they can be used to
+    control how :cpp:type:`cogs<Cog>` can interact with one another.
+*   To become familiar with the different :cpp:type:`components<Component>`
+    found on a :cpp:type:`space<Space>`.
+
+.. rst-class:: VocabSection
+
++---------------------------------------------------------------------------------------------------------------+
+| Vocabulary                                                                                                    |
++===========================+===========================+===========================+===========================+
+| :cpp:type:`Space`         | :cpp:type:`TimeSpace`     | :cpp:type:`GraphicsSpace` | :cpp:type:`PhysicsSpace`  |
++---------------------------+---------------------------+---------------------------+---------------------------+
+| :cpp:type:`SoundSpace`    | :cpp:type:`ReactiveSpace` |                           |                           |
++---------------------------+---------------------------+---------------------------+---------------------------+
+
+What Are Spaces?
+----------------
+
+In the Zero Engine, a :cpp:type:`Space` is a powerful organizational tool. It
+is quite literally the world of your game. It has three *spatial* dimensions ---
+X, Y, and Z --- and one *temporal* dimension --- time --- in which objects can
+exist, move, rotate, collide, etc. Just about everything you do, make, or
+interact with in a Zero project happens in a :cpp:type:`space<Space>`.
+
+Level Setup
+-----------
+
+:ref:`CreateNewProject`
+
+When you make a :cpp:type:`level<Level>` in the Zero Editor, you are basically
+making a list of :cpp:type:`cogs<Cog>` (and their positions, rotations, etc.)
+that the engine should create. These are made in the order they appear in the
+**Objects** window, and placed in a :cpp:type:`space<Space>`.
+
+Let's set up a demonstration using a couple of spheres.
+
+*   In the Objects Window
+
+    -   :ref:`Select the LevelSettings object <SelectObjectGAM100>`
+
+*   In the Properties Window
+
+    -   :ref:`Remove the GravityEffect and DragEffect Components <RemoveComponentGAM100>`
+
+*   :ref:`Command<CommandsGAM100>` : ``CreateSphere`` or :menuselection:`Create --> Create Sphere`
+*   In the Properties Window
+
+    -   Set Name to: ``SphereA``
+    -   Under :cpp:type:`Transform<Transform>`
+
+        +   Set Translation to: [-10, 0, 0]
+
+    -   Under :cpp:type:`Model`
+
+        +   Set :cpp:type:`Material` to: ``Grid``
+
+    -   Under :cpp:type:`RigidBody<RigidBody>`
+
+        +   Set Velocity to: [20, 0, 0]
+
+*   **Duplicate** the object by pressing ``Ctrl + D``
+*   In the Properties Window
+
+    -   Set Name to: ``SphereB``
+    -   Under :cpp:type:`Transform`
+
+        +   Set Translation to: [0, 1, 0]
+
+    -   Under :cpp:type:`Model`
+
+        +   Set :cpp:type:`Material` to: ``DefaultMaterial``
+
+    -   Under :cpp:type:`RigidBody`
+
+        +   Set Velocity to: [0, 0, 0]
+
+|InitialSetup|
+
+Now we're ready to go, but before we do, let's examine what we've done, and then
+make a hypothesis about what's going to happen when we run the game.
+
+*   We have two spheres, each with :cpp:type:`SphereCollider` and
+    :cpp:type:`RigidBody` components
+*   The sphere on the left has an initial velocity that will send it to the
+    right
+*   The :cpp:type:`level<Level>` has no :cpp:type:`gravity<GravityEffect>` nor
+    :cpp:type:`drag<DragEffect>`
+
+Do you have an idea of what's going to happen? Let's run it and see.
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+|CollidingSpheres|
+
+Naturally, the sphere on the left moved to the right and bumped into the other
+sphere, causing both of them to change their velocities.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+Now let's change things up a bit.
+
+Multiple Spaces, Multiple Levels
+--------------------------------
+
+The spheres in the previous example were able to collide because
+
+*   they both had :cpp:type:`colliders<Collider>`
+*   they were aligned on the Z axis
+
+and, most importantly,
+
+*   they were both in the same :cpp:type:`space<Space>`
+
+Now, let's see what happens when we try to make two things collide that are in
+different :cpp:type:`spaces<Space>`. Creating additional
+:cpp:type:`spaces<Space>` is easy --- it's just one line of code --- but a
+:cpp:type:`space<Space>` isn't much good unless you load a
+:cpp:type:`level<Level>` in it. Thus, for our demonstration, we're going to need
+a couple more :cpp:type:`levels<Level>`.
+
+*   In the Library Window
+
+    -   Under the Level tag
+
+        +   ``Right-click`` the level called ``Level`` and select **Duplicate**
+            
+            |DuplicateLevel|
+
+        +   ``Right-click`` the level called ``LevelCopy1`` and select **Rename**
+            
+            |RenameLevel|
+            
+        +   Name this duplicate: ``Foreground``
+        +   ``Right-click`` the level called ``Level`` and select **Duplicate**
+        +   ``Right-click`` the level called ``LevelCopy1`` and select **Rename**
+        +   Name this duplicate: ``Background``
+
+Now let's work in our new Foreground :cpp:type:`level<Level>`.
+
+*   In the Library Window
+
+    -   Under the Level tag
+
+        +   ``Double left-click`` the level called ``Foreground``
+
+As you might expect, Foreground is a perfect copy of our original
+:cpp:type:`level<Level>`. Let's delete one of the spheres.
+
+*   :ref:`Select the SphereB object <SelectObjectGAM100>`
+*   Delete SphereB
+
+Now let's work in the Background :cpp:type:`level<Level>`.
+
+*   In the Library Window
+
+    -   Under the Level tag
+
+        +   ``Double left-click`` the level called ``Background``
+
+Here, let's delete the other sphere.
+
+*   :ref:`Select the SphereA object <SelectObjectGAM100>`
+*   Delete SphereA
+
+Making Spaces
+-------------
+
+To create a new :cpp:type:`space<Space>`, we'll have to add a new Zilch script.
+
+*   :ref:`Add a new ZilchScript resource<ResourceAddingGAM100>` named:
+    ``BackgroundCreator``
+*   Update your new script to look like this:
+
+.. code-block:: csharp
+    
+    class BackgroundCreator : ZilchComponent
+    {
+      [Property]
+      // This is the level we'll load into the new space
+      var BackgroundLevel : Level = Level.Background;
+      [Property]
+      // This is the archetype of space we'll use
+      var SpaceArchetype : Archetype = Archetype.Space;
+      
+      // This is the handle we can use from elsewhere to refer to the background space
+      var BackgroundSpace : Space;
+      
+      
+      function Initialize(init : CogInitializer)
+      {
+        // When the level starts, create the new space and load its level
+        this.BackgroundSpace = this.GameSession.CreateNamedSpace("Background", this.SpaceArchetype);
+        this.BackgroundSpace.LoadLevel(this.BackgroundLevel);
+      }
+      
+      
+      // When the foreground space is destroyed...
+      function Destroyed()
+      {
+        // ...if the background space is still around...
+        if(this.BackgroundSpace != null)
+        {
+          // ...destroy it
+          this.BackgroundSpace.Destroy();
+        }
+      }
+    }
+
+.. sidebar:: `ResourceType`.\ `ResourceName` vs. `ResourceType`.Find
+    
+    In our new BackgroundCreator :cpp:type:`component<Component>`, we created a
+    couple of properties, and we set their default values using the format
+    `ResourceType`.\ `ResourceName`. This is a handy shortcut for when we know
+    ahead of time what we probably want to use a property for, but we want to
+    leave it open to be changed later.
+    
+    In the first example, we could just as well have written
+    
+    ``Level.Background``
+    
+    as
+    
+    ``Level.Find("Background")``
+    
+    and it would have done almost the same thing --- the difference is that if
+    the ``Find`` function fails, say, because of a typo, we won't know about it
+    until the game is running, whereas `ResourceType`.\ `ResourceName` won't
+    even compile if there's a typo.
+    
+    Of course, you can always set it to ``null`` (or not set it at all), and
+    then fill it in manually afterward via the Properties Window.
+
+A good place for a :cpp:type:`component<Component>` like this is the
+**LevelSettings** object. Since this :cpp:type:`component<Component>` creates
+the *background* :cpp:type:`space<Space>`, we should attach it to the
+*foreground* :cpp:type:`level<Level>`, but before we do, let's run that level
+*without* the BackgroundCreator, so we have a basis for comparison with what it
+will look like *with* it.
+
+*   In the Library Window
+
+    -   Under the Level tag
+
+        +   ``Double left-click`` the level called ``Foreground``
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+|ForegroundOnly|
+
+It's just like before, except there's only one sphere, and understandably so,
+since the :cpp:type:`level<Level>` only contains one sphere.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+Now let's add that :cpp:type:`component<Component>`.
+
+*   In the Objects Window
+
+    -   :ref:`Select the LevelSettings object <SelectObjectGAM100>`
+
+*   In the Properties Window
+
+    -   :ref:`Add the BackgroundCreator Component <AddComponentGAM100>`
+
+This new :cpp:type:`component<Component>` we have added creates a new
+:cpp:type:`space<Space>` when the ``Foreground`` :cpp:type:`level<Level>`
+starts, and loads the ``Background`` :cpp:type:`level<Level>` into it. Thus, we
+should expect to see something like what we had before --- two spheres, one of
+them moving to the right.
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+|ThatsIt|
+
+So where's the other sphere?
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+As a matter of fact, it's actually there --- we just can't see it because
+there's another :cpp:type:`space<Space>` in the way. We can fix that by changing
+some settings on the foreground :cpp:type:`level<Level>`'s
+:cpp:type:`CameraViewport` :cpp:type:`component<Component>`.
+
+*   In the Objects Window
+
+    -   :ref:`Select the LevelSettings object <SelectObjectGAM100>`
+
+*   In the Properties Window
+
+    -   Under :cpp:type:`CameraViewport`
+
+        +   Set Background to: ``False``
+        +   Set Layer to: ``1``
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+|NoCollision|
+
+.. admonition:: Always Set Your Layer Order
+    
+    If you forget to change the :cpp:type:`CameraViewport`'s **Layer** property
+    when you change its **Background** property to ``False``, you might notice
+    that it still seems to work. This may be the case, but it is important that
+    you **always set the Layer order explicitly** when you use multiple spaces,
+    as things are not guaranteed to work the way you might expect them to work
+    if you don't.
+
+The spheres now no longer collide. This is because, although
+
+*   they both have :cpp:type:`colliders<Collider>` and
+*   they are aligned on the Z axis,
+
+most importantly,
+
+*   they are not in the same :cpp:type:`space<Space>`.
+
+Layering
+--------
+
+Observe the way that the foreground :cpp:type:`level<Level>`'s sphere is drawn
+on top of the background sphere.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+*   In the Library Window
+
+    -   Under the Level tag
+
+        +   ``Double left-click`` the level called ``Background``
+
+*   :ref:`Select the SphereB object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    -   Under :cpp:type:`Transform`
+
+        +   Set Translation to: [0, 1, 10]
+
+Now the background sphere is much closer to the camera.
+
+*   In the Library Window
+
+    -   Under the Level tag
+
+        +   ``Double left-click`` the level called ``Foreground``
+
+Let's also make the foreground sphere move a bit slower so we can see this
+better.
+
+*   :ref:`Select the SphereA object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    -   Under :cpp:type:`RigidBody`
+
+        +   Set Velocity to: [5, 0, 0]
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+|SlowNoCollision|
+
+It seems that, even though the background sphere has a much greater
+Z-translation than the foreground sphere, it is still being drawn behind it.
+This is because, via the :cpp:type:`CameraViewport`'s **Layer** property, we
+have specified that the :cpp:type:`spaces<Space>` that these two spheres inhabit
+should be drawn in this layer order, and now Z-ordering makes no difference.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+Let's change the layer order and watch what happens.
+
+*   In the Properties Window
+
+    -   Under :cpp:type:`CameraViewport`
+
+        +   Set Layer to: ``-1``
+
+Now the background sphere should appear on top of the foreground sphere when
+they overlap.
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+|ThatsIt|
+
+Ah, we still need to fix the **Background** property.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+*   In the Library Window
+
+    -   Under the Level tag
+
+        +   ``Double left-click`` the level called ``Background``
+
+*   In the Objects Window
+
+    -   :ref:`Select the LevelSettings object <SelectObjectGAM100>`
+
+*   In the Properties Window
+
+    -   Under :cpp:type:`CameraViewport`
+
+        +   Set Background to: ``False``
+
+*   In the Library Window
+
+    -   Under the Level tag
+
+        +   ``Double left-click`` the level called ``Foreground``
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+|SlowNoCollisionNoBackground|
+
+This is almost like before, except that the "background" sphere (it now seems
+improper to call it that) gets drawn on top of the "foreground" sphere.
+
+Also note that the background color has changed from the default dark gray to a
+lighter gray. What's happening is that the backgrounds of both
+:cpp:type:`spaces<Space>` are transparent --- neither :cpp:type:`CameraViewport`
+has its **Background** flag set --- so we see right through the game to the
+editor window behind it.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+*   In the Objects Window
+
+    -   :ref:`Select the LevelSettings object <SelectObjectGAM100>`
+
+*   In the Properties Window
+
+    -   Under :cpp:type:`CameraViewport`
+
+        +   Set Background to: ``True``
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+Now the background is once again being drawn with the color specified in the
+**ClearColor** property of the :cpp:type:`LevelSettings` object's
+:cpp:type:`ForwardRenderer` :cpp:type:`component<Component>`.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+Space Components
+----------------
+
+Besides being an organizational tool where your game's :cpp:type:`cogs<Cog>`
+live, a :cpp:type:`space<Space>` has a few important
+:cpp:type:`components<Component>`.
+
+*   In the Level Window
+
+    *   Press ``Shift + S``
+
+**Or**
+
+*   Select Menu :menuselection:`Select --> Select Space`
+
+Let's take a look at what we see in the Properties Window.
+
+*   :cpp:type:`TimeSpace`
+
+    -   Keeps track of the passage of time within its :cpp:type:`space<Space>`
+    -   Can be paused/unpaused independently of other :cpp:type:`spaces<Space>`
+
+        +   This is useful if you want to pause your game but have an animated
+            pause menu
+            
+    -   Can have its **TimeScale** property changed to cause time to slow down
+        or speed up
+
+*   :cpp:type:`GraphicsSpace`
+
+    -   Contains certain properties defining how things are rendered
+    -   To use custom :cpp:type:`sprite<Sprite>` layering, create a
+        :cpp:type:`SpriteLayerOrder` :cpp:type:`resource<Resource>` and set the
+        :cpp:type:`GraphicsSpace` to use it
+
+*   :cpp:type:`PhysicsSpace`
+
+    -   Contains certain properties defining how things interact with each other
+    -   Can be used for **ray casting**, etc.
+    -   If the **Mode2D** property is set to ``True``, then all collision 
+        resolution will be 2D --- that is, it will result in no position changes
+        in the Z-direction, etc.
+        
+        +   This property may also be set in a :cpp:type:`cog<Cog>`-by-cog basis
+            inside the :cpp:type:`RigidBody` :cpp:type:`component<Component>`
+
+    -   To use a custom collision table, create a :cpp:type:`CollisionTable`
+        :cpp:type:`resource<Resource>` and set the :cpp:type:`PhysicsSpace` to
+        use it
+
+*   :cpp:type:`SoundSpace`
+
+    -   Can be used to play :cpp:type:`sound cues<SoundCue>`, etc.
+
+*   :cpp:type:`ReactiveSpace`
+
+    -   Contains certain properties defining how the :cpp:type:`Reactive`
+        :cpp:type:`component<Component>` works
+
+You can also add your own custom Zilch :cpp:type:`components<Component>` to a
+:cpp:type:`space<Space>` --- just select the :cpp:type:`space<Space>` and click
+**Add Component...** in the Properties Window, the same as with a
+:cpp:type:`cog<Cog>`. Zilch :cpp:type:`components<Component>` on the
+:cpp:type:`Space` are useful for keeping track of data across multiple levels,
+like score, etc.
+
+So What
+-------
+
+We've learned how to make :cpp:type:`spaces<Space>`. So why should we? What's
+the point? The primary usefulness of being able to put :cpp:type:`cogs<Cog>` in
+separate :cpp:type:`spaces<Space>` is in **overlaying things**.
+
+Consider title screens, pause menus, HUDs, dialogue boxes, that sort of thing
+--- each of these can (and should) be placed in a separate
+:cpp:type:`space<Space>` from that of the main game. In general, no object from
+your game should collide with anything in your HUD, for example, nor should
+anything in your game get in front of your pause menu. You can strictly control
+what goes where when you have these things separated into their own
+:cpp:type:`spaces<Space>`.
+
+We'll get into some of these more advanced applications of
+:cpp:type:`spaces<Space>` a bit later. For now, let's move on to a much more
+common use: **creating objects**, which we will cover in the next lesson.
+
+Now we know how to use :cpp:type:`Spaces<Space>`.
+
+..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..
+
+.. |InitialSetup|
+    image:: images/Spaces/InitialSetup.png
+    :width: 4.0in
+.. |CollidingSpheres|
+    image:: images/Spaces/CollidingSpheres.gif
+    :width: 4.0in
+.. |DuplicateLevel|
+    image:: images/Spaces/DuplicateLevel.png
+.. |RenameLevel|
+    image:: images/Spaces/RenameLevel.png
+.. |ForegroundOnly|
+    image:: images/Spaces/ForegroundOnly.gif
+    :width: 4.0in
+.. |ThatsIt|
+    image:: images/Spaces/ThatsIt.png
+    :width: 4.0in
+.. |NoCollision|
+    image:: images/Spaces/NoCollision.gif
+    :width: 4.0in
+.. |SlowNoCollision|
+    image:: images/Spaces/SlowNoCollision.gif
+    :width: 4.0in
+.. |SlowNoCollisionNoBackground|
+    image:: images/Spaces/SlowNoCollisionNoBackground.gif
+    :width: 4.0in

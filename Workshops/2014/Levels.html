@@ -1,0 +1,630 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/Levels.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:23:33 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Levels &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Introduction to 2D Video Game Programming" href="index.html"/>
+        <link rel="next" title="Particle Systems" href="ParticleSystems.html"/>
+        <link rel="prev" title="Firing At the Mouse" href="FireAtMouse.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Introduction to 2D Video Game Programming</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ScriptingEvents.html">Scripting Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Orientation.html">Rotating Towards a Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FireAtMouse.html">Firing At the Mouse</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Levels</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleSystems.html">Particle Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleAi.html">Ai Shooting and Movement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CameraParallax.html">Camera Parallax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CreateProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting an Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Add a Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Introduction to 2D Video Game Programming</a> &raquo;</li>
+      
+    <li>Levels</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2014/Levels.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="levels">
+<span id="levels2014"></span><h1>Levels</h1>
+<p class="searchdescription">This lesson covers reloading levels, changing levels, duplicating levels, and setting the starting level.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="CreateProject.html#createnewproject2014"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<p><strong>Create a Sprite</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the RigidBody Component</span></a></li>
+</ul>
+</li>
+</ul>
+<p>Here is what our level should look like:</p>
+<p><a class="reference internal" href="../../_images/Level1Start.png"><img alt="Level1Start" src="../../_images/Level1Start.png" style="width: 8.35in;" /></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>The Sprite should fall due to the default gravity in conjunction with our RigidBody component.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="renaming-a-level">
+<h2>Renaming a Level</h2>
+<ul>
+<li><p class="first">In the Library Window</p>
+<ul>
+<li><p class="first">In the Level tab</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">Right-Click</span></code> on <strong>Level</strong> and select rename level</p>
+<p><img alt="RenameLevel1" src="../../_images/RenameLevel11.png" /></p>
+</li>
+<li><p class="first">Rename the level to: <strong>Level1</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="reloading-a-level">
+<h2>Reloading a Level</h2>
+<p>Now we will go over reloading the currently loaded level in code.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="ResourceAdding.html#resourceadding2014"><span>Add a new ZilchScript resource</span></a> named: &#8216;GameLogic&#8217;</p>
+</li>
+<li><p class="first">Update the <strong>GameLogic</strong> script with the following code:</p>
+<ul>
+<li><p class="first">Update the <strong>Initialize</strong> function with the following code:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+<span class="hll">      <span class="c1">// Connect to LogicUpdate event.</span>
+</span><span class="hll">      <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+</span>  <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Update the <strong>OnLogicUpdate</strong> function with the following code:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+<span class="hll">      <span class="c1">// When Space is pressed,</span>
+</span><span class="hll">      <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">))</span>
+</span><span class="hll">      <span class="p">{</span>
+</span><span class="hll">          <span class="c1">// reload the level.</span>
+</span><span class="hll">          <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">ReloadLevel</span><span class="p">();</span>
+</span><span class="hll">      <span class="p">}</span>
+</span>  <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<p>In this code we are calling the Space&#8217;s <strong>ReloadLevel</strong> function to reload the currently loaded level when Space is pressed on the keyboard.</p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the GameLogic component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>The Sprite will fall. Pressing the Space will reload the level.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="adding-levels">
+<h2>Adding Levels</h2>
+<p>Creating a new level is similar to creating a new ZilchScript.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="ResourceAdding.html#resourceadding2014"><span>Add a new Level resource</span></a> named: &#8216;Level2&#8217;</p>
+<p><img alt="AddLevel2" src="../../_images/AddLevel21.png" /></p>
+<ul class="simple">
+<li>Click the Create button</li>
+</ul>
+</li>
+</ul>
+<p>The newly created level should now be the level you are editing in the editor.</p>
+<p><strong>Create a sprite</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the RigidBody Component</span></a></li>
+</ul>
+</li>
+</ul>
+<p><strong>Create another sprite</strong></p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li>Select the object we just created</li>
+<li>Copy, <code class="docutils literal"><span class="pre">Ctrl+C</span></code>, and paste, <code class="docutils literal"><span class="pre">Ctrl+V</span></code>, the Sprite</li>
+<li>Select the object we just created</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: [2,0,0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Here is what the level should look like:</p>
+<p><a class="reference internal" href="../../_images/Level2Screenshot1.png"><img alt="Level2Screenshot" src="../../_images/Level2Screenshot1.png" style="width: 8.35in;" /></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>This level has 2 sprites so that we know it&#8217;s Level2. The Sprite objects are falling, but when we press Space, the level doesn&#8217;t reload. This is because the newly created level doesn&#8217;t have our GameLogic component attached to the LevelSettings object. <em>Making an archetype for the LevelSettings object is NOT what we want to do here</em> because the LevelSettings object is a special object that is handled internally, and doing so <strong>will cause undefined behavior.</strong> This can be avoided by simply making a template level and then duplicating it, but for now let&#8217;s just do it from scratch.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the LevelSettings object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the GameLogic component</span></a></p>
+<p><img alt="AddGameLogic" src="../../_images/AddGameLogic1.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The LevelSettings object in Level2 should have the same properties as LevelSettings object in Level1:</p>
+<p><img alt="SameProperties" src="../../_images/SameProperties1.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>The level should now be able to be reset just like in Level1.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="changing-levels">
+<h2>Changing Levels</h2>
+<p>Now we will go over changing from one level to another. The Space&#8217;s <strong>LoadLevel</strong> member function accepts a Level Resource. We can find the Levels by looking them up by name like we do with Archetypes, using the <strong>Find</strong> function. The Space&#8217;s <strong>CurrentLevel</strong> member returns the current level&#8217;s Level Resource.</p>
+<ul class="simple">
+<li>Open the <strong>GameLogic</strong> script</li>
+<li>Change the <strong>OnLogicUpdate</strong> function to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+      <span class="c1">// When Space is pressed,</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">))</span>
+      <span class="p">{</span>
+          <span class="c1">// reload the level.</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">ReloadLevel</span><span class="p">();</span>
+      <span class="p">}</span>
+
+<span class="hll">      <span class="c1">// If we press the right arrow:</span>
+</span><span class="hll">      <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Right</span><span class="p">))</span>
+</span><span class="hll">      <span class="p">{</span>
+</span><span class="hll">          <span class="c1">// Get the name of the currently loaded level:</span>
+</span><span class="hll">          <span class="k">var</span> <span class="nx">currentLevelName</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">CurrentLevel</span><span class="o">;</span>
+</span><span class="hll">
+</span><span class="hll">          <span class="c1">// Get the Levels to compare against:</span>
+</span><span class="hll">          <span class="k">var</span> <span class="nx">level1</span> <span class="o">=</span>  <span class="nx">Level</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;Level1&quot;</span><span class="p">);</span>
+</span><span class="hll">          <span class="k">var</span> <span class="nx">level2</span> <span class="o">=</span>  <span class="nx">Level</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;Level2&quot;</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">          <span class="c1">// If we are on Level1,</span>
+</span><span class="hll">          <span class="k">if</span> <span class="p">(</span><span class="nx">currentLevelName</span> <span class="o">==</span> <span class="nx">level1</span><span class="p">)</span>
+</span><span class="hll">          <span class="p">{</span>
+</span><span class="hll">              <span class="c1">// switch to Level2.</span>
+</span><span class="hll">              <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">LoadLevel</span><span class="p">(</span><span class="nx">level2</span><span class="p">);</span>
+</span><span class="hll">          <span class="p">}</span>
+</span><span class="hll">          <span class="c1">// Otherwise, if we are on Level2</span>
+</span><span class="hll">          <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">currentLevelName</span> <span class="o">==</span> <span class="nx">level2</span><span class="p">)</span>
+</span><span class="hll">          <span class="p">{</span>
+</span><span class="hll">              <span class="c1">// switch to Level1.</span>
+</span><span class="hll">              <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">LoadLevel</span><span class="p">(</span><span class="nx">level1</span><span class="p">);</span>
+</span><span class="hll">          <span class="p">}</span>
+</span><span class="hll">      <span class="p">}</span>
+</span>  <span class="p">}</span>
+</pre></div>
+</div>
+<p>This code gets the name of the current level and checks if it is Level1 or Level2. Then it loads the other level. In other words, if Level1 is the current level, then Level2 will be loaded, and if Level2 is the current level, then Level1 will be loaded.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Pressing the Right arrow key on the keyboard will switch between the two levels. We have one sprite in Level1, and we have two sprites in Level2.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="duplicating-levels">
+<h2>Duplicating Levels</h2>
+<p>We have renamed the level that is created by default, and we added a brand new level. Now we will go over duplicating or making a copy of a level that already exists.</p>
+<ul>
+<li><p class="first">In the Library Window</p>
+<ul>
+<li><p class="first">In the Level tab</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">Right-Click</span></code> on Level2 and select Duplicate from the drop-down selection</p>
+<p><img alt="DuplicateLevel" src="../../_images/DuplicateLevel2.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>A copy of Level2 should be created:</p>
+<p><img alt="LevelCopied" src="../../_images/LevelCopied1.png" /></p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">Right-Click</span></code> on Level2Copy1 and select Rename</p>
+<blockquote>
+<div><p><img alt="RenameLevelCopied" src="../../_images/RenameLevelCopied1.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+<p>
+* Rename Level2Copy1 to: Level3</p>
+<blockquote>
+<div><img alt="RenamedLevel3" src="../../_images/RenamedLevel31.png" /></div></blockquote>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Double-Click</span></code> on Level3 to open it for editing</li>
+<li>Paste a copy of one of the sprites in the level</li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the copy you made</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Translation to: [-2, 0, 0]</li>
+</ul>
+</li>
+</ul>
+<p>We now have 3 sprites in the level so that we know it is level 3 just by looking at it:</p>
+<p><a class="reference internal" href="../../_images/Level3Screenshot1.png"><img alt="Level3Screenshot" src="../../_images/Level3Screenshot1.png" style="width: 8.35in;" /></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>The sprites fall and we are able to restart the level with the Space, but pressing the right arrow key on the keyboard isn&#8217;t doing what it used to do. This is because our logic only accounted for the first two levels and switching back and forth between them.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a> and open the GameLogic script</li>
+<li>Change the <strong>OnLogicUpdate</strong> function to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+      <span class="c1">// When Space is pressed,</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">))</span>
+      <span class="p">{</span>
+          <span class="c1">// reload the level.</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">ReloadLevel</span><span class="p">();</span>
+      <span class="p">}</span>
+
+<span class="hll">      <span class="c1">// If we press 1,</span>
+</span><span class="hll">      <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">One</span><span class="p">))</span>
+</span><span class="hll">      <span class="p">{</span>
+</span><span class="hll">          <span class="c1">// load Level1.</span>
+</span><span class="hll">          <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">LoadLevel</span><span class="p">(</span> <span class="nx">Level</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;Level1&quot;</span><span class="p">));</span>
+</span><span class="hll">      <span class="p">}</span>
+</span><span class="hll">      <span class="c1">// Otherwise, if we press 2,</span>
+</span><span class="hll">      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Two</span><span class="p">))</span>
+</span><span class="hll">      <span class="p">{</span>
+</span><span class="hll">          <span class="c1">// load Level2.</span>
+</span><span class="hll">          <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">LoadLevel</span><span class="p">(</span><span class="nx">Level</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;Level2&quot;</span><span class="p">));</span>
+</span><span class="hll">      <span class="p">}</span>
+</span><span class="hll">      <span class="c1">// Otherwise, if we press 3,</span>
+</span><span class="hll">      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Three</span><span class="p">))</span>
+</span><span class="hll">      <span class="p">{</span>
+</span><span class="hll">          <span class="c1">// load Level3.</span>
+</span><span class="hll">          <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">LoadLevel</span><span class="p">(</span><span class="nx">Level</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;Level3&quot;</span><span class="p">));</span>
+</span><span class="hll">      <span class="p">}</span>
+</span>  <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Now pressing the numbers <code class="docutils literal"><span class="pre">1</span></code>, <code class="docutils literal"><span class="pre">2</span></code>, and <code class="docutils literal"><span class="pre">3</span></code> keys will load Level1, Level2, and Level3 respectively.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="setting-the-starting-level-for-the-game">
+<h2>Setting the Starting Level for the Game</h2>
+<p>What if we wanted a specific level (such as a main menu, intro level, or tutorial level) to be the first level that is loaded when the game starts. In other words, the initial level that is loaded when the user actually runs the game outside of the editor (from the executable or independent of the Zero Engine).</p>
+<p>One way of doing this is the <strong>SetAsStartingLevel</strong> command.</p>
+<ul>
+<li><p class="first">In the Level Window</p>
+<ul>
+<li><p class="first">Press <code class="docutils literal"><span class="pre">Shift+G</span></code></p>
+<p><img alt="Game" src="../../_images/Game1.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Set the StartingLevel to: Level3</li>
+</ul>
+</li>
+</ul>
+<p>Level3 now will be the level that is loaded when the game starts outside of the Zero Engine.</p>
+<p>Now we know how to restart/reload, change, create, and duplicate levels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">orphan:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<!-- this is used as a file for inclusion in other .rst files --></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ParticleSystems.html" class="btn btn-neutral float-right" title="Particle Systems" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="FireAtMouse.html" class="btn btn-neutral" title="Firing At the Mouse" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/Levels.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:23:36 GMT -->
+</html>

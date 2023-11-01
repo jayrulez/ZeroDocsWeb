@@ -1,0 +1,221 @@
+.. _TutorialProperties:
+
+.. rst-class:: SearchTitle
+
+Properties
+==========
+
+.. rst-class:: SearchDescription
+
+This lesson explains the basics of creating properties in the Zero Engine.
+
+Create a New Project
+--------------------
+
+:ref:`ManualCreateNewProject`
+
+Adding a Player ZilchScript
+----------------------------
+
+:ref:`Add a new ZilchScript resource<ManualResourceAdding>` named: Player
+
+Update your **Player** script to look like this:
+
+.. code-block:: as
+    
+    class Player : ZilchComponent
+    {
+        function Initialize(init : CogInitializer)
+        {
+            Console.WriteLine("I am player `this.Owner.Name`");
+        }
+
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+        }
+    }
+
+* :ref:`Save the project <ManualSavingProject>`
+    
+**Create PlayerOne**
+  
+* :ref:`Command<ManualCommands>`: ``CreateSprite`` or :menuselection:`Create --> Create Sprite` 
+* In the Properties Window
+  
+  * Set Name to: 'PlayerOne'
+  * :ref:`Add a Player component <ManualAddRemoveComponents>`
+
+It should look like this:
+
+|EmptyPlayer|
+
+
+
+Adding Properties
+-----------------
+
+* Go back to your script by selecting it from the library, or click the arrow next to the word Player
+
+Update your **Player** script to look like this:
+
+.. code-block:: as
+    :emphasize-lines: 3,4
+     
+    class Player : ZilchComponent
+    {
+        [Property]
+        var Health : Integer = 0;
+        
+        function Initialize(init : CogInitializer)
+        {
+           Console.WriteLine("I am player `this.Owner.Name`");    
+        }
+
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+        }
+    }
+
+* :ref:`Save the project <ManualSavingProject>`    
+* In the Properties Window
+
+  * Under Player
+  
+    * Set Health to: 10
+
+|AddedHealth|
+
+Properties allow your scripts to add data to your game objects. Your defined
+properties are just like all the other properties shown in the Properties Window such as
+Translation or Scale. 
+
+Reading Properties
+------------------
+
+Update the **Player** script to look like this:
+
+.. code-block:: as
+     
+        function Initialize(init : CogInitializer)
+        {
+            Console.WriteLine("I am player `this.Owner.Name` my health is `this.Health`");    
+        }
+        
+* :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+ 
+
+ 
+In the Console Window output we get this::
+
+    ---------------- Begin Game ---------------
+    I am player PlayerOne my health is 10 
+ 
+* :ref:`Stop the Game <ManualStopGame>`
+ 
+Properties and Multiple Objects
+----------------------------------
+
+* :ref:`Command<ManualCommands>`: ``CreateSprite`` or :menuselection:`Create --> Create Sprite` 
+* In the Properties Window
+    
+  * Set Name to: 'PlayerTwo'
+  * :ref:`Add a Player component <ManualAddRemoveComponents>`
+  * Under Player component
+    
+    * Set Health to: 20
+
+Here is what its properties look like:
+
+|PlayerTwo|
+
+* :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+Notice that each object can have a different value for Health::
+
+    ---------------- Begin Game ---------------
+    I am player PlayerOne my health is 10
+    I am player PlayerTwo my health is 20
+
+
+Features of Properties
+----------------------
+
+* Each object has it own copy of every property variable
+* Changing the value of the property on an object does not effect the value of the property on other objects
+* Properties are automatically saved for every object in the level
+* Properties are saved on archetypes
+
+Other Property Types
+--------------------
+
+* :ref:`Stop the Game <ManualStopGame>`
+* Add the following to your **Player script in place of the Health property** :
+
+.. code-block:: as
+
+    [Property]
+    var Health : Integer = 0;
+    
+    [Property]
+    var Size : Real2 = Real2(0,0);
+
+    [Property]
+    var DamageFactor : Real = 0;
+    
+    [Property]
+    var Started : Boolean = false;
+    
+    [Property]
+    var Text : String = "Hello";
+    
+* :ref:`Save the project <ManualSavingProject>`    
+    
+|MoreProperties|
+
+
+
+Resource Properties
+-------------------
+
+Properties can also refer to resources. 
+
+* Add this to your **Player** script:
+
+.. code-block:: as
+
+    [Property]
+    var LowHealth : SpriteSource = null;
+
+* :ref:`Save the project <ManualSavingProject>`
+* Select PlayerOne    
+* In the Properties Window  
+    
+  * Under the Player component
+  
+    * Set LowHealth to: a SpriteSource of your choice
+
+|SetResourceProperty|
+
+    
+You can also change the properties of components to different values
+in code:
+
+.. code-block:: as
+     
+    function Initialize(init : CogInitializer)
+    {
+        Console.WriteLine("I am player `this.Owner.Name` my health is `this.Health`");
+        
+        if(this.Health < 20)
+        {
+            this.Owner.Sprite.SpriteSource = this.LowHealth;
+        }
+    }
+    
+.. |EmptyPlayer|         image:: images/Properties/EmptyPlayer.png    
+.. |AddedHealth|         image:: images/Properties/AddedHealth.png
+.. |PlayerTwo|           image:: images/Properties/PlayerTwo.png
+.. |MoreProperties|      image:: images/Properties/MoreProperties.png
+.. |SetResourceProperty| image:: images/Properties/SetResourceProperty.png
+
+ 

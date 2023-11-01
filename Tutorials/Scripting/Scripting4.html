@@ -1,0 +1,1055 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Scripting/Scripting4.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 22:34:45 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scripting 4 &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Scripting" href="index.html"/>
+        <link rel="next" title="Events" href="Events1.html"/>
+        <link rel="prev" title="Scripting 3" href="Scripting3.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Scripting</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Scripting 4</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events3.html">Events 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events4.html">Events 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingCustomEaseInActionsTutorial.html">Using Custom Eases in Actions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Tutorials</a> &raquo;</li>
+      
+          <li><a href="index.html">Scripting</a> &raquo;</li>
+      
+    <li>Scripting 4</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Tutorials/Scripting/Scripting4.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="scripting-4">
+<span id="tutorialsscripting4"></span><h1>Scripting 4</h1>
+<p class="searchdescription">This lesson will cover storing and accessing data in Arrays. We will also cover the concept of looping, and loop operations.</p>
+<div class="section" id="learning-objectives">
+<span id="tutorialsscripting4vocab"></span><h2>Learning Objectives</h2>
+<ul class="simple">
+<li>1D and 2D array usage</li>
+<li>Understanding looping structures.</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="20%" />
+<col width="43%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Array</td>
+<td>Array Element</td>
+<td>Array Index</td>
+</tr>
+<tr class="row-odd"><td>loop</td>
+<td>for</td>
+<td>while</td>
+</tr>
+<tr class="row-even"><td>break</td>
+<td>continue</td>
+<td>foreach</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>One of the biggest scripting topics we have talked about so far is variables and the various ways we can use them to store individual pieces of data, but what happens when we want to store large amounts of data? Imagine we want to keep track of each enemy in a game: it wouldn&#8217;t be practical to have a variable to keep track of each one. It would be much more convenient to have a list of the enemies that is stored in one variable, which is exactly the purpose of arrays.</p>
+</div>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/LauncherNewProject.html#manualcreatenewproject"><span>Create a New 2D Project</span></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">GameLogic</span></code></li>
+</ul>
+</div>
+<div class="section" id="arrays">
+<h2>Arrays</h2>
+<p>In Zilch, arrays are essentially lists of variables. We can add and remove items from the list whenever we want, the only restriction is that all the items in the array must be of the same type. Let&#8217;s start with a simple example of an array of <strong>Integers</strong>.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+<span class="hll">    <span class="k">var</span> <span class="nx">TestArray</span> <span class="o">:</span> <span class="nb">Array</span><span class="p">[</span><span class="nx">Integer</span><span class="p">]</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">[</span><span class="nx">Integer</span><span class="p">]();</span>
+</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">      <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Declaring an array is very similar to declaring any other type of variable, the main difference is that arrays require you to define the type of variables that will be contained.</p>
+<p>For instance, <code class="docutils literal"><span class="pre">Integer</span></code> is a type, <code class="docutils literal"><span class="pre">Array[Integer]</span></code> is a type, but <code class="docutils literal"><span class="pre">Array</span></code> by itself is <strong>not</strong> a type; we <strong>must</strong> know what it will contain. Equally, <code class="docutils literal"><span class="pre">Array[Integer]</span></code> is a <em>different</em> type than <code class="docutils literal"><span class="pre">Integer</span></code>, and also a different type than <code class="docutils literal"><span class="pre">Array[Real]</span></code>.</p>
+<p>By declaring <code class="docutils literal"><span class="pre">TestArray</span></code> as type <code class="docutils literal"><span class="pre">Array[Integer]</span></code> we are essentially saying we are creating a list that will only contain <code class="docutils literal"><span class="pre">Integers</span></code>. The square brackets (<code class="docutils literal"><span class="pre">[</span></code> <code class="docutils literal"><span class="pre">]</span></code>) are required to indicate the type of the variables the array will contain.</p>
+<p>When initializing our array, we must supply a value of the <em>same type</em>. With primitive language types, such as <code class="docutils literal"><span class="pre">Integer</span></code>, we could assign literals like <code class="docutils literal"><span class="pre">0</span></code> or <code class="docutils literal"><span class="pre">5</span></code>. With arrays we usually start with an empty array, which the code above constructs.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the LevelSettings object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add the GameLogic component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+{}
+Level &#39;Level&#39; was loaded.
+Loaded level 0.01s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>The <code class="docutils literal"><span class="pre">{}</span></code> is the printed representation of an empty array. Let&#8217;s try adding some elements to the array.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+<span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span><span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+{}
+{0}
+{0, 1}
+{0, 1, 2}
+{0, 1, 2, 3}
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>Now we can see the array grows as we add items. Notice that new elements are always added to the end of the array. Let&#8217;s try removing items from the array.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+<span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Pop</span><span class="p">();</span>
+</span><span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Pop</span><span class="p">();</span>
+</span><span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Pop</span><span class="p">();</span>
+</span><span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Pop</span><span class="p">();</span>
+</span><span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+{}
+{3}
+{3, 2}
+{3, 2, 1}
+{3, 2, 1, 0}
+{3, 2, 1}
+{3, 2}
+{3}
+{}
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>The opposite of <code class="docutils literal"><span class="pre">Add</span></code>, <code class="docutils literal"><span class="pre">Pop</span></code> removes the last element in the array. Notice that arrays keep track of elements by their <em>position within the array</em>, this is called an <strong>index</strong>.</p>
+<p>Now, if I were to ask you what the index of <code class="docutils literal"><span class="pre">3</span></code> is (before we remove it with the <code class="docutils literal"><span class="pre">Pop</span></code> function), you might say 1. However, in Zilch the first element has an index of 0. The trick is to think about it in terms of movement: how many positions do you need to move from the first element to access a particular element? Well, in the case of the first element, you need to move <code class="docutils literal"><span class="pre">0</span></code> times to access it, since it is where you start. Equally, if we wanted to access the second element, we would have to move 1 time from the first element, and so on. This concept of positions (indices) is key to arrays, and is important when talking about loops.</p>
+</div>
+<div class="section" id="loops">
+<h2>Loops</h2>
+<p>What if we had a few lines of code we needed to run multiple times? For example, imagine you want to spawn four enemies upon receiving an in-game event. Would you really want to call your SpawnEnemies function four times? What if, under different conditions, you want to respond to the <em>same event</em> by spawning <em>five</em> enemies? Well, if you hard-coded your SpawnEnemies function to spawn four enemies, it can&#8217;t spawn five.</p>
+<p>Loops let us perform a block of code multiple times <em>without</em> writing out each individual call; moreover, we can make the number of times it runs vary by basing it on a conditional statement (so we can spawn four, five, or any other number of enemies).</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+<span class="hll">    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+</span><span class="hll">    <span class="k">var</span> <span class="nx">Length</span> <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+</span>
+    <span class="k">var</span> <span class="nx">TestArray</span> <span class="o">:</span> <span class="nb">Array</span><span class="p">[</span><span class="nx">Integer</span><span class="p">]</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">[</span><span class="nx">Integer</span><span class="p">]();</span>
+
+<span class="hll">    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class="hll">        <span class="k">while</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Count</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">Length</span><span class="p">)</span>
+</span><span class="hll">        <span class="p">{</span>
+</span><span class="hll">            <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span><span class="hll">            <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="hll">            <span class="nx">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+{0}
+{0, 1}
+{0, 1, 2}
+{0, 1, 2, 3}
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>Here we use a <strong>while</strong> loop to populate our array. Notice the output is the same as when we originally populated the array with this code:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span><span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>A while loop will run the code contained underneath it in the curly braces, <code class="docutils literal"><span class="pre">{}</span></code>, over and over again until the condition between the parentheses, <code class="docutils literal"><span class="pre">()</span></code>, is not true. This Boolean condition evaluates the same as those used in <code class="docutils literal"><span class="pre">if</span></code> statements. Here, the while loop will, with each iteration, add an element to <code class="docutils literal"><span class="pre">TestArray</span></code> with the current value of <code class="docutils literal"><span class="pre">i</span></code> until the size of the array is no longer less than the <code class="docutils literal"><span class="pre">Length</span></code> property.</p>
+<p><code class="docutils literal"><span class="pre">while</span></code> loops are not the most common types of loops, as there is no inherent part of the <code class="docutils literal"><span class="pre">while</span></code> loop structure that ensures the loop will end. Imagine a <code class="docutils literal"><span class="pre">while</span></code> loop where none of the variables that are being evaluated in the boolean condition are affected by code inside the <code class="docutils literal"><span class="pre">{}</span></code> of the loop. Most likely, the condition will always remain true and your code will get stuck in what is called an <strong>infinite loop</strong>, meaning the loop will run forever and never execute any other code outside the loop. This is why we more often use the <code class="docutils literal"><span class="pre">for</span></code> loop.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll"><span class="c1">// Before the loop declare | Before an iteration of the loop | At the end of each loop</span>
+</span><span class="hll"><span class="c1">// and initialize var i,   | require i be less than Length,  | iteration: add 1 to i</span>
+</span><span class="hll">   <span class="k">for</span> <span class="p">(</span><span class="k">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                 <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">Length</span><span class="o">;</span>                          <span class="o">++</span><span class="nx">i</span><span class="p">)</span>
+</span><span class="hll">   <span class="c1">// During the loop iteration, run this code</span>
+</span><span class="hll">   <span class="p">{</span>
+</span><span class="hll">       <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span><span class="hll">       <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+</span>   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+{0}
+{0, 1}
+{0, 1, 2}
+{0, 1, 2, 3}
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>As you can see, the <code class="docutils literal"><span class="pre">for</span></code> loop we replaced the <code class="docutils literal"><span class="pre">while</span></code> loop with has the same functionality. By reading the comments in the above code you can see what each portion of the <code class="docutils literal"><span class="pre">for</span></code> loop does. The code between the <code class="docutils literal"><span class="pre">(</span></code> and the first <code class="docutils literal"><span class="pre">;</span></code> is run just once. The code after that is the Boolean condition we test <em>before</em> doing <strong>every</strong> iteration of the loop. If it resolves to <code class="docutils literal"><span class="pre">true</span></code>, then it runs the code between the loop&#8217;s <code class="docutils literal"><span class="pre">{}</span></code> followed by the last section of code between the <code class="docutils literal"><span class="pre">;</span></code> and the <code class="docutils literal"><span class="pre">)</span></code>.</p>
+<p>After that, it will evaluate the Boolean condition again, if <code class="docutils literal"><span class="pre">true</span></code>, execute the code in the <code class="docutils literal"><span class="pre">{}</span></code>, execute code between <code class="docutils literal"><span class="pre">;</span></code> and <code class="docutils literal"><span class="pre">)</span></code>, hence, looping, until the Boolean condition resolves to <code class="docutils literal"><span class="pre">false</span></code>.</p>
+<div class="admonition-practice-it admonition">
+<p class="first admonition-title">Practice it!</p>
+<p class="last">Try running through this code by hand with pen and paper to ensure you understand the sequence of events. Compare your results to the output.</p>
+</div>
+<p>Since all of the control features of the loop can be easily placed up front, <code class="docutils literal"><span class="pre">for</span></code> loops are often much more convenient than while loops.</p>
+<p>Now that we&#8217;ve seen how to build arrays using loops, let&#8217;s take a look at accessing the elements of arrays once we have constructed them.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="c1">// Before the loop declare | Before an iteration of the loop | At the end of each loop</span>
+<span class="c1">// and initialize var i,   | require i be less than Length,  | iteration: add 1 to i</span>
+   <span class="k">for</span> <span class="p">(</span><span class="k">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                 <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">Length</span><span class="o">;</span>                          <span class="o">++</span><span class="nx">i</span><span class="p">)</span>
+   <span class="c1">// During the loop iteration, run this code</span>
+   <span class="p">{</span>
+       <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+       <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+   <span class="p">}</span>
+
+<span class="hll">   <span class="k">for</span><span class="p">(</span><span class="k">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Count</span><span class="o">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span>
+</span><span class="hll">   <span class="p">{</span>
+</span><span class="hll">       <span class="k">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span><span class="hll">       <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+</span><span class="hll">   <span class="p">}</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+{0}
+{0, 1}
+{0, 1, 2}
+{0, 1, 2, 3}
+0
+1
+2
+3
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>In the first line of code inside the <code class="docutils literal"><span class="pre">{}</span></code> of the second <code class="docutils literal"><span class="pre">for</span></code> loop (also know as the <strong>body</strong>) you can see an example of accessing array <strong>elements</strong> by index. Using <code class="docutils literal"><span class="pre">i</span></code> as the index, we can look at each element in the order they exist in the array, and we can ensure that <code class="docutils literal"><span class="pre">i</span></code> is never going to be larger than the last index in the array (<code class="docutils literal"><span class="pre">Count</span></code> is the size of the array).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Trying to index &#8220;outside&#8221; of an array is undefined. An index is said to be &#8220;outside&#8221; of an array when it doesn&#8217;t correspond to an element within it, i.e. negative indices, or those beyond it&#8217;s last index. You&#8217;ll get a <strong>run-time error</strong> if it occurs.</p>
+<p class="last">Run-time errors are those that happen <em>while your game is running</em>. <strong>Compile-time errors</strong> occur before you run the game. Run-time errors happen because the compiler cannot yet determine whether or not your code will result in an error until more information is provided.</p>
+</div>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="c1">// Before the loop declare | Before an iteration of the loop | At the end of each loop</span>
+<span class="c1">// and initialize var i,   | require i be less than Length,  | iteration: add 1 to i</span>
+   <span class="k">for</span> <span class="p">(</span><span class="k">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                 <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">Length</span><span class="o">;</span>                          <span class="o">++</span><span class="nx">i</span><span class="p">)</span>
+   <span class="c1">// During the loop iteration, run this code</span>
+   <span class="p">{</span>
+       <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+       <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">);</span>
+   <span class="p">}</span>
+
+<span class="hll">   <span class="k">for</span><span class="p">(</span><span class="k">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">LastIndex</span><span class="o">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="o">--</span><span class="nx">i</span><span class="p">)</span>
+</span>   <span class="p">{</span>
+       <span class="k">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+       <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+{0}
+{0, 1}
+{0, 1, 2}
+{0, 1, 2, 3}
+3
+2
+1
+0
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>Once again we are accessing each element by its index; however, this time we are walking from the back of the array to the front. We start by initializing <code class="docutils literal"><span class="pre">i</span></code> to <code class="docutils literal"><span class="pre">this.TestArray.LastIndex</span></code>. Since there are four elements (and the first element is at index <code class="docutils literal"><span class="pre">0</span></code>), <code class="docutils literal"><span class="pre">i</span></code> is initialized to <code class="docutils literal"><span class="pre">3</span></code>. Since <code class="docutils literal"><span class="pre">i</span></code> is decremented (reduced by one) after the code inside the <code class="docutils literal"><span class="pre">{}</span></code> is run, the condition of <code class="docutils literal"><span class="pre">i</span> <span class="pre">&gt;=</span> <span class="pre">0</span></code> will evaluate to <code class="docutils literal"><span class="pre">true</span></code> four times.</p>
+</div>
+<div class="section" id="break">
+<h2>Break</h2>
+<p>Occasionally, while looping, we want to stop based on some condition that is checked within the <code class="docutils literal"><span class="pre">{}</span></code> of the loop itself.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component&#8217;s second <code class="docutils literal"><span class="pre">for</span></code> loop to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="hll"><span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Start accessing loop&quot;</span><span class="p">);</span>
+</span><span class="k">for</span><span class="p">(</span><span class="k">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">LastIndex</span><span class="o">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="o">--</span><span class="nx">i</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+
+<span class="hll">    <span class="k">if</span><span class="p">(</span><span class="nx">element</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">break</span><span class="o">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="p">}</span>
+<span class="hll"><span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;End accessing loop&quot;</span><span class="p">);</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+{0}
+{0, 1}
+{0, 1, 2}
+{0, 1, 2, 3}
+Start accessing loop
+3
+2
+End accessing loop
+Level &#39;Level&#39; was loaded.
+Loaded level 0.03s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>During each loop we check if the value of <code class="docutils literal"><span class="pre">element</span></code> is equal to <code class="docutils literal"><span class="pre">2</span></code>. When we find an element that is of value <code class="docutils literal"><span class="pre">2</span></code>, we break the loop; then the code after the loop starts running. In this case, the <strong>break</strong> statement causes us to stop running the loop early; thus, preventing the elements with values of <code class="docutils literal"><span class="pre">1</span></code> and <code class="docutils literal"><span class="pre">0</span></code> from being printed before <code class="docutils literal"><span class="pre">Console.WriteLine(&quot;End</span> <span class="pre">accessing</span> <span class="pre">loop&quot;)</span></code> is run.</p>
+</div>
+<div class="section" id="continue">
+<h2>Continue</h2>
+<p>Where <strong>break</strong> allows you to skip the remaining iterations of a loop, <strong>continue</strong> allows you to skip an <em>individual</em> iteration of a loop.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="nx">element</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll">    <span class="k">continue</span><span class="o">;</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+{0}
+{0, 1}
+{0, 1, 2}
+{0, 1, 2, 3}
+Start accessing loop
+3
+2
+1
+0
+End accessing loop
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>Now that we have replaced the <code class="docutils literal"><span class="pre">break</span></code> statement with a <code class="docutils literal"><span class="pre">continue</span></code> statement, instead of skipping the remaining iterations, we skip only the <em>remainder of the current iteration</em>. Since <code class="docutils literal"><span class="pre">2</span></code> was already printed, nothing changed. Let&#8217;s rearrange the code, so the print statement is the last line of code in the body of our second <code class="docutils literal"><span class="pre">for</span></code> loop.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component&#8217;s second <code class="docutils literal"><span class="pre">for</span></code> loop to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="hll"><span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Start accessing loop&quot;</span><span class="p">);</span>
+</span><span class="k">for</span><span class="p">(</span><span class="k">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">.</span><span class="nx">LastIndex</span><span class="o">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="o">--</span><span class="nx">i</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">TestArray</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nx">element</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+<span class="hll">  <span class="p">{</span>
+</span><span class="hll">    <span class="k">continue</span><span class="o">;</span>
+</span><span class="hll">  <span class="p">}</span>
+</span><span class="hll">
+</span>  <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+<span class="hll">
+</span><span class="p">}</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;End accessing loop&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ----------------
+{0}
+{0, 1}
+{0, 1, 2}
+{0, 1, 2, 3}
+Start accessing loop
+3
+1
+0
+End accessing loop
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>Now, we are only preventing elements with a value of <code class="docutils literal"><span class="pre">2</span></code> from being printed.</p>
+</div>
+<div class="section" id="dimensional-arrays">
+<h2>2 Dimensional Arrays</h2>
+<p>Often in programming you want to set up a table of values. To achieve this a common technique is to use an array of arrays. Look at this example:</p>
+<ul>
+<li><p class="first">In the GameLogic ZilchScript Window</p>
+<ul class="simple">
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GameLogic</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="kt">var</span> <span class="n">TestArray</span> <span class="p">:</span> <span class="n">Array</span><span class="p">[</span><span class="n">Array</span><span class="p">[</span><span class="n">Integer</span><span class="p">]]</span> <span class="p">=</span> <span class="n">Array</span><span class="p">[</span><span class="n">Array</span><span class="p">[</span><span class="n">Integer</span><span class="p">]]();</span>
+
+  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">TestArray</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ----------------
+{}
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>This is because no elements have been added to the outer array shown in the output as <code class="docutils literal"><span class="pre">{}</span></code>. The next step will be to push some new arrays into the outer array.</p>
+<ul>
+<li><p class="first">In the GameLogic ZilchScript Window</p>
+<ul class="simple">
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GameLogic</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="kt">var</span> <span class="n">TestArray</span> <span class="p">:</span> <span class="n">Array</span><span class="p">[</span><span class="n">Array</span><span class="p">[</span><span class="n">Integer</span><span class="p">]]</span> <span class="p">=</span> <span class="n">Array</span><span class="p">[</span><span class="n">Array</span><span class="p">[</span><span class="n">Integer</span><span class="p">]]();</span>
+
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">Height</span> <span class="p">:</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span>
+
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">Width</span> <span class="p">:</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span>
+
+  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;TestArray before construction: `this.TestArray`&quot;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Build2DArray</span><span class="p">();</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;TestArray after construction: `this.TestArray`&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">function</span> <span class="nf">Build2DArray</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="n">Height</span><span class="p">;</span> <span class="p">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">TestArray</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">Array</span><span class="p">[</span><span class="n">Integer</span><span class="p">]());</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>Notice how a loop is used to insert the inner arrays within the outer array. This is an important concept, and should be payed attention as the example is expanded to fill in the inner arrays.</p>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ----------------
+TestArray before construction: {}
+TestArray after construction: {{}, {}, {}}
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>Now the output shows the outer array (<code class="docutils literal"><span class="pre">TestArray</span></code>) filled with empty arrays which will hold Integer&#8217;s. Now it is time to fill the inner arrays.</p>
+<ul>
+<li><p class="first">In the GameLogic ZilchScript Window</p>
+<ul class="simple">
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">Class</span> <span class="n">GameLogic</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="kt">var</span> <span class="n">TestArray</span> <span class="p">:</span> <span class="n">Array</span><span class="p">[</span><span class="n">Array</span><span class="p">[</span><span class="n">Integer</span><span class="p">]]</span> <span class="p">=</span> <span class="n">Array</span><span class="p">[</span><span class="n">Array</span><span class="p">[</span><span class="n">Integer</span><span class="p">]]();</span>
+
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">Height</span> <span class="p">:</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span>
+
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">Width</span> <span class="p">:</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span>
+
+  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;TestArray before construction: `this.TestArray`&quot;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Build2DArray</span><span class="p">();</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;TestArray after construction: `this.TestArray`&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">function</span> <span class="nf">Build2DArray</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="n">Height</span><span class="p">;</span> <span class="p">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">TestArray</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">Array</span><span class="p">[</span><span class="n">Integer</span><span class="p">]());</span>
+
+      <span class="k">for</span><span class="p">(</span><span class="kt">var</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="p">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="n">Width</span><span class="p">;</span> <span class="p">++</span><span class="n">j</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">TestArray</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Add</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Notice that there is a for loop nested in another for loop in the <code class="docutils literal"><span class="pre">Build2DArray</span></code> function now. This allows the script to add Integers to the inner arrays as the inner arrays are added to the outer array. It should also be noted that the inner arrays are constructed in the outer loop. This must happen otherwise when the inner loop tries to add the Integers to the new inner array it will not exist.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ----------------
+TestArray before construction: {}
+TestArray after construction: {{0, 1, 2}, {0, 1, 2}, {0, 1, 2}}
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>Now that the inner arrays have elements (<code class="docutils literal"><span class="pre">{0,</span> <span class="pre">1,</span> <span class="pre">2}</span></code>) it is much easier to see them. Look at this last example with the 2D array to reinforce how to traverse it.</p>
+<div class="section" id="the-foreach-loop">
+<h3>The <code class="docutils literal"><span class="pre">foreach</span></code> Loop</h3>
+<ul>
+<li><p class="first">In the GameLogic ZilchScript Window</p>
+<ul class="simple">
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GameLogic</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="kt">var</span> <span class="n">TestArray</span> <span class="p">:</span> <span class="n">Array</span><span class="p">[</span><span class="n">Array</span><span class="p">[</span><span class="n">Integer</span><span class="p">]]</span> <span class="p">=</span> <span class="n">Array</span><span class="p">[</span><span class="n">Array</span><span class="p">[</span><span class="n">Integer</span><span class="p">]]();</span>
+
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">Height</span> <span class="p">:</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span>
+
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">Width</span> <span class="p">:</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span>
+
+  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;TestArray before construction: `this.TestArray`&quot;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Build2DArray</span><span class="p">();</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;TestArray after construction: `this.TestArray`&quot;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Print2DArray</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">function</span> <span class="nf">Build2DArray</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="n">Height</span><span class="p">;</span> <span class="p">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">TestArray</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">Array</span><span class="p">[</span><span class="n">Integer</span><span class="p">]());</span>
+
+      <span class="k">for</span><span class="p">(</span><span class="kt">var</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="p">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="n">Width</span><span class="p">;</span> <span class="p">++</span><span class="n">j</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">TestArray</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Add</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="n">function</span> <span class="nf">Print2DArray</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">foreach</span><span class="p">(</span><span class="kt">var</span> <span class="n">innerArray</span> <span class="k">in</span> <span class="k">this</span><span class="p">.</span><span class="n">TestArray</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">foreach</span><span class="p">(</span><span class="kt">var</span> <span class="n">element</span> <span class="k">in</span> <span class="n">innerArray</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Something that should be made note of in this new code snippet is the use of <code class="docutils literal"><span class="pre">foreach</span></code> in the <code class="docutils literal"><span class="pre">Print2DArray</span></code> function. <code class="docutils literal"><span class="pre">foreach</span></code> is a special version of the <code class="docutils literal"><span class="pre">for</span></code> loop that extracts the current element from the array for the user in order to skip the step of indexing into the array within the loop. In the outer <code class="docutils literal"><span class="pre">foreach</span></code> loop each inner array is extracted into the <code class="docutils literal"><span class="pre">innerArray</span></code> variable defined with in the <code class="docutils literal"><span class="pre">foreach</span></code>. While in the inner <code class="docutils literal"><span class="pre">foreach</span></code> loop, each Integer from the <code class="docutils literal"><span class="pre">innerArray</span></code> variable is extracted into the <code class="docutils literal"><span class="pre">element</span></code> variable to be printed.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ----------------
+TestArray before construction: {}
+TestArray after construction: {{0, 1, 2}, {0, 1, 2}, {0, 1, 2}}
+0
+1
+2
+0
+1
+2
+0
+1
+2
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<div class="sidebar">
+<p class="first sidebar-title">The <code class="docutils literal"><span class="pre">\n</span></code> character</p>
+<p class="last">The <code class="docutils literal"><span class="pre">\n</span></code> character is called a <strong>newline</strong> character. By inserting at the end of a string or line you are telling the application that is displaying the text that it should do so on a new line.</p>
+</div>
+<p>Now what if we wanted to print this in a grid to make it more readable as a table? We can use the <code class="docutils literal"><span class="pre">\n</span></code> character to seperate each row of the table. If we use the <code class="docutils literal"><span class="pre">Console.Write</span></code> function instead of the <code class="docutils literal"><span class="pre">Console.Writeline</span></code> function, newlines are not automatically added to the end of each print statement. In the case below this is what is desired as we want to add the newline chracters manually in order to control how the 2D array is displayed.</p>
+<ul>
+<li><p class="first">In the GameLogic ZilchScript Window</p>
+<ul class="simple">
+<li>Update the <code class="docutils literal"><span class="pre">Print2DArray</span></code> function to the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">Print2DArray</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">foreach</span><span class="p">(</span><span class="kt">var</span> <span class="n">innerArray</span> <span class="k">in</span> <span class="k">this</span><span class="p">.</span><span class="n">TestArray</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">foreach</span><span class="p">(</span><span class="kt">var</span> <span class="n">element</span> <span class="k">in</span> <span class="n">innerArray</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ----------------
+TestArray before construction: {}
+TestArray after construction: {{0, 1, 2}, {0, 1, 2}, {0, 1, 2}}
+012
+012
+012
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions</h2>
+<p>In this lesson we covered loops and the various operations that can be used within loops structures. We also looked at multi-dimensional arrays, and how to construct and traverse them. With this knowledge you should have no problems using the basic functionality of arrays and loop structures.</p>
+<div class="section" id="on-your-own">
+<h3>On Your Own</h3>
+<ul class="simple">
+<li>Experiment with 1D &amp; 2D array which are filled with types other than Integers.</li>
+<li>See if you can print a 2D array upside down. Then see if you can flip the output horizontally as well.</li>
+<li>See if you can make a function that takes an Integer which prints the multiplication table for that number.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Events1.html" class="btn btn-neutral float-right" title="Events" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Scripting3.html" class="btn btn-neutral" title="Scripting 3" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Scripting/Scripting4.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 22:34:54 GMT -->
+</html>

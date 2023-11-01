@@ -1,0 +1,234 @@
+.. _FireAtMouse2014:
+
+.. rst-class:: SearchTitle
+
+Firing At the Mouse
+===================
+
+.. rst-class:: SearchDescription
+
+This lesson covers getting the location of the mouse, the difference between screen coordinates and world coordinates, and calculating the direction vector from one object to another in order to fire at a target.
+
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2014`
+
+Level Setup
+-----------
+
+* Lets make a ball projectile Archetype that will be fired
+
+* :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+* In the Properties Window
+
+    * Set Name to: Ball
+    
+    * Under Transform
+    
+        * Set Scale to: [0.2, 0.2, 0.2]
+    
+    * Under Sprite
+
+        * Set Color to: [ R: 255, G: 0, B: 0, A: 1.00 ]
+        
+        * Set SpriteSource to: Circle   
+        
+    * :ref:`Add Component RigidBody <AddComponent2014>`
+    
+    * :ref:`Add Component SphereCollider <AddComponent2014>`
+    
+    * Under SphereCollider
+    
+        * Set Radius to 0.5         
+        
+        |NoWebBegin|
+        |BallSettingsBook|
+        |NoWebEnd|
+        
+        |NoBookBegin|
+        |BallSettingsWeb|
+        |NoBookEnd|
+
+|pbr|
+
+* Upload to the Archetype Ball
+
+    * Set Archetype to: Ball
+    
+    * Upload the archetype
+
+    |UploadBall|
+    
+    * Now that it is uploaded you can delete your object
+
+
+* Lets now create the Turret Script to fire our projectile
+
+* :ref:`Add a new ZilchScript resource<ResourceAdding2014>` named: 'Turret' 
+
+  * Change the **Turret** script to the following code:
+
+.. code-block:: as    
+
+    class Turret : ZilchComponent
+    {
+        // Property to change which Archetype we are going to fire:
+        [Property]
+        var Projectile: Archetype = Archetype.Find("Ball");
+        
+        function Initialize(init : CogInitializer)
+        {
+            // Connect to the Level settings that has the viewport
+            Zero.Connect(this.LevelSettings, Events.MouseDown, this.OnMouseDown);
+        }
+
+        function OnMouseDown(event : ViewportMouseEvent)
+        {
+            // Get the mouse position at world z of 0
+            var mousePosition = event.ToWorldZPlane(0);
+            // Spawn projectile there:
+            this.Space.CreateAtPosition(this.Projectile, mousePosition);
+        }
+    }
+    
+ 
+* New lets create our Turret that will use our script to fire the ball
+    
+* :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+  
+  * In the Properties Window
+
+    * Set Name to: Turret
+    
+    * Under Transform
+
+      * Set Position to: [0, -7, 0]  
+      
+      * :ref:`Add the Turret component <AddComponent2014>`
+
+|pbr|
+
+Here is your new turret      
+
+|TurretSettings|
+
+* :ref:`Save your project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+      
+
+Aiming for the Mouse
+--------------------
+
+Shooting
+~~~~~~~~
+
+As a projectile aiming for the mouse, we'll be creating our projectile at our Turret's position and sending it toward the mouse's position. To do this we need to give the projectile the ability to acquire the target and move.
+
+Firing toward this position includes a little vector math,
+so a little refresher might be helpful.
+
+|pbr|
+
+Determining Direction Using Vectors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We use vectors to represent many things, but mainly positions and directions. Although a position is a point in space, it can be drawn as a vector stemming from the origin to the position it represents. Doing this we can take a visual approach to finding the direction to send our projectile:
+
+    |VectorDiagram|
+
+In the picture above you can see that the our Turret's position vector, :math:`\vec p`, plus our desired direction vector, :math:`\vec d`, will get us to our mouse's position :math:`\vec m`. Knowing this, you can see with a little algebra, the direction we want to send our object can be obtained by subtracting the Turret's position from the mouse's.
+
+.. math::
+    \vec p + \vec d &= \vec m \\
+    \vec p + \vec d - \vec p &= \vec m - \vec p \\
+    \vec d &= \vec m - \vec p
+
+We can use this formula to update our direction vector in Turret.
+
+* :ref:`Stop the Game <StopGame2014>`
+
+|pbr|
+
+* Update the **Turret script's OnMouseDown** function to the following code:
+
+.. code-block:: as  
+
+        function OnMouseDown(event : ViewportMouseEvent)
+        {
+            // Position of the mouse
+            var mousePosition = event.ToWorldZPlane(0);
+            
+            // Get this objects current position
+            var spawnPosition = this.Owner.Transform.Translation;
+            
+            // Determine the direction of our target using our formula:
+            //          d       =       m       -       p
+            var targetDirection = mousePosition - spawnPosition;
+            
+            // Spawn projectile there
+            var createdProjectile = this.Space.CreateAtPosition(this.Projectile, spawnPosition);           
+            
+            
+            createdProjectile.RigidBody.Velocity = targetDirection;
+        }
+
+* :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+Now we can fire at the Mouse.
+
+|FireAtMouse|
+
+|pbr|
+
+Normalization
+-------------
+
+There is something strange about how the turret is firing. The farther away the mouse is,
+the faster the bullet is moving. We want to preserve the direction of the vector but remove its
+length. This is done with a common vector math function called normalize.
+
+* Replace the **OnMouseDown** function's last line with the following code:
+
+.. code-block:: as  
+
+    // Normalize the velocity converting it to a direction
+    targetDirection = Math.Normalize(targetDirection);        
+    
+    var fireSpeed = 20.0;
+    var fireVelocity = targetDirection * fireSpeed;
+    
+    createdProjectile.RigidBody.Velocity = fireVelocity;
+
+* :ref:`Save your project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>` 
+    
+|FireNormalized|
+
+
+.. |Object_2_png| image:: images/FireAtMouse/Object_2.png
+
+.. |Object_4_png| image:: images/FireAtMouse/Object_4.png
+
+.. |Object_1_png| image:: images/FireAtMouse/Object_1.png
+
+.. |Object_3_png| image:: images/FireAtMouse/Object_3.png
+
+.. |BallSettingsBook| image:: images/ObjectCreation/BallSettings.png
+    :height: 3.5in
+    
+.. |BallSettingsWeb| image:: images/ObjectCreation/BallSettings.png
+
+.. |FireNormalized| image:: images/FireAtMouse/FireNormalized.gif
+
+.. |FireAtMouse| image:: images/FireAtMouse/FireAtMouse.gif
+
+.. |VectorDiagram| image:: images/FireAtMouse/DirectionalVectorDiagram.png
+    :width: 4.0in
+    :height: 4.0in
+
+.. |TurretSettings| image:: images/FireAtMouse/TurretSettings.png
+
+.. |UploadBall| image:: images/ObjectCreation/UploadBall.png
+
+.. include:: BookFormattingShortcuts.rst

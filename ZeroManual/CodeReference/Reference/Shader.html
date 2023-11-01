@@ -1,0 +1,596 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/CodeReference/Reference/Shader.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:06:59 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Shader &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Code Index" href="../index.html"/>
+        <link rel="next" title="ShaderGraph" href="ShaderGraph.html"/>
+        <link rel="prev" title="SendableEvent" href="SendableEvent.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Code Index</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Action.html">Action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AmbientLight.html">AmbientLight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Animation.html">Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimationGraph.html">AnimationGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimationGraphEvent.html">AnimationGraphEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimationNode.html">AnimationNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimationSet.html">AnimationSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetype.html">Archetype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Atlas.html">Atlas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Attractive.html">Attractive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Attractor.html">Attractor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AutoOrientToVelocity.html">AutoOrientToVelocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BaseCollisionEvent.html">BaseCollisionEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BaseSprite.html">BaseSprite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Blocking.html">Blocking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BoxCollider.html">BoxCollider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BoxParticleEmitter.html">BoxParticleEmitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BuoyancyEffect.html">BuoyancyEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Camera.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CameraViewport.html">CameraViewport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CameraViewports.html">CameraViewports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CapsuleCollider.html">CapsuleCollider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cog.html">Cog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogInitializerEvent.html">CogInitializerEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogPath.html">CogPath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogTransformGizmo.html">CogTransformGizmo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Collider.html">Collider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvent.html">CollisionEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionGroup.html">CollisionGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionGroupEvent.html">CollisionGroupEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionTable.html">CollisionTable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ColorGradient.html">ColorGradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CommandEvent.html">CommandEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Component.html">Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ContactHolder.html">ContactHolder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ContactPoint.html">ContactPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConvexMesh.html">ConvexMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConvexMeshCollider.html">ConvexMeshCollider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CustomJoint.html">CustomJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CustomPhysicsEffect.html">CustomPhysicsEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CustomPhysicsEffectEvent.html">CustomPhysicsEffectEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CylinderCollider.html">CylinderCollider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DeferredRenderer.html">DeferredRenderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DefinitionSet.html">DefinitionSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DeformableCollider.html">DeformableCollider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DocumentResource.html">DocumentResource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DragEffect.html">DragEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DynamicMesh.html">DynamicMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DynamicMeshCollider.html">DynamicMeshCollider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DynamicMeshGenerator.html">DynamicMeshGenerator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DynamicModel.html">DynamicModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DynamicMotor.html">DynamicMotor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EllipsoidCollider.html">EllipsoidCollider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Event.html">Event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EventBundle.html">EventBundle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Feelers.html">Feelers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FixedAngleJoint.html">FixedAngleJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FlowEffect.html">FlowEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FocusEvent.html">FocusEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Fog.html">Fog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Font.html">Font</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ForceEffect.html">ForceEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ForwardRenderer.html">ForwardRenderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FragmentSource.html">FragmentSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameEvent.html">GameEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameSession.html">GameSession</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gamepad.html">Gamepad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GamepadEvent.html">GamepadEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gamepads.html">Gamepads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GearJoint.html">GearJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GeneratedSound.html">GeneratedSound</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GeometryMaterial.html">GeometryMaterial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GeometryMesh.html">GeometryMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GodRayLight.html">GodRayLight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Graphical.html">Graphical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GraphicalEvent.html">GraphicalEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GraphicsMaterialBlock.html">GraphicsMaterialBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GraphicsSpace.html">GraphicsSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GravityEffect.html">GravityEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GridDraw.html">GridDraw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeightMap.html">HeightMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeightMapCollider.html">HeightMapCollider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeightMapEvent.html">HeightMapEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeightMapModel.html">HeightMapModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeightMapSource.html">HeightMapSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hierarchy.html">Hierarchy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HierarchyEvent.html">HierarchyEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HotKeyDataSet.html">HotKeyDataSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IgnoreSpaceEffects.html">IgnoreSpaceEffects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="InputDeviceEvent.html">InputDeviceEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IpAddress.html">IpAddress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Joint.html">Joint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JointConfigOverride.html">JointConfigOverride</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JointDebugDrawConfig.html">JointDebugDrawConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JointEvent.html">JointEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JointHolder.html">JointHolder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JointLimit.html">JointLimit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JointMotor.html">JointMotor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JointSpring.html">JointSpring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Joystick.html">Joystick</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JoystickEvent.html">JoystickEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Joysticks.html">Joysticks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Keyboard.html">Keyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="KeyboardEvent.html">KeyboardEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="KeyboardTextEvent.html">KeyboardTextEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Level.html">Level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LevelGeometry.html">LevelGeometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LevelPath.html">LevelPath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Light.html">Light</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearAxisJoint.html">LinearAxisJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearParticleAnimator.html">LinearParticleAnimator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepEvent.html">LockStepEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepGame.html">LockStepGame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepGameStartEvent.html">LockStepGameStartEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepGamepadButtonEvent.html">LockStepGamepadButtonEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepGamepadEvent.html">LockStepGamepadEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepGamepadStatusEvent.html">LockStepGamepadStatusEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepGamepadUpdateEvent.html">LockStepGamepadUpdateEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepGamepads.html">LockStepGamepads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepKeyEvent.html">LockStepKeyEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepKeyboard.html">LockStepKeyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepMouse.html">LockStepMouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepMouseButtonEvent.html">LockStepMouseButtonEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepMouseEvent.html">LockStepMouseEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepMouseScrollEvent.html">LockStepMouseScrollEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepSpace.html">LockStepSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepSyncChecker.html">LockStepSyncChecker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepSyncIgnore.html">LockStepSyncIgnore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LockStepUpdateEvent.html">LockStepUpdateEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LogicGraph.html">LogicGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MainConfig.html">MainConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MainWindowConfig.html">MainWindowConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ManipulatorJoint.html">ManipulatorJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MassOverride.html">MassOverride</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Material.html">Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mesh.html">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MeshBender.html">MeshBender</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MeshBenderTool.html">MeshBenderTool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MeshCollider.html">MeshCollider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MeshParticleEmitter.html">MeshParticleEmitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MetaDropEvent.html">MetaDropEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Model.html">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Motion.html">Motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MotionBlur.html">MotionBlur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mouse.html">Mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MouseCapture.html">MouseCapture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MouseEvent.html">MouseEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MovementBase.html">MovementBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MultiCollider.html">MultiCollider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MultiConvexMesh.html">MultiConvexMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NavGrid.html">NavGrid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NavMeshSource.html">NavMeshSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetChannel.html">NetChannel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetChannelConfig.html">NetChannelConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetChannelPropertyChange.html">NetChannelPropertyChange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetEventReceived.html">NetEventReceived</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetEventSent.html">NetEventSent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetGameStarted.html">NetGameStarted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetLevelStarted.html">NetLevelStarted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetLinkConnected.html">NetLinkConnected</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetLinkDisconnected.html">NetLinkDisconnected</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetObject.html">NetObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetObjectOffline.html">NetObjectOffline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetObjectOnline.html">NetObjectOnline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetPeer.html">NetPeer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetPeerClosed.html">NetPeerClosed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetPeerOpened.html">NetPeerOpened</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetPeerReceivedConnectRequest.html">NetPeerReceivedConnectRequest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetPeerReceivedConnectResponse.html">NetPeerReceivedConnectResponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetPeerReceivedUserAddRequest.html">NetPeerReceivedUserAddRequest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetPeerReceivedUserAddResponse.html">NetPeerReceivedUserAddResponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetPeerSentConnectRequest.html">NetPeerSentConnectRequest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetPeerSentConnectResponse.html">NetPeerSentConnectResponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetPeerSentUserAddRequest.html">NetPeerSentUserAddRequest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetPeerSentUserAddResponse.html">NetPeerSentUserAddResponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetProperty.html">NetProperty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetPropertyConfig.html">NetPropertyConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetSpace.html">NetSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetUser.html">NetUser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetUserAcquiredObjectOwnership.html">NetUserAcquiredObjectOwnership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetUserCreator.html">NetUserCreator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetUserLostObjectOwnership.html">NetUserLostObjectOwnership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetUserOwnerChanged.html">NetUserOwnerChanged</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectEvent.html">ObjectEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectLink.html">ObjectLink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectLinkAnchor.html">ObjectLinkAnchor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectLinkEdge.html">ObjectLinkEdge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectLinkEvent.html">ObjectLinkEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectLinkPointChangedEvent.html">ObjectLinkPointChangedEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">ObjectStore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectSystem.html">ObjectSystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Orientation.html">Orientation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleAnimator.html">ParticleAnimator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleAttractor.html">ParticleAttractor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleCollisionHeightmap.html">ParticleCollisionHeightmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleCollisionPlane.html">ParticleCollisionPlane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleColorAnimator.html">ParticleColorAnimator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEmitter.html">ParticleEmitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEmitterShared.html">ParticleEmitterShared</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleGradientAnimator.html">ParticleGradientAnimator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleSystem.html">ParticleSystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleSystemCommonData.html">ParticleSystemCommonData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleTorusRoller.html">ParticleTorusRoller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleTwister.html">ParticleTwister</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleWander.html">ParticleWander</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Path.html">Path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PathFinderSettings.html">PathFinderSettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PathRequestEvent.html">PathRequestEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhyGunJoint.html">PhyGunJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsCar.html">PhysicsCar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsCarWheel.html">PhysicsCarWheel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffect.html">PhysicsEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsMaterial.html">PhysicsMaterial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsMesh.html">PhysicsMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsSolverConfig.html">PhysicsSolverConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsSpace.html">PhysicsSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PointForceEffect.html">PointForceEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PointGravityEffect.html">PointGravityEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PositionJoint.html">PositionJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PreSolveEvent.html">PreSolveEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PrismaticJoint.html">PrismaticJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PrismaticJoint2d.html">PrismaticJoint2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Projector.html">Projector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PulleyJoint.html">PulleyJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quat.html">Quaterion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RandomContext.html">RandomContext</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RayTracedProvider.html">RayTracedProvider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RayTracedRenderer.html">RayTracedRenderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Reactive.html">Reactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReactiveSpace.html">ReactiveSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Region.html">Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RegisterCppNetProperties.html">RegisterCppNetProperties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RenderToTexture.html">RenderToTexture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Renderer.html">Renderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resource.html">Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceTable.html">ResourceTable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RevoluteJoint.html">RevoluteJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RevoluteJoint2d.html">RevoluteJoint2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Ribbon.html">Ribbon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RigidBody.html">RigidBody</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RopeCreator.html">RopeCreator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RuntimeSpline.html">RuntimeSpline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SampleCurve.html">SampleCurve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SceneEffect.html">SceneEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ScreenDropGenerator.html">ScreenDropGenerator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ScreenDrops.html">ScreenDrops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ScreenWarpRing.html">ScreenWarpRing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SendableEvent.html">SendableEvent</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Shader</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ShaderGraph.html">ShaderGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Shadow.html">Shadow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleAnimation.html">SimpleAnimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleGizmoBase.html">SimpleGizmoBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleSound.html">SimpleSound</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SizerGizmo.html">SizerGizmo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SizerGizmoEvent.html">SizerGizmoEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Skeleton.html">Skeleton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SkinnedModel.html">SkinnedModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SkyBox.html">SkyBox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sound.html">Sound</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundCue.html">SoundCue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundEmitter.html">SoundEmitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundListener.html">SoundListener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundSpace.html">SoundSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundTag.html">SoundTag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Space.html">Space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SphereCollider.html">SphereCollider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SphericalParticleEmitter.html">SphericalParticleEmitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SplineParticleAnimator.html">SplineParticleAnimator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprite.html">Sprite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpriteBeam.html">SpriteBeam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpriteLayer.html">SpriteLayer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpriteLayerOrder.html">SpriteLayerOrder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpriteParticleSystem.html">SpriteParticleSystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpriteSource.html">SpriteSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpriteText.html">SpriteText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpriteTextBlock.html">SpriteTextBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StickJoint.html">StickJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TcpSocket.html">TcpSocket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TextBlock.html">TextBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TextEditorConfig.html">TextEditorConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Texture.html">Texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TextureRegion.html">TextureRegion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ThrustEffect.html">ThrustEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileMapSource.html">TileMapSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TilePaletteSource.html">TilePaletteSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TimeSpace.html">TimeSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TorqueEffect.html">TorqueEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TouchEvent.html">TouchEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Transform.html">Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TranslateGizmo.html">TranslateGizmo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TriangleCollider.html">TriangleCollider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UiFocusEvent.html">UiFocusEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UniversalJoint.html">UniversalJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UpdateEvent.html">UpdateEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UprightJoint.html">UprightJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Vector.html">Vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ViewportMouseEvent.html">ViewportMouseEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VortexEffect.html">VortexEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VoxelChunk.html">VoxelChunk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VoxelChunkMaterials.html">VoxelChunkMaterials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Wandering.html">Wandering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WebRequester.html">WebRequester</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WeightedTable.html">WeightedTable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WeldJoint.html">WeldJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WheelJoint.html">WheelJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WheelJoint2d.html">WheelJoint2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WindEffect.html">WindEffect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchFragment.html">ZilchFragment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchPluginConfig.html">ZilchPluginConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchPluginLibrary.html">ZilchPluginLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchPluginSource.html">ZilchPluginSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchScript.html">ZilchScript</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Code Index</a> &raquo;</li>
+      
+    <li>Shader</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/CodeReference/Reference/Shader.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="shader">
+<span id="referenceshader"></span><h1>Shader</h1>
+<p class="searchdescription">Shader resource class is the interface to a GPU program.</p>
+<dl class="class">
+<dt id="_CPPv26Shader">
+<span id="Shader"></span><em class="property">class </em><code class="descclassname"></code><code class="descname">Shader</code></dt>
+<dd><p>Base Class: <a class="reference internal" href="DocumentResource.html#_CPPv216DocumentResource" title="DocumentResource"><code class="xref cpp cpp-type docutils literal"><span class="pre">DocumentResource</span></code></a></p>
+</dd></dl>
+
+<div class="section" id="properties">
+<span id="referenceshaderproperties"></span><h2>Properties</h2>
+<blockquote>
+<div><dl class="collapsible member">
+<dt id="_CPPv2N6Shader4NameE">
+<span id="Shader::Name__String"></span>String <code class="descclassname">Shader::</code><code class="descname">Name</code></dt>
+<dd><p>Name of resource for display.</p>
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="methods">
+<span id="referenceshadermethods"></span><h2>Methods</h2>
+<blockquote>
+<div><dl class="collapsible function">
+<dt id="_CPPv2N6Shader12RuntimeCloneEv">
+<span id="Shader::RuntimeClone"></span><a class="reference internal" href="Resource.html#_CPPv28Resource" title="Resource">Resource</a> <code class="descclassname">Shader::</code><code class="descname">RuntimeClone</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Clone a resource for runtime modification.</p>
+</dd></dl>
+
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ShaderGraph.html" class="btn btn-neutral float-right" title="ShaderGraph" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SendableEvent.html" class="btn btn-neutral" title="SendableEvent" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/CodeReference/Reference/Shader.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:07:00 GMT -->
+</html>

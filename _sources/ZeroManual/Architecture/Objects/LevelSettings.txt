@@ -1,0 +1,187 @@
+.. _ManualLevelSettings:
+
+.. rst-class:: SearchTitle
+
+The Level Setting Object
+========================
+
+.. rst-class:: SearchDescription
+
+The LevelSettings object is a :cpp:type:`Cog` of which there is one unique instance per :cpp:type:`Level`. It serves as a globally accessible object from a variety of object types such as Components or other :cpp:type:`Cogs<Cog>`. Unlike any other :cpp:type:`Cog` there is no way to instantiate a LevelSettings object.
+
+.. _ManualLevelSettingsCommonUses:
+
+Common Uses
+-----------
+
+    *   Adding level specific :ref:`physics effects<TutorialPhysicsEffects>`.
+    
+    *   Centralized location for level specific components such as the :cpp:type:`CameraViewport`, :cpp:type:`ForwardRenderer`, and other graphical effects.
+    
+    *   Adding custom components which need to be globally accessible in a level by any other components that exist in the level.
+
+.. _ManualLevelSettingsUsingObject:
+
+Using the LevelSettings Object
+------------------------------
+
+Accessing the LevelSettings Object In Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. sidebar:: Initialization Order
+    
+    Notice that because the LevelSettings object is always the first object in the :ref:`Object Window<ManualEditorUIObjectWindow>` (and cannot be reordered) it will always be the first object to be created and initialized when the level is loaded into the :cpp:type:`Space`. This can be very useful when implementing logic which depends on being initialized before related components on other objects in the level.
+
+The LevelSettings object will always be the first object in the :ref:`Object Window<ManualEditorUIObjectWindow>` making it easy to find in editor.
+
+|LevelSettingsObjectView|
+
+Since the LevelSettings object lacks any Graphics or Physics based representation in the level, the only way to select and modify its components in the editor is through the Object Window.
+
+.. note:: LevelSettings & Hierarchies
+
+    While parenting can often be useful with objects that do not have transforms, in the case of the LevelSettings object, parenting has been deactivated.
+
+.. _ManualLevelSettingsAccessing:
+
+Accessing the LevelSettings Object In Script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The LevelSettings object may be accessed from scripts via any component or Cog:
+
+.. code-block:: csharp
+
+  class ExampleComponent : ZilchComponent
+  {
+    // Accessing the LevelSettings object through the component
+    var CurrentLevelSettings : Cog
+    {
+      get { return this.LevelSettings; }
+    }
+    
+    // Accessing the LevelSettings object through the component's object
+    var AlsoCurrentLevelSettings : Cog
+    {
+      get { return this.Owner.LevelSettings; }
+    }
+    
+    // Accessing the LevelSettings object through the Space object
+    var StillTheCurrentLevelSettings : Cog
+    {
+      get { return this.Space.LevelSettings; }
+    }
+    
+    function Initialize(init : CogInitializer)
+    {
+      // If we compare the values of the properties which access the LevelSettings
+      // object through different objects (component, component's object, and 
+      // space), we can prove that theyare accessing the same LevelSettings object.
+      if(this.CurrentLevelSettings == 
+         this.AlsoCurrentLevelSettings == 
+         this.StillTheCurrentLevelSettings)
+      {
+        Console.WriteLine("These properties reference the same LevelSettings object.");
+      }
+    }
+  }
+
+.. _ManualLevelSettingsDefaultComponents:
+
+Default Components of LevelSettings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+|LevelSettingsComponents|
+
+GravityEffect & DragEffect
+++++++++++++++++++++++++++
+
+.. sidebar:: Learning more about PhysicsEffect components
+
+    If lacking in experience with Zero's PhysicsEffects components, one can :ref:`learn more about them here<TutorialPhysicsEffects>`.
+    
+Physics Effects are built in components that implement a piece of common physics-based functionality such as the :cpp:type:`GravityEffect` or the :cpp:type:`DragEffect` components that are attached to the LevelSettings by default. Each physics effect component may perform the logic on different spatial scopes depending on which object is attached to. When a physics effect component is attached to the LevelSettings object it is applied to all objects in that level. This allows one to implement level wide effects with any of the built in physics effects as is done by default with :cpp:type:`GravityEffect` and :cpp:type:`DragEffect`.
+
+CameraViewport
+++++++++++++++
+
+When running a game one must create a window in which to render the game. This window is called a viewport. The :cpp:type:`CameraViewport` component is what creates that viewport. Due to the fact that most games are not split screen one may think that normally only one viewport and therefore only one CameraViewport component would exist per game. However, it is common practice in Zero to :ref:`build your UI<TutorialHeadsUpDisplay>` in a separate level and load it into a second space which must be rendered with a transparent background on top of the game space.
+
+In order to achieve this effect where the HUD renders on top of the game with our interacting with it the `HUDSpace` needs its own :cpp:type:`CameraViewport`. Having the :cpp:type:`CameraViewport` component attached to the LevelSettings provides any object in the space, or any object that has access to the space to have easy access to the component. The usefulness of this structure is even greater in split screen games where there is potential for many spaces and viewports to exist that will all need data about the others.
+
+GridDraw
+++++++++
+
+The :cpp:type:`GridDraw` component is a simple debug drawing component. It uses Zero's buit in :ref:`debug drawing functionality<ManualDebugDrawing>` to create a customizable unit grid in the Level Window.
+
+ForwardRenderer
++++++++++++++++
+
+.. sidebar:: Forward & Deferred Rendering
+
+    To learn more about Forward vs. Deferred rendering pipelines check out `this article`_ about render techniques.
+
+By default, the :cpp:type:`ForwardRenderer` is attached to the LevelSettings object; it may be replaced, however, with the :cpp:type:`DeferredRenderer` if that is the desired rendering pipeline.
+
+
+.. _ManualLevelSettingsCustomComponents:
+
+Custom Components
+^^^^^^^^^^^^^^^^^
+
+The LevelSettings object is often a very convenient object on which to attach certain custom Zilch components. Imagine a scenario in which a function is implemented for a friendly AI which needs to return an enemy to attack. If all the enemies exist independent of any other object or component, there may be no immediate path from which to access all enemies from the AI. 
+
+A common technique is to add an `EnemyManager` component to the LevelSettings object which has a member of type ``Array[Cog]`` called ``EnemyList``. By attaching this component to the LevelSettings object all objects, including the enemies, are given access to the `EnemyManager` component. If the enemies are implemented so that they add themselves to the ``EnemyList`` when they are initialized and remove themselves when they are destroyed, there now exists a reliable way of accessing a complete list of all existing enemies.
+
+While the above example may not be applicable to all games, it demonstrates the usefulness and flexibility that the LevelSettings object may grant.
+
+.. _ManualLevelSettingsEvents:
+
+Events Dispatched On The LevelSettings Object
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
++------------------+-------------------------------------+-------------------------------------------------------------------+
+| Event Name       | Type                                | Description                                                       |
++==================+=====================================+===================================================================+
+| EnterView        | :cpp:type:`GraphicalEvent`          | Dispatched if :cpp:type:`CameraViewport` is attached to the       |
+|                  |                                     | LevelSettings object.                                             |
++------------------+-------------------------------------+-------------------------------------------------------------------+
+| ExitView         | :cpp:type:`GraphicalEvent`          | Dispatched if :cpp:type:`CameraViewport` is attached to the       |
+|                  |                                     | LevelSettings object.                                             |
++------------------+-------------------------------------+-------------------------------------------------------------------+
+
+.. _ManualLevelSettingsRelatedMaterials:
+
+Related Materials
+-----------------
+
+Manual Pages
+^^^^^^^^^^^^
+
+*   :ref:`Editor UI<ManualEditorUI>`
+*   :ref:`Debug Drawing<ManualDebugDrawing>`
+*   :ref:`Cameras, Viewports, and Renderers<ManualCamerasViewportsRenderersIndex>`
+
+Code Reference
+++++++++++++++
+
+*   :cpp:type:`CameraViewport`
+*   :cpp:type:`GravityEffect`
+*   :cpp:type:`DragEffect`
+*   :cpp:type:`GridDraw`
+*   :cpp:type:`ForwardRenderer`
+*   :cpp:type:`DeferredRenderer`
+
+Tutorials
+^^^^^^^^^
+
+*   :ref:`PhysicsEffects<TutorialPhysicsEffects>`
+
+
+.. |LevelSettingsObjectView| image:: images/LevelSettings/LevelSettingsObjectView.png
+
+.. |LevelSettingsComponents| image:: images/LevelSettings/LevelSettingsComponents.png
+
+
+.. _this article:  http://gamedevelopment.tutsplus.com/articles/forward-rendering-vs-deferred-rendering--gamedev-12342
+
+.. Written by Arend Danielek

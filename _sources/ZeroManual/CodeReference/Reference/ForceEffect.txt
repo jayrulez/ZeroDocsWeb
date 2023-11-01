@@ -1,0 +1,100 @@
+.. _ReferenceForceEffect:
+
+.. rst-class:: searchtitle
+
+ForceEffect
+===========
+
+.. rst-class:: searchdescription
+
+A force effect that is applied in a given direction(local or world space). This is used to create force regions that will push objects in a given direction. This can also be used on a rigid body to push an object in it's forward direction(e.g a missile) if applied locally. Note, this is always applied at the center of mass of the object. If a more rocket like effect is desired see ThrustEffect.
+
+.. include:: Description/ForceEffect.rst
+
+.. cpp:class:: ForceEffect
+
+    Base Class: :cpp:type:`BasicDirectionEffect`
+
+.. _ReferenceForceEffectProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ForceEffect::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space ForceEffect::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ForceEffect::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession ForceEffect::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ForceEffect::Active
+
+            Enable/disable this effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ForceEffect::WakeUpOnChange
+
+            Whether the object associated with this is woken up when any property is changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EffectType::Enum ForceEffect::EffectType
+
+            What kind of effect this is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ForceEffect::LocalSpaceDirection
+
+            Determines if the direction that the effect is applied is in local or world space. The length of this vector is preserved when applying the force(non-normalized vectors will change the strength).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real ForceEffect::Strength
+
+            An extra scalar multiplier to change the magnitude of the applied effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ForceEffect::Direction
+
+            The direction that the effect will be applied in(may be in local or world space depending on the LocalSpaceDirection property).
+
+.. _ReferenceForceEffectMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ForceEffect::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ForceEffect::Toggle()
+
+            Toggles whether or not this effect is active.
+
+.. include:: Remarks/ForceEffect.rst

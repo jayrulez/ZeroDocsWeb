@@ -1,0 +1,443 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Architecture/Resources/ZilchScript.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:20 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ZilchScript &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Resources" href="index.html"/>
+        <link rel="next" title="SpriteSource" href="SpriteSource.html"/>
+        <link rel="prev" title="TextBlock" href="TextBlock.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Architecture</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Cogs/index.html">Cogs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Objects/index.html">Siginficant Objects</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Resources</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ResourceTable.html">ResourceTable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ColorGradient.html">Color Gradient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Font.html">Font</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Level.html">Level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Path.html">Path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SampleCurve.html">SampleCurve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TextBlock.html">TextBlock</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ZilchScript</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpriteSource.html">SpriteSource</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Components/index.html">Components</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Architecture</a> &raquo;</li>
+      
+          <li><a href="index.html">Resources</a> &raquo;</li>
+      
+    <li>ZilchScript</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Architecture/Resources/ZilchScript.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="zilchscript">
+<span id="manualzilchscript"></span><h1>ZilchScript</h1>
+<p class="searchdescription">A ZilchScript resource is an in-editor representation of a ZilchScript file, which is a text file that follows the syntax of the Zilch language. A single ZilchScript usually defines and implements a single component, however it can contain any number of object definitions if needed.</p>
+<div class="section" id="common-uses">
+<h2>Common Uses</h2>
+<ul class="simple">
+<li>Defining custom ZilchComponents and ZilchEvents</li>
+<li>Extending existing engine tools, commands and libraries</li>
+<li>Implementing custom game logic</li>
+</ul>
+</div>
+<div class="section" id="using-zilchscripts">
+<h2>Using ZilchScripts</h2>
+<div class="section" id="creating-a-zilchscript">
+<h3>Creating a ZilchScript</h3>
+<p>A new ZilchScript can be added by using the Add command <a class="reference internal" href="../../Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">Add</span></code> or clicking on the <code class="docutils literal"><span class="pre">Add</span></code> button, followed by selecting <code class="docutils literal"><span class="pre">ZilchScript</span></code>. After giving the new ZilchScript a name it&#8217;s also possible to choose a template to use for the ZilchScript, depending on what the script will be used for.</p>
+<p><img alt="ZilchTemplates" src="../../../_images/ZilchTemplates.png" /></p>
+<p>The most commonly used template is <code class="docutils literal"><span class="pre">Component</span></code> and is therefore the default, however a ZilchScript can also be used to create a custom Zero Command or Tool.</p>
+</div>
+<div class="section" id="component-template">
+<h3>Component Template</h3>
+<p>The Component template will generate a simple class structure which inherits from <code class="docutils literal"><span class="pre">ZilchComponent</span></code> inside the newly create ZilchScript.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestScript</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);</span>
+    <span class="p">}</span>
+
+    <span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>By inheriting from <code class="docutils literal"><span class="pre">ZilchComponent</span></code>, it becomes attachable to any in game object.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Zilch is a statically compiled language, which means that all object definitions are global and aware of each other. It also means that in order for any one object definition to be compiled the entire project must be in a compilable state.</p>
+</div>
+</div>
+<div class="section" id="command-template">
+<h3>Command Template</h3>
+<p>When creating a ZilchScript using the <code class="docutils literal"><span class="pre">Command</span></code> template, a basic class definition which inherits from <code class="docutils literal"><span class="pre">ZilchComponent</span></code> is generated.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="na">[Command(autoRegister:true)]</span>
+<span class="k">class</span> <span class="nc">TestCommand</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">CommandExecute</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnCommandExecute</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">function</span> <span class="nf">OnCommandExecute</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">CommandEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;TestCommand Command Executed&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">[Command(autoRegister:true)]</span></code> will register the ZilchScript so that it can be used just like any other Command in Zero, and the connection to <code class="docutils literal"><span class="pre">Events.CommandExecute</span></code> will trigger the <code class="docutils literal"><span class="pre">OnCommandExecute</span></code> function whenever the custom command is used.</p>
+<p><img alt="Command" src="../../../_images/Command.png" /></p>
+<p>While Commands can be used to trigger several things in the Editor, in order to effect the game space it needs to use <code class="docutils literal"><span class="pre">event.Space</span></code> in the <code class="docutils literal"><span class="pre">OnCommandExecute</span></code> function, rather than <code class="docutils literal"><span class="pre">this.Space</span></code>.</p>
+</div>
+<div class="section" id="tool-template">
+<h3>Tool Template</h3>
+<p>The template for a new Tool script is slightly more complex, but it is also commented for ease of use.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="na">[Tool(autoRegister:true)]</span>
+<span class="k">class</span> <span class="nc">TestTool</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// We connect to this.Owner because we will get all events</span>
+        <span class="c1">// forwarded to us when we&#39;re the active tool</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LeftMouseDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLeftMouseDown</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">function</span> <span class="nf">OnLeftMouseDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">ViewportMouseEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// The space that was clicked in</span>
+        <span class="kt">var</span> <span class="n">targetSpace</span> <span class="p">=</span> <span class="k">event</span><span class="p">.</span><span class="n">Viewport</span><span class="p">.</span><span class="n">TargetSpace</span><span class="p">;</span>
+
+        <span class="c1">// The ray from the mouse into the world</span>
+        <span class="kt">var</span> <span class="n">mouseRay</span> <span class="p">=</span> <span class="k">event</span><span class="p">.</span><span class="n">WorldRay</span><span class="p">;</span>
+
+        <span class="c1">// Find the first object that was clicked on</span>
+        <span class="kt">var</span> <span class="n">castResult</span> <span class="p">=</span> <span class="n">targetSpace</span><span class="p">.</span><span class="n">PhysicsSpace</span><span class="p">.</span><span class="n">CastRayFirst</span><span class="p">(</span><span class="n">mouseRay</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">clickedObject</span> <span class="p">=</span> <span class="n">castResult</span><span class="p">.</span><span class="n">ObjectHit</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">clickedObject</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Undo / redo is handled through our operation queue object</span>
+            <span class="kt">var</span> <span class="n">queue</span> <span class="p">=</span> <span class="n">Zero</span><span class="p">.</span><span class="n">Editor</span><span class="p">.</span><span class="n">OperationQueue</span><span class="p">;</span>
+
+            <span class="c1">// Lets the Editor know that we&#39;re going to start modifying objects.</span>
+            <span class="c1">// Any objects modified between this and the &#39;EndBatch&#39; call will</span>
+            <span class="c1">// all be undone at once with ctrl+z</span>
+            <span class="n">queue</span><span class="p">.</span><span class="n">BeginBatch</span><span class="p">();</span>
+
+            <span class="c1">// Before modifying the properties of an object, call this to save</span>
+            <span class="c1">// the state of the object so that changed can be recorded once EndBatch is called.</span>
+            <span class="n">queue</span><span class="p">.</span><span class="n">SaveObjectState</span><span class="p">(</span><span class="n">clickedObject</span><span class="p">);</span>
+
+            <span class="c1">// Make the object 5% bigger</span>
+            <span class="n">clickedObject</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Scale</span> <span class="p">*=</span> <span class="m">1.05</span><span class="p">;</span>
+
+            <span class="c1">// We&#39;ve finished modifying objects. Now when you press ctrl+z,</span>
+            <span class="c1">// the object should back to its previous scale</span>
+            <span class="n">queue</span><span class="p">.</span><span class="n">EndBatch</span><span class="p">();</span>
+
+            <span class="c1">// This tells the Editor not to do what it would normally do with this event.</span>
+            <span class="c1">// In the case of LeftMouseDown, the editor would attempt to select an object.</span>
+            <span class="k">event</span><span class="p">.</span><span class="n">HandledEvent</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Like the Command template uses the <code class="docutils literal"><span class="pre">[Command(autoRegister:true)]</span></code> attribute, the Tool template uses the <code class="docutils literal"><span class="pre">[Tool(autoRegister:true)]</span></code> attribute to register the Component defined in the ZilchScript as a tool. This allows it to be selected like any other engine tool.</p>
+<p><img alt="Tool" src="../../../_images/Tool.png" /></p>
+<p>The template tool is implemented so that when it is selected it will increase the scale of the first object hit by the projected ray from the mouse when the left mouse button is depressed. Since it is using a ray however, the object in question must have some form of collider attached.</p>
+<p>Tools may also have Properties defined, which will then be available when that particular tool is chosen.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="na">[Tool(autoRegister:true)]</span>
+<span class="k">class</span> <span class="nc">TestTool</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">ToCreate</span> <span class="p">:</span> <span class="n">Archetype</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><img alt="ToolProperty" src="../../../_images/ToolProperty.png" /></p>
+<p>Also a part of the Tool template is a section of comments giving the user a list of events available for use for Tools.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//----------------- Tool Specific Events (Connect to this.Owner)</span>
+<span class="c1">// Events.GetToolInfo    - Called when the tool is selected - Access to SelectTool</span>
+<span class="c1">// Events.ToolActivate   - Called when the tool is selected</span>
+<span class="c1">// Events.ToolDeactivate - Called when the tool is deselected</span>
+<span class="c1">// Events.ToolDraw       - Called every frame while the tool is selected</span>
+
+<span class="c1">//----------------- Input Events (Connect to this.Owner)</span>
+<span class="c1">// Events.LeftMouseDown</span>
+<span class="c1">// Events.LeftMouseUp</span>
+<span class="c1">// Events.RightMouseDown</span>
+<span class="c1">// Events.RightMouseUp</span>
+<span class="c1">// Events.MiddleMouseDown</span>
+<span class="c1">// Events.DoubleClick</span>
+<span class="c1">// Events.OnMouseScroll</span>
+<span class="c1">// Events.MouseMove</span>
+<span class="c1">// Events.KeyUp</span>
+<span class="c1">// Events.KeyDown</span>
+
+<span class="c1">//----------------- If you want to do a mouse drag,</span>
+<span class="c1">// Events.MouseDragStart</span>
+<span class="c1">// Events.MouseDragMove</span>
+<span class="c1">// Events.MouseDragEnd</span>
+
+<span class="c1">//----------------- Other Events (Connect to this.Owner)</span>
+<span class="c1">//Events.FocusLostHierarchy  - The viewport no longer has focus</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="related-materials">
+<h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../Scripting/index.html#manualscriptingindex"><span>Scripting in Zero</span></a></li>
+<li><a class="reference internal" href="../../ZilchInZero/index.html#manualzilchinzeroindex"><span>Zilch in Zero</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../Tutorials/Scripting/index.html#tutorialscriptingindex"><span>Scripting Tutorials</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SpriteSource.html" class="btn btn-neutral float-right" title="SpriteSource" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="TextBlock.html" class="btn btn-neutral" title="TextBlock" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Architecture/Resources/ZilchScript.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:22 GMT -->
+</html>

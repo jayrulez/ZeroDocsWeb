@@ -1,0 +1,40 @@
+.. _ReferenceHeightMapSource:
+
+.. rst-class:: searchtitle
+
+HeightMapSource
+===============
+
+.. rst-class:: searchdescription
+
+HeightMapSource stores data needed for height maps. Data is stored on PatchData which are indexed by x,y. Each PatchData stores layers that represent different data. The primary layer is height and paint values but additional layers can be added to store data like foliage or custom game data.
+
+.. include:: Description/HeightMapSource.rst
+
+.. cpp:class:: HeightMapSource
+
+    Base Class: :cpp:type:`Resource`
+
+.. _ReferenceHeightMapSourceProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String HeightMapSource::Name
+
+            Name of resource for display.
+
+.. _ReferenceHeightMapSourceMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Resource HeightMapSource::RuntimeClone()
+
+            Clone a resource for runtime modification.
+
+.. include:: Remarks/HeightMapSource.rst

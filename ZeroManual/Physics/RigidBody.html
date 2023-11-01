@@ -1,0 +1,330 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Physics/RigidBody.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:43:35 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RigidBody &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Physics" href="index.html"/>
+        <link rel="next" title="Collision" href="Collision/index.html"/>
+        <link rel="prev" title="PhysicsSpace" href="PhysicsSpace.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="PhysicsSpace.html">PhysicsSpace</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">RigidBody</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Collision/index.html">Collision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsCasting/PhysicsCastingOverview.html">Physics Casting Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects/index.html">Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Joints.html">Joints</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="index.html">Physics</a> &raquo;</li>
+      
+    <li>RigidBody</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/ZeroManual/Physics/RigidBody.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="rigidbody">
+<span id="manualrigidbody"></span><h1>RigidBody</h1>
+<p class="searchdescription">A rigid body is a body that cannot be deformed. That is to say, no matter what force is applied to it, the shape of the rigid body will remain the same. While perfectly rigid bodies do not exist in real life, most objects behave close enough to perfectly rigid. This also allows Physics to make reasonable assumptions and optimizations. The <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> component is Zero&#8217;s implementation of this model.</p>
+<div class="sidebar">
+<p class="first sidebar-title">Recommended Reading</p>
+<p>This page includes topics one might not have encountered yet. To learn about or review these materials, the following list provides the links to their respective Manual or Tutorial pages:</p>
+<ul class="last simple">
+<li><a class="reference internal" href="Collision/Colliders/Collider.html#manualcollider"><span>Collider</span></a></li>
+</ul>
+</div>
+<div class="section" id="common-uses">
+<span id="manualrigidbodycommon"></span><h2>Common Uses</h2>
+<ul class="simple">
+<li>Allows forces and velocity to move the object on which it is attached.</li>
+<li>Gives mass and velocity properties to an object.</li>
+<li>Gets the center of mass of an object composition.</li>
+</ul>
+</div>
+<div class="section" id="using-the-rigidbody-component">
+<span id="manualrigidbodyusing"></span><h2>Using the RigidBody Component</h2>
+<p>Adding the <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> component to an object allows Zero&#8217;s Physics engine to manage physical properties of that object. Specifically, the <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> component allows an object to be set to three different <code class="xref cpp cpp-type docutils literal"><span class="pre">DynamicStates</span></code>: Static, Kinematic, and Dynamic. When set to Dynamic, the movement of the object may be governed by forces, impulses, and velocities.</p>
+<p>In Zilch, <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> provides access to linear and angular velocity, as well as several other physical properties of an object. It also provides access to the mass and inertia of the object derived from the material density and the volume of the associated :cpp:type:Colliders&lt;Collider&gt;`.</p>
+<p>The <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> component has a dependency on <a class="reference internal" href="../CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a>. When added to an object, the properties of the <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> are revealed in the Property window, as shown here:</p>
+<p><img alt="RigidBodyProperties" src="../../_images/RigidBodyProperties.png" /></p>
+<div class="section" id="rigidbodydynamicstate">
+<h3>RigidBodyDynamicState</h3>
+<div class="sidebar">
+<p class="first sidebar-title">Collision Detection &amp; Resolution</p>
+<p class="last">Collision happens in two steps. Detecting two objects are colliding, and resolving the collision so the two RigidBodies are no longer colliding but are instead physically responding accurately to the collision. To learn more about collision detection and resolution visit the <a class="reference internal" href="Collision/CollisionOverview.html#manualcollisionoverview"><span>Collision Overview Page</span></a>.</p>
+</div>
+<p>Of all the properties of <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a>, the DynamicState property will cause the most dramatic changes in behavior of the object. The most notable behavior change being how each type of <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> handle collision detection and resolution with the other types of <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBodies</span></code></a>. Certain <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> types will or will not detect and/or resolve collision depending on the type of the other <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> in the collision.</p>
+<p id="manualrigidbodydynamicstate">The three <code class="xref cpp cpp-type docutils literal"><span class="pre">DynamicStates</span></code> and their functions are as follows:</p>
+<ul class="simple">
+<li><strong>DynamicState</strong><ul>
+<li><code class="docutils literal"><span class="pre">Dynamic:</span></code> The default for the <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a>, this object is governed by and subject to all forces and physical properties within the Physics engine. The will detect and resolve their collisions with every other type of <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a>.</li>
+<li><code class="docutils literal"><span class="pre">Static:</span></code> The setting that tells the Physics engine the object is incapable of moving (except by Translation), greatly improving performance. They have infinite mass and therefore are not affected by force or velocity. They will detect collision with Dynamic and Kinematic <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBodies</span></code></a>, but not other Static <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBodies</span></code></a>; they do not resolve collision with any RigidBodies.</li>
+<li><code class="docutils literal"><span class="pre">Kinematic:</span></code> Kinematic <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBodies</span></code></a> have infinite mass and therefore are not affected by force or velocity (they can only be moved by setting the object&#8217;s Translation). They will detect but not resolve collision with any other type of <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a>. However, Dynamic will resolve with Kinematic, while Static will not.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="sleeping-rigidbodies">
+<h3>Sleeping RigidBodies</h3>
+<p>Sleeping is an optimization that detects when an object is not moving, ceasing all communication with that object. However, this may cause undesired behavior through implementation of logic, usually because of those things which will not &#8220;wake up&#8221; an object, such as forces. For example, if a player character (who has been allowed to sleep) is being controlled through a force-based player controller and the player stops providing input for a moment, when the player provides more input, the player character will not move. The input from the player, which applies forces to the player character, is not sufficient to wake the player character up.</p>
+<p><a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> has an <a href="#id1"><span class="problematic" id="id2">``</span></a>AllowSleep` property that will keep an object from sleeping. In Zilch, there are functions that allow the user to force objects to sleep or wake. These may be found in the <code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span> <span class="pre">Code</span> <span class="pre">Reference</span></code>.</p>
+</div>
+<div class="section" id="mode-2d-3d">
+<h3>Mode 2D/3D</h3>
+<p>When a <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> is set to Mode2D, it will behave as if it is locked to the xy-plane, only allowing rotation on the z-axis and keeping velocity/forces from translating the object on the z-axis. By default, an object will operate in 2D or 3D based upon the setting in the PhysicsSpace, allowing one to easily change the mode of the entire space. Note, however, that individual objects can still be set to 2D or 3D as desired.</p>
+<p>The Mode2D property, when set to Mode2D causes an object to act as if it were 2D, as far as the physics engine in concerned. Specifically, when set to Mode2D, the physics engine will not move an object on the z-plane and will only allow for rotation around the world&#8217;s z-axis. One caveat is that the object can still be translated and rotated manually (on the z-axis or otherwise). Individual objects may be set to Mode2D, Mode3D, or, as is the default option on the <a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> component, inherits one or the other from the space in which the object exists.</p>
+</div>
+<div class="section" id="properties-and-methods-of-rigidbody">
+<h3>Properties and Methods of RigidBody</h3>
+<p><a class="reference internal" href="../CodeReference/Reference/RigidBody.html#referencerigidbody"><span>RigidBody Code Reference</span></a></p>
+</div>
+</div>
+<div class="section" id="related-material">
+<span id="manualrigidbodyrelated"></span><h2>Related Material</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="Collision/CollisionOverview.html#manualcollisionoverview"><span>Collision Overview</span></a></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a></li>
+<li><code class="xref cpp cpp-type docutils literal"><span class="pre">DynamicState</span></code></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Collision/index.html" class="btn btn-neutral float-right" title="Collision" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PhysicsSpace.html" class="btn btn-neutral" title="PhysicsSpace" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Physics/RigidBody.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:43:37 GMT -->
+</html>

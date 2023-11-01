@@ -1,0 +1,1406 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Gameplay/VectorMath/3DRotation.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 22:57:12 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3D Rotation &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Vector Math" href="index.html"/>
+        <link rel="next" title="Level Switching" href="../LevelSwitching.html"/>
+        <link rel="prev" title="2D Rotation" href="2DRotation.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Gameplay</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Vector Math</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="VectorMath1.html">2D Vector Math, Part 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VectorMath2.html">2D Vector Math, Part 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3D Rotation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../LevelSwitching.html">Level Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UsingTheSweptController.html">Using the Swept Controller</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Tutorials</a> &raquo;</li>
+      
+          <li><a href="../index.html">Gameplay</a> &raquo;</li>
+      
+          <li><a href="index.html">Vector Math</a> &raquo;</li>
+      
+    <li>3D Rotation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/Tutorials/Gameplay/VectorMath/3DRotation.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="d-rotation">
+<span id="tutorial3drotation"></span><h1>3D Rotation</h1>
+<p class="searchdescription">This lesson will cover the main methods of rotating an object.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/LauncherNewProject.html#manualcreatenewproject"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateCube</span></code> or <span class="menuselection">Create ‣ Create Cube</span></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Cube you created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set name to: Wheel</li>
+<li>Remove the <code class="docutils literal"><span class="pre">RigidBody</span></code> component</li>
+<li>Remove the <code class="docutils literal"><span class="pre">BoxCollider</span></code> component</li>
+</ul>
+</li>
+</ul>
+<p><a class="reference internal" href="../../../_images/Rotation_img1.png"><img alt="img1" src="../../../_images/Rotation_img1.png" style="height: 2.5in;" /></a></p>
+<ul class="simple">
+<li>Under Transform<ul>
+<li>Hover over the name of the <cite>Rotation</cite> Property</li>
+</ul>
+</li>
+</ul>
+<p><img alt="RotationHover" src="../../../_images/RotationQuatHover.png" /></p>
+<p>As you can see, <strong>Rotation</strong> is saved as a Quaternion. As a high-level developer, you do not need to know how Quaternions work, but you will need to know how to use them. In the property grid, Quaternions are represented by three angles that are the rotation of the object around the corresponding axes; these are called Euler (pronounced &#8220;oil-er&#8221;) angles.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Rotation to: [45,0,0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a class="reference internal" href="../../../_images/Rotation_img2.png"><img alt="img2" src="../../../_images/Rotation_img2.png" style="height: 2.5in;" /></a></p>
+<p>As you can see, the object is now rotated 45 degrees around its X-axis.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Rotation to: [0,0,45]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a class="reference internal" href="../../../_images/Rotation_img3.png"><img alt="img3" src="../../../_images/Rotation_img3.png" style="height: 2.5in;" /></a></p>
+<p>Now the object is rotated 45 degrees around its Z-axis. These Euler angles are usually a much more pratical way of thinking about rotations.</p>
+</div>
+<div class="section" id="local-and-world-rotation">
+<h2>Local and World Rotation</h2>
+<p>Before we get into rotating objects while the game is running, we need to understand the difference between the <strong>LocalRotation</strong> and <strong>WorldRotation</strong> values of an object. The easiest way to understand this is to think of two objects rotating independently, and one of them is parented to the other. Let&#8217;s use the example of a car and its wheel. In the example below you can see a car and its outlined wheel aligned on their axes. In this case, the Y-axis is perpendicular to the screen.</p>
+<p><img alt="CarExample1" src="../../../_images/Rotation_CarExample1.png" /></p>
+<p>Let&#8217;s say the car and the wheel above have a <strong>Rotation</strong> value of <code class="docutils literal"><span class="pre">[0,0,0]</span></code>. Since the wheel is parented to the Car, and has no rotation, we can see the local axes of the car and the local axes of the wheel are aligned with the world origin axes. As the car moves forward, the wheel will rotate around its local Z-axis, which is aligned with the car and world&#8217;s Z-axis. Then, as the car begins to turn, the wheel will rotate around its Y-axis as seen below.</p>
+<p><img alt="CarExample2" src="../../../_images/Rotation_CarExample2.png" /></p>
+<p>Now fast forward a moment: the car has turned the corner. Since we took the car&#8217;s initial <strong>Rotation</strong> value as the world rotation <code class="docutils literal"><span class="pre">[0,0,0]</span></code>, it would now have a <strong>WorldRotation</strong> value of <code class="docutils literal"><span class="pre">[0,-90,0]</span></code>, and its <strong>LocalRotation</strong> value would also be <code class="docutils literal"><span class="pre">[0,-90,0]</span></code>. The wheel&#8217;s initial <strong>Rotation</strong> value was <code class="docutils literal"><span class="pre">[0,0,0]</span></code>, and now its <strong>WorldRotation</strong> value is <code class="docutils literal"><span class="pre">[0,-90,0]</span></code> and its <strong>LocalRotation</strong> value is <code class="docutils literal"><span class="pre">[0,0,0]</span></code>.</p>
+<p><img alt="CarExample3" src="../../../_images/Rotation_CarExample3.png" /></p>
+<p>Now let&#8217;s look at the wheel again as the car continues to turn. After making the first 90 degrees of the turn, the wheel is still rotated 30 degrees around its local Y-axis. But since the car has rotated, it now also has an additional 90 degree rotation around the world Y-axis, making its <strong>WorldRotation</strong> <code class="docutils literal"><span class="pre">[0,-60,0]</span></code>. However, if we consider the wheel&#8217;s <strong>LocalRotation</strong> value, it would still be <code class="docutils literal"><span class="pre">[0,30,0]</span></code>. This is because we measure the <strong>LocalRotation</strong> of an object relative to the object it is parented to.</p>
+<p><img alt="CarExample4" src="../../../_images/Rotation_CarExample4.png" /></p>
+<p>Let&#8217;s take this example into the engine.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateCube</span></code> or <span class="menuselection">Create ‣ Create Cube</span></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Cube you created</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Set name to: Car</li>
+<li>Remove the <code class="docutils literal"><span class="pre">RigidBody</span></code> component</li>
+<li>Remove the <code class="docutils literal"><span class="pre">BoxCollider</span></code> component</li>
+<li>Under Transform<ul>
+<li>Set Scale to: [5,5,5]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Parent the wheel to the car</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Wheel object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: [0.4, 0, 0.5]</li>
+<li>Set Rotation to: [0,0,0]</li>
+<li>Set Scale to: [0.5,0.5,0.5]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a></li>
+</ul>
+<p><a class="reference internal" href="../../../_images/Rotation_img4.png"><img alt="img4" src="../../../_images/Rotation_img4.png" style="height: 2.5in;" /></a></p>
+<p>Now we have a hierarchy of objects that represents the car and wheel we started with in the example.</p>
+<p><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: RotationDisplay</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Car object</span></a><ul>
+<li>Add the <code class="docutils literal"><span class="pre">RotationDisplay</span></code> component to the <code class="docutils literal"><span class="pre">Car</span></code> object.</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Wheel object</span></a><ul>
+<li>Add the <code class="docutils literal"><span class="pre">RotationDisplay</span></code> component to the <code class="docutils literal"><span class="pre">Wheel</span></code> object.</li>
+</ul>
+</li>
+<li>Update the <strong>RotationDisplay</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">RotationDisplay</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;`this.Owner.Name`, Init Rotation: `this.Owner.Transform.Rotation`&quot;</span><span class="p">);</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;`this.Owner.Name`, Init World Rotation: `this.Owner.Transform.WorldRotation`&quot;</span><span class="p">);</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;`this.Owner.Name`, Init Local Rotation: `this.Owner.Transform.LocalRotation`&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+<li>Press <code class="docutils literal"><span class="pre">~</span></code> to open the console window.</li>
+</ul>
+<p>Now if we look at the Console Window, we will see the <strong>LocalRotation</strong> and <strong>WorldRotation</strong> values of each object next to their names like this:</p>
+<blockquote>
+<div><p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+Car, Init Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+Car, Init World Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+Car, Init Local Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+Wheel, Init Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+Wheel, Init World Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+Wheel, Init Local Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+</div></blockquote>
+<p>Notice the <code class="docutils literal"><span class="pre">Real4</span></code> that starts off the printed <strong>Rotation</strong>. These are the Quaternion rotation values. We can ignore these because the Euler values we have been using are shown as the <code class="docutils literal"><span class="pre">Real3</span></code> that comes next in each line. As we can see, both objects have <strong>LocalRotation</strong> and <strong>WorldRotation</strong> values of <code class="docutils literal"><span class="pre">[0,0,0]</span></code>. Let&#8217;s add a print statement that just prints the Euler angles.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Wheel object</span></a></p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Rotation to: [0,0,90]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Update the <strong>RotationDisplay</strong> script with the following code:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;90 degrees is equal to Pi/2 radians: Pi/2 = `Math.Pi/2.0`&quot;</span><span class="p">);</span>
+</span>    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;`this.Owner.Name`, Init Euler Angles: `this.Owner.Transform.EulerAngles`&quot;</span><span class="p">);</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;`this.Owner.Name`, Init Rotation: `this.Owner.Transform.Rotation`&quot;</span><span class="p">);</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;`this.Owner.Name`, Init World Rotation: `this.Owner.Transform.WorldRotation`&quot;</span><span class="p">);</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;`this.Owner.Name`, Init Local Rotation: `this.Owner.Transform.LocalRotation`&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>Now if we look at the Console Window, we will see the <strong>LocalRotation</strong> and <strong>WorldRotation</strong> values of each object next to their names again. We also added a line to just help us confirm the radian value of 90 degrees. Since all rotation values are stored in Radians we will need to know how to compare degree and radian values.</p>
+<blockquote>
+<div><p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+90 degrees is equal to Pi/2 radians: Pi/2 = 1.5708
+Car, Init Euler Angles: (0, -0, 0)
+Car, Init Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+Car, Init World Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+Car, Init Local Rotation: (0, 0, 0, 1), Euler: (0, -0, 0), Axis: (0, 0, 0), Angle: 0
+90 degrees is equal to Pi/2 radians: Pi/2 = 1.5708
+Wheel, Init Euler Angles: (0, -0, 1.5708)
+Wheel, Init Rotation: (0, 0, 0.707107, 0.707107), Euler: (0, -0, 1.5708), Axis: (0, 0, 1), Angle: 1.5708
+Wheel, Init World Rotation: (0, 0, 0.707107, 0.707107), Euler: (0, -0, 1.5708), Axis: (0, 0, 1), Angle: 1.5708
+Wheel, Init Local Rotation: (0, 0, 0.707107, 0.707107), Euler: (0, -0, 1.5708), Axis: (0, 0, 1), Angle: 1.5708
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+</div></blockquote>
+<p>In our new output, we can see that the car still has its default <strong>LocalRotation</strong> and <strong>WorldRotation</strong> values, while the wheel now has <strong>LocalRotation</strong> and <strong>WorldRotation</strong> values of <code class="docutils literal"><span class="pre">[0,0,90]</span></code> in degrees, or <code class="docutils literal"><span class="pre">[0,0,1.5708]</span></code> in radians.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Car object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Rotation to: [0,90,0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>Now if we look at the Console Window, we will see the <strong>LocalRotation</strong> and <strong>WorldRotation</strong> values of each object next to its name again. This time, the car has the <strong>LocalRotation</strong> and <strong>WorldRotation</strong> values of <code class="docutils literal"><span class="pre">[0,90,0]</span></code> in degrees, as that is what we set it to. Now look at the <strong>LocalRotation</strong> and <strong>WorldRotation</strong> values of the wheel: the <strong>WorldRotation</strong> value is now <code class="docutils literal"><span class="pre">[0,90,90]</span></code> and the <strong>LocalRotation</strong> value is still <code class="docutils literal"><span class="pre">[0,0,90]</span></code>.</p>
+<blockquote>
+<div><p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+90 degrees is equal to Pi/2 radians: Pi/2 = 1.5708
+Car, Init Euler Angles: (-0, 1.5708, 0)
+Car, Init Rotation: (0, 0.707107, 0, 0.707107), Euler: (-0, 1.5708, 0), Axis: (0, 1, 0), Angle: 1.5708
+Car, Init World Rotation: (0, 0.707107, 0, 0.707107), Euler: (-0, 1.5708, 0), Axis: (0, 1, 0), Angle: 1.5708
+Car, Init Local Rotation: (0, 0.707107, 0, 0.707107), Euler: (-0, 1.5708, 0), Axis: (0, 1, 0), Angle: 1.5708
+90 degrees is equal to Pi/2 radians: Pi/2 = 1.5708
+Wheel, Init Euler Angles: (0, -0, 1.5708)
+Wheel, Init Rotation: (0, 0, 0.707107, 0.707107), Euler: (0, -0, 1.5708), Axis: (0, 0, 1), Angle: 1.5708
+Wheel, Init World Rotation: (0.5, 0.5, 0.5, 0.5), Euler: (1.5708, -5.96046e-007, 1.5708), Axis: (0.57735, 0.57735, 0.57735), Angle: 2.0944
+Wheel, Init Local Rotation: (0, 0, 0.707107, 0.707107), Euler: (0, -0, 1.5708), Axis: (0, 0, 1), Angle: 1.5708
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+</div></blockquote>
+<p>Using this example, we&#8217;ve shown that <strong>LocalRotation</strong> is the object&#8217;s rotation around its intial origin axis, while the <strong>WorldRotation</strong> is the object&#8217;s rotation around the world origin axis. We can get this by adding the <strong>WorldRotation</strong> value of the parent to the child&#8217;s <strong>LocalRotation</strong>. In this case, because the wheel is attached (parented) to the car, we add the car&#8217;s <strong>WorldRotation</strong> to the wheel&#8217;s <strong>LocalRotation</strong> to get the wheel&#8217;s <strong>WorldRotation</strong>.</p>
+<p>You should also notice that we are printing out each object&#8217;s <strong>Rotation</strong> in addition to its <strong>WorldRotation</strong> and its <strong>LocalRotation</strong>. Look at the Wheel&#8217;s <strong>Rotation</strong>: it is the same as its <strong>LocalRotation</strong>. This is because it <em>is</em> the <strong>LocalRotation</strong>. <strong>Rotation</strong> is dependent upon the object&#8217;s hierarchy position. If the object is the root of a hierarchy, then it has no parent, so its <strong>WorldRotation</strong> is the same as its <strong>LocalRotation</strong>; thus, getting its <strong>Rotation</strong> will return its <strong>WorldRotation</strong>. However, if the object is a child of another object, <strong>Rotation</strong> will return the <strong>LocalRotation</strong>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="rotating-objects-with-transform">
+<h2>Rotating Objects With Transform</h2>
+<p>Now that we can set the initial rotations of an object, and we understand how a parent&#8217;s rotation affects the rotation of its child, let&#8217;s make the wheel rotate while the game is running.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Wheel object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Rotation to: [0,0,0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: RotationQuaternion</p>
+<ul class="simple">
+<li>In the RotationQuaternion ZilchScript Window<ul>
+<li>Update the <strong>RotationQuaternion</strong> script with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">RotationQuaternion</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">RotationSpeed</span> <span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mi">5</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="p">);</span>
+
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">RotateAnglesWorld</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">RotationSpeed</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The above function uses the three rotation speeds in <strong>RotationSpeed</strong> and adds them to the object&#8217;s <strong>WorldRotation</strong>. This means the rotation we are going to apply to the Wheel (the <strong>RotationSpeed</strong>) will be rotated by the parent&#8217;s <strong>WorldRotation</strong>. This is because the RotationSpeed will be applied to the object&#8217;s WorldRotation rather than its LocalRotation, the rotation we&#8217;re applying will itself be rotated by the parent&#8217;s WorldRotation.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Car object</span></a><ul>
+<li>Remove the <code class="docutils literal"><span class="pre">RotationDisplay</span></code> component from the <code class="docutils literal"><span class="pre">Car</span></code> object.</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Wheel object</span></a><ul>
+<li>Add the <code class="docutils literal"><span class="pre">RotationQuaternion</span></code> component to the <code class="docutils literal"><span class="pre">Wheel</span></code> object.</li>
+<li>Remove the <code class="docutils literal"><span class="pre">RotationDisplay</span></code> component from the <code class="docutils literal"><span class="pre">Wheel</span></code> object.</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="RotatingWheel1" src="../../../_images/RotatingWheel1.gif" /></p>
+<p>Now you should see the Wheel object rotating around the parent&#8217;s X-axis, which is also the world Z-axis. When we call <strong>RotateAnglesWorld</strong>, the rotation passed into the function is rotated by each parent in the hierarchy. So, in this example, the wheel&#8217;s rotation around the X-axis is rotated 90 degrees around the world Y-axis by the car object&#8217;s <strong>Rotation</strong>, making it a rotation around the world Z-axis.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Wheel object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Under RotationQuaternion<ul>
+<li>Set RotationSpeed to: [0,0,5]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="RotatingWheel2" src="../../../_images/RotatingWheel2.gif" /></p>
+<p>Now you should see the Wheel object rotating around the car object&#8217;s Z-axis, which is also the world X-axis. So, in this example, the wheel&#8217;s <strong>Rotation</strong> being applied to the wheel around its Z-axis is rotated 90 degrees around the world Y-axis by the car object&#8217;s Y-axis <strong>Rotation</strong>, making the wheel <strong>Rotation</strong> around the world X-axis.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>Now that we&#8217;ve seen some <strong>WorldRotation</strong>, let&#8217;s try some <strong>LocalRotation</strong>.</p>
+<ul class="simple">
+<li>In the RotationQuaternion ZilchScript Window<ul>
+<li>Update the <strong>RotationQuaternion</strong> script with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">RotateAnglesLocal</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">RotationSpeed</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="RotatingWheel2" src="../../../_images/RotatingWheel2.gif" /></p>
+<p>Now you should see the Wheel rotating around its local Z-axis, which was rotated 90 degrees around the world Y-axis by the car&#8217;s <strong>Rotation</strong> to be aligned with the world X-axis. In this example, the <strong>WorldRotation</strong> and <strong>LocalRotation</strong> values looked the same. Let&#8217;s make them a little easier to distinguish.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Wheel object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Rotation to: [0,-90,0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="RotatingWheel3" src="../../../_images/RotatingWheel3.gif" /></p>
+<p>The Wheel is still rotating around its local Z-axis, but since we rotated the wheel by <code class="docutils literal"><span class="pre">-90</span></code> degrees around its Y-axis, its local Z-axis now is aligned with the world Z-axis.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under RotationQuaternion<ul>
+<li>Set RotationSpeed to: [5,0,0]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="RotatingWheel4" src="../../../_images/RotatingWheel4.gif" /></p>
+<p>The wheel is now rotating around its local X-axis, and, once again, because we rotated the wheel, the local rotation axis is aligned with the world rotation axis (X-axis).</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Car object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Rotation to: [0,0,0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="RotatingWheel5" src="../../../_images/RotatingWheel5.gif" /></p>
+<p>The Wheel is still rotating around its local X-axis, but since we removed the initial Y-axis rotation on the car and not the wheel, the wheel&#8217;s local X-axis is now aligned with the world Z-axis. Let&#8217;s switch back to world rotation with the same values so we can see the difference.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li>In the RotationQuaternion ZilchScript Window<ul>
+<li>Update the <strong>RotationQuaternion</strong> script with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">RotateAnglesWorld</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">RotationSpeed</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="RotatingWheel6" src="../../../_images/RotatingWheel6.gif" /></p>
+<p>The object is now rotating around the world X-axis. Even though the wheel has an initial Y-axis rotation, it does not affect the world axis the object is told to rotate around. On the other hand, a rotation on the parent would affect the initial rotation of the child before the <strong>WorldRotation</strong> is applied.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>There are three more functions on the Transform component that can rotate the object. <strong>RotateLocal</strong> and <strong>RotateWorld</strong> preform the same functionality as <strong>RotateAnglesLocal</strong> and <strong>RotateAnglesWorld</strong>, except they take the axis rotation angles as individual arguments as opposed to having them all in a single <code class="docutils literal"><span class="pre">Real3</span></code>. The third function is <strong>RotateAround</strong> which lets you pick a point to rotate the object around.</p>
+<ul class="simple">
+<li>In the RotationQuaternion ZilchScript Window<ul>
+<li>Update the <strong>RotationQuaternion</strong> script with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">RotateAround</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Parent</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">,</span>
+</span>                                          <span class="nb">Math</span><span class="p">.</span><span class="nx">ToQuaternion</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">RotationSpeed</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">));</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="RotatingWheel7" src="../../../_images/RotatingWheel7.gif" /></p>
+<p>Now we are telling the wheel to rotate around the car&#8217;s origin on the X-axis at a speed of five radians per second. Because the wheel has an initial <strong>Z-Translation</strong> of <code class="docutils literal"><span class="pre">0.5</span></code>, the wheel appears to orbit around the X-axis with a radius of <code class="docutils literal"><span class="pre">0.5</span></code>. What is actually happening is the X-axis and Z-axis offset of wheel are being rotated around the X-axis. Since the initial <strong>X-Translation</strong> of <code class="docutils literal"><span class="pre">0.4</span></code> is along the X-axis, rotating around a point that is on the X-axis does not change it.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Car object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Under RotationQuaternion<ul>
+<li>Set RotationSpeed to: [0,0,5]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="RotatingWheel8" src="../../../_images/RotatingWheel8.gif" /></p>
+<p>Now we are telling the wheel to rotate around the car&#8217;s origin on the Z-axis at a speed of five radians per second. Just as the <strong>X-Rotation</strong> was applied to the offset previously, this <strong>Z-Rotation</strong> will be applied. Since the car&#8217;s origin falls on the Z-axis, the Z-component of the <strong>Translation</strong> is not affected by the <strong>Z-Rotation</strong>. However, just as the Z-component was affected in the previous step, the X-component of the <strong>Translation</strong> is rotated around the origin on the Z-axis. The wheel appears to orbit with a radius equal to the initial <strong>X-Translation</strong> of <code class="docutils literal"><span class="pre">0.5</span></code>, which is then scaled by the Car&#8217;s rotation to give the wheel a world <strong>X-Translation</strong> of <code class="docutils literal"><span class="pre">2.5</span></code>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="rotating-with-orientation">
+<h2>Rotating With Orientation</h2>
+<p>Now that we have the basics down of using the <strong>Transform</strong> component to rotate, we will learn how to use the <strong>Orientation</strong> component to achieve more control over our rotation.</p>
+<p>At this point, we can perform world and local rotations on the wheel, as well as make it rotate around a given point. What if we wanted to rotate an object to &#8220;face&#8221; a particular direction or point? In other words, we want to <em>orient</em> the object to a specific point or direction. Such objects will be treated as if they have their own coordinate system, which we can then use as we see fit. In the Zero Engine, this can be done using the <strong>Orientation</strong> component, which allows us to define and change our object&#8217;s <strong>Forward</strong>, <strong>Up</strong>, and <strong>Right</strong> directions. We are going to use the <strong>Orientation</strong> component to steer the car, but first, let&#8217;s make it look a bit more like a car.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Car object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: [0,2,0]</li>
+<li>Set Rotation to: [0,0,0]</li>
+<li>Set Scale to: [10,3,5]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="SquishedCar1" src="../../../_images/SquishedCar1.png" /></p>
+<p>Notice how the Wheel object is now squished. This is because, just like for the <strong>Translation</strong> and <strong>Rotation</strong> properties, the wheel will apply its parent&#8217;s <strong>Scale</strong> property to its own. When constructing objects, we usually try and keep the <strong>Scale</strong> for parent objects <em>uniform</em> (meaning the X-Scale = Y-Scale = Z-Scale), as both the <strong>Translation</strong> and <strong>Rotation</strong> properties are scaled before they are applied to the object.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Wheel object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Rotation to: [0,45,0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="SkewedWheel" src="../../../_images/SkewedWheel.png" /></p>
+<p>Now the wheel appears skewed. This is because, when the car&#8217;s <strong>Rotation</strong> is applied to the wheel, the <strong>Scale</strong> is non-uniform. This results in the rotations around each axis being scaled differently, resulting in a skewed shape. Let&#8217;s fix that.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Car object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Set Name to: CarModel</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateTransform</span></code> or <span class="menuselection">Create ‣ Create Transform</span><ul>
+<li>In the Properties Window<ul>
+<li>Set Name to: Car</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Wheel object</span></a><ul>
+<li>Parent the Wheel object to the Car Object</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the CarModel object</span></a><ul>
+<li>Parent the CarModel object to the Car Object</li>
+</ul>
+</li>
+</ul>
+<p>Notice the wheel object is no longer skewed. This is because the new Car object has uniform <strong>Scale</strong>. Now let&#8217;s give the car some more realistic wheels.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Wheel object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Set Name to: WheelFront</li>
+<li>Under Model<ul>
+<li>Set Mesh to: Cylinder</li>
+</ul>
+</li>
+<li>Under Transform<ul>
+<li>Set Translation to: [4,0.5,2.5]</li>
+<li>Set Rotation to: [90,0,0]</li>
+<li>Set Scale to: [1,1,1]</li>
+</ul>
+</li>
+<li>Remove <code class="docutils literal"><span class="pre">RotationDisplay</span></code></li>
+<li>Remove <code class="docutils literal"><span class="pre">RotationQuaternion</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p class="first">Press <code class="docutils literal"><span class="pre">Ctrl+C</span></code> to copy WheelFront</p>
+</li>
+<li><p class="first">Press <code class="docutils literal"><span class="pre">Ctrl+V</span></code> to paste a new copy</p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under Transform<ul>
+<li>Set Translation to: [4,0.5,-2.5]</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Press <code class="docutils literal"><span class="pre">Ctrl+C</span></code> to copy WheelFront</p>
+</li>
+<li><p class="first">Press <code class="docutils literal"><span class="pre">Ctrl+V</span></code> to paste a new copy</p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Set Name to: WheelBack</li>
+<li>Under Transform<ul>
+<li>Set Translation to: [-4,0.5,-2.5]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Press <code class="docutils literal"><span class="pre">Ctrl+C</span></code> to copy WheelBack</p>
+</li>
+<li><p class="first">Press <code class="docutils literal"><span class="pre">Ctrl+V</span></code> to paste a new copy</p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Set Name to: WheelBack</li>
+<li>Under Model<ul>
+<li>Set Mesh to: Cylinder</li>
+</ul>
+</li>
+<li>Under Transform<ul>
+<li>Set Translation to: [-4,0.5,2.5]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="InitialCar" src="../../../_images/InitialCar.png" /></p>
+<p>Now that we have an object that actually resembles a car, let&#8217;s work on making it move and steer.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the LevelSettings object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Under GridDraw<ul>
+<li>Set DrawInGame to: True</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Making the debug grid draw in game will allow us to see what the car is doing a little easier when we get it running.</p>
+<p><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: CarController</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Car object</span></a><ul>
+<li>Add the <code class="docutils literal"><span class="pre">Orientation</span></code> component to the <code class="docutils literal"><span class="pre">Car</span></code> object.</li>
+<li>Add the <code class="docutils literal"><span class="pre">CarController</span></code> component to the <code class="docutils literal"><span class="pre">Car</span></code> object.</li>
+<li>Update the <strong>CarController</strong> script with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">CarController</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">// When we add a dependency to a component, we are saying the object must</span>
+    <span class="c1">// have that component before we can add this component to the object.</span>
+    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nb">Transform</span> <span class="o">:</span> <span class="nb">Transform</span><span class="o">;</span>
+
+    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">Orientation</span> <span class="o">:</span> <span class="nx">Orientation</span><span class="o">;</span>
+
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">MoveSpeed</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">5.0</span><span class="o">;</span>
+
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">SteeringSpeed</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">;</span>
+
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">MouseDown</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnMouseDown</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnMouseDown</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">ViewportMouseEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">targetPos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">GetMousePosition</span><span class="p">();</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">OrientCar</span><span class="p">(</span><span class="nx">targetPos</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OrientCar</span><span class="p">(</span><span class="nx">steeringTarget</span> <span class="o">:</span> <span class="nx">Real3</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">LookAtPoint</span><span class="p">(</span><span class="nx">steeringTarget</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">GetMousePosition</span><span class="p">()</span> <span class="o">:</span> <span class="nx">Real3</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">mouseScreenPos</span> <span class="o">=</span> <span class="nx">Zero</span><span class="p">.</span><span class="nb">Mouse</span><span class="p">.</span><span class="nx">ScreenPosition</span><span class="o">;</span>
+        <span class="k">var</span> <span class="nx">viewport</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">LevelSettings</span><span class="p">.</span><span class="nx">CameraViewport</span><span class="o">;</span>
+        <span class="k">var</span> <span class="nx">mouseWorldPos</span> <span class="o">=</span> <span class="nx">viewport</span><span class="p">.</span><span class="nx">ScreenToWorldPlane</span><span class="p">(</span><span class="nx">mouseScreenPos</span><span class="o">,</span> <span class="nx">Real3</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="p">)</span><span class="o">,</span>
+                                                        <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">mouseWorldPos</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You can now click around the screen to rotate the car. We are doing this by telling the car to align its <strong>Forward</strong> axis with the vector that connects its origin to the mouse&#8217;s position on the grid. However, as you click, the car will turn to make its side, not its front, face the mouse. This is because we constructed the car to be X-axis-aligned, but we have its local Z-axis set as its <strong>Forward</strong> axis.</p>
+<p>Click around the screen, and the car will turn to make its side face the mouse. This is because we have the car&#8217;s local Z-axis set as its <strong>Forward</strong> axis, and we are telling it to align with the vector from it&#8217;s origin to the point the on the grid where the mouse is.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Car object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Under Orientation<ul>
+<li>Set Default Orientation to: &#8220;ForwardXUpY&#8221;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Clicking around in the game, we can now make the car snap to face the position of the mouse. The <code class="docutils literal"><span class="pre">LookAtPoint</span></code> function calculates the required rotation around the object&#8217;s <strong>Up</strong> axis to rotate the object to point its <strong>Forward</strong> at the point. After calculating this rotation, it immediately applies it. Now let&#8217;s make the car rotate to face the point over time, as opposed to instantly.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li>Update the <strong>CarController</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">CarController</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">// When we add a dependency to a component, we are saying the object must</span>
+    <span class="c1">// have that component before we can add this component to the object.</span>
+    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nb">Transform</span> <span class="o">:</span> <span class="nb">Transform</span><span class="o">;</span>
+
+    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">Orientation</span> <span class="o">:</span> <span class="nx">Orientation</span><span class="o">;</span>
+
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">MoveSpeed</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">5.0</span><span class="o">;</span>
+
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">SteeringSpeed</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">;</span>
+
+    <span class="k">var</span> <span class="nx">TargetPosition</span> <span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">();</span>
+
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">TargetPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">GetMousePosition</span><span class="p">();</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">OrientCar</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OrientCar</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">targetRotation</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">GetLookAtPointRotation</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TargetPosition</span><span class="p">);</span>
+        <span class="k">var</span> <span class="nx">currentRotation</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Rotation</span><span class="o">;</span>
+        <span class="k">var</span> <span class="nx">newRotation</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Slerp</span><span class="p">(</span><span class="nx">currentRotation</span><span class="o">,</span> <span class="nx">targetRotation</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">SteeringSpeed</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Rotation</span> <span class="o">=</span> <span class="nx">newRotation</span><span class="o">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">GetMousePosition</span><span class="p">()</span> <span class="o">:</span> <span class="nx">Real3</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">mouseScreenPos</span> <span class="o">=</span> <span class="nx">Zero</span><span class="p">.</span><span class="nb">Mouse</span><span class="p">.</span><span class="nx">ScreenPosition</span><span class="o">;</span>
+        <span class="k">var</span> <span class="nx">viewport</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">LevelSettings</span><span class="p">.</span><span class="nx">CameraViewport</span><span class="o">;</span>
+        <span class="k">var</span> <span class="nx">mouseWorldPos</span> <span class="o">=</span> <span class="nx">viewport</span><span class="p">.</span><span class="nx">ScreenToWorldPlane</span><span class="p">(</span><span class="nx">mouseScreenPos</span><span class="o">,</span> <span class="nx">Real3</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="p">)</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">mouseWorldPos</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="CarRotateWithMouse" src="../../../_images/CarRotateWithMouse.gif" /></p>
+<p>Now when we move the mouse, the car turns over time until it faces the target point. Now let&#8217;s make it move.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the LevelSettings object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Remove the <code class="docutils literal"><span class="pre">GravityEffect</span></code> component</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Car object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Add the <code class="docutils literal"><span class="pre">RigidBody</span></code> component to the <code class="docutils literal"><span class="pre">Car</span></code> object.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Update the <strong>CarController</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">TargetPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">GetMousePosition</span><span class="p">();</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">Distance</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TargetPosition</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">OrientCar</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+<span class="hll">            <span class="k">this</span><span class="p">.</span><span class="nx">MoveCar</span><span class="p">();</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">        <span class="k">else</span>
+</span><span class="hll">        <span class="p">{</span>
+</span><span class="hll">            <span class="k">this</span><span class="p">.</span><span class="nx">StopCar</span><span class="p">();</span>
+</span><span class="hll">        <span class="p">}</span>
+</span>    <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Add following dependency and functions to the <strong>CarController</strong> script:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+<span class="k">var</span> <span class="nx">RigidBody</span> <span class="o">:</span> <span class="nx">RigidBody</span><span class="o">;</span>
+</pre></div>
+</div>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">MoveCar</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">RigidBody</span><span class="p">.</span><span class="nx">Velocity</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">MoveSpeed</span><span class="o">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">StopCar</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">RigidBody</span><span class="p">.</span><span class="nx">Velocity</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="SteeringCar1" src="../../../_images/SteeringCar1.gif" /></p>
+<p>Now when we move the mouse, the car steers towards it and moves along its <strong>Forward</strong> axis. Let&#8217;s try using the <strong>LookAtDirection</strong> function on the Orientation component to use the keyboard to steer the car.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Car object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Under CarController<ul>
+<li>Set SteeringSpeed to: 45</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Update the <strong>CarController</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">CarController</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">// When we add a dependency to a component, we are saying the object must</span>
+    <span class="c1">// have that component before we can add this component to the object.</span>
+    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nb">Transform</span> <span class="o">:</span> <span class="nb">Transform</span><span class="o">;</span>
+
+    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">RigidBody</span> <span class="o">:</span> <span class="nx">RigidBody</span><span class="o">;</span>
+
+    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">Orientation</span> <span class="o">:</span> <span class="nx">Orientation</span><span class="o">;</span>
+
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">MoveSpeed</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">5.0</span><span class="o">;</span>
+
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">SteeringSpeed</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">;</span>
+
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">inputDirection</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">GetKeyboardMovement</span><span class="p">();</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">inputDirection</span><span class="p">.</span><span class="nx">Y</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">inputDirection</span><span class="p">.</span><span class="nx">X</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">OrientCar</span><span class="p">(</span><span class="nx">inputDirection</span><span class="p">.</span><span class="nx">X</span><span class="o">,</span> <span class="nx">event</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="k">this</span><span class="p">.</span><span class="nx">MoveCar</span><span class="p">(</span><span class="nx">inputDirection</span><span class="p">.</span><span class="nx">Y</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">StopCar</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OrientCar</span><span class="p">(</span><span class="nx">steerDirection</span> <span class="o">:</span> <span class="nx">Real</span><span class="o">,</span> <span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">currentForward</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span><span class="o">;</span>
+        <span class="k">var</span> <span class="nx">currentUp</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldUp</span><span class="o">;</span>
+        <span class="k">var</span> <span class="nx">steerSpeed</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ToRadians</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">SteeringSpeed</span><span class="p">);</span>
+        <span class="k">var</span> <span class="nx">newForward</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">RotateVector</span><span class="p">(</span><span class="nx">currentForward</span><span class="o">,</span> <span class="nx">currentUp</span><span class="o">,</span> <span class="nx">steerSpeed</span> <span class="o">*</span> <span class="nx">steerDirection</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">LookAtDirection</span><span class="p">(</span><span class="nx">newForward</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">MoveCar</span><span class="p">(</span><span class="nx">moveDirection</span> <span class="o">:</span> <span class="nx">Real</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">RigidBody</span><span class="p">.</span><span class="nx">Velocity</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span> <span class="o">*</span> <span class="nx">moveDirection</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">MoveSpeed</span><span class="o">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">StopCar</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">RigidBody</span><span class="p">.</span><span class="nx">Velocity</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">GetKeyboardMovement</span><span class="p">()</span> <span class="o">:</span> <span class="nx">Real3</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">movement</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">();</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">W</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="nx">movement</span> <span class="o">+=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">S</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="nx">movement</span> <span class="o">+=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mi">0</span><span class="o">,-</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">A</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="nx">movement</span> <span class="o">+=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">D</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="nx">movement</span> <span class="o">+=</span> <span class="nx">Real3</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">movement</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="KeyboardCarSteering1" src="../../../_images/KeyboardCarSteering1.gif" /></p>
+<p>Now when we run the game, we can use the <code class="docutils literal"><span class="pre">W</span></code> and <code class="docutils literal"><span class="pre">S</span></code> keys to move forward and backward along the Car&#8217;s <strong>WorldForward</strong> axis. We can also use the <code class="docutils literal"><span class="pre">A</span></code> and <code class="docutils literal"><span class="pre">D</span></code> keys to turn left and right. Now instead of using a point to get a direction to move in, we are using keyboard input to get a rotated version of the Car&#8217;s <strong>WorldForward</strong> vector as a direction to steer towards. Now let&#8217;s make the wheels spin as the car moves.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li>Update the <strong>CarController</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">inputDirection</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">GetKeyboardMovement</span><span class="p">();</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">inputDirection</span><span class="p">.</span><span class="nx">Y</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">inputDirection</span><span class="p">.</span><span class="nx">X</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">OrientCar</span><span class="p">(</span><span class="nx">inputDirection</span><span class="p">.</span><span class="nx">X</span><span class="o">,</span> <span class="nx">event</span><span class="p">);</span>
+            <span class="p">}</span>
+<span class="hll">
+</span>            <span class="k">this</span><span class="p">.</span><span class="nx">MoveCar</span><span class="p">(</span><span class="nx">inputDirection</span><span class="p">.</span><span class="nx">Y</span><span class="o">,</span> <span class="nx">event</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">StopCar</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="hll">
+</span><span class="hll">    <span class="kd">function</span> <span class="nx">MoveCar</span><span class="p">(</span><span class="nx">moveDirection</span> <span class="o">:</span> <span class="nx">Real</span><span class="o">,</span> <span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">RigidBody</span><span class="p">.</span><span class="nx">Velocity</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span> <span class="o">*</span> <span class="nx">moveDirection</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">MoveSpeed</span><span class="o">;</span>
+</span><span class="hll">        <span class="k">var</span> <span class="nx">distanceCovered</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Length</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">RigidBody</span><span class="p">.</span><span class="nx">Velocity</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">SpinWheels</span><span class="p">(</span><span class="nx">moveDirection</span><span class="o">,</span> <span class="nx">distanceCovered</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Add the following functions to <strong>CarController</strong> script.</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">SpinWheels</span><span class="p">(</span><span class="nx">moveDirection</span> <span class="o">:</span> <span class="nx">Real</span><span class="o">,</span> <span class="nx">distanceCovered</span> <span class="o">:</span> <span class="nx">Real</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">frontWheels</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">FindAllChildrenByName</span><span class="p">(</span><span class="s2">&quot;WheelFront&quot;</span><span class="p">);</span>
+    <span class="k">var</span> <span class="nx">backWheels</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">FindAllChildrenByName</span><span class="p">(</span><span class="s2">&quot;WheelBack&quot;</span><span class="p">);</span>
+
+    <span class="nx">foreach</span><span class="p">(</span><span class="k">var</span> <span class="nx">wheel</span> <span class="k">in</span> <span class="nx">frontWheels</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">SpinWheel</span><span class="p">(</span><span class="nx">wheel</span><span class="o">,</span> <span class="nx">moveDirection</span><span class="o">,</span> <span class="nx">distanceCovered</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">foreach</span><span class="p">(</span><span class="k">var</span> <span class="nx">wheel</span> <span class="k">in</span> <span class="nx">backWheels</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">SpinWheel</span><span class="p">(</span><span class="nx">wheel</span><span class="o">,</span> <span class="nx">moveDirection</span><span class="o">,</span> <span class="nx">distanceCovered</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">SpinWheel</span><span class="p">(</span><span class="nx">wheel</span> <span class="o">:</span> <span class="nx">Cog</span><span class="o">,</span> <span class="nx">moveDirection</span> <span class="o">:</span> <span class="nx">Real</span><span class="o">,</span> <span class="nx">distanceCovered</span> <span class="o">:</span> <span class="nx">Real</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">wheelRadius</span> <span class="o">=</span> <span class="nx">wheel</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Scale</span><span class="p">.</span><span class="nx">X</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">angle</span> <span class="o">=</span> <span class="nx">distanceCovered</span> <span class="o">/</span> <span class="nx">wheelRadius</span><span class="o">;</span>
+    <span class="nx">angle</span> <span class="o">*=</span> <span class="o">-</span><span class="nx">moveDirection</span><span class="o">;</span>
+    <span class="nx">wheel</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">RotateAnglesLocal</span><span class="p">(</span><span class="nx">Real3</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="nx">angle</span><span class="o">,</span><span class="mi">0</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="SpinningWheels" src="../../../_images/SpinningWheels.gif" /></p>
+<p>Now as we steer the car around the plane, the wheels spin to match the distance covered each frame. By dividing the distance the car should cover this frame by the radius of the wheel, we can get the angle we should rotate the wheel by. Now that we have spinning wheels, let&#8217;s make the front wheels turn as the car is directed to turn.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the WheelFront objects</span></a><ul>
+<li>Add the <code class="docutils literal"><span class="pre">Orientation</span></code> component to the <code class="docutils literal"><span class="pre">WheelFront</span></code> objects.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="WheelFrontSelect" src="../../../_images/FrontWheelSelection.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the first WheelFront object</span></a><ul>
+<li>Under Orientation<ul>
+<li>Click <code class="docutils literal"><span class="pre">EditBasis</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="RotationProxySelection" src="../../../_images/RotationProxySelection.png" /></p>
+<p>This creates and selects a Proxy (temporary) object that allows us to manually define the rotation that is applied to create the object&#8217;s custom <strong>Forward</strong>, <strong>Up</strong>, and <strong>Right</strong> axes. By redefining which standard (X,Y,Z) axes are which orientation (forward, up, right) axes we can make orienting objects to face a particular direction very easy.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Rotation to: [-90,-90,0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="RotationProxyProperties" src="../../../_images/RotationProxyProperties.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the second WheelFront object</span></a><ul>
+<li>Under Orientation<ul>
+<li>Click <code class="docutils literal"><span class="pre">EditBasis</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Notice when we selected the second WheelFront object, the first RotationProxy disappeared and the orientation axes of the first WheelFront have been aligned with those of the Car object.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Rotation to: [-90,-90,0]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the second WheelFront object</span></a></li>
+</ul>
+<p>Once again the RotationProxy object has been deleted, and now the second WheelFront object&#8217;s Orientation axes are aligned with those of the Car object as well.</p>
+<ul class="simple">
+<li>Update the <strong>CarController</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">inputDirection</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">GetKeyboardMovement</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">inputDirection</span><span class="p">.</span><span class="nx">Y</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">inputDirection</span><span class="p">.</span><span class="nx">X</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">OrientCar</span><span class="p">(</span><span class="nx">inputDirection</span><span class="p">.</span><span class="nx">X</span><span class="o">,</span> <span class="nx">event</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">MoveCar</span><span class="p">(</span><span class="nx">inputDirection</span><span class="p">.</span><span class="nx">Y</span><span class="o">,</span> <span class="nx">event</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">StopCar</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">OrientWheels</span><span class="p">(</span><span class="nx">inputDirection</span><span class="p">.</span><span class="nx">X</span><span class="o">,</span> <span class="nx">event</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Add the following functions to <strong>CarController</strong> script:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OrientWheels</span><span class="p">(</span><span class="nx">steerDirection</span> <span class="o">:</span> <span class="nx">Real</span><span class="o">,</span> <span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">currentForward</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">currentUp</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldUp</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">steerSpeed</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ToRadians</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">SteeringSpeed</span><span class="p">);</span>
+
+    <span class="k">var</span> <span class="nx">targetForward</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">RotateVector</span><span class="p">(</span><span class="nx">currentForward</span><span class="o">,</span> <span class="nx">Real3</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="p">)</span><span class="o">,</span> <span class="nx">steerSpeed</span> <span class="o">*</span> <span class="nx">steerDirection</span><span class="p">);</span>
+
+
+    <span class="k">var</span> <span class="nx">frontWheels</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">FindAllChildrenByName</span><span class="p">(</span><span class="s2">&quot;WheelFront&quot;</span><span class="p">);</span>
+    <span class="k">var</span> <span class="nx">backWheels</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">FindAllChildrenByName</span><span class="p">(</span><span class="s2">&quot;WheelBack&quot;</span><span class="p">);</span>
+
+    <span class="nx">foreach</span><span class="p">(</span><span class="k">var</span> <span class="nx">wheel</span> <span class="k">in</span> <span class="nx">frontWheels</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">TurnWheel</span><span class="p">(</span><span class="nx">wheel</span><span class="o">,</span> <span class="nx">targetForward</span><span class="o">,</span> <span class="nx">event</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">TurnWheel</span><span class="p">(</span><span class="nx">wheel</span> <span class="o">:</span> <span class="nx">Cog</span><span class="o">,</span> <span class="nx">steerDirection</span> <span class="o">:</span> <span class="nx">Real3</span><span class="o">,</span> <span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">currentRotation</span> <span class="o">=</span> <span class="nx">wheel</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">WorldRotation</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">targetRotation</span> <span class="o">=</span> <span class="nx">wheel</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">GetLookAtDirectionWithUpRotation</span><span class="p">(</span><span class="nx">steerDirection</span><span class="o">,</span> <span class="nx">Real3</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="p">));</span>
+    <span class="k">var</span> <span class="nx">newRotation</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Slerp</span><span class="p">(</span><span class="nx">currentRotation</span><span class="o">,</span> <span class="nx">targetRotation</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">SteeringSpeed</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">);</span>
+    <span class="nx">wheel</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">WorldRotation</span> <span class="o">=</span> <span class="nx">newRotation</span><span class="o">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="TurningNoSpinWheels" src="../../../_images/TurningNoSpinWheels.gif" /></p>
+<p>Try driving the Car around the plane. If you just drive straight, you will see the WheelFront objects rotate slightly around their spin axis and then stop. If you steer to the right or left the wheels will turn but not spin at all. This is because of the way in which we are turning the wheel.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span>    <span class="kd">function</span> <span class="nx">TurnWheel</span><span class="p">(</span><span class="nx">wheel</span> <span class="o">:</span> <span class="nx">Cog</span><span class="o">,</span> <span class="nx">steerDirection</span> <span class="o">:</span> <span class="nx">Real3</span><span class="o">,</span> <span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">currentRotation</span> <span class="o">=</span> <span class="nx">wheel</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">WorldRotation</span><span class="o">;</span>
+<span class="hll">        <span class="k">var</span> <span class="nx">targetRotation</span> <span class="o">=</span> <span class="nx">wheel</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">GetLookAtDirectionWithUpRotation</span><span class="p">(</span><span class="nx">steerDirection</span><span class="o">,</span> <span class="nx">Real3</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="p">));</span>
+</span>        <span class="k">var</span> <span class="nx">newRotation</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Slerp</span><span class="p">(</span><span class="nx">currentRotation</span><span class="o">,</span> <span class="nx">targetRotation</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">SteeringSpeed</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">);</span>
+<span class="hll">        <span class="nx">wheel</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">WorldRotation</span> <span class="o">=</span> <span class="nx">newRotation</span><span class="o">;</span>
+</span>    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Looking at the code we added above to turn the wheel, we are using the <code class="docutils literal"><span class="pre">GetLookAtDirectionWithUpRotation</span></code> function to get the rotation the object needs to face the correct direction. This function is based on rotating the object around the provided <strong>Up</strong> axis to align the object&#8217;s <strong>WorldForward</strong> axis with the given direction. The <strong>Get</strong> versions of the <strong>Orientation</strong> component&#8217;s <strong>LookAt</strong> functions will only calculate the desired <strong>Rotation</strong> and return it; the non-<strong>Get</strong> versions will actually set the <strong>Rotation</strong> as we are when we assign <strong>newRotation</strong> to <code class="docutils literal"><span class="pre">wheel.Transform.Rotation</span></code>. While we are slerping to make the rotation more gradual instead of an immdiate snap, we are still overwriting the applied rotations that are intended to spin the wheel. The <code class="docutils literal"><span class="pre">GetLookAtDirectionWithUpRotation</span></code> function calculates the <strong>Rotation</strong> based of the initial <strong>Orientation</strong> axes that we defined, causing the spin rotation to be ignored.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>We can fix this using a similar solution to how we solved the non-uniform scaling issue earlier.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateTransform</span></code> or <span class="menuselection">Create ‣ Create Transform</span><ul>
+<li>In the Properties Window<ul>
+<li>Set Name to: WheelJoint</li>
+<li>Add the <code class="docutils literal"><span class="pre">Orientation</span></code> component to the <code class="docutils literal"><span class="pre">WheelJoint</span></code> object.</li>
+</ul>
+</li>
+<li>Parent the <code class="docutils literal"><span class="pre">WheelJoint</span></code> object to the <code class="docutils literal"><span class="pre">Car</span></code> object.</li>
+<li>Parent the first <code class="docutils literal"><span class="pre">WheelFront</span></code> object to the <code class="docutils literal"><span class="pre">WheelJoint</span></code> object.</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateTransform</span></code> or <span class="menuselection">Create ‣ Create Transform</span><ul>
+<li>In the Properties Window<ul>
+<li>Set Name to: WheelJoint</li>
+<li>Add the <code class="docutils literal"><span class="pre">Orientation</span></code> component to the <code class="docutils literal"><span class="pre">WheelJoint</span></code> object.</li>
+</ul>
+</li>
+<li>Parent the new <code class="docutils literal"><span class="pre">WheelJoint</span></code> object to the <code class="docutils literal"><span class="pre">Car</span></code> object.</li>
+<li>Parent the second <code class="docutils literal"><span class="pre">WheelFront</span></code> object to the <code class="docutils literal"><span class="pre">WheelJoint</span></code> object.</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the first WheelJoint object</span></a><ul>
+<li>Under Transform<ul>
+<li>Set Translation to: [4, 0.5, 2.5]</li>
+</ul>
+</li>
+<li>Under Orientation<ul>
+<li>Click <code class="docutils literal"><span class="pre">EditBasis</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Rotation to: [-90,-90,0]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the WheelFront object that is parented to the first WheelJoint object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: [0,0,0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the second WheelJoint object</span></a><ul>
+<li>Under Transform<ul>
+<li>Set Translation to: [4, 0.5, -2.5]</li>
+</ul>
+</li>
+<li>Under Orientation<ul>
+<li>Click <code class="docutils literal"><span class="pre">EditBasis</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Rotation to: [-90,-90,0]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the WheelFront object that is parented to the second WheelJoint object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: [0,0,0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Update the <strong>CarController</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>    <span class="kd">function</span> <span class="nx">OrientWheels</span><span class="p">(</span><span class="nx">steerDirection</span> <span class="o">:</span> <span class="nx">Real</span><span class="o">,</span> <span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">currentForward</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span><span class="o">;</span>
+        <span class="k">var</span> <span class="nx">currentUp</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldUp</span><span class="o">;</span>
+        <span class="k">var</span> <span class="nx">steerSpeed</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ToRadians</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">SteeringSpeed</span><span class="p">);</span>
+
+        <span class="k">var</span> <span class="nx">targetForward</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">RotateVector</span><span class="p">(</span><span class="nx">currentForward</span><span class="o">,</span> <span class="nx">Real3</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="p">)</span><span class="o">,</span> <span class="nx">steerSpeed</span> <span class="o">*</span> <span class="nx">steerDirection</span><span class="p">);</span>
+
+<span class="hll">        <span class="k">var</span> <span class="nx">frontWheels</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">FindAllChildrenByName</span><span class="p">(</span><span class="s2">&quot;WheelJoint&quot;</span><span class="p">);</span>
+</span>        <span class="k">var</span> <span class="nx">backWheels</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">FindAllChildrenByName</span><span class="p">(</span><span class="s2">&quot;WheelBack&quot;</span><span class="p">);</span>
+
+        <span class="nx">foreach</span><span class="p">(</span><span class="k">var</span> <span class="nx">wheel</span> <span class="k">in</span> <span class="nx">frontWheels</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">TurnWheel</span><span class="p">(</span><span class="nx">wheel</span><span class="o">,</span> <span class="nx">targetForward</span><span class="o">,</span> <span class="nx">event</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="FinalCar" src="../../../_images/FinalCar.gif" /></p>
+<p>Now, driving the car around the plane, we can see the wheels spinning and the front wheels turning. We are using <strong>Transform</strong> component functions to modify <strong>LocalRotation</strong> values on the wheel objects to make them spin, and <strong>Orientation</strong> component functions to turn the WheelJoint object. By adding the WheelJoint objects into the hierarchy, we create another independent <strong>Rotation</strong> that will be applied to the WheelFront objects.</p>
+<p>Using this method of adding another pivot to the hierarchy, we can spin the wheel object with out worrying about how the rotation will be affected by turning the WheelJoint object.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../LevelSwitching.html" class="btn btn-neutral float-right" title="Level Switching" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="2DRotation.html" class="btn btn-neutral" title="2D Rotation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Gameplay/VectorMath/3DRotation.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:09:12 GMT -->
+</html>

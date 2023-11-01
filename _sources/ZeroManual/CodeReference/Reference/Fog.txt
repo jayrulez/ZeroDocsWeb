@@ -1,0 +1,106 @@
+.. _ReferenceFog:
+
+.. rst-class:: searchtitle
+
+Fog
+===
+
+.. rst-class:: searchdescription
+
+A component that provides fog.
+
+.. include:: Description/Fog.rst
+
+.. cpp:class:: Fog
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceFogProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Fog::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Fog::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Fog::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Fog::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: FogType::Type Fog::FogType
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 Fog::Color
+
+            Color of the fog.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Fog::BeginDepth
+
+            Depth where fog will begin to affect color.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Fog::EndDepth
+
+            Depth will fog will be at End Density.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Fog::BeginDensity
+
+            Fog density at begin depth and below.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Fog::EndDensity
+
+            Fog density at End Depth and beyond.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Fog::FogDensity
+
+            In exp fog the density.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Fog::FogStart
+
+            In exp fog the start.
+
+.. _ReferenceFogMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Fog::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/Fog.rst

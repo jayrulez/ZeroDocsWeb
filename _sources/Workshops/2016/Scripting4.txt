@@ -1,0 +1,845 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _2016Scripting4:
+
+.. rst-class:: SearchTitle
+
+Scripting 4
+===========
+
+.. rst-class:: SearchDescription
+
+This lesson will cover storing and accessing data in Arrays. We will also cover the concept of looping, and loop operations.
+
+.. _2016Scripting3Vocab:
+
+Learning Objectives
+-------------------
+
+*	1D and 2D array usage
+
+*	Understanding looping structures.
+
+.. rst-class:: VocabSection
+
++-------------------------------------+
+| Vocabulary                          |
++=======+===============+=============+
+| Array | Array Element | Array Index |
++-------+---------------+-------------+
+| loop  | for           | while       |
++-------+---------------+-------------+
+| break | continue      | foreach     |
++-------+---------------+-------------+
+
+Overview
+--------
+
+One of the biggest scripting topics we have talked about so far is variables and the various ways we can use them to store individual pieces of data, but what happens when we want to store large amounts of data? Imagine we want to keep track of each enemy in a game: it wouldn't be practical to have a variable to keep track of each one. It would be much more convenient to have a list of the enemies that is stored in one variable, which is exactly the purpose of arrays.
+
+Create a New Project
+--------------------
+
+:ref:`Create a New 2D Project<2016CreateNewProject>`
+
+*   :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: ``GameLogic``
+
+
+Arrays
+------
+
+In Zilch, arrays are essentially lists of variables. We can add and remove items from the list whenever we want, the only restriction is that all the items in the array must be of the same type. Let's start with a simple example of an array of **Integers**.
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+    
+.. code-block:: as
+    :emphasize-lines: 3, 7
+
+    class GameLogic : ZilchComponent
+    {
+        var TestArray : Array[Integer] = Array[Integer]();
+        
+        function Initialize(init : CogInitializer)
+        {
+          Console.WriteLine(this.TestArray);
+        }
+    }
+
+Declaring an array is very similar to declaring any other type of variable, the main difference is that arrays require you to define the type of variables that will be contained. 
+
+For instance, ``Integer`` is a type, ``Array[Integer]`` is a type, but ``Array`` by itself is **not** a type; we **must** know what it will contain. Equally, ``Array[Integer]`` is a *different* type than ``Integer``, and also a different type than ``Array[Real]``.
+
+By declaring ``TestArray`` as type ``Array[Integer]`` we are essentially saying we are creating a list that will only contain ``Integers``. The square brackets (``[`` ``]``) are required to indicate the type of the variables the array will contain. 
+
+
+
+When initializing our array, we must supply a value of the *same type*. With primitive language types, such as ``Integer``, we could assign literals like ``0`` or ``5``. With arrays we usually start with an empty array, which the code above constructs.
+
+* :ref:`Select the LevelSettings object <2016SelectObject>`
+    
+* In the Properties Window
+        
+  * :ref:`Add the GameLogic component <2016AddComponent>` 
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+You should see the following console output.
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    {}
+    Level 'Level' was loaded.
+    Loaded level 0.01s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+The ``{}`` is the printed representation of an empty array. Let's try adding some elements to the array.
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+    
+.. code-block:: as
+    :emphasize-lines: 4-12
+
+    function Initialize(init : CogInitializer)
+    {
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Add(0);
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Add(1);
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Add(2);
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Add(3);
+        Console.WriteLine(this.TestArray);
+    }
+
+
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+|pbr|
+
+You should see the following console output.
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    {}
+    {0}
+    {0, 1}
+    {0, 1, 2}
+    {0, 1, 2, 3}
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+Now we can see the array grows as we add items. Notice that new elements are always added to the end of the array. Let's try removing items from the array.
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+    
+.. code-block:: as
+    :emphasize-lines: 10-19
+
+    function Initialize(init : CogInitializer)
+    {
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Add(3);
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Add(2);
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Add(1);
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Add(0);
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Pop();
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Pop();
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Pop();
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Pop();
+        Console.WriteLine(this.TestArray);
+    }
+
+
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+You should see the following console output.
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    {}
+    {3}
+    {3, 2}
+    {3, 2, 1}
+    {3, 2, 1, 0}
+    {3, 2, 1}
+    {3, 2}
+    {3}
+    {}
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+The opposite of ``Add``, ``Pop`` removes the last element in the array. Notice that arrays keep track of elements by their *position within the array*, this is called an **index**. 
+
+Now, if I were to ask you what the index of ``3`` is (before we remove it with the ``Pop`` function), you might say 1. However, in Zilch the first element has an index of 0. The trick is to think about it in terms of movement: how many positions do you need to move from the first element to access a particular element? Well, in the case of the first element, you need to move ``0`` times to access it, since it is where you start. Equally, if we wanted to access the second element, we would have to move 1 time from the first element, and so on. This concept of positions (indices) is key to arrays, and is important when talking about loops.
+
+Loops
+-----
+
+What if we had a few lines of code we needed to run multiple times? For example, imagine you want to spawn four enemies upon receiving an in-game event. Would you really want to call your SpawnEnemies function four times? What if, under different conditions, you want to respond to the *same event* by spawning *five* enemies? Well, if you hard-coded your SpawnEnemies function to spawn four enemies, it can't spawn five.
+
+Loops let us perform a block of code multiple times *without* writing out each individual call; moreover, we can make the number of times it runs vary by basing it on a conditional statement (so we can spawn four, five, or any other number of enemies).
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+    
+.. code-block:: as
+    :emphasize-lines: 3-4, 8-17
+    
+    class GameLogic : ZilchComponent
+    {
+        [Property]
+        var Length : Integer = 4;
+        
+        var TestArray : Array[Integer] = Array[Integer]();
+        
+        function Initialize(init : CogInitializer)
+        {
+            var i = 0;
+            while(this.TestArray.Count < this.Length)
+            {
+                this.TestArray.Add(i);
+                Console.WriteLine(this.TestArray);
+                i += 1;
+            }
+        }
+    }
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+|pbr|
+
+You should see the following console output.
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    {0}
+    {0, 1}
+    {0, 1, 2}
+    {0, 1, 2, 3}
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+Here we use a **while** loop to populate our array. Notice the output is the same as when we originally populated the array with this code:
+
+.. code-block:: as
+    :emphasize-lines: 3-12
+
+    function Initialize(init : CogInitializer)
+    {
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Add(0);
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Add(1);
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Add(2);
+        Console.WriteLine(this.TestArray);
+        this.TestArray.Add(3);
+        Console.WriteLine(this.TestArray);
+    }
+
+A while loop will run the code contained underneath it in the curly braces, ``{}``, over and over again until the condition between the parentheses, ``()``, is not true. This Boolean condition evaluates the same as those used in ``if`` statements. Here, the while loop will, with each iteration, add an element to ``TestArray`` with the current value of ``i`` until the size of the array is no longer less than the ``Length`` property.
+
+``while`` loops are not the most common types of loops, as there is no inherent part of the ``while`` loop structure that ensures the loop will end. Imagine a ``while`` loop where none of the variables that are being evaluated in the boolean condition are affected by code inside the ``{}`` of the loop. Most likely, the condition will always remain true and your code will get stuck in what is called an **infinite loop**, meaning the loop will run forever and never execute any other code outside the loop. This is why we more often use the ``for`` loop.
+
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+    
+.. code-block:: as
+    :emphasize-lines: 3-9
+    
+    function Initialize(init : CogInitializer)
+    {
+    // Before the loop declare | Before an iteration of the loop | At the end of each loop  
+    // and initialize var i,   | require i be less than Length,  | iteration: add 1 to i
+       for (var i = 0;                 i < this.Length;                          ++i)
+       // During the loop iteration, run this code
+       {
+           this.TestArray.Add(i);
+           Console.WriteLine(this.TestArray);
+       }
+    }
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+You should see the following console output.
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    {0}
+    {0, 1}
+    {0, 1, 2}
+    {0, 1, 2, 3}
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+As you can see, the ``for`` loop we replaced the ``while`` loop with has the same functionality. By reading the comments in the above code you can see what each portion of the ``for`` loop does. The code between the ``(`` and the first ``;`` is run just once. The code after that is the Boolean condition we test *before* doing **every** iteration of the loop. If it resolves to ``true``, then it runs the code between the loop's ``{}`` followed by the last section of code between the ``;`` and the ``)``. 
+
+After that, it will evaluate the Boolean condition again, if ``true``, execute the code in the ``{}``, execute code between ``;`` and ``)``, hence, looping, until the Boolean condition resolves to ``false``. 
+
+.. admonition:: Practice it!
+  
+  Try running through this code by hand with pen and paper to ensure you understand the sequence of events. Compare your results to the output.
+
+Since all of the control features of the loop can be easily placed up front, ``for`` loops are often much more convenient than while loops.
+
+Now that we've seen how to build arrays using loops, let's take a look at accessing the elements of arrays once we have constructed them.
+
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+    
+.. code-block:: as
+    :emphasize-lines: 12-16
+    
+    function Initialize(init : CogInitializer)
+    {
+    // Before the loop declare | Before an iteration of the loop | At the end of each loop  
+    // and initialize var i,   | require i be less than Length,  | iteration: add 1 to i
+       for (var i = 0;                 i < this.Length;                          ++i)
+       // During the loop iteration, run this code
+       {
+           this.TestArray.Add(i);
+           Console.WriteLine(this.TestArray);
+       }
+       
+       for(var i = 0; i < this.TestArray.Count; ++i)
+       {
+           var element = this.TestArray[i];
+           Console.WriteLine(element);
+       }
+    }
+
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+You should see the following console output.
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    {0}
+    {0, 1}
+    {0, 1, 2}
+    {0, 1, 2, 3}
+    0
+    1
+    2
+    3
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+In the first line of code inside the ``{}`` of the second ``for`` loop (also know as the **body**) you can see an example of accessing array **elements** by index. Using ``i`` as the index, we can look at each element in the order they exist in the array, and we can ensure that ``i`` is never going to be larger than the last index in the array (``Count`` is the size of the array). 
+
+.. Note::
+
+  Trying to index "outside" of an array is undefined. An index is said to be "outside" of an array when it doesn't correspond to an element within it, i.e. negative indices, or those beyond it's last index. You'll get a **run-time error** if it occurs. 
+  
+  Run-time errors are those that happen *while your game is running*. **Compile-time errors** occur before you run the game. Run-time errors happen because the compiler cannot yet determine whether or not your code will result in an error until more information is provided.  
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+    
+.. code-block:: as
+    :emphasize-lines: 12
+    
+    function Initialize(init : CogInitializer)
+    {
+    // Before the loop declare | Before an iteration of the loop | At the end of each loop  
+    // and initialize var i,   | require i be less than Length,  | iteration: add 1 to i
+       for (var i = 0;                 i < this.Length;                          ++i)
+       // During the loop iteration, run this code
+       {
+           this.TestArray.Add(i);
+           Console.WriteLine(this.TestArray);
+       }
+       
+       for(var i = this.TestArray.LastIndex; i >= 0; --i)
+       {
+           var element = this.TestArray[i];
+           Console.WriteLine(element);
+       }
+    }
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+|pbr|
+
+You should see the following console output.
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    {0}
+    {0, 1}
+    {0, 1, 2}
+    {0, 1, 2, 3}
+    3
+    2
+    1
+    0
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+Once again we are accessing each element by its index; however, this time we are walking from the back of the array to the front. We start by initializing ``i`` to ``this.TestArray.LastIndex``. Since there are four elements (and the first element is at index ``0``), ``i`` is initialized to ``3``. Since ``i`` is decremented (reduced by one) after the code inside the ``{}`` is run, the condition of ``i >= 0`` will evaluate to ``true`` four times.
+
+
+
+Break
+-----
+
+Occasionally, while looping, we want to stop based on some condition that is checked within the ``{}`` of the loop itself.
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component's second ``for`` loop to the following code:
+    
+.. code-block:: as
+    :emphasize-lines: 1, 7-10, 12
+    
+    Console.WriteLine("Start accessing loop");
+    for(var i = this.TestArray.LastIndex; i >= 0; --i)
+    {
+        var element = this.TestArray[i];
+        Console.WriteLine(element);
+        
+        if(element == 2)
+        {
+            break;
+        }
+    }
+    Console.WriteLine("End accessing loop");
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+|pbr|
+
+You should see the following console output.
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    {0}
+    {0, 1}
+    {0, 1, 2}
+    {0, 1, 2, 3}
+    Start accessing loop
+    3
+    2
+    End accessing loop
+    Level 'Level' was loaded.
+    Loaded level 0.03s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+During each loop we check if the value of ``element`` is equal to ``2``. When we find an element that is of value ``2``, we break the loop; then the code after the loop starts running. In this case, the **break** statement causes us to stop running the loop early; thus, preventing the elements with values of ``1`` and ``0`` from being printed before ``Console.WriteLine("End accessing loop")`` is run.
+
+
+
+Continue
+--------
+
+Where **break** allows you to skip the remaining iterations of a loop, **continue** allows you to skip an *individual* iteration of a loop.
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+    
+.. code-block:: as
+    :emphasize-lines: 3
+    
+    if(element == 2)
+    {
+        continue;
+    }
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+You should see the following console output.
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    {0}
+    {0, 1}
+    {0, 1, 2}
+    {0, 1, 2, 3}
+    Start accessing loop
+    3
+    2
+    1
+    0
+    End accessing loop
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+Now that we have replaced the ``break`` statement with a ``continue`` statement, instead of skipping the remaining iterations, we skip only the *remainder of the current iteration*. Since ``2`` was already printed, nothing changed. Let's rearrange the code, so the print statement is the last line of code in the body of our second ``for`` loop.
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component's second ``for`` loop to the following code:
+    
+.. code-block:: as
+    :emphasize-lines: 1, 7-10, 12
+    
+    Console.WriteLine("Start accessing loop");
+    for(var i = this.TestArray.LastIndex; i >= 0; --i)
+    {
+      var element = this.TestArray[i];
+      
+      if(element == 2)
+      {
+        continue;
+      }        
+      
+      Console.WriteLine(element);
+      
+    }
+    Console.WriteLine("End accessing loop");
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+You should see the following console output.
+
+Console Output::
+  
+  ---------------- Begin Game ----------------
+  {0}
+  {0, 1}
+  {0, 1, 2}
+  {0, 1, 2, 3}
+  Start accessing loop
+  3
+  1
+  0
+  End accessing loop
+  Level 'Level' was loaded.
+  Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`    
+    
+Now, we are only preventing elements with a value of ``2`` from being printed.
+
+|pbr|
+
+2 Dimensional Arrays
+--------------------
+
+Often in programming you want to set up a table of values. To achieve this a common technique is to use an array of arrays. Look at this example:
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+
+    .. code-block:: csharp
+
+        class GameLogic : ZilchComponent
+        {
+          var TestArray : Array[Array[Integer]] = Array[Array[Integer]]();
+
+          function Initialize(init : CogInitializer)
+          {
+            Console.WriteLine(this.TestArray);
+          }
+        }
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+You should see the following console output.
+
+Console Output::
+
+  ---------------- Begin Game ----------------
+  {}
+  Level 'Level' was loaded.
+  Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`    
+
+This is because no elements have been added to the outer array shown in the output as ``{}``. The next step will be to push some new arrays into the outer array.
+
+|pbr|
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+
+    .. code-block:: csharp
+
+        class GameLogic : ZilchComponent
+        {
+          var TestArray : Array[Array[Integer]] = Array[Array[Integer]]();
+          
+          [Property]
+          var Height : Integer = 3;
+          
+          [Property]
+          var Width : Integer = 3;
+          
+          function Initialize(init : CogInitializer)
+          {
+            Console.WriteLine("TestArray before construction: `this.TestArray`");
+            this.Build2DArray();
+            Console.WriteLine("TestArray after construction: `this.TestArray`");
+          }
+          
+          function Build2DArray()
+          {
+            for(var i = 0; i < this.Height; ++i)
+            {
+              this.TestArray.Add(Array[Integer]());
+            }
+          }
+        }
+
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+Notice how a loop is used to insert the inner arrays within the outer array. This is an important concept, and should be payed attention as the example is expanded to fill in the inner arrays.
+
+You should see the following console output.
+
+Console Output::
+
+  ---------------- Begin Game ----------------
+  TestArray before construction: {}
+  TestArray after construction: {{}, {}, {}}
+  Level 'Level' was loaded.
+  Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+Now the output shows the outer array (``TestArray``) filled with empty arrays which will hold Integer's. Now it is time to fill the inner arrays.
+
+|pbr|
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+
+    .. code-block:: csharp
+
+        Class GameLogic : ZilchComponent
+        {
+          var TestArray : Array[Array[Integer]] = Array[Array[Integer]]();
+          
+          [Property]
+          var Height : Integer = 3;
+          
+          [Property]
+          var Width : Integer = 3;
+          
+          function Initialize(init : CogInitializer)
+          {
+            Console.WriteLine("TestArray before construction: `this.TestArray`");
+            this.Build2DArray();
+            Console.WriteLine("TestArray after construction: `this.TestArray`");
+          }
+          
+          function Build2DArray()
+          {
+            for(var i = 0; i < this.Height; ++i)
+            {
+              this.TestArray.Add(Array[Integer]());
+              
+              for(var j = 0; j < this.Width; ++j)
+              {
+                this.TestArray[i].Add(j);
+              }
+            }
+          }
+        }
+
+Notice that there is a for loop nested in another for loop in the ``Build2DArray`` function now. This allows the script to add Integers to the inner arrays as the inner arrays are added to the outer array. It should also be noted that the inner arrays are constructed in the outer loop. This must happen otherwise when the inner loop tries to add the Integers to the new inner array it will not exist.
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+You should see the following console output.
+
+Console Output::
+
+	---------------- Begin Game ----------------
+	TestArray before construction: {}
+	TestArray after construction: {{0, 1, 2}, {0, 1, 2}, {0, 1, 2}}
+	Level 'Level' was loaded.
+	Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+Now that the inner arrays have elements (``{0, 1, 2}``) it is much easier to see them. Look at this last example with the 2D array to reinforce how to traverse it.
+
+|pbr|
+
+The ``foreach`` Loop
+^^^^^^^^^^^^^^^^^^^^
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+
+    .. code-block:: csharp
+
+        class GameLogic : ZilchComponent
+        {
+          var TestArray : Array[Array[Integer]] = Array[Array[Integer]]();
+          
+          [Property]
+          var Height : Integer = 3;
+          
+          [Property]
+          var Width : Integer = 3;
+          
+          function Initialize(init : CogInitializer)
+          {
+            Console.WriteLine("TestArray before construction: `this.TestArray`");
+            this.Build2DArray();
+            Console.WriteLine("TestArray after construction: `this.TestArray`");
+            this.Print2DArray();
+          }
+          
+          function Build2DArray()
+          {
+            for(var i = 0; i < this.Height; ++i)
+            {
+              this.TestArray.Add(Array[Integer]());
+              
+              for(var j = 0; j < this.Width; ++j)
+              {
+                this.TestArray[i].Add(j);
+              }
+            }
+          }
+          
+          function Print2DArray()
+          {
+            foreach(var innerArray in this.TestArray)
+            {
+              foreach(var element in innerArray)
+              {
+                Console.WriteLine(element);
+              }
+            }
+          }
+        }
+
+Something that should be made note of in this new code snippet is the use of ``foreach`` in the ``Print2DArray`` function. ``foreach`` is a special version of the ``for`` loop that extracts the current element from the array for the user in order to skip the step of indexing into the array within the loop. In the outer ``foreach`` loop each inner array is extracted into the ``innerArray`` variable defined with in the ``foreach``. While in the inner ``foreach`` loop, each Integer from the ``innerArray`` variable is extracted into the ``element`` variable to be printed.
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+|pbr|
+
+You should see the following console output.
+
+Console Output::
+
+	---------------- Begin Game ----------------
+	TestArray before construction: {}
+	TestArray after construction: {{0, 1, 2}, {0, 1, 2}, {0, 1, 2}}
+	0
+	1
+	2
+	0
+	1
+	2
+	0
+	1
+	2
+	Level 'Level' was loaded.
+	Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+.. sidebar:: The ``\n`` character
+
+    The ``\n`` character is called a **newline** character. By inserting at the end of a string or line you are telling the application that is displaying the text that it should do so on a new line. 
+
+Now what if we wanted to print this in a grid to make it more readable as a table? We can use the ``\n`` character to seperate each row of the table. If we use the ``Console.Write`` function instead of the ``Console.Writeline`` function, newlines are not automatically added to the end of each print statement. In the case below this is what is desired as we want to add the newline chracters manually in order to control how the 2D array is displayed.
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the ``Print2DArray`` function to the following code:
+
+    .. code-block:: csharp
+
+        function Print2DArray()
+        {
+          foreach(var innerArray in this.TestArray)
+          {
+            foreach(var element in innerArray)
+            {
+              Console.Write(element);
+            }
+            Console.Write("\n");
+          }
+        }
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+|pbr|
+
+Console Output::
+
+    ---------------- Begin Game ----------------
+    TestArray before construction: {}
+    TestArray after construction: {{0, 1, 2}, {0, 1, 2}, {0, 1, 2}}
+    012
+    012
+    012
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+Conclusions
+-----------
+
+In this lesson we covered loops and the various operations that can be used within loops structures. We also looked at multi-dimensional arrays, and how to construct and traverse them. With this knowledge you should have no problems using the basic functionality of arrays and loop structures.
+
+On Your Own
+^^^^^^^^^^^
+
+*	Experiment with 1D & 2D array which are filled with types other than Integers.
+
+*	See if you can print a 2D array upside down. Then see if you can flip the output horizontally as well.
+
+*	See if you can make a function that takes an Integer which prints the multiplication table for that number.

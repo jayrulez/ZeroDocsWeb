@@ -1,0 +1,179 @@
+.. _ManualBoxCollider:
+
+.. rst-class:: SearchTitle
+
+Box Collider
+============
+
+.. rst-class:: SearchDescription
+
+The :cpp:type:`BoxCollider` component is one of the primitive Collider types available in the Zero Engine. It takes the shape of a rectangular box with the user setting the width, height, and depth. The BoxCollider component can be added to any object as long as it has a :cpp:type:`Transform` component.
+
+.. sidebar:: Recommended Reading
+
+    This page includes topics one might not have encountered yet. To learn about or review these materials, the following list provides the links to their respective Manual or Tutorial pages:
+    
+    *   :ref:`Collider<ManualCollider>`
+
+    *   :ref:`Object Parenting<GameObjectGAM100Parenting>` 
+
+.. _ManualBoxColliderCommonUses:
+
+Common Uses
+-----------
+
+*   Defining simple (sometimes inexact) collision boundaries for a Cog
+
+*   Defining a region where an effect takes place while the Player is inside it
+
+*   Defining a trigger zone that causes an event to occur
+
+.. _ManualBoxColliderUsing:
+
+Using the BoxCollider
+---------------------
+
+.. _ManualBoxColliderUsingCreating:
+
+Creating a BoxCollider
+~~~~~~~~~~~~~~~~~~~~~~
+
+When adding a BoxCollider component to an otherwise empty Transform object, the BoxCollider still retains all of its functionality and properties. The In-Editor properties for the BoxCollider can be seen in the following picture, where a BoxCollider component has been placed on an otherwise empty Transform object:
+    
+|BoxColliderProperties|
+    
+When this object is selected and viewed on the Level Window, the only thing that will be visible are the :ref:`DebugDraw<ManualDebugDrawing>` lines marking the boundaries of the BoxCollider; that is, the area in which collision will be resolved if this Collider comes into contact with another Collider of similar :ref:`CollisionGroup<ManualCollisionGroupAndTable>` type. 
+    
+|BoxColliderInEditor|
+        
+Applying BoxCollider to an Object
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The BoxCollider component is best used with objects that have a rectangular shape. While it's not the most efficient primitive collider (see: :ref:`SphereCollider<ManualSphereCollider>`), it is more efficient than most other types and is therefore a good choice when applying collision to rectangular-shaped objects (or parts of an object that approximate a rectangle).
+
+BoxCollider on a Cube
+^^^^^^^^^^^^^^^^^^^^^
+
+A Cube (or any perfectly rectangular shape) is the ideal type of object on which to use a BoxCollider as it will fit and scale with the dimensions of the cube perfectly. If one creates a Cube object, the Zero Editor anticipates the need for a BoxCollider and provides one already attached to the Cube object, as can be seen here:
+
+|CubeComponents|
+
+The BoxCollider will scale along with any changes made to the size of the Cube. In the following screenshot, the size of the Cube has been changed to a non-uniform scale. As can be seen, the :ref:`DebugDraw<ManualDebugDrawing>` lines still fit perfectly around the scaled Cube:
+
+|NormalSizeBox|
+
+One way to show this explicitly is to change the size of the BoxCollider itself. When changing the size of the BoxCollider, it is changed relative to the size of the Cube. That is, if the size of a BoxCollider on a scaled Cube is changed, the BoxCollider's new size is still affected by the Cube's size.
+
+For example, if the BoxCollider's size is changed so that its x-axis value is 2.0, the BoxCollider will increase in size on the x-axis double the amount of the Cube's current x-axis value. As the BoxCollider's size is now larger than the Cube, the BoxCollider :ref:`DebugDraw<ManualDebugDrawing>` lines appear outside the bounds of the Cube object. The following screenshot shows the BoxCollider with the following dimensions: ``[2.0, 1.5, 1.25]``
+
+|HighSizeBox|
+
+The BoxCollider is now twice the size of the Cube on the x-axis, 1.5 times the size on the y-axis, and 1.25 times the size on the z-axis. So, in the case of using a BoxCollider with a Cube, the BoxCollider will provide precise collision relative to the shape of the object it is on, unless the user purposely changes the properties of the BoxCollider itself.
+
+BoxCollider on a Non-Cube Shape
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To look at how a BoxCollider can be applied to an object that is not perfectly rectangular, a model of an axe will be used, as seen here:
+
+|CreatedAxeInLevel| 
+
+If one were to put a single BoxCollider on this object that covers the entire object, the volume for detecting collision would be almost twice the volume of the axe itself. It would resolve collision far outside the bounds of the model.
+
+What can be done, however, is to use more than one BoxCollider to create a set of colliders that more accurately represents the object. In order to add all these new BoxColliders to the model, the user will need to:
+
+    *   create objects with Transform components
+
+    *   add BoxCollider components (just like in the :ref:`section above<ManualBoxColliderCreate>`)
+
+    *   parent them to the object collision is being added to
+
+    *   resize the colliders appropriately
+
+The following screenshots illustrate this process step by step:
+
+Empty Transform objects are created and BoxCollider components are attached to them, which are then parented to the Axe object:
+
+|AxeObjectWithColliders|
+
+The two colliders must be reshaped to approximate the two main parts of the Axe: the Head and the Handle.
+
+The AxeHead BoxCollider is shaped to as close of an approximation as is possible, like so:
+
+|AxeHeadCollider|
+
+The pink :ref:`DebugDraw<ManualDebugDrawing>` lines represent the collision bounding box (i.e where collision will be detected), while the orange lines are the object's bounding box (i.e. the Transform object that contains the BoxCollider component). Since the offset of the collider was changed the collision bounding box moved up, while the object bounding box grows to include the offset. This is all merely to say that the pink box shows the actual collision-detecting volume. 
+
+The AxeHandle Collider is shaped so that it fits quite snugly around the boundaries of the handle of the Axe, like so:
+
+|AxeHandleCollider|
+
+Now that they have both been reshaped, one can see the full collision boundaries set by the two BoxColliders (by selecting both of the BoxCollider objects in the Object Window), as is shown here:
+
+|AxeHeadAndHandleColliders|
+
+While this setup is about as simple as one could make it, for a weapon of this type scaled to one-sixth the size of the player character, there need not be any more complexity brought to it. There will be some collision that will not be exactly along the lines of the model, especially around the head, but with a weapon like this most users would not want to take up the resources to make a more precise and complex setup of colliders.
+
+If the user wishes for more precise collision, however, they may make BoxColliders for every mildly distinguishable rectangle shape that can be formed from the model, like so:
+
+|AxeWithManyColliders| 
+
+And the resulting :ref:`Objects Window<ManualEditorUIObjectWindow>`:
+
+|AxeObjectWithManyColliders|
+
+Ultimately, the choice of how many colliders one needs will come down to object in question and its place in the game.
+
+
+Properties and Methods of BoxCollider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`BoxCollider Code Reference<ReferenceBoxCollider>`
+
+Events of BoxCollider
+~~~~~~~~~~~~~~~~~~~~~
+
+*   :ref:`Collision Events<ManualCollisionEvents>`
+
+*   :ref:`Group Collision Events<ManualGroupCollisionEvents>`
+
+.. _ManualBoxColliderRelated:
+
+Related Materials
+-----------------
+
+Manual Pages
+~~~~~~~~~~~~
+
+*   :ref:`Collision Overview<ManualCollisionOverview>`
+*   :ref:`SphereCollider<ManualSphereCollider>`
+
+
+Tutorial Pages
+~~~~~~~~~~~~~~
+
+*   :ref:`Collision<TutorialCollisionEvents>`
+
+Reference Pages
+~~~~~~~~~~~~~~~
+
+*   :cpp:type:`Transform`
+*   :cpp:type:`Collider`
+*   :cpp:type:`BoxCollider`
+*   :cpp:type:`SphereCollider`
+
+    
+    
+.. |BoxColliderProperties|                  image:: images/BoxCollider/BoxColliderProperties.png
+.. |BoxColliderInEditor|                    image:: images/BoxCollider/BoxColliderInEditor.png
+.. |CubeComponents|                         image:: images/BoxCollider/CubeComponents.png
+.. |NormalSizeBox|                          image:: images/BoxCollider/NormalSizeBox.png
+.. |HighSizeBox|                            image:: images/BoxCollider/HighSizeBox.png
+.. |CreatedAxeInLevel|                      image:: images/BoxCollider/CreatedAxeInLevel.png
+.. |AxeObjectWithColliders|                 image:: images/BoxCollider/AxeObjectWithColliders.png
+.. |AxeHeadCollider|                        image:: images/BoxCollider/AxeHeadCollider.png
+.. |AxeHandleCollider|                      image:: images/BoxCollider/AxeHandleCollider.png
+.. |AxeHeadAndHandleColliders|              image:: images/BoxCollider/AxeHeadAndHandleColliders.png
+.. |AxeWithManyColliders|                   image:: images/BoxCollider/AxeWithManyColliders.png
+.. |AxeObjectWithManyColliders|             image:: images/BoxCollider/AxeObjectWithManyColliders.png
+
+.. Written by: Jason Clark

@@ -1,0 +1,1760 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/ZilchInZero/ZilchTypes/Real4.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:16 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Real4 &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Zilch In Zero" href="../index.html"/>
+        <link rel="next" title="String" href="String.html"/>
+        <link rel="prev" title="Real3" href="Real3.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Zilch In Zero</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Variables_And_Data_Types.html">Variables, Data Types, &amp; Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Conditionals.html">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Looping.html">Looping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Functions.html">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Attributes.html">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Flags.html">Flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Structs.html">Structs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Classes.html">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Memory_Management.html">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Inheritance.html">Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Casting.html">Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Named_Parameters.html">Named Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Delegates.html">Delegates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Reflection.html">Reflection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Properties.html">Properties (Get-Sets)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Property_Delegates.html">Property Delegates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ConstructByValueVsByRef.html">Local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ConstructByValueVsByRef.html#new">New</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Operators_Precedence_Chart.html">Operator Precedence Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Keywords.html">Keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Array.html">Array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Boolean.html">Boolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Boolean2.html">Boolean2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Boolean3.html">Boolean3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Boolean4.html">Boolean4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Console.html">Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exception.html">Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HashMap.html">HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Integer.html">Integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Integer2.html">Integer2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Integer3.html">Integer3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Integer4.html">Integer4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="KeyValue.html">KeyValue [Key, Value]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Math.html">Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Property.html">Property [Type]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quaternion.html">Quaternion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Real.html">Real</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Real2.html">Real2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Real3.html">Real3</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Real4</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="String.html">String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StringBuilder.html">StringBuilder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zilch In Zero</a> &raquo;</li>
+      
+    <li>Real4</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/ZilchInZero/ZilchTypes/Real4.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="real4">
+<span id="zilchtypereal4"></span><h1>Real4</h1>
+<p class="searchdescription">4-dimensional Real vector.</p>
+<div class="section" id="constructors">
+<h2>Constructors</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="53%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Signature</th>
+<th class="head">Row</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>()</td>
+<td><em>Default constructor</em></td>
+</tr>
+<tr class="row-odd"><td>(scalar : Real)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>(Real, Real, Real, Real)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>(Real2, Real, Real)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>(Real, Real2, Real)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>(Real, Real, Real2)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>(Real3, Real)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>(Real2, Real2)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>(Real, Real3)</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="instance-properties">
+<h2>Instance Properties</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="44%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Count</td>
+<td><a class="reference internal" href="Integer.html"><em>Integer</em></a></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<a class="zerocollapsible" href="#!" id="zSwizzlingProperties0link">Swizzling Properties</a><br><div id="zSwizzlingProperties0" class="zerocollapsiblearea" style="display:none;"><table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="44%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>W</td>
+<td><a class="reference internal" href="Real.html"><em>Real</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WW</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WWW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WWWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WWWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WWWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WWWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WWX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WWXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WWXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WWXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WWXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WWY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WWYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WWYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WWYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WWYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WWZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WWZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WWZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WWZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WWZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WX</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WXW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WXWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WXWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WXWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WXWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WXX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WXXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WXXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WXXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WXXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WXY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WXYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WXYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WXYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WXYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WXZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WXZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WXZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WXZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WXZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WY</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WYW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WYWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WYWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WYWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WYWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WYX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WYXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WYXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WYXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WYXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WYY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WYYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WYYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WYYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WYYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WYZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WYZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WYZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WYZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WYZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WZ</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WZW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WZWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WZWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WZWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WZWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WZX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WZXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WZXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WZXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WZXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WZY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WZYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WZYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WZYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WZYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WZZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WZZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WZZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WZZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WZZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>X</td>
+<td><a class="reference internal" href="Real.html"><em>Real</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XW</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XWW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XWWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XWWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XWWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XWWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XWX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XWXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XWXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XWXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XWXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XWY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XWYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XWYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XWYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XWYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XWZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XWZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XWZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XWZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XWZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XX</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XXW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XXWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XXWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XXWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XXWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XXX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XXXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XXXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XXXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XXXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XXY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XXYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XXYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XXYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XXYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XXZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XXZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XXZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XXZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XXZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XY</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XYW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XYWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XYWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XYWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XYWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XYX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XYXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XYXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XYXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XYXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XYY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XYYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XYYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XYYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XYYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XYZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XYZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XYZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XYZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XYZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XZ</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XZW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XZWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XZWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XZWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XZWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XZX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XZXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XZXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XZXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XZXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XZY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XZYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XZYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XZYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XZYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XZZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XZZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XZZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>XZZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>XZZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Y</td>
+<td><a class="reference internal" href="Real.html"><em>Real</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YW</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YWW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YWWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YWWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YWWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YWWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YWX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YWXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YWXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YWXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YWXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YWY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YWYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YWYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YWYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YWYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YWZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YWZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YWZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YWZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YWZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YX</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YXW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YXWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YXWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YXWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YXWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YXX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YXXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YXXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YXXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YXXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YXY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YXYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YXYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YXYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YXYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YXZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YXZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YXZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YXZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YXZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YY</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YYW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YYWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YYWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YYWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YYWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YYX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YYXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YYXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YYXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YYXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YYY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YYYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YYYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YYYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YYYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YYZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YYZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YYZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YYZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YYZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YZ</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YZW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YZWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YZWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YZWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YZWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YZX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YZXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YZXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YZXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YZXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YZY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YZYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YZYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YZYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YZYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YZZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YZZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YZZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>YZZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>YZZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Z</td>
+<td><a class="reference internal" href="Real.html"><em>Real</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZW</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZWW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZWWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZWWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZWWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZWWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZWX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZWXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZWXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZWXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZWXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZWY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZWYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZWYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZWYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZWYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZWZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZWZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZWZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZWZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZWZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZX</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZXW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZXWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZXWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZXWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZXWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZXX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZXXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZXXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZXXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZXXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZXY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZXYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZXYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZXYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZXYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZXZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZXZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZXZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZXZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZXZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZY</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZYW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZYWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZYWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZYWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZYWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZYX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZYXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZYXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZYXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZYXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZYY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZYYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZYYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZYYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZYYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZYZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZYZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZYZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZYZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZYZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZZ</td>
+<td><a class="reference internal" href="Real2.html"><em>Real2</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZZW</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZZWW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZZWX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZZWY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZZWZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZZX</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZZXW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZZXX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZZXY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZZXZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZZY</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZZYW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZZYX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZZYY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZZYZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZZZ</td>
+<td><a class="reference internal" href="Real3.html"><em>Real3</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZZZW</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZZZX</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ZZZY</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ZZZZ</td>
+<td><a class="reference internal" href="#"><em>Real4</em></a></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<div class="section" id="instance-methods">
+<h2>Instance Methods</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="67%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name / Signature</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Get(Integer) : Real</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Set(Integer, Real)</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="String.html" class="btn btn-neutral float-right" title="String" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Real3.html" class="btn btn-neutral" title="Real3" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/ZilchInZero/ZilchTypes/Real4.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:17 GMT -->
+</html>

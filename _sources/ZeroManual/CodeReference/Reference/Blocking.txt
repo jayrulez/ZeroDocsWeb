@@ -1,0 +1,58 @@
+.. _ReferenceBlocking:
+
+.. rst-class:: searchtitle
+
+Blocking
+========
+
+.. rst-class:: searchdescription
+
+Responsible for determining whether or not the object blocks path finding.
+
+.. include:: Description/Blocking.rst
+
+.. cpp:class:: Blocking
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceBlockingProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Blocking::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Blocking::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Blocking::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Blocking::GameSession
+
+            Get the GameSession that owns us and our space.
+
+.. _ReferenceBlockingMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Blocking::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/Blocking.rst

@@ -1,0 +1,237 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _2016TileEditorAndSpriteSheets:
+
+.. rst-class:: SearchTitle
+
+Tile Editor and Sprite Sheets
+=============================
+
+.. rst-class:: SearchDescription
+
+This lesson covers how to use the Tile Editor, create tile maps, and further utilize the Sprite Sheet Importer.
+
+.. _2016TileEditorAndSpriteSheetsVocab:
+
+Learning Objectives
+-------------------
+
+*   Create a new tile map from a sprite sheet using the Sprite Importer tool
+*   Design a level with tiles by using Tile Editor tool
+*   Create a tile palette
+
+.. rst-class:: VocabSection
+
++----------------------------+
+| Vocabulary                 |
++=============+==============+
+| Tile Editor | Tile Palette |
++-------------+--------------+
+
+Create a New Project
+--------------------
+
+:ref:`2016CreateNewProject`
+
+Creating a Tile Map
+-------------------
+You can open TileEditor2D from the drop down menu in the Tools Window.
+
+*   Select The TileEditor2D option from Tools
+
+|CP1_TileEditor2D|
+
+If there is no TileMap in the project, you can add a new by clicking on the text in the Level Window: 
+
+|CP1_AddNewTileMap|
+
+|pbr|
+
+Loading in Sprites for a Tile Map
+---------------------------------
+
+Now we have to load in our Sprites. 
+First we will need to obtain a usable Sprite Sheet for the tiles:
+
+|NoWebBegin|
+* :ref:`Using The Void<2016UsingTheVoid>` : ``Using The Void`` Download ``PF_Platformer``
+|NoWebEnd|
+
+|NoBookSingleLine| * :download:`platform.png <files/TileSpriteSheet>`
+
+|NoBookSingleLine| |WebCP1_SpriteImporter|
+
+*   In the Library Window
+    
+    *   ``Double-Click`` the ``SpriteSource`` tag
+    
+        *   ``Double-Click`` the ``platform`` SpriteSource
+
+This is the same editor we use for static and animated sprites. This time we'll use it to import each tile in the image as separate sprites.
+
+*   Click ``Convert to Animation``
+
+*   Set the following properties in the Sprite Source Editor:
+
+    *   Set FramesPerRow to: 9
+    
+    *   Set NumberOfRows to: 16
+    
+    *   Set PixelsPerUnit to: 32
+    
+    |CP1_SpriteImporterProperties|
+
+|pbr|
+
+Each tile should fit correctly in the grid.  We could include every tile in the tile sheet, but some tiles are empty and would just take up space.  Instead, we will manually choose the tiles we want.
+
+*   In the Sprite Importer Window
+
+    *   :menuselection:`ImportFrames --> SelectedFrames`
+    
+    |SelectedFrames|
+        
+We can now ``Left-Click`` each tile that we want to import.  If you make a mistake, you can click a selected tile, making it blue, and hit the ``delete`` key to deselect it.
+
+Once you've selected your sprites, Click on Add frames as sprites.  You can now go back to the TileEditor2D.
+
+Placing Tiles
+-------------
+
+*   In the sprite drop down menu, change DefaultSprite to the tile of your choice
+
+|NoBookSingleLine| |CP1_SpriteSelectWeb|
+
+|NoWebBegin| |ChoosingTileSprite| |NoWebEnd|
+
+|pbr|
+
+Draw Tool
++++++++++
+
+By default the DrawTool is selected.
+
+``Left-Click`` and drag to draw tiles onto your level.
+
+|CP1_LevelOneHill|
+
+``Right-Click`` and drag to remove tiles.
+
+Selection Tool
+++++++++++++++
+
+With the selection tool, you can duplicate parts of your Tile Map.  
+
+* In the Tools Window
+
+  * Set ToolType to: SelectionTool.
+
+* In the Level Window  
+
+  * Click and drag a blue box around the tiles.
+
+  |CP1_LevelSelectHill|
+
+*To more easily change to the selection tool, when using the draw tool hold down* ``Shift`` *and begin dragging in the Level Window*
+
+|pbr|
+
+By ``Right-Clicking`` your current selection, you switch back to the DrawTool and are able to place those tiles by ``Left-Clicking``. This is now considered your **active selection**.
+
+|NoBookSingleLine| |CP1_LevelThreeHillsWeb|
+
+|NoWebBegin|
+|CP1_LevelThreeHillsBook|
+|NoWebEnd|
+
+
+If you want to save or maintain a selection of tiles, you need to use a TilePalette.
+
+Using Tile Palettes
+-------------------
+
+*   Click the Blue Plus |CP_BluePlus| next to TilePalette in the Tools Window.
+
+|CP1_TileEditor2D|
+
+*   Give your TilePalette a name and choose Create
+
+|CP1_PaletteName|
+
+*   ``Left-Click`` inside the Tile Palette to add a tile.
+
+*   ``Right-Click`` a tile in the Tile Palette to delete it.
+
+You can also populate your Palette with things from your Level Window.
+
+*   Create an **active selection**
+*   In the Tools Window
+  
+    *   In the Tile Palette
+    
+        *   Press ``Shift+Right-Click`` on the top-left most tile 
+
+Your Selection is now saved in the current TilePalette.  Not only can you copy the entire TilePalette, but parts of it as well.
+
+*   ``Left-Click`` and drag in the TilePalette editor to select part of the TilePalette.
+
+|CP1_PaletteSelect|
+
+The selection is now an active selection.
+
+|CP1_PalettePaste|
+
+TileEditor2D Options
+--------------------
+
+Other useful, commonly used options include:
+
+* **ShowCollision:** Displays a boundary around all collision tiles.
+    
+* **ShowGrid:** Displays the grid to which all the tiles snap.
+    
+* **CreateTileMap:** Creates a new tile map.
+
+.. |CP_BluePlus| image:: images/platformer/CP_1.png
+    :width: 0.35in
+
+.. |CP1_TileEditor2D| image:: images/platformer/CP1_1.png
+
+.. |CP1_AddNewTileMap| image:: images/platformer/CP1_2.png
+
+.. |CP1_LevelOneHill| image:: images/platformer/CP1_4.png
+    :scale: 50 %
+
+.. |CP1_LevelSelectHill| image:: images/platformer/CP1_5.png
+
+.. |CP1_LevelThreeHillsWeb| image:: images/platformer/CP1_6.png
+
+.. |CP1_LevelThreeHillsBook| image:: images/platformer/CP1_6.png
+    :height: 1.3in
+
+.. |CP1_PaletteName| image:: images/platformer/CP1_8.png
+
+.. |CP1_PaletteSelect| image:: images/platformer/CP1_9.png
+    :height: 2.5in
+
+.. |CP1_PalettePaste| image:: images/platformer/CP1_10.png
+    :width: 5.0in
+
+.. |SelectedFrames|   image:: images/platformer/SelectedFrames.png
+    :height: 2.5in
+    
+.. |CP1_SpriteImporterProperties| image:: images/platformer/CP1_11.png
+
+.. |CP1_SpriteSelectWeb| image:: images/platformer/CP1_12.png
+
+.. |CP1_SpriteSelectBook| image:: images/platformer/CP1_12.png
+    :height: 2.0in
+
+.. |WebCP1_SpriteImporter| image:: images/platformer/CP1_14.png
+
+.. |BookCP1_SpriteImporter| image:: images/platformer/CP1_14.png
+    :height: 4.0in
+
+.. |ChoosingTileSprite| image:: images/TileEditor/ChoosingtileSprite.png
+    :height: 1.0in
+    

@@ -1,0 +1,815 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/Text.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:57:00 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sprites and Text &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2015" href="index.html"/>
+        <link rel="next" title="Scripting" href="Scripting.html"/>
+        <link rel="prev" title="Regions &amp; Physics Effects" href="PhysicsEffects.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2015</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Sprites and Text</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ArraysLoops.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Random.html">Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath.html">Vector Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RayCasting.html">Ray Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PracticalParticles.html">Particle Effects: Practical Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LauncherNewProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Adding &amp; Removing Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tags.html">Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2015</a> &raquo;</li>
+      
+    <li>Sprites and Text</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2015/Text.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- this is used as a file for inclusion in other .rst files --><div class="searchtitle section" id="sprites-and-text">
+<span id="text2015"></span><h1>Sprites and Text</h1>
+<p class="searchdescription">This lesson covers the use of SpriteText and Sprite component and how they can be used with the Area component as well as the SpriteLayer and SpriteLayerOrder resources. Topics include tiling sprites, nine-sliced sprites, text, both wrapping and rotated, and solutions to <strong>z-fighting.</strong></p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="LauncherNewProject.html#createnewproject2015"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="sprites">
+<h2>Sprites</h2>
+<p><a class="reference internal" href="UsingTheVoid.html#usingthevoid2015"><span>Go to the Void</span></a> and get &#8220;brickWalltileable.png&#8221; and &#8220;PosterOnWall.png&#8221; from the VG1_SpritesAndText Zeropack.</p>
+<div class="section" id="tiling-sprites">
+<h3>Tiling Sprites</h3>
+<p>By default, sprites that are stretched, so to make them tile we&#8217;ll have to change some settings.</p>
+<ul class="simple">
+<li>In the Library Window<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">Left</span> <span class="pre">Click</span></code> on SpriteSource</li>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">Left</span> <span class="pre">Click</span></code> on brickWalltileable</li>
+</ul>
+</li>
+<li>In the Sprite Source Editor Window<ul>
+<li>Set SpriteFill to: <code class="docutils literal"><span class="pre">Tiled</span></code></li>
+</ul>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/SSEWTiled1.png"><img alt="SSEWTiled" src="../../_images/SSEWTiled1.png" style="height: 4.0in;" /></a></p>
+<ul class="simple">
+<li><ul class="first">
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> Save to Sprite Source</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p><strong>Create a Sprite</strong></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></p>
+<blockquote>
+<div><p><img alt="SWCreateSpriteText" src="../../_images/SWCreateSpriteText1.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the newly created object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Set Name to: <code class="docutils literal"><span class="pre">Wall</span></code></li>
+<li>Under Sprite<ul>
+<li>Set SpriteSource to: <code class="docutils literal"><span class="pre">brickWalltileable</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">In the Level Window</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Wall</span></a></li>
+<li>Press <code class="docutils literal"><span class="pre">5</span></code></li>
+</ul>
+</li>
+</ul>
+<p>Scale your sprite with the Manipulator Tool.</p>
+<p><a class="reference internal" href="../../_images/LWStillStretched1.png"><img alt="LWStillStretched" src="../../_images/LWStillStretched1.png" style="height: 4.0in;" /></a></p>
+<p></p>
+<p>What you may have noticed is that setting it to Tiled mode had no impact on the
+Sprite &#8211;the image was still stretched. In order to make tiling work, we&#8217;ll add the Area component.</p>
+<ul class="simple">
+<li><ul class="first">
+<li>Press <code class="docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Z</span></code> to undo the stretched scaling of the sprite.</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add the Area component</span></a></li>
+</ul>
+</li>
+<li>In the Level Window<ul>
+<li>Press <code class="docutils literal"><span class="pre">5</span></code></li>
+</ul>
+</li>
+</ul>
+<p>Scale your sprite with the Manipulator Tool.</p>
+<p><a class="reference internal" href="../../_images/PWAreaLWTiled1.png"><img alt="PWAreaLWTiled" src="../../_images/PWAreaLWTiled1.png" style="width: 8.35in;" /></a></p>
+<p>Now that we have the Area component, we can see the sprite is actually tiling as
+we manipulate it.</p>
+<p></p>
+</div>
+<div class="section" id="nine-slicing-sprites">
+<h3>Nine-Slicing Sprites</h3>
+<p><strong>Create a Sprite</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the newly created object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">WantedPoster</span></code></li>
+<li>Under Sprite<ul>
+<li>Set SpriteSource to: <code class="docutils literal"><span class="pre">PosterOnWall</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the Level Window<ul>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the WantedPoster</span></a></li>
+<li>Press <code class="docutils literal"><span class="pre">5</span></code></li>
+</ul>
+</li>
+</ul>
+<p>Scale your sprite with the Manipulator Tool.</p>
+<p><img alt="LWPosterStretched" src="../../_images/LWPosterStretched1.png" /></p>
+<p>Notice the stretching of the decoration along the edge.
+Unfortunately, this sprite doesn&#8217;t tile well.</p>
+<ul class="simple">
+<li><ul class="first">
+<li>Press <code class="docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Z</span></code> to undo the stretched scaling of the sprite.</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p>What you may notice is that while the edges cannot be easily stretched, the center of the sprite can be; this quality makes it valid as
+a Nine-Slice sprite.</p>
+<p><img alt="NineSliceDemo" src="../../_images/NineSliceDemo4.png" /></p>
+<p><em>Nine-Sliced sprites follow this format when being stretched.</em></p>
+<p>To make it use the nine-slice scaling, we&#8217;ll once again change settings on our SpriteSource and add an Area component.</p>
+<ul class="simple">
+<li>In the Library Window<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">Left</span> <span class="pre">Click</span></code> on PosterOnWall</li>
+</ul>
+</li>
+<li>In the Sprite Source Editor Window<ul>
+<li>Set SpriteFill to: <code class="docutils literal"><span class="pre">NineSlice</span></code></li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p>To set the position of the lines you see in the diagram, we say how many pixels from the edge each line is.</p>
+<ul class="simple">
+<li><ul class="first">
+<li>Set Left to: <code class="docutils literal"><span class="pre">30</span></code></li>
+<li>Set Right to: <code class="docutils literal"><span class="pre">30</span></code></li>
+<li>Set Top to: <code class="docutils literal"><span class="pre">30</span></code></li>
+<li>Set Bottom to: <code class="docutils literal"><span class="pre">30</span></code></li>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> Save to Sprite Source</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the WantedPoster</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add the Area component</span></a></li>
+</ul>
+</li>
+</ul>
+<p>Scale your sprite with the Manipulator Tool.</p>
+<p><img alt="PWAreaLWNineSliced" src="../../_images/PWAreaLWNineSliced1.png" /></p>
+<p>Now the edges are nice on our sprite.</p>
+<p></p>
+</div>
+</div>
+<div class="section" id="text">
+<h2>Text</h2>
+<p>In our scene we are going to make our brick wall have a wanted poster on it.
+For consistency between our screenshots and your results, make sure your
+properties match:</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Wall</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Make sure your properties match the settings below:</p>
+<p><img alt="PWWallSettings" src="../../_images/PWWallSettings1.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the WantedPoster</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Make sure your properties match the settings below:</p>
+<p><img alt="PWPosterSettings" src="../../_images/PWPosterSettings1.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now to create the text for our Wanted poster.</p>
+<p></p>
+<p><strong>Create Text</strong></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSpriteText</span></code> or <span class="menuselection">Create ‣ Create Sprite Text</span></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the newly created object</span></a>
+* In the Properties Window</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Name to: <code class="docutils literal"><span class="pre">WantedText</span></code></li>
+<li>Under Translation<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[-9.5,</span> <span class="pre">1,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Under SpriteText<ul>
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">0,</span> <span class="pre">G:</span> <span class="pre">0,</span> <span class="pre">B:</span> <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.0]</span></code>, <code class="docutils literal"><span class="pre">#000000</span></code></li>
+<li>Set FontSize to: <code class="docutils literal"><span class="pre">50</span></code></li>
+<li>Set Text to: <code class="docutils literal"><span class="pre">Wanted</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="section" id="importing-images">
+<h3>Importing Images</h3>
+<p>To make it feel more complete we&#8217;ll place a picture of our culprit in question.
+First we&#8217;ll need to make a picture to include, I&#8217;ll just make a simple face in an external program.</p>
+<p>Make your image <strong>64x64</strong> pixels, and save it as a PNG file named <code class="docutils literal"><span class="pre">WantedFace.png</span></code>.</p>
+<p> or <a class="reference download internal" href="../../_downloads/WantedFace1.png.png"><code class="xref download docutils literal"><span class="pre">download</span> <span class="pre">the</span> <span class="pre">image</span> <span class="pre">used</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">screenshots.</span></code></a></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click,</span> <span class="pre">Hold</span> <span class="pre">+</span> <span class="pre">Drag</span></code> your picture from your file explorer on your computer so it is visually over the open Zero Editor.</li>
+</ul>
+<blockquote>
+<div><img alt="GIOWBrickPoster" src="../../_images/GIOWBrickPoster1.png" /></div></blockquote>
+<ul class="simple">
+<li>In the Group Import Options Window<ul>
+<li>Set ImportImages to: <code class="docutils literal"><span class="pre">Sprites</span></code></li>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> Import All</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p><strong>Create a Sprite</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the newly created object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">WantedPicture</span></code><ul>
+<li>Under Translation<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[-8,</span> <span class="pre">-1.5,</span> <span class="pre">0]</span></code></li>
+<li>Set Scale to: <code class="docutils literal"><span class="pre">[3,</span> <span class="pre">3,</span> <span class="pre">1]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set SpriteSource to: <code class="docutils literal"><span class="pre">WantedFace</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p><img alt="GWWantedPosterText" src="../../_images/GWWantedPosterText1.png" /></p>
+<p><em>Here the text appears on our poster along with our own drawn picture.</em></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="text-box">
+<h3>Text Box</h3>
+<p>Let&#8217;s add another poster with more information.</p>
+<div class="sidebar">
+<p class="first sidebar-title">Formatting the Text</p>
+<p>Due to the limitations of the single line text field, not all whitespace is treated equally, e.g. newlines are ignored.</p>
+<p class="last">Despite this, you can very precisely set the text from code. This will be covered in a future lesson.</p>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the WantedPoster object</span></a><ul>
+<li>Press <code class="docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code> to duplicate the object</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">HiringFlyer</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[-3,</span> <span class="pre">-1,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the WantedText object</span></a><ul>
+<li>Press <code class="docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code> to duplicate the object</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">HiringText</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[-4.5,</span> <span class="pre">1,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Under SpriteText<ul>
+<li>Set Text to: <code class="docutils literal"><span class="pre">We're</span> <span class="pre">Now</span> <span class="pre">Hiring!</span> <span class="pre">Are</span> <span class="pre">you</span> <span class="pre">a</span> <span class="pre">hard</span> <span class="pre">working</span> <span class="pre">individual</span> <span class="pre">ready</span> <span class="pre">to</span> <span class="pre">create</span> <span class="pre">change?</span> <span class="pre">Call</span> <span class="pre">now!</span> <span class="pre">555-555-5555</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p>What you may notice is that the text has run over the edge of our poster:</p>
+<p><a class="reference internal" href="../../_images/LWTextOverrun1.png"><img alt="LWTextOverrun" src="../../_images/LWTextOverrun1.png" style="width: 8.35in;" /></a></p>
+<p>Of course we <cite>can</cite> grab the edges of our object and force it into the box shape, but this will skew the text until it is illegible. To confine our text to the area available on the flyer, we&#8217;ll use the Area component.</p>
+<ul class="simple">
+<li><ul class="first">
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add the Area component</span></a></li>
+<li>Under Area<ul>
+<li>Set Origin to: <code class="docutils literal"><span class="pre">TopLeft</span></code></li>
+<li>Set Size to: <code class="docutils literal"><span class="pre">[3,</span> <span class="pre">4]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="sidebar">
+<p class="first sidebar-title">How do I add a font?</p>
+<p>Zero Engine works with many basic fonts. All you have to do is drag and
+drop the font file into the editor to import it. To use it, simply set the Font property
+under SpriteText component to the Font resource you imported. You can find some fonts already installed on your computer to try with your personal Zero Engine projects.</p>
+<p class="last"><a class="reference internal" href="../../_images/PWLibChooseAFont1.png"><img alt="PWLibChooseAFont" src="../../_images/PWLibChooseAFont1.png" style="width: 3.31in;" /></a></p>
+</div>
+<p></p>
+<p><img alt="LWTextWrappedClipped" src="../../_images/LWTextWrappedClipped1.png" /></p>
+<p><em>You can see that the text is now confined. The message is too large and long to be displayed, and what doesn&#8217;t get word wrapped isn&#8217;t shown.</em></p>
+<ul class="simple">
+<li><ul class="first">
+<li>Under SpriteText<ul>
+<li>Set FontSize to: <code class="docutils literal"><span class="pre">21</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now everything is visible, but you might notice it is a bit lopsided to the left:</p>
+<blockquote>
+<div><img alt="LWTextLeftAligned" src="../../_images/LWTextLeftAligned1.png" /></div></blockquote>
+<ul class="simple">
+<li><ul class="first">
+<li><ul class="first">
+<li>Set Align to: <code class="docutils literal"><span class="pre">Center</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p></p>
+<p><a class="reference internal" href="../../_images/GWHiringFlyer1.png"><img alt="GWHiringFlyer" src="../../_images/GWHiringFlyer1.png" style="width: 8.35in;" /></a></p>
+<p><em>Here the text is correctly wrapped on our flyer.</em></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p>To add a little more to environment, we&#8217;ll layer a party flyer over our hiring flyer.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the WantedPoster object</span></a><ul>
+<li>Press <code class="docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code> to duplicate the object</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">PartyFlyer</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[-1,</span> <span class="pre">-1,</span> <span class="pre">0]</span></code></li>
+<li>Set Rotation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">-12]</span></code></li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:255,</span> <span class="pre">G:128,</span> <span class="pre">B:0,</span> <span class="pre">A:1.0]</span></code>, <code class="docutils literal"><span class="pre">#FF8000</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p></p>
+<p><a class="reference internal" href="../../_images/GWOrangeFlyerTextOverlap1.png"><img alt="GWOrangeFlyerTextOverlap" src="../../_images/GWOrangeFlyerTextOverlap1.png" style="width: 8.35in;" /></a></p>
+<p><em>Here the text from the hiring flyer is already bleeding into our new orange flyer.</em></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<div class="sidebar">
+<p class="first sidebar-title">Other solutions?</p>
+<p>If you thought about changing the z-values in Transform&#8217;s Translation property to get the desired effect, you&#8217;re right, this would work in our case.</p>
+<p>However, this solution can create heavy maintenance. Either:</p>
+<ul class="simple">
+<li>Every time you add another object that need to be sorted you, have the potential of needing to change half of all the other z-values of the objects being sorted.</li>
+<li>Every time you add an object you end up choosing a number with more decimal places to get the desired effect making it harder to sort them out in your head.</li>
+</ul>
+<p class="last">Moreover, changing the z-value is not a solution to this problem when working in 3D as the depth is no longer constrained to the z-axis, so it is a less versatile solution.</p>
+</div>
+<p><strong>Z-fighting</strong> is a graphical artifact, or visual error, that occurs when two objects are at the same position. Since items at the same position have no formal method to determine which object should be visible, sprites may flicker or become obscured randomly based on the state of the graphics engine at the time of processing.
+To change what is rendered on top when two things are at the same distance, we set the graphics to use our own custom SpriteLayerOrder containing our own new SpriteLayers.</p>
+<p></p>
+</div>
+</div>
+<div class="section" id="sprite-layer-ordering">
+<h2>Sprite Layer Ordering</h2>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new SpriteLayerOrder resource</span></a> named: <code class="docutils literal"><span class="pre">Game</span></code></li>
+</ul>
+<p><img alt="SLOWAfterAddGame" src="../../_images/SLOWAfterAddGame1.png" /></p>
+<ul class="simple">
+<li>In the Game&#8217;s Sprite Layer Order Window<ul>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> Add SpriteLayer...</li>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> DefaultSpriteLayer</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p>In order to change the order we&#8217;ll need to create our own SpriteLayers.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new SpriteLayer resource</span></a> named: <code class="docutils literal"><span class="pre">HiringFlyer</span></code></li>
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new SpriteLayer resource</span></a> named: <code class="docutils literal"><span class="pre">PartyFlyer</span></code></li>
+<li>In the Game&#8217;s Sprite Layer Order Window<ul>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> Add SpriteLayer...</li>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> HiringFlyer</li>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> PartyFlyer</li>
+</ul>
+</li>
+</ul>
+<p>To make the game use this new SpriteLayerOrder we have to set in on the Graphics Space.</p>
+<ul class="simple">
+<li>In the Level Window<ul>
+<li>Press <code class="docutils literal"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">S</span></code></li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Under GraphicsSpace<ul>
+<li>Set SpriteLayerOrder to: <code class="docutils literal"><span class="pre">Game</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Then we need to actually associate the Objects with the Sprites and SpriteText components to the layers we created.</p>
+<ul>
+<li><dl class="first docutils">
+<dt><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the HiringFlyer object</span></a></dt>
+<dd><blockquote class="first">
+<div><ul>
+<li><p class="first">In the Properties Window</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Under Sprite</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set SpriteLayer to: <code class="docutils literal"><span class="pre">HiringFlyer</span></code></li>
+</ul>
+<p><img alt="LWTextbehind" src="../../_images/LWTextbehind1.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p class="last"><em>You may notice the SpriteText for the HiringFlyer is now hidden.</em></p>
+</dd>
+</dl>
+</li>
+</ul>
+<p></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the HiringText object</span></a></p>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Under SpriteText</p>
+<ul class="simple">
+<li>Set SpriteLayer to: <code class="docutils literal"><span class="pre">HiringFlyer</span></code></li>
+</ul>
+<p><img alt="LWHiringFlyerForward" src="../../_images/LWHiringFlyerForward1.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div><p><em>Now our hiring flyer is fully visible.</em></p>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the PartyFlyer object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Under Sprite</p>
+<ul class="simple">
+<li>Set SpriteLayer to: <code class="docutils literal"><span class="pre">PartyFlyer</span></code></li>
+</ul>
+<p><img alt="LWPartyFlyerForward" src="../../_images/LWPartyFlyerForward1.png" /></p>
+<p><em>Now the party flyer is successfully layered over the hiring flyer.</em></p>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p>Now if we change our mind which one we want layered on top, all we have to do it rearrange the order:</p>
+<blockquote>
+<div><img alt="GWSLOWPartyBehind" src="../../_images/GWSLOWPartyBehind1.png" /> <img alt="GWSLOWHiringBehind" src="../../_images/GWSLOWHiringBehind1.png" /></div></blockquote>
+<p>Now to add text to our party flyer.</p>
+<p></p>
+</div>
+<div class="section" id="rotated-text">
+<h2>Rotated Text</h2>
+<p>Rotating is as simple with text as it is with sprites. We&#8217;ll be setting ours directly in the Rotation property of the Transform component:</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the HiringText object</span></a></p>
+<ul class="simple">
+<li>Press <code class="docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code> to duplicate the object</li>
+</ul>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Set Name to: <code class="docutils literal"><span class="pre">PartyText</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[-2.1,</span> <span class="pre">1,</span> <span class="pre">0]</span></code></li>
+<li>Set Rotation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">-12]</span></code></li>
+</ul>
+</li>
+<li>Under SpriteText<ul>
+<li>Set SpriteLayer to: <code class="docutils literal"><span class="pre">PartyFlyer</span></code></li>
+<li>Set FontSide to: <code class="docutils literal"><span class="pre">30</span></code></li>
+<li>Set Text to: <code class="docutils literal"><span class="pre">Party</span> <span class="pre">Friday</span> <span class="pre">at</span> <span class="pre">the</span> <span class="pre">Roombox</span> <span class="pre">$5</span> <span class="pre">Cover</span> <span class="pre">-</span> <span class="pre">LIVE</span> <span class="pre">Bands</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></p>
+<p><img alt="GWRotatePartyText" src="../../_images/GWRotatePartyText1.png" /></p>
+</li>
+</ul>
+<p>Now we know how to make Sprites and Text and how the Area component is used with both.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Scripting.html" class="btn btn-neutral float-right" title="Scripting" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PhysicsEffects.html" class="btn btn-neutral" title="Regions &amp; Physics Effects" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/Text.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:57:09 GMT -->
+</html>

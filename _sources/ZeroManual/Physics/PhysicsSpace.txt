@@ -1,0 +1,20 @@
+.. _ManualPhysicsSpace:
+
+.. rst-class:: SearchTitle
+
+PhysicsSpace
+============
+
+.. rst-class:: SearchDescription
+
+The space is what manages all of the physics components. The space has a few interactions for the user, such as casting shapes. The space supports the ability to cast a ray, segment, aabb, sphere or frustum into the physics world for quick collision tests. The space also supports the ability to ignore the collision between two specific objects with the function AddPairFilter or AddHierarchyPairFilter. This feature is only supported at runtime and cannot be saved.
+
+Code Reference: :cpp:type:`PhysicsSpace`
+
+The space has several useful properties:
+
+    **Mode2D:** if mode 2d is turned on, physics will set mode 2d for all rigid bodies that have Mode2D set to Inherit2DMode. This mode can be turned off on an individual object if a specific object should still be operating in 3d.
+
+    **AllowSleep:** If this property is off, nothing in the world will be able to sleep. This is primarily a debug feature and should for the most part be left alone.
+
+    **CollisionTable:** The table specifies the interactions between the collision groups for this space. These rules can be changed on the fly, although that is not recommended. See :ref:`Collision Tables and Groups<ManualCollisionTables>` for more details.

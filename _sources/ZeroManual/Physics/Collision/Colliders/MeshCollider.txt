@@ -1,0 +1,102 @@
+.. _ManualMeshCollider:
+
+.. rst-class:: SearchTitle
+
+MeshCollider
+============
+
+.. rst-class:: SearchDescription
+
+The :cpp:type:`MeshCollider` component uses a user-defined mesh to define a collision surface, checking for collision on each of its faces. As such, the MeshCollider is computationally expensive. A MeshCollider does not calculate Volume (unlike the other :cpp:type:`Colliders<Collider>`); a consequence of this is that if anything is placed within it that object will not resolve collision. They are typically used for static geometry or multiple objects that can not be accurately represented by primitive colliders.  
+
+.. sidebar:: Recommended Reading
+
+    This page includes topics one might not have encountered yet. To learn about or review these materials, the following list provides the links to their respective Manual or Tutorial pages:
+    
+    *   :ref:`Collider<ManualCollider>`
+    
+    *   :ref:`PhysicsMesh Code Reference<ReferencePhysicsMesh>`
+
+.. _ManualMeshColliderCommon:
+
+Common Uses
+-----------
+
+*   Defining the collision for static objects that are part of the world geometry where primitive colliders do not provide an adequate level of precision.
+
+.. _ManualMeshColliderUsing:
+
+Using MeshCollider
+------------------
+
+MeshColliders define arbitrary geometry and can therefore be placed on any object as long as it has a Transform component. It is rare, however, to use this component in isolation of other components. As such, this section will show how to use the MeshCollider component with an object that has a model component.
+
+Attaching MeshCollider to an Object
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In order to explore how a MeshCollider component is used with an object, a three-dimensional model must be used. Here, a simple flight of stairs is shown complete with MeshCollider created by the Engine upon importing:
+
+|HighPolyMesh|
+
+This Collider is unnecessarily precise and if used with a number of large staircases, could cause a significant drop in performance. What can be done instead is to import a low-poly approximation of the mesh, as seen below:
+
+|LowPolyMesh|
+
+After changing the ``PhysicsMesh`` property of the MeshCollider on the model to the low-poly mesh, the high-poly Model along with the low-poly mesh used for the MeshCollider can be seen:
+
+|ModelWithLowPolyMesh|
+
+To see how this Collider will look in a game, a demonstration is in order.
+
+Demonstration
+~~~~~~~~~~~~~
+
+The following demonstration shows a Sphere object dropping on to the stairs and rolling down them:
+
+|MeshDemo|
+
+Since the mesh being used for the MeshCollider is no more than a ramp, there will be no collision on individual steps.
+
+MeshCollider Properties and Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`MeshCollider Code Reference<ReferenceMeshCollider>`
+
+Events of MeshCollider
+~~~~~~~~~~~~~~~~~~~~~~
+
+*   :ref:`Collision Events<ManualCollisionEvents>`
+
+*   :ref:`Group Collision Events<ManualGroupCollisionEvents>`
+
+.. _ManualMeshColliderRelated:
+
+Related Material
+----------------
+
+Manual Pages
+~~~~~~~~~~~~
+
+*   :ref:`Collision Overview<ManualCollisionOverview>`
+
+Tutorial Pages
+~~~~~~~~~~~~~~
+
+*   :ref:`Collision<TutorialCollisionEvents>`
+
+Reference Pages
+~~~~~~~~~~~~~~~
+
+*   :cpp:type:`Collider`
+*   :cpp:type:`MeshCollider`
+
+
+
+.. |HighPolyMesh|                     image:: images/MeshCollider/HighPolyMesh.png
+.. |LowPolyMesh|                      image:: images/MeshCollider/LowPolyMesh.png
+.. |ModelWithLowPolyMesh|             image:: images/MeshCollider/ModelWithLowPolyMesh.png
+.. |MeshDemo|                         image:: images/MeshCollider/MeshDemo.gif
+
+
+.. Written by: Jason Clark
+

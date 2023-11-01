@@ -1,0 +1,424 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Scripting/DebugDrawing.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:55:56 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Debug Drawing &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Scripting" href="index.html"/>
+        <link rel="next" title="The WYSIWYG Approach to Configurable Properties" href="WYSIWYG.html"/>
+        <link rel="prev" title="Events and Connections" href="EventsAndConnections.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Scripting</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="EventsAndConnections.html">Events and Connections</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Debug Drawing</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="WYSIWYG.html">The WYSIWYG Approach to Configurable Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="index.html">Scripting</a> &raquo;</li>
+      
+    <li>Debug Drawing</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/ZeroManual/Scripting/DebugDrawing.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="debug-drawing">
+<span id="manualdebugdrawing"></span><h1>Debug Drawing</h1>
+<p class="searchdescription">Debug drawing is a feature in Zero that allows you to draw lines and shapes within the editor for the purpose of debugging your game. They can be customized to a limited degree by design, existing solely to be used for debugging purposes, not to actually exist as graphics in a game. This page will look at the two most commonly used types of Debug Draw (Line and Triangle) and their parameters.</p>
+<div class="section" id="debugline">
+<h2>DebugLine</h2>
+<p>DebugLine, as you might have deduced from the name, draws a line between two points. You can define the start and end points, add &#8220;heads&#8221; to one or both of the ends of the line, choose its color, and a few other options. To begin creating a new DebugLine you must first instantiate a new variable of DebugLine, as shown in the code-block below:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="p">{</span>
+     <span class="c1">//Instantiates a new instance of DebugLine</span>
+     <span class="kt">var</span> <span class="n">debugLine</span> <span class="p">=</span> <span class="n">DebugLine</span><span class="p">();</span>
+
+     <span class="c1">//Sets parameters for the debug line</span>
+     <span class="n">debugLine</span><span class="p">.</span><span class="n">Start</span><span class="p">(</span><span class="n">Real3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">));</span>
+     <span class="n">debugLine</span><span class="p">.</span><span class="n">End</span><span class="p">(</span><span class="n">Real3</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">));</span>
+     <span class="c1">//etc...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>All of the available parameters for DebugLine, descriptions of each, and the syntax to use them in Zilch are listed below:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="36%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+<th class="head">Zilch Syntax</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Start</td>
+<td>A Real3 that defines the starting
+position of the line</td>
+<td>DebugLine.Start(startPos : Real3)</td>
+</tr>
+<tr class="row-odd"><td>End</td>
+<td>A Real3 that defines the end
+position of the line</td>
+<td>DebugLine.End(endPos : Real3)</td>
+</tr>
+<tr class="row-even"><td>Duration</td>
+<td>A Real that defines the length of
+time (in seconds) that the line is
+displayed</td>
+<td>DebugLine.Duration(duration : Real)</td>
+</tr>
+<tr class="row-odd"><td>Float4Color</td>
+<td>A Real4 that defines the color of
+the line</td>
+<td>DebugLine.Float4Color(color : Real4)</td>
+</tr>
+<tr class="row-even"><td>Width</td>
+<td>A Real that defines the width of
+the line</td>
+<td>DebugLine.Width(width : Real)</td>
+</tr>
+<tr class="row-odd"><td>HeadSize</td>
+<td>A Real that defines the size of
+the head at the top of the line
+(default shape is an arrow)</td>
+<td>DebugLine.HeadSize(size : Real)</td>
+</tr>
+<tr class="row-even"><td>BoxHeads</td>
+<td>A Boolean that when set to true
+changes the heads to boxes</td>
+<td>DebugLine.BoxHeads(hasBoxHeads : Boolean)</td>
+</tr>
+<tr class="row-odd"><td>DualHeads</td>
+<td>A Boolean that when set to true
+places Heads on both ends of the
+line</td>
+<td>DebugLine.DualHeads(hasDualHeads : Boolean)</td>
+</tr>
+<tr class="row-even"><td>Filled</td>
+<td>A Boolean that when set to true
+fills in the heads of the line</td>
+<td>DebugLine.Filled(isFilled : Boolean)</td>
+</tr>
+<tr class="row-odd"><td>SpaceId</td>
+<td>An Integer that sets which space
+to draw the line in (to get the
+Integer, use this.Space.RuntimeId)</td>
+<td>DebugLine.SpaceId(id : Integer)</td>
+</tr>
+<tr class="row-even"><td>Draw</td>
+<td>This is what actually draws the
+line. Without it, there is no line</td>
+<td>DebugLine.Draw()</td>
+</tr>
+</tbody>
+</table>
+<p>In the component where you add the DebugLine, you can make most of the parameters (with the exception of <code class="docutils literal"><span class="pre">SpaceId</span></code> and <code class="docutils literal"><span class="pre">Draw</span></code>) variables that have the <code class="docutils literal"><span class="pre">Property</span></code> attribute, allowing you to change and tweak the parameters on the fly. This could allow you to debug certain parts of your game even quicker. A simple example of such a component is shown in the screenshot below:</p>
+<p><img alt="DebugLineExample" src="../../_images/DebugLineExample.png" /></p>
+</div>
+<div class="section" id="debugtriangle">
+<h2>DebugTriangle</h2>
+<p>DebugTriangle draws a triangle defined by three vertices (the parameters named Position0, Position1, and Position2). It can have a border and be filled in with a user-defined color. Otherwise, the options for this type are a bit more limited. As with DebugLine, to begin creating a new DebugTriangle you must first instantiate a new variable of DebugTriangle, as is shown in the code-block below:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="p">{</span>
+     <span class="c1">//Instantiates a new instance of DebugTriangle</span>
+     <span class="kt">var</span> <span class="n">debugTriangle</span> <span class="p">=</span> <span class="n">DebugTriangle</span><span class="p">();</span>
+
+     <span class="c1">//Sets parameters for the debug line</span>
+     <span class="n">debugTriangle</span><span class="p">.</span><span class="n">Position0</span><span class="p">(</span><span class="n">Real3</span><span class="p">(-</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">));</span>
+     <span class="n">debugTriangle</span><span class="p">.</span><span class="n">Position1</span><span class="p">(</span><span class="n">Real3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">));</span>
+     <span class="c1">//etc...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>All of the available parameters for DebugTriangle, descriptions of each, and the syntax to use them in Zilch are listed below:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="35%" />
+<col width="46%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+<th class="head">Zilch Syntax</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Position0</td>
+<td>A Real3 that defines the first
+vertex of the triangle</td>
+<td>DebugTriangle.Position0(firstVert : Real3)</td>
+</tr>
+<tr class="row-odd"><td>Position1</td>
+<td>A Real3 that defines the second
+vertex of the triangle</td>
+<td>DebugTriangle.Position1(secondVert : Real3)</td>
+</tr>
+<tr class="row-even"><td>Position2</td>
+<td>A Real3 that defines the third
+vertex of the triangle</td>
+<td>DebugTriangle.Position2(thirdVert : Real3)</td>
+</tr>
+<tr class="row-odd"><td>Float4Color</td>
+<td>A Real4 that defines the color of
+the border/fill of the triangle</td>
+<td>DebugTriangle.Float4Color(color : Real4)</td>
+</tr>
+<tr class="row-even"><td>Border</td>
+<td>A Boolean that when set to true
+draws a border around the triangle</td>
+<td>DebugTriangle.Border(hasBorder : Boolean)</td>
+</tr>
+<tr class="row-odd"><td>BackShade</td>
+<td>A Boolean that when set to true
+fills in the area of the triangle</td>
+<td>DebugTriangle.BackShade(hasBackShade : Boolean)</td>
+</tr>
+<tr class="row-even"><td>SpaceId</td>
+<td>An Integer that sets which space
+to draw the triangle in (to get the
+Integer, use this.Space.RuntimeId)</td>
+<td>DebugTriangle.SpaceId(id : Integer)</td>
+</tr>
+<tr class="row-odd"><td>Draw</td>
+<td>This is what actually draws the
+triangle.</td>
+<td>DebugTriangle.Draw()</td>
+</tr>
+</tbody>
+</table>
+<p>In the component where you add the DebugTriangle, you can make most of the parameters (with the exception of <code class="docutils literal"><span class="pre">SpaceId</span></code> and <code class="docutils literal"><span class="pre">Draw</span></code>) variables that have the <code class="docutils literal"><span class="pre">Property</span></code> attribute, allowing you to change and tweak the parameters on the fly. This could allow you to debug certain parts of your game even quicker. A simple example of such a component is shown in the screenshot below:</p>
+<p><img alt="DebugTriangleExample" src="../../_images/DebugTriangleExample.png" /></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="WYSIWYG.html" class="btn btn-neutral float-right" title="The WYSIWYG Approach to Configurable Properties" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="EventsAndConnections.html" class="btn btn-neutral" title="Events and Connections" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Scripting/DebugDrawing.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:55:57 GMT -->
+</html>

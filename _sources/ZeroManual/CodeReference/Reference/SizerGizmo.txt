@@ -1,0 +1,102 @@
+.. _ReferenceSizerGizmo:
+
+.. rst-class:: searchtitle
+
+SizerGizmo
+==========
+
+.. include:: Description/SizerGizmo.rst
+
+.. cpp:class:: SizerGizmo
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceSizerGizmoProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SizerGizmo::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space SizerGizmo::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SizerGizmo::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession SizerGizmo::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Archetype SizerGizmo::AnchorGizmo
+
+            Each of these will be created for the anchor points.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 SizerGizmo::Size
+
+            Size setter/ getter.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SizerSnapMode::Enum SizerGizmo::SnapMode
+
+            Snapping.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SizerGizmo::SnapDistance
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 SizerGizmo::BoxColor
+
+            Debug draw colors.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 SizerGizmo::AnchorColor
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 SizerGizmo::AnchorHoverColor
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 SizerGizmo::ArrowColor
+
+            
+
+.. _ReferenceSizerGizmoMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SizerGizmo::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/SizerGizmo.rst

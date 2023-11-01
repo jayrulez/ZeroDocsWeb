@@ -1,0 +1,2419 @@
+.. Okay, so it looks like we have to define the roles before they get used.
+   I guess that makes sense.
+.. role:: bi
+  :class: bolditalic
+.. Ultimately it would be nice if there were a document somewhere that got
+   included everywhere that defined these things, but I'm not going to sweat it
+   if the few times I want to use bold italics I have to manually put this role
+   at the top of the doc.
+      -- Doug
+
+.. _VectorMath2GAM100:
+
+.. rst-class:: SearchTitle
+
+Vector Math, part 2
+===================
+
+.. rst-class:: SearchDescription
+
+This lesson revisits the topic of vector math, covering more of what can be done
+with vectors and how the Zero engine uses them in a game.
+
+.. _VectorMath2VocabGAM100:
+
+Learning Objectives
+-------------------
+
+*   To learn how to find a vector's angle of rotation using the ``ATan2``
+    function
+*   To learn how to find a vector from a given angle using the ``Cos`` and
+    ``Sin`` functions
+*   To become familiar with the **dot product** of two vectors
+
+.. rst-class:: VocabSection
+
++-------------------------------------------------------------------+
+| Vocabulary                                                        |
++================+================+================+================+
+| vector         | dot product    | radians        | Euler angles   |
++----------------+----------------+----------------+----------------+
+| Math.ATan2     | Math.Cos       | Math.Sin       | right triangle |
++----------------+----------------+----------------+----------------+
+
+Create a New Project
+--------------------
+
+:ref:`Create a New 2D Project<CreateNewProjectGAM100>`
+
+*   In the Objects Window
+
+    -   :ref:`Select the LevelSettings object <SelectObjectGAM100>`
+
+*   In the Properties Window
+
+    -   :ref:`Remove the GravityEffect Component <RemoveComponentGAM100>`
+
+In order to help us understand some of the principles of vector math, let's make
+a demo that uses a common vector-related task: **firing toward the mouse**.
+Let's make a player with a cool water cannon.
+
+*   :ref:`Command<CommandsGAM100>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In the Properties Window
+
+    -   Set Name to: ``Player``
+    -   Under :cpp:type:`Sprite`
+
+        +   Set Color to: ``[R: 0, G: 128, B: 64, A: 1.0]``, ``#008040``
+        +   Set :cpp:type:`SpriteSource` to: ``SquareBordered``
+
+*   :ref:`Command<CommandsGAM100>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In the Properties Window
+
+    -   Set Name to: ``WaterCannon``
+    -   Under :cpp:type:`Transform`
+
+        +   Set Translation to: ``[0.5, 0, 1]``
+        +   Set Scale to: ``[0.5, 0.5, 0.5]``
+
+    -   Under :cpp:type:`Sprite`
+
+        +   Set Color to: ``[R: 0, G: 0, B: 255, A: 1.0]``, ``#0000FF``
+        +   Set :cpp:type:`SpriteSource` to: ``SquareBordered``
+
+*   In the Objects Window
+
+    -   ``Left-Drag`` the WaterCannon object onto the Player object to
+        :ref:`parent<HierarchiesGAM100>` the WaterCannon to the Player
+
+        |Player|
+
+Now we've built our player, complete with a blue water cannon that serves nicely
+to show our player's facing direction. (We moved the cannon a little bit in the
+positive Z direction as a quick way to avoid Z-fighting; normally, it is proper
+to use a custom :cpp:type:`SpriteLayerOrder` to accomplish this.)
+
+Looking at the Mouse
+--------------------
+
+Now let's give the player a new Zilch :cpp:type:`component<Component>` that will
+allow it to "look at" the mouse.
+
+*   :ref:`Add a new ZilchScript resource<ResourceAddingGAM100>` named: ``MouseLook``
+*   Update your new script to look like this:
+
+.. code-block:: csharp
+    
+    class MouseLook : ZilchComponent
+    {
+      function Initialize(init : CogInitializer)
+      {
+        
+      }
+    }
+
+*   In the MouseLook script
+
+    -   Make the following set of additions to the code:
+
+.. code-block:: csharp
+    :emphasize-lines: 3-4
+    
+    class MouseLook : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      .
+      .
+      .
+
+Marking this component with a **dependency** on :cpp:type:`Transform` makes it
+so that it cannot be added to any cog that does not already have a Transform
+component. It also allows us to refer to the Transform by typing
+``this.Transform`` instead of ``this.Owner.Transform``.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 9, 13-16
+    
+    class MouseLook : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      
+      function Initialize(init : CogInitializer)
+      {
+        Zero.Connect(this.LevelSettings, Events.MouseUpdate, this.OnMouseUpdate);
+      }
+      
+      
+      function OnMouseUpdate(event : ViewportMouseEvent)
+      {
+        
+      }
+    }
+
+The ``MouseUpdate`` :cpp:type:`event<Event>` is dispatched every frame, and the
+:cpp:type:`ViewportMouseEvent` it uses contains some useful members, including
+a function that can tell us the location of the mouse in world space.
+
+*   :ref:`Select the Player object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    -   :ref:`Add a MouseLook component <AddComponentGAM100>`
+
+*   :ref:`Save the project <SavingProjectGAM100>`
+
+Difference Vector
++++++++++++++++++
+
+To make the player face the mouse, we'll need to figure out what angle to rotate
+the player to so that its **facing vector** is aligned with the vector going
+from the player to the mouse. Recall from the
+:ref:`previous lesson on vector math<VectorMath1GAM100>` that the vector going
+from one point to another is the **difference** between the two points:
+
+|P1MinusP0|
+
+So, it looks like we're going to be subtracting some vectors.
+
+*   In the MouseLook script
+
+    -   Make the following set of additions to the ``OnMouseUpdate`` function:
+
+.. code-block:: csharp
+    :emphasize-lines: 3
+    
+    function OnMouseUpdate(event : ViewportMouseEvent)
+    {
+      var mousePosition = event.ToWorldZPlane(0.0);
+    }
+
+First of all, we need to know where the mouse is pointing. To find its position,
+we can use the ``ToWorldZPlane`` function on the ViewportMouseEvent. This takes
+in a :cpp:type:`Real` representing the desired *depth*, and returns a
+:cpp:type:`Real3` representing the mouse's *position at that depth*. For a 2D
+project like this one, we'll almost always give this function a depth of
+``0.0``. Doing so here gives us the ``mousePosition``.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 4
+    
+    function OnMouseUpdate(event : ViewportMouseEvent)
+    {
+      var mousePosition = event.ToWorldZPlane(0.0);
+      var playerPosition = this.Transform.WorldTranslation;
+    }
+
+Here, we get the ``playerPosition`` from the player's :cpp:type:`Transform`.
+Note that we can refer to the player's :cpp:type:`Transform` by typing just
+``this.Transform`` instead of ``this.Owner.Transform`` --- this is because we
+have defined this component to have a :cpp:type:`Transform` **dependency**.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 6
+    
+    function OnMouseUpdate(event : ViewportMouseEvent)
+    {
+      var mousePosition = event.ToWorldZPlane(0.0);
+      var playerPosition = this.Transform.WorldTranslation;
+      
+      var vectorToMouse = mousePosition - playerPosition;
+    }
+
+Next is the vector subtraction that was mentioned earlier: the vector that
+goes from the player to the mouse is equal to the ``mousePosition`` minus
+the ``playerPosition``.
+
+|DifferenceVectorDiagram|
+
+Mouse Angle
++++++++++++
+
+Now that we have the **difference vector**, we can use it to find the **mouse
+angle** by using a very useful trigonometric function: ``Math.ATan2``. But
+before we proceed, there are a couple of things we need to cover.
+
+Radians
+~~~~~~~
+
+How do you find the circumference of a circle? **2 times** :math:`\pi` **times
+the radius of the circle**. So if the radius is 1 (as it would be in the **unit
+circle**), then the circle's circumference is just :math:`2\pi`.
+
+.. sidebar:: :math:`\pi`
+    
+    Remember, :math:`\pi=3.14159\ldots`, but in Zero, ``Math.Pi``
+    works just fine.
+
+This is the foundation for another way to measure angles. The angle of a full
+circle is 360 degrees, or :math:`2\pi` **radians**; likewise, a half circle is
+half that: 180 degrees, or half of :math:`2\pi`, so, just :math:`\pi`
+**radians**. A right angle --- that is, one quarter of a circle --- measures 90
+degrees, or one quarter of :math:`2\pi`: :math:`\frac{\pi}{2}`. Any angle can be
+measured this way, and **radians are what the Zero Engine uses to measure
+angles**.
+
+*   Any function that the Zero Engine uses that takes an angle will expect it in
+    radians --- giving it an angle in degrees won't cause an error or anything,
+    but it will produce the wrong results.
+*   Converting an angle from degrees to radians is as simple as multiplying by
+    :math:`\frac{\pi}{180}`; likewise, multiplying by :math:`\frac{180}{\pi}`
+    will convert from radians to degrees.
+
+    -   For convenience, Zero has two functions that do exactly this:
+        ``Math.ToRadians`` and ``Math.ToDegrees``.
+
+|DegreesAndRadians|
+
+Euler Angles
+~~~~~~~~~~~~
+
+Rotating objects in 3D space can be surprisingly complicated. In 2D, when we
+want to rotate something, we generally use only **one axis of rotation**,
+whereas in 3D, there are *three separate rotation axes*. To make matters worse,
+changing the order that these three axes are rotated in can change the resulting
+orientation of the object. To solve this problem, 3D game engines like Zero use
+an advanced mathematical concept called *quaternions*, or
+":cpp:type:`quats<Quat>`" for short. Quats are pretty tough to wrap your head
+around, so we can use a simpler alternate way of rotating objects.
+
+Just as an object can move in three axes --- **X** (side to side), **Y** (up and
+down), and **Z** (towards and away from the camera) --- it can also **rotate
+around** each of these axes:
+
+|RotationAxes|
+
+The object can be rotated by a different angle around each axis. The combination
+of these three angles into one three-dimensional number is what we call the
+object's **Euler angles**, named after the Swiss mathematician Leonhard Euler
+(1707-1783). Euler angles are a handy alternative to quaternions. (We'll look at
+quats again a bit more in the next lesson.)
+
+Note that, in a 2D game, we'll usually be concerned only with an object's **Z
+rotation** --- that is, its angle of rotation around its Z axis, or the Z part
+of its Euler angles. This Z rotation is exactly what we'll manipulate when we
+rotate the player to look at the mouse.
+
+*   In the MouseLook script
+
+    -   Make the following set of additions to the ``OnMouseUpdate`` function:
+
+.. code-block:: csharp
+    :emphasize-lines: 8-9
+    
+    function OnMouseUpdate(event : ViewportMouseEvent)
+    {
+      var mousePosition = event.ToWorldZPlane(0.0);
+      var playerPosition = this.Transform.WorldTranslation;
+      
+      var vectorToMouse = mousePosition - playerPosition;
+      
+      // The ATan2 function returns an angle in radians
+      var mouseAngle = Math.ATan2(vectorToMouse.Y, vectorToMouse.X);
+    }
+
+The ``ATan2`` function gives us the angle of rotation of our vector. To use it,
+we must pass in the *Y-part* and the *X-part* of the vector, **in that order**.
+
+*   The ``ATan2`` function returns an angle in **radians**.
+
+|MouseAngleDiagram|
+
+Once we have the proper rotation angle, we can rotate the player.
+
+.. container:: nextblock
+    
+    Finally:
+
+.. code-block:: csharp
+    :emphasize-lines: 10-11
+    
+    function OnMouseUpdate(event : ViewportMouseEvent)
+    {
+      var mousePosition = event.ToWorldZPlane(0.0);
+      var playerPosition = this.Transform.WorldTranslation;
+      
+      var vectorToMouse = mousePosition - playerPosition;
+      
+      // The ATan2 function returns an angle in radians
+      var mouseAngle = Math.ATan2(vectorToMouse.Y, vectorToMouse.X);
+      // The SetEulerAnglesXYZ function expects angles in radians
+      this.Transform.SetEulerAnglesXYZ(0.0, 0.0, mouseAngle);
+    }
+
+Remember, when rotating an object in a 2D game, we'll usually only want it to
+rotate around the Z axis. We can do this by calling the ``SetEulerAnglesXYZ``
+function and passing in zeroes for X and Y.
+
+*   The ``SetEulerAnglesXYZ`` function expects angles in **radians**.
+
+Now we're ready to try it out.
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+*   Move the mouse around and observe what happens.
+
+|MouseRotation|
+
+The player now faces the mouse pointer. Now it's time to make the water cannon
+shoot water!
+
+Firing Toward the Mouse
+-----------------------
+
+First, we need to create the :cpp:type:`archetype<Archetype>` that the water
+cannon is going to use for water.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+*   :ref:`Command<CommandsGAM100>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In the Properties Window
+
+    -   Set Name to: ``Water``
+    -   Set Archetype Name to: ``Water``
+    -   Under :cpp:type:`Transform`
+
+        +   Set Translation to: ``[3, 0, 0]``
+        +   Set Scale to: ``[0.5, 0.5, 0.5]``
+
+    -   Under :cpp:type:`Sprite`
+
+        +   Set Color to: ``[R: 128, G: 128, B: 255, A: 1.0]``, ``#8080FF``
+        +   Set BlendMode to: ``Additive``
+        +   Set :cpp:type:`SpriteSource` to: ``Circle``
+
+    -   :ref:`Add a RigidBody component <AddComponentGAM100>`
+    -   ``Left-click`` the green **Upload to Archetype** button
+
+    |WaterArchetype|
+
+Now that we've made our water archetype, we can delete this instance of it.
+
+*   Delete the Water object
+
+Now let's make some code that actually fires this water out of the water cannon.
+
+*   :ref:`Add a new ZilchScript resource<ResourceAddingGAM100>` named: ``WaterCannon``
+*   Update your new script to look like this:
+
+.. code-block:: csharp
+    
+    class WaterCannon : ZilchComponent
+    {
+      function Initialize(init : CogInitializer)
+      {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+      
+      
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        
+      }
+    }
+
+*   In the WaterCannon script
+
+    -   Make the following set of additions to the code:
+
+.. code-block:: csharp
+    :emphasize-lines: 3-4
+    
+    class WaterCannon : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      .
+      .
+      .
+
+Once again, we've specified that this :cpp:type:`component<Component>` has a
+**dependency** on the :cpp:type:`Transform` component, because we're going to be
+referring to it later in this component's code.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 7-8
+    
+    class WaterCannon : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      
+      [Property]
+      var WaterArchetype : Archetype = Archetype.Water;
+      
+      .
+      .
+      .
+
+The **WaterArchetype** property specifies the :cpp:type:`archetype<Archetype>`
+that we'll use when we spawn water.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 9-10
+    
+    class WaterCannon : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      
+      [Property]
+      var WaterArchetype : Archetype = Archetype.Water;
+      [Property]
+      var WaterSpeed : Real = 20.0;
+      
+      .
+      .
+      .
+
+The **WaterSpeed** property defines how fast the water will go.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 11-12
+    
+    class WaterCannon : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      
+      [Property]
+      var WaterArchetype : Archetype = Archetype.Water;
+      [Property]
+      var WaterSpeed : Real = 20.0;
+      [Property]
+      var Cannon : CogPath;
+      
+      .
+      .
+      .
+
+The **Cannon** property is a :cpp:type:`CogPath` that we will soon point to the
+player's WaterCannon.
+
+Let's add this new component to the player.
+
+*   :ref:`Select the Player object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    -   :ref:`Add a WaterCannon component <AddComponentGAM100>`
+    -   Under WaterCannon
+
+        +   :ref:`Point the Cannon CogPath property to the WaterCannon Object<CogPathsGAM100>`
+
+*   :ref:`Save the project <SavingProjectGAM100>`
+
+Let's continue to write the WaterCannon component.
+
+*   In the WaterCannon script
+
+    -   Make the following additions to the code:
+
+.. code-block:: csharp
+    :emphasize-lines: 3-6, 10-13
+    
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        if(Zero.Mouse.IsButtonDown(MouseButtons.Left))
+        {
+          this.Fire();
+        }
+      }
+      
+      
+      function Fire()
+      {
+        
+      }
+    }
+
+This code makes it so that the ``Fire`` function is called every frame that the
+left mouse button is held down. Now, let's make the ``Fire`` function spawn
+water :cpp:type:`cogs<Cog>`.
+
+*   In the WaterCannon script
+
+    -   Make the following set of additions to the ``Fire`` function:
+
+.. code-block:: csharp
+    :emphasize-lines: 3-4
+    
+    function Fire()
+    {
+      var waterPosition = this.Transform.WorldTranslation;
+      var water = this.Space.CreateAtPosition(this.WaterArchetype, waterPosition);
+    }
+
+We start by making a variable called ``waterPosition``, which is then used when
+calling the ``CreateAtPosition`` function as the position at which to spawn a
+water object. For now, the player's position is a good enough place to start.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 6
+    
+    function Fire()
+    {
+      var waterPosition = this.Transform.WorldTranslation;
+      var water = this.Space.CreateAtPosition(this.WaterArchetype, waterPosition);
+      
+      water.RigidBody.Velocity = Real3.XAxis * this.WaterSpeed;
+    }
+
+Next, we need to give the water a **velocity**. Otherwise, it will just sit
+where it's created. The code
+
+:code:`water.RigidBody.Velocity = Real3.XAxis * this.WaterSpeed;`
+
+is equivalent to saying, "the water should go in the direction of the positive
+X axis at a speed of ``this.WaterSpeed``."
+
+Let's see how it looks so far.
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+|WaterStreamToRight|
+
+The player still rotates to face the mouse, but that isn't having any effect on
+the water's trajectory. For that, we're going to have to brush up a little on
+our trigonometry --- specifically, two of its most important functions:
+**Cosine** and **Sine**.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+Cosine and Sine
++++++++++++++++
+
+Let's say we want our player to fire water in a given direction. The result
+might look something like this:
+
+|PlayerAndFiringDirection|
+
+The blue arrow shows the direction the water objects are flying. The player's
+rotation determines the firing direction --- that is, their *angle of rotation
+around the Z axis*.
+
+Let's imagine this firing angle as a part of an **axis-aligned right triangle**:
+
+|RightTriangle|
+
+A right triangle is a triangle that has one right angle --- an angle measuring
+**90 degrees** (or :math:`\frac{\pi}{2}`). This one is axis-aligned: one of
+its legs is parallel with the X axis (or, in this case, overlapping it), and the
+other leg is parallel with the Y axis.
+
+We can assign names to each side of this triangle:
+
+|RightTriangleSideNames|
+
+*   The leg across the triangle from our firing angle is called the **opposite**
+    side.
+*   The other leg, next to the firing angle, is called the **adjacent** side.
+*   The remaining side is opposite the right triangle's right angle, and it is
+    known as the **hypotenuse**.
+
+    -   The hypotenuse is *always the longest side in a right triangle*.
+
+Note that these side names are *relative to the angle we have chosen*. If we
+were talking about the other angle in this triangle --- the one in the
+upper-right --- then what we have named "adjacent" here would actually be the
+*opposite* side, and vice versa.
+
+*   We have chosen the lower-left angle to name the sides because that is the
+    angle that corresponds with the player's rotation angle, which is what we're
+    trying to find. In similar situations, it is very common for the horizontal
+    leg to be the *adjacent* side and the vertical leg to be the *opposite*
+    side.
+
+Recall from earlier in the lesson, when we used the ``ATan2`` function to find
+the ``mouseAngle``:
+
+|MouseAngleDiagram|
+
+We're basically trying to reproduce this vector, but in reverse, and with one
+key difference: this ``vectorToMouse`` vector is the full **difference vector**
+going from the player to the mouse pointer, so *its length is not necessarily
+1*, whereas the vector we want to find is the **direction vector**, which *will*
+necessarily have a length of 1.
+
+Note how, in the above diagram, the ``vectorToMouse`` has an X part and a Y
+part: ``vectorToMouse.X`` and ``vectorToMouse.Y``. The combination of these two
+parts is the original vector itself. Another way of looking at it is that the
+full ``vectorToMouse`` is equal to the sum of two *component vectors*:
+``[x, 0, 0]`` and ``[0, y, 0]``, where ``x`` equals ``vectorToMouse.X`` and
+``y`` equals ``vectorToMouse.Y``.
+
+Back to our triangle: if we had the lengths of the **adjacent** and **opposite**
+sides, we would be able to combine them to find our firing direction vector.
+
+This is where trigonometry comes in handy. Given any right triangle, **the ratio
+of the length of the leg** :bi:`adjacent` **to a given angle to the length of
+the hypotenuse** is called the :bi:`cosine` of the angle. Likewise, **the ratio
+of the length of the leg** :bi:`opposite` **to a given angle to the length of
+the hypotenuse** is called the :bi:`sine` of the angle. Cosine and sine are
+typically abbreviated as **cos** and **sin**, respectively.
+
+|IntroducingCosineAndSine|
+
+Once again:
+
+*   The length of the leg adjacent to an angle divided by the length of the
+    hypotenuse is that angle's *cosine*
+
+.. math::
+    
+    \cos(firingAngle) &= \frac{adjacent}{hypotenuse}
+
+*   The length of the leg opposite an angle divided by the length of the
+    hypotenuse is that angle's *sine*
+
+.. math::
+    
+    \sin(firingAngle) &= \frac{opposite}{hypotenuse}
+
+Looking once again at the mouse angle diagram...
+
+|MouseAngleDiagram|
+
+...we can see that the **X part** of the vector is the **adjacent** leg to the
+mouse angle, and the **Y part** is the **opposite** leg.
+
+Likewise, with the way we have constructed our right triangle, the **cosine** of
+the firing angle is equal to the *X part of the direction vector divided by the
+vector's length*, and the **sine** of the firing angle equals the *Y part
+divided by the length*.
+
+Taking this one step further, we can solve for each leg in terms of the length
+of the hypotenuse and the cosine and sine of our angle:
+
+*   The length of the leg adjacent to an angle is equal to the length of the
+    hypotenuse multiplied by that angle's *cosine*
+
+.. math::
+    
+    adjacent&=hypotenuse*\cos(firingAngle)
+
+*   The length of the leg opposite to an angle is equal to the length of the
+    hypotenuse multiplied by that angle's *sine*
+
+.. math::
+    
+    opposite&=hypotenuse*\sin(firingAngle)
+
+|SideLengths|
+
+**Since direction vectors always have a length of exactly 1**, the triangle's
+hypotenuse has a length of 1. Multiplying by 1 has no effect, so we can deduce
+that the direction vector's X part is ``Math.Cos(firingAngle)``, and its Y part
+is ``Math.Sin(firingAngle)``. Of course, the direction vector is a
+:cpp:type:`Real3`, so it has a Z part as well. However, because this is a 2D
+game, and we are only firing along the *XY plane*, the direction vector's Z part
+is equal to **0**.
+
+Thus:
+
+.. math::
+    
+    \widehat{firingDirection}=\left[\cos(firingAngle),\sin(firingAngle),0\right]
+
+Here's another way of looking at it. Suppose we have a vector of fixed length,
+like, say, a direction vector (of length 1, of course). Suppose we *rotate that
+vector around the origin*, so that its angle of rotation is constantly changing.
+Let's visualize the cosine and sine of that rotation angle:
+
+|CosineAndSine|
+
+See how the cosine of the angle is always the X part of the vector, and the sine
+is always the Y part? This is what we want to do with our player's rotation
+angle.
+
+Now we can finally use our firing angle to find our firing direction.
+
+*   In the WaterCannon script
+
+    -   Make the following set of additions to the ``Fire`` function:
+
+.. code-block:: csharp
+    :emphasize-lines: 6-7
+    
+    function Fire()
+    {
+      var waterPosition = this.Transform.WorldTranslation;
+      var water = this.Space.CreateAtPosition(this.WaterArchetype, waterPosition);
+      
+      // The firing angle is equal to the rotation angle about the Z axis
+      var firingAngle = this.Transform.EulerAngles.Z;
+      
+      water.RigidBody.Velocity = Real3.XAxis * this.WaterSpeed;
+    }
+
+The ``firingAngle`` we get from the player's Euler angles is in **radians**.
+This is handy, because we're going to use it in the ``Math.Cos`` and
+``Math.Sin`` functions, *both of which expect an angle in radians*.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 9-14
+    
+    function Fire()
+    {
+      var waterPosition = this.Transform.WorldTranslation;
+      var water = this.Space.CreateAtPosition(this.WaterArchetype, waterPosition);
+      
+      // The firing angle is equal to the rotation angle about the Z axis
+      var firingAngle = this.Transform.EulerAngles.Z;
+      
+      // The length of a direction vector is 1, so we do not need to multiply
+      // the cosine and sine of the angle by anything to get the x and y parts
+      var xPart = Math.Cos(firingAngle);
+      var yPart = Math.Sin(firingAngle);
+      // This vector does not extend at all into the Z direction
+      var zPart = 0.0;
+      
+      water.RigidBody.Velocity = Real3.XAxis * this.WaterSpeed;
+    }
+
+Next, we use our trig functions to find the X and Y parts of the direction
+vector. As this is a 2D game, the Z part of the vector is **0**.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 16
+    
+    function Fire()
+    {
+      var waterPosition = this.Transform.WorldTranslation;
+      var water = this.Space.CreateAtPosition(this.WaterArchetype, waterPosition);
+      
+      // The firing angle is equal to the rotation angle about the Z axis
+      var firingAngle = this.Transform.EulerAngles.Z;
+      
+      // The length of a direction vector is 1, so we do not need to multiply
+      // the cosine and sine of the angle by anything to get the x and y parts
+      var xPart = Math.Cos(firingAngle);
+      var yPart = Math.Sin(firingAngle);
+      // This vector does not extend at all into the Z direction
+      var zPart = 0.0;
+      
+      var firingDirection = Real3(xPart, yPart, zPart);
+      
+      water.RigidBody.Velocity = Real3.XAxis * this.WaterSpeed;
+    }
+
+The next step is to create a :cpp:type:`Real3` vector from its constituent X, Y,
+and Z parts.
+
+*   In the WaterCannon script
+
+    -   Make the following modification to the ``Fire`` function:
+
+.. code-block:: csharp
+    :emphasize-lines: 18
+    
+    function Fire()
+    {
+      var waterPosition = this.Transform.WorldTranslation;
+      var water = this.Space.CreateAtPosition(this.WaterArchetype, waterPosition);
+      
+      // The firing angle is equal to the rotation angle about the Z axis
+      var firingAngle = this.Transform.EulerAngles.Z;
+      
+      // The length of a direction vector is 1, so we do not need to multiply
+      // the cosine and sine of the angle by anything to get the x and y parts
+      var xPart = Math.Cos(firingAngle);
+      var yPart = Math.Sin(firingAngle);
+      // This vector does not extend at all into the Z direction
+      var zPart = 0.0;
+      
+      var firingDirection = Real3(xPart, yPart, zPart);
+      
+      water.RigidBody.Velocity = firingDirection * this.WaterSpeed;
+    }
+
+Just like before,
+
+:code:`water.RigidBody.Velocity = firingDirection * this.WaterSpeed;`
+
+means, "the water should go in the direction ``firingDirection`` at a speed
+of ``this.WaterSpeed``." Remember, the direction vector has a *length of
+exactly 1*, so we **scale the direction vector by the desired speed** to get
+the water's velocity vector.
+
+Let's try it out.
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+|WaterStreamFollowingMouse|
+
+Now you can move the mouse to aim the water stream.
+
+Improvements
+------------
+
+At this point, there are two improvements to make, one small and one not so
+small.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+Small Improvement
++++++++++++++++++
+
+Currently, the water is coming out of the center of our player, not the water
+cannon. We can easily fix this.
+
+*   In the WaterCannon script
+
+    -   Make the following modification to the ``Fire`` function:
+
+.. code-block:: csharp
+    :emphasize-lines: 3-4
+    
+    function Fire()
+    {
+      var waterPosition = this.Cannon.Cog.Transform.WorldTranslation;
+      waterPosition.Z = 0.0;
+      var water = this.Space.CreateAtPosition(this.WaterArchetype, waterPosition);
+      
+      // The firing angle is equal to the rotation angle about the Z axis
+      var firingAngle = this.Transform.EulerAngles.Z;
+      
+      // The length of a direction vector is 1, so we do not need to multiply
+      // the cosine and sine of the angle by anything to get the x and y parts
+      var xPart = Math.Cos(firingAngle);
+      var yPart = Math.Sin(firingAngle);
+      // This vector does not extend at all into the Z direction
+      var zPart = 0.0;
+      
+      var firingDirection = Real3(xPart, yPart, zPart);
+      
+      water.RigidBody.Velocity = firingDirection * this.WaterSpeed;
+    }
+
+Here's what we did:
+
+*   We're now setting the water's starting position to be equal to the
+    WorldTranslation of the cannon cog instead of the WorldTranslation of
+    the player.
+
+    -   However, when we made the cannon, we moved it a little bit into the
+        positive Z direction to avoid Z-fighting between its
+        :cpp:type:`sprite<Sprite>` and the player's sprite, so we're zeroing out
+        the Z part of the water's position before we use it.
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+If we were to shoot water, we would notice that it now comes from the cannon
+instead of the center of the player.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+Not-So Small Improvement
+++++++++++++++++++++++++
+
+Currently, we're creating a large number of water cogs --- dozens every
+second, in fact --- when we hold down the mouse button. There's nothing wrong
+with that in itself, but the problem is that we're *not destroying them*. If one
+were to run the game as it is now, one might notice the frame rate dropping a
+bit after a while of spraying the water cannon, because the engine continues to
+keep track of every bit of water it makes, even after they leave the screen.
+
+In general, when making projectiles like the water in this game, it is always
+wise to make sure that there is some sure-fire way that they will eventually be
+destroyed. There are potentially many ways of doing this, but one of the most
+reliable methods is with a **TimedDeath** component, which we can easily write.
+
+The TimedDeath Component
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+*   :ref:`Add a new ZilchScript resource<ResourceAddingGAM100>` named: ``TimedDeath``
+*   Update your new script to look like this:
+
+.. code-block:: csharp
+    
+    class TimedDeath : ZilchComponent
+    {
+      [Property]
+      var Lifetime : Real = 5.0;
+      
+      var Timer : Real;
+      
+      
+      function Initialize(init : CogInitializer)
+      {
+        this.Timer = this.Lifetime;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+      
+      
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        this.Timer -= event.Dt;
+        
+        if(this.Timer <= 0.0)
+        {
+          this.Owner.Destroy();
+        }
+      }
+    }
+
+Any cog with this component will automatically destroy itself after its
+``Lifetime`` expires, which we have defined as five seconds by default.
+
+*   In the Library Window
+
+    -   Under the Archetype tag
+
+        +   Select the archetype called ``Water``
+
+*   In the Properties Window
+
+    -   :ref:`Add a TimedDeath component <AddComponentGAM100>`
+    -   ``Left-click`` the green **Upload to Archetype** button
+
+Now we're free to shoot as much water as we like, and we can be sure that it
+will all be destroyed shortly afterward.
+
+Shooting Targets
+----------------
+
+It's not much fun to shoot water when you don't have anything to shoot.
+Let's make a target to shoot at.
+
+*   :ref:`Command<CommandsGAM100>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In the Properties Window
+
+    -   Set Name to: ``Target``
+    -   Set Archetype Name to: ``Target``
+    -   Under :cpp:type:`Transform`
+
+        +   Set Translation to: ``[8, 0, 0]``
+
+    -   Under :cpp:type:`Sprite`
+
+        +   Set Color to: ``[R: 255, G: 255, B: 0, A: 1.0]``, ``#FFFF00``
+        +   Set :cpp:type:`SpriteSource` to: ``CircleBordered``
+
+    -   :ref:`Add a SphereCollider component <AddComponentGAM100>`
+    -   Under :cpp:type:`SphereCollider`
+
+        +   Set Radius to: ``0.5``
+
+    -   ``Left-click`` the green **Upload to Archetype** button
+
+Let's try shooting our new target.
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+Nothing's happening --- the water goes right through the target. This is because
+we neglected to put a collider on the water archetype.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+*   In the Library Window
+
+    -   Under the Archetype tag
+
+        +   Select the archetype called ``Water``
+
+*   In the Properties Window
+
+    -   :ref:`Add a SphereCollider component <AddComponentGAM100>`
+    -   Under :cpp:type:`SphereCollider`
+
+        +   Set Radius to: ``0.5``
+
+    -   ``Left-click`` the green **Upload to Archetype** button
+
+Let's try it again.
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+|WaterColliding|
+
+The water now collides with the target --- and with other water cogs. Let's make
+it so that the water's colliders are **ghosts**, so that they will *not undergo
+collision resolution*, though they will still allow collision **detection**.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+*   In the Library Window
+
+    -   Under the Archetype tag
+
+        +   Select the archetype called ``Water``
+
+*   In the Properties Window
+
+    -   Under :cpp:type:`SphereCollider`
+
+        +   Set Ghost to: ``true``
+
+    -   ``Left-click`` the green **Upload to Archetype** button
+
+Now let's make the target react in a more interesting manner. A water cannon
+should be able to get something soaking wet, so let's make that happen.
+
+*   :ref:`Add a new ZilchScript resource<ResourceAddingGAM100>` named: ``SoakOnCollide``
+*   Update your new script to look like this:
+
+.. code-block:: csharp
+    :emphasize-lines: 3, 8, 12-15
+    
+    class SoakOnCollide : ZilchComponent
+    {
+      sends Soak : ZilchEvent;
+      
+      
+      function Initialize(init : CogInitializer)
+      {
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+      }
+      
+      
+      function OnCollisionStarted(event : CollisionEvent)
+      {
+        event.OtherObject.DispatchEvent(Events.Soak, ZilchEvent());
+      }
+    }
+
+This is a pretty simple component:
+
+*   It dispatches the **Soak** custom event to whatever it collides with.
+
+    -   Note that, because the **Soak** event requires no special data or
+        functionality beyond a bare :cpp:type:`ZilchEvent` object, we can just
+        create the ZilchEvent right inside the ``DispatchEvent`` function call.
+
+This makes it perfect for our water archetype.
+
+*   In the Library Window
+
+    -   Under the Archetype tag
+
+        +   Select the archetype called ``Water``
+
+*   In the Properties Window
+
+    -   :ref:`Add a SoakOnCollide component <AddComponentGAM100>`
+    -   ``Left-click`` the green **Upload to Archetype** button
+
+When the target gets wet, we'll make it add a layer of water on top of itself.
+Every time it gets hit by water from the cannon, it will add another layer.
+Let's make this water layer archetype now.
+
+*   :ref:`Command<CommandsGAM100>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In the Properties Window
+
+    -   Set Name to: ``WaterLayer``
+    -   Set Archetype Name to: ``WaterLayer``
+    -   Under :cpp:type:`Transform`
+
+        +   Set Scale to: ``[1.25, 1.25, 1.25]``
+
+    -   Under :cpp:type:`Sprite`
+
+        +   Set Color to: ``[R: 8, G: 8, B: 16, A: 1.0]``, ``#080810``
+        +   Set BlendMode to: ``Additive``
+        +   Set SpriteSource to: ``Circle``
+
+    -   :ref:`Add a TimedDeath component <AddComponentGAM100>`
+    -   ``Left-click`` the green **Upload to Archetype** button
+
+Now that we've created our water layer archetype, we can delete this instance of
+it.
+
+*   Delete the WaterLayer object
+
+Now let's make a component that will allow the target to create these water
+layers.
+
+*   :ref:`Add a new ZilchScript resource<ResourceAddingGAM100>` named: ``SoakResponse``
+*   Update your new script to look like this:
+
+.. code-block:: csharp
+    
+    class SoakResponse : ZilchComponent
+    {
+      function Initialize(init : CogInitializer)
+      {
+        
+      }
+    }
+
+*   In the SoakResponse script
+
+    -   Make the following set of additions to the code:
+
+.. code-block:: csharp
+    :emphasize-lines: 3-4
+    
+    class SoakResponse : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      .
+      .
+      .
+
+We give this component a Transform dependency so that we can use
+``this.Transform`` as a shortcut.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 7-8
+    
+    class SoakResponse : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      
+      [Property]
+      var WaterLayerArchetype : Archetype = Archetype.WaterLayer;
+      
+      .
+      .
+      .
+
+Here we specify the archetype we're going to spawn for our layers of water we'll
+be spawning on the target.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 10-11
+    
+    class SoakResponse : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      
+      [Property]
+      var WaterLayerArchetype : Archetype = Archetype.WaterLayer;
+      
+      var RNG : Random = Random();
+      var MaxRandomDistance : Real = 0.5;
+      
+      .
+      .
+      .
+
+We are going to use a :cpp:type:`random number generator<Random>` to allow us to
+randomize the placement of the water layer just a little bit. The 
+``MaxRandomDistance`` member variable determines how far from the center of the
+target the water layer can potentially be placed.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 13
+    
+    class SoakResponse : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      
+      [Property]
+      var WaterLayerArchetype : Archetype = Archetype.WaterLayer;
+      
+      var RNG : Random = Random();
+      var MaxRandomDistance : Real = 0.5;
+      
+      var FinalOffset : Real3 = Real3(0.0, 0.0, 1.0);
+      
+      .
+      .
+      .
+
+When we spawn our water layers, we want to place them at nearly the same
+location as the target itself. To avoid Z-fighting between their sprites and the
+target's sprite, we'll give them a bit of a boost in the Z direction by adding
+on the ``FinalOffset`` member variable to their generated position.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 18, 22-25
+    
+    class SoakResponse : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      
+      [Property]
+      var WaterLayerArchetype : Archetype = Archetype.WaterLayer;
+      
+      var RNG : Random = Random();
+      var MaxRandomDistance : Real = 0.5;
+      
+      var FinalOffset : Real3 = Real3(0.0, 0.0, 1.0);
+      
+      
+      function Initialize(init : CogInitializer)
+      {
+        Zero.Connect(this.Owner, Events.Soak, this.OnSoak);
+      }
+      
+      
+      function OnSoak(event : ZilchEvent)
+      {
+        
+      }
+    }
+
+We make a ``Zero.Connect`` event connection so that when the **Soak** event is
+dispatched to this target, this component's ``OnSoak`` function is called.
+
+In the ``OnSoak`` function, we're going to determine where to spawn the water
+layer by pointing in a random direction, and then choosing a random distance,
+and placing the water layer that distance from the center of the target in the
+chosen direction.
+
+The **Random** class includes some useful functions for generating vectors,
+including creating random *unit vectors*, or vectors whose length is exactly 1
+--- perfect for use as a **direction vector**.
+
+*   In the SoakResponse script
+
+    -   Make the following set of additions to the ``OnSoak`` function:
+
+.. code-block:: csharp
+    :emphasize-lines: 3-5
+    
+    function OnSoak(event : ZilchEvent)
+    {
+      // First, we determine what direction the water will placed in
+      var random2DDirection = this.RNG.UnitReal2();
+      var randomOffsetDirection = Real3(random2DDirection, 0.0);
+    }
+
+First we randomly choose our direction. Because this is a 2D game and we don't
+want to include the Z direction in our random consideration, we'll use the
+``Random.UnitReal2`` function, which, as its name implies, creates a unit
+:cpp:type:`Real2` vector. Since we're going to use this vector to place an
+object in the world, we have to convert it into a **Real3** before we can do
+anything with it.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 7-8
+    
+    function OnSoak(event : ZilchEvent)
+    {
+      // First, we determine what direction the water will placed in
+      var random2DDirection = this.RNG.UnitReal2();
+      var randomOffsetDirection = Real3(random2DDirection, 0.0);
+      
+      // Next, we determine how far in that direction it will be placed
+      var randomOffsetDistance = this.RNG.Range(0.0, this.MaxRandomDistance);
+    }
+
+Now we need to determine our random distance. The ``Random.Range`` function
+allows us to specify lower and upper bounds and returns a **Real** within the
+given range. We want a random distance between 0 and our ``MaxRandomDistance``
+member variable.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 10-12
+    
+    function OnSoak(event : ZilchEvent)
+    {
+      // First, we determine what direction the water will placed in
+      var random2DDirection = this.RNG.UnitReal2();
+      var randomOffsetDirection = Real3(random2DDirection, 0.0);
+      
+      // Next, we determine how far in that direction it will be placed
+      var randomOffsetDistance = this.RNG.Range(0.0, this.MaxRandomDistance);
+      
+      // The offset for placing the water layer is
+      // the random distance times the random direction
+      var randomOffset = randomOffsetDistance * randomOffsetDirection;
+    }
+
+Next, we scale our random direction by our random distance to produce our
+**random offset**.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 14-16
+    
+    function OnSoak(event : ZilchEvent)
+    {
+      // First, we determine what direction the water will placed in
+      var random2DDirection = this.RNG.UnitReal2();
+      var randomOffsetDirection = Real3(random2DDirection, 0.0);
+      
+      // Next, we determine how far in that direction it will be placed
+      var randomOffsetDistance = this.RNG.Range(0.0, this.MaxRandomDistance);
+      
+      // The offset for placing the water layer is
+      // the random distance times the random direction
+      var randomOffset = randomOffsetDistance * randomOffsetDirection;
+      
+      // The final position for the water layer is this target's location plus
+      // the random offset we just calculated, plus the final offset property
+      var waterLayerPosition = this.Transform.WorldTranslation + randomOffset + this.FinalOffset;
+    }
+
+We finally have everything we need to decide where the water layer should be
+spawned. The water layer's final position is the position of the target, plus
+the random offset we just calculated, plus the ``FinalOffset`` property (to
+avoid Z fighting).
+
+.. container:: nextblock
+    
+    Finally:
+
+.. code-block:: csharp
+    :emphasize-lines: 18
+    
+    function OnSoak(event : ZilchEvent)
+    {
+      // First, we determine what direction the water will placed in
+      var random2DDirection = this.RNG.UnitReal2();
+      var randomOffsetDirection = Real3(random2DDirection, 0.0);
+      
+      // Next, we determine how far in that direction it will be placed
+      var randomOffsetDistance = this.RNG.Range(0.0, this.MaxRandomDistance);
+      
+      // The offset for placing the water layer is
+      // the random distance times the random direction
+      var randomOffset = randomOffsetDistance * randomOffsetDirection;
+      
+      // The final position for the water layer is this target's location plus
+      // the random offset we just calculated, plus the final offset property
+      var waterLayerPosition = this.Transform.WorldTranslation + randomOffset + this.FinalOffset;
+      
+      var waterLayer = this.Space.CreateAtPosition(this.WaterLayerArchetype, waterLayerPosition);
+    }
+
+Finally, we make the water layer cog at the calculated position.
+
+Let's add this new component to the target.
+
+*   :ref:`Select the Target object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    -   :ref:`Add a SoakResponse component <AddComponentGAM100>`
+    -   ``Left-click`` the green **Upload to Archetype** button
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+|WaterSoakingTarget|
+
+We can now soak the target with water.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+Let's make more targets to shoot water at.
+
+*   :ref:`Select the Target object <SelectObjectGAM100>`
+*   Select the **TranslateTool**
+*   While holding the ``Ctrl`` key, ``Left-Drag`` the manipulators of the
+    TranslateGizmo to **duplicate** the target
+
+    |DragDuplicate|
+
+*   Make many copies of the target object and place them around the level
+
+    |ManyTargets|
+
+Let's try it out again.
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+Now we have plenty of targets to hit. But we can still make this even more
+interesting.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+Firing Cone
+-----------
+
+So far, the water stream has fired in a straight line from the water cannon. It
+might be more effective at getting the targets wet if it covered a wider area.
+We can make this happen with some adjustments to the WaterCannon component, and
+a little more understanding of the **sine** function.
+
+Consider again the output of the sine function as its input angle continuously
+increases:
+
+|CosineAndSine|
+
+As the angle goes up and up, and the vector goes around and around the circle,
+the *sine of the angle goes back and forth between 1 and -1*. This means that,
+no matter what we put into the sine function, we will never get an output that
+is greater than 1 or less than -1. We can use this fact to make the water stream
+wave back and forth in a cone.
+
+*   In the WaterCannon script
+
+    -   Make the following set of additions to the code:
+
+.. code-block:: csharp
+    :emphasize-lines: 11-12
+    
+    class WaterCannon : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      
+      [Property]
+      var WaterArchetype : Archetype = Archetype.Water;
+      [Property]
+      var WaterSpeed : Real = 20.0;
+      [Property]
+      var ConeHalfAngle : Real = 5.0;
+      [Property]
+      var Cannon : CogPath;
+      
+      .
+      .
+      .
+
+The ``ConeHalfAngle`` property defines half the measure of the firing angle.
+
+*   Why are we defining the *half-angle* instead of the full firing angle?
+    We'll cover that soon.
+*   The ``ConeHalfAngle`` property will take an angle in **degrees**, not
+    radians, because we're going to be manipulating its value directly, and
+    it's easier to work with degrees and then convert to radians later.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 13-14
+    
+    class WaterCannon : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      
+      [Property]
+      var WaterArchetype : Archetype = Archetype.Water;
+      [Property]
+      var WaterSpeed : Real = 20.0;
+      [Property]
+      var ConeHalfAngle : Real = 5.0;
+      [Property]
+      var WavePeriod : Real = 0.5;
+      [Property]
+      var Cannon : CogPath;
+      
+      .
+      .
+      .
+
+The ``WavePeriod`` property defines how long it will take for the wave to get
+back to the angle where it started.
+
+*   The ``WavePeriod`` property is a time in **seconds**.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 18
+    
+    class WaterCannon : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      
+      [Property]
+      var WaterArchetype : Archetype = Archetype.Water;
+      [Property]
+      var WaterSpeed : Real = 20.0;
+      [Property]
+      var ConeHalfAngle : Real = 5.0;
+      [Property]
+      var WavePeriod : Real = 0.5;
+      [Property]
+      var Cannon : CogPath;
+      
+      var Time : Real = 0.0;
+      
+      .
+      .
+      .
+
+We have a new member variable: ``Time``, which will keep track of time spent
+firing water. Note how, in the ``OnLogicUpdate`` function, we increment the
+``Time`` variable by ``event.Dt``.
+
+*   We're going to use elapsed time as a way of providing an ever-changing angle
+    to the **sine** function we'll use to drive our wave's oscillation.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 33
+    
+    class WaterCannon : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      
+      
+      [Property]
+      var WaterArchetype : Archetype = Archetype.Water;
+      [Property]
+      var WaterSpeed : Real = 20.0;
+      [Property]
+      var ConeHalfAngle : Real = 5.0;
+      [Property]
+      var WavePeriod : Real = 0.5;
+      [Property]
+      var Cannon : CogPath;
+      
+      var Time : Real = 0.0;
+      
+      
+      function Initialize(init : CogInitializer)
+      {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+      
+      
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        if(Zero.Mouse.IsButtonDown(MouseButtons.Left))
+        {
+          this.Fire();
+          
+          this.Time += event.Dt;
+        }
+      }
+      
+      .
+      .
+      .
+
+Here, we add the elapsed time each frame onto our ``Time`` variable.
+
+Next, we'll modify our firing function to use a *sine-based oscillation factor*.
+
+*   In the WaterCannon script
+
+    -   Make the following set of additions to the ``Fire`` function:
+
+.. code-block:: csharp
+    :emphasize-lines: 7
+    
+    function Fire()
+    {
+      var waterPosition = this.Cannon.Cog.Transform.WorldTranslation;
+      waterPosition.Z = 0.0;
+      var water = this.Space.CreateAtPosition(this.WaterArchetype, waterPosition);
+      
+      var facingAngle = this.Transform.EulerAngles.Z;
+      
+      // The firing angle is equal to the rotation angle about the Z axis
+      var firingAngle = this.Transform.EulerAngles.Z;
+      
+      // The length of a direction vector is 1, so we do not need to multiply
+      // the cosine and sine of the angle by anything to get the x and y parts
+      var xPart = Math.Cos(firingAngle);
+      var yPart = Math.Sin(firingAngle);
+      // This vector does not extend at all into the Z direction
+      var zPart = 0.0;
+      
+      var firingDirection = Real3(xPart, yPart, zPart);
+      
+      water.RigidBody.Velocity = firingDirection * this.WaterSpeed;
+    }
+
+Before, we were taking the player's Z-rotation and using that as the
+*firingAngle*. We've left that line of code in for now, so that it will still
+compile properly, but now we've added another name for the Z-rotation: the
+``facingAngle``. This is because the actual firing angle is going to be a more
+complex combination of parts, rather than being just a single rotation.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 9-10
+    
+    function Fire()
+    {
+      var waterPosition = this.Cannon.Cog.Transform.WorldTranslation;
+      waterPosition.Z = 0.0;
+      var water = this.Space.CreateAtPosition(this.WaterArchetype, waterPosition);
+      
+      var facingAngle = this.Transform.EulerAngles.Z;
+      
+      // Here is our sine-based oscillation factor
+      var oscillationFactor = Math.Sin(Math.ToRadians(360.0 * this.Time / this.WavePeriod));
+      
+      // The firing angle is equal to the rotation angle about the Z axis
+      var firingAngle = this.Transform.EulerAngles.Z;
+      
+      // The length of a direction vector is 1, so we do not need to multiply
+      // the cosine and sine of the angle by anything to get the x and y parts
+      var xPart = Math.Cos(firingAngle);
+      var yPart = Math.Sin(firingAngle);
+      // This vector does not extend at all into the Z direction
+      var zPart = 0.0;
+      
+      var firingDirection = Real3(xPart, yPart, zPart);
+      
+      water.RigidBody.Velocity = firingDirection * this.WaterSpeed;
+    }
+
+The ``oscillationFactor`` will drive our water cannon's wave motion.
+
+*   Note how the outermost operation done on the right side of the equals sign
+    of the ``oscillationFactor`` is the ``Math.Sin`` function --- this
+    guarantees that the ``oscillationFactor`` will be between 1 and -1.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 12-14
+    
+    function Fire()
+    {
+      var waterPosition = this.Cannon.Cog.Transform.WorldTranslation;
+      waterPosition.Z = 0.0;
+      var water = this.Space.CreateAtPosition(this.WaterArchetype, waterPosition);
+      
+      var facingAngle = this.Transform.EulerAngles.Z;
+      
+      // Here is our sine-based oscillation factor
+      var oscillationFactor = Math.Sin(Math.ToRadians(360.0 * this.Time / this.WavePeriod));
+      
+      // The wave angle oscillates back and forth between the positive and negative ConeHalfAngle
+      //   -- The wave angle is in radians
+      var waveAngle = oscillationFactor * Math.ToRadians(this.ConeHalfAngle);
+      
+      // The firing angle is equal to the rotation angle about the Z axis
+      var firingAngle = this.Transform.EulerAngles.Z;
+      
+      // The length of a direction vector is 1, so we do not need to multiply
+      // the cosine and sine of the angle by anything to get the x and y parts
+      var xPart = Math.Cos(firingAngle);
+      var yPart = Math.Sin(firingAngle);
+      // This vector does not extend at all into the Z direction
+      var zPart = 0.0;
+      
+      var firingDirection = Real3(xPart, yPart, zPart);
+      
+      water.RigidBody.Velocity = firingDirection * this.WaterSpeed;
+    }
+
+The ``oscillationFactor`` is multiplied by the ``ConeHalfAngle`` (in radians)
+to produce the ``waveAngle``. As the ``oscillationFactor`` oscillates between 1
+and -1, the ``waveAngle`` oscillates between ``ConeHalfAngle`` and *negative*
+``ConeHalfAngle``.
+
+*   In the WaterCannon script
+
+    -   Make the following modification to the ``Fire`` function
+
+.. code-block:: csharp
+    :emphasize-lines: 16-18
+    
+    function Fire()
+    {
+      var waterPosition = this.Cannon.Cog.Transform.WorldTranslation;
+      waterPosition.Z = 0.0;
+      var water = this.Space.CreateAtPosition(this.WaterArchetype, waterPosition);
+      
+      var facingAngle = this.Transform.EulerAngles.Z;
+      
+      // Here is our sine-based oscillation factor
+      var oscillationFactor = Math.Sin(Math.ToRadians(360.0 * this.Time / this.WavePeriod));
+      
+      // The wave angle oscillates back and forth between the positive and negative ConeHalfAngle
+      //   -- The wave angle is in radians
+      var waveAngle = oscillationFactor * Math.ToRadians(this.ConeHalfAngle);
+      
+      // The firing angle is now the sum of the facing angle and the wave angle
+      //   -- Since the firing angle is a sum of two angles in radians, it, too, is in radians
+      var firingAngle = facingAngle + waveAngle;
+      
+      // The length of a direction vector is 1, so we do not need to multiply
+      // the cosine and sine of the angle by anything to get the x and y parts
+      var xPart = Math.Cos(firingAngle);
+      var yPart = Math.Sin(firingAngle);
+      // This vector does not extend at all into the Z direction
+      var zPart = 0.0;
+      
+      var firingDirection = Real3(xPart, yPart, zPart);
+      
+      water.RigidBody.Velocity = firingDirection * this.WaterSpeed;
+    }
+
+We're finally able to revise our firing angle: it is now equal to the
+``waveAngle`` plus the ``facingAngle``. The rest of the function remains the
+same as it was before.
+
+Let's take it for a spin.
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+|WavingWater|
+
+Now the water waves back and forth while the mouse button is held down.
+
+So why do we use a ``ConeHalfAngle`` property instead of ``ConeAngle``? As the
+output of the sine function driving the cannon's oscillation goes back and forth
+between 1 and -1, the ``firingAngle`` varies between ``ConeHalfAngle`` and
+*negative* ``ConeHalfAngle``. Thus, the range of possible values for the firing
+angle given a constant facing angle is ``ConeHalfAngle`` **minus**
+:bi:`negative` ``ConeHalfAngle``, or ``ConeHalfAngle`` **plus**
+``ConeHalfAngle``, or ``ConeHalfAngle`` **\ * 2**.
+
+Let's say our ``ConeHalfAngle`` is set to **15 degrees**:
+
+|FiringCone|
+
+.. sidebar:: Why Not Cosine?
+    
+    Our WaterCannon's ``Fire`` function uses the **sine** function to vary its
+    firing angle. What would happen if we were to use the **cosine** function
+    instead? Cosine has **exactly the same output range** as sine, except with a
+    *ninety-degree phase shift* --- that is, the cosine of any angle is equal to
+    the sine of 90 degrees more than that angle.
+    
+    Thus, using ``Math.Cos`` instead of ``Math.Sin`` to produce the
+    ``oscillationFactor`` would have almost the same result, except that the
+    water stream would start at the side instead of starting in the middle like
+    it does with ``Math.Sin``.
+
+The firing cone consists of a "top half-cone," produced while the output of the
+sine function is **positive**, and a "bottom half-cone," produced while the
+output of the sine function is **negative**.
+
+If we were to use a full cone angle property instead of a half-angle, then
+wherever we want to refer to the width of the cone, we'd have to divide it in
+half before we could use it.
+
+Tuning the Properties
++++++++++++++++++++++
+
+Let's play around a bit with the properties on the WaterCannon component, to get
+the behavior of the water stream just right.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+*   :ref:`Select the Player object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    -   Under WaterCannon
+
+        +   Set ConeHalfAngle to: ``60``
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+This is, perhaps, too wide of a cone. Try finding a value that works well. This
+lesson will proceed with a ``ConeHalfAngle`` of **15**.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+*   :ref:`Select the Player object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    -   Under WaterCannon
+
+        +   Set ConeHalfAngle to the desired value
+        +   Set WavePeriod to: ``4.0``
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+This wave oscillates too slowly. Try finding a value that looks nice. This
+lesson will proceed with a ``WavePeriod`` of **0.27**.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+*   :ref:`Select the Player object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    -   Under WaterCannon
+
+        +   Set WavePeriod to the desired value
+
+There's just one more feature to add before this lesson is complete.
+
+Threat Range
+------------
+
+We can imagine that the WaterCannon's ``ConeHalfAngle`` property represents the
+player's **threat range** (or, rather, half thereof) --- that is, anything the
+player can "see," based on their facing angle and the width of their firing
+cone, is at risk of being soaked with water. We may wish to show the player
+which targets they are threatening to soak before they even fire their cannon.
+
+Finding the Angle Between Two Vectors
++++++++++++++++++++++++++++++++++++++
+
+.. sidebar:: When to Use Degrees vs. Radians
+    
+    The WaterCannon's ``ConeHalfAngle`` property is a Real that specifies the
+    half-width of the angle of the firing arc for the water cannon. It is an
+    angle whose value is specified in **degrees**. Meanwhile, we've already
+    established that the Zero Engine's functions (like ``Math.Cos``) and
+    properties (like ``Transform.EulerAngles``) expect angles in **radians**. So
+    why have we written the WaterCannon component so that ``ConeHalfAngle`` is
+    given in degrees instead of radians? Notably, we can observe that we're just
+    going to have to convert its value into radians before we use it anyway.
+    What's the point of requiring this additional step?
+    
+    It all comes down to the user's experience. We have created
+    ``ConeHalfAngle`` as a property that is *exposed to the user* via the
+    editor's Properties Window. We don't want the user to have to type in
+    ``0.523599`` when they want to specify a half-angle of thirty degrees.
+    Publicly, the user sees a property where they type in a value in degrees,
+    and it all goes well; privately, behind the scenes, we convert to radians
+    for the math to work out properly. The same principle is at play with the
+    Transform component: we enter degrees for Euler angles into the **Rotation**
+    field in the Properties Window; behind the scenes, Zero converts the Euler
+    angles into a quaternion and uses that for all of its mathematical
+    calculations.
+
+If we consider the vector from the player to the target to be the **difference
+vector**, then what we want to do is find the *angle between the difference
+vector and the player's facing vector*. If this angle is small enough, then the
+player is threatening the target:
+
+|ThreatAngleVectors|
+
+As it happens, there is a formula that will give us the :bi:`cosine` *of the
+angle between two vectors*, and it has a new vector math function we haven't
+covered yet: the **dot product**.
+
+.. math::
+    
+    \cos(angleBetween_{vecA, vecB}) = \frac{\overrightarrow{vecA}\cdot\overrightarrow{vecB}}{||\overrightarrow{vecA}||*||\overrightarrow{vecB}||}
+
+A couple of clarifications:
+
+*   The dot between *vecA* and *vecB* on the top of the fraction on the right is
+    the operator indicating the *dot product*.
+*   The set of vertical lines on either side of *vecA* and *vecB* on the bottom
+    of the fraction is the operator indicating vector **magnitude**, or
+    *length*.
+
+    -   Thus, the bottom of the fraction is the two vector lengths multiplied.
+
+So, to recap this in English: the cosine of the angle between vectors ``vecA``
+and ``vecB`` is equal to their **dot product divided by the product of their
+lengths**.
+
+So what is the dot product? *The dot product of two vectors is the sum of the
+products of the respective parts of the vectors* --- that is, given vectors
+*vecA* and *vecB*,
+
+.. math::
+    
+    \overrightarrow{vecA}\cdot\overrightarrow{vecB} = (vecA_x * vecB_x) + (vecA_y * vecB_y) + (vecA_z * vecB_z)
+
+Again, to find the dot product of two vectors, we **multiply** the X parts, the
+Y parts, and the Z parts individually, and then **add** these results all
+together:
+
+.. code-block:: csharp
+    
+    var dotProductResult : Real = (vecA.X * vecB.X) + (vecA.Y * vecB.Y) + (vecA.Z * vecB.Z);
+
+(Of course, when working in the Zero Engine, we can just use the much more
+convenient ``Math.Dot`` function instead:
+
+.. code-block:: csharp
+    
+    var dotProductResult : Real = Math.Dot(vecA, vecB);
+
+Some notes:
+
+*   The dot product of two vectors is *not* another vector --- it is a
+    one-dimensional number, also known as a **scalar**, hence why the type
+    returned by ``Math.Dot`` is :cpp:type:`Real`.
+*   The Z parts of 2D vectors will generally always be 0, so the last term of
+    the dot product is often ignored when working in 2D.
+
+Once we find the dot product, we need to divide it by the lengths of each
+vector. However, if we already know that both vectors have *lengths of exactly
+1*, say, because they're **direction vectors**, then we don't need to divide: in
+this case, the dot product equals the cosine.
+
+Once we find the cosine of the angle we seek, we just need to take the **inverse
+cosine** of it, and we have our angle. The *inverse cosine* of a number is equal
+to the *smallest angle whose cosine is that number*. The inverse cosine function
+is sometimes known as *arccosine*, *arccos*, *acos*, or :math:`\cos^{-1}`; in
+Zero, we call it ``Math.ACos``, and it outputs an angle in **radians**.
+
+Putting it to Work
+++++++++++++++++++
+
+Let's add a new component to the targets that check each frame to determine
+whether they lie in the player's threat range. If they do, they will change
+their :cpp:type:`sprite<Sprite>`'s color to indicate that they are threatened.
+If they are outside of the player's threat range, they will change their color
+to show that they are safe --- *for now*. This component will use the dot
+product to determine the angle between the difference vector from the player to
+the target and the player's facing vector.
+
+*   :ref:`Add a new ZilchScript resource<ResourceAddingGAM100>` named: ``ThreatIndicator``
+*   Update your new script to look like this:
+
+.. code-block:: csharp
+    
+    class ThreatIndicator : ZilchComponent
+    {
+      function Initialize(init : CogInitializer)
+      {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+      
+      
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        
+      }
+    }
+
+*   In the ThreatIndicator script
+
+    -   Make the following set of additions to the code:
+
+.. code-block:: csharp
+    
+    class ThreatIndicator : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      [Dependency]
+      var Sprite : Sprite;
+      
+      .
+      .
+      .
+
+This component has dependencies on both Transform and Sprite.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 9-10
+    
+    class ThreatIndicator : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      [Dependency]
+      var Sprite : Sprite;
+      
+      
+      [Property]
+      var Player : CogPath;
+      
+      .
+      .
+      .
+
+The ``Player`` property is a :cpp:type:`CogPath` that we will soon point to the
+player.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 12-13
+    
+    class ThreatIndicator : ZilchComponent
+    {
+      [Dependency]
+      var Transform : Transform;
+      [Dependency]
+      var Sprite : Sprite;
+      
+      
+      [Property]
+      var Player : CogPath;
+      
+      var SafeColor : Real4 = Real4(1.0, 1.0, 0.0, 1.0);
+      var ThreatColor : Real4 = Real4(1.0, 0.0, 0.2, 1.0);
+      
+      .
+      .
+      .
+
+The ``SafeColor`` and ``ThreatColor`` member variables define what color the
+target should turn when it is safe and when it is threatened, respectively.
+
+.. container:: nextblock
+    
+    Finally:
+
+.. code-block:: csharp
+    :emphasize-lines: 7, 11-14
+    
+      .
+      .
+      .
+    
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        this.CheckThreat();
+      }
+      
+      
+      function CheckThreat()
+      {
+        
+      }
+    }
+
+Every frame, the target will check whether it is threatened using the
+``CheckThreat`` function.
+
+Let's put this on a target and then start filling in its code.
+
+*   :ref:`Select a Target object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    -   :ref:`Add a ThreatIndicator component <AddComponentGAM100>`
+    -   Under ThreatIndicator
+
+        +   :ref:`Point the Player CogPath property to the Player Object<CogPathsGAM100GAM100>`
+
+    -   ``Left-click`` the green **Upload to Archetype** button
+
+Now all of the targets in the level should have a CogPath reference to the
+player.
+
+Now to find that angle. Once again, what we're looking for is the player's angle
+from the target, so that we can compare it to the WaterCannon's
+``ConeHalfAngle``. To find this angle, we need to find two direction vectors:
+
+1.  the direction pointing from the player to the target, and
+2.  the player's facing vector
+
+Let's get started.
+
+*   In the ThreatIndicator script
+
+    -   Make the following set of additions to the ``CheckThreat`` function:
+
+.. code-block:: csharp
+    :emphasize-lines: 3-4
+    
+    function CheckThreat()
+    {
+      var playerPosition = this.Player.Cog.Transform.Translation;
+      var targetPosition = this.Transform.Translation;
+    }
+
+To find the direction from the player to the target, we first need their
+difference vector, and that means we need both of their positions.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 6-7
+    
+    function CheckThreat()
+    {
+      var playerPosition = this.Player.Cog.Transform.Translation;
+      var targetPosition = this.Transform.Translation;
+      
+      var playerToTarget = targetPosition - playerPosition;
+      var playerDirectionToTarget = Math.Normalize(playerToTarget);
+    }
+
+Remember, the difference vector between two points is the *target point minus
+the source point*. Once we have the ``playerToTarget`` difference vector, we
+*normalize* it, giving us the *direction from the player to the target*.
+
+Now we need the player's **facing direction**, but we already know how to find
+that.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 9-15
+    
+    function CheckThreat()
+    {
+      var playerPosition = this.Player.Cog.Transform.Translation;
+      var targetPosition = this.Transform.Translation;
+      
+      var playerToTarget = targetPosition - playerPosition;
+      var playerDirectionToTarget = Math.Normalize(playerToTarget);
+      
+      var playerAngle = this.Player.Cog.Transform.EulerAngles.Z;
+      
+      var playerFacingX = Math.Cos(playerAngle);
+      var playerFacingY = Math.Sin(playerAngle);
+      var playerFacingZ = 0.0;
+      
+      var playerFacing = Real3(playerFacingX, playerFacingY, playerFacingZ);
+    }
+
+*   The X part of the facing vector is the **cosine of the facing angle**.
+*   The Y part of the facing vector is the **sine of the facing angle**.
+*   The Z part of the facing vector is **0**, because we're working in 2D. 
+
+Now we have both direction vectors.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 17-18
+    
+    function CheckThreat()
+    {
+      var playerPosition = this.Player.Cog.Transform.Translation;
+      var targetPosition = this.Transform.Translation;
+      
+      var playerToTarget = targetPosition - playerPosition;
+      var playerDirectionToTarget = Math.Normalize(playerToTarget);
+      
+      var playerAngle = this.Player.Cog.Transform.EulerAngles.Z;
+      
+      var playerFacingX = Math.Cos(playerAngle);
+      var playerFacingY = Math.Sin(playerAngle);
+      var playerFacingZ = 0.0;
+      
+      var playerFacing = Real3(playerFacingX, playerFacingY, playerFacingZ);
+      
+      var cosineOfAngle = Math.Dot(playerDirectionToTarget, playerFacing);
+      var playerAngleToTarget = Math.ACos(cosineOfAngle);
+    }
+
+Now we **dot** the two vectors, giving us the *cosine of the angle* we're
+looking for. We then just employ the ``Math.ACos`` function, and we have our
+angle.
+
+*   The angle we get back from the ``Math.ACos`` function is in **radians**.
+    The WaterCannon's ``ConeHalfAngle`` property is in **degrees**. This means
+    that before we can compare them, we'll have to convert one to the other.
+
+.. container:: nextblock
+    
+    Next:
+
+.. code-block:: csharp
+    :emphasize-lines: 20
+    
+    function CheckThreat()
+    {
+      var playerPosition = this.Player.Cog.Transform.Translation;
+      var targetPosition = this.Transform.Translation;
+      
+      var playerToTarget = targetPosition - playerPosition;
+      var playerDirectionToTarget = Math.Normalize(playerToTarget);
+      
+      var playerAngle = this.Player.Cog.Transform.EulerAngles.Z;
+      
+      var playerFacingX = Math.Cos(playerAngle);
+      var playerFacingY = Math.Sin(playerAngle);
+      var playerFacingZ = 0.0;
+      
+      var playerFacing = Real3(playerFacingX, playerFacingY, playerFacingZ);
+      
+      var cosineOfAngle = Math.Dot(playerDirectionToTarget, playerFacing);
+      var playerAngleToTarget = Math.ACos(cosineOfAngle);
+      
+      var playerConeHalfAngleRadians = Math.Radians(this.Player.Cog.WaterCannon.ConeHalfAngle);
+    }
+
+Now we've converted the WaterCannon's ``ConeHalfAngle`` property into radians,
+and we're ready to compare.
+
+.. container:: nextblock
+    
+    Finally:
+
+.. code-block:: csharp
+    :emphasize-lines: 22-29
+    
+    function CheckThreat()
+    {
+      var playerPosition = this.Player.Cog.Transform.Translation;
+      var targetPosition = this.Transform.Translation;
+      
+      var playerToTarget = targetPosition - playerPosition;
+      var playerDirectionToTarget = Math.Normalize(playerToTarget);
+      
+      var playerAngle = this.Player.Cog.Transform.EulerAngles.Z;
+      
+      var playerFacingX = Math.Cos(playerAngle);
+      var playerFacingY = Math.Sin(playerAngle);
+      var playerFacingZ = 0.0;
+      
+      var playerFacing = Real3(playerFacingX, playerFacingY, playerFacingZ);
+      
+      var cosineOfAngle = Math.Dot(playerDirectionToTarget, playerFacing);
+      var playerAngleToTarget = Math.ACos(cosineOfAngle);
+      
+      var playerConeHalfAngleRadians = Math.Radians(this.Player.Cog.WaterCannon.ConeHalfAngle);
+      
+      if(playerAngleToTarget <= playerConeHalfAngleRadians)
+      {
+        this.Sprite.Color = this.ThreatColor;
+      }
+      else
+      {
+        this.Sprite.Color = this.SafeColor;
+      }
+    }
+
+Finally, we compare the angle we found earlier to the WaterCannon's
+``ConeHalfAngle``, converted to radians. If the angle is within the cone, then
+the target is **threatened**, and we change its color accordingly. If it's not,
+then the target is **safe**, and we apply its ``SafeColor``.
+
+Let's try it out.
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+|ThreatIndicationAndSoaking|
+
+Now the targets change colors to indicate whether they are within the player's
+threat range. Changing the value of the ``ConeHalfAngle`` property on the
+player's WaterCannon will change this threat range.
+
+.. admonition:: Unthreatened Targets Being Soaked Regardless
+    
+    If you look closely, you may notice that it is possible, under certain
+    conditions, to soak a target in water even when it is *not threatened*.
+    
+    Why is this possible? This is left as an exercise for the reader.
+
+Now we know more about how to use vector math to move and rotate objects and add
+functionality to our games.
+
+..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..
+
+.. |Player|
+    image:: images/VectorMath2/Player.png
+.. |P1MinusP0|
+    image:: images/VectorMath2/P1MinusP0.png
+.. |DifferenceVectorDiagram|
+    image:: images/VectorMath2/DifferenceVectorDiagram.png
+.. |DegreesAndRadians|
+    image:: images/VectorMath2/DegreesAndRadians.png
+.. |MouseAngleDiagram|
+    image:: images/VectorMath2/MouseAngleDiagram.png
+.. |RotationAxes|
+    image:: images/VectorMath2/RotationAxes.gif
+.. |MouseRotation|
+    image:: images/VectorMath2/MouseRotation.gif
+.. |WaterArchetype|
+    image:: images/VectorMath2/WaterArchetype.png
+.. |WaterStreamToRight|
+    image:: images/VectorMath2/WaterStreamToRight.gif
+.. |PlayerAndFiringDirection|
+    image:: images/VectorMath2/PlayerAndFiringDirection.png
+.. |RightTriangle|
+    image:: images/VectorMath2/RightTriangle.png
+.. |RightTriangleSideNames|
+    image:: images/VectorMath2/RightTriangleSideNames.png
+.. |IntroducingCosineAndSine|
+    image:: images/VectorMath2/IntroducingCosineAndSine.png
+.. |SideLengths|
+    image:: images/VectorMath2/SideLengths.png
+.. |CosineAndSine|
+    image:: images/VectorMath2/CosineAndSine.gif
+.. |WaterStreamFollowingMouse|
+    image:: images/VectorMath2/WaterStreamFollowingMouse.gif
+.. |WaterColliding|
+    image:: images/VectorMath2/WaterColliding.gif
+.. |WaterSoakingTarget|
+    image:: images/VectorMath2/WaterSoakingTarget.gif
+.. |DragDuplicate|
+    image:: images/VectorMath2/DragDuplicate.gif
+.. |ManyTargets|
+    image:: images/VectorMath2/ManyTargets.png
+.. |WavingWater|
+    image:: images/VectorMath2/WavingWater.gif
+.. |FiringCone|
+    image:: images/VectorMath2/FiringCone.png
+.. |ThreatAngleVectors|
+    image:: images/VectorMath2/ThreatAngleVectors.gif
+.. |ThreatIndicationAndSoaking|
+    image:: images/VectorMath2/ThreatIndicationAndSoaking.gif

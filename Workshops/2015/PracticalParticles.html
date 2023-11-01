@@ -1,0 +1,1491 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/PracticalParticles.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:21:32 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Particle Effects: Practical Applications &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2015" href="index.html"/>
+        <link rel="next" title="Executing Commands" href="Commands.html"/>
+        <link rel="prev" title="Ray Casting" href="RayCasting.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2015</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprites and Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ArraysLoops.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Random.html">Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath.html">Vector Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RayCasting.html">Ray Casting</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Particle Effects: Practical Applications</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LauncherNewProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Adding &amp; Removing Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tags.html">Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2015</a> &raquo;</li>
+      
+    <li>Particle Effects: Practical Applications</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2015/PracticalParticles.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- this is used as a file for inclusion in other .rst files --><div class="searchtitle section" id="particle-effects-practical-applications">
+<span id="practicalparticles2015"></span><h1>Particle Effects: Practical Applications</h1>
+<p class="searchdescription">This lesson expands on what we&#8217;ve learned in <a class="reference internal" href="ParticleEffects.html#particleeffects2015"><span>the previous lesson about
+particle effects</span></a>, and goes into further detail on some ways
+that you can use particles to make your game look and feel cooler.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="LauncherNewProject.html#createnewproject2015"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="import-particle-sprites">
+<h2>Import Particle Sprites</h2>
+<p>For this lesson&#8217;s particle effects, we&#8217;ll be using a few images from the Void.</p>
+<ul class="simple">
+<li><a class="reference internal" href="UsingTheVoid.html#usingthevoid2015"><span>Download the following files from the Void:</span></a><ul>
+<li><code class="docutils literal"><span class="pre">Cloud.png</span></code></li>
+<li><code class="docutils literal"><span class="pre">FastSpark.png</span></code></li>
+<li><code class="docutils literal"><span class="pre">Fire.png</span></code></li>
+<li><code class="docutils literal"><span class="pre">FlashParticle.png</span></code></li>
+<li><code class="docutils literal"><span class="pre">ShockWave.png</span></code></li>
+<li><code class="docutils literal"><span class="pre">SmallRock0.png</span></code></li>
+<li><code class="docutils literal"><span class="pre">SmallRock1.png</span></code></li>
+<li><code class="docutils literal"><span class="pre">SmallRock2.png</span></code></li>
+<li><code class="docutils literal"><span class="pre">Twinkle.png</span></code></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="making-a-cool-explosion">
+<h2>Making a Cool Explosion</h2>
+<p>An excellent way to make an impressive explosion in a video game is through the
+use of particle effects. The best particle-based explosions are typically made
+out of several separate effects all working together. Our explosion will be
+composed of a <em>flash</em> of light, some <em>fire</em> and <em>smoke</em>, some <em>sparks</em>, a bunch
+of flying <em>debris</em>, a cool <em>shock wave</em>, and a handful of <em>ballistic smoke
+trails</em>. We&#8217;ll make them all individually, and then learn how to combine them
+together into one cohesive effect.</p>
+<p></p>
+<div class="section" id="flash-effect">
+<h3>Flash Effect</h3>
+<p>The flash effect is quick and subtle, but adds nicely to the impact of the
+explosion. Its particles should appear and be gone in a very brief amount of
+time.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or
+<span class="menuselection">Create ‣ Create Particle System</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the BasicParticleEffect object we just created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Flash</span></code></li>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">FlashParticle</span></code></li>
+<li>Set RenderMode to: <code class="docutils literal"><span class="pre">Additive</span></code></li>
+<li>Set Tint to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">224,</span> <span class="pre">B:</span> <span class="pre">128,</span> <span class="pre">A:</span> <span class="pre">0.25]</span></code>, <code class="docutils literal"><span class="pre">#FFE080</span></code></li>
+</ul>
+</li>
+<li>Under SphericalParticleEmitter<ul>
+<li>Set EmitCount to: <code class="docutils literal"><span class="pre">12</span></code></li>
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">200</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Note that, when making a particle effect that uses a non-zero value for the
+<strong>EmitCount</strong> property, the emitter will stop spawning particles when it has
+become <em>exhausted</em>, or out of particles to spawn. This may be inconvenient while
+you are trying to design an elaborate particle effect, so you can use the
+<strong>ResetCount</strong> button at the bottom of the emitter component in the Properties
+Window to &#8220;refresh&#8221; the emitter and see it run again:</p>
+<p><img alt="ResetCount" src="../../_images/ResetCount1.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Size to: <code class="docutils literal"><span class="pre">8</span></code></li>
+<li>Set SizeVariance to: <code class="docutils literal"><span class="pre">2</span></code></li>
+<li>Set Lifetime to: <code class="docutils literal"><span class="pre">0.05</span></code></li>
+<li>Set LifetimeVariance to: <code class="docutils literal"><span class="pre">0</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[20,</span> <span class="pre">20,</span> <span class="pre">20]</span></code></li>
+<li>Set EmitterSize to: <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code></li>
+</ul>
+</div></blockquote>
+<p></p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li>Press the <strong>ResetCount</strong> button a few times to see the Flash effect in
+action</li>
+</ul>
+</div></blockquote>
+<p><img alt="FlashEffect" src="../../_images/FlashEffect1.png" /></p>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+</ul>
+</div>
+<div class="section" id="fire-effect">
+<h3>Fire Effect</h3>
+<p>This explosion is going to be on the smokier side, so the fire effect is going
+to be a bit subtle, but it will be noticeable. It should bloom up and outward,
+growing while it goes, then quickly die out.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or
+<span class="menuselection">Create ‣ Create Particle System</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the BasicParticleEffect object we just created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Fire</span></code></li>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">Fire</span></code></li>
+<li>Set RenderMode to: <code class="docutils literal"><span class="pre">Additive</span></code></li>
+<li>Set Tint to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">208,</span> <span class="pre">B:</span> <span class="pre">64,</span> <span class="pre">A:</span> <span class="pre">0.50]</span></code>, <code class="docutils literal"><span class="pre">#FFD040</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<blockquote>
+<div><ul class="simple">
+<li>Under SphericalParticleEmitter<ul>
+<li>Set EmitCount to: <code class="docutils literal"><span class="pre">40</span></code></li>
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">50000</span></code></li>
+<li>Set Size to: <code class="docutils literal"><span class="pre">1</span></code></li>
+<li>Set SizeVariance to: <code class="docutils literal"><span class="pre">1</span></code></li>
+<li>Set Lifetime to: <code class="docutils literal"><span class="pre">0.3</span></code></li>
+<li>Set LifetimeVariance to: <code class="docutils literal"><span class="pre">0.3</span></code></li>
+<li>Set SpinVariance to: <code class="docutils literal"><span class="pre">500</span></code></li>
+<li>Set StartVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">4,</span> <span class="pre">0]</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[3,</span> <span class="pre">0,</span> <span class="pre">3]</span></code></li>
+</ul>
+</li>
+<li>Under LinearParticleAnimator<ul>
+<li>Set Growth to: <code class="docutils literal"><span class="pre">20</span></code></li>
+</ul>
+</li>
+<li>Under ParticleColorAnimator<ul>
+<li>Set Color2 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">0.50]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+<li>Set Color3 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">0.25]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p></p>
+<blockquote>
+<div><ul class="simple">
+<li>Under SphericalParticleEmitter<ul>
+<li>Press the <strong>ResetCount</strong> button a few times to see the Fire effect in
+action</li>
+</ul>
+</li>
+</ul>
+<p><img alt="FireEffect" src="../../_images/FireEffect1.png" /></p>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="smoke-effect">
+<h3>Smoke Effect</h3>
+<p>This is a smoky explosion, but this particular effect isn&#8217;t the star of the show
+&#8212; that will come a bit later. This is just a small, central puff that billows
+above the fire effect we just made. Like the fire, it should grow and die
+quickly.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or
+<span class="menuselection">Create ‣ Create Particle System</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the BasicParticleEffect object we just created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Smoke</span></code></li>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">WhiteCloud</span></code></li>
+<li>Set Tint to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">0.50]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+</ul>
+</li>
+<li>Under SphericalParticleEmitter<ul>
+<li>Set EmitCount to: <code class="docutils literal"><span class="pre">70</span></code></li>
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">50000</span></code></li>
+<li>Set Size to: <code class="docutils literal"><span class="pre">0.4</span></code></li>
+<li>Set SizeVariance to: <code class="docutils literal"><span class="pre">0.4</span></code></li>
+<li>Set Lifetime to: <code class="docutils literal"><span class="pre">0.8</span></code></li>
+<li>Set LifetimeVariance to: <code class="docutils literal"><span class="pre">0.8</span></code></li>
+<li>Set SpinVariance to: <code class="docutils literal"><span class="pre">500</span></code></li>
+<li>Set StartVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">10,</span> <span class="pre">0]</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[8,</span> <span class="pre">6,</span> <span class="pre">8]</span></code></li>
+</ul>
+</li>
+<li>Under LinearParticleAnimator<ul>
+<li>Set Force to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">3,</span> <span class="pre">0]</span></code></li>
+<li>Set RandomForce to: <code class="docutils literal"><span class="pre">[50,</span> <span class="pre">10,</span> <span class="pre">50]</span></code></li>
+<li>Set Growth to: <code class="docutils literal"><span class="pre">7</span></code></li>
+<li>Set Dampening to: <code class="docutils literal"><span class="pre">2</span></code></li>
+</ul>
+</li>
+<li>Under ParticleColorAnimator<ul>
+<li>Set Color0 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">212,</span> <span class="pre">B:</span>&nbsp;&nbsp; <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#FFD400</span></code></li>
+<li>Set Color1 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">180,</span> <span class="pre">G:</span> <span class="pre">180,</span> <span class="pre">B:</span> <span class="pre">180,</span> <span class="pre">A:</span> <span class="pre">0.80]</span></code>, <code class="docutils literal"><span class="pre">#B4B4B4</span></code></li>
+<li>Set Color2 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">150,</span> <span class="pre">G:</span> <span class="pre">150,</span> <span class="pre">B:</span> <span class="pre">150,</span> <span class="pre">A:</span> <span class="pre">0.60]</span></code>, <code class="docutils literal"><span class="pre">#969696</span></code></li>
+<li>Set Color3 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">112,</span> <span class="pre">G:</span> <span class="pre">112,</span> <span class="pre">B:</span> <span class="pre">112,</span> <span class="pre">A:</span> <span class="pre">0.40]</span></code>, <code class="docutils literal"><span class="pre">#707070</span></code></li>
+<li>Set Color4 to: <code class="docutils literal"><span class="pre">[R:</span>&nbsp; <span class="pre">64,</span> <span class="pre">G:</span>&nbsp; <span class="pre">64,</span> <span class="pre">B:</span>&nbsp; <span class="pre">64,</span> <span class="pre">A:</span> <span class="pre">0.20]</span></code>, <code class="docutils literal"><span class="pre">#404040</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<blockquote>
+<div><ul class="simple">
+<li>Under SphericalParticleEmitter<ul>
+<li>Press the <strong>ResetCount</strong> button a few times to see the Smoke effect in
+action</li>
+</ul>
+</li>
+</ul>
+<p><img alt="SmokeEffect" src="../../_images/SmokeEffect1.png" /></p>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="sparks-effect">
+<h3>Sparks Effect</h3>
+<p>The explosion should throw a small shower of sparks. These sparks should quickly
+fly away from the center of the explosion as trails of light.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or
+<span class="menuselection">Create ‣ Create Particle System</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the BasicParticleEffect object we just created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Sparks</span></code></li>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">FastSpark</span></code></li>
+<li>Set RenderMode to: <code class="docutils literal"><span class="pre">Additive</span></code></li>
+<li>Set Tint to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">224,</span> <span class="pre">B:</span> <span class="pre">128,</span> <span class="pre">A:</span> <span class="pre">0.65]</span></code>, <code class="docutils literal"><span class="pre">#FFE080</span></code></li>
+<li>Set GeometryMode to: <code class="docutils literal"><span class="pre">Beam</span></code></li>
+<li>Set VelocityScale to: <code class="docutils literal"><span class="pre">0.5</span></code></li>
+</ul>
+</li>
+<li>Under SphericalParticleEmitter<ul>
+<li>Set EmitCount to: <code class="docutils literal"><span class="pre">60</span></code></li>
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">500</span></code></li>
+<li>Set Size to: <code class="docutils literal"><span class="pre">0.4</span></code></li>
+<li>Set SizeVariance to: <code class="docutils literal"><span class="pre">0.4</span></code></li>
+<li>Set Lifetime to: <code class="docutils literal"><span class="pre">0.3</span></code></li>
+<li>Set LifetimeVariance to: <code class="docutils literal"><span class="pre">0.15</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[25,</span> <span class="pre">25,</span> <span class="pre">25]</span></code></li>
+</ul>
+</li>
+<li>Under ParticleColorAnimator<ul>
+<li>Set Color2 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">0.50]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+<li>Set Color3 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">0.25]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<blockquote>
+<div><ul class="simple">
+<li>Under SphericalParticleEmitter<ul>
+<li>Press the <strong>ResetCount</strong> button a few times to see the Sparks effect in
+action</li>
+</ul>
+</li>
+</ul>
+<p><img alt="SparksEffect" src="../../_images/SparksEffect1.png" /></p>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+</ul>
+<p></p>
+<p>At this point, it might be a good idea to preview what we&#8217;ve done so far, to see
+how the Flash, Fire, Smoke, and Sparks effects will look together.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Flash, Fire, Smoke, and Sparks objects</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Under SphericalParticleEmitter<ul>
+<li>Press the <strong>ResetCount</strong> button a few times to see this collection of
+effects in action</li>
+</ul>
+</li>
+</ul>
+<p><img alt="ExplosionStageOne" src="../../_images/ExplosionStageOne1.png" /></p>
+</li>
+</ul>
+<p>It looks good so far, but we&#8217;re not done yet.</p>
+<p></p>
+</div>
+<div class="section" id="debris-effects">
+<h3>Debris Effects</h3>
+<p>This explosion will throw a bunch of bits of debris around at high speeds. We&#8217;re
+going to use three different sprites for this effect, so this will actually mean
+three different particle effect objects. We can create the first one, then
+duplicate it and modify the duplicates to save time.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or
+<span class="menuselection">Create ‣ Create Particle System</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the BasicParticleEffect object we just created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Debris0</span></code></li>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">SmallRock0</span></code></li>
+<li>Set Tint to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">128,</span> <span class="pre">G:</span> <span class="pre">128,</span> <span class="pre">B:</span> <span class="pre">128,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#808080</span></code></li>
+<li>Set SystemSize to: <code class="docutils literal"><span class="pre">[20,</span> <span class="pre">20,</span> <span class="pre">20]</span></code></li>
+</ul>
+</li>
+<li>Under SphericalParticleEmitter<ul>
+<li>Set EmitCount to: <code class="docutils literal"><span class="pre">8</span></code></li>
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">60</span></code></li>
+<li>Set Size to: <code class="docutils literal"><span class="pre">0.75</span></code></li>
+<li>Set SizeVariance to: <code class="docutils literal"><span class="pre">0.25</span></code></li>
+<li>Set LifetimeVariance to: <code class="docutils literal"><span class="pre">0</span></code></li>
+<li>Set SpinVariance to: <code class="docutils literal"><span class="pre">500</span></code></li>
+<li>Set StartVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">8,</span> <span class="pre">0]</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[16,</span> <span class="pre">16,</span> <span class="pre">16]</span></code></li>
+</ul>
+</li>
+<li>Under LinearParticleAnimator<ul>
+<li>Set Force to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">-20,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Under ParticleColorAnimator<ul>
+<li>Set Color0 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+</ul>
+<p></p>
+<p>That&#8217;s one debris effect down. Let&#8217;s duplicate it and make the next one.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Debris0 object</span></a></li>
+<li><strong>Duplicate</strong> the object by pressing <code class="docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Debris1</span></code></li>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">SmallRock1</span></code></li>
+<li>Set Tint to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">192,</span> <span class="pre">G:</span> <span class="pre">192,</span> <span class="pre">B:</span> <span class="pre">192,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#C0C0C0</span></code></li>
+</ul>
+</li>
+<li>Under SphericalParticleEmitter<ul>
+<li>Set EmitCount to: <code class="docutils literal"><span class="pre">12</span></code></li>
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">90</span></code></li>
+<li>Set Size to: <code class="docutils literal"><span class="pre">0.5</span></code></li>
+<li>Set StartVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">16,</span> <span class="pre">0]</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[32,</span> <span class="pre">32,</span> <span class="pre">32]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+</ul>
+<p>One more debris effect to go.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Debris1 object</span></a></li>
+<li><strong>Duplicate</strong> the object by pressing <code class="docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Debris2</span></code></li>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">SmallRock2</span></code></li>
+<li>Set Tint to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+</ul>
+</li>
+<li>Under SphericalParticleEmitter<ul>
+<li>Set EmitCount to: <code class="docutils literal"><span class="pre">16</span></code></li>
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">120</span></code></li>
+<li>Set Size to: <code class="docutils literal"><span class="pre">0.25</span></code></li>
+<li>Set StartVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">32,</span> <span class="pre">0]</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[64,</span> <span class="pre">64,</span> <span class="pre">64]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+</ul>
+<p></p>
+<p>...There! Now let&#8217;s see all the debris effects together.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Debris0, Debris1, and Debris2 objects</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Under SphericalParticleEmitter<ul>
+<li>Press the <strong>ResetCount</strong> button a few times to see all of the debris
+effects in action</li>
+</ul>
+</li>
+</ul>
+<p><img alt="DebrisEffects" src="../../_images/DebrisEffects1.png" /></p>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="shock-wave-effect">
+<h3>Shock Wave Effect</h3>
+<p>The explosion should create a quick shock wave that propagates out along the XZ
+plane (sideways and towards the camera).</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or
+<span class="menuselection">Create ‣ Create Particle System</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the BasicParticleEffect object we just created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">ShockWave</span></code></li>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">ShockWave</span></code></li>
+<li>Set RenderMode to: <code class="docutils literal"><span class="pre">Additive</span></code></li>
+<li>Set Tint to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">0.10]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+</ul>
+</li>
+<li>Under SphericalParticleEmitter<ul>
+<li>Set EmitCount to: <code class="docutils literal"><span class="pre">6</span></code></li>
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">120</span></code></li>
+<li>Set SizeVariance to: <code class="docutils literal"><span class="pre">0</span></code></li>
+<li>Set Lifetime to: <code class="docutils literal"><span class="pre">0.4</span></code></li>
+<li>Set LifetimeVariance to: <code class="docutils literal"><span class="pre">0</span></code></li>
+<li>Set SpinVariance to: <code class="docutils literal"><span class="pre">0</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Under LinearParticleAnimator<ul>
+<li>Set Growth to: <code class="docutils literal"><span class="pre">200</span></code></li>
+</ul>
+</li>
+<li>Under ParticleColorAnimator<ul>
+<li>Set Color0 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+<li>Set Color1 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">0.60]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+<li>Set Color2 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">0.30]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+<li>Set Color3 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">0.10]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+<li>Set Color4 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">0.00]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p>Let&#8217;s see how it looks so far:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under SphericalParticleEmitter<ul>
+<li>Press the <strong>ResetCount</strong> button a few times to see the ShockWave effect
+in action</li>
+</ul>
+</li>
+</ul>
+<p><img alt="ShockWaveEffectBillboarded" src="../../_images/ShockWaveEffectBillboarded1.png" /></p>
+</div></blockquote>
+<p>It looks cool, but we can make it even better by rotating it around the X axis.
+To do that, we&#8217;ll need to change the system&#8217;s <strong>GeometryMode</strong>, as well as a few
+other properties.</p>
+<div class="sidebar">
+<p class="first sidebar-title">GeometryMode: Flat</p>
+<p>Setting the SpriteParticleSystem&#8217;s <strong>GeometryMode</strong> property to <code class="docutils literal"><span class="pre">Flat</span></code>
+causes the particles to lay flat on their XZ plane.</p>
+<ul class="last simple">
+<li>When <code class="docutils literal"><span class="pre">Flat</span></code> particles are created, they will lay flat on the World XZ
+plane if their system&#8217;s <strong>SystemSpace</strong> property is set to <code class="docutils literal"><span class="pre">WorldSpace</span></code>,
+and they will lay flat on the XZ plane of their system&#8217;s Transform if the
+<strong>SystemSpace</strong> property is set to <code class="docutils literal"><span class="pre">LocalSpace</span></code>.<ul>
+<li>Using the <code class="docutils literal"><span class="pre">LocalSpace</span></code> setting, you can rotate the particles by changing
+the <strong>Rotation</strong> property of the Transform component.</li>
+</ul>
+</li>
+</ul>
+</div>
+<p></p>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[8,</span> <span class="pre">-1,</span> <span class="pre">0]</span></code></li>
+<li>Set Rotation to: <code class="docutils literal"><span class="pre">[5,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Under SpriteParticleSystem<ul>
+<li>Set SystemSpace to: <code class="docutils literal"><span class="pre">LocalSpace</span></code></li>
+<li>Set GeometryMode to: <code class="docutils literal"><span class="pre">Flat</span></code></li>
+</ul>
+</li>
+<li>Under SphericalParticleEmitter<ul>
+<li>Press the <strong>ResetCount</strong> button a few times to see the ShockWave effect
+in action</li>
+</ul>
+</li>
+</ul>
+<p><img alt="ShockWaveEffectFlat" src="../../_images/ShockWaveEffectFlat1.png" /></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></p>
+</li>
+</ul>
+<p></p>
+<p>Let&#8217;s check in again and see all the explosion effects we&#8217;ve made so far.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Flash, Fire, Smoke, Sparks, Debris0, Debris1, Debris2, and
+ShockWave objects</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Under SphericalParticleEmitter<ul>
+<li>Press the <strong>ResetCount</strong> button a few times to see this collection of
+effects in action</li>
+</ul>
+</li>
+</ul>
+<p><img alt="ExplosionStageTwo" src="../../_images/ExplosionStageTwo1.png" /></p>
+</li>
+</ul>
+<p>Already we have a convincing explosion effect on our hands. If we were in a
+hurry, we could call it done and be satisfied.</p>
+<p>...Let&#8217;s make it even better.</p>
+<p></p>
+</div>
+</div>
+<div class="section" id="object-systems">
+<h2>Object Systems</h2>
+<p>So far, we&#8217;ve only created particle effects that use the
+<code class="docutils literal"><span class="pre">SpriteParticleSystem</span></code> component. These are great for quick, easy, lightweight
+effects. But there&#8217;s another kind of particle system: the <strong>ObjectSystem</strong>.
+Whereas a SpriteParticleSystem spawns humble sprites from a specified textures,
+the ObjectSystem spawns cogs from a specified <em>archetype</em>. We might use a
+particle effect with an ObjectSystem to spawn 3D models, collectable coins,
+damaging fireballs, enemies with AI... just about any kind of game object you
+can imagine, <em>including other particle effects</em>. This last use is what we&#8217;ll do
+now.</p>
+<div class="section" id="ballistic-smoke-effect">
+<h3>Ballistic Smoke Effect</h3>
+<p>The explosion we&#8217;re making should do one last thing &#8212; launch a few trails of
+smoke in different directions. These smoke trails will actually be moving
+particle effects. We&#8217;ll make the smoke trail particle effect now, and then
+upload it as an archetype so we can use it later.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or
+<span class="menuselection">Create ‣ Create Particle System</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the BasicParticleEffect object we just created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">BallisticSmoke</span></code></li>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">WhiteCloud</span></code></li>
+<li>Set Tint to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">192,</span> <span class="pre">G:</span> <span class="pre">192,</span> <span class="pre">B:</span> <span class="pre">192,</span> <span class="pre">A:</span> <span class="pre">0.75]</span></code>, <code class="docutils literal"><span class="pre">#C0C0C0</span></code></li>
+<li>Set SortMode to: <code class="docutils literal"><span class="pre">Sorted</span></code></li>
+<li>Set SystemSize to: <code class="docutils literal"><span class="pre">[20,</span> <span class="pre">20,</span> <span class="pre">20]</span></code></li>
+</ul>
+</li>
+<li>Under SphericalParticleEmitter<ul>
+<li>Set EmitCount to: <code class="docutils literal"><span class="pre">1500</span></code></li>
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">500</span></code></li>
+<li>Set Lifetime to: <code class="docutils literal"><span class="pre">0.5</span></code></li>
+<li>Set LifetimeVariance to: <code class="docutils literal"><span class="pre">0.5</span></code></li>
+<li>Set StartVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">0]</span></code></li>
+<li>Set FastMovingEmitter to: <code class="docutils literal"><span class="pre">true</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<blockquote>
+<div><ul class="simple">
+<li>Under LinearParticleAnimator<ul>
+<li>Set RandomForce to: <code class="docutils literal"><span class="pre">[10,</span> <span class="pre">10,</span> <span class="pre">10]</span></code></li>
+<li>Set Growth to: <code class="docutils literal"><span class="pre">1</span></code></li>
+<li>Set Dampening to: <code class="docutils literal"><span class="pre">2</span></code></li>
+</ul>
+</li>
+<li>Under ParticleColorAnimator<ul>
+<li>Set Color0 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">232,</span> <span class="pre">B:</span> <span class="pre">128,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#FFE880</span></code></li>
+<li>Set Color1 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">248,</span> <span class="pre">B:</span> <span class="pre">216,</span> <span class="pre">A:</span> <span class="pre">0.75]</span></code>, <code class="docutils literal"><span class="pre">#FFF8D8</span></code></li>
+<li>Set Color2 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">0.50]</span></code>, <code class="docutils literal"><span class="pre">#FFFFFF</span></code></li>
+<li>Set Color3 to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">112,</span> <span class="pre">G:</span> <span class="pre">112,</span> <span class="pre">B:</span> <span class="pre">112,</span> <span class="pre">A:</span> <span class="pre">0.25]</span></code>, <code class="docutils literal"><span class="pre">#707070</span></code></li>
+<li>Set Color4 to: <code class="docutils literal"><span class="pre">[R:</span>&nbsp;&nbsp; <span class="pre">0,</span> <span class="pre">G:</span>&nbsp;&nbsp; <span class="pre">0,</span> <span class="pre">B:</span>&nbsp;&nbsp; <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">0.00]</span></code>, <code class="docutils literal"><span class="pre">#000000</span></code></li>
+</ul>
+</li>
+<li>Under SphericalParticleEmitter<ul>
+<li>Press the <strong>ResetCount</strong> button to see the BallisticSmoke effect in action</li>
+</ul>
+</li>
+</ul>
+<p><img alt="BallisticSmokeEffect" src="../../_images/BallisticSmokeEffect1.png" /></p>
+</div></blockquote>
+<p>It&#8217;s not much to look at yet, but it&#8217;ll be great when it&#8217;s moving.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Archetype Name to: <code class="docutils literal"><span class="pre">BallisticSmoke</span></code></li>
+</ul>
+</li>
+</ul>
+<p>Now that we&#8217;ve uploaded this effect as an archetype, we can safely delete it now
+and still use it again later.</p>
+<ul class="simple">
+<li>Delete the <code class="docutils literal"><span class="pre">BallisticSmoke</span></code> object</li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="ballistic-smoke-trails-object-system">
+<h3>Ballistic Smoke Trails Object System</h3>
+<p>Now it&#8217;s time to create our first ObjectSystem. The archetype it will spawn will
+be the BallisticSmoke effect we just created.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateTransform</span></code> or
+<span class="menuselection">Create ‣ Create Transform</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">BallisticSmokeTrails</span></code></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add an ObjectSystem component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a SphericalParticleEmitter component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a LinearParticleAnimator component</span></a><ul>
+<li>Under ObjectSystem<ul>
+<li>Set EffectsTranslation to: <code class="docutils literal"><span class="pre">true</span></code></li>
+<li>Set SpawnArchetype to: <code class="docutils literal"><span class="pre">BallisticSmoke</span></code></li>
+<li>Set SystemSize to: <code class="docutils literal"><span class="pre">[20,</span> <span class="pre">20,</span> <span class="pre">20]</span></code></li>
+</ul>
+</li>
+<li>Under SphericalParticleEmitter<ul>
+<li>Set EmitCount to: <code class="docutils literal"><span class="pre">8</span></code></li>
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">50000</span></code></li>
+<li>Set Lifetime to: <code class="docutils literal"><span class="pre">5</span></code></li>
+<li>Set LifetimeVariance to: <code class="docutils literal"><span class="pre">0</span></code></li>
+<li>Set StartVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">20,</span> <span class="pre">0]</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[25,</span> <span class="pre">25,</span> <span class="pre">25]</span></code></li>
+</ul>
+</li>
+<li>Under LinearParticleAnimator<ul>
+<li>Set Force to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">-20,</span> <span class="pre">0]</span></code></li>
+<li>Set Dampening to: <code class="docutils literal"><span class="pre">0.5</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+</ul>
+<p>This is it! Let&#8217;s see the fruits of our labor by running the game.</p>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Run the game</span></a> several times to see the full explosion effect
+in action</li>
+</ul>
+<p><img alt="ExplosionFinal" src="../../_images/ExplosionFinal1.gif" /></p>
+<p>Excellent!</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the game</span></a></li>
+</ul>
+<p></p>
+<div class="admonition-default-assets admonition">
+<p class="first admonition-title">Default Assets</p>
+<p>When it comes to particle effects, the actual art assets used for the
+particles themselves are perhaps not as important as one might think &#8212; the
+particles&#8217; behavior does most of the heavy lifting in making an effect look
+good. The explosion we&#8217;ve made in this lesson is impressive, but it can be
+made entirely with the default assets that come with the editor:</p>
+<blockquote>
+<div><img alt="SquareExplosion" src="../../_images/SquareExplosion1.gif" /></div></blockquote>
+<p>This is the same effect, using only the <code class="docutils literal"><span class="pre">Square</span></code> and <code class="docutils literal"><span class="pre">DefaultTexture</span></code>
+images as particle textures, and with just a few minor modifications to the
+components&#8217; properties.</p>
+<p class="last">Remember, if you&#8217;re making a game and you don&#8217;t have a ton of art muscle on
+your team, simple particle effects can go a very long way.</p>
+</div>
+<p></p>
+</div>
+</div>
+<div class="section" id="finishing-the-explosion">
+<h2>Finishing the Explosion</h2>
+<p>Now, let&#8217;s make this explosion reusable. To do this, we&#8217;re going to
+group all of its sub-effects by attaching them all as <em>children</em> to a single
+root Transform.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Flash, Fire, Smoke, Sparks, Debris0, Debris1, Debris2,
+ShockWave, and BallisticSmokeTrails objects</span></a></li>
+<li><strong>Group</strong> them by pressing <code class="docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">G</span></code></li>
+</ul>
+<p><img alt="Grouped" src="../../_images/Grouped1.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Root object you just created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Explosion</span></code></li>
+<li>Set Archetype Name to: <code class="docutils literal"><span class="pre">Explosion</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+</ul>
+<p></p>
+<div class="section" id="the-timeddeath-zilchcomponent">
+<h3>The TimedDeath ZilchComponent</h3>
+<p>There&#8217;s one more important detail we need to address before this explosion
+effect is truly complete. After the effect goes off and all the smoke clears,
+<em>the explosion&#8217;s cog still exists</em>. We can make this apparent by attaching a
+sprite to the <code class="docutils literal"><span class="pre">Explosion</span></code> object.</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a Sprite component</span></a></li>
+<li>Under Sprite<ul>
+<li>Set SpriteSource to: <code class="docutils literal"><span class="pre">Circle</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Run the game</span></a></li>
+</ul>
+</div></blockquote>
+<p><img alt="ExplosionCircle" src="../../_images/ExplosionCircle1.png" /></p>
+<p><em>This little guy isn&#8217;t going anywhere</em></p>
+<p>See how the circle remains even after the explosion is completely gone? This can
+be a problem &#8212; if we dynamically spawn a few hundred explosions over the
+course of a level, that&#8217;s a few hundred cogs that are hanging around afterward,
+invisible but still taking up memory. This could potentially lead to performance
+issues.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the game</span></a></li>
+</ul>
+<p></p>
+<p>We can solve this problem with the use of a new ZilchComponent, which we&#8217;ll call
+<strong>TimedDeath</strong>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">TimedDeath</span></code></li>
+<li>Change the <strong>TimedDeath</strong> script to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">TimedDeath</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">Lifetime</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">;</span>
+
+    <span class="k">var</span> <span class="nb">Timer</span> <span class="o">:</span> <span class="nx">Real</span><span class="o">;</span>
+
+
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nb">Timer</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Lifetime</span><span class="o">;</span>
+
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nb">Timer</span> <span class="o">-=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="o">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nb">Timer</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Destroy</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Explosion object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a TimedDeath component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Run the game</span></a></li>
+</ul>
+<p>Now, the explosion goes off as usual, but after one second, the circle
+disappears. This indicates that the game object has been properly destroyed.
+However, this has a further undesirable effect &#8212; notice also how the
+explosion&#8217;s particles that are still alive when the circle disappears are
+destroyed along with it. This is because <strong>destroying a particle effect destroys
+all of its particles as well</strong>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the game</span></a></li>
+</ul>
+<p></p>
+<p>We can make this look a bit better by waiting to destroy the explosion cog until
+all of its particles have died on their own.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under TimedDeath<ul>
+<li>Set Lifetime to: <code class="docutils literal"><span class="pre">5</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>We chose five seconds because the element of the explosion with the longest life
+span is the BallisticSmokeTrails effect, whose SphericalParticleEmitter
+component has a <strong>Lifetime</strong> of <code class="docutils literal"><span class="pre">5</span></code>. Since all of its smoke trails are spawned
+at once (thanks to the emitter&#8217;s <strong>EmitRate</strong> of <code class="docutils literal"><span class="pre">50000</span></code>), we can be sure that
+after five seconds, its last particle will be destroyed.</p>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Run the game</span></a></li>
+</ul>
+<p>Now the circle doesn&#8217;t disappear until every last particle from the explosion
+has disappeared first.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the game</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#removecomponent2015"><span>Remove the Sprite component</span></a></li>
+<li>Update the Explosion archetype</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+</ul>
+<p>Now that we&#8217;ve got our cool explosion, we need something that can explode. How
+about a bomb?</p>
+<p></p>
+</div>
+</div>
+<div class="section" id="bombs-away">
+<h2>Bombs Away</h2>
+<ul class="simple">
+<li><a class="reference internal" href="UsingTheVoid.html#usingthevoid2015"><span>Download the following files from the Void:</span></a><ul>
+<li><code class="docutils literal"><span class="pre">Bomb</span></code></li>
+<li><code class="docutils literal"><span class="pre">BombLogic.z</span></code></li>
+<li><code class="docutils literal"><span class="pre">BasicExplosion</span></code></li>
+</ul>
+</li>
+</ul>
+<p><img alt="Bomb" src="../../_images/Bomb1.png" /></p>
+<p>This bomb comes with some basic bomb logic, including an <code class="docutils literal"><span class="pre">Explode</span></code> function
+that is triggered when the Space Bar is pressed.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Archetypes.html#archetypes2015"><span>Create an instance</span></a> of the Bomb archetype</li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">8,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Run the game</span></a> and press the <code class="docutils literal"><span class="pre">Space</span> <span class="pre">Bar</span></code> to detonate the
+bomb</li>
+</ul>
+<p><img alt="BasicExplosion" src="../../_images/BasicExplosion1.png" /></p>
+<p>That&#8217;s a pretty underwhelming explosion. Fortunately, we&#8217;ve already made
+something to replace it.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the game</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under BombLogic<ul>
+<li>Set ExplosionArchetype to: <code class="docutils literal"><span class="pre">Explosion</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Run the game</span></a> and press the <code class="docutils literal"><span class="pre">Space</span> <span class="pre">Bar</span></code> to detonate the
+bomb</li>
+</ul>
+<p><img alt="BombWithExplosion" src="../../_images/BombWithExplosion1.gif" /></p>
+<p>That&#8217;s much better.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the game</span></a></li>
+<li>In the Properties Window<ul>
+<li>Update the Bomb archetype</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+<li>Delete the Bomb object</li>
+</ul>
+<p>Now that we have this swell exploding bomb, we need something in-game that can
+cause it to explode instead of relying on the space bar.</p>
+<p></p>
+</div>
+<div class="section" id="laser-beam">
+<h2>Laser Beam</h2>
+<p>A real-life laser beam is invisible &#8212; we can only see what it illuminates. If
+it&#8217;s powerful enough, then it will cause the airborne particles it hits to glow.
+This is the effect we&#8217;re going to replicate with our laser particles.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateParticleSystem</span></code> or
+<span class="menuselection">Create ‣ Create Particle System</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the BasicParticleEffect object we just created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">LaserBeam</span></code></li>
+<li><a class="reference internal" href="AddComponent.html#removecomponent2015"><span>Remove the SphericalParticleEmitter component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a BoxParticleEmitter component</span></a></li>
+<li>Under SpriteParticleSystem<ul>
+<li>Set Texture to: <code class="docutils literal"><span class="pre">Circle</span></code></li>
+<li>Set RenderMode to: <code class="docutils literal"><span class="pre">Additive</span></code></li>
+<li>Set Tint to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span>&nbsp;&nbsp; <span class="pre">0,</span> <span class="pre">B:</span>&nbsp; <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code></li>
+</ul>
+</li>
+<li>Under BoxParticleEmitter<ul>
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">5000</span></code></li>
+<li>Set Size to: <code class="docutils literal"><span class="pre">0.02</span></code></li>
+<li>Set SizeVariance to: <code class="docutils literal"><span class="pre">0.02</span></code></li>
+<li>Set Lifetime to: <code class="docutils literal"><span class="pre">0.3</span></code></li>
+<li>Set LifetimeVariance to: <code class="docutils literal"><span class="pre">0.3</span></code></li>
+<li>Set SpinVariance to: <code class="docutils literal"><span class="pre">0</span></code></li>
+<li>Set RandomSpin to: <code class="docutils literal"><span class="pre">false</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+<li>Set EmitterSize to: <code class="docutils literal"><span class="pre">[12,</span> <span class="pre">0.1,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+</ul>
+<p></p>
+<p><img alt="LaserBeam" src="../../_images/LaserBeam1.gif" /></p>
+<p>That looks pretty cool already, but let&#8217;s put a sprite on either end of the beam
+to give it a sort of visual &#8220;anchor&#8221;.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or
+<span class="menuselection">Create ‣ Create Sprite</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Sprite object we just created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">BeamAnchor</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[-6,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+<li>Set Rotation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">45]</span></code></li>
+<li>Set Scale to: <code class="docutils literal"><span class="pre">[0.4,</span> <span class="pre">0.4,</span> <span class="pre">0.4]</span></code></li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span>&nbsp; <span class="pre">0,</span> <span class="pre">B:</span>&nbsp; <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Duplicate</strong> the object by pressing <code class="docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code></li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[6,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Parent both BeamAnchor objects to the LaserBeam object</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the LaserBeam object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">-6,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="LaserBeamWithAnchors" src="../../_images/LaserBeamWithAnchors1.png" /></p>
+<p>Now let&#8217;s give it a bomb to blow up.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Archetypes.html#archetypes2015"><span>Create an instance</span></a> of the Bomb archetype</li>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">8,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Run the project</span></a></li>
+</ul>
+<p>The bomb falls past the laser beam and, unsurprisingly, nothing happens. Let&#8217;s
+change that.</p>
+<p></p>
+</div>
+<div class="section" id="custom-event-detonate">
+<h2>Custom Event: Detonate</h2>
+<p>Take a look at the code for the BombLogic component that is attached to the
+bomb.</p>
+<ul class="simple">
+<li>In the Library Window<ul>
+<li>Open the <code class="docutils literal"><span class="pre">BombLogic</span></code> ZilchScript</li>
+</ul>
+</li>
+<li>In the BombLogic Window</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">BombLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="nx">sends</span> <span class="nx">Detonate</span> <span class="o">:</span> <span class="nx">ZilchEvent</span><span class="o">;</span>
+
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">ExplosionArchetype</span> <span class="o">:</span> <span class="nx">Archetype</span> <span class="o">=</span> <span class="nx">Archetype</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;BasicExplosion&quot;</span><span class="p">);</span>
+
+
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">KeyDown</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnKeyDown</span><span class="p">);</span>
+<span class="hll">        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">Detonate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnDetonate</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+
+
+    <span class="kd">function</span> <span class="nx">OnKeyDown</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nb">KeyboardEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nb">Key</span> <span class="o">==</span> <span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">Explode</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+
+<span class="hll">    <span class="kd">function</span> <span class="nx">OnDetonate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">ZilchEvent</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">Explode</span><span class="p">();</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+
+    <span class="kd">function</span> <span class="nx">Explode</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">CreateAtPosition</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">ExplosionArchetype</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Destroy</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This code suggests a way that we can make the laser blow the bomb up: the bomb
+will explode if we <strong>dispatch the custom</strong> <code class="docutils literal"><span class="pre">Detonate</span></code> <strong>event</strong> to it. We just
+have to write another component that can do that.</p>
+<p></p>
+<div class="section" id="detonateoncontact-component">
+<h3>DetonateOnContact Component</h3>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named:
+<code class="docutils literal"><span class="pre">DetonateOnContact</span></code></li>
+<li>Change the <strong>DetonateOnContact</strong> script to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">DetonateOnContact</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">Collider</span> <span class="o">:</span> <span class="nx">Collider</span><span class="o">;</span>
+
+<span class="hll">    <span class="nx">sends</span> <span class="nx">Detonate</span> <span class="o">:</span> <span class="nx">ZilchEvent</span><span class="o">;</span>
+</span>
+
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">CollisionStarted</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnCollisionStarted</span><span class="p">);</span>
+    <span class="p">}</span>
+
+
+    <span class="kd">function</span> <span class="nx">OnCollisionStarted</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">CollisionEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="nx">event</span><span class="p">.</span><span class="nx">OtherObject</span><span class="p">.</span><span class="nx">DispatchEvent</span><span class="p">(</span><span class="nx">Events</span><span class="p">.</span><span class="nx">Detonate</span><span class="o">,</span> <span class="nx">ZilchEvent</span><span class="p">());</span>
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A cog with this component will dispatch the <code class="docutils literal"><span class="pre">Detonate</span></code> event to anything it
+touches. Note that only things that actually connect to this event will &#8220;care&#8221;
+&#8212; everything else will just go on its merry way, blissfully ignorant of the
+fact that there even is such an event.</p>
+<p>Let&#8217;s give our laser beam this new component.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the LaserBeam object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Add a DetonateOnContact component</li>
+</ul>
+</li>
+</ul>
+<p><img alt="MissingCollider" src="../../_images/MissingCollider1.png" /></p>
+<p>...Oops, we need to add a collider first. Since our laser effect uses a
+<strong>BoxParticleEmitter</strong>, it is natural that we should choose a <strong>BoxCollider</strong>.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Add a BoxCollider component</li>
+</ul>
+</div></blockquote>
+<p>Since the emitter and the collider have the same shape, we can copy the
+EmitterSize dimensions over to the collider&#8217;s <strong>Size</strong> property.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under BoxCollider<ul>
+<li>Set Size to: <code class="docutils literal"><span class="pre">[12,</span> <span class="pre">0.1,</span> <span class="pre">1]</span></code></li>
+<li>Set Ghost to: <code class="docutils literal"><span class="pre">true</span></code></li>
+</ul>
+</li>
+<li>Add a DetonateOnContact component</li>
+</ul>
+</div></blockquote>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Run the project</span></a></li>
+</ul>
+<p><img alt="LaserDetonatesBomb" src="../../_images/LaserDetonatesBomb1.gif" /></p>
+<p>This is what we&#8217;re looking for.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the project</span></a></li>
+</ul>
+<p>But you can never know whether you&#8217;ve gone far enough until you go too far,
+right?</p>
+<div class="sidebar">
+<p class="first sidebar-title">3D Physics and Escaping Bombs</p>
+<p>If you run this simulation long enough, you may see a bomb or two miss the
+laser beam, even though it appears to fall right into it. What causes this?</p>
+<p>Sometimes, two bombs will collide, usually when one is created overlapping
+another. When this happens, the two bombs are pushed apart by Zero&#8217;s collision
+resolution. The effect is rarely noticeable, since the bombs are all spawned
+off-screen. However, occasionally, the collision will impart enough of a push
+along the Z axis upon one or both bombs to allow it to clear the thickness of
+the laser&#8217;s BoxCollider. You can see it happen more readily if you increase
+the BombGenerator&#8217;s EmitRate, say, to <code class="docutils literal"><span class="pre">5</span></code> or so, and shrink its EmitterSize,
+say, to around <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">0]</span></code>.</p>
+<p><img alt="EscapingBomb" src="../../_images/EscapingBomb1.png" /></p>
+<p><em>This bomb has missed the laser beam</em></p>
+<p>So far, we&#8217;ve only ever made 2D projects, so we&#8217;ve only ever used 2D physics.
+In 2D physics, collisions cannot push objects in the Z direction. Thus, based
+on our experience so far, this effect could never happen.</p>
+<p>The fact that it <em>is</em> happening is a result of two cooperating properties: the
+<strong>Mode2D</strong> property of the Bomb archetype&#8217;s RigidBody component, and the
+<strong>RandomTorque</strong> property of the BombGenerator&#8217;s ObjectSystem component.</p>
+<p>The BombGenerator uses a RandomTorque of <code class="docutils literal"><span class="pre">[30,</span> <span class="pre">30,</span> <span class="pre">30]</span></code> so that the bombs
+will be created with some <strong>angular velocity</strong>, causing them to rotate a bit
+in different directions, thereby looking more interesting as they fall. For
+this effect to be realized in full, the bombs&#8217; RigidBody components must be
+set to use 3D physics, by setting the Mode2D property to <code class="docutils literal"><span class="pre">Mode3D</span></code> &#8212;
+otherwise, they will only be able to spin around their Z axes.</p>
+<p class="last">With 3D physics enabled, the bombs are now free to be pushed in the Z
+direction by collisions. In this case, this may occur <em>when they collide with
+angular velocity around their X or Y axes</em>. When this angular velocity is high
+enough, the push is sufficient to cause a bomb to miss the laser.</p>
+</div>
+<p></p>
+</div>
+</div>
+<div class="section" id="going-too-far">
+<h2>Going Too Far</h2>
+<p>We&#8217;re going to make another object system that&#8217;s going to cause bombs to rain
+down in the level. The bombs that land on the laser beam will explode;
+naturally, those that miss it will not.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+<li>Delete the Bomb object</li>
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateTransform</span></code> or
+<span class="menuselection">Create ‣ Create Transform</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">BombGenerator</span></code></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add an ObjectSystem component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a BoxParticleEmitter component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a LinearParticleAnimator component</span></a><ul>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">15,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Under ObjectSystem<ul>
+<li>Set RandomTorque to: <code class="docutils literal"><span class="pre">[30,</span> <span class="pre">30,</span> <span class="pre">30]</span></code></li>
+<li>Set SpawnArchetype to: <code class="docutils literal"><span class="pre">Bomb</span></code></li>
+</ul>
+</li>
+<li>Under BoxParticleEmitter<ul>
+<li>Set EmitRate to: <code class="docutils literal"><span class="pre">2</span></code></li>
+<li>Set SizeVariance to: <code class="docutils literal"><span class="pre">0</span></code></li>
+<li>Set Lifetime to: <code class="docutils literal"><span class="pre">10</span></code></li>
+<li>Set LifetimeVariance to: <code class="docutils literal"><span class="pre">0</span></code></li>
+<li>Set SpinVariance to: <code class="docutils literal"><span class="pre">0</span></code></li>
+<li>Set RandomSpin to: <code class="docutils literal"><span class="pre">false</span></code></li>
+<li>Set RandomVelocity to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+<li>Set EmitterSize to: <code class="docutils literal"><span class="pre">[30,</span> <span class="pre">5,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run</span></a> the project</li>
+</ul>
+<p><a class="reference internal" href="../../_images/RainingBombsOrthographic1.gif"><img alt="RainingBombsOrthographic" src="../../_images/RainingBombsOrthographic1.gif" style="width: 4.0in;" /></a></p>
+<p>Okay, let&#8217;s do one last thing to make this effect even more exciting. It&#8217;s
+subtle, but subtlety is often the difference between good and great.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the project</span></a></li>
+</ul>
+<p></p>
+<div class="section" id="perspective-camera">
+<h3>Perspective Camera</h3>
+<p>Recall the <a class="reference internal" href="ParallaxBackground.html#parallaxbackground2015"><span>parallax background lesson</span></a>, in which we used multiple layers
+separated along the Z axis to give our project more of a sense of depth. In
+order for that to work, we had to change our camera&#8217;s <strong>ProjectionMode</strong>
+property to <code class="docutils literal"><span class="pre">Perspective</span></code>. We&#8217;re going to make that same change now.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Camera object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Camera<ul>
+<li>Set ProjectionMode to: <code class="docutils literal"><span class="pre">Perspective</span></code></li>
+</ul>
+</li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">20]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run</span></a> the project</li>
+</ul>
+<p><a class="reference internal" href="../../_images/RainingBombsPerspective1.gif"><img alt="RainingBombsPerspective" src="../../_images/RainingBombsPerspective1.gif" style="width: 4.0in;" /></a></p>
+<p>Notice the dramatic effect that is caused by the particles flying toward the
+camera, especially the smoke trails.</p>
+<p>Now we know how to apply our knowledge of particle effects in some cool ways
+to make our games look even better.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Commands.html" class="btn btn-neutral float-right" title="Executing Commands" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="RayCasting.html" class="btn btn-neutral" title="Ray Casting" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/PracticalParticles.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:22:32 GMT -->
+</html>

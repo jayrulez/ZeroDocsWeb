@@ -1,0 +1,151 @@
+.. include:: <isonum.txt>
+
+.. _ZilchTypeArray:
+
+.. rst-class:: SearchTitle
+
+Array
+=====
+
+.. rst-class:: SearchDescription
+
+Zilch Array Reference.
+
+Constructors
+------------
++---------------------------------------+-----------------------+
+| Signature                             | Row                   |
++=======================================+=======================+
+| ()                                    | *Default constructor* |
++---------------------------------------+-----------------------+
+| (size : Integer)                      |                       |
++---------------------------------------+-----------------------+
+| (size : Integer, defaultValue : Type) |                       |
++---------------------------------------+-----------------------+
+
+Instance Properties
+-------------------
++-----------+-------------------------+---------------------------------------+
+| Name      | Type                    | Description                           |
++===========+=========================+=======================================+
+| All       | ArrayRange[Type]        |                                       |
++-----------+-------------------------+---------------------------------------+
+| Capacity  | Integer                 | Number of elements the array can hold |
++-----------+-------------------------+---------------------------------------+
+| Count     | Integer                 | How many elements are in the array    |
++-----------+-------------------------+---------------------------------------+
+| LastIndex | Integer                 | Last valid index in the array         |
++-----------+-------------------------+---------------------------------------+
+
+Instance Methods
+----------------
++----------------------------------------------------------------+-------------+
+| Name / Signature                                               | Description |
++================================================================+=============+
+| Add(Type)                                                      |             |
++----------------------------------------------------------------+-------------+
+| Clear()                                                        |             |
++----------------------------------------------------------------+-------------+
+| Copy() : Array[Type]                                           |             |
++----------------------------------------------------------------+-------------+
+| FindFirstIndex(value : Type) : Integer                         |             |
++----------------------------------------------------------------+-------------+
+| Get(index : Integer) : Type                                    |             |
++----------------------------------------------------------------+-------------+
+| Insert(index : Integer, value : Type)                          |             |
++----------------------------------------------------------------+-------------+
+| Pop() : Type                                                   |             |
++----------------------------------------------------------------+-------------+
+| Push(Type)                                                     |             |
++----------------------------------------------------------------+-------------+
+| Range(start : Integer, count : Integer) : ArrayRange[Type]     |             |
++----------------------------------------------------------------+-------------+
+| RemoveAll(value : Type) : Integer                              |             |
++----------------------------------------------------------------+-------------+
+| RemoveAt(index : Integer)                                      |             |
++----------------------------------------------------------------+-------------+
+| RemoveFirst(value : Type) : Boolean                            |             |
++----------------------------------------------------------------+-------------+
+| RemoveSwap(index : Integer)                                    |             |
++----------------------------------------------------------------+-------------+
+| Reserve(capacity : Integer)                                    |             |
++----------------------------------------------------------------+-------------+
+| Resize(size : Integer)                                         |             |
++----------------------------------------------------------------+-------------+
+| Resize(size : Integer, defaultValue : Type)                    |             |
++----------------------------------------------------------------+-------------+
+| Set(index : Integer, value : Type)                             |             |
++----------------------------------------------------------------+-------------+
+| Sort(compare : delegate (left : Type, right : Type) : Boolean) |             |
++----------------------------------------------------------------+-------------+
+
+Samples
+-------
+
+.. code-block:: as
+
+    class Utility
+    {
+        [Static]
+        function PrintArray(a: Array[Integer])
+        {
+            // Use of the Array class with foreach is made possible by
+            // the All() function.
+            foreach (var item in a)
+            {
+                Console.Write("[`item`]");
+            }
+            Console.WriteLine();
+        }
+    }
+    
+    class Driver
+    {
+    
+        function ArrayLibrarySamples()
+        {
+            // Constructor with Integer as the ElementType:
+            var myArray = new Array[Integer]();
+            
+            myArray.Add(0);
+            myArray.Add(1);
+            myArray.Add(2);
+            Console.WriteLine("Adding at 0, 1, & 2:");           // Adding at 0, 1, & 2:
+            Utility.PrintArray(myArray);                         // [0][1][2]
+            
+            myArray.Push(3);
+            myArray.Push(4);
+            myArray.Push(5);
+            Console.WriteLine("Pushing at 3, 4, & 5:");          // Pushing at 3, 4, & 5:
+            Utility.PrintArray(myArray);                         // [0][1][2][3][4][5]
+            
+            Console.WriteLine("Current Count `myArray.Count`");  // Current Count 6
+            Console.WriteLine("Last Index `myArray.LastIndex`"); // Last Index 5
+            
+            myArray.RemoveAt(3);                                 
+            Console.WriteLine("Removing at index 3:");           // Removing at index 3:
+            Utility.PrintArray(myArray);                         // [0][1][2][4][5]
+            
+            Console.WriteLine("Current Count `myArray.Count`");  // Current Count 5
+            Console.WriteLine("Last Index `myArray.LastIndex`"); // Last Index 4
+            
+            myArray.RemoveSwap(2);                                
+            Console.WriteLine("RemoveSwap() at index 2:");       // RemoveSwap() at index 2:
+            Utility.PrintArray(myArray);                         // [0][1][5][4]
+            
+            Console.WriteLine("Current Count `myArray.Count`");  // Current Count 4
+            Console.WriteLine("Last Index `myArray.LastIndex`"); // Last Index 3
+            
+            myArray.Pop();
+            myArray.Pop();
+            Console.WriteLine("Popping off two elements");       // Popping off two elements
+            Utility.PrintArray(myArray);                         // [0][1]
+            
+            myArray.Set(0, myArray.Get(1));                      // Setting the 1st element to the 
+                                                                 // value of the second via Get
+            Console.WriteLine("Setting the 1st element to the value of the second via Get");
+            Utility.PrintArray(myArray);                         // [1][1]
+            
+            myArray.Clear();                                     // Empties the array of all its elements.
+        }
+    }

@@ -1,0 +1,67 @@
+.. _ReferenceCollisionEvent:
+
+.. rst-class:: searchtitle
+
+CollisionEvent
+==============
+
+.. rst-class:: searchdescription
+
+Collision event for when a contact begins, ends, or is persisted. Contains the point that triggered the begin/end(IncidentPoint). If it is a persistent collision, the point is just point 0 from the manifold.
+
+.. include:: Description/CollisionEvent.rst
+
+.. cpp:class:: CollisionEvent
+
+    Base Class: :cpp:type:`BaseCollisionEvent`
+
+.. _ReferenceCollisionEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String CollisionEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CollisionEvent::Object
+
+            The object that this event was sent to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CollisionEvent::OtherObject
+
+            The other object in this event. There were two objects A and B, we sent to A so this is B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint CollisionEvent::ContactPointCount
+
+            Returns how many points of contact there are.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CollisionEvent::IsGhost
+
+            Returns whether or not this was a ghost collision.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ContactPointRange CollisionEvent::ContactPoints
+
+            Returns a range to iterate through all of the contact points.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ContactPoint CollisionEvent::FirstPoint
+
+            Returns the point that caused the begin/end to happen.
+
+.. _ReferenceCollisionEventMethods:
+
+.. include:: Remarks/CollisionEvent.rst

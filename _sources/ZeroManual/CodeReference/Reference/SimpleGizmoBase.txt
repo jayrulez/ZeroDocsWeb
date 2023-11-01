@@ -1,0 +1,90 @@
+.. _ReferenceSimpleGizmoBase:
+
+.. rst-class:: searchtitle
+
+SimpleGizmoBase
+===============
+
+.. include:: Description/SimpleGizmoBase.rst
+
+.. cpp:class:: SimpleGizmoBase
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceSimpleGizmoBaseProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SimpleGizmoBase::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space SimpleGizmoBase::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SimpleGizmoBase::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession SimpleGizmoBase::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SimpleGizmoBase::MouseInput
+
+            Whether or not this Gizmo should receive mouse input.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int SimpleGizmoBase::PickingPriority
+
+            Used to manually determine which Gizmo gets selected when the mouse is over multiple Gizmos. Higher priority will get picked first.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ByteColor SimpleGizmoBase::Color
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 SimpleGizmoBase::HoverColor
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SimpleGizmoBase::ViewScaled
+
+            If enabled, the size of the gizmo will stay the same regardless of how far away the camera is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SimpleGizmoBase::DrawOnTop
+
+            Whether or not to draw on top of all objects regardless of depth.
+
+.. _ReferenceSimpleGizmoBaseMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SimpleGizmoBase::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/SimpleGizmoBase.rst

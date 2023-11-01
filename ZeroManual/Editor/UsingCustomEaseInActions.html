@@ -1,0 +1,442 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Editor/UsingCustomEaseInActions.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:03:26 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using Custom Eases in Actions &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Editor" href="index.html"/>
+        <link rel="next" title="Text Editor" href="TextEditor/index.html"/>
+        <link rel="prev" title="CogPaths" href="CogPathsManual.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manual</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Editor</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tags.html">Editor Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorCommands/index.html">Editor &amp; Project Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogPathsManual.html">CogPaths</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Using Custom Eases in Actions</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="TextEditor/index.html">Text Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tools/index.html">Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditMode.html">Editing Mode 2D vs 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddRemoveComponent.html">Adding &amp; Removing Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">The Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExportAnProject.html">Export a Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CustomizeExportedGame.html">Customize an Exported Game</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="index.html">Editor</a> &raquo;</li>
+      
+    <li>Using Custom Eases in Actions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/ZeroManual/Editor/UsingCustomEaseInActions.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="using-custom-eases-in-actions">
+<span id="manualusingcustomeaseinactions"></span><h1>Using Custom Eases in Actions</h1>
+<p class="searchdescription">This lesson will cover using Custom Eases in your Actions with the aid of the SampleCurve resource. First, we&#8217;ll take a more in-depth look into what an ease actually is, what they can do for you, and what they look like when drawn on a sample curve.</p>
+<div class="section" id="a-closer-look-at-easing-functions">
+<h2>A Closer Look at Easing Functions</h2>
+<p>Eases are used primarily in what is called &#8220;tweening&#8221;, short for <em>in-betweening</em> (and Actions are Zero Engine&#8217;s form of tweening). Tweening is a procedure for interpolation between two values that can provide animation through the use of mathematical functions without the user having to adjust any frames herself. Eases are functions that control the rate of acceleration of the change in value. Usually, eases are used to make animations look more natural or &#8220;life-like&#8221;, though the most basic of eases&#8211;Linear&#8211;is decidedly sterile-looking or robotic, as we can see in this example of a simple moving platform:</p>
+<p><img alt="LinearPlatform" src="../../_images/LinearPlatform1.gif" /></p>
+<p>The platform moves side to side at a steady, constant rate of motion. In other words, its rate of movement is linear. For the sake of comparison, let&#8217;s look at another, nicer-looking, more &#8220;life-like&#8221; ease; specifically, the QuadInOut ease (which uses the quadratic function to derive acceleration):</p>
+<p><img alt="QuadInOutPlatform" src="../../_images/QuadInOutPlatform1.gif" /></p>
+<p>As you can see, in this case, the acceleration changes throughout the movement from left to right (and vice versa). It start slow, builds up speed, then slows back down once it nears the end. You have probably come across this type of movement in your everyday life. For example, elevators use a non-linear movement. Imagine if a high-speed elevator in a high-rise building did not change its acceleration, and the elevator comes to a complete stop while at the relatively high speed it moves at as it passes floors: every one in it would go flying to the ceiling. Instead, as the elevator approaches its destination, it slows down so that it comes to a smooth, non-person-launching stop (this might be something to think about when creating elevator platforms in your own games if you&#8217;re looking to keep things realistic).</p>
+</div>
+<div class="section" id="standard-easing-classes">
+<h2>Standard Easing Classes</h2>
+<p>There are five &#8220;standard&#8221; (and consequently, the most popular) easing types: Linear, Quadratic, Cubic, Quartic, and Quintic. These names refer to the power by which a part of the ease equation is raised. Linear = 1, Quadratic = 2, and so on. Whether the ease is In, Out, or InOut depends on whether the animation desired starts slow and then speeds up at the end (EaseIn), starts fast and then slows down at the end (EaseOut), or starts out slow, speeds up, but then slows back down at the end(EaseInOut). When we increase the power in an ease, we are just multiplying the essential part of the ease equation (the representing current percentage of completion of the tween) by itself. For example, if we had an an EaseOut that is moving to 70% of the desired value change, you would multiply 0.7 by the power of your ease. For Quadratic, it would be two, thus: 0.7 * 0.7 = .49, instead of 0.7. This means we would move to 70% of the desired value in 49% of the time it would take linearly, moving quicker at the start and slower at the end. To make this relationship explicit, let&#8217;s take a quick look at the function usually used for determining ease (though this one will just be a linear tween without any proper easing applied).</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">LinearTween</span><span class="p">(</span><span class="n">beginningVal</span><span class="p">,</span> <span class="n">changeToVal</span><span class="p">,</span> <span class="n">currentTime</span><span class="p">,</span> <span class="n">totalTime</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">changeToVal</span> <span class="p">*</span> <span class="n">currentTime</span> <span class="p">/</span> <span class="n">totalTime</span> <span class="p">+</span> <span class="n">beginningVal</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here&#8217;s what each argument of the function stands for:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">beginningVal</span></code> is the beginning value of the property we are changing</li>
+<li><code class="docutils literal"><span class="pre">changeToVal</span></code> is the change between the beginning value and the end value of the property that is desired</li>
+<li><code class="docutils literal"><span class="pre">currentTime</span></code> is the start time of the tween and can be in any value you want (frames, seconds, etc...) as long as the value stays the same for totalTime as well.</li>
+<li><code class="docutils literal"><span class="pre">totalTime</span></code> is the total amount of time the tween will take</li>
+</ul>
+<p>One thing to note is that the <code class="docutils literal"><span class="pre">currentTime</span> <span class="pre">/</span> <span class="pre">totalTime</span></code> portion of the equation represents the percentage of completion for the tween (if 5 seconds of a 10 second duration has elapsed, it is 50% of the way through). To see this in action, let&#8217;s look at a simple example. At the start of a level, we want a platform at <code class="docutils literal"><span class="pre">Real3(0,5,0)</span></code> to move up the y-axis to <code class="docutils literal"><span class="pre">Real3(0,15,0)</span></code> over the course of 2 seconds.</p>
+<ul class="simple">
+<li>Our <code class="docutils literal"><span class="pre">beginningVal</span></code> would be 5 (this is the y-value from <code class="docutils literal"><span class="pre">Real3(0,5,0)</span></code>)</li>
+<li>Our <code class="docutils literal"><span class="pre">changeToVal</span></code> would be 10 (this is the differnce in the y-value from <code class="docutils literal"><span class="pre">Real3(0,5,0)</span></code> to <code class="docutils literal"><span class="pre">Real3(0,15,0)</span></code>)</li>
+<li>Our <code class="docutils literal"><span class="pre">currentTime</span></code> would be 0 (seconds) as we want the tween to start when the level starts</li>
+<li>Our <code class="docutils literal"><span class="pre">totalTime</span></code> is 2 as we want the tween to occur over 2 seconds</li>
+<li>Using our equation, we end up with: 10 * 0 / 2 + 5 which equals 5, leaving us where we started.</li>
+</ul>
+<p>Let&#8217;s look at what happens, however, when we look at some point <strong>during</strong> the tween itself, say 50% of the way through. This would only change our <code class="docutils literal"><span class="pre">currentTime</span></code> value to <code class="docutils literal"><span class="pre">1</span></code> (2 * 0.5 = 1). Our equation now gives us:</p>
+<p>10 * 1 / 2 + 5 = 10</p>
+<p>10 is the exact midpoint on the y-axis between our start and end values of 5 and 15, which is exactly the value we should expect given that we had changed our equation to look at 50% of the way through the tween. As you can see, with any change in the percentage of the completion of tween (the <code class="docutils literal"><span class="pre">currentTime/totalTime</span></code> portion of the equation), you will get the value at that particular percentage of time elapsed.</p>
+<p>As you might have deduced already, the portion of this equation that will be affected by the powers associated with the standard eases is <code class="docutils literal"><span class="pre">currentTime/totalTime</span></code>. We could even substitute 0 for beginningVal and 1 for changeToVal so that we end up with a <strong>factor</strong>, which we could then multiply by the difference between our values, while also adding back in the original value, to end up with the same thing as our original equation, like so:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">EasingFunction</span><span class="p">(</span><span class="n">beginningVal</span><span class="p">,</span> <span class="n">changeToVal</span><span class="p">,</span> <span class="n">currentTime</span><span class="p">,</span> <span class="n">totalTime</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">changeToVal</span> <span class="p">*</span> <span class="n">currentTime</span> <span class="p">/</span> <span class="n">totalTime</span> <span class="p">+</span> <span class="n">beginningVal</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">function</span> <span class="n">EaseIn</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">easeFactor</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">EasingFunction</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">currentTime</span><span class="p">,</span> <span class="n">totalTime</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">PropertyToChange</span> <span class="p">=</span> <span class="p">(</span><span class="n">endValue</span> <span class="p">-</span> <span class="n">originalVal</span><span class="p">)</span> <span class="p">*</span> <span class="n">easeFactor</span> <span class="p">+</span> <span class="n">originalVal</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>With this in mind, let&#8217;s now look at the function for a quadratic ease, which will also include a new argument (the power by which to multiply our completion percentage):</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">QuadEaseIn</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">currentTime</span><span class="p">,</span> <span class="n">totalTime</span><span class="p">,</span> <span class="n">easePower</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">easePower</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">changeToVal</span> <span class="p">*</span> <span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">currentTime</span> <span class="p">/</span> <span class="n">totalTime</span><span class="p">)</span> <span class="p">+</span> <span class="n">beginningVal</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When can further reduce this function by just removing the value parameters from the function altogether. Doing so, as is shown directly below, will work nearly identically as our equation above in all the standard eases:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">QuadEaseIn</span><span class="p">(</span><span class="n">currentTime</span><span class="p">,</span> <span class="n">totalTime</span><span class="p">,</span> <span class="n">easePower</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">easePower</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">currentTime</span><span class="p">/</span><span class="n">totalTime</span><span class="p">,</span> <span class="n">easePower</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For an EaseOut function, where we start fast and then slow down, we use the same equation but merely subtract it from 1 so that it comes at the end of our tween:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">QuadEaseOut</span><span class="p">(</span><span class="n">currentTime</span><span class="p">,</span> <span class="n">totalTime</span><span class="p">,</span> <span class="n">easePower</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">easePower</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+    <span class="k">return</span> <span class="m">1</span> <span class="p">-</span> <span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="p">(</span><span class="n">currentTime</span><span class="p">/</span><span class="n">totalTime</span><span class="p">),</span> <span class="n">easePower</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For the EaseInOut function, we&#8217;ll need to incorporate our previously omitted parameters back in, like so:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">QuadEaseInOut</span><span class="p">(</span><span class="n">beginningVal</span><span class="p">,</span> <span class="n">changeToVal</span><span class="p">,</span> <span class="n">currentTime</span><span class="p">,</span> <span class="n">totalTime</span><span class="p">,</span> <span class="n">easePower</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">easePower</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">((</span><span class="n">currentTime</span> <span class="p">/=</span> <span class="n">totalTime</span> <span class="p">/</span> <span class="m">2</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">changeToVal</span> <span class="p">/</span> <span class="m">2</span> <span class="p">*</span> <span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="n">currentTime</span><span class="p">/</span><span class="n">totalTime</span><span class="p">,</span> <span class="n">easePower</span><span class="p">)</span> <span class="p">+</span> <span class="n">beginningVal</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">-</span><span class="n">changeToVal</span> <span class="p">/</span> <span class="m">2</span> <span class="p">*</span>  <span class="p">(</span><span class="n">currentTime</span> <span class="p">*</span> <span class="p">(</span><span class="n">currentTime</span> <span class="p">-</span> <span class="m">2</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span> <span class="p">+</span> <span class="n">beginningVal</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The rest of the standard eases (cubic, quartic, and quintic) can be derived in the same pattern as above except that your ease power will go up by one for each consecutive power. There are also more complicated, exotic In, Out, and InOut ease functions that simulate &#8220;bounce&#8221; and &#8220;elastic&#8221; effects that can be found easily through a web search.</p>
+<p>We can also visually represent all of these eases on a graph. In Zero, we can plot these graphs on a resource named SampleCurve and actually use them as our ease parameter in Actions.</p>
+</div>
+<div class="section" id="visualising-eases">
+<h2>Visualising Eases</h2>
+<p>As you may have noticed above, eases are primarily a function thatson the change in value over time. This means we can easily visualize them using a standard 2D graph. Here are all of the most commonly used standard and exotic eases visualized on a graph.</p>
+<div class="section" id="sine-eases">
+<h3>Sine Eases</h3>
+<p><img alt="SineGroup" src="../../_images/SineGroup1.png" /></p>
+<p>The Sine group, as you might have guessed, is based off a sine wave. It&#8217;s one of the most commonly used eases behind Quadratic and is already built into Zero&#8217;s Ease types.</p>
+</div>
+<div class="section" id="quadratic-eases">
+<h3>Quadratic Eases</h3>
+<p><img alt="QuadraticGroup" src="../../_images/QuadraticGroup1.png" /></p>
+<p>The Quadratic group is by far the most popular and commonly used ease type as it provides a natural and nicely-flowing animation. The three Quadratic eases are also built into Zero&#8217;s ease types.</p>
+</div>
+<div class="section" id="cubic-eases">
+<h3>Cubic Eases</h3>
+<p><img alt="CubicGroup" src="../../_images/CubicGroup1.png" /></p>
+<p>Whereas the Quadratic group raises the percentage of completion (currentTime/totalTime as in the functions above) by a power of two, cubic raises it by three, providing a slightly more &#8220;dramatic&#8221; effect.</p>
+</div>
+<div class="section" id="quartic-eases">
+<h3>Quartic Eases</h3>
+<p><img alt="QuarticGroup" src="../../_images/QuarticGroup1.png" /></p>
+<p>The Quartic group is identical to the Cubic group except that it raises the percentage of completion by a power of four.</p>
+</div>
+<div class="section" id="quintic-eases">
+<h3>Quintic Eases</h3>
+<p><img alt="QuinticGroup" src="../../_images/QuinticGroup1.png" /></p>
+<p>Again, the Quintic group is identical to the Cubic group except that it raises the percentage of completion by a power of five.</p>
+</div>
+<div class="section" id="expo-eases">
+<h3>Expo Eases</h3>
+<p><img alt="ExpoGroup" src="../../_images/ExpoGroup1.png" /></p>
+<p>&#8220;Expo&#8221; is short for Exponential and as you can imagine, accelerates, decelerates, or both extremely quickly.</p>
+</div>
+<div class="section" id="circle-eases">
+<h3>Circle Eases</h3>
+<p><img alt="CircleGroup" src="../../_images/CircleGroup1.png" /></p>
+<p>Another self-explanatory one. The curves in this ease are derived from the equation for half a circle.</p>
+</div>
+<div class="section" id="back-eases">
+<h3>Back Eases</h3>
+<p><img alt="BackGroup" src="../../_images/BackGroup1.png" /></p>
+<p>This group is the first one we see that that actually under- and over-shoots its target. This group is great for use in bringing menus up and down.</p>
+</div>
+<div class="section" id="elastic-eases">
+<h3>Elastic Eases</h3>
+<p><img alt="ElasticGroup" src="../../_images/ElasticGroup1.png" /></p>
+<p>One of the exotic groups. These eases give the illusion of elasticity, both at the front of the action, the end, and at the front and end.</p>
+</div>
+<div class="section" id="bounce-eases">
+<h3>Bounce Eases</h3>
+<p><img alt="BounceGroup" src="../../_images/BounceGroup1.png" /></p>
+<p>Another of the exotic groups, these eases give the illusion that an object bounces at the beginning, end, or both during the action that uses them.</p>
+<p>Now that we&#8217;ve gone through the most commonly used standard and exotic eases, let&#8217;s take a look at how you can make some of these yourselves&#8211;as well as any of your own invention&#8211;as sample curves in Zero.</p>
+</div>
+</div>
+<div class="section" id="using-the-samplecurve-editor">
+<h2>Using the SampleCurve Editor</h2>
+<p>The SampleCurve editor is Zero&#8217;s tool for creating your own curves to apply to any number of things, including the Ease parameter in Actions. As you saw above, eases can be represented on a graph as a function of change over time. The same applies to the SampleCurve editor. Let&#8217;s take a closer look at the SampleCurve editor and see how to create our own eases for Actions.</p>
+<ul class="simple">
+<li><a class="reference internal" href="EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new SampleCurve resource</span></a> named: <code class="docutils literal"><span class="pre">MyCustomEase</span></code></li>
+<li>By default, the initial curve shows a linear progression. To begin manipulating the curve, you will need to add an <code class="docutils literal"><span class="pre">AnchorPoint</span></code> by double-clicking on the curve where you want to place it. You can then grab the anchor     point&#8211;by holding down the left mouse button on top of the point&#8211;and move it around the graph, as is demonstrated below:</li>
+</ul>
+<p><img alt="CreatingAnchorPoint" src="../../_images/CreatingAnchorPoint2.gif" /></p>
+<ul class="simple">
+<li>If you need to add more than one anchor point on the curve, just double-click again on the curve where you want to place it. You can add an unlimited amount of anchor points, but eventually the curve will fill up to the point where you won&#8217;t be able to effectively edit it.</li>
+<li>Once you have an anchor point, you can manipulate the tangents of that point using one of four options: Linear Tangents, Weighted Linear Tangents, Split Tangents, and Weighted Split Tangents. All three are demonstrated     below:</li>
+</ul>
+<div class="section" id="linear-tangents">
+<h3>Linear Tangents</h3>
+<p><img alt="LinearTangents" src="../../_images/LinearTangents2.gif" /></p>
+</div>
+<div class="section" id="weighted-linear-tangents">
+<h3>Weighted Linear Tangents</h3>
+<p><img alt="WeightedLinearTangents" src="../../_images/WeightedLinearTangents2.gif" /></p>
+</div>
+<div class="section" id="split-tangents">
+<h3>Split Tangents</h3>
+<p><img alt="SplitTangents" src="../../_images/SplitTangents2.gif" /></p>
+</div>
+<div class="section" id="weighted-split-tangents">
+<h3>Weighted Split Tangents</h3>
+<p><img alt="WeightedSplitTangents" src="../../_images/WeightedSplitTangents2.gif" /></p>
+<p>With unlimited anchor points and the tangent tools at your disposal, you can create countless custom eases for any purpose to use with your actions.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="TextEditor/index.html" class="btn btn-neutral float-right" title="Text Editor" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="CogPathsManual.html" class="btn btn-neutral" title="CogPaths" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Editor/UsingCustomEaseInActions.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:00 GMT -->
+</html>

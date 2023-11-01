@@ -1,0 +1,73 @@
+.. _ReferenceNetPeerSentUserAddResponse:
+
+.. rst-class:: searchtitle
+
+NetPeerSentUserAddResponse
+==========================
+
+.. rst-class:: searchdescription
+
+Dispatched after sending a net user add response.
+
+.. include:: Description/NetPeerSentUserAddResponse.rst
+
+.. cpp:class:: NetPeerSentUserAddResponse
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceNetPeerSentUserAddResponseProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetPeerSentUserAddResponse::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetPeerId NetPeerSentUserAddResponse::TheirNetPeerId
+
+            Data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: IpAddress NetPeerSentUserAddResponse::TheirIpAddress
+
+            Their net peer ID.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EventBundle NetPeerSentUserAddResponse::TheirRequestBundle
+
+            Their IP address(as seen from our perspective)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetUserAddResponse::Enum NetPeerSentUserAddResponse::OurAddResponse
+
+            Their bundled request event data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EventBundle NetPeerSentUserAddResponse::OurResponseBundle
+
+            Our add response.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetUserId NetPeerSentUserAddResponse::TheirNetUserId
+
+            Our bundled response event data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NetPeerSentUserAddResponse::TheirNetUser
+
+            Their net user ID(set only if accepted)
+
+.. _ReferenceNetPeerSentUserAddResponseMethods:
+
+.. include:: Remarks/NetPeerSentUserAddResponse.rst

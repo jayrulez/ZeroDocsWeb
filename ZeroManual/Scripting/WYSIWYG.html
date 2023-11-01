@@ -1,0 +1,380 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Scripting/WYSIWYG.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:52:44 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The WYSIWYG Approach to Configurable Properties &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Scripting" href="index.html"/>
+        <link rel="next" title="Architecture" href="../Architecture/index.html"/>
+        <link rel="prev" title="Debug Drawing" href="DebugDrawing.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Scripting</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="EventsAndConnections.html">Events and Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DebugDrawing.html">Debug Drawing</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">The WYSIWYG Approach to Configurable Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="index.html">Scripting</a> &raquo;</li>
+      
+    <li>The WYSIWYG Approach to Configurable Properties</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/ZeroManual/Scripting/WYSIWYG.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="the-wysiwyg-approach-to-configurable-properties">
+<span id="manualwysiwyg"></span><h1>The WYSIWYG Approach to Configurable Properties</h1>
+<p class="searchdescription">Properties are one of the easiest ways to make components more reusable. While some
+properties affect runtime behavior, others are simply items that help set the initial state
+of one&#8217;s components.</p>
+<p>One can see the WYSIWYG (what-you-see-is-what-you-get) effect with some of the built-in components.</p>
+<p>Here the Sprite&#8217;s orientation is changed the moment the <code class="docutils literal"><span class="pre">FlipX</span></code> box is checked in the editor.</p>
+<blockquote>
+<div><img alt="SpriteWYSIWYG" src="../../_images/SpriteWYSIWYG.gif" /></div></blockquote>
+<p>As a demonstration, the following custom ZilchScript will emulate the <code class="docutils literal"><span class="pre">FlipX</span></code> while using a Property:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Flipper</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+<span class="na">    [Dependency]</span> <span class="c1">// Need the Transform component to perform the flip</span>
+    <span class="kt">var</span> <span class="n">Transform</span><span class="p">:</span><span class="n">Transform</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="na">    [Property]</span>   <span class="c1">// Property that allows objects to change direction from the editor</span>
+    <span class="kt">var</span> <span class="n">FlipX</span><span class="p">:</span><span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// If they chose to Flip, do so now</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">FlipX</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="n">Flip</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="n">function</span> <span class="nf">Flip</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">trans</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Transform</span><span class="p">;</span>
+        <span class="kt">var</span> <span class="n">rot</span> <span class="p">=</span> <span class="n">trans</span><span class="p">.</span><span class="n">Rotation</span><span class="p">;</span>
+        <span class="c1">// Find the up vector for our object after our rotation is applied</span>
+        <span class="kt">var</span> <span class="n">up</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Transform</span><span class="p">(</span><span class="n">Real3</span><span class="p">.</span><span class="n">YAxis</span><span class="p">,</span> <span class="n">rot</span><span class="p">);</span>
+        <span class="c1">// Update rotation to include the 180 degree rotation around</span>
+        <span class="c1">// calculated local up, thus flipping the local x like Sprite does.</span>
+        <span class="n">trans</span><span class="p">.</span><span class="n">Rotation</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Transform</span><span class="p">(</span><span class="n">rot</span><span class="p">,</span><span class="n">Math</span><span class="p">.</span><span class="n">AxisAngle</span><span class="p">(</span><span class="n">up</span><span class="p">,</span> <span class="n">Math</span><span class="p">.</span><span class="n">Pi</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><img alt="PropertySet" src="../../_images/PropertySet.png" /></div></blockquote>
+<p>While this works, it doesn&#8217;t flip when the FlipX property is altered at runtime. By only
+calling <code class="docutils literal"><span class="pre">Flip()</span></code> during initialization, it runs once and then never again. Although other scripts can
+access and call <code class="docutils literal"><span class="pre">Flip()</span></code> themselves, this function doesn&#8217;t update the <code class="docutils literal"><span class="pre">FlipX</span></code> property,
+which means it doesn&#8217;t represent the state of the object, like it does in the <a class="reference internal" href="../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a> component.</p>
+<p>This result can be tested with a simple <code class="docutils literal"><span class="pre">Input</span></code> component:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Input</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+<span class="na">    [Dependency]</span>
+    <span class="kt">var</span> <span class="n">Flipper</span><span class="p">:</span><span class="n">Flipper</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="na">    [Dependency]</span>
+    <span class="kt">var</span> <span class="n">Sprite</span><span class="p">:</span><span class="n">Sprite</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">KeyDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnKeyDown</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">function</span> <span class="nf">OnKeyDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">Right</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Flipper</span><span class="p">.</span><span class="n">FlipX</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">Left</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Flipper</span><span class="p">.</span><span class="n">FlipX</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">D</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">FlipX</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">A</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">FlipX</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When this component is attached to the Sprite object, one will notice quickly that while the sprite flips with <code class="docutils literal"><span class="pre">A</span></code> and <code class="docutils literal"><span class="pre">D</span></code>, it doesn&#8217;t with the
+arrow keys.</p>
+<p>To link the call of flip with the setting of the variable, we&#8217;ll use a <a class="reference internal" href="../ZilchInZero/Properties.html#zilchproperties"><span>Get-Set</span></a> for editing and a field for the backing variable. i.e.</p>
+<p>Replace:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="na">[Property]</span>   <span class="c1">// Property that allows objects to change direction from the editor</span>
+<span class="kt">var</span> <span class="n">FlipX</span><span class="p">:</span><span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>with:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="na">[Serialized]</span> <span class="c1">// This is the backing field that saves the value.</span>
+<span class="kt">var</span> <span class="n">FlipXs</span><span class="p">:</span><span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="na">[Editable]</span>   <span class="c1">// This is displayed in the Properties Window, but doesn&#39;t save</span>
+<span class="kt">var</span> <span class="n">FlipX</span><span class="p">:</span><span class="n">Boolean</span>
+<span class="p">{</span>
+    <span class="k">get</span><span class="p">{</span><span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">FlipXs</span><span class="p">;}</span>
+    <span class="k">set</span><span class="p">{</span>
+        <span class="c1">// Using a get-set allows us to add functionality when the value is set;</span>
+        <span class="c1">// in this case, performing the flip when the value is changed.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">FlipXs</span> <span class="p">!=</span> <span class="k">value</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Flip</span><span class="p">();</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">FlipXs</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, the arrow keys are just as effective in updating the orientation of our <a class="reference internal" href="../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a>, and <code class="docutils literal"><span class="pre">FlipX</span></code>
+accurately reflects the current status of the object. Notice there is no longer a need to call <code class="docutils literal"><span class="pre">Flip()</span></code>
+in the <code class="docutils literal"><span class="pre">Initialize</span></code> function, either.</p>
+<p>To truly make it WYSIWYG the flip needs to happen in the editor when setting the <code class="docutils literal"><span class="pre">FlipX</span></code> value
+to true. This can be done by marking the class with the <a class="reference internal" href="../ZilchInZero/Attributes.html#manualattributerunineditor"><span>[RunInEditor]</span></a> attribute.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="na">[RunInEditor]</span>
+<span class="k">class</span> <span class="nc">Flipper</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span> <span class="c1">//...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><img alt="RunningInEditor" src="../../_images/RunningInEditor.gif" /></div></blockquote>
+<p>Employing <a class="reference internal" href="../ZilchInZero/Attributes.html#manualattributerunineditor"><span>[RunInEditor]</span></a>, <a class="reference internal" href="../ZilchInZero/Attributes.html#manualattributeserialized"><span>[Serialized]</span></a>, and <a class="reference internal" href="../ZilchInZero/Attributes.html#manualattributeeditable"><span>[Editable]</span></a> we&#8217;ve created the WYSIWYG feel. This design pattern can be reused to create the polished WYSIWYG feel with
+one&#8217;s own components.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Architecture/index.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="DebugDrawing.html" class="btn btn-neutral" title="Debug Drawing" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Scripting/WYSIWYG.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:52:46 GMT -->
+</html>

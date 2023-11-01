@@ -1,0 +1,100 @@
+.. _ReferenceLevelPath:
+
+.. rst-class:: searchtitle
+
+LevelPath
+=========
+
+.. rst-class:: searchdescription
+
+A path that is anchored in the level that an object is able to follow.
+
+.. include:: Description/LevelPath.rst
+
+.. cpp:class:: LevelPath
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceLevelPathProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog LevelPath::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space LevelPath::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog LevelPath::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession LevelPath::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Path LevelPath::Path
+
+            The path resource that can be followed and modified.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LevelPath::Closed
+
+            Does the path loop back on itself?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LevelPath::DebugDraw
+
+            Should the path draw every frame? Mainly used for debugging purposes so the intended path can be seen while an object moves.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real LevelPath::Error
+
+            The max number of units that a line segment is allowed to deviate from the curve.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint LevelPath::CurveType
+
+            The kind of path(Linear, BSpline, CatmulRom). Determines how the control points affect the curve.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LevelPath::DisplayProxyControlPoints
+
+            Should the proxy control points be displayed? Used for debugging purposes.
+
+.. _ReferenceLevelPathMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void LevelPath::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void LevelPath::AddPoint()
+
+            
+
+.. include:: Remarks/LevelPath.rst

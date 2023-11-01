@@ -1,0 +1,88 @@
+.. _ReferenceWebRequester:
+
+.. rst-class:: searchtitle
+
+WebRequester
+============
+
+.. rst-class:: searchdescription
+
+A component we can use to facilitate web requests.
+
+.. include:: Description/WebRequester.rst
+
+.. cpp:class:: WebRequester
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceWebRequesterProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog WebRequester::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space WebRequester::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog WebRequester::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession WebRequester::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String WebRequester::Url
+
+            Get and set the url that we make requests to.
+
+.. _ReferenceWebRequesterMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void WebRequester::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void WebRequester::Clear()
+
+            Clear headers and post data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void WebRequester::Run()
+
+            Run the web request(we should get data back in a WebResponse event)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void WebRequester::SetHeader(String name, String data)
+
+            Add a header to the web request.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void WebRequester::SetPostData(String data)
+
+            Add Post data to the request, this will also change the request to a post request.
+
+.. include:: Remarks/WebRequester.rst

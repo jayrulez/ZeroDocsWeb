@@ -1,0 +1,672 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Scripting/Actions.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:02:52 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Actions &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Scripting" href="index.html"/>
+        <link rel="next" title="Using Custom Eases in Actions" href="UsingCustomEaseInActionsTutorial.html"/>
+        <link rel="prev" title="Events 4" href="Events4.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Scripting</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting4.html">Scripting 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events3.html">Events 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events4.html">Events 4</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Actions</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="UsingCustomEaseInActionsTutorial.html">Using Custom Eases in Actions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Tutorials</a> &raquo;</li>
+      
+          <li><a href="index.html">Scripting</a> &raquo;</li>
+      
+    <li>Actions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Tutorials/Scripting/Actions.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="actions">
+<span id="tutorialactions"></span><h1>Actions</h1>
+<p class="searchdescription">This lesson covers the basics of using <strong>Actions</strong>.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/LauncherNewProject.html#manualcreatenewproject"><span>Create a New Project</span></a></p>
+<p>Actions are a handy way to animate properties with just a few lines of code.
+This means that you can make an object&#8217;s properties change over time with very
+little hassle.</p>
+<p>Let&#8217;s say you want to make a rectangle triple its height over the course of one
+second.</p>
+<p><img alt="BasicDemonstration" src="../../_images/BasicDemonstration.gif" /></p>
+<p>Normally, to do this would require at least one extra boolean member variable,
+a crowded update function, and probably a minor headache.</p>
+<p>Now let&#8217;s say, at the same time, you also want it to move five units to the
+right, but then you want it to move two units upward when that movement is done.
+On top of all that, you want it to change its color from white to red <em>and</em>
+rotate ninety degrees counterclockwise, but these two changes should start half
+a second into the initial movement, and they should take two seconds to
+complete.</p>
+<p><img alt="ComplexDemonstration" src="../../_images/ComplexDemonstration.gif" /></p>
+<p>At this point, the programmers are rolling their eyes and the designers are
+crying. But with actions, you can do all this and more, all without breaking a
+sweat. Let&#8217;s learn how!</p>
+</div>
+<div class="section" id="setting-up">
+<h2>Setting Up</h2>
+<p>First, create the sprite we&#8217;re going to manipulate.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or
+<span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">ActionDemonstrator</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add an Area component</span></a></li>
+</ul>
+</li>
+</ul>
+<p>Now we need to make a new Zilch component to control our actions.</p>
+<div class="section" id="creating-the-component">
+<h3>Creating the Component</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named:
+<code class="docutils literal"><span class="pre">ActionController</span></code></li>
+<li>Update your new script to look like this:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ActionController</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+<span class="na">    [Dependency]</span>
+    <span class="kt">var</span> <span class="n">Area</span> <span class="p">:</span> <span class="n">Area</span><span class="p">;</span>
+
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">KeyDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnKeyDown</span><span class="p">);</span>
+    <span class="p">}</span>
+
+
+    <span class="n">function</span> <span class="nf">OnKeyDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">Space</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">BeginDemonstration</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+
+    <span class="n">function</span> <span class="nf">BeginDemonstration</span><span class="p">()</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the ActionDemonstrator object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add an ActionController component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+</ul>
+<p>Now we&#8217;re ready to start making the magic happen.</p>
+</div>
+</div>
+<div class="section" id="making-the-magic-happen">
+<h2>Making the Magic Happen</h2>
+<p>Actions work by changing a specified <strong>property</strong> to a specified <strong>value</strong> over
+a specified <strong>duration</strong>, with a specified <strong>easing function</strong>.</p>
+<ul class="simple">
+<li>In the ActionController script<ul>
+<li>Update the <code class="docutils literal"><span class="pre">BeginDemonstration</span></code> function with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">BeginDemonstration</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">specifiedProperty</span>  <span class="p">=</span>  <span class="n">@this</span><span class="p">.</span><span class="n">Area</span><span class="p">.</span><span class="n">Size</span><span class="p">;</span>
+    <span class="kt">var</span> <span class="n">specifiedValue</span>     <span class="p">=</span>  <span class="n">Real2</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span> <span class="m">3.0</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">specifiedDuration</span>  <span class="p">=</span>  <span class="m">1.0</span><span class="p">;</span>
+    <span class="kt">var</span> <span class="n">specifiedEase</span>      <span class="p">=</span>  <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">;</span>
+
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Actions</span><span class="p">,</span>
+                    <span class="n">specifiedProperty</span><span class="p">,</span>
+                    <span class="n">specifiedValue</span><span class="p">,</span>
+                    <span class="n">specifiedDuration</span><span class="p">,</span>
+                    <span class="n">specifiedEase</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let&#8217;s break this down. You create an action by calling one of various functions
+on the <strong>Action</strong> object. In this case, we&#8217;re using an action to modify a value,
+so we&#8217;re calling the <code class="docutils literal"><span class="pre">Action.Property</span></code> function. (There are other kinds of
+actions as well, but we&#8217;ll get to those later.)</p>
+<div class="sidebar">
+<p class="first sidebar-title">Properties and the &#64; Sign</p>
+<p>What does the following expression mean to the Zero Engine?</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">this.Area.Size</span></code></div></blockquote>
+<p>If you answered &#8220;the Size property of the cog&#8217;s Area component,&#8221; you&#8217;re only
+mostly correct. In truth, since this expression evaluates to whatever the
+<em>current value of the Area property</em> is, it&#8217;s actually a <strong>Real2</strong>. Thus, the
+correct answer would be, &#8220;a Real2 that is equal to the Size of the cog&#8217;s Area
+component.&#8221;</p>
+<p class="last">This distinction is important because the second argument of the
+<code class="docutils literal"><span class="pre">Action.Property</span></code> function can never be a Real2, even when you want to
+modify a Real2 property. Instead, it&#8217;s looking for a <strong>property delegate</strong> &#8212;
+you need to specify which property to modify. Putting the <code class="docutils literal"><span class="pre">&#64;</span></code> sign in front
+of the property&#8217;s name tells the function to use <em>that property</em>, not its
+current value.</p>
+</div>
+<p>This function takes five parameters:</p>
+<ul class="simple">
+<li>First, you need to specify what action set &#8220;owns&#8221; the action. Here, we specify
+the ActionDemonstrator&#8217;s action set.</li>
+<li>Next, we say which property we&#8217;re going to modify. In this case, we&#8217;re
+changing the size of the sprite through its Area component.<ul>
+<li>Make sure that when you specify the property to modify, you use the <strong>at
+sign</strong> (<code class="docutils literal"><span class="pre">&#64;</span></code>) &#8212; otherwise, the code will not compile.</li>
+</ul>
+</li>
+<li>Then we say the value that we want that property to end up with. We&#8217;re
+tripling the height of the ActionDemonstrator sprite, so we pass in
+<code class="docutils literal"><span class="pre">Real2(1.0,</span> <span class="pre">3.0)</span></code> to effectively set the Area component&#8217;s Size property to
+<code class="docutils literal"><span class="pre">[1,</span> <span class="pre">3]</span></code>.</li>
+<li>Next, we say how long it should take. This is a duration in seconds, so we say
+<code class="docutils literal"><span class="pre">1.0</span></code>.</li>
+<li>Finally, we tell the action what easing function it should use. Easing
+functions provide a way for the action to <strong>change the rate at which the
+the property reaches its end value</strong> over the course of the action. The
+<code class="docutils literal"><span class="pre">QuadInOut</span></code> ease is nice looking, so we&#8217;ll go with that.</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>Run the project</span></a> and press the <code class="docutils literal"><span class="pre">Space</span> <span class="pre">Bar</span></code>.</li>
+</ul>
+<p><img alt="BasicDemonstrationB1" src="../../_images/BasicDemonstrationB1.png" /> <img alt="BasicDemonstrationB2" src="../../_images/BasicDemonstrationB2.png" /> <img alt="BasicDemonstrationB3" src="../../_images/BasicDemonstrationB3.png" /></p>
+<p>The sprite changes its size as specified.</p>
+<p>Now let&#8217;s make this a bit more complex.</p>
+</div>
+<div class="section" id="action-sequences">
+<h2>Action Sequences</h2>
+<p>An <strong>action sequence</strong> is a chain of actions. Each action in a sequence waits to
+begin until all the other actions before it are completed.</p>
+<ul class="simple">
+<li>In the ActionController script<ul>
+<li>Update the <code class="docutils literal"><span class="pre">BeginDemonstration</span></code> function with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">BeginDemonstration</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">moveSeq</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Sequence</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Actions</span><span class="p">);</span>
+
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">moveSeq</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">5.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">),</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">moveSeq</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">5.0</span><span class="p">,</span> <span class="m">2.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">),</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>Run the project</span></a> and press the <code class="docutils literal"><span class="pre">Space</span> <span class="pre">Bar</span></code>.</li>
+</ul>
+<p><a class="reference internal" href="../../_images/Sequences1.png"><img alt="Sequences1" src="../../_images/Sequences1.png" style="width: 2.0in;" /></a> <a class="reference internal" href="../../_images/Sequences2.png"><img alt="Sequences2" src="../../_images/Sequences2.png" style="width: 2.0in;" /></a> <a class="reference internal" href="../../_images/Sequences3.png"><img alt="Sequences3" src="../../_images/Sequences3.png" style="width: 2.0in;" /></a></p>
+<p>Notice how the sprite waits until it&#8217;s finished moving to the side before it
+begins moving upward. This is because we&#8217;ve put its two movement actions into an
+action sequence.</p>
+</div>
+<div class="section" id="action-groups">
+<h2>Action Groups</h2>
+<p>An <strong>action group</strong> is a collection of actions that do not wait for each other
+the way that actions in a sequence do.</p>
+<ul class="simple">
+<li>In the ActionController script<ul>
+<li>Update the <code class="docutils literal"><span class="pre">BeginDemonstration</span></code> function with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">BeginDemonstration</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">colorGrp</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Group</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Actions</span><span class="p">);</span>
+
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">colorGrp</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">Color</span><span class="p">,</span>
+                    <span class="n">Real4</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">),</span>
+                    <span class="m">2.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">colorGrp</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">EulerAngles</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="n">Math</span><span class="p">.</span><span class="n">ToRadians</span><span class="p">(</span><span class="m">90.0</span><span class="p">)),</span>
+                    <span class="m">2.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>Run the project</span></a> and press the <code class="docutils literal"><span class="pre">Space</span> <span class="pre">Bar</span></code>.</li>
+</ul>
+<div class="sidebar">
+<p class="first sidebar-title">this.Owner.Actions</p>
+<p class="last">As it happens, <code class="docutils literal"><span class="pre">this.Owner.Actions</span></code> is an <strong>action group</strong>, the same kind as
+can be created with the <code class="docutils literal"><span class="pre">Action.Group</span></code> function.</p>
+</div>
+<p><img alt="Groups1" src="../../_images/Groups1.png" /> <img alt="Groups2" src="../../_images/Groups2.png" /> <img alt="Groups3" src="../../_images/Groups3.png" /></p>
+<p>Now the sprite rotates and changes colors simultaneously. This is because these
+two actions were put into a group.</p>
+</div>
+<div class="section" id="combining-sequences-and-groups">
+<h2>Combining Sequences and Groups</h2>
+<p>Action groups can be put into action sequences, and sequences can be put into
+groups.</p>
+<ul class="simple">
+<li>In the ActionController script<ul>
+<li>Update the <code class="docutils literal"><span class="pre">BeginDemonstration</span></code> function with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">BeginDemonstration</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">moveSeq</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Sequence</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Actions</span><span class="p">);</span>
+
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">moveSeq</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">5.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">),</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">moveSeq</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">5.0</span><span class="p">,</span> <span class="m">2.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">),</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+
+    <span class="kt">var</span> <span class="n">colorGrp</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Group</span><span class="p">(</span><span class="n">moveSeq</span><span class="p">);</span>
+
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">colorGrp</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">Color</span><span class="p">,</span>
+                    <span class="n">Real4</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">),</span>
+                    <span class="m">2.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">colorGrp</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">EulerAngles</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="n">Math</span><span class="p">.</span><span class="n">ToRadians</span><span class="p">(</span><span class="m">90.0</span><span class="p">)),</span>
+                    <span class="m">2.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>Run the project</span></a> and press the <code class="docutils literal"><span class="pre">Space</span> <span class="pre">Bar</span></code>.</li>
+</ul>
+<p><a class="reference internal" href="../../_images/Sequences1.png"><img alt="Sequences1" src="../../_images/Sequences1.png" style="width: 2.0in;" /></a> <a class="reference internal" href="../../_images/Sequences2.png"><img alt="Sequences2" src="../../_images/Sequences2.png" style="width: 2.0in;" /></a> <a class="reference internal" href="../../_images/Sequences3.png"><img alt="Sequences3" src="../../_images/Sequences3.png" style="width: 2.0in;" /></a></p>
+<p><img alt="Groups1" src="../../_images/Groups1.png" /> <img alt="Groups2" src="../../_images/Groups2.png" /> <img alt="Groups3" src="../../_images/Groups3.png" /></p>
+<p>This time, the sprite moved to the right and then up, as it did before, and then
+it simultaneously rotated and changed colors.</p>
+</div>
+<div class="section" id="delay-actions">
+<h2>Delay Actions</h2>
+<p>Actions in a sequence can be delayed by using <strong>delay actions</strong>. These are
+created with the <code class="docutils literal"><span class="pre">Action.Delay</span></code> function.</p>
+<ul class="simple">
+<li>In the ActionController script<ul>
+<li>Update the <code class="docutils literal"><span class="pre">BeginDemonstration</span></code> function with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">BeginDemonstration</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">moveSeq</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Sequence</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Actions</span><span class="p">);</span>
+
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">moveSeq</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">5.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">),</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">moveSeq</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">5.0</span><span class="p">,</span> <span class="m">2.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">),</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+
+
+
+    <span class="kt">var</span> <span class="n">colorSeq</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Sequence</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Actions</span><span class="p">);</span>
+
+    <span class="n">Action</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="n">colorSeq</span><span class="p">,</span> <span class="m">0.5</span><span class="p">);</span>
+
+    <span class="kt">var</span> <span class="n">colorGrp</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Group</span><span class="p">(</span><span class="n">colorSeq</span><span class="p">);</span>
+
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">colorGrp</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">Color</span><span class="p">,</span>
+                    <span class="n">Real4</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">),</span>
+                    <span class="m">2.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">colorGrp</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">EulerAngles</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="n">Math</span><span class="p">.</span><span class="n">ToRadians</span><span class="p">(</span><span class="m">90.0</span><span class="p">)),</span>
+                    <span class="m">2.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>Run the project</span></a> and press the <code class="docutils literal"><span class="pre">Space</span> <span class="pre">Bar</span></code>.</li>
+</ul>
+<p>Now, notice how the sprite begins moving right away, and its rotation and color
+change begin a few moments after it starts moving. This is because the movement
+is on one sequence, and the rotation and color change are on another sequece
+that begins with a half-second delay.</p>
+<p>Let&#8217;s add back in the size change from before.</p>
+<ul class="simple">
+<li>In the ActionController script<ul>
+<li>Update the <code class="docutils literal"><span class="pre">BeginDemonstration</span></code> function with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">BeginDemonstration</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Actions</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Area</span><span class="p">.</span><span class="n">Size</span><span class="p">,</span>
+                    <span class="n">Real2</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span> <span class="m">3.0</span><span class="p">),</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+
+
+
+    <span class="kt">var</span> <span class="n">moveSeq</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Sequence</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Actions</span><span class="p">);</span>
+
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">moveSeq</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">5.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">),</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">moveSeq</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">5.0</span><span class="p">,</span> <span class="m">2.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">),</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+
+
+
+    <span class="kt">var</span> <span class="n">colorSeq</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Sequence</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Actions</span><span class="p">);</span>
+
+    <span class="n">Action</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="n">colorSeq</span><span class="p">,</span> <span class="m">0.5</span><span class="p">);</span>
+
+    <span class="kt">var</span> <span class="n">colorGrp</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Group</span><span class="p">(</span><span class="n">colorSeq</span><span class="p">);</span>
+
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">colorGrp</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">Color</span><span class="p">,</span>
+                    <span class="n">Real4</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">),</span>
+                    <span class="m">2.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">colorGrp</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">EulerAngles</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="n">Math</span><span class="p">.</span><span class="n">ToRadians</span><span class="p">(</span><span class="m">90.0</span><span class="p">)),</span>
+                    <span class="m">2.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>Run the project</span></a> and press the <code class="docutils literal"><span class="pre">Space</span> <span class="pre">Bar</span></code>.</li>
+</ul>
+<p><a class="reference internal" href="../../_images/ComplexDemonstrationB1.png"><img alt="ComplexDemonstrationB1" src="../../_images/ComplexDemonstrationB1.png" style="width: 2.0in;" /></a> <a class="reference internal" href="../../_images/ComplexDemonstrationB2.png"><img alt="ComplexDemonstrationB2" src="../../_images/ComplexDemonstrationB2.png" style="width: 2.0in;" /></a> <a class="reference internal" href="../../_images/ComplexDemonstrationB3.png"><img alt="ComplexDemonstrationB3" src="../../_images/ComplexDemonstrationB3.png" style="width: 2.0in;" /></a></p>
+<p>Now it looks just like the sample from the beginning of the lesson.</p>
+</div>
+<div class="section" id="call-actions">
+<h2>Call Actions</h2>
+<p>Actions can also call functions. This can be done using <strong>call actions</strong>, which
+are created using the <code class="docutils literal"><span class="pre">Action.Call</span></code> function.</p>
+<ul class="simple">
+<li>In the ActionController script<ul>
+<li>Update the <code class="docutils literal"><span class="pre">BeginDemonstration</span></code> function with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">BeginDemonstration</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="hll">    <span class="kt">var</span> <span class="n">masterSeq</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Sequence</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Actions</span><span class="p">);</span>
+</span>
+<span class="hll">    <span class="kt">var</span> <span class="n">masterGrp</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Group</span><span class="p">(</span><span class="n">masterSeq</span><span class="p">);</span>
+</span>
+
+
+<span class="hll">    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">masterGrp</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Area</span><span class="p">.</span><span class="n">Size</span><span class="p">,</span>
+</span>                    <span class="n">Real2</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span> <span class="m">3.0</span><span class="p">),</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+
+
+
+<span class="hll">    <span class="kt">var</span> <span class="n">moveSeq</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Sequence</span><span class="p">(</span><span class="n">masterGrp</span><span class="p">);</span>
+</span>
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">moveSeq</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">5.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">),</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">moveSeq</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">5.0</span><span class="p">,</span> <span class="m">2.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">),</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+
+
+
+<span class="hll">    <span class="kt">var</span> <span class="n">colorSeq</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Sequence</span><span class="p">(</span><span class="n">masterGrp</span><span class="p">);</span>
+</span>
+    <span class="n">Action</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="n">colorSeq</span><span class="p">,</span> <span class="m">0.5</span><span class="p">);</span>
+
+    <span class="kt">var</span> <span class="n">colorGrp</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Group</span><span class="p">(</span><span class="n">colorSeq</span><span class="p">);</span>
+
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">colorGrp</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">Color</span><span class="p">,</span>
+                    <span class="n">Real4</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">),</span>
+                    <span class="m">2.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">colorGrp</span><span class="p">,</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">EulerAngles</span><span class="p">,</span>
+                    <span class="n">Real3</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="n">Math</span><span class="p">.</span><span class="n">ToRadians</span><span class="p">(</span><span class="m">90.0</span><span class="p">)),</span>
+                    <span class="m">2.0</span><span class="p">,</span> <span class="n">Ease</span><span class="p">.</span><span class="n">QuadInOut</span><span class="p">);</span>
+
+<span class="hll">    <span class="n">Action</span><span class="p">.</span><span class="n">Call</span><span class="p">(</span><span class="n">masterSeq</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Destroy</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Take careful note that some of the actions from before have now been assigned to
+different action sets.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>Run the project</span></a> and press the <code class="docutils literal"><span class="pre">Space</span> <span class="pre">Bar</span></code>.</li>
+</ul>
+<p>Now the entire process occurs as earlier, except the sprite is deleted at the
+very end. This is because all the action sequences and sets from before have
+been put in a master group together. That group was put in a sequence, and that
+sequence ended with a call action that destroyed the sprite.</p>
+<p>Now we know how to animate properties and call functions using actions.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="UsingCustomEaseInActionsTutorial.html" class="btn btn-neutral float-right" title="Using Custom Eases in Actions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Events4.html" class="btn btn-neutral" title="Events 4" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Scripting/Actions.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:02:59 GMT -->
+</html>

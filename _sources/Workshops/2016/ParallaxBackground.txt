@@ -1,0 +1,492 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _2016ParallaxBackground:
+
+.. rst-class:: SearchTitle
+
+Parallax Background
+===================
+
+.. rst-class:: SearchDescription
+
+In this lesson we will cover how to implement a parallax background via tile maps, the TileEditor2D tool and two custom ZilchScripts.
+
+Parallax Overview
+-----------------
+In a 2D game we usually use a an orthographic camera which can cause us to lose our sense of depth. A parallax background is a way of simulating depth in the background of a 2D game that is usually horizontally or vertically scrolling. We use a method of creating several background layers that are placed behind the scene. We then move these layers based off player movement. We can move deeper layers at slower speeds to increase the sense of depth.
+
+.. _2016ParallaxBackgroundVocab:
+
+Learning Objectives
+-------------------
+
+*	Understanding orthographic projection.
+
+*	Creating backgrounds that scroll at different speeds.
+
+*	Creating repeating backgrounds.
+
+*	Basing environment behavior off of player behavior.
+
+.. rst-class:: VocabSection
+
++--------------------+
+| Vocabulary         |
++====================+
+| Parallax Scrolling |
++--------------------+
+
+Create a New Project
+--------------------
+
+:ref:`2016CreateNewProject`
+
+Level Setup
+-----------
+
+* Download the `GrassTiles` package from The Void
+
+First let's make a mountain for a deepest background layer.
+
+* In the Tools Window
+
+  * Set the tool drop-down to: ``TileEditor2D``
+  * ``Left Click`` the ``CreateTileMap`` button    
+  * Set TilePalette to: ``GrassTiles``
+    
+    |PWTilePallete|
+    
+  * Update the tile palette to have these tiles
+        
+    |TilePallette|
+    
+
+* In the Level Window
+    
+    * Create that mountain that looks similar to this:
+        
+      |MountainLayer|
+    
+* :ref:`Select the TileMap object <2016SelectObject>`
+
+* In the Properties Window
+      
+  * Set the Name to: ``Mountain``
+  * Under Transform
+      
+    * Set Translation to: ``[0, 0, -3]``
+  * Set the Archetype to: ``Mountain``
+
+
+
+Next let's make some medium sized hills for our middle background layer.
+
+
+* In the Tools Window
+
+  * Set the tool drop-down to: ``TileEditor2D``
+  * ``Left Click`` the ``CreateTileMap`` button
+  * Set TilePalette to: ``GrassTiles``
+
+|pbr|
+
+* In the Level Window
+    
+    * Create a hill that looks similar to this:
+        
+|HillLayer|
+
+* :ref:`Select the TileMap object <2016SelectObject>`
+
+  * In the Properties Window
+        
+    * Set the Name to: ``Hill``
+    * Under Transform
+      
+      * Set Translation to: ``[0, 0, -2]``    
+    * Set the Archetype to: ``Hill``
+
+
+Next let's make some small sized hills for our front most background layer.
+
+* In the Tools Window
+
+  * Set the tool drop-down to: ``TileEditor2D``
+  * ``Left Click`` the ``CreateTileMap`` button
+  * Set TilePalette to: ``GrassTiles``
+
+* In the Level Window
+    
+    * Create a small hill that looks similar to this:
+        
+|SmallHillLayer|
+
+* :ref:`Select the TileMap object <2016SelectObject>`
+
+  * In the Properties Window
+        
+    * Set the Name to: ``SmallHill``
+    * Under Transform
+      
+      * Set Translation to: ``[0, 0, -1]``
+    * Set the Archetype to: ``SmallHill``
+
+
+Now that we have archetypes for each part of our scrolling background let's make a foreground for the player to walk on.
+
+
+* In the Tools Window
+
+  * Set the tool drop-down to: ``TileEditor2D``
+  * ``Left Click`` the ``CreateTileMap`` button
+  * Set TilePalette to: ``GrassTiles``
+* In the Level Window
+        
+    * Create a foreground layer that is flat:
+        
+|ForegroundLayer|
+        
+* :ref:`Select the TileMap object <2016SelectObject>`
+
+* In the Properties Window
+      
+  * Set the Name to: ``Foreground``
+  * Under Transform
+      
+    * Set Translation to: ``[0, 0, -1]``  
+  * Set the Archetype to: ``Foreground``
+
+|pbr|
+
+Adding a Player
+---------------
+
+Let's add a simple player for the parallax background to track.
+
+* :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: ``MovementController``
+
+* Update the **MovementController** script to the following code:
+
+.. code-block:: csharp
+
+    class MovementController : ZilchComponent
+    {
+      [Property]
+      var MovementSpeed : Real = 5.0;
+      
+      function Initialize(init : CogInitializer)
+      {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+      
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        //Get the direction the player wants to move from the keyboard
+        var keyInput = this.GetKeyboardMovement();
+        
+        //Move the player in the intend direction at "MovementSpeed"
+        this.Owner.Transform.Translation += keyInput * this.MovementSpeed * event.Dt;
+      }
+      
+      function GetKeyboardMovement() : Real3
+      {
+        var movement = Real3();
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.A))
+        {
+          movement.X += -1;
+        }
+        if(Zero.Keyboard.KeyIsDown(Keys.D))
+        {
+          movement.X += 1;
+        }
+        
+        return movement;
+      }
+    }
+
+|pbr|
+
+* :ref:`Command<2016Commands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+* In the Properties Window
+  
+  * Set the Name to: ``Player``
+  * Under Transform
+    
+    * Set Translation to: ``[0, 0.5, 0]``
+          
+    |CreatePlayer|
+
+    * :ref:`Add the MovementController component <2016AddComponent>`
+
+The depth affect of the parallax background will be even more effective if we move the camera with the player.
+
+* :ref:`Select the Camera Object in the Object Window <2016SelectObject>`
+    
+  * Make the ``Camera`` object a child of the ``Player`` object
+  
+  |ParentedCamera|
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+We can now make our ``Player`` sprite move left and right by pressing the ``A`` and ``D`` keys.
+
+* :ref:`Stop the Game <2016StopGame>`
+
+|pbr|
+
+Adding a Background
+-------------------
+
+Now let's start working on adding our background.
+
+* :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: ``ParallaxBackground``
+
+* Update the **ParallaxBackground** script to the following code:
+
+.. code-block:: csharp
+
+    class ParallaxBackground : ZilchComponent
+    {
+      [Property]
+      var RelativeSpeed : Real = 0.5;
+      
+      [Property]
+      var PlayerObject : CogPath = null;
+      
+      var PreviousPlayerPosition : Real3 = Real3();
+      
+      function Initialize(init : CogInitializer)
+      {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+      
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        var currentPlayerPosition = this.PlayerObject.Cog.Transform.Translation;
+        var displacement = currentPlayerPosition.X - this.PreviousPlayerPosition.X;
+        var movement = displacement * this.RelativeSpeed;
+        var newPosition = this.Owner.Transform.Translation;
+        newPosition.X -= movement;
+        this.Owner.Transform.Translation = newPosition;
+        
+        this.PreviousPlayerPosition = currentPlayerPosition;
+      }
+    }
+
+
+
+* :ref:`Select the Mountain Object in the Object Window <2016SelectObject>`
+* In the Properties Window
+  
+  * :ref:`Add the ParallaxBackground component <2016AddComponent>`
+  
+  * Under ParallaxBackground
+          
+    * Set ``PlayerObject`` to the ``Player`` Object, ``:/Player``   
+  * Upload the archetype
+
+* :ref:`Select the Hill Object in the Object Window <2016SelectObject>`
+* In the Properties Window
+  
+  * :ref:`Add the ParallaxBackground component <2016AddComponent>`
+  
+  * Under ParallaxBackground
+        
+    * Set ``PlayerObject`` to the ``Player`` Object, ``:/Player``   
+  * Upload the archetype
+
+* :ref:`Select the SmallHill Object in the Object Window <2016SelectObject>`
+* In the Properties Window
+
+  * :ref:`Add the ParallaxBackground component <2016AddComponent>`
+
+  * Under ParallaxBackground
+      
+    * Set ``PlayerObject`` to the ``Player`` Object, ``:/Player``     
+  * Upload the archetype
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+
+
+|ScrollingSameSpeedNonRepeat|
+
+Now when we move left or right the background layers will move the opposite direction which starts to make it look more like the player is walking past them. Let's increase the depth illusion the backgrounds add by making them move at different speeds.
+
+* :ref:`Stop the Game <2016StopGame>`
+
+|pbr|
+
+Now we will update the **ParallaxBackground** script to make the layer pieces repeat to cover the width of the screen.
+
+* :ref:`Select the Mountain Object in the Object Window <2016SelectObject>`
+* In the Properties Window
+  
+  * Under ParallaxBackground
+          
+    * Set RelativeSpeed to: ``0.25``
+    * Upload the archetype
+
+* :ref:`Select the Hill Object in the Object Window <2016SelectObject>`
+* In the Properties Window
+  
+  * Under ParallaxBackground
+          
+    * Set RelativeSpeed to: ``0.5``
+    * Upload the archetype
+
+* :ref:`Select the SmallHill Object in the Object Window <2016SelectObject>`
+* In the Properties Window
+  
+  * Under ParallaxBackground
+          
+    * Set RelativeSpeed to: ``0.75``
+    * Upload the archetype
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+
+|ScrollingDifferentSpeed|
+
+As the player moves left or right the background layers move in the opposite direction. The illusion of depth is even more pronounced as layers that are farther back appear to move slower.
+
+* :ref:`Stop the Game <2016StopGame>`
+
+
+
+Repeating the Background
+------------------------
+
+So far this our background layers are just single objects, let's make them repeat to fill the screen as they scroll.
+
+* In the **ParallaxBackground** script window
+
+  * Add the following properties
+
+.. code-block:: csharp
+
+    [Property]
+    var RepeatLength : Integer = 5;
+    
+    [Property]
+    var LayerWidth : Integer = 14;
+    
+    [Property]
+    var Original : Boolean = false;
+    
+    var MyArchetype : Archetype = null;
+    
+* Update the **Initialize** function to the following:
+    
+.. code-block:: csharp
+    :emphasize-lines: 3-28
+
+    function Initialize(init : CogInitializer)
+    {
+      //Initialize the player's starting position
+      this.PreviousPlayerPosition = this.PlayerObject.Cog.Transform.Translation;
+      
+      //Initialize the archetype variable so we know what to create
+      this.MyArchetype = Archetype.Find(this.Owner.ArchetypeName);
+      
+      //Only create duplicates if this object is the original
+      if(this.Original)
+      {
+        //Create "RepeatLength" copies in a repeating pattern
+        for(var i = 0; i < this.RepeatLength; ++i)
+        {
+          var leftDisplacement = Real3(this.LayerWidth * 
+                                       this.Owner.TileMap.UnitsPerTile * 
+                                       -i,0,0);
+          var objLeftPosition = this.Owner.Transform.Translation + leftDisplacement;
+          this.Space.CreateAtPosition(this.MyArchetype, objLeftPosition);
+          
+          
+          var rightDisplacement = Real3(this.LayerWidth * 
+                                        this.Owner.TileMap.UnitsPerTile * 
+                                        i,0,0);
+          var objRightPosition = this.Owner.Transform.Translation + rightDisplacement;
+          this.Space.CreateAtPosition(this.MyArchetype, objRightPosition);
+        }
+      }
+      
+      Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+
+
+* :ref:`Select the Mountain Object in the Object Window <2016SelectObject>`
+
+  * In the Properties Window
+    
+    * Under ParallaxBackground
+            
+      * Set RepeatWidth to: ``5``
+      * Set Original to: ``True``
+      * Set LayerWidth to: ``14``
+    * Upload the archetype
+
+* :ref:`Select the Hill Object in the Object Window <2016SelectObject>`
+
+  * In the Properties Window
+    
+    * Under ParallaxBackground
+            
+      * Set RepeatWidth to: ``5``
+      * Set Original to: ``True``            
+      * Set LayerWidth to: ``10``
+    * Upload the archetype
+
+* :ref:`Select the SmallHill Object in the Object Window <2016SelectObject>`
+
+  * In the Properties Window
+    
+    * Under ParallaxBackground
+            
+      * Set RepeatWidth to: ``5``
+      * Set Original to: ``True``            
+      * Set LayerWidth to: ``6``
+    * Upload the archetype
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+|RepeatingLayers|
+
+
+
+Now when we start the game the **ParallaxBackground** creates copies of itself places them so they repeat in the background.
+
+* :ref:`Stop the Game <2016StopGame>`
+
+We raise the RepeatLength if we want the level to be longer, and lower the LayerWidth if we want the background to be more cluttered. If we wanted to "hand craft" our landscape, we can turn the repeating feature off by simply setting the Original property to ``False`` on the Parallax component of the relevant objects. The code would still make it parallax like we've seen before.
+
+On Your Own
+-----------
+
+Extend this script to also account for a jumping player and scroll the parallax background on the Y-axis. You will probably want slower ``RelativeSpeed`` on vertical scrolling of the layers as normally depth is not as pronounced on the Y-axis.
+
+.. |CreatePlayer|                       image:: images/ParallaxBackground/CreatePlayer.png
+.. |ForegroundLayer|                    image:: images/ParallaxBackground/ForegroundLayer.png
+    :width: 5.0in
+.. |HillLayer|                          image:: images/ParallaxBackground/HillLayer.png
+    :width: 5.0in
+.. |MountainLayer|                      image:: images/ParallaxBackground/MountainLayer.png
+    :width: 5.0in
+.. |OWSelectBackgrounds|                image:: images/ParallaxBackground/OWSelectBackgrounds.png
+.. |PWTilePallete|                      image:: images/ParallaxBackground/PWTilePallete.png
+  :height: 2.5in
+.. |SmallHillLayer|                     image:: images/ParallaxBackground/SmallHillLayer.png
+    :width: 5.0in
+.. |TilePallette|                       image:: images/ParallaxBackground/TilePallette.png
+.. |ParentedCamera|                     image:: images/ParallaxBackground/ParentedCamera.png
+
+.. |ScrollingSameSpeedNonRepeat|                 image:: images/ParallaxBackground/ScrollingSameSpeedNonRepeat.gif
+    :width: 8.35in
+.. |ScrollingDifferentSpeed|                 image:: images/ParallaxBackground/ScrollingDifferentSpeed.gif
+    :width: 8.35in
+.. |RepeatingLayers|                     image:: images/ParallaxBackground/ScrollingDifferentSpeedRepeating.gif
+    :width: 8.35in
+
+

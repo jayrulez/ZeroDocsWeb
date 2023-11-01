@@ -1,0 +1,49 @@
+.. _ReferenceUpdateEvent:
+
+.. rst-class:: searchtitle
+
+UpdateEvent
+===========
+
+.. rst-class:: searchdescription
+
+Update event Contains current time and delta time.
+
+.. include:: Description/UpdateEvent.rst
+
+.. cpp:class:: UpdateEvent
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceUpdateEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String UpdateEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real UpdateEvent::Dt
+
+            The amount of time that passed between this frame and the last(scaled by TimeSpace.TimeScale).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real UpdateEvent::TimePassed
+
+            The amount of time that has passed since this space was created(TimeSpace.TimeScale affects this value).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real UpdateEvent::RealTimePassed
+
+            The real amount of time that has passed since this space was created(uncaped and unclamped).
+
+.. _ReferenceUpdateEventMethods:
+
+.. include:: Remarks/UpdateEvent.rst

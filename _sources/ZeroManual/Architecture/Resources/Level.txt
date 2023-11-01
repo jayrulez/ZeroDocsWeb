@@ -1,0 +1,128 @@
+.. _ManualLevel:
+
+.. rst-class:: SearchTitle
+
+Level
+=====
+
+.. rst-class:: SearchDescription
+
+A level is resource that stores a set of objects which will then be created later when the level is loaded. Levels can be loaded into a space in order to create all objects saved to the resource. Levels can be edited using several tools, especially those found via the :ref:`Editor UI<ManualEditorUI>`.
+
+Common Uses
+-----------
+
+*   Holding objects to create playable game levels and menus
+
+Using Levels
+------------
+
+Creating a Level
+~~~~~~~~~~~~~~~~
+
+A new level can be added by using the Add command (:ref:`Command<ManualCommands>` : ``Add`` or clicking on the ``Add`` button) followed by selecting ``Level``. The newly-created level will open in the Level Window and allow for the manipulation of objects to build game levels. At creation the level will only have the default objects inside it: ``LevelSettings``, ``EditorCamera`` and ``Camera``.
+
+|DefaultObjects|
+
+* The ``LevelSettings`` object is a cog that has a single unique instance per level that cannot be deleted or duplicated. It has several components attached in order to run various effects in the level, such as gravity. More information can be found in the :ref:`Level Settings<ManualLevelSettings>` Manual page. 
+
+* The ``Camera`` and ``EditorCamera`` objects are used by the engine to render the game level on screen, either at runtime or in editor, respectively. More information on cameras in general can be found in the :ref:`Cameras, Viewports and Renderers<ManualCamerasViewportsRenderers>` Manual page. 
+
+The background grid will also be turned on. The grid is there to help place objects within the level editor but will not be visible during gameplay, and can be turned on and off by using the toolbar in the top left corner of the Level Window.  
+
+|LevelWindowButtons|
+
++-------------------------------------+---------------------------------------------+
+| The collapsible toolbar has a few buttons for altering the view.                  |
++=====================================+=============================================+
+| |LWB3D| / |LWB2D|                   | Toggles between 2D & 3D camera controls.    |
++-------------------------------------+---------------------------------------------+
+| |LWBProjection| / |LWBOrthographic| | Toggles the editor camera's rendering mode  |
+|                                     | between Orthographic and Perspective        |
+|                                     | Projection.                                 |
++-------------------------------------+---------------------------------------------+
+| |LWBLit| / |LWBUnlit|               | Allows previewing of the game using the     |
+|                                     | graphical setting of the actual game        |
+| |LWBChooseRenderer|                 | renderers. This can allow you to preview    |
+| |LWBChoosingRenderer|               | shadows you may have set up that wouldn't   |
+|                                     | show until you start running the game.      |
++-------------------------------------+---------------------------------------------+
+| |LWBCameraOptions|                  | With the camera options you can either reset|
+| |LWBCameraOptionsDropDown|          | the editor camera to its default settings,  |
+|                                     | or align a selected camera with the editor's|
+|                                     | camera.                                     |
++-------------------------------------+---------------------------------------------+
+| |LWBGridOn| / |LWBGridOff|          | Toggles the grid line visuals in the        |
+|                                     | editor.                                     |
++-------------------------------------+---------------------------------------------+
+
+Levels vs. Spaces
+~~~~~~~~~~~~~~~~~
+
+While levels are resources that store object data to later be loaded, spaces are where those objects are placed upon creation. This allows multiple spaces to load multiple levels at once, which is used to create HUD or UI elements, or to pause the main game while still allowing pause menus to function properly. 
+
+.. code-block:: csharp
+    
+    // The level made will all the Pause Menu UI elements
+    [Property]
+    var PauseLevel : Level;
+
+    // An property to hold a Space archetype used to create the Pause level
+    [Property]
+    var PauseSpaceArchetype : Archetype;
+
+    // A variable used as reference for the Space holding the pause menu
+    var PauseSpace : Space = null;
+
+    function Initialize(init : CogInitializer)
+    {
+    }
+
+    function Pause()
+    {
+        // Create a new named Space for the Pause Menu
+        this.PauseSpace = this.GameSession.CreateNamedSpace("PauseSpace", this.PauseSpaceArchetype);
+
+        // Load the Pause Menu level in the newly created Space
+        this.PauseSpace.LoadLevel(this.PauseLevel);
+    }
+
+    function UnPause()
+    {
+        // If the PauseSpace exists, destroy it along with the Pause level
+        if (this.PauseSpace != null)
+            this.PauseSpace.Destroy();
+    }
+
+This code snippet gives an example of having two levels exist at once. By giving it a ``Space`` archetype and ``level`` to load and then calling the ``Pause()`` function in a ZilchScript, it will create a new Space and load the new level without destroying the currently existing one. The ``Unpause()`` function will do the reverse, and destroy the level and Space. 
+
+Related Materials
+-----------------
+
+Manual Pages
+~~~~~~~~~~~~
+
+*   :ref:`Editor UI<ManualEditorUI>`
+*   :ref:`Spaces<ManualSpaces>`
+*   :ref:`Cameras, Viewports and Renderers<ManualCamerasViewportsRenderers>`
+*   :ref:`Level Settings<ManualLevelSettings>`
+
+Tutorials
+~~~~~~~~~
+
+*   :ref:`Levels<TutorialLevels>`
+
+.. |LevelWindowButtons|               image:: images/Level/LevelWindowButtons.png
+.. |LWB3D|                            image:: images/Level/LWB3D.png
+.. |LWB2D|                            image:: images/Level/LWB2D.png
+.. |LWBProjection|                    image:: images/Level/LWBProjection.png
+.. |LWBOrthographic|                  image:: images/Level/LWBOrthographic.png
+.. |LWBLit|                           image:: images/Level/LWBLit.png
+.. |LWBUnlit|                         image:: images/Level/LWBUnlit.png
+.. |LWBChooseRenderer|                image:: images/Level/LWBChooseRenderer.png
+.. |LWBChoosingRenderer|              image:: images/Level/LWBChoosingRenderer.png
+.. |LWBCameraOptions|                 image:: images/Level/LWBCameraOptions.png
+.. |LWBCameraOptionsDropDown|         image:: images/Level/LWBCameraOptionsDropDown.png
+.. |LWBGridOn|                        image:: images/Level/LWBGridOn.png
+.. |LWBGridOff|                       image:: images/Level/LWBGridOff.png
+.. |DefaultObjects|                   image:: images/Level/DefaultObjects.png 

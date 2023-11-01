@@ -1,0 +1,280 @@
+.. _ReferencePhysicsSpace:
+
+.. rst-class:: searchtitle
+
+PhysicsSpace
+============
+
+.. rst-class:: searchdescription
+
+The PhysicsSpace is an"instance" of a world. This world manages and stores all of the other physical components of this world. PhysicSpaces act independently of each other.
+
+.. include:: Description/PhysicsSpace.rst
+
+.. cpp:class:: PhysicsSpace
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferencePhysicsSpaceProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PhysicsSpace::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space PhysicsSpace::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PhysicsSpace::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession PhysicsSpace::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint PhysicsSpace::SubStepCount
+
+            The number of iterations the physics space will take every frame. Used to achieve higher accuracy and visual results.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsSpace::AllowSleep
+
+            Determines if anything in the space is allowed to sleep or not.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsSpace::Mode2D
+
+            Determines if all new objects should operate in 2d mode.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsSpace::Deterministic
+
+            Does some extra work to help enforce determinism in the simulation.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CollisionTable PhysicsSpace::CollisionTable
+
+            The collision table resource being used to filter collisions in this space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: PhysicsSolverConfig PhysicsSpace::PhysicsSolverConfig
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Integer PhysicsSpace::IslandType
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Integer PhysicsSpace::PreProcessing
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsSpace::PostProcessIslands
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsSpace::IsSolverShared
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint PhysicsSpace::IslandCount
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint PhysicsSpace::ContactTangentType
+
+            How should tangents be calculated? Don't use if you don't know what this is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String PhysicsSpace::DynamicBroadphaseType
+
+            What kind of broadphase is used for dynamic objects(those with RigidBodies).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String PhysicsSpace::StaticBroadphaseType
+
+            What kind of broadphase is used for static objects(those without RigidBodies).
+
+.. _ReferencePhysicsSpaceMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsSpace::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsSpace::AddPairFilter(Cog cog1, Cog cog2)
+
+            Filters these two cogs to not resolve collision. This is a runtime only feature and will not be saved.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsSpace::AddHierarchyPairFilter(Cog cog1, Cog cog2)
+
+            Adds a filter to ignore collision between both trees passed in. See AddPairFilter for more info.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsSpace::RemovePairFilter(Cog cog1, Cog cog2)
+
+            Removes the filter between these two cogs so they can collide again.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsSpace::RemoveHierarchyPairFilter(Cog cog1, Cog cog2)
+
+            Removes the filters between both trees. See RemovePairFilter for more info.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: CastFilter PhysicsSpace::CreateDefaultCastFilter()
+
+            Returns a defaulted CastFilter for use in script.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsSpace::FlushPhysicsQueue()
+
+            Debug.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 PhysicsSpace::ComputePushImpulse(Vec3 pushVelocity, Vec3 pushNormal, RigidBody otherBody, Vec3 worldPoint)
+
+            Computes the velocity to push a rigid body based upon a velocity, normal and world point. The normal is assumed to point from the other body to the pushing object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: CastResult PhysicsSpace::CastRayFirst(Ray worldRay)
+
+            Performs a ray cast and returns the first object that is collided with.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: CastResult PhysicsSpace::CastRayFirstFiltered(Ray worldRay, CastFilter filter)
+
+            Performs a ray cast and returns the first object that is collided with.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: CastResultsRange PhysicsSpace::CastRayResults(Ray worldRay, uint count)
+
+            Returns the results of the ray cast. The number of objects returned is based on the count passed in.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: CastResultsRange PhysicsSpace::CastRayResultsFiltered(Ray worldRay, uint count, CastFilter filter)
+
+            Returns the results of the filtered ray cast. The number of objects returned is based on the count passed in.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: CastResultsRange PhysicsSpace::CastSegmentResults(Vec3 start, Vec3 end, uint count)
+
+            Returns the results of the segment cast. The amount of objects returned is based on the count passed in.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: CastResultsRange PhysicsSpace::CastSegmentResultsFiltered(Vec3 start, Vec3 end, uint count, CastFilter filter)
+
+            Returns the results of the filtered segment cast. The number of objects returned is based on the count passed in.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsSpace::DispatchWithinSphere(Vec3 center, real radius, String eventId, Event event)
+
+            Dispatches an event to all objects within the given sphere.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsSpace::DispatchWithinBox(Vec3 center, Vec3 size, String eventId, Event event)
+
+            Dispatches an event to all objects within the given box.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: CastResultsRange PhysicsSpace::CastAabbResults(Vec3 center, Vec3 size, uint count, CastFilter filter)
+
+            Returns the results of the filtered Aabb cast. The amount of objects returned is based on the count passed in.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: CastResultsRange PhysicsSpace::CastSphereResults(Vec3 center, real radius, uint count, CastFilter filter)
+
+            Returns the results of the filtered Sphere cast. The amount of objects returned is based on the count passed in.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: CastResultsRange PhysicsSpace::CastColliderResults(Vec3 offset, Collider testCollider, CastFilter filter)
+
+            Cast out a collider to see what it's colliding with.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: SweepResult PhysicsSpace::SweepCollider(Collider collider, Vec3 worldOffset, CastFilter filter)
+
+            Generate sweep data from the current position to a new location(stop at the first contact).
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: ContinuousResultRange PhysicsSpace::ContinuousCollider(Collider collider, Vec3 velocity, real dt, CastFilter filter)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog PhysicsSpace::CreateJoint(Cog cog0, Cog cog1, String jointName, Vec3 worldPoint)
+
+            Creates a joint of jointName between the two cogs passed in. The anchor of the joint is set to the world point passed in.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: String PhysicsSpace::WhyAreTheyNotColliding(Cog cog1, Cog cog2)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsSpace::ToggleDebugFlag(uint flag)
+
+            Enable or disable debug flags.
+
+.. include:: Remarks/PhysicsSpace.rst

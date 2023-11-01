@@ -1,0 +1,73 @@
+.. _ReferenceNetPeerReceivedUserAddRequest:
+
+.. rst-class:: searchtitle
+
+NetPeerReceivedUserAddRequest
+=============================
+
+.. rst-class:: searchdescription
+
+Dispatched after receiving a net user add request.
+
+.. include:: Description/NetPeerReceivedUserAddRequest.rst
+
+.. cpp:class:: NetPeerReceivedUserAddRequest
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceNetPeerReceivedUserAddRequestProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetPeerReceivedUserAddRequest::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetPeerId NetPeerReceivedUserAddRequest::TheirNetPeerId
+
+            Data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: IpAddress NetPeerReceivedUserAddRequest::TheirIpAddress
+
+            Their net peer ID.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EventBundle NetPeerReceivedUserAddRequest::TheirRequestBundle
+
+            Their IP address(as seen from our perspective)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetPeerReceivedUserAddRequest::ReturnOurAddResponse
+
+            Their bundled request event data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EventBundle NetPeerReceivedUserAddRequest::ReturnOurResponseBundle
+
+            Return: Our add response(accept the add request?)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NetPeerReceivedUserAddRequest::ReturnTheirNetUser
+
+            Return: Our bundled response event data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetUserId NetPeerReceivedUserAddRequest::TheirNetUserId
+
+            Return: Their network user object(must have a NetUser component)
+
+.. _ReferenceNetPeerReceivedUserAddRequestMethods:
+
+.. include:: Remarks/NetPeerReceivedUserAddRequest.rst

@@ -1,0 +1,422 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _2016Events3:
+
+.. rst-class:: SearchTitle
+
+Events 3
+========
+
+.. rst-class:: SearchDescription
+
+This lesson covers basic collision, collision events and checking for collision with specific objects. It involves creating a small project where we will look at two collision events specifically: CollisionStarted and CollisionEnded. By the end of the lesson, you should have a basic understanding of how collision events are dispatched, how to connect to them, and how to use their response functions.
+
+.. _2016Event2sVocab:
+
+Learning Objectives
+-------------------
+
+*   Become familiar with the three types of collision events and when they are dispatched.
+
+*   Learn how to connect to these collision events in code, using their response functions to affect game logic.
+
+*   Gain a basic understanding of the information sent with collision events and how they may be of use in designing game logic.
+
+.. rst-class:: VocabSection
+
++-------------------------------------------------------------------------+
+| Vocabulary                                                              |
++================+==================+================+====================+
+| Runtime        | Gravity          | Collider       | Ghost Collider     |
++----------------+------------------+----------------+--------------------+
+| CollisionEvent | CollisionStarted | CollisionEnded | CollisionPersisted | 
++----------------+------------------+----------------+--------------------+
+
+
+Level Setup
+-----------
+
+* :ref:`2016CreateNewProject`
+
+* :ref:`Select the LevelSettings object <2016SelectObject>`
+* In the Properties Window
+  
+  * :ref:`Remove the Drag Component<2016RemoveComponent>`
+  * :ref:`Remove the Gravity Component<2016RemoveComponent>`
+
+**Ball Object**
+
+* :ref:`Command<2016Commands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+* In the Properties Window
+
+  * Set Name to: ``Ball``
+  * :ref:`Add a RigidBody component <2016AddComponent>`
+  * :ref:`Add a SphereCollider component <2016AddComponent>`
+  * Under Transform
+
+    * Set Translation to: ``[-5, 0, 0]``
+  * Under Sprite
+
+    * Set SpriteSource to: ``Circle``
+  * Under SphereCollider
+
+    * Set Radius to: ``0.5``
+
+**Block Object**
+
+* :ref:`Command<2016Commands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+* In the Properties Window
+
+  * Set Name to: ``Block``
+  * :ref:`Add a RigidBody component <2016AddComponent>`
+  * :ref:`Add a BoxCollider component <2016AddComponent>`
+  * Under Transform
+
+    * Set Translation to: ``[3, 0, 0]``
+    * Set Scale to: ``[2, 2, 2]``
+  * Under Sprite
+
+    * Set Color to:``[R: 255, G: 255, B: 255, A: 0.10]`` `to make it transparent`
+  * Under RigidBody
+
+    * Set DynamicState to: ``Static``
+
+|pbr|
+
+**BigBlock Object**
+
+* Press ``Ctrl + D`` to duplicate the Block object we just created
+* In the Properties Window
+
+  * Set Name to: ``BigBlock``
+  * Under Transform
+
+    * Set Translation to: ``[8, 0, 0]``
+    * Set Scale to: ``[3, 3, 3]``
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+Here's what our level should look like:
+
+|GWLevelSetup|
+
+Simple Movement
+---------------
+
+* :ref:`Stop the Game <2016StopGame>`
+* :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: ``Movement``
+* :ref:`Save the project <2016SavingProject>` 
+
+
+
+* :ref:`Select the Ball object <2016SelectObject>`
+* In the Properties Window
+  
+  * :ref:`Add the Movement script component <2016AddComponent>` that we just created to the Ball object:
+
+    |PWBallAddMovement|
+
+|pbr|
+
+* In the **Movement** script
+
+  * Update the **Movement** class with the following code:
+
+.. code-block:: csharp
+    
+  class Movement : ZilchComponent
+  {
+    function Initialize(init : CogInitializer)
+    {
+      // Connect to the LogicUpdate event:
+      Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+      // Get current position:
+      var position = this.Owner.Transform.Translation;
+      // Move to the right:
+      position.X += event.Dt * 10.0;
+
+      // If past a certain point,
+      if (position.X >= 12.0)
+      {
+        // reset the position.
+        position.X = -5.0;
+      }
+
+      // Update Translation with changes:
+      this.Owner.Transform.Translation = position;
+    }
+  }
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+
+
+The Ball object should continue moving to the right past the block, but instead collides with it, getting stuck. In order to make it pass through, we are going to make our blocks have **ghost** colliders. 
+
+|GWStuck|
+
+|pbr|
+
+.. sidebar:: Using Ghost Colliders
+
+  Using ghost colliders can be rather handy when you want to create areas that trigger behavior but that don't actually affect movement. 
+  
+  In our project we'll use it to trigger a color change; in a game, however, you could use it to trigger a wave of enemies to spawn. Looking forward, in the :ref:`Level Checkpoints<2016LevelCheckpoints>` lesson, we use them to mark checkpoints in case the player dies. 
+  
+**Ghost colliders**, despite not causing an actual physical collision, allow us to know when collisions happen and still add mass to an object. Let's take a look at what happens when we apply ghost colliders to our project.
+
+* :ref:`Select the Block object <2016SelectObject>`
+* In the Properties Window
+
+  * Under BoxCollider
+  
+    * Set Ghost to: ``True``
+* :ref:`Select the BigBlock object <2016SelectObject>`
+* In the Properties Window
+
+  * Under BoxCollider
+  
+    * Set Ghost to: ``True``
+    
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+Instead of colliding with the block, the Ball now passes right through both of them.
+
+|GhostBlocks|
+
+Our next step is to detect when the Ball collides with another object. When this happens, a **collision event** is dispatched, or sent out.
+
+|pbr|
+
+Collision Events
+----------------
+
+The :ref:`first Events lesson<2016Events1>` discussed how LogicUpdate event is a type of UpdateEvent. **CollisionEvent** is another type of event. Three events fall under the CollisionEvent category: CollisionStarted, CollisionEnded, and CollisionPersisted. 
+
+1. **CollisionPersisted** is when the object was and still is colliding. 
+2. **CollisionEnded** is when the object was but is no longer colliding. 
+3. **CollisionStarted** is when the object is colliding but was not colliding previously.
+
+* :ref:`Stop the Game <2016StopGame>`
+* :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: ``CollisionLogic``
+* :ref:`Select the Ball object <2016SelectObject>`
+
+* In the Properties Window
+
+  * :ref:`Add a CollisionLogic component <2016AddComponent>`
+  
+    |PWBallAddCollisionLogic|
+
+* In the **CollisionLogic** script
+
+  * Update the **CollisionLogic** class with the following code:
+  
+    * Update **Initialize** class with the following code:
+
+.. code-block:: as
+  :emphasize-lines: 3-5
+    
+  function Initialize(init : CogInitializer)
+  {
+    // Connect to CollisionStarted event
+    //           when I      get a CollisionStarted event call my OnCollisionStarted function
+    Zero.Connect(this.Owner, Events.CollisionStarted,     this.OnCollisionStarted);
+  }
+
+* 
+
+  * 
+  
+    * Add the **OnCollisionStarted** function:
+    
+.. code-block:: csharp    
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    // Change model color to Orange.
+      // Color orange is    [R:1, G: 0.5, B:0, A:1.0].
+    var orange =       Real4(1.0,    0.5, 0.0,   1.0);
+      // Apply color to the Sprite:
+    this.Owner.Sprite.Color = orange;
+      
+  }
+
+
+    
+In this code, we connect to the CollisionStarted event and provide the OnCollisionStarted function as the **response** function, as it is called as response to hearing the collision event. Notice that we are connecting to the **Owner** object and `not the Space` like we do for LogicUpdate events. This is because the Owner object (i.e., the object that this component is currently on) is **dispatching**, or sending out, the CollisionEvent. In our OnCollisionStarted function, we change the :cpp:type:`Sprite's<Sprite>` color to visually show that we have collided.
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+|pbr|
+
+|CollisionLogicOrange|
+
+The color of the Ball object changes to orange when we collide with the first block and stays orange. Next, we will change the color back to white when we are no longer colliding with a block by using the CollisionEnded event.
+
+* :ref:`Stop the Game <2016StopGame>`
+* In the **CollisionLogic** script
+
+  * Update the **Initialize** function by appending the following:
+    
+.. code-block:: as
+  :emphasize-lines: 2-
+  
+        Zero.Connect(this.Owner, Events.CollisionStarted,     this.OnCollisionStarted); 
+        // Connect to CollisionEnded  event
+        //           when I      get a CollisionEnded event call my OnCollisionEnded function
+        Zero.Connect(this.Owner, Events.CollisionEnded,     this.OnCollisionEnded);
+        
+*
+
+  * Add the following function to the **CollisionLogic** class:
+
+.. code-block:: csharp
+    
+  function OnCollisionEnded(event : CollisionEvent)
+  {
+    // Change model color to back to white.
+      // White is     [R:1,  G:1, B:1, A:1].
+    var white =  Real4(1.0,  1.0, 1.0, 1.0);
+      // Apply color to the Sprite:
+    this.Owner.Sprite.Color = white;
+  }    
+
+
+    
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+|pbr|
+
+|CollisionLogicOrangeWhite|
+
+The color of the Ball object now changes back to white when we stop colliding. What if we wanted to check for collision with a specific object?
+
+Checking for Collision with Specific Objects
+--------------------------------------------
+
+.. note:: Why Are They Not Colliding?
+
+  In all these checks, we are using visuals to help up determine if there is a collision. What if there isn't a collision? How can we tell what is wrong?
+  
+  While there are a multitude of possible reasons a quick way to start is simply to ask the physics engine.
+  
+  .. code-block:: csharp  
+
+    var space = this.Space;
+    var physics = space.PhysicsSpace;
+    Console.WriteLine(
+      physics.WhyAreTheyNotColliding(
+        this.Owner,
+        space.FindObjectByName("BigBlock")));
+  
+  The function ``WhyAreTheyNotColliding`` returns a string that you can print via Console.WriteLine to receive possible answers such as:
+  
+  * Colliders did not pass broadphase, they are too far apart. (Maybe separating on the z axis?).
+  * They didn't pass collision detection, they aren't actually colliding.
+  * One collider is marked ghost. Both colliders send events
+  * CogB doesn't have a collider.
+
+
+Now we will go over colliding with specific objects by getting information about the object we collided with from the **CollisionEvent** . Similar to how an UpdateEvent has Dt and CurrentTime as accessible data members, every CollisionEvent provides a way of getting the other object with which we were either colliding, are still colliding, or have just started colliding.
+
+* :ref:`Stop the Game <2016StopGame>`
+
+|pbr|
+
+* In the **CollisionLogic** script
+
+  * Update the **CollisionLogic** 's **OnCollisionStarted** function with the following code:
+
+.. code-block:: csharp
+  :emphasize-lines: 3-8,14
+    
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    // Get the object we collided with:
+    var otherObject = event.OtherObject;
+    
+    // If we collided with the block,
+    if (otherObject.Name == "Block")
+    {
+      // change model color to Orange.
+        // Orange is    [R:1, G: 0.5, B:0, A:1].
+      var orange = Real4(1.0,    0.5, 0.0, 1.0);
+        // Apply color to the Sprite:
+      this.Owner.Sprite.Color = orange;
+    }
+  }
+
+Notice we use the **OtherObject** property of the CollisionEvent in order to get the other object involved in the collision from the CollisionEvent itself.
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+|ByName|
+
+The color of the Ball object **only** changes to orange whenever we collide with the Block object. Now we know how to use specific information about the other colliding object in order to react differently when colliding with different objects.
+
+* :ref:`Stop the Game <2016StopGame>`
+
+|pbr|
+
+On Your Own
+-----------
+
+**Disabling Collision Events at Run-Time**
+
+Disabling collision events at run-time is pretty simple. Collider components have a boolean value called **SendsEvents.** If we set SendsEvents to False, the object will not dispatch collision events. Even if we connect to the event, we still can't get an event that was never sent.
+
+* In the **CollisionLogic** script
+
+  * Update the **Initialize** function by appending the following:    
+
+.. code-block:: as
+  :emphasize-lines: 2-
+  
+    Zero.Connect(this.Owner, Events.CollisionEnded,     this.OnCollisionEnded);
+    // Connect to the LogicUpdate event fired by the space:
+    //           when the space  gets a LogicUpdate event   call my OnLogicUpdate function
+    Zero.Connect(this.Space,     Events.LogicUpdate,        this.OnLogicUpdate);
+
+*
+
+  *  Add the **OnLogicUpdate** function by appending the following code:
+
+.. code-block:: as
+  
+    function OnLogicUpdate(event: UpdateEvent)
+    {
+        // If we are holding down space,
+        if (Zero.Keyboard.KeyIsDown(Keys.Space))
+        {
+            // do NOT send the event.
+            this.Owner.Collider.SendsEvents = false;
+        }
+        else // Otherwise, if we aren't holding down space,
+        {
+            // make sure we dispatch collision events.
+            this.Owner.Collider.SendsEvents = true;
+        }
+    }
+        
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+If you hold down Space, you'll see that the Ball object no longer changes color because collision events are no longer being sent.
+
+.. |GWLevelSetup|              image:: images/Events3/GWLevelSetup.png
+  :width: 5.0in
+.. |GWStuck|                   image:: images/Events3/GWStuck.png
+.. |GhostBlocks|               image:: images/Events3/GhostBlocks.gif
+.. |PWBallAddCollisionLogic|   image:: images/Events3/PWBallAddCollisionLogic.png
+.. |CollisionLogicOrange|      image:: images/Events3/CollisionLogicOrange.gif
+.. |CollisionLogicOrangeWhite| image:: images/Events3/CollisionLogicOrangeWhite.gif
+.. |ByName|                    image:: images/Events3/ByName.gif
+
+.. |100000000000021D0000005B84EB0E0D_png| image:: images/Events3/100000000000021D0000005B84EB0E0D.png
+
+.. |PWBallAddMovement| image:: images/Events3/PWBallAddMovement.png
+.. |AddZilchScript|    image:: images/Events3/AddZilchScript.png
+

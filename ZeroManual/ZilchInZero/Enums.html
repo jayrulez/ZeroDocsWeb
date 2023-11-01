@@ -1,0 +1,491 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/ZilchInZero/Enums.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:06 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Enums &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Zilch In Zero" href="index.html"/>
+        <link rel="next" title="Flags" href="Flags.html"/>
+        <link rel="prev" title="Attributes" href="Attributes.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Zilch In Zero</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Variables_And_Data_Types.html">Variables, Data Types, &amp; Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Conditionals.html">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Looping.html">Looping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Attributes.html">Attributes</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Enums</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Flags.html">Flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Structs.html">Structs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Classes.html">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Memory_Management.html">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Casting.html">Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Named_Parameters.html">Named Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Delegates.html">Delegates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Reflection.html">Reflection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Properties.html">Properties (Get-Sets)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Property_Delegates.html">Property Delegates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConstructByValueVsByRef.html">Local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConstructByValueVsByRef.html#new">New</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Operators_Precedence_Chart.html">Operator Precedence Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Keywords.html">Keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Array.html">Array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean.html">Boolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean2.html">Boolean2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean3.html">Boolean3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean4.html">Boolean4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Console.html">Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Exception.html">Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/HashMap.html">HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer.html">Integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer2.html">Integer2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer3.html">Integer3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer4.html">Integer4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/KeyValue.html">KeyValue [Key, Value]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Math.html">Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Property.html">Property [Type]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Quaternion.html">Quaternion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real.html">Real</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real2.html">Real2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real3.html">Real3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real4.html">Real4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/String.html">String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/StringBuilder.html">StringBuilder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="index.html">Zilch In Zero</a> &raquo;</li>
+      
+    <li>Enums</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/ZeroManual/ZilchInZero/Enums.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="enums">
+<span id="zilchenums"></span><h1>Enums</h1>
+<p class="searchdescription">You can define an enumerated type with the <strong>enum</strong> keyword:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nx">enum</span> <span class="nx">ControllerButtons</span> <span class="p">{</span><span class="nx">Start</span><span class="o">,</span> <span class="nx">Select</span><span class="o">,</span> <span class="nx">Up</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span> <span class="nx">Down</span><span class="o">,</span> <span class="nx">Left</span><span class="o">,</span> <span class="nx">Right</span><span class="o">,</span> <span class="nx">A</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span> <span class="nx">B</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span> <span class="c1">// no semicolon</span>
+</pre></div>
+</div>
+<p>The names line up with incrementing Integers, the default starting value is Zero. You can manually set the values, they will increment off of that new values:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;ControllerButtons.Start  = `ControllerButtons.Start  as Integer`  &quot;</span> <span class="p">);</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;ControllerButtons.Select = `ControllerButtons.Select as Integer`  &quot;</span> <span class="p">);</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;ControllerButtons.Up     = `ControllerButtons.Up     as Integer`  &quot;</span> <span class="p">);</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;ControllerButtons.Down   = `ControllerButtons.Down   as Integer`  &quot;</span> <span class="p">);</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;ControllerButtons.Left   = `ControllerButtons.Left   as Integer`  &quot;</span> <span class="p">);</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;ControllerButtons.Right  = `ControllerButtons.Right  as Integer`  &quot;</span> <span class="p">);</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;ControllerButtons.A      = `ControllerButtons.A      as Integer`  &quot;</span> <span class="p">);</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;ControllerButtons.B      = `ControllerButtons.B      as Integer`  &quot;</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+ControllerButtons.Start  = 0
+ControllerButtons.Select = 1
+ControllerButtons.Up     = 0
+ControllerButtons.Down   = 1
+ControllerButtons.Left   = 2
+ControllerButtons.Right  = 3
+ControllerButtons.A      = 0
+ControllerButtons.B      = 1
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">It is a known <a class="reference external" href="http://zeroengine.digipen.edu/default.asp?3719">bug</a> that you are unable to set the values to negative Integers.</p>
+</div>
+<p><strong>Important things to note:</strong></p>
+<p><strong>1.</strong> Identifiers for the enum type name and the enumerated values must be capitalized.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// This will not compile.</span>
+<span class="nx">enum</span> <span class="nx">Directions</span> <span class="p">{</span><span class="nx">up</span><span class="o">,</span> <span class="nx">down</span><span class="o">,</span> <span class="nx">left</span><span class="o">,</span> <span class="nx">right</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Enum declaration &#39;Directions&#39; does not have a closing &#39;}&#39;. We found &#39;LowerIdentifier&#39; but we
+expected to find &#39;}&#39;.
+</pre></div>
+</div>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Neither will this.</span>
+<span class="nx">enum</span> <span class="nx">directions</span> <span class="p">{</span><span class="nx">Up</span><span class="o">,</span> <span class="nx">Down</span><span class="o">,</span> <span class="nx">Left</span><span class="o">,</span> <span class="nx">Right</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Enum declaration is missing a name. Upper-camel case names are required here (use &#39;Directions&#39;
+instead of &#39;directions&#39;).
+</pre></div>
+</div>
+<p><strong>2.</strong> Identifiers for the enumerated values must be unique.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// This will not compile.</span>
+<span class="nx">enum</span> <span class="nx">Directions</span> <span class="p">{</span><span class="nx">Up</span><span class="o">,</span> <span class="nx">Down</span><span class="o">,</span> <span class="nx">Up</span><span class="o">,</span> <span class="nx">Down</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>A value of the same name &#39;Up&#39; has already been declared in the enum &#39;Directions&#39;. Names must
+only be used once.
+</pre></div>
+</div>
+<p><strong>3.</strong> Enums cannot be defined inside classes, structs, or other enums.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Classes cannot contain enums.</span>
+<span class="kd">class</span> <span class="nx">EnumWrapper</span>
+<span class="p">{</span>
+    <span class="c1">// This won&#39;t compile.</span>
+    <span class="nx">enum</span> <span class="nx">ControllerButtons</span> <span class="p">{</span><span class="nx">Start</span><span class="o">,</span> <span class="nx">Select</span><span class="o">,</span> <span class="nx">Up</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span> <span class="nx">Down</span><span class="o">,</span> <span class="nx">Left</span><span class="o">,</span> <span class="nx">Right</span><span class="o">,</span> <span class="nx">A</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span> <span class="nx">B</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Class declaration &#39;EnumWrapper&#39; does not have a closing &#39;}&#39;. We found &#39;enum&#39; but we expected to find &#39;}&#39;.
+</pre></div>
+</div>
+<div class="section" id="enums-and-integers">
+<h2>Enums and Integers</h2>
+<p>As in other languages, Integers make up the backbone of how enums work, and thus they work together in many situations.</p>
+<div class="section" id="casting">
+<h3>Casting</h3>
+<p>Because of this, Zilch will implicitly cast from an enum to an Integer when necessary:</p>
+<p>Given this:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nx">enum</span> <span class="nx">ControllerButtons</span> <span class="p">{</span><span class="nx">Start</span><span class="o">,</span> <span class="nx">Select</span><span class="o">,</span> <span class="nx">Up</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span> <span class="nx">Down</span><span class="o">,</span> <span class="nx">Left</span><span class="o">,</span> <span class="nx">Right</span><span class="o">,</span> <span class="nx">A</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span> <span class="nx">B</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nx">Static</span><span class="p">]</span>
+    <span class="c1">// This function accepts an enum type.</span>
+    <span class="kd">function</span> <span class="nx">AcceptsEnum</span><span class="p">(</span><span class="nx">param</span><span class="o">:</span> <span class="nx">ControllerButtons</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot; turned into `param`!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="p">[</span><span class="nx">Static</span><span class="p">]</span>
+    <span class="c1">// This function accepts an integer type.</span>
+    <span class="kd">function</span> <span class="nx">AcceptsInt</span><span class="p">(</span><span class="nx">param</span><span class="o">:</span> <span class="nx">Integer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot; turned into `param`!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We can test the calls to these functions to see the interplay of casting:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">paramInt</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">paramEnum</span> <span class="o">=</span> <span class="nx">ControllerButtons</span><span class="p">.</span><span class="nx">Right</span><span class="o">;</span>
+
+<span class="c1">// This works, as you&#39;d expect</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">paramEnum</span><span class="p">);</span>
+<span class="nx">Controller</span><span class="p">.</span><span class="nx">AcceptsEnum</span><span class="p">(</span><span class="nx">paramEnum</span><span class="p">);</span>
+
+<span class="c1">// But if you want to accept an Integer in an enum&#39;s place you MUST cast.</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">paramInt</span><span class="p">);</span>
+<span class="nx">Controller</span><span class="p">.</span><span class="nx">AcceptsEnum</span><span class="p">(</span><span class="nx">paramInt</span> <span class="nx">as</span> <span class="nx">ControllerButtons</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+Right turned into Right!
+3 turned into Right!
+</pre></div>
+</div>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Attempting to pass an Integer without casting to an enum</span>
+<span class="c1">// will cause a compiler error</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">paramInt</span><span class="p">);</span>
+<span class="nx">Controller</span><span class="p">.</span><span class="nx">AcceptsEnum</span><span class="p">(</span><span class="nx">paramInt</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>The function &#39;AcceptsEnum&#39; exists, but could not be resolved since the types of the arguments
+used did not match. The arguments you gave were:
+
+  AcceptsEnum(Integer)
+
+The possible choices were:
+
+  AcceptsEnum(param : ControllerButtons)
+</pre></div>
+</div>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// This also works as you&#39;d expect.</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">paramInt</span><span class="p">);</span>
+<span class="nx">Controller</span><span class="p">.</span><span class="nx">AcceptsInt</span><span class="p">(</span><span class="nx">paramInt</span><span class="p">);</span>
+
+<span class="c1">// The enum type parameter is implicitly casted to an Integer and is then passed to the function.</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">paramEnum</span><span class="p">);</span>
+<span class="nx">Controller</span><span class="p">.</span><span class="nx">AcceptsInt</span><span class="p">(</span><span class="nx">paramEnum</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+3 turned into 3!
+Right turned into 3!
+</pre></div>
+</div>
+</div>
+<div class="section" id="enum-integer-operations">
+<h3>Enum-Integer Operations</h3>
+<p>Enums can perform all operations as if they were Integers. For instance, you can perform all of the normal math operations as implicit conversion will happen as necessary from the enum type to Integer:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Here you can see use of the +, -, *, /, (), ^ and % Integer operators.</span>
+<span class="k">var</span> <span class="nx">math</span> <span class="o">=</span> <span class="p">(</span><span class="nx">ControllerButtons</span><span class="p">.</span><span class="nx">Start</span> <span class="o">+</span> <span class="nx">ControllerButtons</span><span class="p">.</span><span class="nx">Right</span><span class="p">)</span> <span class="o">^</span> <span class="nx">ControllerButtons</span><span class="p">.</span><span class="nx">Left</span> <span class="o">%</span>
+           <span class="nx">ControllerButtons</span><span class="p">.</span><span class="nx">Right</span> <span class="o">-</span> <span class="nx">ControllerButtons</span><span class="p">.</span><span class="nx">Right</span> <span class="o">*</span> <span class="nx">ControllerButtons</span><span class="p">.</span><span class="nx">Select</span><span class="o">;</span>
+
+<span class="c1">// When the math evaluates to an unaliased number, the variable, although still of the enum type,</span>
+<span class="c1">// prints out its integer value.</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">math</span><span class="p">);</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">typeid</span><span class="p">(</span><span class="nx">math</span><span class="p">).</span><span class="nx">Name</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+-3
+ControllerButtons
+</pre></div>
+</div>
+<p><em>You can see the typeid is not an Integer but ControllerButtons.</em> raw:: html &lt;br /&gt;
+<em>An Integer value was printed because there was no alias in the enum that maps to -3.</em></p>
+<p>Because the type is still of the enum, you could pass it to our <code class="docutils literal"><span class="pre">Controller.AcceptsEnum()</span></code> function without issue.</p>
+<p>When an operation includes both an enum and an Integer the result is always promoted to the enum type. If you want an Integer either</p>
+<ul class="simple">
+<li>Declare the variable you are storing the result in as an Integer: <code class="docutils literal"><span class="pre">var</span> <span class="pre">result</span> <span class="pre">:</span> <span class="pre">Integer</span></code></li>
+<li>Cast it: <code class="docutils literal"><span class="pre">result</span> <span class="pre">as</span> <span class="pre">Integer</span></code></li>
+</ul>
+</div>
+<div class="section" id="caveat">
+<h3>Caveat</h3>
+<p>Although enums cast to Integers, they <strong>will not</strong> cast to Integers to perform cross-enum operations.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// This won&#39;t compile.</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">ControllerButtons</span><span class="p">.</span><span class="nx">Down</span> <span class="o">+</span> <span class="nx">Directions</span><span class="p">.</span><span class="nx">Down</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>The binary &#39;+&#39; operator &#39;Positive / Add&#39; is not valid with &#39;ControllerButtons&#39; and &#39;Directions&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Flags.html" class="btn btn-neutral float-right" title="Flags" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Attributes.html" class="btn btn-neutral" title="Attributes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/ZilchInZero/Enums.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:06 GMT -->
+</html>

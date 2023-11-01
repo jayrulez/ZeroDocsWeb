@@ -1,0 +1,37 @@
+.. _ManualSoundListener:
+
+.. rst-class:: SearchTitle
+
+SoundListener
+=============
+
+.. rst-class:: SearchDescription
+
+The SoundListener component, when attached to an object, provides a position in the level from which to hear sound cues from, mimicking how humans hear sound closer and farther away. For example, if a SoundListener component is on the ``Player`` object and there is some object playing a constant sound cue moving quickly towards it from the left, passes the player, then continues on quickly to the right of the player, the user will hear the object's sound in the following order:
+
+*   First, the cue will be low in volume and sound as if it's coming from the left of the player, just like the object is at that time
+
+*   Second, as the object gets near to the player, the cue's volume will increase until it's right next to the player.
+
+*   Third, as the object passes the player, the cue will "switch" to sound as if it's coming from the right, now that the object is to the right of the player.
+
+*   Fourth, as the object moves further to the right of the player, the sound will again lower in volume the farther away it gets from the position of the player.
+
+The same series of events would happen if it was the player moving and the object with sound cue was stationary.
+
+Common Uses
+-----------
+
+*   Provides a source in the level from which to "hear" all of the sounds being played in the level
+
+*   Provides a context for all positional sounds
+
+Using SoundListener
+-------------------
+
+The SoundListener component is traditionally placed on the player object (or the camera if the camera uses a first-person POV), as this the allows the player of the game to control the source from which all sounds in the level are heard. In other words, positional sound effects that are played close to the player object's (or camera's) position will sound louder to the player than those that are played farther away.   
+   
+The only property on SoundListener, both in the Property window and accessible through code, is ``Active``, a boolean that when set to true will set the SoundListener as the place from which sound cue's will be heard. If set to false, the position will be set to a default position of ``(0,0,0)`` in the level.
+
+.. Note::
+    By default, the Camera that is created in any new project will have a SoundListener attached to it. If there is only a need for a single listener on a different object, the SoundListener should be removed from the Camera.     

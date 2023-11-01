@@ -1,0 +1,1094 @@
+.. _TutorialRayCasting:
+
+.. rst-class:: SearchTitle
+
+Ray Casting
+===========
+
+.. rst-class:: SearchDescription
+
+This lesson explains **ray casting**: what it is, what it does, and how to use
+it.
+
+Create a New Project
+--------------------
+
+:ref:`ManualCreateNewProject`
+
+Ray casting is a powerful technique that is used to check for collision between
+an arbitrary **ray** and a given **collider** --- that is, it provides a way for
+us to check to see if a particular object is on a particular line.
+
+.. sidebar:: What is a Ray?
+  
+  A *ray* is a **linear arrangement of points** that starts at a given
+  **location** and extends infinitely far in a given **direction**. It is also
+  known as a **half-line**.
+  
+  |PointSegmentLineRay|
+  
+  * The Zero Engine also has functions for **segment casting** --- see the
+    sidebar below, or the
+    :ref:`Physics Casting Overview<ManualPhysicsCastingOverview>` for details.
+
+Ray casting is useful in a wide variety of applications, such as
+
+* creating realistic laser beams
+* simulating high-velocity projectiles
+* checking line of sight
+* detecting walls
+* finding distances
+* moving 3D 3rd-person cameras
+
+Let's create a laser beam that uses ray casting to stretch and shrink itself to
+whatever it's hitting.
+
+Creating a Laser Beam
+---------------------
+
+* :ref:`Command<ManualCommands>`: ``CreateSprite`` or
+  :menuselection:`Create --> Create Sprite`
+* In the Properties Window
+  
+  * Set Name to: ``LaserBeam``
+  * Under Sprite
+    
+    * Set Color to: ``[R: 255, G: 0, B: 0, A: 1.00]``, ``#FF0000``
+  * :ref:`Add an Orientation component <ManualAddRemoveComponents>`
+  * Under Orientation
+    
+    * Set DefaultOrientationBases to: ``ForwardXUpZ``
+  * :ref:`Add an Area component <ManualAddRemoveComponents>`
+  * Under Area
+    
+    * Set Origin to: ``CenterLeft``
+
+We'll need to write a new component to control the size of the beam, so let's
+make that now. We'll start with a stub of a component and then add in the
+necessary functionality bit by bit.
+
+* :ref:`Add a new ZilchScript resource<ManualResourceAdding>` named:
+  ``RayCastResizer``
+* Change the **RayCastResizer** script to the following code:
+
+.. code-block:: as
+  
+  class RayCastResizer : ZilchComponent
+  {
+    
+  }
+
+Dependencies and Properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+First, let's declare our **dependencies** --- other components we know we're
+going to need for this script to work correctly. We'll need the following
+components:
+
+* **Transform** --- to define the **starting point** of the ray
+* **Orientation** --- to define the **direction** of the ray
+  
+  * We could use the Rotation of the beam's Transform and some math to figure
+    out its *facing vector*, but the Orientation component conveniently does all
+    that for us.
+* **Area** --- we're going to be using it to modify the sprite's **size** (its
+  length and width) based on the results of the ray casting
+  
+  * Also, by setting the Area component's Origin to be on the left side of the
+    sprite, we can make the beam automatically center itself properly as it
+    changes its size.
+
+Let's update our script.
+
+* Update the **RayCastResizer** script with the following code:
+
+.. code-block:: as
+  :emphasize-lines: 3-8
+  
+  class RayCastResizer : ZilchComponent
+  {
+    [Dependency]
+    var Transform : Transform;
+    [Dependency]
+    var Orientation : Orientation;
+    [Dependency]
+    var Area : Area;
+  }
+
+Next, we'll need to declare a property:
+
+* **Width** --- defines how wide the object should be
+  
+  * Our ray casting will only tell us how *long* to make our laser beam, but we
+    still need to know how wide to make it.
+  * It should be wide enough to be visible, but suitably small for a laser beam.
+
+Let's update our script.
+
+* Update the **RayCastResizer** script with the following code:
+
+.. code-block:: as
+  :emphasize-lines: 10-12
+  
+  class RayCastResizer : ZilchComponent
+  {
+    [Dependency]
+    var Transform : Transform;
+    [Dependency]
+    var Orientation : Orientation;
+    [Dependency]
+    var Area : Area;
+    
+    [Property]
+    // Width for the Area component to use
+    var Width : Real = 0.25;
+  }
+
+Now we're ready to begin.
+
+* Update the **RayCastResizer** script with the following code:
+
+.. code-block:: as
+  
+  class RayCastResizer : ZilchComponent
+  {
+    [Dependency]
+    var Transform : Transform;
+    [Dependency]
+    var Orientation : Orientation;
+    [Dependency]
+    var Area : Area;
+    
+    [Property]
+    // Width for the Area component to use
+    var Width : Real = 0.25;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+      Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+      // Length comes from our GetLength function;
+      //   width comes from our Width property
+      var length = this.GetLength();
+      var width = this.Width;
+      
+      var size = Real2(length, width);
+      
+      // We set the Area component's size based on these length and width values
+      this.Area.Size = size;
+    }
+    
+    
+    // Uses ray casting to determine the proper
+    //   length for the Area component to use
+    function GetLength() : Real
+    {
+      return 1.0;
+    }
+  }
+
+We have a **GetLength** function now that will use ray casting to determine the
+proper length of our laser beam. (For now, it just returns ``1.0`` to appease
+the compiler.)
+
+* :ref:`Select the LaserBeam object <ManualSelectObject>`
+* In the Properties Window
+  
+  * :ref:`Add a RayCastResizer component <ManualAddRemoveComponents>`
+* :ref:`Save<ManualSavingProject>` and :ref:`run<ManualRunTheGame>` the project
+
+|PreStretchBeam|
+
+Admittedly, this is a bit underwhelming, but we can see that the width is being
+set properly, and the length is being set to 1 unit, as we specified.
+
+* :ref:`Stop the project <ManualStopGame>`
+
+Casting a Ray
+~~~~~~~~~~~~~
+
+There are a number of casting functions available to us, and they all live in
+the **PhysicsSpace**. We'll start with the most basic one: **CastRayFirst**,
+which takes a single argument --- the ray to cast --- and returns an object of
+type **CastResult**, which contains information about the first object hit by
+that ray (if any).
+
+To cast a ray, first you must declare and define one. As we know, Zero defines a
+ray by a **point** and a **direction**:
+
+.. code-block:: as
+  :emphasize-lines: 8, 9
+  
+  var ray = Ray();
+  
+  // The ray starts where we are right now...
+  var thisPosition = this.Transform.WorldTranslation;
+  // ...and goes in our Orientation's "forward" direction
+  var rayDirection = this.Orientation.WorldForward;
+  
+  ray.Start = thisPosition;
+  ray.Direction = rayDirection;
+
+The ray starts at the beam's position and extends in the direction of the beam's
+*facing vector*, defined by its Orientation component. To cast it, just pass it
+into the CastRayFirst function (and give it a place to put the result):
+
+.. code-block:: as
+  
+  var castResult = this.Space.PhysicsSpace.CastRayFirst(ray);
+
+This ``castResult`` object has some useful information: it tells us what was
+hit (``castResult.ObjectHit``), where it was hit (``castResult.WorldPosition``),
+the normal vector of the collision (``castResult.Normal``), and so on. What we
+care about in this case is its **distance**:
+
+.. code-block:: as
+  
+  castResult.Distance
+
+This tells us how far the ray traveled before it hit whatever it hit. If it
+didn't hit anything at all, then the ray would have traveled infinitely far. In
+such a case, ``castResult.Distance`` is equal to the largest possible Real
+value --- effectively infinity, for most practical purposes. With this, we can
+make our ``GetLength`` function give us the actual proper length.
+
+* Change the **RayCastResizer** script's GetLength function to the following
+  code:
+
+.. code-block:: as
+  
+  // Uses ray casting to determine the proper
+  //   length for the Area component to use
+  function GetLength() : Real
+  {
+    var ray = Ray();
+    
+    // The ray starts where we are right now...
+    var thisPosition = this.Transform.WorldTranslation;
+    // ...and goes in our Orientation's "forward" direction
+    var rayDirection = this.Orientation.WorldForward;
+    
+    ray.Start = thisPosition;
+    ray.Direction = rayDirection;
+    
+    var castResult = this.Space.PhysicsSpace.CastRayFirstFiltered(ray, filter);
+    
+    // The desired length is the distance of the cast result
+    return castResult.Distance;
+  }
+
+* :ref:`Save<ManualSavingProject>` and :ref:`run<ManualRunTheGame>` the project
+
+|InfiniteStretchBeam|
+
+Since the beam has nothing to hit, it is stretched to (practically) infinite
+length. Let's give it an object to hit.
+
+* :ref:`Stop the project <ManualStopGame>`
+* :ref:`Command<ManualCommands>`: ``CreateSprite`` or
+  :menuselection:`Create --> Create Sprite`
+* In the Properties Window
+  
+  * Set Name to: ``Obstruction``
+  * :ref:`Add a BoxCollider component <ManualAddRemoveComponents>`
+  * Under Transform
+    
+    * Set Translation to: ``[6, 0, 0]``
+* :ref:`Save<ManualSavingProject>` and :ref:`run<ManualRunTheGame>` the project
+
+|BeamHittingObstruction|
+
+The beam stops when it hits a collider.
+
+* :ref:`Stop the project <ManualStopGame>`
+
+Movement and Rotation
+~~~~~~~~~~~~~~~~~~~~~
+
+It will be easier to see the results of our ray casting if we are able to move
+and rotate the beam.
+
+* :ref:`Add a new ZilchScript resource<ManualResourceAdding>` named:
+  ``KeyboardMovement``
+* Change the **KeyboardMovement** script to the following code:
+
+.. code-block:: as
+  
+  class KeyboardMovement : ZilchComponent
+  {
+    [Property]
+    // Movement speed in units/second
+    var MovementSpeed : Real = 4.0;
+    [Property]
+    // Rotation speed in degrees/second
+    var RotationSpeed : Real = 60.0;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+      Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+      // Create a movement vector and a rotation variable
+      var mov = Real3.Zero;
+      var rot = 0.0;
+      
+      // Adjust the movement vector based on keyboard input
+      if(Zero.Keyboard.KeyIsDown(Keys.D))
+        mov.X += this.MovementSpeed;
+      if(Zero.Keyboard.KeyIsDown(Keys.A))
+        mov.X -= this.MovementSpeed;
+      if(Zero.Keyboard.KeyIsDown(Keys.W))
+        mov.Y += this.MovementSpeed;
+      if(Zero.Keyboard.KeyIsDown(Keys.S))
+        mov.Y -= this.MovementSpeed;
+      
+      // Adjust the rotation variable based on keyboard input
+      if(Zero.Keyboard.KeyIsDown(Keys.Left))
+        rot += this.RotationSpeed;
+      if(Zero.Keyboard.KeyIsDown(Keys.Right))
+        rot -= this.RotationSpeed;
+      
+      // Multiply the movement vector by dt so that movement is
+      //   in units/second instead of units/frame
+      mov *= event.Dt;
+      // Convert the rotation angle from degrees to radians,
+      //   and then also multiply it by dt so that rotation
+      //   is in degrees/second instead of degrees/frame
+      var angles = Math.ToRadians(Real3(0.0, 0.0, rot) * event.Dt);
+      
+      // Apply the movement and rotation to the transform
+      this.Owner.Transform.Translation += mov;
+      this.Owner.Transform.RotateAnglesLocal(angles);
+    }
+  }
+
+* :ref:`Save the project <ManualSavingProject>`
+* :ref:`Select the LaserBeam object <ManualSelectObject>`
+* In the Properties Window
+  
+  * :ref:`Add a KeyboardMovement component <ManualAddRemoveComponents>`
+* :ref:`Run the project <ManualRunTheGame>`
+
+|SingleObstruction|
+
+You can now move and rotate the beam using the WASD and Arrow keys.
+
+* :ref:`Stop the project <ManualStopGame>`
+
+Let's add a few more obstructions.
+
+* :ref:`Select the Obstruction object <ManualSelectObject>`
+* Duplicate it a few times with ``Ctrl+D``
+* For each duplicate
+  
+  * In the Properties Window
+    
+    * Under Transform
+      
+      * Set the Translation, Rotation and Scale to different numbers
+
+Note that because we're making a 2D project, we should **avoid translating the
+objects along the Z-axis**, and we should **only rotate them around the
+Z-axis**. (Note that you may scale them along their Z-axis if you wish, but you
+are unlikely to see any effect of doing so.)
+
+|HighlightedTransformProperties|
+
+*These fields are fair game.*
+
+Be sure to create at least one **circular obstruction** as well, so you can see
+how the beam will interact with a round collider.
+
+* :ref:`Command<ManualCommands>`: ``CreateSprite`` or
+  :menuselection:`Create --> Create Sprite`
+* In the Properties Window
+  
+  * Set Name to: ``Obstruction``
+  * :ref:`Add a SphereCollider component <ManualAddRemoveComponents>`
+  * Under Sprite
+    
+    * Set SpriteSource to: ``Circle``
+  * Under SphereCollider
+    
+    * Set Radius to: ``0.5``
+  * Under Transform
+    
+    * Set the Translation and Scale to your liking
+* :ref:`Save<ManualSavingProject>` and :ref:`run<ManualRunTheGame>` the project
+
+|MultipleObstructions|
+
+The beam stretches and shrinks itself as it collides with objects.
+
+* :ref:`Stop the project <ManualStopGame>`
+
+.. admonition:: Order of Updates
+  
+  If you have particularly keen eyes, or you set your movement/rotation speeds
+  high enough, you may notice that the beam resizes itself a moment later than
+  it should. It's subtle, but it's there. This is actually because the
+  RayCastResizer component's ``OnLogicUpdate`` function is being called *before*
+  the ``OnLogicUpdate`` function of the KeyboardMovement component --- that is,
+  the beam first updates its size, and then updates its position and rotation,
+  and *then* is drawn to the screen by the engine.
+  
+  The effect is so minute that it would probably never make a difference in a
+  game, but if it matters to you, you can fix it by **swapping the order of
+  these two components** on the LaserBeam cog. (You can quickly do this by
+  dragging the components in the Properties Window.)
+  
+  |ReorderingComponents|
+  
+  The ``LogicUpdate`` event (and, really, every event) is sent to components in
+  *connection order* --- that is, the order that ``Zero.Connect`` is called to
+  connect that component to that event. Since this (usually) happens in the
+  ``Initialize`` function, and since **components are initialized in order from
+  top to bottom**, you can (usually) control the order in which components are
+  updated by changing their vertical order in the Properties Window.
+
+Now that we have ray casting working, let's get it to do something.
+
+Getting It To Do Something
+--------------------------
+
+Let's make it so that, when the Space bar is pressed, the laser uses ray casting
+to fire a pulse that turns whatever it hits invisible. We could build this new
+logic into our RayCastResizer component, but it would be better to create a new
+component that contains this functionality separately.
+
+We'll stub out this new component and add to it bit by bit, the same as we did
+for the RayCastResizer.
+
+* :ref:`Add a new ZilchScript resource<ManualResourceAdding>` named:
+  ``LaserPulse``
+* Change the **LaserPulse** script to the following code:
+
+.. code-block:: as
+  
+  class LaserPulse : ZilchComponent
+  {
+    
+  }
+
+Let's begin by marking our dependencies. Like before, we'll need:
+
+* **Transform** --- to define the **starting point** of the ray
+* **Orientation** --- to define the **direction** of the ray
+
+Unlike before, we won't need an Area component, because we're not going to use
+this component to modify the size of the beam.
+
+* Update the **LaserPulse** script with the following code:
+
+.. code-block:: as
+  :emphasize-lines: 3-6
+  
+  class LaserPulse : ZilchComponent
+  {
+    [Dependency]
+    var Transform : Transform;
+    [Dependency]
+    var Orientation : Orientation;
+  }
+
+Now we can get going. We know we're going to use the keyboard to do our pulse
+firing, so we'll connect to the **KeyDown** event on ``Zero.Keyboard``.
+
+* Update the **LaserPulse** script with the following code:
+
+.. code-block:: as
+  
+  class LaserPulse : ZilchComponent
+  {
+    [Dependency]
+    var Transform : Transform;
+    [Dependency]
+    var Orientation : Orientation;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+      Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    }
+    
+    
+    function OnKeyDown(event : KeyboardEvent)
+    {
+      // Fire when the Space key is pressed
+      if(event.Key == Keys.Space)
+        this.FirePulse();
+    }
+    
+    
+    // Uses ray casting to find objects
+    //   to hit and turn them invisible
+    function FirePulse()
+    {
+      
+    }
+    
+    
+    // Turns a cog's sprite invisible, if it has one
+    function TurnInvisible(target : Cog)
+    {
+      if(target.Sprite != null)
+        target.Sprite.Visible = false;
+    }
+  }
+
+The **FirePulse** function doesn't do anything yet, but it's going to do some
+ray casting to determine what the beam is pointing at, and pass that cog into
+the **TurnInvisible** function.
+
+Getting the Object that was Hit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We'll begin the FirePulse function the same way that we began the
+``RayCastResizer``'s **GetLength** function --- by creating a ray.
+
+.. code-block:: as
+  
+  var ray = Ray();
+  
+  // The ray starts where we are right now...
+  var thisPosition = this.Transform.WorldTranslation;
+  // ...and goes in our Orientation's "forward" direction
+  var rayDirection = this.Orientation.WorldForward;
+  
+  ray.Start = thisPosition;
+  ray.Direction = rayDirection;
+
+Nothing new here. This time, however, we don't care about the **distance** of
+the ray, but the **object that it hit**, if any.
+
+.. code-block:: as
+  :emphasize-lines: 2
+  
+  var castResult = this.Space.PhysicsSpace.CastRayFirst(ray);
+  var hit = castResult.ObjectHit;
+
+Now, if the beam is aimed so that it misses everything, then **hit** will be
+``null``. Otherwise, we have a cog we can use:
+
+.. code-block:: as
+  
+  if(hit != null)
+    this.TurnInvisible(hit);
+
+With this, we're ready to update our code.
+
+* Update the **LaserPulse** script with the following code:
+
+.. code-block:: as
+  
+  // Uses ray casting to find objects
+  //   to hit and turn them invisible
+  function FirePulse()
+  {
+    var ray = Ray();
+    
+    // The ray starts where we are right now...
+    var thisPosition = this.Transform.WorldTranslation;
+    // ...and goes in our Orientation's "forward" direction
+    var rayDirection = this.Orientation.WorldForward;
+    
+    ray.Start = thisPosition;
+    ray.Direction = rayDirection;
+    
+    var castResult = this.Space.PhysicsSpace.CastRayFirst(ray);
+    var hit = castResult.ObjectHit;
+    
+    // As long as we actually hit something...
+    if(hit != null)
+      // ...turn it invisible
+      this.TurnInvisible(hit);
+  }
+
+* :ref:`Save the project <ManualSavingProject>`
+* :ref:`Select the LaserBeam object <ManualSelectObject>`
+* In the Properties Window
+  
+  * :ref:`Add a LaserPulse component <ManualAddRemoveComponents>`
+* :ref:`Run the project <ManualRunTheGame>`
+
+|TurningThingsInvisibleFirst|
+
+.. sidebar:: Segment Casting
+  
+  What if we want our beam to have a certain fixed maximum length, like, say, a
+  light saber? We would want it to affect only those objects within that given
+  distance.
+  
+  We could do a ray cast as normal, and then look at the cast result's
+  ``Distance`` and ignore hits that are further away than our length variable,
+  but there's another way that might be more appealing: **segment casting**.
+  
+  A segment cast uses a line segment instead of a ray, so it has a definite
+  length with two given endpoints. For details on segment casting, see the
+  :ref:`Physics Casting Overview<ManualPhysicsCastingOverview>`.
+
+Now we can press the Space bar to turn the object the beam is hitting invisible.
+
+* :ref:`Stop the project <ManualStopGame>`
+
+Let's add a little more to the effect --- let's make it so that, when the pulse
+hits an object, we see a little spot of light for a moment at the location of
+the hit.
+
+Getting the Location of the Hit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To do this, we will create a sprite at the ray cast's hit location. So, we must
+first create an archetype that we will then spawn.
+
+* :ref:`Command<ManualCommands>`: ``CreateSprite`` or
+  :menuselection:`Create --> Create Sprite`
+* In the Properties Window
+  
+  * Set Name to: ``LaserSpot``
+  * Set Archetype Name to: ``LaserSpot``
+  * Under Sprite
+    
+    * Set SpriteSource to: ``Circle``
+    * Set BlendMode to: ``Additive``
+  * Update the LaserSpot archetype
+* :ref:`Save the project <ManualSavingProject>`
+* Delete the LaserSpot object
+
+Next, we need to add some code to our LaserPulse component. We're going to be
+spawning an instance of an archetype, so we'll need to add that archetype as a
+property. We'll then make it shrink out of existence with an **action
+sequence**, so we'll need to define the duration of this action as a property as
+well. Let's make the appropriate changes to our code.
+
+* Update the **LaserPulse** script with the following code:
+
+.. code-block:: as
+  :emphasize-lines: 8-13
+  
+  class LaserPulse : ZilchComponent
+  {
+    [Dependency]
+    var Transform : Transform;
+    [Dependency]
+    var Orientation : Orientation;
+    
+    [Property]
+    // Archetype to spawn when creating a spot of light
+    var SpotArchetype : Archetype = Archetype.LaserSpot;
+    [Property]
+    // How long the spot should spend shrinking after it is created
+    var SpotShrinkDuration : Real = 0.25;
+    .
+    .
+    .
+
+Now let's add a function that will create the spot of light.
+
+* Add the following function to the **LaserPulse** script:
+
+.. code-block:: csharp
+  
+  // Creates a spot of light at the given position
+  //   from the SpotArchetype archetype
+  function CreateSpot(position : Real3)
+  {
+    // Create the spot
+    var spot = this.Space.CreateAtPosition(this.SpotArchetype, position);
+    
+    // Start an action sequence
+    var shrinkSeq = Action.Sequence(spot.Actions);
+    
+    var duration = this.SpotShrinkDuration;
+    // In the sequence, first shrink the spot down to zero...
+    Action.Property(shrinkSeq, @spot.Transform.Scale,
+                    Real3.Zero, duration, Ease.QuadInOut);
+    // ...and then end the sequence by destroying the spot
+    Action.Call(shrinkSeq, spot.Destroy);
+  }
+
+This function takes a world position as an argument and creates a spot at that
+location, then uses an action sequence to cause it shrink down and then destroy
+itself. All we need to know for it to work is **where the ray cast hit**. This
+can be found in the ``castResult`` with the rest of the info from the ray cast:
+
+.. code-block:: as
+  
+  castResult.WorldPosition
+
+Let's update the **FirePulse** function accordingly.
+
+* Make the following changes to the **FirePulse** function:
+
+.. code-block:: as
+  :emphasize-lines: 18-25
+  
+  // Uses ray casting to find objects
+  //   to hit and turn them invisible
+  function FirePulse()
+  {
+    var ray = Ray();
+    
+    // The ray starts where we are right now...
+    var thisPosition = this.Transform.WorldTranslation;
+    // ...and goes in our Orientation's "forward" direction
+    var rayDirection = this.Orientation.WorldForward;
+    
+    ray.Start = thisPosition;
+    ray.Direction = rayDirection;
+    
+    var castResult = this.Space.PhysicsSpace.CastRayFirst(ray);
+    var hit = castResult.ObjectHit;
+    
+    // As long as we actually hit something...
+    if(hit != null)
+    {
+      // ...turn it invisible...
+      this.TurnInvisible(hit);
+      // ...and make a little spot of light at that position
+      this.CreateSpot(castResult.WorldPosition);
+    }
+  }
+
+* :ref:`Save<ManualSavingProject>` and :ref:`run<ManualRunTheGame>` the project
+
+|TurningThingsInvisibleFirstWithSpot|
+
+Now a spot of light appears momentarily whenever the laser pulse attempts to
+turn something invisible.
+
+* :ref:`Stop the project <ManualStopGame>`
+
+Hitting Multiple Objects
+------------------------
+
+Let's make things a bit more complicated.
+
+* Select the TranslateTool
+* Select an Obstruction object
+* Hold **Ctrl** and drag the object to create a copy
+* Create a few copies and line them up in a row pointing at the LaserBeam object
+  
+  |ObstructionsInARow|
+  
+* :ref:`Save<ManualSavingProject>` and :ref:`run<ManualRunTheGame>` the project
+  
+  |OneAtATimeInRow|
+  
+The pulse can only hit one object at a time: the first one that the ray cast
+hits. What if we want to hit multiple objects with the same pulse? To do this,
+we'll need to set aside the **CastRayFirst** function and use **CastRayResults**
+instead.
+
+* :ref:`Stop the project <ManualStopGame>`
+
+CastRayResults works very similarly to CastRayFirst: it takes a ray and tells us
+about what it hits. The difference, though, is that CastRayFirst tells us only
+about the **first** hit, while CastRayResults tells us about **any number** of
+hits. Also, CastRayFirst returns a single **CastResult** containing all the
+relevant information, whereas CastRayResults returns a **CastResultsRange** ---
+a range of CastResult objects designed to be examined in a ``foreach`` loop.
+
+Very little work is required to change our code to use CastRayResults.
+
+* Make the following changes to the **FirePulse** function:
+
+.. code-block:: as
+  :emphasize-lines: 15-29
+  
+  // Uses ray casting to find objects
+  //   to hit and turn them invisible
+  function FirePulse()
+  {
+    var ray = Ray();
+    
+    // The ray starts where we are right now...
+    var thisPosition = this.Transform.WorldTranslation;
+    // ...and goes in our Orientation's "forward" direction
+    var rayDirection = this.Orientation.WorldForward;
+    
+    ray.Start = thisPosition;
+    ray.Direction = rayDirection;
+    
+    // The maximum number of objects to look for in this ray cast
+    var count = 100;
+    
+    var castResults = this.Space.PhysicsSpace.CastRayResults(ray, count);
+    
+    // Loop through everything we just hit with that ray cast
+    foreach(var castResult in castResults)
+    {
+      var hit = castResult.ObjectHit;
+      
+      // Turn each hit invisible...
+      this.TurnInvisible(hit);
+      // ...and make a little spot of light at that position
+      this.CreateSpot(castResult.WorldPosition);
+    }
+  }
+
+.. sidebar:: Cast Results --- How Many is Too Many?
+  
+  In general, when using CastRayResults, you should usually use something in the
+  order of *the largest number you expect to need* as your count --- in our
+  case, there are only a handful of obstructions, so ``10`` would probably be
+  fine, but we might want to add more, so we're using ``100`` instead.
+  
+  You shouldn't worry about using a large number, but don't go overboard --- if
+  you use something like 100,000 or more for your cast results count, you may
+  encounter problems, and if you need the count to be that high, you're probably
+  doing something wrong anyway.
+
+What's going on here?
+
+Well, we construct the ray the same way as before, only now we also need to
+provide a ``count``, to tell the engine how many results we care about. We give
+the CastRayResults function the ray and the count and it gives us a range of
+cast results. We then use a ``foreach`` loop to look at each one.
+
+Note that before, with CastRayFirst, we had to check to make sure that the
+ray actually hit something (``if(hit != null)``) before trying to turn
+the thing it hit invisible. We don't have to do that now, because if the ray hit
+nothing, then the resulting CastResultsRange object will be empty, and the body
+of the ``foreach`` loop will not be executed at all.
+
+* :ref:`Save<ManualSavingProject>` and :ref:`run<ManualRunTheGame>` the project
+
+|MultipleObstructionsOnePulse|
+
+We can now turn multiple objects invisible with a single press of the Space bar.
+
+* :ref:`Stop the project <ManualStopGame>`
+
+Cast Filters
+------------
+
+Sometimes we don't want our ray to hit everything; maybe we want a laser cannon
+to ignore glass walls, or maybe the player character has a mobile turret and we
+want to eliminate the possibility that it will accidentally shoot the player. We
+could manually check for these cases and skip over them as we loop through the
+cast results, but it's often much easier to let the engine filter out unwanted
+hits for us. That's where **cast filters** come in handy. A cast filter is an
+object that we can pass into our ray casting function (and segment casting, and
+other kinds of casting as well) to tell the engine not to "care" about certain
+kinds of cogs when performing the cast.
+
+Creating a cast filter is easy:
+
+.. code-block:: as
+  
+  var filter = CastFilter();
+
+Using it is quite easy as well:
+
+.. code-block:: as
+  
+  var castResults = this.Space.PhysicsSpace.CastRayResultsFiltered(ray, count, filter);
+
+Now, this code as written here will do nothing special because the cast filter
+is "empty." We can add things to the filter by setting the filter's various
+properties. See the table below for details:
+
++-----------------+---------------------+--------------------------------------+
+| Cast Filter Properties                                                       |
++=================+=====================+======================================+
+| Property        | What it Expects     | What it Does                         |
++-----------------+---------------------+--------------------------------------+
+| IgnoreDynamic   | a **Boolean** value | Makes the cast ignore cogs with      |
+|                 |                     | ``Dynamic`` rigid bodies             |
++-----------------+---------------------+--------------------------------------+
+| IgnoreKinematic | a **Boolean** value | Makes the cast ignore cogs with      |
+|                 |                     | ``Kinematic`` rigid bodies           |
++-----------------+---------------------+--------------------------------------+
+| IgnoreStatic    | a **Boolean** value | Makes the cast ignore cogs with      |
+|                 |                     | ``Static`` rigid bodies (and cogs    |
+|                 |                     | **without** rigid bodies)            |
++-----------------+---------------------+--------------------------------------+
+| IgnoreGhost     | a **Boolean** value | Makes the cast ignore cogs with      |
+|                 |                     | colliders that have the **Ghost**    |
+|                 |                     | property set to ``true``             |
++-----------------+---------------------+--------------------------------------+
+| IgnoreCog       | a cog reference     | Makes the cast ignore the given cog  |
++-----------------+---------------------+--------------------------------------+
+| CollisionGroup  | a CollisionGroup    | Makes the cast behave as if the ray  |
+|                 |                     | were in the given CollisionGroup     |
+|                 |                     |                                      |
+|                 |                     | * This may cause the cast to filter  |
+|                 |                     |   out colliders based on their       |
+|                 |                     |   collision groups, according to the |
+|                 |                     |   PhysicsSpace's **CollisionTable**  |
+|                 |                     | * Colliders are filtered on a        |
+|                 |                     |   **SkipDetection** basis            |
++-----------------+---------------------+--------------------------------------+
+
+Let's try it out: let's build some walls around our scene, and make it so that
+the beam can't turn the walls invisible, but it ignores the obstructions when
+resizing itself.
+
+* :ref:`Command<ManualCommands>`: ``CreateSprite`` or
+  :menuselection:`Create --> Create Sprite`
+* In the Properties Window
+  
+  * Set Name to: ``Wall``
+  * Under Sprite
+    
+    * Set Color to: ``[R: 128, G: 128, B: 128, A: 1.00]``, ``#808080``
+  * :ref:`Add a BoxCollider component <ManualAddRemoveComponents>`
+* Press ``Ctrl+D`` a few times to duplicate the Wall object
+* Adjust the Transform components of the Wall objects to construct a "cage"
+  around the Obstruction objects and the LaserBeam object
+
+|Cage|
+
+Now let's modify our scripts.
+
+* In the RayCastResizer script
+  
+  * Make the following changes to the **GetLength** function:
+
+.. code-block:: as
+  :emphasize-lines: 15-19
+  
+  // Uses ray casting to determine the proper
+  //   length for the Area component to use
+  function GetLength() : Real
+  {
+    var ray = Ray();
+    
+    // The ray starts where we are right now...
+    var thisPosition = this.Transform.WorldTranslation;
+    // ...and goes in our Orientation's "forward" direction
+    var rayDirection = this.Orientation.WorldForward;
+    
+    ray.Start = thisPosition;
+    ray.Direction = rayDirection;
+    
+    var filter = CastFilter();
+    // We want our object to snap its size only to non-kinematic objects
+    filter.IgnoreKinematic = true;
+    
+    var castResult = this.Space.PhysicsSpace.CastRayFirstFiltered(ray, filter);
+    
+    // The desired length is the distance of the cast result
+    return castResult.Distance;
+  }
+
+It is common for inert parts of the game world (things like level geometry or
+certain environmental props) to be made **static**, while "live" game objects
+(enemies, items, the player, etc.) will be either **dynamic** or **kinematic**.
+Because we will often want one game object to use ray casting to perform actions
+on other game objects, we can frequently filter out all static objects from our
+casting. Likewise, we will occasionally want to hit *only* static objects, like
+when using ray casting to help position a third-person follow camera.
+
+Thus, a handy way to filter objects in casting is based on their **dynamic
+state** --- that is, whether they are dynamic, kinematic or static --- and
+that's what we're doing here. The RayCastResizer will now ignore all kinematic
+objects when performing its ray casting. The next step is to make the
+obstructions kinematic.
+
+* :ref:`Select all of the Obstruction objects <ManualSelectObject>`
+* In the Properties Window
+  
+  * Add a RigidBody component
+  * Under RigidBody
+    
+    * Set DynamicState to: ``Kinematic``
+* :ref:`Save<ManualSavingProject>` and :ref:`run<ManualRunTheGame>` the project
+
+|ResizerIgnoringObstructions|
+
+The beam now stretches past the obstructions, but stops at the walls of the
+cage. However, its pulse still causes the walls to become invisible. Let's fix
+that.
+
+* :ref:`Stop the project <ManualStopGame>`
+
+* In the LaserPulse script
+  
+  * Make the following changes to the **FirePulse** function:
+
+.. code-block:: as
+  :emphasize-lines: 18-22
+  
+  // Uses ray casting to find objects
+  //   to hit and turn them invisible
+  function FirePulse()
+  {
+    var ray = Ray();
+    
+    // The ray starts where we are right now...
+    var thisPosition = this.Transform.WorldTranslation;
+    // ...and goes in our Orientation's "forward" direction
+    var rayDirection = this.Orientation.WorldForward;
+    
+    ray.Start = thisPosition;
+    ray.Direction = rayDirection;
+    
+    // The maximum number of objects to look for in this ray cast
+    var count = 100;
+    
+    var filter = CastFilter();
+    // We want our pulse to hit only non-static objects
+    filter.IgnoreStatic = true;
+    
+    var castResults = this.Space.PhysicsSpace.CastRayResultsFiltered(ray, count, filter);
+    
+    // Loop through everything we just hit with that ray cast
+    foreach(var castResult in castResults)
+    {
+      var hit = castResult.ObjectHit;
+      
+      // Turn each hit invisible...
+      this.TurnInvisible(hit);
+      // ...and make a little spot of light at that position
+      this.CreateSpot(castResult.WorldPosition);
+    }
+  }
+
+The walls do not have RigidBody components, and any cog without a RigidBody is
+considered to be **static**. Thus, when we filter out all static objects, we
+ignore the walls.
+
+* :ref:`Save<ManualSavingProject>` and :ref:`run<ManualRunTheGame>` the project
+
+|PulseIgnoringWalls|
+
+The pulse can now no longer turn the walls invisible.
+
+* :ref:`Stop the project <ManualStopGame>`
+ 
+Now we know how to use ray casting.
+
+
+..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  
+
+.. |PointSegmentLineRay|                 image:: images/RayCasting/PointSegmentLineRay.png
+    :width: 3.325in
+.. |PreStretchBeam|                      image:: images/RayCasting/PreStretchBeam.png
+.. |InfiniteStretchBeam|                 image:: images/RayCasting/InfiniteStretchBeam.png
+.. |BeamHittingObstruction|              image:: images/RayCasting/BeamHittingObstruction.png
+.. |IncorrectBases|                      image:: images/RayCasting/IncorrectBases.png
+.. |IncorrectOrigin|                     image:: images/RayCasting/IncorrectOrigin.png
+.. |IncorrectBasesAndOrigin|             image:: images/RayCasting/IncorrectBasesAndOrigin.png
+.. |SingleObstruction|                   image:: images/RayCasting/SingleObstruction.gif
+.. |HighlightedTransformProperties|      image:: images/RayCasting/HighlightedTransformProperties.png
+.. |ReorderingComponents|                image:: images/RayCasting/ReorderingComponents.gif
+.. |MultipleObstructions|                image:: images/RayCasting/MultipleObstructions.gif
+.. |TurningThingsInvisibleFirst|         image:: images/RayCasting/TurningThingsInvisibleFirst.gif
+.. |TurningThingsInvisibleFirstWithSpot| image:: images/RayCasting/TurningThingsInvisibleFirstWithSpot.gif
+.. |ObstructionsInARow|                  image:: images/RayCasting/ObstructionsInARow.png
+.. |OneAtATimeInRow|                     image:: images/RayCasting/OneAtATimeInRow.gif
+.. |MultipleObstructionsOnePulse|        image:: images/RayCasting/MultipleObstructionsOnePulse.gif
+.. |Cage|                                image:: images/RayCasting/Cage.png
+.. |ResizerIgnoringObstructions|         image:: images/RayCasting/ResizerIgnoringObstructions.gif
+.. |PulseIgnoringWalls|                  image:: images/RayCasting/PulseIgnoringWalls.gif

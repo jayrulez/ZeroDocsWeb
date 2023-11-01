@@ -1,0 +1,138 @@
+.. _ReferenceCogPath:
+
+.. rst-class:: searchtitle
+
+CogPath
+=======
+
+.. include:: Description/CogPath.rst
+
+.. cpp:class:: CogPath
+
+    Base Class: :cpp:type:`ZeroObject`
+
+.. _ReferenceCogPathProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String CogPath::Path
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CogPath::Cog
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CogPath::DirectCog
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CogPath::RelativeTo
+
+            The cog that we compute paths relative to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CogPath::Required
+
+            Deprecated(named changed to ErrorOnResolveToNull)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CogPath::ErrorOnResolveToNull
+
+            Is an exception thrown if you try to access the Cog when it's invalid or not found?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CogPath::ErrorOnPathCantCompute
+
+            Is it an exception/notification if the path to an object cannot be computed?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CogPath::ErrorOnDirectLinkFail
+
+            Is it an exception/notification if a direct link to the object cannot be resolved?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CogPath::UpdateCogOnPathChange
+
+            When we set the cog path, should we try and resolve the object(this also detects parse errors)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CogPath::UpdateCogOnInitialize
+
+            Whether the cog path attempts to resolve an object when the object is fully initialized.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CogPath::UpdatePathOnCogChange
+
+            When we set the cog, should we try and recompute a path to the object?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CogPathPreference::Enum CogPath::PathPreference0
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CogPathPreference::Enum CogPath::PathPreference1
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CogPathPreference::Enum CogPath::PathPreference2
+
+            
+
+.. _ReferenceCogPathMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool CogPath::Refresh()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void CogPath::RefreshIfNull()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: CogPath CogPath::Clone()
+
+            Creates a new copy of a cog path(since cog paths are reference counted and shared)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog CogPath::Resolve(Status status, Cog startFrom, const CogPathCompiled path)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: String CogPath::ComputePath(Status status, Cog from, Cog to, CogPathPreference::Enum pref)
+
+            
+
+.. include:: Remarks/CogPath.rst

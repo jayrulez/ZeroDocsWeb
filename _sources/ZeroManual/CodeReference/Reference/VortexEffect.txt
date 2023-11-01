@@ -1,0 +1,142 @@
+.. _ReferenceVortexEffect:
+
+.. rst-class:: searchtitle
+
+VortexEffect
+============
+
+.. rst-class:: searchdescription
+
+Applies a force about an axis at the object's center. This will apply two forces to a body: One pulls the object towards the center of the vortex and the other applies a tangential force. Useful to model a vortex.
+
+.. include:: Description/VortexEffect.rst
+
+.. cpp:class:: VortexEffect
+
+    Base Class: :cpp:type:`PhysicsEffect`
+
+.. _ReferenceVortexEffectProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog VortexEffect::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space VortexEffect::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog VortexEffect::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession VortexEffect::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool VortexEffect::Active
+
+            Enable/disable this effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool VortexEffect::WakeUpOnChange
+
+            Whether the object associated with this is woken up when any property is changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EffectType::Enum VortexEffect::EffectType
+
+            What kind of effect this is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool VortexEffect::LocalAxis
+
+            Determines if the Vortex Axis is in world or local space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real VortexEffect::MinDistance
+
+            The first distance at which attenuation will start. If an object is under the min distance, it will get the strength at min applied. If an object is in between min and max, then it will attenuate.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real VortexEffect::MaxDistance
+
+            The max distance that attenuation will happen at. If an object is between min and max distance, the value will be attenuated. If the object is further away, the effect strength will be determined by EndCondition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real VortexEffect::ForceStrengthAtMinDistance
+
+            The perpendicular strength of the vortex at its center.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real VortexEffect::ForceStrengthAtMaxDistance
+
+            The perpendicular strength of the vortex at its max distance.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real VortexEffect::InwardStrengthAtMinDistance
+
+            The inward force strength of the vortex at its center.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real VortexEffect::InwardStrengthAtMaxDistance
+
+            The inward force strength of the vortex at its max distance.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 VortexEffect::VortexAxis
+
+            The axis about which the vortex spins.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: VortexInterpolationStates::Enum VortexEffect::InterpolationType
+
+            The type of interpolation used(ie. Linear, Quadratic) for the forces.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: VortexEndCondition::Enum VortexEffect::EndCondition
+
+            How the interpolation should be handled at the max distance. ClampToMax will clamp to strength at max. NoEffect will ignore the effect. ContinueFalloff will continue the interpolation(this may go negative).
+
+.. _ReferenceVortexEffectMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void VortexEffect::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void VortexEffect::Toggle()
+
+            Toggles whether or not this effect is active.
+
+.. include:: Remarks/VortexEffect.rst

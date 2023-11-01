@@ -1,0 +1,76 @@
+.. _ReferenceDynamicMeshGenerator:
+
+.. rst-class:: searchtitle
+
+DynamicMeshGenerator
+====================
+
+.. rst-class:: searchdescription
+
+Used to generate Dynamic Meshes from the Mesh resource.
+
+.. include:: Description/DynamicMeshGenerator.rst
+
+.. cpp:class:: DynamicMeshGenerator
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceDynamicMeshGeneratorProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DynamicMeshGenerator::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space DynamicMeshGenerator::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DynamicMeshGenerator::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession DynamicMeshGenerator::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Mesh DynamicMeshGenerator::Mesh
+
+            
+
+.. _ReferenceDynamicMeshGeneratorMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMeshGenerator::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMeshGenerator::AddMesh(Mesh mesh, Vec3 translation, QuatParam rotation, Vec3 scale)
+
+            Adds all the vertices and indices of a mesh with a given offset.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMeshGenerator::BuildFromMesh(Mesh mesh)
+
+            Copies the mesh info from the Mesh resource passed in.
+
+.. include:: Remarks/DynamicMeshGenerator.rst

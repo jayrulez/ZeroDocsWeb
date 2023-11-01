@@ -1,0 +1,493 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/ZilchInZero/Delegates.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:09 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Delegates &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Zilch In Zero" href="index.html"/>
+        <link rel="next" title="Reflection" href="Reflection.html"/>
+        <link rel="prev" title="Named Parameters" href="Named_Parameters.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Zilch In Zero</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Variables_And_Data_Types.html">Variables, Data Types, &amp; Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Conditionals.html">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Looping.html">Looping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Attributes.html">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Flags.html">Flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Structs.html">Structs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Classes.html">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Memory_Management.html">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Casting.html">Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Named_Parameters.html">Named Parameters</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Delegates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Reflection.html">Reflection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Properties.html">Properties (Get-Sets)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Property_Delegates.html">Property Delegates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConstructByValueVsByRef.html">Local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConstructByValueVsByRef.html#new">New</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Operators_Precedence_Chart.html">Operator Precedence Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Keywords.html">Keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Array.html">Array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean.html">Boolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean2.html">Boolean2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean3.html">Boolean3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Boolean4.html">Boolean4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Console.html">Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Exception.html">Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/HashMap.html">HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer.html">Integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer2.html">Integer2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer3.html">Integer3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Integer4.html">Integer4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/KeyValue.html">KeyValue [Key, Value]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Math.html">Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Property.html">Property [Type]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Quaternion.html">Quaternion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real.html">Real</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real2.html">Real2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real3.html">Real3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/Real4.html">Real4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/String.html">String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ZilchTypes/StringBuilder.html">StringBuilder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="index.html">Zilch In Zero</a> &raquo;</li>
+      
+    <li>Delegates</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/ZeroManual/ZilchInZero/Delegates.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="delegates">
+<span id="zilchdelegates"></span><h1>Delegates</h1>
+<p class="searchdescription">Delegates allows you to hold function pointer in a variable, and use them at a later time.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">DelegateHolder</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">Name</span><span class="o">:</span><span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;Unnamed&quot;</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">Greeting</span><span class="o">:</span> <span class="nx">delegate</span><span class="p">()</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span> <span class="nb">String</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Name</span> <span class="o">=</span> <span class="nx">name</span><span class="o">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">Introduce</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Hi I&#39;m `this.Name`&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Driver</span>
+<span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">DelegateSamples</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">gh</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DelegateHolder</span><span class="p">(</span><span class="s2">&quot;gh&quot;</span><span class="p">);</span>
+        <span class="k">var</span> <span class="nx">ef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DelegateHolder</span><span class="p">(</span><span class="s2">&quot;ef&quot;</span><span class="p">);</span>
+
+        <span class="c1">// Making a delegate:</span>
+        <span class="k">var</span> <span class="nx">getName</span> <span class="o">:</span> <span class="nx">delegate</span><span class="p">()</span> <span class="o">=</span> <span class="nx">gh</span><span class="p">.</span><span class="nx">Introduce</span><span class="o">;</span>
+
+        <span class="c1">// Using a delegate:</span>
+        <span class="nx">getName</span><span class="p">();</span>                                <span class="c1">// Hi I&#39;m gh</span>
+
+        <span class="c1">// Assigning a member function to a delegate:</span>
+        <span class="nx">getName</span> <span class="o">=</span> <span class="nx">ef</span><span class="p">.</span><span class="nx">Introduce</span><span class="o">;</span>
+
+        <span class="c1">// Passing a delegate into a function:</span>
+        <span class="nx">Driver</span><span class="p">.</span><span class="nx">DelegateCaller</span><span class="p">(</span><span class="nx">getName</span><span class="p">);</span>           <span class="c1">// Hi I&#39;m ef</span>
+        <span class="nx">getName</span><span class="p">();</span>                                <span class="c1">// Hi I&#39;m ef</span>
+
+        <span class="c1">// Assigning a static function to a delegate:</span>
+        <span class="nx">getName</span> <span class="o">=</span> <span class="nx">Driver</span><span class="p">.</span><span class="nx">DelegateTest</span><span class="o">;</span>
+        <span class="nx">getName</span><span class="p">();</span>                                <span class="c1">// 256</span>
+
+        <span class="nx">Driver</span><span class="p">.</span><span class="nx">DelegateCaller</span><span class="p">(</span><span class="nx">getName</span><span class="p">);</span>           <span class="c1">// 256</span>
+
+        <span class="c1">// Making a delegate:</span>
+        <span class="k">var</span> <span class="nx">doMath</span> <span class="o">:</span> <span class="nx">delegate</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">Integer</span><span class="o">,</span> <span class="nx">b</span><span class="o">:</span> <span class="nx">Integer</span><span class="p">)</span><span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="nx">Driver</span><span class="p">.</span><span class="nx">Add</span><span class="o">;</span>
+
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">Driver</span><span class="p">.</span><span class="nx">BinaryIntOpsCaller</span><span class="p">(</span><span class="nx">doMath</span><span class="p">));</span> <span class="c1">// 8</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">doMath</span><span class="p">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">6</span><span class="p">));</span>                       <span class="c1">// 8</span>
+
+        <span class="nx">doMath</span> <span class="o">=</span> <span class="nx">Driver</span><span class="p">.</span><span class="nx">Multiply</span><span class="o">;</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">Driver</span><span class="p">.</span><span class="nx">BinaryIntOpsCaller</span><span class="p">(</span><span class="nx">doMath</span><span class="p">));</span> <span class="c1">// 15</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">doMath</span><span class="p">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">6</span><span class="p">));</span>                       <span class="c1">// 12</span>
+
+        <span class="nx">doMath</span> <span class="o">=</span> <span class="nx">Driver</span><span class="p">.</span><span class="nx">Subtract</span><span class="o">;</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">Driver</span><span class="p">.</span><span class="nx">BinaryIntOpsCaller</span><span class="p">(</span><span class="nx">doMath</span><span class="p">));</span> <span class="c1">// 2</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">doMath</span><span class="p">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">6</span><span class="p">));</span>                       <span class="c1">// -4</span>
+    <span class="p">}</span>
+
+    <span class="p">[</span><span class="nx">Static</span><span class="p">]</span>
+    <span class="kd">function</span> <span class="nx">Add</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">Integer</span><span class="o">,</span> <span class="nx">b</span><span class="o">:</span> <span class="nx">Integer</span><span class="p">)</span><span class="o">:</span> <span class="nx">Integer</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="o">;</span>
+    <span class="p">}</span>
+    <span class="p">[</span><span class="nx">Static</span><span class="p">]</span>
+    <span class="kd">function</span> <span class="nx">Multiply</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">Integer</span><span class="o">,</span> <span class="nx">b</span><span class="o">:</span> <span class="nx">Integer</span><span class="p">)</span><span class="o">:</span> <span class="nx">Integer</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">a</span><span class="o">*</span><span class="nx">b</span><span class="o">;</span>
+    <span class="p">}</span>
+    <span class="p">[</span><span class="nx">Static</span><span class="p">]</span>
+    <span class="kd">function</span> <span class="nx">Subtract</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">Integer</span><span class="o">,</span> <span class="nx">b</span><span class="o">:</span> <span class="nx">Integer</span><span class="p">)</span><span class="o">:</span> <span class="nx">Integer</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">a</span><span class="o">-</span><span class="nx">b</span><span class="o">;</span>
+    <span class="p">}</span>
+    <span class="p">[</span><span class="nx">Static</span><span class="p">]</span>
+    <span class="kd">function</span> <span class="nx">BinaryIntOpsCaller</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">delegate</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">Integer</span><span class="o">,</span> <span class="nx">b</span><span class="o">:</span> <span class="nx">Integer</span><span class="p">)</span><span class="o">:</span><span class="nx">Integer</span><span class="p">)</span><span class="o">:</span><span class="nx">Integer</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">a</span><span class="p">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="p">[</span><span class="nx">Static</span><span class="p">]</span>
+    <span class="kd">function</span> <span class="nx">DelegateCaller</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">delegate</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="nx">a</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+Hi I&#39;m gh
+Hi I&#39;m ef
+Hi I&#39;m ef
+256
+256
+8
+8
+15
+12
+2
+-4
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>At this time the names chosen for the parameters are part of the signature. In order for two function signatures to be the same the names chosen for the parameters must match:</p>
+<div class="highlight-c#"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyMathLib</span>
+<span class="p">{</span>
+<span class="na">   [Static]</span> <span class="c1">// Note named parameters are lhs and rhs:</span>
+   <span class="n">function</span> <span class="nf">Exponent</span><span class="p">(</span><span class="n">lhs</span><span class="p">:</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">rhs</span><span class="p">:</span> <span class="n">Integer</span><span class="p">):</span> <span class="n">Integer</span>
+   <span class="p">{</span>
+       <span class="k">return</span> <span class="n">lhs</span><span class="p">^</span><span class="n">rhs</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Consider these tests:</p>
+<div class="highlight-c#"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Driver</span>
+ <span class="p">{</span>
+    <span class="n">function</span> <span class="nf">DelegateTest</span><span class="p">()</span>
+    <span class="p">{</span>
+       <span class="c1">// Here the delegate has named parameters a and b:</span>
+       <span class="kt">var</span> <span class="n">doMath</span> <span class="p">:</span> <span class="k">delegate</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Integer</span><span class="p">):</span> <span class="n">Integer</span> <span class="p">=</span> <span class="n">MyMathLib</span><span class="p">.</span><span class="n">Exponent</span><span class="p">;</span><span class="c1">// This won&#39;t compile.</span>
+    <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>The value being assigned to &#39;doMath&#39; must be of type &#39;delegate (a : Integer, b : Integer) : Integer&#39;.
+Its type is &#39;delegate (lhs : Integer, rhs : Integer) : Integer&#39;.
+</pre></div>
+</div>
+<div class="highlight-c#"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Driver</span>
+ <span class="p">{</span>
+    <span class="n">function</span> <span class="nf">DelegateTest</span><span class="p">()</span>
+    <span class="p">{</span>
+       <span class="c1">// When declaring a delegate you cannot exclude the parameter names:</span>
+       <span class="kt">var</span> <span class="n">doMath</span> <span class="p">:</span> <span class="k">delegate</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">Integer</span><span class="p">):</span> <span class="n">Integer</span> <span class="p">=</span> <span class="n">MyMathLib</span><span class="p">.</span><span class="n">Exponent</span><span class="p">;</span><span class="c1">// This won&#39;t compile.</span>
+    <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Function declaration &#39;delegate&#39; has an invalid argument list. We found &#39;UpperIdentifier&#39; but
+we expected to find &#39;)&#39;.
+</pre></div>
+</div>
+<div class="highlight-c#"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Driver</span>
+ <span class="p">{</span>
+    <span class="n">function</span> <span class="nf">DelegateTest</span><span class="p">()</span>
+    <span class="p">{</span>
+       <span class="c1">// Here, after making the parameter names match, does it work:</span>
+       <span class="kt">var</span> <span class="n">doMath</span> <span class="p">:</span> <span class="k">delegate</span><span class="p">(</span><span class="n">lhs</span><span class="p">:</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">rhs</span><span class="p">:</span> <span class="n">Integer</span><span class="p">):</span> <span class="n">Integer</span> <span class="p">=</span> <span class="n">MyMathLib</span><span class="p">.</span><span class="n">Exponent</span><span class="p">;</span>
+       <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">doMath</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">8</span><span class="p">));</span>
+    <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<a class="tabID0 zerotabinfocus"href="#!" id="tabindexID0link" > Console Output </a><div class="zerotabarea" id="tabindexID0"style="display:block;"><div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+256
+</pre></div>
+</div>
+</div></div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Delegates that point at member functions can create memory leaks if they make cycles. See <a class="reference internal" href="Memory_Management.html"><em>Memory Management</em></a> for more.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Delegates pointing to member functions will throw runtime errors if the instance it was bound with was destroyed:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Here are three Objects with the ability to hold delegates:</span>
+<span class="k">var</span> <span class="nx">ab</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DelegateHolder</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DelegateHolder</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">);</span>
+
+<span class="nx">ab</span><span class="p">.</span><span class="nx">Greeting</span> <span class="o">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">Introduce</span><span class="o">;</span>
+
+<span class="nx">delete</span> <span class="nx">b</span><span class="o">;</span>
+<span class="nx">ab</span><span class="p">.</span><span class="nx">Greeting</span><span class="p">();</span> <span class="c1">// This throws a runtime error</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span></span>Attempted to access a member of a null handle: Attempted to call a member function on a null object
+</pre></div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>It is an illegal operation to call a null delegate, so be sure to initialize your delegates before calling!</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Here are three Objects with the ability to hold delegates:</span>
+<span class="k">var</span> <span class="nx">ab</span><span class="o">:</span> <span class="nx">delegate</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span> <span class="nx">Integer</span><span class="o">,</span> <span class="nx">b</span><span class="o">:</span> <span class="nx">Integer</span><span class="p">)</span><span class="o">:</span> <span class="nx">Integer</span>  <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="nx">ab</span><span class="p">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">6</span><span class="p">);</span><span class="c1">// This throws a runtime error</span>
+</pre></div>
+</div>
+<p>Console Output:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span></span>Attempted to invoke a null delegate
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Reflection.html" class="btn btn-neutral float-right" title="Reflection" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Named_Parameters.html" class="btn btn-neutral" title="Named Parameters" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/ZilchInZero/Delegates.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:09 GMT -->
+</html>

@@ -1,0 +1,764 @@
+.. _TutorialsVectorMath1:
+
+.. rst-class:: SearchTitle
+
+2D Vector Math, Part 1
+======================
+
+.. rst-class:: SearchDescription
+
+This snippet goes over vector math in the Zero Engine. Points, Vectors, their operations of addition, subtraction, scaling and magnitude calculation are covered. This also covers how the x-, y-, and z-axis are used for the Translation, Rotation and Scale properties of the Transform component.
+
+Learning Objectives
+-------------------
+
+By the end of this lesson you should...
+
+* Understand what Points are and how to find Vectors using them. 
+
+* Calculate distance using Vectors.
+
+* Know how to scale an object in the Zero Engine.
+
+1 Dimensional (1D) Axis
+-----------------------
+
+The Number Line
++++++++++++++++
+
+The number line, or axis, allows you to represent all the real numbers. It heads infinitely in either direction covering all real numbers sequentially and uniquely. These characteristics allow you to express any position along the line via a real number in a way that allows you to consistently compare one position to another. 
+
+|NumberLine|
+
+The number line is conventionally centered around the **Origin**, which is at the number zero, ``0``. When a number is greater than zero we call it *positive* and when it is less than zero, we call it *negative*. 
+
+|NumberLineOrigin|
+
+Points
+++++++
+
+When using numbers to denote position, the numbers represent the *distance to the origin*. We call these numeric representations of position, **points**. 
+
+|PositionPoints|
+
+*The square is at point -3 while the circle is at point 2.*
+
+In math, a point is usually written with a capital letter. The point will have either a unique letter or subscript: 
+
+.. math:: 
+  
+  \mbox{Sample variations} & \mbox{ for the Square:} \\
+  \mbox{(Names referring to object)} & = \mbox{(Object position)} \\
+  S & = -3 \\
+  P_{s} &= -3 \\ 
+  P_{square} &= -3 \\ \\
+  \mbox{Sample variations} & \mbox{ for the Circle:} \\
+  \mbox{(Names referring to object)} & = \mbox{(Object position)} \\
+  C & = 2 \\
+  P_{c} &= 2 \\ 
+  P_{circle} &= 2 \\   
+
+By assigning numbers we can determine how far away one object is from another. 
+
+|DistanceBetweenPoints|
+
+Distance Calculation
+++++++++++++++++++++
+
+In 1D, finding the absolute value, or positive, difference between two points gives you the distance.
+
+.. sidebar:: Absolute Value
+
+  With Absolute Values, we always treat the number as though it were positive or zero, never negative.
+
+.. math::
+  
+  &\mbox{Because of the absolute value operator, } |x| \mbox{, } \\
+  &\mbox{the subtraction order does not matter:} \\
+
+.. math::
+
+  |P_{s} - P_{c}| =  &|-3 - 2| \, = \; |-5| \; = 5 \\ 
+  |P_{c} - P_{s}| =  &\,|2 - -3| \,\; = \quad \:\, | 5| \; = 5 
+
+|br|
+
+
+
+Vectors
++++++++
+
+If the square were to travel to the circle then it would have to travel ``5`` units to the right, or add ``5``. If the circle were to travel to the square then it would have to travel ``5`` units to the left, or subtract ``5``. 
+
+.. math::
+
+  \mbox{ From the } & \mbox{Square to the Circle:} \\ 
+  -3 + 5 &= 2 \\
+  \mbox{ From the } & \mbox{Circle to the Square:} \\
+   2 - 5 &= -3
+  
+
+|VectorAtoB|
+
+Visually drawing the arrow pointing in the positive direction, we can see the change in position needed for the square to travel to the circle. This is a **vector**. It represents the difference between two positions. The arrow denotes whether the number is added or subtracted based on whether it is pointing toward the positive or negative end of the number line, respectively.
+
+|VectorBtoA|
+
+Drawing in the opposite direction we get the other vector where the circle travels to the square.
+
+In math, we write vectors with an arrow over the top, and as seen above you can create one by subtracting 2 points: 
+
+.. math:: 
+
+  \mbox{This vector originates at $Position_{from}$, or $P_{from}$, } \\ \mbox{ and has its arrowhead point at $Position_{to}$, or $P_{to}$ :} 
+  
+|
+
+|PfromPto|
+
+.. math:: 
+
+  \vec{v}_{P_{from}P_{to}} &= P_{to} - P_{from}
+
+.. math:: &\textbf{Examples:}
+
+Traveling **from** the square **to** the circle, we can write a vector 
+with subscripts to show its relationship to the points:
+
+.. math:: \vec{Vectorfrom}_{SquaretoCircle} = Position_{circle} - Position_{square}
+
+or, a shorter way to write it:
+
+.. math:: \vec{v}_{sc} = P_{c} - P_{s}
+  
+.. math::  \mbox{This can be shown to be equivalent to our earlier work:}
+
+.. math::
+
+  5 &= 2 - (-3) \\
+  5 &= 2 + 3 \\
+  5 &- 3 = 2 \\
+  -3 &+ 5 = 2 \\
+
+.. math::
+
+  \mbox{This is what we wrote to express the square moving 5} \\
+  \mbox{units to the right ending up at the position of the circle.}
+
+Traveling **from** the circle **to** the square we can write the vector subscripts in a different order, as this vector is pointing in a different direction:  
+
+.. math:: \vec{v}_{cs} = P_{s} - P_{c}
+
+.. math:: \mbox{This can be shown to be equivalent to our earlier work:}
+
+.. math::
+
+  -5 &= -3 - 2 \\
+  -5 &+ 2 = -3 \\
+  2 &- 5 = -3 \\
+
+.. math:: 
+
+  \mbox{This is what we wrote to express the circle moving 5} \\ 
+  \mbox{units to the left ending up at the position of the square.}
+
+.. sidebar:: Multiplication
+
+  .. math:: A & \cdot B
+
+  This raised dot is a symbol showing that two numbers are being multiplied together. In this case, it's A times B.
+
+Because these two vectors represent the same amount of change, but are in opposite directions, we use the negative sign to denote their relationship.
+
+.. math::
+  
+  \vec{v}_{sc} = -\vec{v}_{cs}
+
+We say that vectors have both **magnitude** and **direction**. In our 1D case, the magnitude is the distance, and the direction is either positive or negative.   
+
+|br|
+
+.. sidebar:: Unit Vectors
+
+  .. math:: \hat{v}
+
+  The Direction Vector, often called a **unit vector**, is marked by the hat, ``^``. It gets the name unit by having a magnitude of 1, no matter the direction it points in. In 1D it is either 1 or -1, depending on what direction it's moving along the axis. 
+  
+
+.. math::
+  
+  \textbf{Magnitude: }\quad & ||\vec{v}|| \\
+  \textbf{Direction: }\quad & \hat{v} \\
+  \mbox{They multiply } & \mbox{to form a vector: } \\
+  \vec{v} = \hat{v} & \cdot ||\vec{v}|| \\ 
+  \mbox{e.g. } \vec{v_{sc}} = \hat{v_{sc}} & \cdot ||\vec{v_{sc}}||
+
+.. math::
+
+  \textbf{Rearranging this equation,} &\\
+  \textbf{we explore a similar concept: }& \\
+  \textbf{Normalization - } \qquad &\\
+  \mbox{the name given to the process}& \mbox{ of} \\
+  \mbox{finding a direction from a given}& \mbox{ vector:} \\
+    \hat{v} =  \frac{\vec{v}}{ ||\vec{v}||} \qquad \qquad &\\ \\ 
+
+
+
+
+.. math:: \textbf{Examples: }
+
+
+.. math::  
+
+  \mbox{based on the distance we found earlier:} & \quad ||\vec{v_{sc}}|| = 5 \\
+  \mbox{based on the positive direction the arrow was facing in our diagram:} & \quad \hat{v_{sc}} = 1 \\
+
+
+
+.. math:: \vec{v_{sc}} = 1 \cdot 5 = 5
+   
+Equally:
+
+.. math::
+  
+  \mbox{based on the distance we found earlier:} & \quad  ||\vec{v_{cs}}|| = 5 \\
+  \mbox{based on the negative direction the arrow was facing in our diagram:}  & \quad \hat{v_{cs}} = -1 \\
+  \mbox{we can calculate the vector } \vec{v_{cs}} \mbox{ from its separate parts, of direction} & \mbox{ and magnitude}\\
+  
+
+.. math:: \vec{v_{cs}} = -1 \cdot 5 = -5
+
+.. admonition:: Points vs Vectors, Another Perspective
+  
+  Imagine a map. Points are places on the map. Vectors are the directions we would draw on the map. 
+
+  Vectors represent the difference from one point to another. Since a vector can apply to any point, it is not anchored to a specific position. 
+  
+  Given a map, example points may be your house, school, or favorite restaurant. They are fixed in the position they are at. A vector would represent the distance and direction needed to travel from one point to another. An example is giving directions for traveling South by 5 blocks. South is the direction, and 5 blocks is the distance to travel in that direction. In our case the magnitude, represented by the 5 blocks.
+
+  While points are fixed a vector can "float." Imagine your house, school and favorite restaurant are all on the same vertical street each 5 blocks apart. Your school is North of your house and your favorite restaurant is to the South.
+
+  When starting at the **school** the directions to **your house** are: **Go 5 blocks South**
+
+  When starting at **your house** the directions to **your favorite restaurant** are: **Go 5 blocks South**
+
+  Despite starting and ending at different locations, traveling south by 5 blocks is the same needed set of instructions to arrive at the correct spot. 
+  If you were to write out the vector it would be 
+  
+  .. math:: \left[ 0, -5 \right]
+  
+  for both cases.
+
+
+
+2 Dimensional (2D) axis
+-----------------------
+
+The Number line
++++++++++++++++
+
+When dealing with a flat screen, like we do in games, we like to be able to distinguish the positions of two items that differ in how high or low they are on the screen. 
+
+|SamePosition|
+
+*Using only the number line to assign positions, the square and triangle are both at point* -3 *even though they are not actually in the same place.*
+
+In order to remedy this, a second number line is added to account for this new information. We call the number line 1D, or one dimensional. By having a second independent **axis**, we can represent two dimensions, or 2D. 
+
+|2DPoints|
+
+Now that we have more than one number line, we've named them differently to distinguish which line each number is associated with:
+
+ * The horizontal number line, traveling from left to right, is called the **x-axis**. 
+ * The vertical number line, traveling from top to bottom, is called the **y-axis**. 
+
+Points
+++++++
+
+Just like before, any object would have a point measuring the distance from the origin. 
+
+Looking at our example, they both have the same position along the x-axis, as they both line up with the number ``-3``. By including the y-axis, we can measure their position along this axis as well, getting ``-2`` for the square and ``-4`` for the triangle. By finding the points along each of these number lines, we can cover all of 2D space. 
+
+Because both of these numbers are needed to uniquely identify an object's position in 2D space, it is often grouped together in pairs. 
+
+.. math::
+  
+  P_{object} (x, y)
+
+It is convention that the number along the x-axis is listed first, then followed by the y-axis. These numbers are called the x and y components, respectively. Looking at our example 2D points, we'd write the location of the square and triangle as follows:
+
+.. math:: 
+  
+  P_{s} &(-3, -2) \\
+  P_{t} &(-3, -4)
+
+In Zero and 3D
+--------------
+
+As you add more axes, the new dimensions get added after previous ones. In 3D, points are grouped in triplets, in `n` D space you would have `n` components to define your point.
+
+|2Din3D|
+
+.. math:: 
+  
+  P_{s} &(-3, -2, 0) \\
+  P_{t} &(-3, -4, 0)
+
+*Since the square and triangle are defined in 2D, they have no z component. This is why their final component is 0.*
+
+Since the Zero Engine is a 3D engine, it uses vectors and points with 3 components.
+
+|TransformComponent|
+
+*Here is the Transform Component, each of its properties is related to the three axes in 3D.*
+
+|TranslateGizmo2D| |TranslateGizmo3D|
+
+*When using the Translate tool, the Gizmo color codes the axes.* 
+  * **Left:** *The x and y axes are visible, as red and green respectively, in a 2D view.* 
+  * **Right:** *The camera is rotated in 3D view to more easily see the relationship of all three axes. The z-axis is blue.*
+
+
+
+Create a New Project
+++++++++++++++++++++
+
+:ref:`Create a new 2D Project<ManualCreateNewProject>`
+
+The Translation property of the :cpp:type:`Transform` component is the point used to tell the Zero Engine where to draw the game object. 
+Since our project is in 2D mode, the Z-axis can be used to ensure the order in which objects draw, but is otherwise not accounted for. 
+
+
+*  :ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In Properties Window
+
+    *   Set Name to: ``Projectile``
+    *   :ref:`Add the RigidBody component <ManualAddComponent>`
+    *   :ref:`Add the BoxCollider component <ManualAddComponent>` 
+    *   Under Transform
+
+        *   Set Translation to: ``[0, 0, 0]``
+    *   ``Ctrl+C`` to Copy
+    *   ``Ctrl+V`` to Paste 
+    *   Set Name to: ``Target``
+    *   Under Transform
+
+        *   Set Translation to: ``[-4.5, 8, 0]``
+    *   Under Sprite
+
+        *   Set Color to: ``[R: 255, G: 128, B: 0, A: 1]``, or ``#FF8000``
+
+
+
+
+Here is an overlay of numbers to help illustrate that the game objects have been placed appropriately:
+
+|ZeroPositionPoints|
+
+To demonstrate vectors in the Zero Engine we can use the Velocity property of the :cpp:type:`RigidBody` component. 
+
+*   :ref:`Select the LevelSettings object <ManualSelectObject>`
+
+*   In Properties Window
+
+  *   :ref:`Remove the GravityEffect component <ManualRemoveComponent>`
+  *   :ref:`Remove the DragEffect component <ManualRemoveComponent>`
+
+*   :ref:`Select the Projectile object <ManualSelectObject>`
+
+*   In Properties Window
+   
+    *   Under RigidBody
+
+        *   Set Velocity to: ``[-4.5, 8, 0]``
+
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+Our Projectile successfully hits our Target:
+
+|FirstCollision|
+
+*   :ref:`Close the Game Window <ManualStopGame>`
+
+.. sidebar:: ( ) versus [ ]
+  
+  In math, the use of numbers to mean different things geometrically can make certain equations appear confusing.
+  To help keep things clear, there are conventions set in place:
+
+  Points, using distance from the Origin to mark a position, use the ``()``
+
+  .. math:: \mbox{e.g. : } \quad P(x, y, z)
+
+
+  Vectors, using distance along each axis to mark displacement between two points, uses the ``[]``
+
+  .. math:: \mbox{e.g. : } \quad \vec{v}\left[x, y, z\right] 
+
+This makes sense since a point has the same values as a vector from the Origin to the point. 
+
+
+
+.. math:: 
+
+  \mbox{By subtracting}& \mbox{ the Origin} \\
+  \mbox{from any other}& \mbox{ position, we can show:} \\ \\ 
+  \vec{v} &= (x, y, z) - (0,0,0) \\
+  &= (x-0, y-0, z-0) \\ 
+   &= \left[ x, y, z \right]  \\
+  \\ \mbox{This triplet is the same }& \mbox{as a point $P$ at } (x, y, z)
+
+By setting the velocity to be the position of the target we also created the same vector needed to bring the Projectile to our target.
+You can easily see the difference by moving our projectile:
+
+*   :ref:`Select the Projectile object <ManualSelectObject>`
+
+*   In Properties Window
+   
+    *   Under Transform
+
+        *   Set Translation to: ``[-4.5, -2, 0]``
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+Our Projectile no longer hits the target but follows a similar trajectory as last time:
+
+|NoCollision|
+
+*   :ref:`Close the Game Window <ManualStopGame>`
+
+To construct a velocity vector that will make our projectile, at point P, hit the target, at point T, we can use math:
+
+.. math::
+  
+  \vec{v_{pt}} &= T - P \\
+  &= (-4.5, 8, 0) - (-4.5, -2, 0) \\
+  &= (-4.5 - -4.5, \; 8 - -2, \; 0 - 0) \\
+  &= (-4.5 + 4.5, \; 8 + 2, \; 0 - 0) \\
+  &= \left[0, 10, 0 \right]
+
+
+*   :ref:`Select the Projectile object <ManualSelectObject>`
+
+*   In Properties Window
+   
+    *   Under RigidBody
+
+        *   Set Velocity to: ``[0, 10, 0]``
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+Our projectile now hits our target dead on from below:
+
+|SecondCollision|         
+
+*   :ref:`Close the Game Window <ManualStopGame>`
+
+*   In Properties Window
+   
+    *   Under RigidBody
+
+        *   Set Velocity to: ``[0, 1, 0]``
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+Our projectile now takes much longer to hit our target dead on from below, as it moves slowly:
+
+|SlowCollision|       
+
+*   :ref:`Close the Game Window <ManualStopGame>`
+
+Since the velocity of the :cpp:type:`RigidBody` has no reason to slow down or change direction (usually caused by :cpp:type:`Gravity<GravityEffect>` and :cpp:type:`DragEffect`), it eventually hits the target despite taking more time. This occurs because the direction is identical, even though the magnitude is different (lower in this case). 
+
+.. sidebar:: It's all just scaling
+
+  Normalization is a special case of scaling where:
+  
+  .. math:: k = \frac{1}{||\vec{v}||}
+
+  transforming 
+
+  .. math:: \vec{v} \rightarrow \hat{v}
+
+2D Revisited
+------------
+
+Scaling
++++++++
+
+Mathematically, we say we **scaled** the vector. Scaling a vector means changing the magnitude *without* changing its direction. In this way, scaling a vector is modifying the components of a vector *without modifying the ratio between the components*. You can do this by multiplying of all of the components by the same number:
+
+.. math::
+
+  \vec{v} & = \left[ x, y \right] \\
+  \mbox{scaling both sides by $k$ we get:} \\ 
+  k\vec{v} & = \left[ k \cdot x, k \cdot y \right] \\
+
+
+
+.. math::
+  
+  \vec{v_{pt}} &= \left[ 0, 10, 0 \right] \\
+  0.1 \cdot \vec{v_{pt}} &=  0.1 \cdot \left[ 0, 10, 0 \right] \\
+  &= \left[0 \cdot 0.1, 10 \cdot 0.1, 0 \cdot 0.1 \right] \\
+  &= \left[0, 1, 0 \right]
+
+
+
+In 2D, getting the distance is a little more complicated, because the direction is no longer limited to two directions, but can move within 0 to 360 degrees. This difference makes a few things change; for instance, their magnitude cannot be determined by the absolute value of the difference:
+
+.. math:: 
+  
+  \mbox{given: } P &= (x, y) \\
+  P_{a} &= (x_{a}, y_{a}) \\
+  P_{b} &= (x_{b}, y_{b}) \\
+
+.. math::
+
+  \mbox{While addition and subtraction extend to 2D component-wise,} \\
+  \mbox{ the relationship does not extend when calculating the distance.} \\ 
+
+.. math:: || \vec{v_{ab}} || \ne |x_{b} - x_{a}| + |y_{b} - y_{a}| = |P_{b} - P_{a}|
+  
+Distance Calculation
+++++++++++++++++++++
+
+By subtracting x components you are comparing positions along the x-axis at the exclusion of the y-axis. By excluding the y-axis this is the same as having a 1D vector along the x - axis. Similarly, by subtracting y components you are comparing positions along the y-axis at the exclusion of the x-axis, and thus duplicating the math you would have if you were creating a 1D vector along the y-axis.
+
+.. math:: 
+  
+  \mbox{For example}&\mbox{, given: } \\
+  \vec{v} &= \left[ -3, -4 \right] \\
+  \vec{v_{x}} &= \left[ -3,  0  \right] \\ 
+  \vec{v_{y}} &= \left[  0, -4  \right] \\ \\ 
+  ||\vec{v_{x}}|| &+ ||\vec{v_{y}}|| \\
+  |-3| &+ |-4| \\
+  3 &+ 4 \\
+  &7 
+  
+|ComponentVectors|
+
+
+
+Anyone who has ever cut corners on a city block knows that the diagonal is shorter than walking around. Therefore, adding these distances is not accurate.
+Conveniently, the axes are defined to be perpendicular. This means that every vector can become the hypotenuse of a triangle, where the legs are its components' vectors.
+
+|VectorHypotenuse|  
+
+This allows us to use Pythagoras' theorem to solve for the length of the hypotenuse giving us the real distance, or **magnitude**, of the vector:
+
+.. math::
+  
+  \begin{aligned}
+  a^{2} + b^{2} &= c^{2} \\
+  c &= \sqrt{(a)^{2} + (b)^{2}}\\ 
+  \mbox{Using this equation} & \mbox{ we can solve our problem:}\\
+  || \vec{v} || &= \sqrt{  v_{x}^{2} + v_y^{2}} \\ \\
+  \mbox{Revisiting our example: } \vec{v} &= \left[ -3, -4 \right] \\ \\
+  || \vec{v} || &= \sqrt{ v_{x}^{2} + v_y^{2}} \\
+  &= \sqrt{-3^{2} + -4^{2}} \\ 
+  &= \sqrt{25} \\
+  &= 5 \\
+  7 &> 5, \\
+  \mbox{verifying our original intuition} & \mbox{ about the vector being smaller.}
+  \end{aligned}
+
+Calculating the magnitude is not the only change when moving to 2D. 
+
+
+
+Rotation in Zero
+----------------
+
+In 2D, there are more than two directions, so while the magnitude of a 2D vector is still represented by a single number, the direction is based on the relationship, or ratio, of its components. The direction of the vectors are different because the change along the x and change along the y are in different ratios, i.e. the slopes of the vectors are different.
+
+By having two components you increase the number of directions from 2 to all 360 degrees a circle offers. By convention, we count the angles positively as we travel counter clockwise from the positive x-axis, and negatively when traveling clockwise from the positive x-axis, where the positive x-axis is zero degrees.
+
+|Angles|
+
+Because the angles are not unique as they wrap in a circle, the same angle can have many names.
+
+.. math:: \mbox{e.g. : } 90 = -270 = 450 = 90 + k \cdot 260, \mbox{where $k$ is a whole number}
+
+The Angle of a vector refers to the angle between the positive x-axis traveling counterclockwise to the vector whose angle we are finding.
+
+|AngleOfVector| 
+
+*The Angles of the vector are represented by Φ and φ respectively.*
+
+Because they are 2D examples, these angles represent a rotation *around the z-axis*. We can change the rotation of our 2D game objects by providing an angle in the z-component of the Rotation property of the :cpp:type:`Transform` component.
+
+The Zero Engine clamps numbers between [-180, 180], if you provide a number outside this range it will convert it to it's equivalent within the range. 
+
+*   :ref:`Select the Projectile object <ManualSelectObject>`
+
+*   In Properties Window
+   
+    *   Under Transform
+
+        *   Set Rotation to: ``[0, 0, -270]``
+
+|AutoConverted| 
+
+*Here you can see that it has been converted to its equivalent angle, 90 as it lies between -180 and 180 degrees.*
+
+
+
+Let's make the angled point of our Projectile hit the Target:
+
+    *   Under Transform
+
+        *   Set Rotation to: ``[0, 0, 45]``
+    *   Under RigidBody
+
+        *   Set Velocity to: ``[0, 10, 0]``
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+|RotatedCollision|
+
+*   :ref:`Close the Game Window <ManualStopGame>`
+
+Scaling in Zero
+---------------
+
+In order for computers to make sense of the visual representation of our game objects, it uses points and understood arrangements of those points, e.g. triangles or lines. 
+
+* In the Zero Engine:
+
+  *  :ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+
+
+Now, imagine our sprite as being made up of two triangles. 
+
+|TwoTriangles|
+
+It needs at least 4 unique points listed in an order such that it can create two triangles. 
+All of these points are relative to an Origin that is placed at the center of the object. 
+When our sprite is first created, its center is placed at position 0 on the X, Y and Z axis, and its Scale is set to 1 for the X, Y and Z components.
+
+|TransformComponent|
+
+Note that the *scale* of the sprite is 1, which puts the *position* of each point in a location that gives the whole sprite that size. 
+
+|CenterOrigin|
+
+.. math::
+  
+  \mbox{Position } &\mbox{of each point} \\
+  A&(-0.5, \quad \negmedspace 0.5)  \\
+  B&(\quad \negmedspace 0.5, \quad \negmedspace 0.5)   \\
+  C&(-0.5,  -0.5)\\
+  D&(\quad \negmedspace 0.5,  -0.5)
+  
+  
+  
+Scaling these positions evenly, each point defining the object becomes proportionally smaller or larger as the points shrink toward the Origin or move further away, respectively.
+
+.. math::
+  
+  \mbox{Scale to be }& \mbox{twice as large: } \\
+  A&(-1, \quad \negmedspace 1)  \\
+  B&(\quad \negmedspace 1, \quad \negmedspace 1)   \\
+  C&(-1,  -1)\\
+  D&(\quad \negmedspace 1,  -1) \\ \\
+  
+  \mbox{Scale to be }& \mbox{half the size: } \\
+  A&(-0.25, \quad \negmedspace 0.25)  \\
+  B&(\quad \negmedspace 0.25, \quad \negmedspace 0.25)   \\
+  C&(-0.25,  -0.25)\\
+  D&(\quad \negmedspace 0.25,  -0.25)  
+
+Try it out in the Zero Engine.   
+
+* Select the Sprite we just created
+*   In Properties Window
+
+    *   Set Name to: ``Normal``
+    *   Under Transform
+
+        *   Set Translation to: ``[0, 0, 0.01]``
+    *   ``Ctrl+C`` to Copy
+    *   ``Ctrl+V`` to Paste 
+    *   Set Name to: ``Large``
+    *   Under Transform
+
+        *   Set Translation to: ``[0, 0, 0]``
+        *   Set Scale to: ``[2, 2, 2]``
+    *   Under Sprite
+
+        *   Set Color to: ``[R: 255, G: 0, B: 0, A: 1]``, or ``#FF0000``
+    *   ``Ctrl+C`` to Copy
+    *   ``Ctrl+V`` to Paste 
+    *   Set Name to: ``Small``
+    *   Under Transform
+
+        *   Set Translation to: ``[0, 0, 0.02]``
+        *   Set Scale to: ``[0.5, 0.5, 0.5]``
+    *   Under Sprite
+
+        *   Set Color to: ``[R: 0, G: 255, B: 0, A: 1]``, or ``#00FF00``
+
+|DifferentScales|        
+
+Given access to each of the axes, it is possible to skew the object to make new shapes. 
+
+.. math::
+  
+  \mbox{Scale only the y components}& \mbox{ to be twice as large: } \\
+  A&(-0.5, \quad \negmedspace 1)  \\
+  B&(\quad \negmedspace 0.5, \quad \negmedspace 1)   \\
+  C&(-0.5,  -1)\\
+  D&(\quad \negmedspace 0.5,  -1) \\ \\
+
+  
+*   :ref:`Select the Normal object <ManualSelectObject>`  
+*   In Properties Window
+
+    *   Under Transform
+
+        *   Set Scale to: ``[1, 2, 1]``
+
+|SkewedAlongY|
+
+*Here we can see that the non-uniform scaling has changed the square into a rectangle.*
+
+
+
+
+.. |NumberLine|                image:: images/VectorMath1/NumberLine.png
+.. |NumberLineOrigin|          image:: images/VectorMath1/NumberLineOrigin.png      
+.. |PositionPoints|            image:: images/VectorMath1/PositionPoints.png    
+.. |DistanceBetweenPoints|     image:: images/VectorMath1/DistanceBetweenPoints.png           
+.. |VectorAtoB|                image:: images/VectorMath1/VectorAtoB.png
+.. |VectorBtoA|                image:: images/VectorMath1/VectorBtoA.png
+.. |SamePosition|              image:: images/VectorMath1/SamePosition.PNG
+.. |2DPoints|                  image:: images/VectorMath1/2DPoints.PNG
+.. |PfromPto|                  image:: images/VectorMath1/PfromPto.PNG
+.. |2Din3D|                    image:: images/VectorMath1/2Din3D.PNG
+.. |ZeroPositionPoints|        image:: images/VectorMath1/ZeroPositionPoints.PNG
+  :height: 4.0in
+.. |FirstCollision|            image:: images/VectorMath1/FirstCollision.PNG
+.. |NoCollision|               image:: images/VectorMath1/NoCollision.PNG
+.. |SecondCollision|           image:: images/VectorMath1/SecondCollision.PNG
+.. |SlowCollision|             image:: images/VectorMath1/SlowCollision.PNG
+.. |ComponentVectors|          image:: images/VectorMath1/ComponentVectors.PNG
+  :height: 3.0in
+.. |VectorHypotenuse|          image:: images/VectorMath1/VectorHypotenuse.PNG
+.. |TransformComponent|        image:: images/VectorMath1/TransformComponent.PNG
+.. |TranslateGizmo3D|          image:: images/VectorMath1/TranslateGizmo3D.PNG
+.. |TranslateGizmo2D|          image:: images/VectorMath1/TranslateGizmo2D.PNG
+.. |Angles|                    image:: images/VectorMath1/Angles.PNG
+.. |AutoConverted|             image:: images/VectorMath1/AutoConverted.PNG
+.. |RotatedCollision|          image:: images/VectorMath1/RotatedCollision.PNG
+.. |AngleOfVector|             image:: images/VectorMath1/AngleOfVector.png
+.. |TwoTriangles|              image:: images/VectorMath1/TwoTriangles.png
+.. |CenterOrigin|              image:: images/VectorMath1/CenterOrigin.png
+.. |DifferentScales|           image:: images/VectorMath1/DifferentScales.png
+.. |SkewedAlongY|              image:: images/VectorMath1/SkewedAlongY.png
+
+
+.. |br| raw:: html
+
+  <br />

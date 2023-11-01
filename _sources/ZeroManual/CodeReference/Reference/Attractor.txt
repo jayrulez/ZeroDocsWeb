@@ -1,0 +1,142 @@
+.. _ReferenceAttractor:
+
+.. rst-class:: searchtitle
+
+Attractor
+=========
+
+.. rst-class:: searchdescription
+
+Orients the object towards other objects with the Attractive component.
+
+.. include:: Description/Attractor.rst
+
+.. cpp:class:: Attractor
+
+    Base Class: :cpp:type:`MovementBase`
+
+.. _ReferenceAttractorProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Attractor::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Attractor::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Attractor::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Attractor::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Attractor::Active
+
+            Is the component active.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Attractor::MaxAngleChange
+
+            The maximum angle that this component can output.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Attractor::Strength
+
+            The strength of this particular movement component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Attractor::QueryOnly
+
+            Do we query the component(and not rotate our object?)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Attractor::DebugDraw
+
+            Do we draw the debug information?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Attractor::CheckRadius
+
+            The radius of the sphere cast each frame to find objects the Attractive component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint Attractor::MaxObjects
+
+            The maximum amount of objects to look for at a time.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Attractor::TimeBetweenChecks
+
+            How much time in between sphere casts(in seconds).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Attractor::AttractiveMustBeVisible
+
+            If the object must be visible to be attracted to it(done with ray casts).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Attractor::IgnoreStaticObjects
+
+            Whether or not we only want Dynamic objects.
+
+.. _ReferenceAttractorMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Attractor::DebugDraw()
+
+            Draw the object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Real Attractor::QueryAngleChangeRadians()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Real Attractor::QueryAngleChangeDegrees()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Attractor::GetObject(uint index)
+
+            Returns the object at the given index.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: uint Attractor::ObjectsAttractedTo()
+
+            Returns the amount of objects it is currently being attracted to.
+
+.. include:: Remarks/Attractor.rst

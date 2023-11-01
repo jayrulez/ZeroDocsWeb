@@ -1,0 +1,350 @@
+.. _ZilchLooping:
+
+.. rst-class:: SearchTitle
+
+Looping
+=======
+
+.. rst-class:: SearchDescription
+
+To create a loop your options include the **for** loop, **while** loop, the **do while** loop, **loop**, and when iterating over containers, **foreach.**
+
+for
+---
+
+This ``for`` loop:
+
+.. code-block:: as
+
+    var sum = 0;
+    for (var i = 0; i < 3; ++i)
+    {
+      sum += i;
+    }
+    
+    // sum = 3
+    
+is equivalent to this ``while`` loop:
+
+while
+-----
+
+.. code-block:: as
+    
+    var sum = 0;
+    var i = 0;
+    while (i < 3)
+    {
+        sum += i;
+        ++i;
+    }
+    
+    // sum = 3
+    
+and they are equivalent to this ``do while`` loop:
+
+do while
+--------
+
+.. code-block:: as
+
+    var sum = 0;
+    var i = 0;
+    do
+    {
+        sum += i;
+        ++i;
+    } while(i < 3)
+    
+    // sum = 3
+    
+Zilch also introduces the **loop** keyword, here is the equivalent:
+
+loop
+----
+
+.. code-block:: as
+
+    var i = 0;
+    var sum = 0;
+    loop
+    {
+        sum += i;
+        ++i;
+        if (i >= 3)
+        {
+            break; // This keeps the loop from being infinite
+        }
+    }   
+    
+    // sum = 3
+
+Using ``loop`` is the same as creating an infinite loop, but, unlike using other loop constructs, this incurs no conditional evaluation cost. In order to properly get out of the loop you need a stopping condition that will either trigger a ``break`` or ``return`` statement.     
+
+foreach
+-------
+
+When using an Array like this:
+
+.. code-block:: as 
+    
+    var myArray = new Array[Integer]();
+    myArray.Add(0);
+    myArray.Add(1);
+    myArray.Add(2);
+
+instead of using the conventional looping methods described above to operate on each element, such as the following:
+
+.. code-block:: as
+
+    var sum = 0;
+    for (var i = 0; i < myArray.Count; ++i)
+    {
+        sum += myArray.Get(i);
+    }
+    
+    // sum = 3
+    
+you can use ``foreach``:
+
+.. code-block:: as
+    
+    var sum = 0;
+    foreach (var item in myArray)
+    {
+        sum += item;
+    }
+
+    // sum = 3
+    
+break
+-----
+
+**break** keyword is used to exit a looping condition
+
+.. code-block:: as
+
+    var sum = 0;
+    for (var i = 0; true; ++i)
+    {
+        if (i >= 3)
+        {
+            break;
+        }
+      sum += i;
+    }
+    
+    // sum = 3
+
+.. code-block:: as
+    
+    var sum = 0;
+    var i = 0;
+    while (true)
+    {
+        if (i >= 3)
+        {
+            break;
+        }
+        
+        sum += i;
+        ++i;
+    }
+    
+    // sum = 3
+
+.. code-block:: as
+
+    var sum = 0;
+    var i = 0;
+    do
+    {
+        sum += i;
+        ++i;
+        if (i >= 3)
+        {
+            break;
+        }
+    } while(true)
+    
+    // sum = 3
+
+.. code-block:: as
+
+    var i = 0;
+    var sum = 0;
+    loop
+    {
+        sum += i;
+        ++i;
+        if (i >= 3)
+        {
+            break; // This keeps the loop from being infinite
+        }
+    }   
+    // sum = 3    
+
+continue
+--------
+
+**continue** keyword is used to skip the following code between the continue statement and the end scope of the loop, but continue looping. 
+
+.. code-block:: as
+
+        var sum = 0;
+        for (var i = 0; i < 3; ++i)
+        {
+            if (i == 1)
+            {
+                continue;
+            }
+            sum += i;
+        }
+        
+        // sum = 2
+
+.. code-block:: as        
+        
+        var sum = 0;
+        var i = 0;
+        while (i < 3)
+        {
+            if (i == 1)
+            {
+                ++i;
+                continue;
+            }
+            sum += i;
+            ++i;
+        }
+        
+        // sum = 2
+        
+.. code-block:: as        
+        
+        var sum = 0;
+        var i = 0;
+        do
+        {
+            if (i == 1)
+            {
+                ++i;
+                continue;
+            }
+            sum += i;
+            ++i;
+        } while(i < 3)
+        
+        // sum = 2
+        
+.. code-block:: as        
+        
+        var sum = 0;
+        var i = 0;
+        loop
+        {
+            if (i == 1)
+            {
+                ++i;
+                continue;
+            }
+            sum += i;
+            ++i;
+            if (i >= 3)
+            {
+                break;
+            }
+        }
+        
+        // sum = 2   
+
+return
+------
+
+Although **return** holds a larger purpose for :doc:`functions<Functions>`, it's important to note that this keyword provides a similar function to break. Given that return can be used to exit any function, return can break out of any number of loops, thus short-circuiting its execution.         
+
+.. code-block:: as
+
+    var sum = 0;
+    for (var i = 0; true; ++i)
+    {
+        if (i >= 3)
+        {
+            Console.WriteLine("final value: sum = `sum`");
+            return;
+        }
+      sum += i;
+    }
+    
+    sum *= 2; // This never gets run. 
+    
+Console Output::
+
+      ---------------- Begin Game ---------------
+      final value: sum = 3    
+
+.. code-block:: as
+    
+    var sum = 0;
+    var i = 0;
+    while (true)
+    {
+        if (i >= 3)
+        {
+            Console.WriteLine("final value: sum = `sum`");
+            return;
+        }
+        
+        sum += i;
+        ++i;
+    }
+    
+    sum *= 2; // This never gets run. 
+    
+Console Output::
+
+      ---------------- Begin Game ---------------
+      final value: sum = 3    
+
+.. code-block:: as
+
+    var sum = 0;
+    var i = 0;
+    do
+    {
+        sum += i;
+        ++i;
+        if (i >= 3)
+        {
+            Console.WriteLine("final value: sum = `sum`");
+            return;
+        }
+    } while(true)
+    
+    sum *= 2; // This never gets run. 
+    
+Console Output::
+
+      ---------------- Begin Game ---------------
+      final value: sum = 3    
+
+.. code-block:: as
+
+    var i = 0;
+    var sum = 0;
+    loop
+    {
+        sum += i;
+        ++i;
+        if (i >= 3)
+        {
+            Console.WriteLine("final value: sum = `sum`");
+            return; // This keeps the loop from being infinite
+        }
+    }
+        sum *= 2; // This never gets run. 
+
+Console Output::
+
+      ---------------- Begin Game ---------------
+      final value: sum = 3

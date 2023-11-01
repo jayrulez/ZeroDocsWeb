@@ -1,0 +1,308 @@
+.. _TutorialObjectHierarchies:
+
+.. rst-class:: SearchTitle
+
+Hierarchies
+============
+
+.. rst-class:: SearchDescription
+
+This lesson covers the basics of game object hierarchies.
+
+.. _TutorialsHierarchyVocab:
+
+Learning Objectives
+-------------------
+
+*	Create and dismantle object hierarchies.
+
+*	Understand the relationship between the :cpp:type:`Transform` of a child and parent.
+
+*	Understand how :cpp:type:`RigidBody` interacts with  object hierarchies.
+
+*	See the effect of non-uniform scaling on parent and child objects.
+
+.. rst-class:: VocabSection
+
++-----------------------------------------------+
+| Vocabulary                                    |
++=====================+=============+===========+
+| Game Object ( Cog ) | Parent      | Child     |
++---------------------+-------------+-----------+
+| Composite           | Collision   | Transform |
++---------------------+-------------+-----------+
+| Local               | World       |           |
++---------------------+-------------+-----------+
+
+Level Setup
+-----------
+
+*   :ref:`Create a New 2D Project<ManualCreateNewProject>`
+
+In Zero there is a concept that allows the user to combine objects into a single structure. There are different configurations to these `combo objects` that result in different behaviors, but they all follow a tree-based hierarchical structure. We call this act of **attaching** one object to another **parenting**. This allows us to view the relationship between the two object as a parent-child relationship. This is a useful metaphor, as just like in real life, in Zero, while a child's behavior affects the parent, a parent still has much more power over the child. In order to explore this concept of **composite objects** further, we must first create one. There are a few ways to do this in Zero. Lets look at some.
+
+*   :ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+*   :ref:`Select the Sprite you created <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Set name to: ``ParentSquare``
+
+*   :ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+*   :ref:`Select the Sprite you created <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Set name to: ``ChildSquare``
+  
+    *   Under Transform
+  
+        *   Set Translation to: ``[5, 0, 0]``
+
+|NotParentSquares|
+
+
+
+Parenting in the Object Window
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+One object can be attached to another quite easily in the object view.
+
+*   In the Object Window
+  
+    *   Left Click and Drag the ``ChildSquare`` object onto the ``ParentSquare`` object to parent it to the ``ParentSquare``.
+
+|ParentedSquares|
+
+You can see the ``ParentSquare`` object now has a little orange arrow point at it.
+
+|ParentedObjectView|
+
+This means it has a child object.
+
+*   Click on the Orange arrow next to the ``ParentSquare`` object in the Object Window.
+
+The triangle should rotate to point down revealing the ``ChildSquare`` object underneath as a child object.
+
+|ParentedObjectViewOpen|
+
+*   Click, hold, and drag the ``ChildSquare`` object to the left so your cursor is under the orange arrow next to the ``ParentSquare`` object.
+
+|UnparentObjectView|
+
+This action of draging the child to the left edge of the Object Window detaches it from its parent object.
+
+The Parenting Tool
+~~~~~~~~~~~~~~~~~~
+
+One could also use the Parenting Tool in the Level Window if both objects can be seen in the scene.
+
+* In the Level Window
+   
+  * Press ``0`` to switch to the Parenting Tool
+  * Left Click + Drag from the ParentSquare to the ChildSquare. 
+     
+    |ParentingTool|
+
+Transform and Hierarchies
+-------------------------
+
+Now that the hierarchy is created again, it can be pointed out that the visible position of the ``ChildSquare`` object has not changed. This is because the position of a child object relative to its new parent is maintained during the action of parenting.
+
+
+*   :ref:`Select the ParentSquare object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Under Transform
+  
+        *   Set Translation to: ``[0, 5, 0]``
+
+It can now be seen that as a parent object moves, so will its child  objects move with it. This is the first time it should be obvious that a child object's :cpp:type:`Transform` is relative to the Transform of its parent. The next step will demonstrate the relative relationship of ``Rotation`` between parent and child objects.
+
+*   :ref:`Select the ParentSquare object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Under Transform
+  
+        *   Set Rotation to: ``[0, 0, 45]``
+
+|ParentRotated|
+
+Notice that not only has the position of the ``ChildSquare`` object changed, it has also been rotated along with the ``ParentSquare`` object. This is somewhat the opposite of the example you saw at the end of the :ref:`TutorialsGameObject` lesson where the child was rotated. You may recall :cpp:type:`Transform’s<Transform>` properties always affect the object in the order: Scale first, Rotation second, and Translation third. Because of this order of operations, and because the parent Transform is also applied to the child, both the ``ChildSquare`` object's ``Translation`` and ``Rotation`` have had the ``ParentSquare`` object's ``Rotation`` applied to it.
+
+Now there is still one property left on Transform which has not been used in this example: ``Scale``. 
+
+*   :ref:`Select the ParentSquare object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Under Transform
+  
+        *   Set Scale to: ``[1, 3, 1]``
+
+|ParentScaled|
+
+In this example the ``ParentSquare`` object has a **non-uniform** scale. In general this is usually a bad practice as it leads to unexpected behavior in both graphics and physics. However, for the sake of example you can see here that after changing the Y-Scale of the ``ParentSquare`` object, the rotated Y-Scale of the ``ChildSquare`` is affected as well.
+
+*   :ref:`Select the ChildSquare object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Under Transform
+  
+        *   Set Scale to: ``[1, 2, 1]``
+
+|ParentAndChildScaled|
+
+Now we can see the scale of the parent affect the child. In this case, the Parent's Y-Scale is ``3`` and the child's is ``2``. Because ``Scale`` is multiplicative, ``2`` can be multiplied by ``3`` to get the apparent Y-Scale (``6``) of the child.
+
+RigidBody & Hierarchies
+-----------------------
+
+Another behavior of hierarchies is how they interact with RigidBodies. Set up the following example.
+
+*   :ref:`Select the ParentSquare object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Under Transform
+  
+        *   Set Translation to: ``[0, 0, 0]``
+
+        *   Set Rotation to: ``[0, 0, 0]``
+  
+        *   Set Scale to: ``[1, 1, 1]``
+
+    * :ref:`Add the RigidBody component <ManualAddRemoveComponents>`
+
+*   :ref:`Select the ChildSquare object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Under Transform
+
+        *   Set Scale to: ``[1, 1, 1]``
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+You should see both objects falling. Since the child must maintain its ``Translation`` relative to it's parent, it moves with the parent as it falls.
+
+.. sidebar:: DynamicState
+
+    The :cpp:type:`RigidBody` component allows the Physics engine to manipulate the Transform of an item to simulate physics. ``DynamicState`` tells the physics engine how it should treat the object in general. Looking at the default value of ``DynamicState`` first, ``Dynamic`` tells the physics engine that it should treat this object as normal. The second ``DynamicState`` option is ``Kinematic`` which is probably the trickiest. A ``Kinematic`` RigidBody has a mass of ``0``. This results in it not being able to move using normal physics method such as velocity or forces. It also means that ``Kinematic`` objects will not be affected by collision; dynamic will still collide normally with them. ``Kinematic`` RigidBodies will be seen again when you implement your first platformer, but you do not need to worry about them until then. The last ``DynamicState`` option is ``Static``. When a RigidBody is marked as ``Static`` it is telling the physics engine that the object will never move.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   :ref:`Select the ParentSquare object <ManualSelectObject>`
+
+*   In the Properties Window
+    
+    *   Under RigidBody
+
+        *   Set ``DynamicState`` to: ``Static``
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+Now when the game is run neither of the blocks will move.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   :ref:`Select the ChildSquare object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    * :ref:`Add the RigidBody component <ManualAddRemoveComponents>`
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+You should see the ``ChildSquare`` object falling now that it has its own :cpp:type:`RigidBody` component. Hierarchies that contain objects with Rigidbodies undergo a process when they are created called compositing. You have already seen this in action before the RigidBody was added to the child. A parent object will look through it's children and `composite` all static objects so that they and the parent behave as one physical object. In this case the child is not static as it has its own ``Dynamic`` RigidBody.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+*   :ref:`Select the ChildSquare object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Under RigidBody
+
+        *   Set ``DynamicState`` to: ``Static``
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+You should now see both blocks remaining still. This is because the ``DynamicState`` of the child was changed to ``Static``. Due to this change, the ``ParentSquare`` object does composite the ``ChildSquare`` object resulting in the maintained relative Transform.
+
+*   :ref:`Stop the Game <ManualStopGame>`
+
+
+
+Colliders and Hierarchies
+-------------------------
+
+*   :ref:`Select the ParentSquare object <ManualSelectObject>`
+
+.. sidebar:: Colliders & RigidBody
+    
+    You may notice in this example that we attach a collider component to an object with no :cpp:type:`RigidBody`. In this case the physics engine treats it as if it had a ``Static`` Rigidbody even though it has none. In that case of an child object that has a collider but no ``RigidBody`` the child object will behave as if it also had a ``RigidBody``, marked as ``Static``.
+
+*   In the Properties Window
+    
+    *   Under RigidBody
+
+        *   Set ``DynamicState`` to: ``Dynamic``
+
+    * :ref:`Add the BoxCollider component <ManualAddRemoveComponents>`
+
+*   :ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+*   :ref:`Select the Sprite you created <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Under Transform
+  
+        *   Set Translation to: ``[0, -2, 0]``
+
+        *   Set Scale to: ``[2, 1, 1]``
+
+    * :ref:`Add the BoxCollider component <ManualAddRemoveComponents>`
+
+*   :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+You should now see both squares fall and stop when the parent collides with the new sprite.
+
+Conclusions
+-----------
+
+After this lesson you should feel comfortable creating object hierarchies. You should also understand how :cpp:type:`RigidBodies<RigidBody>` and Colliders interact with hierarchies. This is a complex subject and will be reiterated on throughout further lessons.
+
+On Your Own
+~~~~~~~~~~~
+
+*   Create an object hierarchy that is more than 2 objects deep.
+
+*   Create an object hierarchy with more than 1 object on each level of the hierarchy.
+
+*   Experiment with different collider types.
+
+.. |NotParentSquares|          image:: images/Hierarchies/NotParentSquares.png
+    :width: 5.0in
+.. |ParentedSquares|           image:: images/Hierarchies/ParentedSquares.png
+    :width: 5.0in
+.. |ParentTranslated|          image:: images/Hierarchies/ParentTranslated.png
+    :height: 3.0in
+.. |ParentRotated|             image:: images/Hierarchies/ParentRotated.png
+    :height: 3.0in
+.. |ParentScaled|              image:: images/Hierarchies/ParentScaled.png
+    :height: 3.0in
+.. |ParentAndChildScaled|      image:: images/Hierarchies/ParentAndChildScaled.png
+    :height: 3.0in
+.. |ParentingTool|             image:: images/Hierarchies/ParentingTool.png
+    :height: 2.0in
+
+.. |ParentedObjectView|        image:: images/Hierarchies/ParentedObjectView.png
+.. |ParentedObjectViewOpen|        image:: images/Hierarchies/ParentedObjectViewOpen.png
+.. |UnparentObjectView|        image:: images/Hierarchies/UnparentObjectView.png

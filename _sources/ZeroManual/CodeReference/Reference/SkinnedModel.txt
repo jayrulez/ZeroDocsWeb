@@ -1,0 +1,112 @@
+.. _ReferenceSkinnedModel:
+
+.. rst-class:: searchtitle
+
+SkinnedModel
+============
+
+.. rst-class:: searchdescription
+
+Model that used bones to deform a mesh.
+
+.. include:: Description/SkinnedModel.rst
+
+.. cpp:class:: SkinnedModel
+
+    Base Class: :cpp:type:`Graphical`
+
+.. _ReferenceSkinnedModelProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SkinnedModel::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space SkinnedModel::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SkinnedModel::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession SkinnedModel::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SkinnedModel::Visible
+
+            If object should be rendered.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SkinnedModel::VisibilityCulling
+
+            If object is culled and not graphically updated when it's not visible.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SkinnedModel::VisibilityEvents
+
+            If object receives events when entering/exiting the view of a rendering camera or shadow.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SkinnedModel::CastShadows
+
+            If object is rendered to shadow maps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Material SkinnedModel::Material
+
+            Material for skinned Model.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Mesh SkinnedModel::Mesh
+
+            Mesh for skinned Model.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 SkinnedModel::Color
+
+            Color for skinned Model.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 SkinnedModel::BoundingCenter
+
+            Center of the bounding box used for culling.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 SkinnedModel::BoundingExtents
+
+            Extents of the bounding box used for culling.
+
+.. _ReferenceSkinnedModelMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SkinnedModel::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/SkinnedModel.rst

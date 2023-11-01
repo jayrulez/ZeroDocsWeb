@@ -1,0 +1,356 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Audio/ImportingSoundTutorial.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:57:48 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Importing Sounds &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Audio" href="index.html"/>
+        <link rel="next" title="Audio" href="Audio.html"/>
+        <link rel="prev" title="Audio" href="index.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Audio</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Importing Sounds</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Tutorials</a> &raquo;</li>
+      
+          <li><a href="index.html">Audio</a> &raquo;</li>
+      
+    <li>Importing Sounds</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Tutorials/Audio/ImportingSoundTutorial.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="importing-sounds">
+<span id="tutorialimportingsounds"></span><h1>Importing Sounds</h1>
+<p class="searchdescription">There are two ways to import sounds into the Zero editor: by creating new <code class="docutils literal"><span class="pre">SoundCue</span></code> and <code class="docutils literal"><span class="pre">Sound</span></code> resources or by dragging and dropping soundfile(s) directly into the editor. In this lesson, we&#8217;ll be looking at both of these options in detail.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/LauncherNewProject.html#manualcreatenewproject"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="adding-a-soundcue-resource">
+<h2>Adding a SoundCue Resource</h2>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new SoundCue resource</span></a> named: <code class="docutils literal"><span class="pre">Music1</span></code></li>
+</ul>
+<p><img alt="AddSoundCue" src="../../_images/AddSoundCue.png" /></p>
+<p>Our new SoundCue is displayed in the Properties Window:</p>
+<p><img alt="SoundCueProperties" src="../../_images/SoundCueProperties.png" /></p>
+<p>There is currently no Sound added to the Music1 SoundCue that we just created.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under Sounds<ul>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> the Add SoundEntry... area</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The DefaultSound is now added to the Music1 SoundCue. Not only do we have our own version of the DefaultCue, but we now have access to more properties to specify how the sound will be played, as seen here:</p>
+<p><img alt="SoundsProperties" src="../../_images/SoundsProperties.png" /></p>
+</div>
+<div class="section" id="adding-a-sound-resource">
+<h2>Adding a Sound Resource</h2>
+<p>Now lets add some sound files.</p>
+<p><a class="reference download internal" href="../../_downloads/Sounds.zip"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">Sounds</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">lesson</span></code></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Import the provided Sound resource</span></a> named: <code class="docutils literal"><span class="pre">Music1.wav</span></code></li>
+</ul>
+<p><img alt="OpenSoundResource" src="../../_images/OpenSoundResource.png" /></p>
+<p>The new Sound is added to the Library Window under the Sound tag.</p>
+<p><img alt="NewSoundInLib" src="../../_images/NewSoundInLib.png" /></p>
+<ul>
+<li><p class="first">In the Library Window</p>
+<ul class="simple">
+<li>Under the SoundCue tag<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">Left</span> <span class="pre">Click</span></code> Music1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Under Sounds</p>
+<ul>
+<li><p class="first">Under Sound: DefaultSound</p>
+<ul class="simple">
+<li>Set Sound to: <code class="docutils literal"><span class="pre">Music1</span></code></li>
+</ul>
+<p><img alt="SettingSoundOnSoundCue" src="../../_images/SettingSoundOnSoundCue.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>The Music1 Sound we just added to the project is now being played instead of the DefaultSound. We now have background music.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+</ul>
+<p>Now we&#8217;ll look at the second way of importing Sounds and creating SoundCues by importing multiple files as a group.</p>
+</div>
+<div class="section" id="importing-multiple-sound-files-with-drag-and-drop">
+<h2>Importing Multiple Sound Files with Drag and Drop</h2>
+<ul class="simple">
+<li>Make sure the Level Window is visible</li>
+<li>Drag and Drop the following files from the same folder where Music1 was located (not in the editor but from your computer) onto the Level Window:<ul>
+<li>Music2.wav</li>
+<li>CoinPickup.wav</li>
+<li>ScoreV2.wav</li>
+</ul>
+</li>
+</ul>
+<p>The following window should appear:</p>
+<p><img alt="GroupImport" src="../../_images/GroupImport.png" /></p>
+<p>This convenient feature allows us to specify import options for the group of files. There is an option that allows us to tell the Zero Engine to create a Cue for each Sound file automatically.</p>
+<ul>
+<li><p class="first">In the Group Import Options Window</p>
+<ul>
+<li><p class="first">Under AudioOptions</p>
+<ul class="simple">
+<li>Set GenerateCue to: <code class="docutils literal"><span class="pre">PerSound</span></code></li>
+</ul>
+<p><img alt="PerSound" src="../../_images/PerSound.png" /></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> the Import All button</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The Sound files have been imported and each has a corresponding SoundCue.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Audio.html" class="btn btn-neutral float-right" title="Audio" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Audio" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Audio/ImportingSoundTutorial.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:57:50 GMT -->
+</html>

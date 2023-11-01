@@ -1,0 +1,106 @@
+.. _ReferenceTcpSocket:
+
+.. rst-class:: searchtitle
+
+TcpSocket
+=========
+
+.. rst-class:: searchdescription
+
+Manages all the client/server/peer connections.
+
+.. include:: Description/TcpSocket.rst
+
+.. cpp:class:: TcpSocket
+
+    Base Class: :cpp:type:`ZeroObject`
+
+.. _ReferenceTcpSocketProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint TcpSocket::OutgoingConnectionCount
+
+            Get the number of outgoing connections.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint TcpSocket::IncomingConnectionCount
+
+            Get the number of incoming connections.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint TcpSocket::ConnectionCount
+
+            Get the number of connections we have.
+
+.. _ReferenceTcpSocketMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void TcpSocket::Connect(String host, int port)
+
+            Attempt to connect to a host on the given port.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Boolean TcpSocket::Listen(port : Integer, maxConnections : Integer)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool TcpSocket::Listen(int port, uint maxConnections, TcpSocketBind::Enum bindTo)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void TcpSocket::Close()
+
+            Close all activity(whether listening or connected to a server)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void TcpSocket::CloseConnection(uint index)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void TcpSocket::SendTo(String eventId, SendableEvent event, uint index)
+
+            Send an event to a specific connection index.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void TcpSocket::SendToAll(String eventId, SendableEvent event)
+
+            Send an event to all connections.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void TcpSocket::SendToAllExcept(String eventId, SendableEvent event, uint exceptIndex)
+
+            Send an event to all connections except a particular connection index.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void TcpSocket::SendToAllAndSelf(String eventId, SendableEvent event)
+
+            Send an event to all connections and dispatch on self.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool TcpSocket::IsConnected()
+
+            Check if we are currently connected to anyone.
+
+.. include:: Remarks/TcpSocket.rst

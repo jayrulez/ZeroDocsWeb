@@ -1,0 +1,316 @@
+.. _ReferencePhysicsCarWheel:
+
+.. rst-class:: searchtitle
+
+PhysicsCarWheel
+===============
+
+.. rst-class:: searchdescription
+
+A wheel for a high speed physics based car. Used to manage the connection to the car body. The wheel Contains most of the properties about how it interacts(eg. spring forces, friction etc).
+
+.. include:: Description/PhysicsCarWheel.rst
+
+.. cpp:class:: PhysicsCarWheel
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferencePhysicsCarWheelProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PhysicsCarWheel::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space PhysicsCarWheel::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PhysicsCarWheel::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession PhysicsCarWheel::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: PhysicsCar PhysicsCarWheel::CarBody
+
+            The PhysicsCar component that this wheel drives/operates this wheel.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::SpringMin
+
+            The minimum length of the spring of the wheel. If a wheel cast hits an object at a time before min but after start then the wheel will still collide with this object but the spring forces and visuals will be at the min spring length. This is useful for putting the starting raycast position inside of the object so as to avoid tunneling but still having the wheel only visually display where it should.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::SpringStart
+
+            The t value to start the raycast at. This t value is 0 at the wheel position and travels in the direction of the wheel spring direction. This value is useful to modify where the start of the raycast is in conjunction with the min flag to help ensure that the start position is never inside of an object due to tunneling.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::SpringMax
+
+            The maximum length of the spring of the wheel. If the wheel hits something further away than this length(plus the wheel radius) then that object will be ignored.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::SpringRest
+
+            The rest length of the spring.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::DriveFactor
+
+            Used to alter the direction this wheel turns when the motor receives power. Mostly should only be set to 1 or-1. Useful if you want to cause a wheel to temporarily rotate backwards without having to change it's basis.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::SteerFactor
+
+            How much this wheel steers.[0:1] where 1 is the max steering of the car.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::Radius
+
+            The radius of the wheel.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::FrequencyHz
+
+            The frequency at which the spring of this wheel oscillates per second.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::DampeningCompressionRatio
+
+            The dampening ratio when the spring is compressing(0: no dampening, 1 critical dampening)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::DampeningRelaxationRatio
+
+            The dampening ratio when the spring is relaxing(0: no dampening, 1 critical dampening)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::MaxSpringForce
+
+            The maximum force that the wheel's spring can exert.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::MaxBrakeStrength
+
+            The max force that this wheel can exert with its breaks.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsCarWheel::IsDriveWheel
+
+            If the wheel is a drive wheel, then it will turn when the gas is pressed on the car body.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsCarWheel::Is2DWheel
+
+            If this wheel is designed to work in 2d mode. Ignores the side friction axis.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::ForwardStaticFriction
+
+            Used with Coulomb's friction to determine when the wheel will start slipping in the forward direction.(i.e. the friction is bound by muS Fnormal).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::ForwardDynamicFriction
+
+            Used to determine the force applied in the forward direction when the car is in dynamic friction and therefore slipping.(i.e. force is muK Fnormal)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::SideStaticFriction
+
+            Same as ForwardStaticFriction, but in the side direction. Forward and side friction are separated since the forward direction is rolling friction and the side direction is sliding friction.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::SideDynamicFriction
+
+            Same as ForwardDynamicFriction, but in the side direction. See SideStaticFriction for a why these are separated.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::GripScalar
+
+            Artificially increases the grip of the car(where 2 is twice the grip). The total grip scalar is computed as CarGripScalar WheelGripScalar so the total car can be easily tweaked while allowing individual wheel tweaks.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::MaxSpringCompressionDistance
+
+            The max distance that a spring can compress in one frame.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::MaxSpringRelaxationDistance
+
+            The max distance that a spring can relax in one frame.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PhysicsCarWheel::BodyStartPos
+
+            The body position that wheel starts at.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Quat PhysicsCarWheel::PreRotation
+
+            Used to rotate the wheel before taking into account it's transform. Currently used to rotate cylinders that define+y as default to+x being default.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsCarWheel::IsInContact
+
+            If the wheel is currently in contact with an object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsCarWheel::IsSliding
+
+            If the wheel is currently sliding. This means that the wheel is slipping due to exerting too high of a force for what static friction is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::Rotation
+
+            The current rotation of the wheel in radians about it's axle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::RotationalVelocity
+
+            The current rotational velocity of the wheel about it's axle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::Grip
+
+            A coefficient from 0 to 1 that represents how much grip the wheel has.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::NormalImpulse
+
+            The normal impulse(spring force) being exerted by the wheel.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::ForwardImpulse
+
+            The forward impulse(drive force) being exerted by the wheel.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::SideImpulse
+
+            The side impulse(side friction) being exerted by the wheel.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCarWheel::SpringLength
+
+            The current length of the spring.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PhysicsCarWheel::ContactedObject
+
+            The object that this wheel is currently in contact with.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PhysicsCarWheel::ContactPoint
+
+            The point in world space where the wheel is currently in contact. Will be the zero vector if nothing is being contacted.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PhysicsCarWheel::ContactNormal
+
+            The normal of the surface where the wheel is currently in contact. Will be the zero vector if nothing is being contacted.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PhysicsCarWheel::WorldAxleAxis
+
+            The current axis of the wheel's axle in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PhysicsCarWheel::WorldForwardAxis
+
+            The current axis of the wheel's forward in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PhysicsCarWheel::WorldSpringAxis
+
+            The current axis of the wheel's spring in world space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PhysicsCarWheel::WorldLinearVelocity
+
+            The velocity of the center of the wheel having taken into account the car's velocity.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PhysicsCarWheel::WorldAngularVelocity
+
+            The axis that represents the world angular velocity of the wheel.
+
+.. _ReferencePhysicsCarWheelMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsCarWheel::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsCarWheel::EditBasis()
+
+            Spawns a proxy transform object so that the basis of the car can be set.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsCarWheel::SetWheelBasis(QuatParam basis)
+
+            Sets what directions the forward, axle and spring are on the wheel. The forward direction is taken from the x-axis of the basis passed in. Likewise the axle is from the y-axis and the spring is from the z-axis. Use BuildFromBases on quaternion to construct this.
+
+.. include:: Remarks/PhysicsCarWheel.rst

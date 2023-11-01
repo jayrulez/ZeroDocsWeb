@@ -1,0 +1,8 @@
+<?php
+if (file_exists("3DArtPipeline.zip")) {
+header("Content-disposition: attachment; filename=\"3DArtPipeline.zip\"");
+header("Content-type: application/octet-stream");
+header('Content-Length: ' . filesize("3DArtPipeline.zip"));
+readfile("3DArtPipeline.zip");
+}
+?>

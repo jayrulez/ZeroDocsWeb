@@ -1,0 +1,585 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/EditorUI.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:22:46 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Editor UI &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Introduction to 2D Video Game Programming" href="index.html"/>
+        <link rel="next" title="Game Objects" href="GameObjects.html"/>
+        <link rel="prev" title="Introduction to 2D Video Game Programming" href="index.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Introduction to 2D Video Game Programming</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Editor UI</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ScriptingEvents.html">Scripting Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Orientation.html">Rotating Towards a Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FireAtMouse.html">Firing At the Mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleSystems.html">Particle Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleAi.html">Ai Shooting and Movement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CameraParallax.html">Camera Parallax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CreateProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting an Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Add a Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Introduction to 2D Video Game Programming</a> &raquo;</li>
+      
+    <li>Editor UI</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2014/EditorUI.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="editor-ui">
+<span id="editorui2014"></span><h1>Editor UI</h1>
+<p class="searchdescription">This lesson introduces the Zero Engine editor and user interface. It covers editor windows such as the Objects Window, Properties Window, Library Window, Level Window, and Search Window.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p>It is recommended that you create a new project. If this is the first time you have run the Zero Engine
+you will already be on the create project screen and can simply type in a name for your project.
+If you are not on the new project screen you can access it using the project menu.</p>
+<p>To create a new project follow these steps:</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">NewProject</span></code> or <span class="menuselection">Project ‣ New Project</span></li>
+</ul>
+<blockquote>
+<div><img alt="NewProject" src="../../_images/NewProject1.png" /></div></blockquote>
+<ul>
+<li><dl class="first docutils">
+<dt>In the Project Window</dt>
+<dd><ul class="first last">
+<li><p class="first">Select Project Type 2D or 3D project</p>
+</li>
+<li><dl class="first docutils">
+<dt>Enter a name for the project in the Project Name area</dt>
+<dd><ul class="first last simple">
+<li>Enter a Project Folder directory (if the default is not sufficient) by either typing or clicking the Browse... button</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Click the Ok button to create your new project</p>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="windows-overview">
+<h2>Windows Overview</h2>
+<p>Now we will go over some of the Editor Windows and Interfaces. After creating a new project, the editor should look something like this:</p>
+<p>
+<a class="reference internal" href="../../_images/Lesson01_WindowsOverview.png"><img alt="Lesson01_WindowsOverview_pngWeb" src="../../_images/Lesson01_WindowsOverview.png" style="width: 8.35in;" /></a>
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/Lesson01_WindowsOverview.png"><img alt="Lesson01_WindowsOverview_pngBook" src="../../_images/Lesson01_WindowsOverview.png" style="height: 3.5in;" /></a>
+--></p>
+<p><em>First view as the Zero Editor is opened</em></p>
+</div>
+<div class="section" id="level-window">
+<h2>Level Window</h2>
+<p>The Level Window (located in the center of the editor as seen in the Window Overview section above) is where you will manipulate objects to build levels.</p>
+</div>
+<div class="section" id="objects-window">
+<h2>Objects Window</h2>
+<p>Every level contains objects. An object can represent the floor, a wall, enemies, the player, and many other things. There are a few different buttons in the Objects Window that you should know about:</p>
+<ul class="simple">
+<li><strong>Eyeball:</strong> Toggles visibility of an object <em>only while in the editor.</em> Objects with the eye button disabled will be invisible in the editor, but still visible when the level is played.</li>
+<li><strong>Selection Lock:</strong> The small lock button can be turned on and off to toggle the ability to select an object from within the editor.</li>
+</ul>
+<p><img alt="10000000000000300000002CBCDAB0B1_png" src="../../_images/10000000000000300000002CBCDAB0B1.png" /></p>
+<p><em>View of the eye and lock button in the Objects Window</em></p>
+<p></p>
+<p>Each level has four objects by default:</p>
+<p><img alt="10000000000001150000008B66F32D0B_png" src="../../_images/10000000000001150000008B66F32D0B.png" /></p>
+<p><em>Objects in the level by default</em></p>
+<ul class="simple">
+<li>Click on the object named: LevelSettings</li>
+<li>Once clicked, take a look at the Properties Window on the left</li>
+</ul>
+</div>
+<div class="section" id="properties-window">
+<h2>Properties Window</h2>
+<p>When an object is selected, the properties of that object are accessible from the Properties Window.</p>
+<p><img alt="1000000000000117000000A9234905E4_png" src="../../_images/1000000000000117000000A9234905E4.png" /></p>
+<p><em>The Properties Window showing the properties of the LevelSettings object</em></p>
+<p>The Properties Window is the primary means for editing or building objects. This is due to an object being comprised of multiple <strong>components</strong>.</p>
+<ul class="simple">
+<li><strong>Component:</strong> a chunk of functionality or small bucket of data. An object&#8217;s behavior and purpose depends upon what components it contains. Game objects are made up of different components. More details about components will be covered in a future lesson.</li>
+</ul>
+<p></p>
+<p><img alt="PropertiesQuickNav_png" src="../../_images/PropertiesQuickNav1.png" /></p>
+<p><em>Buttons to help navigate what is shown in the Properties Window</em></p>
+<ul class="simple">
+<li>The arrows allow you to navigate back and forth between recently selected objects.</li>
+<li>The Show Selection button, on first click, pans to the object and on second click, zooms to frame the object in the Level Window.</li>
+<li>The recent button pulls up a drop down list of the recently accessed objects for selection.</li>
+</ul>
+</div>
+<div class="section" id="library-window">
+<h2>Library Window</h2>
+<p>
+<img alt="LibraryWeb" src="../../_images/10000000000001150000010ED8C039A5.png" />
+</p>
+<p><!--
+<img alt="LibraryBook" src="../../_images/10000000000001150000010ED8C039A5.png" />
+--></p>
+<p><em>Library Window</em></p>
+<p>Anything you add to the game using the <code class="docutils literal"><span class="pre">Add</span></code> command or through drag-and-drop importing is stored as a resource. All resources added to your project can be found in the Library Window. You&#8217;ll learn more details about resources in future lessons.</p>
+<p></p>
+</div>
+<div class="section" id="search-window">
+<h2>Search Window</h2>
+<p>This powerful tool allows you to search for various things within the editor.
+Several uses such as selecting objects, opening archetypes, viewing properties, etc., are accessible from here.
+For example, if you wanted to quickly access a script file you can just open the search view and type in the name of the script to begin editing.
+Another important use of the Search Window is for performing commands. See <a class="reference internal" href="Commands.html#commands2014"><span>Commands</span></a> for information.</p>
+<p><img alt="10000000000001EA000000E5D84AA163_png" src="../../_images/10000000000001EA000000E5D84AA163.png" /></p>
+<p><em>The Zero Search Window for performing commands</em></p>
+<div class="sidebar">
+<p class="first sidebar-title">&#8220;Do This + That&#8221;</p>
+<p class="last">The <code class="docutils literal"><span class="pre">+</span></code> symbol can be read as &#8220;and&#8221; when used to describe button combinations. It means you should do all the actions &#8220;added&#8221; together simultaneously.
+Press <code class="docutils literal"><span class="pre">Ctrl+C</span></code> to copy, would mean hold down the <code class="docutils literal"><span class="pre">Ctrl</span></code> button on your keyboard while you press the <code class="docutils literal"><span class="pre">C</span></code> button on your keyboard to perform the copy action.</p>
+</div>
+<p>There are three ways to pull up the Zero Search Window:</p>
+<ol class="arabic simple">
+<li>Click anywhere in the Level Window and press <code class="docutils literal"><span class="pre">Space</span></code></li>
+<li>From <strong>any</strong> window press <code class="docutils literal"><span class="pre">Ctrl+Shift+Space</span></code></li>
+<li>Click the Zero Search Button in the upper left-hand corner</li>
+</ol>
+<p></p>
+<div class="section" id="reopening-windows-docking">
+<h3>Reopening Windows &amp; Docking</h3>
+<p>With its numerous commands the Search Window provides many crucial functions such as those that reopen closed windows and tabs.</p>
+<ul>
+<li><p class="first">Click the x on the Library tab to close the Library Window:</p>
+<p><img alt="LibraryX" src="../../_images/LibraryX1.png" /></p>
+</li>
+<li><p class="first">Press <code class="docutils literal"><span class="pre">Ctrl+Shift+Space</span></code> to open the Zero Search Window</p>
+</li>
+<li><p class="first">Search for the Library command by typing &#8220;Library&#8221; without any quotes, then hit enter (or click on the Library command directly) to open the Library Window</p>
+</li>
+</ul>
+<p>This same process can be used to reopen many of these key windows. Once reopened, you can use a drag and drop technique to &#8220;dock&#8221; the window back into the same starting configuration. Docking locations are indicated by the editor with light blue regions as you hover over them. When you find the one you want to dock to, release the Left Mouse Button:</p>
+<p>
+<img alt="DockingWeb" src="../../_images/Docking1.png" />
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/Docking1.png"><img alt="DockingBook" src="../../_images/Docking1.png" style="height: 4.0in;" /></a>
+--></p>
+<p><em>By pressing the Left Mouse Button + Dragging we can pull the Library Window to the upper right-hand corner to dock it</em></p>
+<p></p>
+</div>
+</div>
+<div class="section" id="console-window">
+<h2>Console Window</h2>
+<ul class="simple">
+<li>Press the Tilde <code class="docutils literal"><span class="pre">~</span></code> key to open the Console Window</li>
+</ul>
+<p><img alt="1000020100000229000000DC7E4A1222_png" src="../../_images/1000020100000229000000DC7E4A1222.png" /></p>
+<p><em>Console Window</em></p>
+<div class="sidebar">
+<p class="first sidebar-title">&#8220;In the ... Window&#8221;</p>
+<p class="last">To be &#8220;in&#8221; a window requires that the window has &#8220;focus&#8221;. To gain focus you need to click on the window itself. This ensures that all your keyboard input works as intended.</p>
+</div>
+<ul class="simple">
+<li>In the Console Window<ul>
+<li>Press <code class="docutils literal"><span class="pre">Ctrl+Delete</span></code> to clear the console</li>
+</ul>
+</li>
+<li>In the Level Window<ul>
+<li>Press <code class="docutils literal"><span class="pre">Space</span></code></li>
+<li>Enter the command: <code class="docutils literal"><span class="pre">SaveProject</span></code></li>
+<li>Press <code class="docutils literal"><span class="pre">Enter</span></code></li>
+</ul>
+</li>
+</ul>
+<p>A message telling you the project was saved is displayed in the Console Window</p>
+<p>When console output is referenced in future lessons it will be shown like this:</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+I am player PlayerOne my health is 10
+I am player PlayerOne my health is 20
+</pre></div>
+</div>
+<p></p>
+<div class="admonition-lesson-structure admonition">
+<p class="first admonition-title">Lesson Structure</p>
+<p>In the Lessons instructions are laid out in a specific way to make them easier to understand.
+For example:</p>
+<ul class="simple">
+<li>In the Object Window<ul>
+<li>Select the Player object</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Add the RigidBody Component</li>
+<li>Under RigidBody<ul>
+<li>Set AllowSleep to: False</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Each level of indentation represents a subsection of the window you are already in, where the base is the Editor itself. This makes it easier for you to know where to look in the editor for the information you seek. As the lessons progress some common steps will be cut for brevity, for instance:</p>
+<ul class="simple">
+<li>In the Level Window<ul>
+<li>Press Space</li>
+</ul>
+</li>
+<li>In the Search Window<ul>
+<li>In the search bar<ul>
+<li>Enter the Command: <code class="docutils literal"><span class="pre">CreateSprite</span></code></li>
+<li>Press Enter</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>will be shortened to:</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code></li>
+</ul>
+<p class="last">This significantly reduces the amount of reading, and while still providing a reference to the full process should you need a refresher.</p>
+</div>
+<p></p>
+</div>
+<div class="section" id="game-window">
+<h2>Game Window</h2>
+<p>The Game Window is where your game actually runs inside the Zero Engine editor. You can test or play your game (or specific levels) here without having to create an executable.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a>: <code class="docutils literal"><span class="pre">PlayGame</span></code></li>
+</ul>
+<p>The Game Window tab should appear in a tab next to the Level Window tab:</p>
+<p>
+<img alt="GameWindowTabWeb" src="../../_images/GameWindowTab1.png" />
+</p>
+<p><!--
+<img alt="GameWindowTabBook" src="../../_images/GameWindowTab1.png" />
+--></p>
+<p><em>Game Window Tab</em></p>
+<p>The Game Window should not show anything but a blank screen right now because we haven&#8217;t added any visible objects to our level yet:</p>
+<p>
+<a class="reference internal" href="../../_images/EmptyWindow.jpg"><img alt="EmptyWindowWeb" src="../../_images/EmptyWindow.jpg" style="width: 8.35in;" /></a>
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/EmptyWindow.jpg"><img alt="EmptyWindowBook" src="../../_images/EmptyWindow.jpg" style="height: 4.0in;" /></a>
+--></p>
+<p><em>Game Window displaying empty level</em></p>
+<ul class="simple">
+<li>Close the Game Window by pressing the X button on the Game tab</li>
+<li>You can also press <code class="docutils literal"><span class="pre">Esc</span></code> or use <a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">StopGame</span></code> <br />
+It is a good practice to close your game window promptly. Editing levels while it a Game Window is open can cause erratic behavior, undefined behavior, or errors.</li>
+<li>Click on the Level tab to return to the Level Window</li>
+</ul>
+</div>
+<div class="section" id="tools-window">
+<h2>Tools Window</h2>
+<p>This window contains several useful tools for using the Zero Editor. These tools are for managing various objects within the level. Settings for the current tool being used are also available here. You can switch tools from the drop-down selection or by using hotkeys.</p>
+<ul class="simple">
+<li>Click anywhere in the Level Window and press the <code class="docutils literal"><span class="pre">Number</span> <span class="pre">1</span></code> key on your keyboard to switch to the SelectTool. This is a hotkey for switching to the SelectTool.</li>
+</ul>
+<p><img alt="100000000000016800000148237888DC_png" src="../../_images/100000000000016800000148237888DC.png" /></p>
+<p><em>Tools window</em></p>
+<p>Click on the drop-down selection in the tools window to display a list of tools you can use:</p>
+<p><img alt="ToolsSelection_png" src="../../_images/Lesson01_ToolsSelection.png" /></p>
+<p><em>Tools drop-down selection</em></p>
+</div>
+<div class="section" id="tool-bar">
+<h2>Tool Bar</h2>
+<p>The tool bar is located at the top left of the entire editor. Various buttons to perform common actions are located here. Here are some of the toolbar buttons:</p>
+<p><a class="reference internal" href="../../_images/100000000000025C0000001D22E7DF0A.png"><img alt="100000000000025C0000001D22E7DF0A_png" src="../../_images/100000000000025C0000001D22E7DF0A.png" style="width: 8.35in;" /></a></p>
+<p><em>Tool Bar</em></p>
+<p>In order to find out more about the function of each button, you can hover over them to get a pop-up tool tip. You can reach all the same functionality by searching in the Search Window.</p>
+<p><img alt="EditButtons_png" src="../../_images/EditButtons.png" /></p>
+<p><em>Left most buttons functionality is also found in the Edit Menu item</em></p>
+<p>These provide common functions such as save, cut, copy, paste, undo and redo.</p>
+<p><img alt="ResourceButtons_png" src="../../_images/ResourceButtons.png" /></p>
+<p><em>Calls the Add Command to add new resources to your library</em></p>
+<p>Resources will be covered in future lessons.</p>
+<p><img alt="ToolButtons_png" src="../../_images/ToolButtons.png" /></p>
+<p><em>Visual short cuts for many of the tools found in the Tools Window drop down selection</em></p>
+<p><img alt="GameButtons_png" src="../../_images/GameButtons.png" /></p>
+<p><em>This allows you to affect the playback of your game</em></p>
+<p>These allow you to play, pause, step through frame by frame or stop running your game.</p>
+</div>
+<div class="section" id="menu-bar">
+<h2>Menu Bar</h2>
+<p><img alt="MenuBar" src="../../_images/MenuBar2.png" /></p>
+<p>The menu bar includes commands for project manipulation and exporting your game under <code class="docutils literal"><span class="pre">File</span></code>,
+quick create options for getting things on the screen fast under <code class="docutils literal"><span class="pre">Create</span></code>,
+and the ability to reopen closed windows via <code class="docutils literal"><span class="pre">Windows</span></code>.
+See <a class="reference internal" href="Commands.html#commands2014"><span>Commands</span></a> for information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">orphan:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<!-- this is used as a file for inclusion in other .rst files --></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="GameObjects.html" class="btn btn-neutral float-right" title="Game Objects" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Introduction to 2D Video Game Programming" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/EditorUI.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:22:51 GMT -->
+</html>

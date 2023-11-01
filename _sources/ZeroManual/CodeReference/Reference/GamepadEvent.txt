@@ -1,0 +1,55 @@
+.. _ReferenceGamepadEvent:
+
+.. rst-class:: searchtitle
+
+GamepadEvent
+============
+
+.. rst-class:: searchdescription
+
+Gamepad events are send when a game pad button state is changed.
+
+.. include:: Description/GamepadEvent.rst
+
+.. cpp:class:: GamepadEvent
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceGamepadEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String GamepadEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Gamepad GamepadEvent::Gamepad
+
+            Gamepad that generated this event.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int GamepadEvent::Button
+
+            Button that was just pressed down or released up.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 GamepadEvent::FlickDirection
+
+            The direction of the stick that was flicked(normalized)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: FlickedStick::Type GamepadEvent::FlickedStick
+
+            When responding to the'GamepadStickFlicked' event, this will be set to the stick that was flicked.
+
+.. _ReferenceGamepadEventMethods:
+
+.. include:: Remarks/GamepadEvent.rst

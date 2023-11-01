@@ -1,0 +1,61 @@
+.. _ReferenceBaseCollisionEvent:
+
+.. rst-class:: searchtitle
+
+BaseCollisionEvent
+==================
+
+.. rst-class:: searchdescription
+
+Common interface for all collision events. Contains the core functionality of inspecting the contained manifold.
+
+.. include:: Description/BaseCollisionEvent.rst
+
+.. cpp:class:: BaseCollisionEvent
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceBaseCollisionEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String BaseCollisionEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog BaseCollisionEvent::Object
+
+            The object that this event was sent to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog BaseCollisionEvent::OtherObject
+
+            The other object in this event. There were two objects A and B, we sent to A so this is B.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint BaseCollisionEvent::ContactPointCount
+
+            Returns how many points of contact there are.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool BaseCollisionEvent::IsGhost
+
+            Returns whether or not this was a ghost collision.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ContactPointRange BaseCollisionEvent::ContactPoints
+
+            Returns a range to iterate through all of the contact points.
+
+.. _ReferenceBaseCollisionEventMethods:
+
+.. include:: Remarks/BaseCollisionEvent.rst

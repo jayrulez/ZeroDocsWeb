@@ -1,0 +1,144 @@
+.. _ReferenceDynamicMesh:
+
+.. rst-class:: searchtitle
+
+DynamicMesh
+===========
+
+.. include:: Description/DynamicMesh.rst
+
+.. cpp:class:: DynamicMesh
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceDynamicMeshProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DynamicMesh::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space DynamicMesh::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DynamicMesh::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession DynamicMesh::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: void DynamicMesh::GenerateNormals
+
+            Generates normals of each vertex by averaging out the face normals touching each vertex.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: void DynamicMesh::DrawVertices
+
+            Draws each vertex.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: void DynamicMesh::DrawTriangles
+
+            Draws all triangles.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: void DynamicMesh::DrawNormals
+
+            Draws the normals of each vertex(if generated).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint DynamicMesh::VertexCount
+
+            
+
+.. _ReferenceDynamicMeshMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMesh::DebugDraw()
+
+            Draws the wire frame mesh.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMesh::AddVertex(Vec3 vertex)
+
+            Adds a new vertex.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMesh::AddNormal(Vec3 normal)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMesh::AddUV(Vec2 uv)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMesh::AddTriangleIndices(uint index0, uint index1, uint index2)
+
+            Adds new triangle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 DynamicMesh::GetVertex(uint index)
+
+            Used for script access.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 DynamicMesh::GetNormal(uint index)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMesh::SetVertex(uint index, Vec3 position)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMesh::Clear()
+
+            Clears out all data on the mesh.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMesh::GenerateAabb()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMesh::Modified()
+
+            Used to denote that the user has completed their modifications.
+
+.. include:: Remarks/DynamicMesh.rst

@@ -1,0 +1,67 @@
+.. _ReferenceNetChannelPropertyChange:
+
+.. rst-class:: searchtitle
+
+NetChannelPropertyChange
+========================
+
+.. rst-class:: searchdescription
+
+Dispatched after an outgoing/incoming net channel property change is detected during a particular replication phase.
+
+.. include:: Description/NetChannelPropertyChange.rst
+
+.. cpp:class:: NetChannelPropertyChange
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceNetChannelPropertyChangeProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetChannelPropertyChange::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ReplicationPhase::Enum NetChannelPropertyChange::ReplicationPhase
+
+            Data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: TransmissionDirection::Enum NetChannelPropertyChange::Direction
+
+            The replication phase.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NetChannelPropertyChange::Object
+
+            The change direction.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetChannelPropertyChange::ChannelName
+
+            The changed net object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetChannelPropertyChange::ComponentName
+
+            The changed net channel.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetChannelPropertyChange::PropertyName
+
+            The component which declared the changed net property.
+
+.. _ReferenceNetChannelPropertyChangeMethods:
+
+.. include:: Remarks/NetChannelPropertyChange.rst

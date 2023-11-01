@@ -1,0 +1,186 @@
+.. _ReferenceOrientation:
+
+.. rst-class:: searchtitle
+
+Orientation
+===========
+
+.. include:: Description/Orientation.rst
+
+.. cpp:class:: Orientation
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceOrientationProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Orientation::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Orientation::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Orientation::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Orientation::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Orientation::GlobalUp
+
+            The up in the world that is rotated about when using any LookAt function.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint Orientation::DefaultOrientationBases
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Orientation::LocalUp
+
+            Returns the un-normalized up vector.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Orientation::LocalForward
+
+            Returns the un-normalized forward vector.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Orientation::LocalRight
+
+            Returns the un-normalized right vector.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Orientation::WorldForward
+
+            Get the world-space forward vector.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Orientation::WorldUp
+
+            Get the world-space up vector.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Orientation::WorldRight
+
+            Get the world-space right vector.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Orientation::AbsoluteAngle
+
+            Get the angle of the object about the up vector.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Quat Orientation::Rotation
+
+            The rotation that this orientation defines. Useful to align the object's bases with the world bases(use the inverse rotation).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Quat Orientation::LocalToWorldRotation
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Quat Orientation::WorldRotation
+
+            The rotation that brings your defined basis into the world. The inverse of this brings a world space vector into the object's local space.
+
+.. _ReferenceOrientationMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Orientation::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Orientation::EditBasis()
+
+            Spawns a proxy transform object so that the basis of the object can be set.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Orientation::LookAtPoint(Vec3 lookPoint)
+
+            Sets the forward to look at the given point. Keeps the current world up.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Orientation::LookAtDirection(Vec3 lookDir)
+
+            Sets the forward to look in the given direction. Keeps the current world up.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Quat Orientation::GetLookAtPointRotation(Vec3 lookPoint)
+
+            Get the rotation so that the forward will look at the given point. Keeps the current world up.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Quat Orientation::GetLookAtDirectionRotation(Vec3 lookDir)
+
+            Gets the forward to look in the given direction. Keeps the current world up.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Orientation::LookAtPointWithUp(Vec3 lookPoint, Vec3 up)
+
+            Same as LookAtPoint but allows the user to specify the up vector.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Orientation::LookAtDirectionWithUp(Vec3 lookDir, Vec3 up)
+
+            Same as LookAtDirection but allows the user to specify the up vector.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Quat Orientation::GetLookAtPointWithUpRotation(Vec3 lookPoint, Vec3 up)
+
+            Same as GetLookAtPointRotation but allows the user to specify the up vector.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Quat Orientation::GetLookAtDirectionWithUpRotation(Vec3 lookDir, Vec3 up)
+
+            Same as GetLookAtDirectionRotation but allows the user to specify the up vector.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Real Orientation::ComputeSignedAngle(Vec3 up, Vec3 forward, Vec3 newVector)
+
+            
+
+.. include:: Remarks/Orientation.rst

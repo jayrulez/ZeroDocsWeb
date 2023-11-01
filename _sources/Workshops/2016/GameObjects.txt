@@ -1,0 +1,513 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _2016GameObject:
+
+.. rst-class:: SearchTitle
+
+Game Objects
+============
+
+.. rst-class:: SearchDescription
+
+This lesson focuses on putting the editor to use in order to perform various tasks: creating objects, running the game, searching, and manipulating objects by scaling, rotating, translating, and using the Area component, and the effects of the ParentingTool.
+
+.. _2016GameObjectVocab:
+
+Learning Objectives
+-------------------
+
+Learn to...
+
+*	Create game objects.
+
+*	Name objects.
+
+*	Copy objects.
+
+*	Manipulate objects using various tools.
+
+.. rst-class:: VocabSection
+
++----------------------------------------------+
+| Vocabulary                                   |
++=====================+=============+==========+
+| Game Object ( Cog ) | Parent      | Child    |
++---------------------+-------------+----------+
+| Component           | Sprite      | Camera   |
++---------------------+-------------+----------+
+| Transform           | Translation | Rotation |
++---------------------+-------------+----------+
+| Scale               |             |          |
++---------------------+-------------+----------+
+
+
+Level Setup
+-----------
+
+*   :ref:`2016CreateNewProject`
+
+Here is our new empty level:
+
+|NoBookSingleLine| |EmptyLevelWeb|
+
+
+|NoWebBegin|
+|EmptyLevelBook|
+|NoWebEnd|
+
+The level is not actually empty because there is a Camera object (notice the
+|CameraIcon|
+in the Level window) as well as other objects that come with a level by default:
+
+|DefaultObjects|
+
+
+
+Create a Game Object
+--------------------
+
+* Select Menu :menuselection:`Create --> Create Transform`
+  
+  |MICreateTransform|
+
+Notice that the Transform object can be found in the Objects Window:
+
+  |OWNewTransform|
+
+* In the Objects Window
+
+  * Click on the Transform object
+* If the Properties Window is not visible, then enter the Command: ``Properties`` in the Search Window. 
+  (Remember you can open the Search Window from any where in the engine using ``Ctrl+Shift+Space``.)
+
+The properties of the Transform component attached to the object can be found in the Properties Window:
+
+  |PWTransform|
+
+* In the Properties Window
+
+  * Click on the |UnderArrow| next to the Transform component
+    
+|pbr|
+  
+This displays the properties of the Transform component:
+
+.. sidebar:: "Under"
+ 
+ When accessing properties using the |UnderArrow| we use the term "Under". For instance:
+ 
+ * In the Properties Window
+
+   * Under the Transform Component
+     
+     * Set Scale To: [2, 2, 1]
+      
+ You would have to press the |UnderArrow| to see the Scale Property that is listed **under** the Transform component.
+
+|PWTransformContents|
+
+The Transform component provides the Translation (position), Rotation, and Scale of an object. 
+
+
+An object has been created at the center of the level, but we can't see it yet. Let's add a visual component to our game object.
+
+Adding a Component
+------------------
+
+* In the Properties Window
+
+  * Click the |AddComponentButton| button 
+
+This brings up the Add Component drop down:
+
+|AddComponentDropDown|
+
+* Start typing: “Sprite”
+
+|pbr|
+
+The Sprite component should appear in the drop down selection:
+
+|SpriteComponentSearch|
+
+* Click on Sprite to add a Sprite component
+
+In the Properties Window, we can see that the Transform object now has a Sprite component:
+
+|PWTransSprite|
+
+You can also add components to a selected object by using the hotkey ``Ctrl+M``.
+
+.. sidebar:: Camera Controls
+    
+    `Pan:` 
+    
+    * Middle Mouse Button + Drag
+    * E + Left Mouse Button + Drag
+    * E + Right Mouse Button + Drag
+    * Arrow Keys
+    * WASD
+    
+    `Zoom:` 
+    
+    * Scroll Wheel
+    * Shift + Middle Mouse Button + Drag (up/down)
+    
+    with an object selected:
+    
+    * Double Tap F
+    
+    `Rotate (In Mode3D):`
+    
+    * Right Mouse Button + Drag
+    * Q + Left Mouse Button + Drag
+    * Q + Middle Mouse Button + Drag
+    
+    |NoBookSingleLine| :ref:`Switching Mode2D/Mode3D <2016SwitchingMode2Dto3D>`
+
+|pbr|
+
+The Sprite component provides a 2D visual representation of the Transform object. In the Level Window, we can see the Transform object's Sprite:
+
+|DefaultSprite|
+
+The question mark is the visual representation of the Sprite object known as a **SpriteSource**. We won't go into much detail about what exactly is a SpriteSource and how they work just yet. Instead, we just need to know that the square with the question mark inside is the DefaultSprite.
+
+Changing the Name of an Object
+------------------------------
+
+* In the Objects Window
+  
+  * Select the Transform object by clicking on it
+  
+  |OWSelectTransform|
+
+* In the Properties Window
+
+  * Set Name to: Square
+
+    |NoBookSingleLine| |PWSetNameSquareWeb|
+    |NoWebBegin| |PWSetNameSquareBook| |NoWebEnd|
+
+  
+
+  * Under Sprite
+
+    * Set SpriteSource to: Square
+
+    |PWSetSSToSquare|
+
+Making a Copy of an Object
+--------------------------
+
+* :ref:`Select the Square object <2016SelectObject>`
+* Duplicate it:
+ 
+  * Press ``Ctrl+C`` to copy it 
+  * Press ``Ctrl+V`` to paste a new copy
+    
+
+Notice how there are 2 Square objects in the Objects Window,
+but we only see one in the Level Editor.
+
+* :ref:`Select a Square object <2016SelectObject>`
+* In the Properties Window
+
+  * Set Name to: BlueSquare
+  * Under Transform
+
+    * Set Translation to: [5, 0, 0]
+  * Under Sprite
+
+    * Click on the |PWColorProperty| Color property
+
+
+
+The following window should appear:
+
+|ColorPickerRed|
+
+
+    * Set Color to: [R:0, G:128, B:255, A:1.00]
+
+      |ColorPickerBlue|
+
+    * Click the OK button
+
+The level should look like this:
+
+|LWWhiteAndBlueSquare|
+
+
+
+Running the Game
+----------------
+
+There are multiple ways to run the game in the editor.
+
+1. Press ``F5`` key on the keyboard 
+2. Press the |TBPlayButton| button 
+3. :ref:`Command<2016Commands>` : ``PlayGame`` or :menuselection:`Project --> Play Game`
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+Here is how the game should look:
+
+|NoBookSingleLine| |GWWhiteAndBlueSquareWeb|
+
+|NoWebBegin|
+|GWWhiteAndBlueSquareBook|
+|NoWebEnd|
+
+* :ref:`Stop the Game <2016StopGame>`
+
+
+
+Changing Visibility
+-------------------
+
+We are able to choose whether or not a sprite is visible when the level starts by setting the Sprite component's Visible property to True or False.
+
+
+* :ref:`Select the Square object<2016SelectObject>`
+
+.. sidebar:: "Set ... to: True" "Set ... to: False"
+    
+    Many properties are simply flags that mark something as on or off, true or false. In the Zero Engine these types of properties are shown as checkboxes.
+
+    Those checked are **True**, those unchecked are **False**.
+    
+    |Checkboxes|
+    
+    *Notice SelectChildren is set to: False and SelectRoot is set to: True*
+
+* In the Properties Window
+
+  * Under Sprite
+
+    * Set Visible to: False
+
+   |MakeInvisible|
+
+* :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+The Square object is not visible, but keep in mind that it is indeed still there.
+
+* :ref:`Stop the Game <2016StopGame>`
+* :ref:`Select the Square object<2016SelectObject>`
+* In the Properties Window
+
+  * Under Sprite
+
+    * Set Visible to: True
+        
+
+        
+Translate Tool
+--------------
+
+Another way to move objects around in the editor is by using the TranslateTool. This is a tool located in the Tools Window.
+
+* In the Tool Bar
+
+  * Click the |translategizmo| button
+* :ref:`Select the BlueSquare object<2016SelectObject>`
+
+|pbr|
+
+You should see colored arrows and a small white box:
+
+|LWTranslating|
+
+These arrows lay on the X (red), Y (green) and Z (blue) axes of object.
+
+* Click and drag along one of these colored arrows to move the object along one of the axes
+* Click and drag the mouse from the white box in the center to translate on all axes at once
+
+Notice that in the Properties Window, the Translation values are changing while you move the object.
+
+Rotate Tool
+-----------
+
+The RotateTool is used to rotate objects.
+
+|NoBookSingleLine| |LWRotatingWeb|
+
+|NoWebBegin|
+|LWRotatingBook|
+|NoWebEnd|
+
+
+
+* In the Tool Bar
+
+  * Click the |rotategizmo| button
+* Click on one of the circles (red, blue and green circles) and drag the mouse.
+
+This rotates the object around its X (red), Y (green), or Z (blue) axes. In 2D, we usually just rotate around the Z-axis.
+
+|pbr|
+
+Scale Tool
+----------
+
+The ScaleTool tool is used to scale objects.
+
+|LWScaling|
+
+* In the Tool Bar
+
+  * Click the |scalegizmo| button
+
+Colored lines with Boxes at the tips with a white box in the center will be drawn from the object.
+
+* Click and drag along the colored axes
+* Click and drag the mouse from the white box in the center to scale on all axes at once
+
+This scales the object along its X (red), Y (green), or Z (blue) axes.
+
+Notice that in the Properties Window, the Scale values are changing while you scale the object.
+
+Manipulator Tool \& Area Component
+----------------------------------
+
+* :ref:`Select the BlueSquare object<2016SelectObject>`
+  
+  * In the Properties Window
+
+    * Under Sprite
+
+      * Set SpriteSource to: ``SquareBordered``
+
+    * Under Transform
+    
+      * Set Scale to: [5,1,1]
+    
+
+
+You may notice that the borders of the sprite are stretched.
+
+|NoBookSingleLine| |skewedBorderWeb|
+
+|NoWebBegin|
+|skewedBorderBook|
+|NoWebEnd|  
+
+To create crisp borders, we can add the Area Component and scale via the manipulator tool.
+
+* :ref:`Select the BlueSquare object<2016SelectObject>`
+
+  * In the Properties Window
+    
+    * Under Transform
+    
+      * Set Scale to: [1,1,1]
+    
+    * :ref:`Add the Area component <2016AddComponent>`
+    
+    |AreaComponent|
+        
+* In the Tool Bar 
+    
+  * Click the |manipulatorgizmo| button    
+* :ref:`Select the BlueSquare object<2016SelectObject>`
+
+
+
+You'll see points in which you can grab to change the scale of the object:
+
+|BSManipulatorGizmo|
+
+You can see that scaling no longer affects the borders:
+
+|NoBookSingleLine| |NoArtifactsWeb|
+
+|NoWebBegin|
+|NoArtifactsBook|
+|NoWebEnd|  
+
+Now the edges are nice on our sprite. This is because the default SquareBordered sprite already has feature known as Nine-Slice Scaling enabled, here is how it works.
+
+|NineSliceDemo|
+
+Nine-Slice scaling is enabled through the sprite source editor which you will see in a later lesson. 
+
+Now we know how to create, save, and run our game projects, create and copy game objects, edit a game object's properties, change a Sprite's visibility, and use the TranslateTool, RotateTool, ScaleTool, and ManipulatorTool.
+
+.. |LWWhiteAndBlueSquare|     image:: images/GameObjects/LWWhiteAndBlueSquare.PNG
+  :height: 1.0in
+.. |DefaultObjects|           image:: images/EditorUI/DefaultObjects.PNG 
+.. |ColorPickerRed|           image:: images/GameObjects/ColorPickerRed.PNG
+  :height: 2.0in
+.. |ColorPickerBlue|          image:: images/GameObjects/ColorPickerBlue.PNG
+  :height: 2.0in
+.. |GWWhiteAndBlueSquareWeb|  image:: images/GameObjects/GWWhiteAndBlueSquare.PNG
+.. |GWWhiteAndBlueSquareBook| image:: images/GameObjects/GWWhiteAndBlueSquare.PNG
+    :height: 2.5in
+
+.. |DefaultSprite|            image:: images/GameObjects/DefaultSprite.PNG
+.. |LWRotatingWeb|            image:: images/GameObjects/LWRotating.png
+.. |LWRotatingBook|           image:: images/GameObjects/LWRotating.png
+    :height: 2.0in
+
+.. |PWSetSSToSquare|          image:: images/GameObjects/PWSetSSToSquare.png
+  :width: 5.0in
+.. |OWNewTransform|           image:: images/GameObjects/OWNewTransform.PNG
+.. |MakeInvisible|            image:: images/GameObjects/MakeInvisible.PNG
+    :width: 50%
+.. |PWSetNameSquareWeb|       image:: images/GameObjects/PWSetNameSquare.png
+.. |PWSetNameSquareBook|      image:: images/GameObjects/PWSetNameSquare.png
+    :height: 1.0in
+
+.. |AddComponentDropDown|     image:: images/GameObjects/AddComponentDropDown.png
+.. |PWTransform|              image:: images/GameObjects/PWTransform.PNG
+.. |LWTranslating|            image:: images/GameObjects/LWTranslating.PNG
+.. |CameraIcon|               image:: images/GameObjects/CameraIcon.png
+
+.. |PWColorProperty|          image:: images/GameObjects/PWColorProperty.PNG
+.. |LWScaling|                image:: images/GameObjects/LWScaling.PNG
+.. |AddComponentButton|       image:: images/GameObjects/AddComponentButton.PNG
+  :width: 0.25in
+.. |EmptyLevelWeb|            image:: images/GameObjects/EmptyLevel.png
+.. |EmptyLevelBook|           image:: images/GameObjects/EmptyLevel.png
+    :height: 3.0in
+
+.. |PWTransSprite|            image:: images/GameObjects/PWTransSprite.PNG
+.. |TBPlayButton|             image:: images/GameObjects/TBPlayButton.png
+  :width: 0.25in
+.. |OWSelectTransform|        image:: images/GameObjects/OWSelectTransform.PNG
+.. |PWTransformContents|      image:: images/GameObjects/PWTransformContents.png
+.. |UnderArrow|               image:: images/GameObjects/UnderArrow.PNG
+  :width: 0.25in
+.. |NoArtifactsWeb|           image:: images/GameObjects/NoArtifacts.PNG
+.. |NoArtifactsBook|          image:: images/GameObjects/NoArtifacts.PNG
+    :height: 3.0in
+
+.. |BSManipulatorGizmo|       image:: images/GameObjects/BSManipulatorGizmo.png
+.. |AreaComponent|            image:: images/GameObjects/AreaComponent.png
+.. |rotategizmo|              image:: images/GameObjects/TBRotate.png
+  :width: 0.35in
+.. |scalegizmo|               image:: images/GameObjects/TBScale.png
+  :width: 0.35in
+.. |manipulatorgizmo|         image:: images/GameObjects/TBManipulator.png
+  :width: 0.35in
+.. |translategizmo|           image:: images/GameObjects/TBTranslate.png
+  :width: 0.35in
+.. |SpriteComponentSearch|    image:: images/GameObjects/AddComponentSprite.png
+.. |Checkboxes|               image:: images/GameObjects/Checkboxes.png
+.. |MICreateTransform|        image:: images/GameObjects/MICreateTransform.PNG
+.. |skewedBorderWeb|          image:: images/GameObjects/skewedBorder.PNG
+.. |NineSliceDemo|            image:: images/Area/NineSliceDemo.png
+  :height: 3.0in
+.. |skewedBorderBook|         image:: images/GameObjects/skewedBorder.PNG
+    :height: 3.0in
+    
+.. |LWRotatedSquare|          image:: images/GameObjects/LWRotatedSquare.png    
+.. |LWScaledRotatedSquare|    image:: images/GameObjects/LWScaledRotatedSquare.PNG
+.. |LWParenting|              image:: images/GameObjects/LWParenting.PNG
+    :height: 3.0in
+.. |LWShear|                  image:: images/GameObjects/LWShear.PNG
+    :height: 3.0in
+.. |OWParentCollapsed|        image:: images/GameObjects/OWParentCollapsed.png
+.. |OWParentAndChild|         image:: images/GameObjects/OWParentAndChild.png
+    

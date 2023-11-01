@@ -1,0 +1,220 @@
+.. _ReferenceRigidBody:
+
+.. rst-class:: searchtitle
+
+RigidBody
+=========
+
+.. rst-class:: searchdescription
+
+The RigidBody defines the dynamics of an object. A body defines the mass properties and movement of an object. Without a RigidBody, an object will be static. Any effects attached to a RigidBody without a region will be applied to the body directly.
+
+.. include:: Description/RigidBody.rst
+
+.. cpp:class:: RigidBody
+
+    Base Class: :cpp:type:`Motion`
+
+.. _ReferenceRigidBodyProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog RigidBody::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space RigidBody::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog RigidBody::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession RigidBody::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 RigidBody::Velocity
+
+            The velocity of the object in world space. Max bounds are around 1e+10, after this the velocity will be capped.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 RigidBody::AngularVelocity
+
+            The angular velocity of the object in world space. Max bounds are around 1e+10, after this the angular velocity will be capped.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 RigidBody::Force
+
+            The total accumulated force(in world space) that is being applied to the center of mass of this rigid body this frame.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 RigidBody::Torque
+
+            The total accumulated torque(in world space) that is being applied to the center of mass of this rigid body this frame.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: RigidBodyDynamicState::Enum RigidBody::DynamicState
+
+            How this rigid body handles dynamics. Is it a regular rigid body(dynamic)? Does it not move(static)? Does the user want to manually move it and have objects properly collide with it(kinematic)? Note: Static vs. static don't check collision.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RigidBody::Static
+
+            Static objects cannot be moved by collisions, forces or velocity changes. This is a more efficient way of changing an object between static and dynamic during runtime. Static objects should not be moved during runtime as they will not correctly account for their position change when colliding with objects.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RigidBody::Kinematic
+
+            Kinematic objects are static objects that can be moved during runtime. Kinematics will correctly deal with position change during collisions by approximating the linear and angular velocity from the transform changes.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RigidBody::AllowSleep
+
+            Sleeping happens when an object has not"moved"(small enough linear+ angular velocity) for long enough. If this happens then the physics engine can stop updating this object(integration, collision detection, etc...) until something not asleep hits it. Sleeping is purely an optimization. Sometimes it is not desirable for a body to ever fall asleep(such as a player) so this behavior can be overridden.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RigidBody::RotationLocked
+
+            Used to make it so an object cannot rotate from physics. The rotation can still be manually changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Mode2DStates::Enum RigidBody::Mode2D
+
+            Used to make an object act as if it were 2D. This is done by locking it to the current z plane and only allowing rotation around the world's z axis. This object can be translated and rotated manually. The object can be set to always be 2D or 3D, or it can choose to inherit the setting that the space currently has.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real RigidBody::Mass
+
+            The current mass of the rigid body. This includes all child colliders belonging to this body.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 RigidBody::WorldCenterOfMass
+
+            The position of the center of mass in world space.
+
+.. _ReferenceRigidBodyMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RigidBody::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RigidBody::ApplyLinearVelocity(Vec3 linear)
+
+            Adds to the current linear velocity.(world space)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RigidBody::ApplyAngularVelocity(Vec3 angular)
+
+            Adds to the current angular velocity.(world space)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RigidBody::ApplyVelocityAtPoint(Vec3 velocity, Vec3 worldPoint)
+
+            Applies a velocity at a world space point on the object. Results in a change to linear and angular velocity.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 RigidBody::GetPointVelocity(Vec3 worldPoint)
+
+            Computes the linear velocity of a point on the body.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RigidBody::ApplyForce(Vec3 force)
+
+            Applies a force through the center of mass of the body.(world space)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RigidBody::ApplyTorque(Vec3 torque)
+
+            Applies a torque through the center of mass of the body.(world space)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RigidBody::ApplyForceAtOffsetVector(Vec3 force, Vec3 worldR)
+
+            Applies a force(world space) at an offset from the center of mass. Results in a force and torque to the center of mass.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RigidBody::ApplyForceAtPoint(Vec3 force, Vec3 worldPoint)
+
+            Applies a force(world space) at a point on an object. Results in a force and torque to the center of mass.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RigidBody::ApplyLinearImpulse(Vec3 linear)
+
+            Applies a linear impulse through the center of mass(world space). Only results in a change of linear velocity.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RigidBody::ApplyAngularImpulse(Vec3 angular)
+
+            Applies an angular impulse through the center of mass(world space). Only results in a change of angular velocity.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RigidBody::ApplyImpulseAtOffsetVector(Vec3 impulse, Vec3 worldR)
+
+            Applies an impulse(world space) at a point on the object. Results in a change in linear and angular velocity.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RigidBody::ApplyImpulseAtPoint(Vec3 impulse, Vec3 worldPoint)
+
+            Applies an impulse to the object at a world space point. Results in a change to linear and angular velocity.(world space)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool RigidBody::IsAsleep()
+
+            Checks if the object is currently asleep.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RigidBody::ForceAwake()
+
+            Forces the object awake. Will reset the sleep timer.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RigidBody::ForceAsleep()
+
+            Forces the object asleep. Will wake if anything hits it or if it is in contact with any non-asleep objects. Warning: calling this function could create gameplay flaws if used incorrectly, use at your own risk(and sparingly).
+
+.. include:: Remarks/RigidBody.rst

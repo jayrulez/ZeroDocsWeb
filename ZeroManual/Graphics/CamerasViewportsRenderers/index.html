@@ -1,0 +1,292 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Graphics/CamerasViewportsRenderers/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:30 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cameras, Viewports and Renderers &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Graphics" href="../index.html"/>
+        <link rel="next" title="Sprites and SpriteText" href="../Sprites/index.html"/>
+        <link rel="prev" title="Graphics" href="../index.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Graphics</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Cameras, Viewports and Renderers</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Sprites/index.html">Sprites and SpriteText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Graphics</a> &raquo;</li>
+      
+    <li>Cameras, Viewports and Renderers</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Graphics/CamerasViewportsRenderers/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="cameras-viewports-and-renderers">
+<span id="manualcamerasviewportsrenderers"></span><h1>Cameras, Viewports and Renderers</h1>
+<p class="searchdescription">This sections covers engine render pipeline components.</p>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>For rendering in the Zero Engine there are three key components:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The <strong>Camera</strong> component is the &#8220;eye&#8221; which can be moved or rotated to change the direction we are facing. It is also how the space is projected geometrically. This includes the projection mode (Orthographic vs Perspective), field of view, near and far, eye point and sprite sorting mode.</li>
+<li>The <strong>CameraViewport</strong> component holds relevant data to where we are rendering to the screen. The CameraViewport is the top level object that refers to a Camera object and a Renderer object. We can also switch between cameras by just assigning a different camera object to the CameraViewport component. The CameraViewport has functions for converting from screen space to world space and getting the mouse ray. The CameraViewport also sends out a <strong>ViewportMouseEvent</strong> for events like MouseDown, MouseUp etc.</li>
+<li>The <strong>Renderer</strong> component is used as to render the CameraViewport to the space. there are two types of Renderers in Zero by default but you may add to them or implement your own. The <strong>ForwardRenderer</strong> is a simple and fast renderer with limited lighting which is usually used in 2D games. The <strong>DeferredRenderer</strong> Full deferred renderer for lots of lights and is usually used in 3D games.</li>
+</ul>
+</div></blockquote>
+<p>By default the Camera component is on the object called &#8220;Camera&#8221; with the CameraViewport and ForwardRenderer being assigned to the LevelSettings components. This is useful for game scripting as you can get the camera through LevelSettings.CameraViewport.Camera to change it. However, as you may of guessed split-screen requires that we have a separate set of components for each Camera.</p>
+<p>Default settings visual:</p>
+<p><img alt="default_cameraviewport_png" src="../../../_images/DefaultCameraViewport.png" /></p>
+<div class="section" id="split-screen">
+<h3>Split-Screen</h3>
+<p>Now that we have a clear picture of how Zero&#8217;s rendering works, lets create a simple split-screen demo. To start create a new project and select the LevelSettings object.</p>
+<p><img alt="default_levelsettings_png" src="../../../_images/DefaultLevelSettings.png" /></p>
+<p>Remove the ForwardRenderer and CameravViewport Components from LevelSettings and add them onto the Camera. Now make a copy of the Camera object and name one of them &#8220;Camera1&#8221; and the other &#8220;Camera2&#8221; (Cameras in Zero require unique names).</p>
+<p>It should look something like this:</p>
+<p><img alt="objectlistcam1cam2_png" src="../../../_images/ObjectListCam1Cam2.png" /></p>
+<p><img alt="splitscreencamera1compressed_png" src="../../../_images/SplitScreenCamera1Compressed.png" /></p>
+<p>Next we need to set each CameraViewport to render a specific part of the screen and a size appropriate for its position. To do this we will set Camera1&#8217;s CameraViewport to a NormalizedSize of <strong>(1.0,0.5)</strong>. Next set Camera2&#8217;s CameraViewport to a NormalizedSize of <strong>(1.0,0.5)</strong>. Now we need to offset the second camera so it doesn&#8217;t render in the same spot as the first. To do this set Camera2&#8217;s CameraViewport to a NormalizedOffset of <strong>(0.0,0.5)</strong>. Remember to set the CameraViewport&#8217;s Camera and Renderer to the Camera Object.</p>
+<p>split-screen settings visual:</p>
+<p><img alt="splitscreen_cameraviewports_png" src="../../../_images/SplitScreenCameraViewports.png" /></p>
+<p>To test lets create a few Sprites and SpriteTexts. Press the Space bar and type &#8220;CreateSprite&#8221; to create a Sprite. To create a SpriteText press Space bar and type &#8220;CreateSpriteText&#8221;. Then move them around a little so we can distinguish them from each other. Also, lets move the cameras a little bit so that they are not in the same place but can still see the Sprites and SpriteTexts. Run the game  and you should see something like what is below.</p>
+<p><img alt="splitscreendemoresult_png" src="../../../_images/SplitScreenDemoResult.png" /></p>
+<p>You can use the same setup for four player split-screen as well we just need to add two additional Cameras (with CameraViewports and Forward Renderers) and adjust the offset and size of each camera.</p>
+<p>Four Player Split-screen settings visual:</p>
+<p><img alt="fourscreen_cameraviewports_png" src="../../../_images/FourScreen_CameraViewports.png" /></p>
+<p>Other uses which you may find helpful when using Camera Viewports is in HUDs, Minimaps, Character portraits, or other windows into different spaces which need to be rendered to the screen.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Sprites/index.html" class="btn btn-neutral float-right" title="Sprites and SpriteText" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Graphics" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Graphics/CamerasViewportsRenderers/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:32 GMT -->
+</html>

@@ -1,0 +1,903 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Editor/CogPathsTutorial.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:58:06 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cog Paths &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Editor" href="index.html"/>
+        <link rel="next" title="Scripting" href="../Scripting/index.html"/>
+        <link rel="prev" title="Editor UI" href="EditorUI.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Editor</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Cog Paths</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Tutorials</a> &raquo;</li>
+      
+          <li><a href="index.html">Editor</a> &raquo;</li>
+      
+    <li>Cog Paths</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Tutorials/Editor/CogPathsTutorial.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="cog-paths">
+<span id="tutorialcogpaths"></span><h1>Cog Paths</h1>
+<p class="searchdescription">Cog Paths provide the best way to get a reference to any Cog within your game. It allows you to point directly to the object as you&#8217;ve identified in the editor (or through a written file path) instead of wasting valuable computation time searching for it in code. In this lesson we will make an extremely small and simple project in order to cover creating Cog Paths, linking them to objects within the editor, and looking at the properties of Cog Paths that are available to you.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/LauncherNewProject.html#manualcreatenewproject"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<p>We&#8217;ll make the Player first.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or
+<span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Player</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to <code class="docutils literal"><span class="pre">[-4.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0]</span></code></li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">0,</span> <span class="pre">G:</span> <span class="pre">0,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code> , <code class="docutils literal"><span class="pre">#0000FF</span></code></li>
+<li>Set SpriteSource to: <code class="docutils literal"><span class="pre">Circle</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <a class="reference internal" href="../Graphics/SpritesAndText/Area.html#tutorialarea"><span>Area</span></a></li>
+<li>Under <a class="reference internal" href="../Graphics/SpritesAndText/Area.html#tutorialarea"><span>Area</span></a><ul>
+<li>Set Size to: <code class="docutils literal"><span class="pre">[1.5,</span> <span class="pre">1.5]</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> RigidBody</li>
+<li>Under RigidBody<ul>
+<li>Set DynamicState to: <code class="docutils literal"><span class="pre">Kinematic</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> SphereCollider</li>
+<li>Under SphereCollider<ul>
+<li>Set Radius to: <code class="docutils literal"><span class="pre">0.5</span></code></li>
+</ul>
+</li>
+</ul>
+<p>The Property window for the Player object should now look like this:</p>
+<p><img alt="PlayerSetup" src="../../_images/PlayerSetup.png" /></p>
+<p>Now let&#8217;s make the Enemy</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or
+<span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Enemy</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to <code class="docutils literal"><span class="pre">[4.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0]</span></code></li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">0,</span> <span class="pre">B:</span> <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code> , <code class="docutils literal"><span class="pre">#FF0000</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <a class="reference internal" href="../Graphics/SpritesAndText/Area.html#tutorialarea"><span>Area</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> RigidBody</li>
+<li>Under RigidBody<ul>
+<li>Set DynamicState to: <code class="docutils literal"><span class="pre">Kinematic</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> BoxCollider</li>
+</ul>
+<p>The Property window for the Enemy object should look like this:</p>
+<p><img alt="EnemySetup" src="../../_images/EnemySetup.png" /></p>
+<p>Finally, let&#8217;s duplicate the Enemy object twice for a total of three enemies.</p>
+<ul class="simple">
+<li>In the Level window<ul>
+<li>Select the <code class="docutils literal"><span class="pre">Enemy</span></code> object</li>
+<li><code class="docutils literal"><span class="pre">Ctrl+D</span></code> to Duplicate the object</li>
+</ul>
+</li>
+<li>In the Objects window<ul>
+<li>Select the new copy of the object</li>
+</ul>
+</li>
+<li>In the Properties window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[4.0,</span> <span class="pre">3.0,</span> <span class="pre">0.0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Repeat the previous steps to make the third enemy, but this time set Translation to: <code class="docutils literal"><span class="pre">[4.0,</span> <span class="pre">-3.0,</span> <span class="pre">0.0]</span></code></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+</ul>
+<p>Your Level editor screen should now look like the following picture:</p>
+<p><img alt="LevelEditorAtSetup" src="../../_images/LevelEditorAtSetup.png" /></p>
+<p>Now that we have our level setup complete, let&#8217;s make a simple player controller so we can move around the level.</p>
+</div>
+<div class="section" id="make-a-playercontroller-zilchscript">
+<h2>Make a PlayerController ZilchScript</h2>
+<p>Our PlayerController script will allow the blue circle to move around the level so it can interact with the enemy objects.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">PlayerController</span></code><ul>
+<li>Update the <code class="docutils literal"><span class="pre">PlayerController</span></code> ZilchScript as follows:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PlayerController</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">//Property to adjust the speed of the Player</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">Speed</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">0.0</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">movement</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Down</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="p">-</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Up</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Right</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">KeyIsDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="n">Left</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">movement</span> <span class="p">+=</span> <span class="n">Real3</span><span class="p">(-</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">//Moves the player according to input and the speed set in the property</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span> <span class="p">+=</span> <span class="n">movement</span> <span class="p">*</span> <span class="k">this</span><span class="p">.</span><span class="n">Speed</span> <span class="p">*</span> <span class="k">event</span><span class="p">.</span><span class="n">Dt</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Since we have a speed variable that is a Property, we need to attach the component and set the value in the Properties window.</p>
+<ul class="simple">
+<li>In the Objects window<ul>
+<li>Select the <code class="docutils literal"><span class="pre">Player</span></code> object</li>
+</ul>
+</li>
+<li>In the Properties window<ul>
+<li>Under <code class="docutils literal"><span class="pre">PlayerController</span></code><ul>
+<li>Set Speed to: <code class="docutils literal"><span class="pre">5.0</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>Now we have a player object that moves around the level.</p>
+</div>
+<div class="section" id="add-collision-logic-to-the-enemy-objects">
+<h2>Add Collision Logic to the Enemy Objects</h2>
+<p>To make this an actual game, we need to add some interaction beyond just moving a circle around a black screen. So, we&#8217;re going to create a new ZilchScript that will destroy the Enemy objects upon collision with the Player. We&#8217;ll also see our first example of using a Cog Path.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">CollisionLogic</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the Project</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Enemy objects</span></a></li>
+<li>In the Properties window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add the CollisionLogic component</span></a> we just created to the three Enemy objects</li>
+</ul>
+</li>
+<li>Open the <code class="docutils literal"><span class="pre">CollisionLogic</span></code> script and update it as follows:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Defines our new ZilchComponent</span>
+<span class="k">class</span> <span class="nc">CollisionLogic</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">//Instantiates a CogPath variable and makes it a Property</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">PlayerPath</span> <span class="p">:</span> <span class="n">CogPath</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+    <span class="c1">//Instantiates a Cog variable that will hold the Cog taken from the CogPath</span>
+    <span class="kt">var</span> <span class="n">Player</span> <span class="p">:</span> <span class="n">Cog</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Assigns the Player Cog selected in the Cogpath Property to the Player Cog variable</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Player</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">PlayerPath</span><span class="p">.</span><span class="n">Cog</span><span class="p">;</span>
+
+        <span class="c1">//Connects to the CollisionStarted event</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">CollisionStarted</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnCollisionStarted</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">//The function that will contain the behavior that will occur when a collision happens</span>
+    <span class="n">function</span> <span class="nf">OnCollisionStarted</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">CollisionEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//If the object collided with is the player, then...</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">OtherObject</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">Player</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">//Destroy the object this component is attached to.</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Destroy</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let&#8217;s spend a minute looking at what we just added to the script. The first thing you&#8217;ll see under the initial class definition of the CollisionLogic component is a CogPath variable&#8211;PlayerPath&#8211;that will be used to get a reference to the Player. This will take place under the Properties of the component once it is attached to an object. We will look at this step in more detail below. The next variable&#8211;Player&#8211;is of the type Cog and will be used to hold the reference to the Player found through the CogPath. In order to reference the Player on our Cog variable, we will need to assign it to the Cog found through the CogPath variable under the <code class="docutils literal"><span class="pre">Initialize</span></code> function, so that it is ready to be used throughout the rest of the script.</p>
+</div>
+<div class="section" id="finding-the-reference-to-the-player">
+<h2>Finding the Reference to the Player</h2>
+<p>In order to initially find the reference to the Player, we will use the CogPath Property as it appears in the Properties window. In order to do this, we&#8217;ll first need to attach our CollisionLogic component to the three enemies.</p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li>Select the first Enemy object</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add the CollisionLogic component</span></a></li>
+</ul>
+</li>
+<li>Repeat this same process for the other two Enemy objects in the Objects Window</li>
+</ul>
+<p>Now, we will go back through all three Enemy objects, open the CollisionLogic component and use our CogPath property to find a reference to the Player.</p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li>Select the first Enemy object</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Under CollisionLogic<ul>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> , <code class="docutils literal"><span class="pre">Hold</span></code> and <code class="docutils literal"><span class="pre">Drag</span></code> the Orange Reticle to the right of <code class="docutils literal"><span class="pre">PlayerPath</span></code> to the &#8220;Player&#8221; object (the blue circle). Once you click and hold, the mouse cursor should change to a white cross symbol.     Hovering over the Player object correctly should look like this:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div><p><img alt="ChoosingPlayerCog" src="../../_images/ChoosingPlayerCog.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li>Release the <code class="docutils literal"><span class="pre">Left</span> <span class="pre">Mouse</span> <span class="pre">Button</span></code></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p>Once you&#8217;ve done this you should see <code class="docutils literal"><span class="pre">:/Player</span></code> appear in the box below <code class="docutils literal"><span class="pre">PlayerPath</span></code>. The end result should look like this:</p>
+<p><img alt="PlayerCogPath" src="../../_images/PlayerCogPath.png" /></p>
+<ul class="simple">
+<li>Repeat this same process for each CollisionLogic component on the other two Enemy objects.</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>Now when you move the player to collide with an enemy, the enemy object should destroy itself.</p>
+</div>
+<div class="section" id="the-syntax-of-cogpaths">
+<h2>The Syntax of CogPaths</h2>
+<p>When you grabbed the reference to the player with the CogPath property, the resulting string in the box below PlayerPath in the CollisionLogic component probably looked a bit strange. Why does it need the colon and forward slash? Wouldn&#8217;t &#8220;Player&#8221; be just as effective? Well, the reason we have this seemingly strange syntax is so you, the user, can see the object &#8220;path&#8221; as it relates both to the space as well as any parented or child objects. The <code class="docutils literal"><span class="pre">:/</span></code> preceding Player means that the object referenced is within the same space as the object getting a reference to it (the enemies in this case). If this reminds you of standard file path syntax as you would see and use in a command line, then you would be correct. The syntax for CogPaths pretty much directly follows the same rules. To look at how this might work, let&#8217;s make a couple of changes to the level.</p>
+<ul class="simple">
+<li>In the Level Window<ul>
+<li>Select the Player Objects</li>
+<li>&#8220;Ctrl+D&#8221; to duplicate the Player object</li>
+</ul>
+</li>
+<li>In the Objects Window<ul>
+<li>Select this duplicate Player object</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Change the Name to: <code class="docutils literal"><span class="pre">PlayerChild</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">-4.0,</span> <span class="pre">-4.0,</span> <span class="pre">0.0</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Back in the Objects Window<ul>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> , <code class="docutils literal"><span class="pre">Hold</span></code> and <code class="docutils literal"><span class="pre">Drag</span></code> <code class="docutils literal"><span class="pre">PlayerChild</span></code> on top of <code class="docutils literal"><span class="pre">Player</span></code></li>
+<li>Release <code class="docutils literal"><span class="pre">Left</span> <span class="pre">Mouse</span> <span class="pre">Button</span></code></li>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">click</span></code> on the newly placed orange arrow to the left of <code class="docutils literal"><span class="pre">Player</span></code>. You should now see <code class="docutils literal"><span class="pre">PlayerChild</span></code> slightly indented directly below <code class="docutils literal"><span class="pre">Player</span></code>. Your Objects Window should now look like this:</li>
+</ul>
+</li>
+</ul>
+<p><img alt="PlayerChildObjectsWindow" src="../../_images/PlayerChildObjectsWindow.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+</ul>
+<p>Now that we have an object parented to another, let&#8217;s see what the CogPath string looks like when it references the child object.</p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li>Select the first Enemy object</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Under CollisionLogic<ul>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> , <code class="docutils literal"><span class="pre">Hold</span></code> and <code class="docutils literal"><span class="pre">Drag</span></code> the Orange Reticle to the right of <code class="docutils literal"><span class="pre">PlayerPath</span></code> to the &#8220;PlayerChild&#8221; object (the lower placed blue circle)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now, the CollisionLogic component should look like this, with a different string in the CogPath box:</p>
+<p><img alt="PlayerChildCogPath" src="../../_images/PlayerChildCogPath.png" /></p>
+<p>As you can see, the string has changed to: <code class="docutils literal"><span class="pre">:/Player/PlayerChild</span></code>. This would be the same syntax in a file system looking at a folder or file placed within another folder. Here, it designates that in the Object hierarchy, the PlayerChild object is a child of the Player object.</p>
+<p>This syntax can be very helpful when, for whatever reason, you are not able to directly select an object, especially one that is three or four steps down one object&#8217;s hierarchy. One example could be a complex player model where a &#8220;finger&#8221; object is parented to a &#8220;hand&#8221; object that is parented to a &#8220;arm&#8221; object that is parented to a &#8220;torso&#8221; object. Trying to select that particular finger model with the mouse could be painstakingly difficult or even impossible depending on your model. Finding the finger object through the use of the CogPath syntax, however, makes finding the reference  simple matter of typing in the object hierarchy down to its location (in our little example it would something like: :/PlayerModel/Torso/Arm/Hand/Finger).</p>
+</div>
+<div class="section" id="cog-path-properties">
+<h2>Cog Path Properties</h2>
+<p>There are a number of in-editor properties that belong to CogPaths that are not immediately visible when you first look at the Property window. To reveal them, <code class="docutils literal"><span class="pre">Left</span> <span class="pre">Click</span></code> on the orange arrow directly to the left of the orange reticle in your CollisionLogic component (as it is attached to one of the enemies). You should immediately see a list of nine different properties drop down beneath the CogPath string box. These properties allow you to choose when to throw certain Errors and when to update the Cog and Path to the Cog. While this lesson will not go over each of the first six properties, you can easily see their functionality by hovering over each one&#8217;s name, like so:</p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li>Select one of the Enemy objects (the one still connected to the <code class="docutils literal"><span class="pre">PlayerChild</span></code> will do fine)</li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Under the CollisionLogic component<ul>
+<li><code class="docutils literal"><span class="pre">Left</span> <span class="pre">click</span></code> the orange arrow next to the orange reticle</li>
+<li>In the list of properties that appear, hover your mouse over the second one down, named <code class="docutils literal"><span class="pre">ErrorOnPathCantCompute</span></code>. You should see the following window pop-up, describing the function of the property:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="CogPathPropertiesWithDescription" src="../../_images/CogPathPropertiesWithDescription.png" /></p>
+<p>You can do the same thing with the rest of the first six properties available to you. They are also listed here, with their descriptions, in the table below:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Editor Property</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>DirectCog</td>
+<td>If the current cog is null, and you try to access it through
+CogPath.Cog, it will try to resolve the path when you access it.
+DirectCog never tries to resolve the path. It&#8217;s a pointer to the
+object itself.</td>
+</tr>
+<tr class="row-odd"><td>ErrorOnResolveToNull</td>
+<td>Is an exception thrown if you try to access the Cog when it&#8217;s invalid
+or not found?</td>
+</tr>
+<tr class="row-even"><td>ErrorOnPathCantCompute</td>
+<td>Throw an exception/notification if the path to an object cannot be
+computed?</td>
+</tr>
+<tr class="row-odd"><td>ErrorOnDirectLinkFail</td>
+<td>Throw an exception/notification if a direct link to the object cannot
+be resolved?</td>
+</tr>
+<tr class="row-even"><td>UpdateCogOnPathChange</td>
+<td>When we set the cog path, should we try and resolve the object? (this
+also detects parse errors)</td>
+</tr>
+<tr class="row-odd"><td>UpdateCogOnInitialize</td>
+<td>Whether the cog path attempts to resolve an object when the object is
+fully initialized</td>
+</tr>
+<tr class="row-even"><td>UpdatePathOnCogChange</td>
+<td>When we set the cog, should we try and recompute a path to the
+object?</td>
+</tr>
+</tbody>
+</table>
+<p>As for the last three, however (<code class="docutils literal"><span class="pre">PathPreference0</span></code>, <code class="docutils literal"><span class="pre">PathPreference1</span></code>, <code class="docutils literal"><span class="pre">PathPreference2</span></code>), no pop-up description is available and we will therefore give a short description of their functionality.</p>
+<p>When automatically determining a string path to an object (such as when using the orange reticle target picker in editor when manually setting the Cog) the path preferences are used.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">CogRelative</span></code> means that we first try and look if there is a way to represent that path as a relative path. This is only valid if the objects are on the same hierarchy (such as &#8216;..&#8217; for parent, &#8216;../OtherObject&#8217; for a sibling, or &#8216;Child1/Child2&#8217; for children).</li>
+<li><code class="docutils literal"><span class="pre">Space</span> <span class="pre">relative</span></code> assumes the objects are not on the same hierarchy, but exist within the same space. This means all paths begin with &#8216;:/&#8217;, which means look within the same space.</li>
+<li><code class="docutils literal"><span class="pre">Absolute</span></code> means we always require a named space (such as Hud or Main) and then a full path to the object such as &#8216;Hud:/HealthText&#8217;. Note that Absolute can only be used in the editor with the orange reticle target picker if the space is given a name.</li>
+</ul>
+<p>These three options can be changed so that you the first preference (<code class="docutils literal"><span class="pre">PathPreference0</span></code>) could be set to SpaceRelative instead of CogRelative, and so forth. This is completely up to the discretion of the user and the particular circumstances of his or her project.</p>
+</div>
+<div class="section" id="assigning-a-cogpath-from-a-different-space">
+<h2>Assigning a CogPath From a Different Space</h2>
+<p>Since we can create a CogPath by giving it the Name of a Space to look in, we&#8217;re able to create CogPaths from one Space to another. There are two limitations to keep in mind with this, however:</p>
+<ul class="simple">
+<li>A new Space can only be created using a ZilchScript</li>
+<li>The Path must be typed manually. The orange reticle target picker cannot be used to choose an object in a different Space.</li>
+</ul>
+<p>The first step will be to make a new Level for the Space to load.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new Level resource</span></a> named: <code class="docutils literal"><span class="pre">HUDLevel</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSpriteText</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">EnemyCounter</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to <code class="docutils literal"><span class="pre">[13.0,</span> <span class="pre">8.0,</span> <span class="pre">0.0]</span></code></li>
+</ul>
+</li>
+<li>Under SpriteText<ul>
+<li>Set Text to: <code class="docutils literal"><span class="pre">Enemies</span> <span class="pre">left:</span> <span class="pre">0</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The new Level should now look like this:</p>
+<p><img alt="HUDLevel" src="../../_images/HUDLevel.png" /></p>
+<p>Next, a new ZilchScript will need to be added for the EnemyCounter SpriteText.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">EnemyCount</span></code></li>
+<li>Update the EnemyCount script with the following:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EnemyCount</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">// A variable used to count how many enemies are left</span>
+    <span class="kt">var</span> <span class="n">EnemiesLeft</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Set up the Text to always show what EnemiesLeft currently is</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">SpriteText</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="s">&quot;Enemies Left: `this.EnemiesLeft`&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the EnemyCounter Object</span></a></li>
+<li>In the Properties window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add the EnemyCount component</span></a></li>
+</ul>
+</li>
+</ul>
+<p>There&#8217;s only one more thing that we need to do to the HUDLevel now, and that&#8217;s make sure that it won&#8217;t cover the main Level window when it gets loaded.</p>
+<ul class="simple">
+<li>In the Objects window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li>In the Properties window<ul>
+<li>Under the CameraViewport<ul>
+<li>Set Background to: <code class="docutils literal"><span class="pre">False</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+</ul>
+<p>Now that we&#8217;re done, we can go back to the main Level.</p>
+<ul class="simple">
+<li>In the Library window<ul>
+<li>Under Level<ul>
+<li>Select and open <code class="docutils literal"><span class="pre">Level</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>We need a script to create the new Space and load the HUDLevel now.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">HUDLoader</span></code></li>
+<li>Update the HUDLoader script:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HUDLoader</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">// Assign the HUDLevel to make sure we load the correct Level</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">LevelToLoad</span> <span class="p">:</span> <span class="n">Level</span> <span class="p">=</span> <span class="n">Level</span><span class="p">.</span><span class="n">HUDLevel</span><span class="p">;</span>
+
+    <span class="c1">// This will become the new Space</span>
+    <span class="kt">var</span> <span class="n">HUDSpace</span> <span class="p">:</span> <span class="n">Space</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Create a new named Space named HUDSpace</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">HUDSpace</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">GameSession</span><span class="p">.</span><span class="n">CreateNamedSpace</span><span class="p">(</span><span class="s">&quot;HUDSpace&quot;</span><span class="p">,</span> <span class="n">Archetype</span><span class="p">.</span><span class="n">Space</span><span class="p">);</span>
+
+        <span class="c1">// Load the new Level in the new Space</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">HUDSpace</span><span class="p">.</span><span class="n">LoadLevel</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">LevelToLoad</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>In the Objects window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li>In the Properties window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add the HUDLoader component</span></a></li>
+<li>In the HUGLoader window<ul>
+<li>Assign the HUDLevel resource to the LevelToLoad property</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>It should look like this:</p>
+<p><img alt="GameWithHUD" src="../../_images/GameWithHUD.png" /></p>
+<p><code class="docutils literal"><span class="pre">LevelSettings</span></code> is good object to attach the new script to as it ensures that the new Space will only be created once. We know it&#8217;s being properly created because the &#8220;Enemies Left&#8221; text is showing up in the corner; now we just have to give the enemies a CogPath to the object.</p>
+<ul class="simple">
+<li>Open the <code class="docutils literal"><span class="pre">CollisionLogic</span></code> script and update it with the following:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Defines our new ZilchComponent</span>
+<span class="k">class</span> <span class="nc">CollisionLogic</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">//Instantiates a CogPath variable and makes it a Property</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">PlayerPath</span> <span class="p">:</span> <span class="n">CogPath</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+    <span class="c1">//This will be the CogPath to the EnemyCounter object</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">CounterPath</span> <span class="p">:</span> <span class="n">CogPath</span><span class="p">;</span>
+
+    <span class="c1">//Instantiates a Cog variable that will hold the Cog taken from the CogPath</span>
+    <span class="kt">var</span> <span class="n">Player</span> <span class="p">:</span> <span class="n">Cog</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+    <span class="c1">//This will be a reference to the EnemyCount script on the EnemyCounter object</span>
+    <span class="kt">var</span> <span class="n">Counter</span> <span class="p">:</span> <span class="n">EnemyCount</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Assigns the Player Cog selected in the Cogpath Property to the Player Cog variable</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Player</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">PlayerPath</span><span class="p">.</span><span class="n">Cog</span><span class="p">;</span>
+
+        <span class="c1">//Assigns a reference to the EnemyCount script on the given object</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Counter</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">CounterPath</span><span class="p">.</span><span class="n">Cog</span><span class="p">.</span><span class="n">EnemyCount</span><span class="p">;</span>
+
+        <span class="c1">//Whenever a new enemy is created, increment the EnemiesLeft variable by 1</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Counter</span><span class="p">.</span><span class="n">EnemiesLeft</span> <span class="p">+=</span> <span class="m">1</span><span class="p">;</span>
+
+        <span class="c1">//Connects to the CollisionStarted event</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">CollisionStarted</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnCollisionStarted</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">//The function that will contain the behavior that will occur when a collision happens</span>
+    <span class="n">function</span> <span class="nf">OnCollisionStarted</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">CollisionEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//If the object collided with is the player, then...</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">OtherObject</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">Player</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">//Lower the amount of enemies by one and...</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Counter</span><span class="p">.</span><span class="n">EnemiesLeft</span> <span class="p">-=</span> <span class="m">1</span><span class="p">;</span>
+
+            <span class="c1">//Destroy the object this component is attached to.</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Destroy</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Since the object we want the enemies to have a path to are is in a different Space, we need to manually enter the path in the Properties window.</p>
+<ul class="simple">
+<li><ul class="first">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select any of the Enemy objects</span></a></li>
+</ul>
+</li>
+<li>In the Properties window<ul>
+<li>Under CollisionLogic<ul>
+<li>Enter the path to the EnemyCounter object, starting with the name of the Space: <code class="docutils literal"><span class="pre">HUDSpace:/EnemyCounter</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="InterSpaceCogPath" src="../../_images/InterSpaceCogPath.gif" /></p>
+<ul class="simple">
+<li>Do the same for the remaining Enemy objects</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>Now when the level is loaded our EnemyCounter will show the amount of enemies in the level and go down by one each time an enemy is destroyed.</p>
+</div>
+<div class="section" id="properties-and-functions-of-cogpath">
+<h2>Properties and Functions of CogPath</h2>
+<p>The following tables will cover all of the member properties and functions of CogPath that are available in Zilch.</p>
+<div class="section" id="the-properties-of-cogpath-in-zilch">
+<h3>The Properties of CogPath in Zilch</h3>
+<p>The following table enumerates the properties of CogPath available to the user in Zilch:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>RelativeTo : <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Cog.html#_CPPv23Cog" title="Cog"><code class="xref cpp cpp-type docutils literal"><span class="pre">Cog</span></code></a></td>
+<td>The cogs that we compute paths relative to (i.e. parent or child objects)</td>
+</tr>
+<tr class="row-odd"><td>Required</td>
+<td><strong>Deprecated</strong> Name changed to <code class="docutils literal"><span class="pre">ErrorOnResolveToNull</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="the-functions-of-cogpath-in-zilch">
+<h3>The Functions of CogPath in Zilch</h3>
+<p>The following table enumerates the functions of CogPath available to the user in Zilch:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="16%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function</th>
+<th class="head">Return</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Clone()</td>
+<td><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/CogPath.html#_CPPv27CogPath" title="CogPath"><code class="xref cpp cpp-type docutils literal"><span class="pre">CogPath</span></code></a></td>
+<td>Creates a new copy of a cog path (since cog paths are reference counted and shared)</td>
+</tr>
+<tr class="row-odd"><td>Refresh()</td>
+<td><code class="xref cpp cpp-type docutils literal"><span class="pre">Boolean</span></code></td>
+<td>This will attempt to refresh an object using the DirectCog reference.  If it finds it, it
+returns true; otherwise, it returns false.</td>
+</tr>
+<tr class="row-even"><td>RefreshIfNull()</td>
+<td>&nbsp;</td>
+<td>This method will only attempt to refresh is the object is null.</td>
+</tr>
+</tbody>
+</table>
+<p>In this Lesson, we have covered creating CogPath properties, finding references to Cogs using both the orange reticle target picker as well as using a particular syntax to look in object hierarchies, assigning a Cog variable to the reference received from the CogPath, and went over the properties available to you when using CogPaths.</p>
+</div>
+</div>
+<div class="section" id="related-materials">
+<h2>Related Materials</h2>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../Architecture/GameObjects.html#tutorialsgameobject"><span>Game Objects(Cogs)</span></a></li>
+</ul>
+</div>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/CogPathsManual.html#manualcogpaths"><span>CogPaths Manual Page</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Architecture/Cogs/GameObjectsConcept.html#manualgameobjects"><span>Game Objects(Cogs) Manual Page</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Scripting/index.html" class="btn btn-neutral float-right" title="Scripting" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="EditorUI.html" class="btn btn-neutral" title="Editor UI" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Editor/CogPathsTutorial.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:58:09 GMT -->
+</html>

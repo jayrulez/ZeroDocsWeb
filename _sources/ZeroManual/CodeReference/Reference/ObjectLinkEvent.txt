@@ -1,0 +1,49 @@
+.. _ReferenceObjectLinkEvent:
+
+.. rst-class:: searchtitle
+
+ObjectLinkEvent
+===============
+
+.. rst-class:: searchdescription
+
+An event sent when an object link changes one of its link edges.
+
+.. include:: Description/ObjectLinkEvent.rst
+
+.. cpp:class:: ObjectLinkEvent
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceObjectLinkEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String ObjectLinkEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ObjectLinkEvent::NewCog
+
+            The new cog being set.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ObjectLinkEvent::OldCog
+
+            The old cog being overridden.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint ObjectLinkEvent::EdgeId
+
+            The index on the edge that is being overridden.
+
+.. _ReferenceObjectLinkEventMethods:
+
+.. include:: Remarks/ObjectLinkEvent.rst

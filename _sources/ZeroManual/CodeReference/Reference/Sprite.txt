@@ -1,0 +1,154 @@
+.. _ReferenceSprite:
+
+.. rst-class:: searchtitle
+
+Sprite
+======
+
+.. rst-class:: searchdescription
+
+Sprite component. Sprite component is a 2d sprite class used for 2d sprites 3d billboarding.
+
+.. include:: Description/Sprite.rst
+
+.. cpp:class:: Sprite
+
+    Base Class: :cpp:type:`BaseSprite`
+
+.. _ReferenceSpriteProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Sprite::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Sprite::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Sprite::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Sprite::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Sprite::Visible
+
+            If object should be rendered.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Sprite::VisibilityCulling
+
+            If object is culled and not graphically updated when it's not visible.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Sprite::VisibilityEvents
+
+            If object receives events when entering/exiting the view of a rendering camera or shadow.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Sprite::CastShadows
+
+            If object is rendered to shadow maps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 Sprite::Color
+
+            Modulation color of this sprite.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: BlendMode::Type Sprite::BlendMode
+
+            Blend Mode of the sprite.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SpriteGeometryMode::Type Sprite::GeometryMode
+
+            Geometry mode determines how the sprite is mapped to 3d.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SpriteLayer Sprite::SpriteLayer
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SpriteSource Sprite::SpriteSource
+
+            The SpriteSource for this sprite.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Sprite::RenderMask
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Sprite::FlipX
+
+            Flip the sprite on the X axis.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Sprite::FlipY
+
+            Flip the sprite on the Y axis.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Sprite::AnimationActive
+
+            Enables sprite frame animation.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Sprite::AnimationSpeed
+
+            Animation Speed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint Sprite::StartFrame
+
+            Start Frame of animation.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint Sprite::CurrentFrame
+
+            Current frame of animation.
+
+.. _ReferenceSpriteMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Sprite::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/Sprite.rst

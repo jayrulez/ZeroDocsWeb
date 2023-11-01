@@ -1,0 +1,170 @@
+
+.. _ManualGroupCollisionEvents:
+
+.. rst-class:: SearchTitle
+
+Group Collision Events
+======================
+
+.. rst-class:: SearchDescription
+
+Zero sends out a :cpp:type:`CollisionGroupEvent` when collision begins, persists, or ends between two objects whose :cpp:type:`Colliders<Collider>` have a user-defined :ref:`CollisionGroup<ManualCollisionGroupAndCollisionTable>` with a CollisionFilter. The :cpp:type:`PreSolveEvent` is sent out after collision detection but before collision resolution between two objects whose Collider components are assigned a :ref:`CollisionGroup<ManualCollisionGroupAndCollisionTable>` with a CollisionFilter.
+
+.. sidebar:: Recommended Reading
+
+    This page includes topics one might not have encountered yet. To learn about or review these materials, the following list provides the links to their respective Manual or Tutorial pages:
+    
+    *   :ref:`CollisionGroup and CollisionTable<ManualCollisionGroupAndTable>`
+    
+    *   :ref:`Events and Connections<ManualEventsAndConnections>`
+    
+    *   :ref:`Collision Overview<ManualCollisionOverview>`
+
+.. _ManualGroupCollisionEventsCommon:
+
+Common Uses
+-----------
+
+GroupCollisionEvent
+~~~~~~~~~~~~~~~~~~~
+
+*   Providing the user with the means to know when one particular object, such as the player, has collided with objects from different collision groups, such as friendly or enemy bullets, different terrain types, and Regions
+
+PreSolveEvent
+~~~~~~~~~~~~~
+
+*   Determining if a particular object that is going to collide with an environmental object is moving fast enough or with enough force to destroy or break through the environmental object
+
+.. _ManualGroupCollisionEventsUsing:
+
+Using Group Collision Events
+----------------------------
+
+Group Collision Events are reliant upon the appropriate setup on the space's :cpp:type:`CollisionTable`. The following descriptions explain the requirements for each type.
+
+There are three different :cpp:type:`CollisionGroupEvents<CollisionGroupEvent>`:
+
+*   ``GroupCollisionStarted`` : :cpp:type:`CollisionGroupEvent`
+
+    *   The CollisionGroupEvent is dispatched when collision happens between two Colliders whose:
+
+        *   :ref:`CollisionFilter<ManualCollisionGroupAndTableCollisionFilterAndCollisionFlag>` on the space's :ref:`CollisionTable<ManualCollisionGroupAndTableCollisionTable>` includes a:
+
+        *   :ref:`CollisionStartBlock<ManualCollisionGroupAndTableCollisionFilterBlock>`
+    
+*   ``GroupCollisionPersisted`` : :cpp:type:`CollisionGroupEvent`
+
+    *   The CollisionGroupEvent is dispatched every frame (*after* the initial, collision started frame) that two :ref:`Colliders<ManualColliders>` whose:
+
+        *   :ref:`CollisionFilter<ManualCollisionGroupAndTableCollisionFilterAndCollisionFlag>` on the space's :ref:`CollisionTable<ManualCollisionGroupAndTableCollisionTable>` includes a:
+
+        *   :ref:`CollisionPersistBlock<ManualCollisionGroupAndTableCollisionFilterBlock>`
+    
+*   ``GroupCollisionEnded`` : :cpp:type:`CollisionGroupEvent`
+
+    *   The CollisionGroupEvent is dispatched on the first frame when two :ref:`Colliders<ManualColliders>` stop colliding whose:
+
+        *   :ref:`CollisionFilter<ManualCollisionGroupAndTableCollisionFilterAndCollisionFlag>` on the space's :ref:`CollisionTable<ManualCollisionGroupAndTableCollisionTable>` includes a:
+
+        *   :ref:`CollisionEndBlock<ManualCollisionGroupAndTableCollisionFilterBlock>`
+        
+There is one :cpp:type:`PreSolveEvent`:
+
+.. _ManualGroupCollisionEventsGroupPreSolveEvent:
+
+*   ``GroupCollisionPreSolve`` : :cpp:type:`PreSolveEvent`
+
+    *   The PreSolveEvent is sent after detection, but before resolution of contact between two :ref:`Colliders<ManualColliders>` whose:
+    
+        *   :ref:`CollisionFilter<ManualCollisionGroupAndTableCollisionFilterAndCollisionFlag>` on the space's :ref:`CollisionTable<ManualCollisionGroupAndTableCollisionTable>` includes a:
+        
+        *   :ref:`PreSolveBlock<ManualCollisionGroupAndTableCollisionFilterBlock>`
+        
+Connecting and Disconnecting to Group Collision Events
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To connect and disconnect(or "listen" and "stop listening") to a particular Group Collision Event, use the same ``Zero.Connect`` and ``Zero.Disconnect`` syntax that is used for all event connections and disconnections, as is demonstrated below:
+
+.. code-block:: csharp
+
+    //Connecting to Group Collision Events
+
+    //Connecting to the GroupCollisionStarted event
+    Zero.Connect(this.Owner, Events.GroupCollisionStarted, this.OnGroupCollisionStarted);
+    
+    //Connecting to the GroupCollisionPersisted event
+    Zero.Connect(this.Owner, Events.GroupCollisionPersisted, this.OnGroupCollisionPersisted);
+    
+    //Connecting to the GroupCollisionEnded event
+    Zero.Connect(this.Owner, Events.GroupCollisionEnded, this.OnGroupCollisionEnded);
+    
+    //Connecting to the GroupCollisionPreSolve event
+    Zero.Connect(this.Owner, Events.GroupCollisionPreSolve, this.OnGroupCollisionPreSolve);
+    
+    //Disconnecting to Group Collision Events
+    
+    //Disconnecting to the GroupCollisionStarted Event
+    Zero.Disconnect(this.Owner, Events.GroupCollisionStarted, this);
+    
+    //Disconnecting to the GroupCollisionPersisted Event
+    Zero.Disconnect(this.Owner, Events.GroupCollisionPersisted, this);
+    
+    //Disconnecting to the GroupCollisionEnded Event
+    Zero.Disconnect(this.Owner, Events.GroupCollisionEnded, this);
+    
+    //Disconnecting to the GroupCollisionPreSolve Event
+    Zero.Disconnect(this.Owner, Events.GroupCollisionPreSolve, this);
+    
+Please not that of the event connection is in a function that ends up being called more than once, the event will end up connecting more than once, which will almost always cause undesired behavior.
+
+Data Included with Group Collision Events
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The types of data included with Group Collision events includes all the data included with :ref:`CollisionEvents<ManualCollisionEventsData>` as well as one other category:
+    
+*   **The Groups Involved**    
+
+    *   This includes the TypeAName and TypeBName (both of which are of type :cpp:type:`String`), which refer to the CollisionGroup names of the object the event is dispatched onto as well as the other objects involved in the collision, respectively.
+
+The data included in the PreSolveEvent event-type includes both the Objects and Contact Points data categories, as listed in :ref:`CollisionEvents<ManualCollisionEventsData>`.
+
+The Properties of CollisionGroupEvent
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`CollisionGroupEvent Code Reference<ReferenceCollisionGroupEvent>`
+
+:ref:`PreSolveEvent Code Reference<ReferencePreSolveEvent>`
+
+.. _ManualGroupCollisionEventsRelated:
+
+Related Material
+----------------
+
+Manual Pages
+~~~~~~~~~~~~
+
+*   :ref:`Collision Overview<ManualCollisionOverview>`
+*   :ref:`Colliders<ManualColliders>`
+
+Tutorial Pages
+~~~~~~~~~~~~~~
+
+:ref:`Collision Events Tutorial<TutorialCollisionEvents>`
+
+Reference Pages
+~~~~~~~~~~~~~~~
+    
+*   :cpp:type:`Collider`
+*   :cpp:type:`CollisionEvent`
+*   :cpp:type:`CollisionGroupEvent`
+*   :cpp:type:`PreSolveEvent`
+*   :cpp:type:`Cog`
+*   :cpp:type:`String`
+*   :cpp:type:`ContactPoint`
+*   :cpp:type:`ContactPointRange`
+*   :cpp:type:`uint`       
+    
+    
+    
+
+.. Written by: Jason Clark

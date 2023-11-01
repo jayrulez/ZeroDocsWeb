@@ -1,0 +1,891 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/ScriptingEvents.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:23:11 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scripting Events &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Introduction to 2D Video Game Programming" href="index.html"/>
+        <link rel="next" title="Collision Events" href="CollisionEvents.html"/>
+        <link rel="prev" title="Scripting" href="Scripting.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Introduction to 2D Video Game Programming</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Scripting Events</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Orientation.html">Rotating Towards a Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FireAtMouse.html">Firing At the Mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleSystems.html">Particle Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleAi.html">Ai Shooting and Movement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CameraParallax.html">Camera Parallax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CreateProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting an Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Add a Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Introduction to 2D Video Game Programming</a> &raquo;</li>
+      
+    <li>Scripting Events</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2014/ScriptingEvents.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="scripting-events">
+<span id="scriptingevents2014"></span><h1>Scripting Events</h1>
+<p class="searchdescription">This lesson covers Spaces, Game Loops, Events, Input, basic Movement, and the Orientation component. It covers the language concepts of parameters and types.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="CreateProject.html#createnewproject2014"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the Sprite you created</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Set name to: Player</p>
+</li>
+<li><p class="first">Under Transform</p>
+<ul>
+<li><p class="first">Set Scale to: [2, 1, 1]</p>
+<p><img alt="1000000000000116000000F9A0CFB856_png" src="../../_images/1000000000000116000000F9A0CFB856.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Here is what the level should look like:</p>
+<p>
+<img alt="10000000000000F9000000ACE821D5EB_pngWeb" src="../../_images/10000000000000F9000000ACE821D5EB.png" />
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/10000000000000F9000000ACE821D5EB.png"><img alt="10000000000000F9000000ACE821D5EB_pngBook" src="../../_images/10000000000000F9000000ACE821D5EB.png" style="height: 2.0in;" /></a>
+--></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a></li>
+</ul>
+</div>
+<div class="section" id="spaces">
+<h2>Spaces</h2>
+<p>A space is an object that represents a group of objects. Spaces in the Zero Engine are containers for game objects. When a level is loaded, all the game objects from that level are put into a space. In a simple game you only have one space, which is where all your game objects go. Each space has its own instances of the core systems of the engine: graphics, physics, etc. Because of this, game objects in two different spaces will not collide or otherwise physically interact. Creating a separate space for UI game objects is one of the most common uses of multiple spaces in a game.</p>
+<ul class="simple">
+<li>Click anywhere in the Level Window</li>
+<li>Press <code class="docutils literal"><span class="pre">Shift+S</span></code> or <span class="menuselection">Select ‣ Select Space</span> to bring up the properties of the current Space</li>
+</ul>
+<p>Notice that the Property Window shows the space that all the objects in this level are contained in. You should see that the object count is 5 because there are 5 objects in the level:</p>
+<p><img alt="100000000000011E000000C3F9F5D476_png" src="../../_images/100000000000011E000000C3F9F5D476.png" />
+<img alt="100000000000011A0000009AFC94AEB3_png" src="../../_images/100000000000011A0000009AFC94AEB3.png" /></p>
+</div>
+<div class="section" id="game-loops">
+<h2>Game Loops</h2>
+<p>In all games, there is a continuous element to the game play.
+Consider <em>The Sims</em> for a moment.
+The game continuously checks for player input, moves characters across the screen over several seconds, queues actions such as cleaning and eating to be done at the appropriate time, and more.</p>
+<p>Using this example, you can break <em>The Sims</em> down into what is known in the games industry as a series of frames. Think of a single frame as one picture on a reel of film. When you string each of these frames together and play them back at a specific rate, you can see the movie that is on the film.</p>
+<p>Much of the same idea applies to games. In our frames example, one frame consists of several common actions that are executed in a specific sequence. For instance, the game would first check for user input, then it would update the game logic that governs moving the characters, and finally, it would then draw that frame to the screen.</p>
+<p>If this process of executing one frame of a game is looped at a specific rate, much like the film, the game comes alive and becomes real-time. This is precisely the concept of the game loop, where it loops the process of executing one frame of the game over and over again. It should be noted that in most games, as well as the Zero Engine, the game loop repeats at a rate of 60 frames per second. This is called the frame rate.</p>
+<p>Basically, before drawing to the screen, the game engine&#8217;s systems perform several tasks such as: detecting user input, performing physics calculations, and handling game logic. These systems communicate with each other through the use of events.</p>
+</div>
+<div class="section" id="events">
+<h2>Events</h2>
+<p>Events are the main way that objects and components talk to each other in the Zero Engine. Events can be dispatched on any object. The two most common objects used with events are the owner and the Space. The listener needs to know for each event whether it will come through the object or the space, or it won&#8217;t be able to receive the event. Events sent to a specific object won&#8217;t be heard by any other object even if they&#8217;re listening for it. Events dispatched to the entire Space will be heard by every object in the Space that&#8217;s listening for it.</p>
+</div>
+<div class="section" id="adding-the-playercontroller-zilchscript">
+<h2>Adding the PlayerController ZilchScript</h2>
+<p><a class="reference internal" href="ResourceAdding.html#resourceadding2014"><span>Add a new ZilchScript resource</span></a> Named: &#8216;PlayerController&#8217;</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">PlayerController</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">// This function is called when the object is created</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Say hello:</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Hello from Player&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-logicupdate-event">
+<h2>The LogicUpdate Event</h2>
+<p>When a space begins handling game logic, it dispatches an event to all the game objects it contains. That event is known as the LogicUpdate event. We want to have logic to update our Player object every frame so that we can always be checking if the user has provided input from either the keyboard, a mouse, or a controller. Then we are able to write code that moves the player when a certain key is pressed. This code will be written in a &#8220;CallBack&#8221; function that we will define:</p>
+<ul class="simple">
+<li>Open the <strong>PlayerController</strong> script</li>
+</ul>
+<p>In the generated code you&#8217;ll see a function called OnLogicUpdate that accepts an event named: <code class="docutils literal"><span class="pre">UpdateEvent</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li>In the <strong>OnLogicUpdate</strong> function, add the single statement printing “updated” to the console:</li>
+</ul>
+</div></blockquote>
+<div class="highlight-as"><div class="highlight"><pre><span></span>   <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+   <span class="p">{</span>
+<span class="hll">       <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;updated&quot;</span><span class="p">);</span>
+</span>   <span class="p">}</span>
+</pre></div>
+</div>
+<p>Every time our OnLogicUpdate function gets called, it will print “updated” to the Console Window.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the Player Object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the PlayerController component</span></a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="RunTheGame.html#runthegame2014"><span>Run the game</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></p>
+</li>
+</ul>
+<p>This should be the output in the Console Window:</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game  ----------------
+Compiling Zilch Library
+Hello from Player
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<p>It looks like the word “updated” did not get printed at all in the Console Window. This is because we forgot to &#8216;&#8217;Connect&#8217;&#8217; to the event.</p>
+<p><strong>Connecting to LogicUpdate</strong></p>
+<p>Remember that events are how the engine/objects/spaces inform you that something has happened and lets you decide what to do. When you want to respond to an event you need to connect to it. You connect a specific event that happens to a specific object to a function you&#8217;ve defined.</p>
+<p>For example, lets say you connect your function, ApplyChanges() to the OKButton object&#8217;s ButtonUp event. When the user clicks the OKButton the ButtonUp event will be <strong>dispatched</strong>. Since you are <strong>listening</strong> for this event when <strong>dispatched</strong> to the OKButton, the function you connected to, ApplyChanges(), will be called.</p>
+<p>It&#8217;s important to connect them correctly, so you don&#8217;t have your function called when you press the cancel button (wrong object) or when hovering over the button (wrong event).</p>
+<p>We want to <strong>connect</strong> to our <strong>space</strong> which is dispatching the <strong>LogicUpdate</strong> event. We will have our <code class="docutils literal"><span class="pre">OnLogicUpdate</span></code> function called when we receive the event. To do this we will use the <code class="docutils literal"><span class="pre">Zero.Connect</span></code> function.</p>
+<ul>
+<li><p class="first">In your <strong>PlayerController</strong> script</p>
+<ul class="simple">
+<li>Replace the code in the <strong>Initialize</strong> function with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Connect to the LogicUpdate event fired by the space:</span>
+    <span class="c1">//       when the space    gets a LogicUpdate event   call my OnLogicUpdate function</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span>   <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span>        <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="RunTheGame.html#runthegame2014"><span>Run the game</span></a></p>
+</li>
+</ul>
+<p></p>
+<p>We now know that our <code class="docutils literal"><span class="pre">OnLogicUpdate</span></code> function is being called because the word “updated” is repeatedly being printed in the Console Window:</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">updated</span>
+<span class="n">updated</span>
+<span class="n">updated</span>
+<span class="n">updated</span>
+<span class="n">updated</span>
+<span class="n">updated</span>
+<span class="n">updated</span>
+<span class="n">updated</span>
+<span class="n">updated</span>
+<span class="n">updated</span>
+</pre></div>
+</div>
+<p>Events send different event types. The LogicUpdate event sends an <strong>UpdateEvent</strong> which contains how much time has passed in the space (<strong>TimePassed</strong>) and the change in time from the previous frame to this frame (denoted by <strong>Dt</strong> to represent delta time) in <strong>seconds</strong>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a> if it is currently open</li>
+<li>Open the <strong>PlayerController</strong> script</li>
+<li>Replace the code in the <strong>OnLogicUpdate</strong> function with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>   <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+   <span class="p">{</span>
+<span class="hll">       <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;TimePassed: `event.TimePassed`&quot;</span><span class="p">);</span>
+</span><span class="hll">       <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Updated with dt of: `event.Dt`&quot;</span><span class="p">);</span>
+</span>   <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame2014"><span>Run the game</span></a></li>
+</ul>
+<p>We should see the time passed (in seconds) is increasing by the Dt (delta time) of each frame:</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game  ----------------
+Compiling Zilch Library
+Hello from Player
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+TimePassed: 0.0159611
+Updated with dt of: 0.0166567
+TimePassed: 0.0340954
+Updated with dt of: 0.0166567
+TimePassed: 0.0510914
+Updated with dt of: 0.0166567
+TimePassed: 0.068136
+Updated with dt of: 0.0166567
+TimePassed: 0.0851685
+Updated with dt of: 0.0166567
+TimePassed: 0.102257
+</pre></div>
+</div>
+<p></p>
+</div>
+<div class="section" id="keyboard-input">
+<h2>Keyboard Input</h2>
+<p>Now we will detect keyboard input. In the Zero Engine, we can use the <code class="docutils literal"><span class="pre">Zero.Keyboard.KeyIsPressed</span></code> function to detect user input. This function accepts a key id argument that is associated with specific keys on the keyboard.</p>
+<p>Let&#8217;s detect if the Up arrow key is pressed:</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+<li>Open the <strong>PlayerController</strong> script</li>
+<li>Update the <strong>OnLogicUpdate</strong> function with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>   <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+   <span class="p">{</span>
+<span class="hll">       <span class="c1">// If I press the up arrow key,</span>
+</span><span class="hll">       <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Up</span><span class="p">))</span>
+</span><span class="hll">       <span class="p">{</span>
+</span><span class="hll">           <span class="c1">// print confirmation it happened.</span>
+</span><span class="hll">           <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Up Arrow Pressed&quot;</span><span class="p">);</span>
+</span><span class="hll">       <span class="p">}</span>
+</span>   <span class="p">}</span>
+</pre></div>
+</div>
+<p>The Zero.Keyboard.KeyIsPressed function returns a <strong>Boolean</strong> value. This value can either be <strong>true</strong> or <strong>false</strong>; therefore, the function call can be used by the if statement as its boolean condition.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Now when you pressed the Up arrow key on the keyboard, it should print “Up Arrow Pressed” in the Console Window.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="frame-based-movement">
+<h2>Frame-based Movement</h2>
+<p>Up until now, we have been detecting input from the keyboard and printing to the Console Window. Now we are going to make our Player object move using code in our PlayerController script. We know from setting our properties in the editor that the <strong>Transform</strong> component is where our <strong>Translation</strong> (position) is held. Our Translation is stored as a 3D Vector. Now we will update the Translation vector inside the Transform component from within our PlayerController script.</p>
+<p></p>
+<p>Let&#8217;s make our Player move along the positive world y-axis when we press the Up arrow key:</p>
+<ul class="simple">
+<li>Open the <strong>PlayerController</strong> script</li>
+<li>Update the <strong>OnLogicUpdate</strong> function with the following line of code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>   <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+   <span class="p">{</span>
+       <span class="c1">// If I press the up arrow key,</span>
+       <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Up</span><span class="p">))</span>
+       <span class="p">{</span>
+           <span class="c1">// print confirmation it happened.</span>
+           <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Up Arrow Pressed&quot;</span><span class="p">);</span>
+<span class="hll">           <span class="c1">// Move up along world y-axis.</span>
+</span><span class="hll">           <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+=</span> <span class="nx">local</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+</span>       <span class="p">}</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+<p>With this code, we are adding a 3D vector to our Transform&#8217;s 3D translation vector. This should move our object in the positive direction along the world y-axis.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+<li>Press the Up arrow key repeatedly</li>
+</ul>
+<p>Now in addition to printing, the Player object should be moving by 1 unit in the positive direction along the world y-axis. We have been checking for the up arrow key being <strong>pressed</strong>. Let&#8217;s check for if the up arrow key is being held <strong>down</strong>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+<li>Open the <strong>PlayerController</strong> script</li>
+<li>In the <strong>OnLogicUpdate</strong> function, change <code class="docutils literal"><span class="pre">KeyIsPressed</span></code> to <code class="docutils literal"><span class="pre">KeyIsDown</span></code>:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// If I hold down the up arrow key,</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Up</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+<li>Hold the up arrow key down</li>
+</ul>
+<p>The Player object continues moving as long as the Up arrow key is held down. Now let&#8217;s rotate our player object.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+<li>Open the <strong>PlayerController</strong> script</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li>change the <strong>OnLogicUpdate</strong> to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>   <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+   <span class="p">{</span>
+<span class="hll">      <span class="c1">// Have a place to record the total movement we want to make:</span>
+</span><span class="hll">      <span class="k">var</span> <span class="nx">movement</span> <span class="o">=</span> <span class="nx">local</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+</span><span class="hll">      <span class="c1">// Have a place to record the rotation we want to perform:</span>
+</span><span class="hll">      <span class="k">var</span> <span class="nx">rotationAngles</span> <span class="o">=</span> <span class="nx">local</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+</span><span class="hll">      <span class="k">var</span> <span class="nx">rotationAngle</span> <span class="o">=</span> <span class="mf">45.0</span><span class="o">;</span>
+</span>
+
+      <span class="c1">// If I hold down the up arrow key,</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Up</span><span class="p">))</span>
+      <span class="p">{</span>
+<span class="hll">          <span class="c1">// Record desired upward motion along the world y-axis:</span>
+</span><span class="hll">          <span class="nx">movement</span> <span class="o">+=</span> <span class="nx">local</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+</span>      <span class="p">}</span>
+<span class="hll">      <span class="c1">// If I hold down the down arrow key,</span>
+</span><span class="hll">      <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Down</span><span class="p">))</span>
+</span><span class="hll">      <span class="p">{</span>
+</span><span class="hll">          <span class="c1">// Record desired downward motion along the world y-axis:</span>
+</span><span class="hll">          <span class="nx">movement</span> <span class="o">+=</span> <span class="nx">local</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+</span><span class="hll">      <span class="p">}</span>
+</span><span class="hll">      <span class="c1">// If I hold down the right arrow key,</span>
+</span><span class="hll">      <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Right</span><span class="p">))</span>
+</span><span class="hll">      <span class="p">{</span>
+</span><span class="hll">          <span class="c1">// Record desired rotation around the world z-axis:</span>
+</span><span class="hll">          <span class="nx">rotationAngles</span><span class="p">.</span><span class="nx">Z</span> <span class="o">-=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ToRadians</span><span class="p">(</span><span class="nx">rotationAngle</span><span class="p">);</span>
+</span><span class="hll">      <span class="p">}</span>
+</span><span class="hll">      <span class="c1">// If I hold down the left arrow key,</span>
+</span><span class="hll">      <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Left</span><span class="p">))</span>
+</span><span class="hll">      <span class="p">{</span>
+</span><span class="hll">          <span class="c1">// Record desired rotation around the world z-axis:</span>
+</span><span class="hll">          <span class="nx">rotationAngles</span><span class="p">.</span><span class="nx">Z</span> <span class="o">+=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ToRadians</span><span class="p">(</span><span class="nx">rotationAngle</span><span class="p">);</span>
+</span><span class="hll">      <span class="p">}</span>
+</span>
+<span class="hll">      <span class="c1">// Apply the recorded movement and rotation to our Transform</span>
+</span><span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+=</span> <span class="nx">movement</span><span class="o">;</span>
+</span><span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">RotateAnglesWorld</span><span class="p">(</span><span class="nx">rotationAngle</span><span class="p">);</span>
+</span>   <span class="p">}</span>
+</pre></div>
+</div>
+<p>Here we got an error displayed in our Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    this.Owner.Transform.RotateAnglesWorld(rotationAngle);
+
+The function &#39;RotateAnglesWorld&#39; exists, but could not be resolved since the types
+ of the arguements used did not match. The arguements you gave were:
+
+  RotateAnglesWorld(Real)
+
+The possible choices were:
+
+  RotateAnglesWorld(angles : Real3)
+</pre></div>
+</div>
+<p><cite>The types of the arguments did not match</cite></p>
+</div>
+<div class="section" id="parameters">
+<h2>Parameters</h2>
+<p>Arguments or <strong>parameters</strong> are variables or data you <strong>pass</strong> to the function. Parameters are the data you put inside the parentheses, (), when calling a function. It allows a function to operate without all the knowledge upfront. In <code class="docutils literal"><span class="pre">this.Owner.Transform.RotateAnglesWorld()</span></code> the passing of a parameter to the function allows us to rotate by <strong>any</strong> 3 angles for each axes, <cite>without</cite> knowing a head of time which angles we&#8217;ll be rotating by.</p>
+<p>Therefore, the error has to do with passing <code class="docutils literal"><span class="pre">rotationAngle</span></code> into the function <code class="docutils literal"><span class="pre">this.Owner.Transform.RotateAnglesWorld()</span></code>.</p>
+<p>Here we accidentally passed in <code class="docutils literal"><span class="pre">rotationAngle</span></code>, a single number or <code class="docutils literal"><span class="pre">Real</span></code>, instead of rotationAngles, our 3D vector, or <code class="docutils literal"><span class="pre">Real3</span></code>, holding the rotation angles for each axis.</p>
+</div>
+<div class="section" id="types">
+<h2>Types</h2>
+<p>At the very beginnings of computer logic is the ability to change the outcome depending on the current state: ON or OFF. If we represent ON as 1 and OFF as 0 we can string them together to represent more data in a format called binary. Computers interpretation of data, the 1s and 0s, depends on it&#8217;s type:</p>
+<p>Given 0100100001101001:</p>
+<ul>
+<li><p class="first">Interpreted as a String using the ASCII table the value is:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Hi</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Interpreted as a based 10, decimal number (the way we usually count) the value is:</p>
+<blockquote>
+<div><ul class="simple">
+<li>18537</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Interpreted as a based 16, hexadecimal number the value is:</p>
+<blockquote>
+<div><ul class="simple">
+<li>4869</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>The ways to use the information is boundless, so the way we ensure we get the results we expect is to denote the <strong>type</strong>. On your computer this is done with file extensions. It lets the computer know how to read the data file, and choose which program to open it with. This is why computers always ask for confirmation on changing file extensions, reinterpreting the data in a file might result in a nonsensical output. (You can see this by changing a small picture&#8217;s file extension to .txt and opening it.)</p>
+<p>In the same way, 1s and 0s are used to represent everything in your program. In Zilch, you can explicitly specify your type to make sure your data is interpreted correctly. See the following snippet for an example:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// The colon after our variable name marks that the next word is</span>
+<span class="c1">// the type we want this variable to be interpreted as.</span>
+<span class="k">var</span> <span class="nx">movement</span><span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">local</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+
+<span class="c1">// Without the type explicitly specified, Zilch infers the</span>
+<span class="c1">// type based on what you assign to it.</span>
+<span class="k">var</span> <span class="nx">numberOfLives</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Assumptions of the type can be made from assignment of values called <strong>literals</strong>.</p>
+<p></p>
+<p>So let&#8217;s modify the last two lines of our <strong>OnLogicUpdate</strong> function so the type matches:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="c1">// Apply the recorded movement and rotation to our Transform</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+=</span> <span class="nx">movement</span><span class="o">;</span>
+<span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">RotateAnglesWorld</span><span class="p">(</span><span class="nx">rotationAngles</span><span class="p">);</span>
+</span></pre></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Literals</p>
+<dl class="last docutils">
+<dt>Here are some examples:</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="64%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Zilch Type</th>
+<th class="head">Literal</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Integer</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>DoubleInteger</td>
+<td>1d</td>
+</tr>
+<tr class="row-even"><td>Real</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td>DoubleReal</td>
+<td>1.0d</td>
+</tr>
+<tr class="row-even"><td rowspan="2">Boolean</td>
+<td>true</td>
+</tr>
+<tr class="row-odd"><td>false</td>
+</tr>
+<tr class="row-even"><td>String</td>
+<td>&#8220;hello&#8221;</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+<li>Press the Up, Down, and Right arrow keys to move forward, move back, and rotate clockwise, respectively.</li>
+</ul>
+</div>
+<div class="section" id="time-based-movement">
+<h2>Time-based Movement</h2>
+<p>So far, we have been doing frame-based movement and rotation. This means that we will get different speeds if we run our game on faster or slower computers. We can avoid these inconsistencies by taking time into account with our movement. Basically, instead of moving a set number of units every frame, we will move a set number of units every second. We do this by multiplying our units by how much time has passed since the previous frame. Let&#8217;s update our code to have time-based movement.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a> and open the <strong>PlayerController</strong> script</li>
+<li>Update the <strong>OnLogicUpdate</strong> function with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Make sure the we only get the direction of the vector:</span>
+<span class="nx">movement</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Normalize</span><span class="p">(</span><span class="nx">movement</span><span class="p">);</span>
+
+<span class="c1">// Apply the recorded movement and rotation to our Transform</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+=</span> <span class="nx">movement</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="o">;</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">RotateAnglesWorld</span><span class="p">(</span><span class="nx">rotationAngles</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>The Player object should now moving at one unit per second and rotating at 45 degrees per second. Now let&#8217;s incorporate speed by making a speed variable:</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+<li>Open the <strong>PlayerController</strong> script</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li>Update the <strong>OnLogicUpdate</strong> function with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>   <span class="c1">// Have a place to record the total movement we want to make:</span>
+   <span class="k">var</span> <span class="nx">movement</span> <span class="o">=</span> <span class="nx">local</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="hll">   <span class="k">var</span> <span class="nx">speed</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">;</span>
+</span></pre></div>
+</div>
+<div class="highlight-as"><div class="highlight"><pre><span></span>    <span class="c1">// Apply the recorded movement and rotation to our Transform</span>
+<span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+=</span> <span class="nx">movement</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span> <span class="o">*</span> <span class="nx">speed</span><span class="o">;</span>
+</span></pre></div>
+</div>
+<p>After normalizing our movement vector, which makes it of unit length, we then scale that by 10 to make it 10 units in that direction. This results in a translation of 10 units every second in that direction.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a> to see that we now have a decent movement speed.</li>
+</ul>
+</div>
+<div class="section" id="orientation">
+<h2>Orientation</h2>
+<p>Now that we have the basics covered, we will learn how to use the <strong>Orientation</strong> component to achieve more control over movement. At this point, we can rotate the player object around the <strong>world</strong> z-axis and move it along the positive and negative <strong>world</strong> y-axis. What if we wanted to move the object in whatever direction the object was currently “facing”. In other words, what if we wanted to take the object&#8217;s <strong>orientation</strong> into account when applying movement. Objects will be treated as if they have their own coordinate system which we can then use as we see fit. In the Zero Engine, this can be done using an <strong>Orientation</strong> component, which allows us to define and change our object&#8217;s “forward” direction.</p>
+<p>Now we will use the Orientation component to move along the Player object&#8217;s forward direction so that the Player object will move in the direction it is facing even after we rotate.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+<li>Open the <strong>PlayerController</strong> script</li>
+<li>Update the <strong>OnLogicUpdate</strong> function with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>      <span class="c1">// Have a place to record the rotation we want to perform:</span>
+      <span class="k">var</span> <span class="nx">rotationAngles</span> <span class="o">=</span> <span class="nx">local</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+      <span class="k">var</span> <span class="nx">rotationAngle</span> <span class="o">=</span> <span class="mf">45.0</span><span class="o">;</span>
+<span class="hll">      <span class="c1">// Have a direction that denotes where we are facing:</span>
+</span><span class="hll">      <span class="k">var</span> <span class="nx">forwardDirection</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span><span class="o">;</span>
+</span></pre></div>
+</div>
+<p>We are getting the Player object&#8217;s forward direction vector in relation to its current orientation in the world by using the <strong>WorldForward</strong> member provided by the Orientation component. Notice that in order to access the Orientation component, we must first start with <strong>this</strong> (which is this PlayerController class on this script) and then access the <strong>Owner</strong> object (Player object) that this PlayerController script is attached to. Then from there we can access the components of the Player object. Now we will use the <strong>forwardDirection</strong> vector variable instead of our hard-coded Real3(0.0,1.0,0.0) and Real3(0.0,-1.0,0.0) vectors which do not take the Player object&#8217;s relative coordinates into account.</p>
+<p></p>
+<ul class="simple">
+<li>Update the <strong>OnLogicUpdate</strong> function with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>       <span class="c1">// If I hold down the up arrow key,</span>
+       <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Up</span><span class="p">))</span>
+       <span class="p">{</span>
+<span class="hll">           <span class="c1">// Record desired forward motion along the forward direction:</span>
+</span><span class="hll">           <span class="nx">movement</span> <span class="o">+=</span> <span class="nx">forwardDirection</span><span class="o">;</span>
+</span>       <span class="p">}</span>
+       <span class="c1">// If I hold down the down arrow key,</span>
+       <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Down</span><span class="p">))</span>
+       <span class="p">{</span>
+<span class="hll">           <span class="c1">// Record desired backward motion along the forward direction:</span>
+</span><span class="hll">           <span class="nx">movement</span> <span class="o">+=</span> <span class="o">-</span><span class="nx">forwardDirection</span><span class="o">;</span>
+</span>       <span class="p">}</span>
+</pre></div>
+</div>
+<p>Take note that we negate the forward direction by putting the minus sign directly before it. We are adding the negative or opposite forward direction when the Down arrow key is held down.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Uh oh! We got an error. We seem to have made the common mistake of forgetting to actually add the Orientation component.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the Player object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Click the Add Component... area<ul>
+<li>Type: Orientation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+<img alt="1000000000000154000000B52A063C9A_pngWeb" src="../../_images/1000000000000154000000B52A063C9A.png" />
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/1000000000000154000000B52A063C9A.png"><img alt="1000000000000154000000B52A063C9A_pngBook" src="../../_images/1000000000000154000000B52A063C9A.png" style="height: 3.0in;" /></a>
+--></p>
+<ul class="simple">
+<li>Select Orientation or press enter to add the Orientation component to the Player object</li>
+</ul>
+<p></p>
+<p>The player should now have the Orientation component added and listed in the Properties Window:</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under Orientation<ul>
+<li>Set DefaultOrientation to: ForwardXUpY</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="100000000000011B00000100F6B5ACD2_png" src="../../_images/100000000000011B00000100F6B5ACD2.png" /> <img alt="OrientationAfterDropDown_png" src="../../_images/OrientationAfterDropDown.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Now if you press the Up arrow key, the Player object should move forward along its forward direction.
+If you rotate the Player object with the Right arrow key, you will see that the Player object&#8217;s forward direction remains relative to the Player object&#8217;s new rotation.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the Player object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Under Orientation</p>
+<ul class="simple">
+<li>Click EditBasis Button</li>
+</ul>
+<p><img alt="EditBasis_png" src="../../_images/EditBasis.png" /></p>
+<p></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The properties will now reflect the settings for the current basis used for your Orientation component:</p>
+<p><img alt="RotationProxyFxUy_png" src="../../_images/RotationProxyFxUy.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li>Under Transform<ul>
+<li>Set Rotation to: [0, 90, 0]</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the Player</span></a></li>
+</ul>
+<p>In the Properties Window you can see the positive y-axis is now the Player object&#8217;s local forward direction:</p>
+<p><img alt="YForward_png" src="../../_images/YForward.png" /></p>
+<p>You can also move the Player object along your “right” and “up” directions in the same way that the Player object moves along its “forward” direction with <cite>WorldRight</cite> and <cite>WorldUp</cite>, respectively.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">orphan:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<!-- this is used as a file for inclusion in other .rst files --></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CollisionEvents.html" class="btn btn-neutral float-right" title="Collision Events" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Scripting.html" class="btn btn-neutral" title="Scripting" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/ScriptingEvents.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:23:14 GMT -->
+</html>

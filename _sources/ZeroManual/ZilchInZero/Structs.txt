@@ -1,0 +1,45 @@
+.. _ZilchStructs:
+
+.. rst-class:: SearchTitle
+
+Structs
+=======
+
+.. rst-class:: SearchDescription
+
+Structs are a :doc:`by-value type<Memory_Management>` that may have functions and their own set of ``by-value`` data members (i.e. :doc:`those defined by Zilch<Variables_And_Data_Types>`, or structs thereof) accessible by the **this** keyword.
+
+.. code-block:: as
+
+    // Note:
+    // -struct keyword is used
+    // -struct name must be capitalized
+    struct MyStructName
+    {// Definition of struct goes between {}
+        
+        // Structs can have their own data
+        // Note: their names must be capitalized.
+        var MyData : Real = 0.0;
+        
+        // Constructors use the 'constructor' keyword
+        constructor()
+        {
+        }
+        
+        function MyFunction()
+        {
+          // Access instance variables using the 'this' keyword.
+          this.MyOtherFunction();
+        }
+        
+        function MyOtherFunction(): Real
+        {
+          // Access fields with the 'this' keyword.
+          return this.MyData * 0.01;
+        }
+    }
+
+Unlike other languages, there is no way to initalize the struct without use of a constructor, so one must be provided to use any instance functions, properties, or fields.
+
+Constructors are similar to functions in that they can take parameters, but they always return an instance of the type they are constructing. 
+Because their return type is set, the area used for a function's return type is actually used for calling parent constructors as necessary. For more, look into :doc:`Inheritance`.

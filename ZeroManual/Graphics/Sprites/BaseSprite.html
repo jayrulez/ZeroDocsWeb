@@ -1,0 +1,340 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Graphics/Sprites/BaseSprite.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:30 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BaseSprite &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Sprites and SpriteText" href="index.html"/>
+        <link rel="next" title="Sprite" href="Sprite.html"/>
+        <link rel="prev" title="Sprites and SpriteText" href="index.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Graphics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../CamerasViewportsRenderers/index.html">Cameras, Viewports and Renderers</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Sprites and SpriteText</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">BaseSprite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Sprite.html">Sprite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpriteText.html">SpriteText</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpriteLayer.html">SpriteLayer and SpriteLayerOrder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Graphics</a> &raquo;</li>
+      
+          <li><a href="index.html">Sprites and SpriteText</a> &raquo;</li>
+      
+    <li>BaseSprite</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Graphics/Sprites/BaseSprite.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="basesprite">
+<span id="manualbasesprite"></span><h1>BaseSprite</h1>
+<p class="searchdescription">While not being a class that is directly accessed by the User, both the Sprite class and the SpriteText class inherit directly from the BaseSprite class, making it an important class on its own. Any of the Properties of the BaseSprite class can be directly used by either Sprites or SpriteText, changing many of the visual aspects of the Object.</p>
+<div class="section" id="using-the-color-picker">
+<span id="manualbasespritecolorpicker"></span><h2>Using the Color Picker</h2>
+<div class="sidebar">
+<p class="first sidebar-title">The strength of the Eye Dropper</p>
+<p class="last">Using the Eye Dropper tool, it&#8217;s possible to take colors from any image that is on the computer screen. For example, by having an image of a painting open, it becomes possible to take the colors used for the painting and make the same color palette.</p>
+</div>
+<p>The base color of a <a class="reference internal" href="../../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a> can be changed in several different methods:</p>
+<ul class="simple">
+<li>Entering the Hex Code of the desired color into the Color Picker. For example, <code class="docutils literal"><span class="pre">FF0000</span></code> for Red.</li>
+<li>Click and Drag the Eye Dropper tool onto the desired color on screen.</li>
+<li>By setting the Color property as a <code class="docutils literal"><span class="pre">Real4</span></code> within a ZilchScript.</li>
+<li>Choosing the desired color in the Color Picker either in the gradient window or by directly setting either the RGBA or HSV values.</li>
+</ul>
+<p><img alt="ColorPicker" src="../../../_images/ColorPicker.png" /></p>
+<div class="sidebar">
+<p class="first sidebar-title">ZilchScript vs Editor Differences</p>
+<p class="last">You&#8217;ll notice when using the Color Picker tool in Editor the RGB values go between 0 and 255, however when changing the color through a ZilchScript the Color Property takes a <code class="xref cpp cpp-type docutils literal"><span class="pre">Real4</span></code> with the parameters of (R, G, B, A) that are between 0 and 1. You can get these values by dividing the RGB values by 255; for example, a purple color with an RGB of (255, 0, 185) and Alpha of 1 would have a Real4 of (1.0, 0.0, 0.73, 1).</p>
+</div>
+<p>As you can see, there are several parameters that can be changed using the Color Picker:</p>
+<ul class="simple">
+<li>(H)ue: The base color of the Sprite object, ranging between 0 and 360</li>
+<li>(S)aturation: How deep the base color is, ranging from 0 to 100</li>
+<li>(V)alue: How bright the color is, ranging from 0 to 100</li>
+<li>(R)ed: Between 0 and 255</li>
+<li>(B)lue: Between 0 and 255</li>
+<li>(G)reen: Between 0 and 255</li>
+<li>(A)lpha: Transparency, ranging between 0 and 1</li>
+<li>HDR: High Dynamic Range, which allows for the Sprite to show a higher luminosity value than normal</li>
+<li>#: Hex Code of the current color</li>
+</ul>
+<p>Depending on the current parameter chosen the Color Picker will change how it looks, however two things will always remain constant:</p>
+<ul class="simple">
+<li>The Parameter Bar will always adjust the currently selected parameter between 0 at the bottom, and that parameters maximum value at the top</li>
+<li>The Alpha Bar will always adjust the Alpha value, from 0 at the bottom to 1 at the top</li>
+</ul>
+<p>Using these the color can be changed to any shade needed. Alternately if either the HSV or RGB values are known, they can also simply be typed in.</p>
+</div>
+<div class="section" id="blend-modes">
+<span id="manualbasespriteblendmodes"></span><h2>Blend Modes</h2>
+<p>Blend Modes are used to tell the program how to mix two or more overlapping Sprites. In instances of overlap,the Blend Mode of the Sprite on the topmost layer is always used. There are several types of Blend Modes built into the Zero Engine.</p>
+<ul class="simple">
+<li>Alpha: The visibility of the Sprite is determined by the Alpha value. The lower the value, the more transparent, or &#8220;see-through&#8221;, the Sprite becomes</li>
+<li>Additive: The currently selected Sprite adds the RGB value of the Sprite beneath it to its own RGB value, creating a new color by mixing the two. It also is the only other Blend Mode that uses the Alpha value</li>
+<li>Multiply: The currently selected Sprite multiplies its own values with those of the Sprites beneath it to create a new value, much like Additive. However, Additive tends to create a brighter overall color whereas Multiply will create a darker one</li>
+<li>MultiplyAdd: First uses the Multiply Blend mode, followed by Adding the created color to the Sprites original color</li>
+<li>ColorAdditive: Similar to Additive, this will add the RGB value of any Sprites beneath it to it&#8217;s own RGB value. However unlike Additive, this does not have Alpha Blending.</li>
+<li>None: The Sprite will always be a solid color, so long as it&#8217;s on the topmost <a class="reference internal" href="../../CodeReference/Reference/SpriteLayer.html#_CPPv211SpriteLayer" title="SpriteLayer"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteLayer</span></code></a></li>
+</ul>
+<p>The following image illustrates how the different Blend Modes&#8211;and the corresponding layers they are placed on&#8211;affect similar Sprites.</p>
+<p><img alt="ColorLayers" src="../../../_images/ColorLayers.png" /></p>
+</div>
+<div class="section" id="properties-and-methods-of-basesprite">
+<h2>Properties and Methods of BaseSprite</h2>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/BaseSprite.html#referencebasesprite"><span>BaseSprite Code Reference</span></a></li>
+</ul>
+</div>
+<div class="section" id="related-materials">
+<span id="manualbasespriterelated"></span><h2>Related Materials</h2>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><span class="xref std std-ref">Sprites</span></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/SpriteLayer.html#_CPPv211SpriteLayer" title="SpriteLayer"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteLayer</span></code></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Sprite.html" class="btn btn-neutral float-right" title="Sprite" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Sprites and SpriteText" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Graphics/Sprites/BaseSprite.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:30 GMT -->
+</html>

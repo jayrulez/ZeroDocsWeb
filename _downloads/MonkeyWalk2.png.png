@@ -1,0 +1,8 @@
+<?php
+if (file_exists("MonkeyWalk2.png")) {
+header("Content-disposition: attachment; filename=\"MonkeyWalk2.png\"");
+header("Content-type: application/octet-stream");
+header('Content-Length: ' . filesize("MonkeyWalk2.png"));
+readfile("MonkeyWalk2.png");
+}
+?>

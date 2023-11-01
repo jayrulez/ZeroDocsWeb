@@ -1,0 +1,94 @@
+.. _ReferenceJointConfigOverride:
+
+.. rst-class:: searchtitle
+
+JointConfigOverride
+===================
+
+.. rst-class:: searchdescription
+
+Overrides the joint's configuration values of slop, linear Baumgarte, angular Baumgarte and linear max error correction. Slop is the amount of error allowed before position correction takes effect. Baumgarte is used to exponentially correct the error. Baumgarte is split into linear and angular portions because of stability. The linear max error correction is only used when the joint is solved with post stabilization.
+
+.. include:: Description/JointConfigOverride.rst
+
+.. cpp:class:: JointConfigOverride
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceJointConfigOverrideProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog JointConfigOverride::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space JointConfigOverride::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog JointConfigOverride::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession JointConfigOverride::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real JointConfigOverride::Slop
+
+            The amount of error allowed before position correction takes effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real JointConfigOverride::LinearBaumgarte
+
+            The exponential correction term for linear error.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real JointConfigOverride::AngularBaumgarte
+
+            The exponential correction term for angular error.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real JointConfigOverride::LinearErrorCorrection
+
+            The max amount of error that can be corrected by the linear portion of any constraint in one frame.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real JointConfigOverride::AngularErrorCorrection
+
+            The max amount of error that can be corrected by the angular portion of any constraint in one frame.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint JointConfigOverride::PositionCorrectionType
+
+            The kind of position correction that this joint should use.
+
+.. _ReferenceJointConfigOverrideMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void JointConfigOverride::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/JointConfigOverride.rst

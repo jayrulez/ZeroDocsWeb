@@ -1,0 +1,591 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2016/FollowingCamera.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:52:12 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Following Camera &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2016" href="index.html"/>
+        <link rel="next" title="Animated Player" href="AnimatedSpritesSheets.html"/>
+        <link rel="prev" title="Using the Swept Controller" href="UsingTheSweptController.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2016</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath1.html">Vector Math, part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hierarchies.html">Hierarchies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprite Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting4.html">Scripting 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HierarchiesInCode.html">Hierarchies in Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events3.html">Events 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events4.html">Events 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogPaths.html">Cog Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Spaces.html">Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath2.html">Vector Math, part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Following Camera</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2016</a> &raquo;</li>
+      
+    <li>Following Camera</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2016/FollowingCamera.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- this is used as a file for inclusion in other .rst files --><div class="searchtitle section" id="following-camera">
+<span id="followingcamera"></span><h1>Following Camera</h1>
+<p class="searchdescription">This lesson covers creating a camera, setting it as the in-game camera, basic camera movement, camera logic, and smooth camera movement.</p>
+<div class="section" id="learning-objectives">
+<span id="followingcameravocab"></span><h2>Learning Objectives</h2>
+<p>Learn to...</p>
+<ul class="simple">
+<li>Use cameras to view the scene from different perspective.</li>
+<li>Create a camera that follows another object.</li>
+<li>Rename ZilchScript resources.</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="38%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Camera</td>
+<td>Orthographic Projection</td>
+</tr>
+<tr class="row-odd"><td>Interpolation</td>
+<td>Perspective Projection</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="LauncherNewProject.html#createnewproject"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<p>Here is how our level should look after we do our initial level setup:</p>
+<p><a class="reference internal" href="../../_images/InitialLevelSetup5.png"><img alt="InitialLevelSetup" src="../../_images/InitialLevelSetup5.png" style="width: 5.0in;" /></a></p>
+<p>Our initial level setup includes a ground, 2 walls, and the player object.</p>
+<p><strong>Player Object</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In Properties Window<ul>
+<li>Set Name to: Player</li>
+<li>Under Sprite<ul>
+<li>Set Color to: Orange [R: 255, G: 128, B: 0, A: 1.00]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Ground Objects</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In Properties Window<ul>
+<li>Set Name to: Ground</li>
+<li>Under Transform<ul>
+<li>Set Translation to: [-10, -1, 0]</li>
+<li>Set Scale to: [20, 1, 1]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li>Paste a copy of the Ground object and <a class="reference internal" href="SelectObject.html#selectobject"><span>select it</span></a></li>
+<li>In Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set Translation to: [10, -1, 0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Here is our objects in the Objects Window:</p>
+<p><a class="reference internal" href="../../_images/ObjectsAfterLevelSetup3.png"><img alt="ObjectsAfterLevelSetup" src="../../_images/ObjectsAfterLevelSetup3.png" style="height: 1.5in;" /></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a></li>
+</ul>
+</div>
+<div class="section" id="camera-component">
+<h2>Camera Component</h2>
+<p>Since our camera is 2D, we will cover the 2D aspects of the camera. If you select the Camera object, you will see that a preview of what the camera can &#8220;see&#8221; is displayed in the Level Window:</p>
+<p> <a class="reference internal" href="../../_images/DisplayMount3.png"><img alt="DisplayMountWeb" src="../../_images/DisplayMount3.png" style="width: 8.35in;" /></a></p>
+<p><!--
+<a class="reference internal" href="../../_images/DisplayMount3.png"><img alt="DisplayMountBook" src="../../_images/DisplayMount3.png" style="height: 3.0in;" /></a>
+--></p>
+<p>Anything outside of the rectangle will not be seen by the camera when we run the game.</p>
+<p></p>
+<p>The Camera component uses the position and rotation of the Transform component. The size of this rectangle can be set with the Camera component&#8217;s Size property.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Camera object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Camera<ul>
+<li>Set ProjectionMode to: Orthographic</li>
+<li>Set Size to: 1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p> <a class="reference internal" href="../../_images/Size13.png"><img alt="Size1Web" src="../../_images/Size13.png" style="width: 5.0in;" /></a></p>
+<blockquote>
+<div><!-- <a class="reference internal" href="../../_images/CameraComp2.png"><img alt="CameraComp" src="../../_images/CameraComp2.png" style="height: 3.0in;" /></a> --></div></blockquote>
+<p>Notice how the length and width of the camera&#8217;s viewing area is now 1 unit, which is why only the Player object (which has a width and height of 1) is visible.</p>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Under Camera<ul>
+<li>Set Size to: 7</li>
+</ul>
+</li>
+</ul>
+<p> <img alt="Size7Web" src="../../_images/Size73.png" /></p>
+<p><!-- <a class="reference internal" href="../../_images/Size73.png"><img alt="Size7Book" src="../../_images/Size73.png" style="height: 3.0in;" /></a> --></p>
+</li>
+</ul>
+<p> <a class="reference internal" href="../../_images/Size7View3.png"><img alt="Size7ViewWeb" src="../../_images/Size7View3.png" style="width: 8.35in;" /></a></p>
+</div>
+<div class="section" id="camera-movement">
+<h2>Camera Movement</h2>
+<p>Now that we have a camera setup, let&#8217;s start on some camera logic. First, we will make the camera move. Moving a camera is just like moving any other game object.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding"><span>Add a new ZilchScript resource</span></a> named: &#8216;CameraMovement&#8217;</li>
+<li>Change the <strong>CameraMovement</strong> script to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">CameraMovement</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// we want to update our camera&#39;s position each game loop</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// check if we pressed on the left key</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Left</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="c1">// create a new temporary variable to hold our camera&#39;s position</span>
+      <span class="k">var</span> <span class="nx">cameraPos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">LocalTranslation</span><span class="o">;</span>
+      <span class="c1">// update the position one unit</span>
+      <span class="nx">cameraPos</span><span class="p">.</span><span class="nx">X</span> <span class="o">-=</span> <span class="mf">1.0</span><span class="o">;</span>
+      <span class="c1">// set the camera&#39;s transform to our new position</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">LocalTranslation</span> <span class="o">=</span> <span class="nx">cameraPos</span><span class="o">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// check if we pressed on the right key</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Right</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="c1">// create a new temporary variable to hold our camera&#39;s position</span>
+      <span class="k">var</span> <span class="nx">cameraPos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">LocalTranslation</span><span class="o">;</span>
+      <span class="c1">// update the position one unit</span>
+      <span class="nx">cameraPos</span><span class="p">.</span><span class="nx">X</span> <span class="o">+=</span> <span class="mf">1.0</span><span class="o">;</span>
+      <span class="c1">// set the camera&#39;s transform to our new position</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">LocalTranslation</span> <span class="o">=</span> <span class="nx">cameraPos</span><span class="o">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Camera object</span></a><ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent"><span>Add the CameraMovement component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame"><span>run the game</span></a></li>
+</ul>
+<p>Now the camera can be moved in game by pressing the Left and Right arrow keys.</p>
+<p></p>
+</div>
+<div class="section" id="camera-logic">
+<h2>Camera Logic</h2>
+<p>Now we will make the camera follow the Player object.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Camera object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Click the X along side the CameraMovement script to remove it from the Camera object</li>
+</ul>
+</li>
+<li>Close the CameraMovement script by clicking the X on the CameraMovement tab (if it is open)</li>
+</ul>
+</div>
+<div class="section" id="renaming-zilchscripts">
+<h2>Renaming ZilchScripts</h2>
+<p>Now we will make the Player object move. We can use the script that we just removed from the Camera object, but its current name is not accurate anymore. We can simply rename the script with these simple steps:</p>
+<ul>
+<li><p class="first">In the Library Window</p>
+<ul>
+<li><p class="first">Under the ZilchScript tab</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Right-Click</span></code> on the CameraMovement ZilchScript</p>
+<ul class="simple">
+<li>Select Rename</li>
+<li>Set the Name to: Movement</li>
+</ul>
+</li>
+<li><p class="first">Open the Movement ZilchScript</p>
+<ul class="simple">
+<li>Rename the <strong>CameraMovement</strong> class to: Movement</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="hll">  <span class="kd">class</span> <span class="nx">Movement</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+</span>  <span class="p">{</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="moving-the-player-object">
+<h2>Moving the Player Object</h2>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Player object</span></a></li>
+<li>Add the Movement script to the Player object</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame"><span>run the game</span></a></li>
+</ul>
+<p>We now have basic movement for the Player object by pressing the Left and Right arrow keys, but if we move too far, we are unable to see the Player object.</p>
+<p></p>
+</div>
+<div class="section" id="making-the-camera-follow-the-player-object">
+<h2>Making the Camera Follow the Player Object</h2>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding"><span>Add a new ZilchScript resource</span></a> named: &#8216;CameraLogic&#8217;</li>
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Camera object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent"><span>Add the CameraLogic component</span></a></li>
+</ul>
+</li>
+</ul>
+<p>We will start by simply having the CameraLogic script set the Camera&#8217;s translation along the x-axis to be the same as the Player object&#8217;s translation along the x-axis (without changing the camera&#8217;s translation along the y or z-axis.)</p>
+<p>There&#8217;s one little problem: we don&#8217;t have access to the Player object&#8217;s Transform component from inside the CameraLogic script as it is attached to the Camera object.</p>
+</div>
+<div class="section" id="getting-the-player-object">
+<h2>Getting the Player Object</h2>
+<p>We will use a cogpath to solve this problem. <strong>Cog</strong> is the name used to refer to game objects. If read from right to left, the name Cog is an acronym for Game Object Composition. This is because our game objects are simply a composition of components and/or child game objects.</p>
+<ul class="simple">
+<li>Change the <strong>CameraLogic</strong> script to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="kd">class</span> <span class="nx">CameraLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+  <span class="p">{</span>
+        <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+        <span class="k">var</span> <span class="nx">TargetobjectCogPath</span> <span class="o">:</span> <span class="nx">CogPath</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="hll">    <span class="k">var</span> <span class="nx">TargetObject</span> <span class="o">:</span> <span class="nx">Cog</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">TargetObject</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">TargetObjectCogPath</span><span class="p">.</span><span class="nx">Cog</span><span class="o">;</span>
+</span>      <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>Line 6 is a Cog variable to store a reference to our <code class="docutils literal"><span class="pre">Player</span></code>. On line 7 we use the <code class="docutils literal"><span class="pre">TargetobjectCogPath</span></code> to get access to the <code class="docutils literal"><span class="pre">Player</span></code>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a></li>
+</ul>
+<p></p>
+<p>Now that we have a TargetObject, we can access its information.</p>
+<ul class="simple">
+<li>Change the <strong>CameraLogic script&#8217;s OnLogicUpdate</strong> to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// create a new variable to hold the player&#39;s position</span>
+  <span class="k">var</span> <span class="nx">newCameraPos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">TargetObject</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">LocalTranslation</span><span class="o">;</span>
+  <span class="c1">// save the camera&#39;s z value</span>
+  <span class="nx">newCameraPos</span><span class="p">.</span><span class="nx">Z</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">LocalTranslation</span><span class="p">.</span><span class="nx">Z</span><span class="o">;</span>
+  <span class="c1">// set the camera&#39;s new position to newCameraPos</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">LocalTranslation</span> <span class="o">=</span> <span class="nx">newCameraPos</span><span class="o">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Camera object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under CameraLogic<ul>
+<li>Set Path to point at the <code class="docutils literal"><span class="pre">Player</span></code> object.</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Using the TargetObject variable, we accessed the target object&#8217;s translation to obtain the x and y components to help update our Camera&#8217;s position.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame"><span>run the game</span></a></li>
+</ul>
+<p>Now when we move the Player object using the Left and Right arrow keys, the camera follows the Player object.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="AnimatedSpritesSheets.html" class="btn btn-neutral float-right" title="Animated Player" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="UsingTheSweptController.html" class="btn btn-neutral" title="Using the Swept Controller" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2016/FollowingCamera.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:52:14 GMT -->
+</html>

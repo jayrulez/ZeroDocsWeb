@@ -1,0 +1,1010 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/VectorMath.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:18:12 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Vector Math &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2015" href="index.html"/>
+        <link rel="next" title="Ray Casting" href="RayCasting.html"/>
+        <link rel="prev" title="Random" href="Random.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2015</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprites and Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ArraysLoops.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Random.html">Random</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Vector Math</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="RayCasting.html">Ray Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PracticalParticles.html">Particle Effects: Practical Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LauncherNewProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Adding &amp; Removing Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tags.html">Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2015</a> &raquo;</li>
+      
+    <li>Vector Math</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2015/VectorMath.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- this is used as a file for inclusion in other .rst files --><div class="searchtitle section" id="vector-math">
+<span id="vectormath"></span><h1>Vector Math</h1>
+<p class="searchdescription">This snippet goes over vector math in the Zero Engine. Addition/subtraction, magnitude, normalization, and the dot product are covered.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="LauncherNewProject.html#createnewproject2015"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="vectors">
+<h2>Vectors</h2>
+<p>A vector is the representation of a direction with a magnitude. An example is giving directions for travelling South by several meters. South is the direction, and several meters is the distance to travel in that direction. In our case the magnitude represents the speed.</p>
+<p>A vector is composed of multiple components. Usually there is one component for each dimension of a vector. For now only 2 dimensional vectors are considered. A two dimensional vector has an x and a y coordinate, and this represents distances along both the x and y axis.</p>
+<p><img alt="Vector" src="../../_images/VectorComponets.png" /></p>
+<p>Although representation of vectors might look like a plotted point, position is non-existent with vectors. These plotted points are represented by the vector as some direction and magnitude away from the origin, (0, 0).</p>
+<p></p>
+</div>
+<div class="section" id="getting-the-angle-of-a-vector">
+<h2>Getting the Angle of a Vector</h2>
+<p>The Angle of a vector refers to the angle the positive x-axis travelling counterclockwise to the vector whose angle we are finding.</p>
+<p><img alt="AngleOfVector" src="../../_images/AngleOfVector1.png" /></p>
+<p><em>The Angles of the vector are represented by Φ and φ respectively.</em></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">ATan2Example</span></code></p>
+</li>
+<li><p class="first">In the Objects Window</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the LevelSettings object</span></a></li>
+<li>Remove the GravityEffect component</li>
+<li>Remove the DragEffect component</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add the ATan2Example component</span></a></li>
+</ul>
+<p><img alt="AddCompATan2" src="../../_images/AddCompATan2.png" /></p>
+</li>
+</ul>
+<p></p>
+<blockquote>
+<div><ul class="simple">
+<li>Update the <strong>ATan2Example</strong> script with the following code:</li>
+</ul>
+</div></blockquote>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">ATan2Example</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// We want to receive logic update events.</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Make a vector for demonstration purposes:</span>
+        <span class="k">var</span> <span class="nx">vectorA</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">1.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;vectorA: `vectorA`&quot;</span><span class="p">);</span>
+
+        <span class="c1">// Use atan to find the Angle in both raadians and degrees of our vector</span>
+        <span class="k">var</span> <span class="nx">oppositeOverAdjacent</span> <span class="o">=</span> <span class="nx">vectorA</span><span class="p">.</span><span class="nx">Y</span> <span class="o">/</span> <span class="nx">vectorA</span><span class="p">.</span><span class="nx">X</span><span class="o">;</span>
+        <span class="k">var</span> <span class="nx">arcTangentInRadians</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ATan</span><span class="p">(</span><span class="nx">oppositeOverAdjacent</span><span class="p">);</span>
+        <span class="k">var</span> <span class="nx">arcTangentInDegrees</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ToDegrees</span><span class="p">(</span><span class="nx">arcTangentInRadians</span><span class="p">);</span>
+
+        <span class="c1">// Print out results</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;atan - oppositeOverAdjacent: `oppositeOverAdjacent`&quot;</span><span class="p">);</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;atan - Radians `arcTangentInRadians`&quot;</span><span class="p">);</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;atan - Degrees: `arcTangentInDegrees`&quot;</span><span class="p">);</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a></li>
+<li>Open the Console Window (Tilde key or Console command)</li>
+</ul>
+<p>We want the Console Window open so that we can see what we print from the script at run-time.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>vectorA: (1, 1, 0)
+atan - oppositeOverAdjacent: 1
+atan - Radians 0.785398
+atan - Degrees: 45
+---
+</pre></div>
+</div>
+<p>This seems like the correct result:</p>
+<p><img alt="Vector45Deg" src="../../_images/Vector45Deg.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+<ul class="simple">
+<li>Update the following line of code in the <strong>ATan2Example</strong> script:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>      <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+      <span class="p">{</span>
+          <span class="c1">// Make a vector for demonstration purposes:</span>
+<span class="hll">          <span class="k">var</span> <span class="nx">vectorA</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+</span>          <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;vectorA: `vectorA`&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>We set the X component of the vector to -1. The expected result is 135 degrees.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Here is what should get printed in the Console Window:</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>vectorA: (-1, 1, 0)
+atan - oppositeOverAdjacent: -1
+atan - Radians -0.785398
+atan - Degrees: -45
+---
+</pre></div>
+</div>
+<p>We didn&#8217;t get 135 degrees, but we got negative 45 degrees instead. This is due to the limitations of the atan function.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+<li>Update the following line of code in the <strong>ATan2Example</strong> script:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+      <span class="c1">// Make a vector for demonstration purposes:</span>
+<span class="hll">      <span class="k">var</span> <span class="nx">vectorA</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+</span>      <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;vectorA: `vectorA`&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>We set the X component of the vector to 0. The expected result is 90 degrees.</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Console Output</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+vectorA: (0, 1, 0)
+********************** Zilch Exception **********************
+  File &quot;C:\Users\cassandra.sundberg\Documents\ZeroProjects\VectormathZ\Content\ATan2Example.z&quot;, line 16, in OnLogicUpdate
+Attempted to divide an integer by zero
+*************************************************************
+</pre></div>
+</div>
+<p>We get a division by zero error because the X component is zero.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="using-atan2">
+<h2>Using atan2</h2>
+<ul class="simple">
+<li>Update the <strong>OnLogicUpdate</strong> function in the <strong>ATan2Example</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+      <span class="c1">// Make a vector for demonstration purposes:</span>
+      <span class="k">var</span> <span class="nx">vectorA</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+      <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;vectorA: `vectorA`&quot;</span><span class="p">);</span>
+<span class="hll">      <span class="cm">/*</span>
+</span><span class="cm">      // Use atan to find the Angle in both raadians and degrees of our vector</span>
+<span class="cm">      var oppositeOverAdjacent = vectorA.Y / vectorA.X;</span>
+<span class="cm">      var arcTangentInRadians = Math.ATan(oppositeOverAdjacent);</span>
+<span class="cm">      var arcTangentInDegrees = Math.ToDegrees(arcTangentInRadians);</span>
+
+<span class="cm">      // Print out results</span>
+<span class="cm">      Console.WriteLine(&quot;atan - oppositeOverAdjacent: `oppositeOverAdjacent`&quot;);</span>
+<span class="cm">      Console.WriteLine(&quot;atan - Radians `arcTangentInRadians`&quot;);</span>
+<span class="cm">      Console.WriteLine(&quot;atan - Degrees: `arcTangentInDegrees`&quot;);</span>
+<span class="cm">      Console.WriteLine(&quot;---&quot;);</span>
+<span class="hll"><span class="cm">      */</span>
+</span>  <span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Notice how only two lines were changed</em></p>
+<p>You make have noticed that the syntax higlighting changed the lines between our additions. This is to indicate that we&#8217;ve just created a block comment.</p>
+<ul class="simple">
+<li>Add the following code to the <strong>OnLogicUpdate</strong> function in the <strong>ATan2Example</strong> script:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+      <span class="c1">// Make a vector for demonstration purposes:</span>
+      <span class="k">var</span> <span class="nx">vectorA</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+      <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;vectorA: `vectorA`&quot;</span><span class="p">);</span>
+      <span class="cm">/*</span>
+<span class="cm">      // Use atan to find the Angle in both raadians and degrees of our vector</span>
+<span class="cm">      var oppositeOverAdjacent = vectorA.Y / vectorA.X;</span>
+<span class="cm">      var arcTangentInRadians = Math.ATan(oppositeOverAdjacent);</span>
+<span class="cm">      var arcTangentInDegrees = Math.ToDegrees(arcTangentInRadians);</span>
+
+<span class="cm">      // Print out results</span>
+<span class="cm">      Console.WriteLine(&quot;atan - oppositeOverAdjacent: `oppositeOverAdjacent`&quot;);</span>
+<span class="cm">      Console.WriteLine(&quot;atan - Radians `arcTangentInRadians`&quot;);</span>
+<span class="cm">      Console.WriteLine(&quot;atan - Degrees: `arcTangentInDegrees`&quot;);</span>
+<span class="cm">      Console.WriteLine(&quot;---&quot;);</span>
+<span class="cm">      */</span>
+
+<span class="hll">      <span class="c1">// Use atan2 to find the Angle in both raadians and degrees of our vector</span>
+</span><span class="hll">      <span class="k">var</span> <span class="nx">arcTangentInRadians</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ATan2</span><span class="p">(</span><span class="nx">vectorA</span><span class="p">.</span><span class="nx">Y</span><span class="o">,</span> <span class="nx">vectorA</span><span class="p">.</span><span class="nx">X</span><span class="p">);</span>
+</span><span class="hll">      <span class="k">var</span> <span class="nx">arcTangentInDegrees</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ToDegrees</span><span class="p">(</span><span class="nx">arcTangentInRadians</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">      <span class="c1">// Print out results</span>
+</span><span class="hll">      <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;atan2 - Radians `arcTangentInRadians`&quot;</span><span class="p">);</span>
+</span><span class="hll">      <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;atan2 - Degrees: `arcTangentInDegrees`&quot;</span><span class="p">);</span>
+</span><span class="hll">      <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">);</span>
+</span>  <span class="p">}</span>
+</pre></div>
+</div>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Now we are utilizing the atan2 function which handles these cases for us in order to provide the expected results:</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>vectorA: (0, 1, 0)
+atan2 - Radians 1.5708
+atan2 - Degrees: 90
+---
+</pre></div>
+</div>
+<ul>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first">In the Objects Window</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Remove the ATan2Example script component</li>
+</ul>
+<p><img alt="NoAtanExample" src="../../_images/NoAtanExample.png" /></p>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="length-magnitude-of-a-vector">
+<h2>Length (Magnitude) of a Vector</h2>
+<p>The magnitude is found with the Pythagorean theorem. The Pythagorean theorem states that, given a right triangle and two sides of known length, the third side can be solved for with the following equation:</p>
+<p><img alt="PythagoreanTheorem" src="../../_images/PythagoreanTheorem.png" /></p>
+<p>Because the standard coordinate system axes are separated by a right angle:</p>
+<p><img alt="PerpendicularAxes" src="../../_images/PerpendicularAxes.png" /></p>
+<p><em>notice the 90 degrees between the x and y axes</em></p>
+<p></p>
+<p>We can use the x coordinate of a vector as <cite>a</cite>, and the y coordinate of a vector as <cite>b</cite>, and plug both <cite>a</cite> and <cite>b</cite> into the Pythagorean theorem to solve for the magnitude of any 2D vector. Here is the Pythagorean theorem when solving for <cite>c</cite> (not solving for <cite>c</cite><sup>2</sup>):</p>
+<p><img alt="SolveForHypotenuse" src="../../_images/SolveForHypotenuse.png" /></p>
+<p>Our vector (5, 2) has a length of: 5.385 (rounded).</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Sprite object that was just created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">VelocityExample</span></code></li>
+<li>Add a RigidBody component</li>
+<li>Under Sprite<ul>
+<li>Set SpriteSource to: Circle</li>
+</ul>
+</li>
+<li>Under Transform<ul>
+<li>Set Scale to: [2, 2, 2]</li>
+</ul>
+</li>
+<li>Under RigidBody<ul>
+<li>Set Velocity to: [3, -1, 0]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p><img alt="MovingCircle" src="../../_images/MovingCircle.png" /></p>
+<p>The VelocityExample object is now moving at a constant velocity. Let&#8217;s see if we can set up a more visual representation of the velocity vector.</p>
+<p></p>
+</div>
+<div class="section" id="debug-draw">
+<h2>Debug Draw</h2>
+<p>The Zero Engine provides us with debug drawing functionality that allows drawing debug text, lines, and other shapes giving us more visual cues as to what is happening in our game.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">VectorExample1</span></code></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add the VectorExample1 component to the VelocityExample object</span></a></li>
+<li>Update the <strong>VectorExample1</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">VectorExample1</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nb">Transform</span><span class="o">:</span> <span class="nb">Transform</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// We want to receive logic update events.</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">DisplayUnitSphere</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">DisplayUnitSphere</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Draw a Unit circle at this object&#39;s position.</span>
+        <span class="k">var</span> <span class="nx">position</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+        <span class="k">var</span> <span class="nx">radius</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">;</span>
+        <span class="k">var</span> <span class="nx">unitCircle</span> <span class="o">=</span> <span class="nx">DebugSphere</span><span class="p">();</span>
+        <span class="nx">unitCircle</span><span class="p">.</span><span class="nx">Position</span><span class="p">(</span><span class="nx">position</span><span class="p">);</span>
+        <span class="nx">unitCircle</span><span class="p">.</span><span class="nx">Radius</span><span class="p">(</span><span class="nx">radius</span><span class="p">);</span>
+
+        <span class="c1">// Change the color for better visibility</span>
+        <span class="nx">unitCircle</span><span class="p">.</span><span class="nx">Float4Color</span><span class="p">(</span><span class="nx">Real4</span><span class="p">(</span><span class="mf">1.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">));</span>
+
+        <span class="c1">// Make sure it draws!</span>
+        <span class="nx">unitCircle</span><span class="p">.</span><span class="nx">Draw</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p></p>
+<p>A sphere with a radius of 1.0 should be drawn at the location of the VelocityExample object:</p>
+<blockquote>
+<div><img alt="MovingCircleDebug" src="../../_images/MovingCircleDebug.png" /></div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p>Now that we have our debug drawing we can stop drawing our Sprite.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the VelocityExample object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Sprite<ul>
+<li>Set Visible: False</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p><img alt="MovingDebug" src="../../_images/MovingDebug.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="velocity-vector">
+<h2>Velocity Vector</h2>
+<p>Now we will display the VelocityExample object&#8217;s velocity vector using debug draw.</p>
+<ul class="simple">
+<li>Open the <strong>VectorExample1</strong> script<ul>
+<li>Add the following code to the <strong>OnLogicUpdate</strong> function:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>    <span class="k">this</span><span class="p">.</span><span class="nx">DisplayUnitSphere</span><span class="p">();</span>
+<span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">DisplayVelocityVector</span><span class="p">();</span>
+</span></pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li>Add the following function to the <strong>VectorExample1</strong> class:</li>
+</ul>
+</div></blockquote>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">DisplayVelocityVector</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Settings for the debug vector</span>
+    <span class="k">var</span> <span class="nx">startPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+    <span class="c1">// Point       = Point         + Vector</span>
+    <span class="c1">// EndPosition = StartPosition + VelocityVector</span>
+    <span class="k">var</span> <span class="nx">endPosition</span> <span class="o">=</span> <span class="nx">startPosition</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">RigidBody</span><span class="p">.</span><span class="nx">Velocity</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">arrowHeadSize</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">vectorVisual</span> <span class="o">=</span> <span class="nx">DebugLine</span><span class="p">();</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">HeadSize</span><span class="p">(</span><span class="nx">arrowHeadSize</span><span class="p">);</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Start</span><span class="p">(</span><span class="nx">startPosition</span><span class="p">);</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">End</span><span class="p">(</span><span class="nx">endPosition</span><span class="p">);</span>
+
+    <span class="c1">// Change the color for better visibility</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Float4Color</span><span class="p">(</span><span class="nx">Real4</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">));</span>
+
+    <span class="c1">// Make sure it draws!</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Draw</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this code we are adding the velocity vector to the position of the object in order to draw the vector relative to the object&#8217;s position. Remember that vectors do not have a position. The exact same vector can exist anywhere.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p><img alt="DebugVector" src="../../_images/DebugVector.png" /></p>
+<p></p>
+</div>
+<div class="section" id="scaling-a-vector">
+<h2>Scaling a Vector</h2>
+<p>Scaling a vector means changing the length or <strong>magnitude</strong> without changing its direction. In this way, scaling a vector is modifying the components of a vector <em>without modifying the ratio between the components</em>. This is done by multiplying or dividing each component of a vector by a single number.</p>
+<p><img alt="ScalingAVector" src="../../_images/ScalingAVector.png" /></p>
+</div>
+<div class="section" id="normalizing-vectors">
+<h2>Normalizing Vectors</h2>
+<p>A normalized vector (also known as a <strong>unit</strong> vector) is a vector that has a length of 1 unit. In other words, normalizing a vector means that the length will be 1, but the direction is retained. A vector is normalized by dividing each component (x, y, z, etc.) by the magnitude of the vector.</p>
+<p><img alt="UnitVector" src="../../_images/UnitVector.png" /></p>
+<p><em>Vectors are denoted with an arrow while unit vectors have a &#8220;hat&#8221;, ^, above them. The bars around the v means it represents the magnitude of that vector</em></p>
+<ul class="simple">
+<li>Open the <strong>VectorExample1</strong> script<ul>
+<li>Add the following code to the <strong>OnLogicUpdate</strong> function:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="k">this</span><span class="p">.</span><span class="nx">DisplayUnitSphere</span><span class="p">();</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">DisplayVelocityVector</span><span class="p">();</span>
+<span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">DisplayNormalizedVector</span><span class="p">();</span>
+</span></pre></div>
+</div>
+<p></p>
+<blockquote>
+<div><ul class="simple">
+<li>Add the following function to the <strong>VectorExample1</strong> class:</li>
+</ul>
+</div></blockquote>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">DisplayNormalizedVector</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Settings for the debug vector</span>
+    <span class="k">var</span> <span class="nx">startPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+    <span class="c1">// Point        = Point         + Vector</span>
+    <span class="c1">// EndPosition  = StartPosition + Normalized VelocityVector</span>
+    <span class="k">var</span> <span class="nx">endPosition</span> <span class="o">=</span> <span class="nx">startPosition</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Normalize</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">RigidBody</span><span class="p">.</span><span class="nx">Velocity</span><span class="p">);</span>
+
+    <span class="k">var</span> <span class="nx">arrowHeadSize</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">vectorVisual</span> <span class="o">=</span> <span class="nx">DebugLine</span><span class="p">();</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">HeadSize</span><span class="p">(</span><span class="nx">arrowHeadSize</span><span class="p">);</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Start</span><span class="p">(</span><span class="nx">startPosition</span><span class="p">);</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">End</span><span class="p">(</span><span class="nx">endPosition</span><span class="p">);</span>
+
+    <span class="c1">// Change the color for better visibility</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Float4Color</span><span class="p">(</span><span class="nx">Real4</span><span class="p">(</span><span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.5</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">));</span>
+
+    <span class="c1">// Make sure it draws!</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Draw</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Here you can see the difference between the full velocity vector and the normalized unit vector:</p>
+<p><img alt="NormalizedDebug" src="../../_images/NormalizedDebug.png" /></p>
+<p>Observe how the orange vector is the same length as the radius of the unit sphere. This visually shows us that the orange vector is the normalized velocity vector. You can change the RigidBody component&#8217;s Velocity and then run the game again to see the velocity direction and magnitude change.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="dot-product">
+<h2>Dot Product</h2>
+<p>The dot product is sort of like a mix between scaling and adding vectors. To perform a dot product you sum the products of each component between two vectors. In this way component-wise multiplication is performed, and the result is a scalar.</p>
+<p>If this sounded confusing don&#8217;t worry, there are some diagrams and more explanations coming along.</p>
+<p><img alt="GenericDotProduct" src="../../_images/GenericDotProduct.png" /> <img alt="DotProductExample" src="../../_images/DotProductExample.png" /></p>
+<p>In the above math, the x components were multiplied together, and the y components were multiplied together. These two multiplications result in two products (3 and 10). Add these two products together to get to a result of 13, which is the dot product of the two vectors. The following diagram describes the dot product between two vectors on the unit circle:</p>
+<p><img alt="UnitCircle" src="../../_images/UnitCircle.png" /></p>
+<p>The above image demonstrated the relationship between two vectors that are dotted together: the scalar result represents one vector projected onto the other. Projection can be thought of as the magnitude in which both vectors travel in the same direction; thus result of the dot product is a length.</p>
+<p></p>
+</div>
+<div class="section" id="three-dimensions">
+<h2>Three Dimensions</h2>
+<p>Adding a third dimension (3D) introduces a z component to the vector. All operations in the previous sections are the exact same, except one more step is introduced. For example, adding two 3D vectors will look like the following:</p>
+<p><img alt="3DAddition" src="../../_images/3DAddition.png" /></p>
+<p>Scaling a vector follows the same pattern:</p>
+<p><img alt="3DScaling" src="../../_images/3DScaling.png" /></p>
+<p>And lastly the dot product between two 3D vectors:</p>
+<p><img alt="3DDot" src="../../_images/3DDot.png" /></p>
+<p>Because we are focusing on 2D, we will just make the Z component be zero unless we are using the Z component for sorting objects (choosing which objects are drawn in front of or behind other objects) as seen below.</p>
+<p></p>
+</div>
+<div class="section" id="dot-product-in-code">
+<h2>Dot Product In Code</h2>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Sprite object that was just created</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Set Name to: <code class="docutils literal"><span class="pre">DPExample</span></code></li>
+</ul>
+<p><img alt="DPExample" src="../../_images/DPExample.png" /></p>
+<ul class="simple">
+<li>Under Sprite<ul>
+<li>Set Visible to: False</li>
+</ul>
+</li>
+<li>Under Transform<ul>
+<li>Set Translation to: [2, 2, 0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>We will be getting the vector from the origin to this object.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Scale to: [2, 2, 2]</li>
+</ul>
+</div></blockquote>
+<p></p>
+<p>The following diagram describes how we get a vector from one point to another:</p>
+<p><img alt="LookAtVector" src="../../_images/LookAtVector.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">VectorExample2</span></code></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add the VectorExample2 component to the DPExample object</span></a></li>
+<li>Update the <strong>VectorExample2</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">VectorExample2</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">SphereRadius</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">2.83</span><span class="o">;</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// We want to receive logic update events.</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">DisplaySphere</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">DisplaySphere</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">startPosition</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="o">-</span><span class="mf">20.0</span><span class="p">);</span>
+        <span class="k">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="nx">Real4</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">);</span>
+
+        <span class="k">var</span> <span class="nx">sphere</span> <span class="o">=</span> <span class="nx">DebugSphere</span><span class="p">();</span>
+        <span class="nx">sphere</span><span class="p">.</span><span class="nx">Position</span><span class="p">(</span><span class="nx">startPosition</span><span class="p">);</span>
+        <span class="nx">sphere</span><span class="p">.</span><span class="nx">Float4Color</span><span class="p">(</span><span class="nx">color</span><span class="p">);</span>
+        <span class="nx">sphere</span><span class="p">.</span><span class="nx">Radius</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">SphereRadius</span><span class="p">);</span>
+        <span class="nx">sphere</span><span class="p">.</span><span class="nx">Draw</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p></p>
+<p>This code simply displays a unit sphere at the origin of the level, but we offset it a bit on the z-axis so that the debug draw lines we draw later on will be on top. (The statement about using the Z component for sorting that was stated above was referring to this section of the snippet.) Here is what the level should look like:</p>
+<p><img alt="WithOrigin" src="../../_images/WithOrigin.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+<li>Open the <strong>VectorExample2</strong><ul>
+<li>Add the following code to the <strong>OnLogicUpdate</strong> function:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>      <span class="k">this</span><span class="p">.</span><span class="nx">DisplaySphere</span><span class="p">();</span>
+
+<span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">UpdateAngle</span><span class="p">();</span>
+</span><span class="hll">      <span class="c1">// Calculate and display dot product results</span>
+</span><span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">DotProductExample</span><span class="p">();</span>
+</span>
+  <span class="o">*</span>   <span class="nx">Add</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">member</span> <span class="nx">to</span> <span class="nx">the</span> <span class="o">**</span><span class="nx">VectorExample2</span><span class="o">**</span> <span class="kd">class</span>
+</pre></div>
+</div>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="k">var</span> <span class="nx">SphereRadius</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">2.83</span><span class="o">;</span>
+<span class="hll">  <span class="k">var</span> <span class="nx">Angle</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Pi</span> <span class="o">*</span> <span class="mf">0.5</span><span class="o">;</span> <span class="c1">// Radians</span>
+</span>
+  <span class="o">*</span>   <span class="nx">Add</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">functions</span> <span class="nx">to</span> <span class="nx">the</span> <span class="o">**</span><span class="nx">VectorExample2</span><span class="o">**</span> <span class="kd">class</span>
+</pre></div>
+</div>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">UpdateAngle</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Left</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Angle</span> <span class="o">+=</span> <span class="mf">0.02</span><span class="o">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Right</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Angle</span> <span class="o">-=</span> <span class="mf">0.02</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p></p>
+<div class="sidebar">
+<p class="first sidebar-title">Look repetitive?</p>
+<p>That&#8217;s because it is. Any time you find yourself using copy and paste code to duplicate the functionality in your project consider turning it into a function.</p>
+<p><cite>Why should I functionalize?</cite></p>
+<p>It is on a case-by-case basis, but the following are good reasons:</p>
+<ul class="last simple">
+<li>When doing so makes the code more readable.</li>
+<li>When functionalizing reduces the amount of maintenance when the implementation changes.</li>
+</ul>
+</div>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">DotProductExample</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Display x-axis</span>
+    <span class="k">var</span> <span class="nx">xAxis</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">SphereRadius</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+
+    <span class="c1">// Settings for the debug vector</span>
+    <span class="k">var</span> <span class="nx">startPosition</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">();</span>
+    <span class="k">var</span> <span class="nx">endPosition</span> <span class="o">=</span> <span class="nx">xAxis</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">arrowHeadSize</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">vectorVisual</span> <span class="o">=</span> <span class="nx">DebugLine</span><span class="p">();</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">HeadSize</span><span class="p">(</span><span class="nx">arrowHeadSize</span><span class="p">);</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Start</span><span class="p">(</span><span class="nx">startPosition</span><span class="p">);</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">End</span><span class="p">(</span><span class="nx">endPosition</span><span class="p">);</span>
+
+    <span class="c1">// Change the color for better visibility</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Float4Color</span><span class="p">(</span><span class="nx">Real4</span><span class="p">(</span><span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">));</span>
+
+    <span class="c1">// Make sure it draws!</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Draw</span><span class="p">();</span>
+
+
+    <span class="c1">// Settings for the debug vector</span>
+    <span class="nx">startPosition</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">();</span>
+    <span class="nx">endPosition</span> <span class="o">=</span>
+     <span class="nb">Math</span><span class="p">.</span><span class="nx">RotateVector</span><span class="p">(</span><span class="nx">xAxis</span><span class="o">,</span>
+                       <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">,</span>
+                       <span class="k">this</span><span class="p">.</span><span class="nx">Angle</span><span class="p">);</span>
+    <span class="nx">arrowHeadSize</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">;</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">HeadSize</span><span class="p">(</span><span class="nx">arrowHeadSize</span><span class="p">);</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Start</span><span class="p">(</span><span class="nx">startPosition</span><span class="p">);</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">End</span><span class="p">(</span><span class="nx">endPosition</span><span class="p">);</span>
+
+    <span class="c1">// Change the color for better visibility</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Float4Color</span><span class="p">(</span><span class="nx">Real4</span><span class="p">(</span><span class="mf">1.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">));</span>
+
+    <span class="c1">// Make sure it draws!</span>
+    <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Draw</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this code we are create a vector to represent the x-axis and another vector with an adjustable angle via the left and right arrows starting at a value of π/2 or 90 degrees.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p></p>
+<p>Here is how the level should look:</p>
+<p><img alt="DrawingXaxis" src="../../_images/DrawingXaxis.png" /></p>
+<p><img alt="ChangingAngle" src="../../_images/ChangingAngle.png" /></p>
+<p><em>We can adjust the angle of the yellow vector with the left and right arrow keys.</em></p>
+<p></p>
+<div class="admonition-refactor-challenge admonition">
+<p class="first admonition-title">Refactor Challenge</p>
+<p>Write a helper function for displaying the vectors.</p>
+<p>Reduce this:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">vectorVisual</span> <span class="o">=</span> <span class="nx">DebugLine</span><span class="p">();</span>
+<span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">HeadSize</span><span class="p">(</span><span class="nx">arrowHeadSize</span><span class="p">);</span>
+<span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Start</span><span class="p">(</span><span class="nx">startPosition</span><span class="p">);</span>
+<span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">End</span><span class="p">(</span><span class="nx">endPosition</span><span class="p">);</span>
+<span class="c1">// Change the color for better visibility</span>
+<span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Float4Color</span><span class="p">(</span><span class="nx">Real4</span><span class="p">(</span><span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">));</span>
+<span class="c1">// Make sure it draws!</span>
+<span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>to this:</p>
+<div class="last highlight-as"><div class="highlight"><pre><span></span>                                                           <span class="c1">// color</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">DrawVector</span><span class="p">(</span><span class="nx">startPosition</span><span class="o">,</span> <span class="nx">endPosition</span><span class="o">,</span> <span class="nx">arrowHeadSize</span><span class="o">,</span> <span class="nx">Real4</span><span class="p">(</span><span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<p>Now we will calculate the dot product between the 2 vectors.</p>
+<ul class="simple">
+<li>Open the <strong>VectorExample2</strong> script<ul>
+<li>Add the following code to the <strong>DotProductExample</strong> function:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>      <span class="c1">// Make sure it draws!</span>
+      <span class="nx">vectorVisual</span><span class="p">.</span><span class="nx">Draw</span><span class="p">();</span>
+
+<span class="hll">      <span class="c1">// Calculate the dot product between the vector we have and the x-axis:</span>
+</span><span class="hll">      <span class="nx">xAxis</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Normalize</span><span class="p">(</span><span class="nx">xAxis</span><span class="p">);</span>
+</span><span class="hll">      <span class="k">var</span> <span class="nx">movingVector</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Normalize</span><span class="p">(</span><span class="nx">endPosition</span><span class="p">);</span>
+</span><span class="hll">      <span class="c1">// Here we are getting the dot product of two normalized vectors</span>
+</span><span class="hll">      <span class="k">var</span> <span class="nx">dotProduct</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Dot</span><span class="p">(</span><span class="nx">movingVector</span><span class="o">,</span> <span class="nx">xAxis</span><span class="p">);</span>
+</span><span class="hll">      <span class="k">var</span> <span class="nx">dotProductRounded</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Round</span><span class="p">(</span><span class="nx">dotProduct</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+</span></pre></div>
+</div>
+<p>This code gets the vector from the origin to the object, and then dots it with the vector representing the x-axis. Notice how we normalize both vectors before we dot them. This is because if we normalize them first, then we can use the result to get the angle between the two vectors. This will only work if both vectors are normalized.</p>
+<p></p>
+</div>
+<div class="section" id="getting-the-angle-between-two-vectors-in-code">
+<h2>Getting the Angle Between Two Vectors in Code</h2>
+<ul class="simple">
+<li>Append the following code to the <strong>DotProductExample</strong> function:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// We will also display the arccosine of this value to compare with the angle we used to create our vector</span>
+<span class="k">var</span> <span class="nx">arcCosineOfDotProduct</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ACos</span><span class="p">(</span><span class="nx">dotProduct</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">arcCosineOfDotProductInDegrees</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ToDegrees</span><span class="p">(</span><span class="nx">arcCosineOfDotProduct</span><span class="p">);</span>
+
+<span class="k">var</span> <span class="nx">displayCalculations</span> <span class="o">=</span> <span class="nx">DebugText</span><span class="p">();</span>
+<span class="nx">displayCalculations</span><span class="p">.</span><span class="nx">Position</span><span class="p">(</span><span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">8.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">));</span>
+<span class="k">var</span> <span class="nx">displayText</span> <span class="o">=</span> <span class="nx">StringBuilder</span><span class="p">();</span>
+<span class="nx">displayText</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;dot product: `dotProduct`&quot;</span><span class="p">);</span>
+<span class="nx">displayText</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;dot product rounded: `dotProductRounded`&quot;</span><span class="p">);</span>
+<span class="nx">displayText</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;arccosine of dot product rounded: `arcCosineOfDotProduct`&quot;</span><span class="p">);</span>
+<span class="nx">displayText</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;angle of moving vector: `this.Angle`&quot;</span><span class="p">);</span>
+<span class="nx">displayText</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;angle of moving vector in degrees: `Math.ToDegrees(this.Angle)`&quot;</span><span class="p">);</span>
+<span class="nx">displayText</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;arccosine of dot product in degrees: `Math.ToDegrees(arcCosineOfDotProduct)`&quot;</span><span class="p">);</span>
+<span class="nx">displayCalculations</span><span class="p">.</span><span class="nx">Size</span><span class="p">(</span><span class="mf">0.60</span><span class="p">);</span>
+<span class="nx">displayCalculations</span><span class="p">.</span><span class="nx">Float4Color</span><span class="p">(</span><span class="nx">Real4</span><span class="p">(</span><span class="mf">1.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">));</span>
+<span class="nx">displayCalculations</span><span class="p">.</span><span class="nx">DisplayText</span><span class="p">(</span><span class="nx">displayText</span><span class="p">.</span><span class="nx">ToString</span><span class="p">());</span>
+<span class="nx">displayCalculations</span><span class="p">.</span><span class="nx">Draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p><img alt="AnglesMatch" src="../../_images/AnglesMatch.png" /></p>
+<p><img alt="AngleWrapped" src="../../_images/AngleWrapped.png" /></p>
+<p><em>Here we can see that before the angle wraps around the arccosine gives us the same angle. This only works with normalized vectors.</em></p>
+<p>You may notice that arccosine only works for a limited range. The inability to determine when the vector has a negative y-value leads to positive angles that no longer reflect the angle of the vector.
+A problem often solved using the cross-product, this is topic beyond the scope of this lesson.</p>
+<p>Now we know how to add, subtract, find the magnitude of, get the dot product of, create from an angle , and normalize vectors via the Math library as well as use some handy debug draw features.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="RayCasting.html" class="btn btn-neutral float-right" title="Ray Casting" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Random.html" class="btn btn-neutral" title="Random" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/VectorMath.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:18:20 GMT -->
+</html>

@@ -1,0 +1,79 @@
+.. _ManualMultiConvexMeshCollider:
+
+.. rst-class:: SearchTitle
+
+MultiConvexMeshCollider
+=======================
+
+.. rst-class:: SearchDescription
+
+The :cpp:type:`MultiConvexMeshCollider` is a collider meant for approximating concave objects with a series of convex pieces. The :cpp:type:`MultiConvexMesh` itself is created in the :ref:`MultiConvexMesh Editor<ManualMultiConvexMeshEditor>`, a powerful tool that allows the user multiple options for computing the mesh. While the MultiConvexMeshCollider is not limited to what objects it may be applied to, the editor is limited to only working with :cpp:type:`Sprites<Sprite>`.
+
+
+
+.. _ManualMultiConvexMeshColliderCommon:
+
+Common Uses
+-----------
+
+*   Approximating collision for concave objects using a series of convex pieces.
+
+.. _ManualMultiConvexMeshColliderUsing:
+
+Using the MultiConvexMeshCollider
+---------------------------------
+
+.. sidebar:: Recommended Reading
+
+    This page includes topics one might not have encountered yet. To learn about or review these materials, the following list provides the links to their respective Manual or Tutorial pages:
+    
+    *   :ref:`Collider<ManualCollider>`
+    
+    *   :ref:`ConvexMeshCollider<ManualConvexMeshCollider>`
+    
+Creating a MultiConvexMeshCollider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The MultiConvexMeshCollider component may be added to any object as long as it has a :cpp:type:`Transform` component, but it will not behave as intended until the ``Mesh`` property has been set to the MultiConvexMesh made specifically for the object in question. To create a new MultiConvexMesh, one must use the :ref:`MultiConvexMesh Editor<ManualMultiConvexMeshEditor>`, a tool that allows for both automatic and manual creation of a MultiConvexMesh based on a given :cpp:type:`SpriteSource`. The editor shows the exact boundaries being created; therefore, once the new MultiConvexMesh Resource has been completed, one only need to select it for the ``Mesh`` property and it will provide collision along those boundaries.
+
+Properties and Methods of MultiConvexMeshCollider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`MultiConvexMeshCollider Code Reference<ReferenceMultiConvexMeshCollider>`
+
+Events of MultiConvexMeshCollider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*   :ref:`Collision Events<ManualCollisionEvents>`
+
+*   :ref:`Group Collision Events<ManualGroupCollisionEvents>`
+
+.. _ManualMultiConvexMeshColliderRelated:
+
+Related Material
+----------------
+
+Manual Pages
+~~~~~~~~~~~~
+
+*   :ref:`Collision Overview<ManualCollisionOverview>`
+
+*   :ref:`ConvexMeshCollider<ManualConvexMeshCollider>`
+
+*   :ref:`MultiConvexMesh Editor<ManualMultiConvexMeshEditor>`
+
+Tutorial Pages
+~~~~~~~~~~~~~~
+
+*   :ref:`Collision<TutorialCollisionEvents>`
+
+Reference Pages
+~~~~~~~~~~~~~~~
+
+*   :cpp:type:`Transform`
+*   :cpp:type:`Collider`
+*   :cpp:type:`MultiConvexMeshCollider`
+*   :cpp:type:`Sprite` 
+*   :cpp:type:`SpriteSource`
+*   :cpp:type:`MultiConvexMesh`
+

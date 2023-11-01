@@ -1,0 +1,1367 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/RayCasting.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:18:20 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ray Casting &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2015" href="index.html"/>
+        <link rel="next" title="Particle Effects: Practical Applications" href="PracticalParticles.html"/>
+        <link rel="prev" title="Vector Math" href="VectorMath.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2015</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprites and Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ArraysLoops.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Random.html">Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath.html">Vector Math</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Ray Casting</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="PracticalParticles.html">Particle Effects: Practical Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LauncherNewProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Adding &amp; Removing Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tags.html">Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2015</a> &raquo;</li>
+      
+    <li>Ray Casting</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2015/RayCasting.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- this is used as a file for inclusion in other .rst files --><div class="searchtitle section" id="ray-casting">
+<span id="raycasting2015"></span><h1>Ray Casting</h1>
+<p class="searchdescription">This lesson explains <strong>ray casting</strong>: what it is, what it does, and how to use
+it.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="LauncherNewProject.html#createnewproject2015"><span>Create a New Project</span></a></p>
+<p>Ray casting is a powerful technique that is used to check for collision between
+an arbitrary <strong>ray</strong> and a given <strong>collider</strong> &#8212; that is, it provides a way for
+us to check to see if a particular object is on a particular line.</p>
+<div class="sidebar">
+<p class="first sidebar-title">What is a Ray?</p>
+<p>A <em>ray</em> is a <strong>linear arrangement of points</strong> that starts at a given
+<strong>location</strong> and extends infinitely far in a given <strong>direction</strong>. It is also
+known as a <strong>half-line</strong>.</p>
+<ul class="simple">
+<li>The Zero Engine also has functions for <strong>segment casting</strong>, which will be
+covered below.</li>
+</ul>
+<p class="last"><a class="reference internal" href="../../_images/PointSegmentLineRay1.png"><img alt="PointSegmentLineRay" src="../../_images/PointSegmentLineRay1.png" style="width: 3.325in;" /></a></p>
+</div>
+<p></p>
+<p>Ray casting is useful in a wide variety of applications, such as</p>
+<ul class="simple">
+<li>creating realistic laser beams</li>
+<li>simulating high-velocity projectiles</li>
+<li>checking line of sight</li>
+<li>detecting walls</li>
+<li>finding distances</li>
+<li>moving 3D 3rd-person cameras</li>
+</ul>
+<p>Let&#8217;s create a laser beam that uses ray casting to stretch and shrink itself to
+whatever it&#8217;s hitting.</p>
+</div>
+<div class="section" id="creating-a-laser-beam">
+<h2>Creating a Laser Beam</h2>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or
+<span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">LaserBeam</span></code></li>
+<li>Under Sprite<ul>
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">0,</span> <span class="pre">B:</span> <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#FF0000</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add an Orientation component</span></a></li>
+<li>Under Orientation<ul>
+<li>Set DefaultOrientationBases to: <code class="docutils literal"><span class="pre">ForwardXUpZ</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add an Area component</span></a></li>
+<li>Under Area<ul>
+<li>Set Origin to: <code class="docutils literal"><span class="pre">CenterLeft</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>We&#8217;ll need to write a new component to control the size of the beam, so let&#8217;s
+make that now. We&#8217;ll start with a stub of a component and then add in the
+necessary functionality bit by bit.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named:
+<code class="docutils literal"><span class="pre">RayCastResizer</span></code></li>
+<li>Change the <strong>RayCastResizer</strong> script to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">RayCastResizer</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p></p>
+<div class="section" id="dependencies-and-properties">
+<h3>Dependencies and Properties</h3>
+<p>First, let&#8217;s declare our <strong>dependencies</strong> &#8212; other components we know we&#8217;re
+going to need for this script to work correctly. We&#8217;ll need the following
+components:</p>
+<ul class="simple">
+<li><strong>Transform</strong> &#8212; to define the <strong>starting point</strong> of the ray</li>
+<li><strong>Orientation</strong> &#8212; to define the <strong>direction</strong> of the ray<ul>
+<li>We could use the Rotation of the beam&#8217;s Transform and some math to figure
+out its <em>facing vector</em>, but the Orientation component conveniently does all
+that for us.</li>
+</ul>
+</li>
+<li><strong>Area</strong> &#8212; we&#8217;re going to be using it to modify the sprite&#8217;s <strong>size</strong> (its
+length and width) based on the results of the ray casting<ul>
+<li>Also, by setting the Area component&#8217;s Origin to be on the left side of the
+sprite, we can make the beam automatically center itself properly as it
+changes its size.</li>
+</ul>
+</li>
+</ul>
+<p>Let&#8217;s update our script.</p>
+<ul class="simple">
+<li>Update the <strong>RayCastResizer</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">RayCastResizer</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+<span class="hll">  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nb">Transform</span> <span class="o">:</span> <span class="nb">Transform</span><span class="o">;</span>
+</span><span class="hll">  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nx">Orientation</span> <span class="o">:</span> <span class="nx">Orientation</span><span class="o">;</span>
+</span><span class="hll">  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nx">Area</span> <span class="o">:</span> <span class="nx">Area</span><span class="o">;</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Next, we&#8217;ll need to declare a property:</p>
+<ul class="simple">
+<li><strong>Width</strong> &#8212; defines how wide the object should be<ul>
+<li>Our ray casting will only tell us how <em>long</em> to make our laser beam, but we
+still need to know how wide to make it.</li>
+<li>It should be wide enough to be visible, but suitably small for a laser beam.</li>
+</ul>
+</li>
+</ul>
+<p>Let&#8217;s update our script.</p>
+<ul class="simple">
+<li>Update the <strong>RayCastResizer</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">RayCastResizer</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nb">Transform</span> <span class="o">:</span> <span class="nb">Transform</span><span class="o">;</span>
+  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">Orientation</span> <span class="o">:</span> <span class="nx">Orientation</span><span class="o">;</span>
+  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">Area</span> <span class="o">:</span> <span class="nx">Area</span><span class="o">;</span>
+
+<span class="hll">  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nx">Width</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>Now we&#8217;re ready to begin.</p>
+<ul class="simple">
+<li>Update the <strong>RayCastResizer</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">RayCastResizer</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nb">Transform</span> <span class="o">:</span> <span class="nb">Transform</span><span class="o">;</span>
+  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">Orientation</span> <span class="o">:</span> <span class="nx">Orientation</span><span class="o">;</span>
+  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">Area</span> <span class="o">:</span> <span class="nx">Area</span><span class="o">;</span>
+
+  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">Width</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">;</span>
+
+
+  <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+  <span class="p">}</span>
+
+
+  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">GetLength</span><span class="p">();</span>
+    <span class="k">var</span> <span class="nx">width</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Width</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">size</span> <span class="o">=</span> <span class="nx">Real2</span><span class="p">(</span><span class="nx">length</span><span class="o">,</span> <span class="nx">width</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">Area</span><span class="p">.</span><span class="nx">Size</span> <span class="o">=</span> <span class="nx">size</span><span class="o">;</span>
+  <span class="p">}</span>
+
+
+  <span class="kd">function</span> <span class="nx">GetLength</span><span class="p">()</span> <span class="o">:</span> <span class="nx">Real</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="mf">1.0</span><span class="o">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We have a <strong>GetLength</strong> function now that will use ray casting to determine the
+proper length of our laser beam. (For now, it just returns <code class="docutils literal"><span class="pre">1.0</span></code> to appease
+the compiler.)</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the LaserBeam object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a RayCastResizer component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run</span></a> the project</li>
+</ul>
+<p><img alt="PreStretchBeam" src="../../_images/PreStretchBeam1.png" /></p>
+<p>Admittedly, this is a bit underwhelming, but we can see that the width is being
+set properly, and the length is being set to 1 unit, as we specified.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the project</span></a></li>
+</ul>
+</div>
+<div class="section" id="casting-a-ray">
+<h3>Casting a Ray</h3>
+<p>There are a number of casting functions available to us, and they all live in
+the <strong>PhysicsSpace</strong>. We&#8217;ll start with the most basic one: <strong>CastRayFirst</strong>,
+which takes a single argument &#8212; the ray to cast &#8212; and returns an object of
+type <strong>CastResult</strong>, which contains information about the first object hit by
+that ray (if any).</p>
+<p>To cast a ray, first you must declare and define one. As we know, Zero defines a
+ray by a <strong>point</strong> and a <strong>direction</strong>:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">ray</span> <span class="o">=</span> <span class="nx">Ray</span><span class="p">();</span>
+<span class="k">var</span> <span class="nx">thisPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">WorldTranslation</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">rayDirection</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span><span class="o">;</span>
+<span class="hll"><span class="nx">ray</span><span class="p">.</span><span class="nx">Start</span> <span class="o">=</span> <span class="nx">thisPosition</span><span class="o">;</span>
+</span><span class="hll"><span class="nx">ray</span><span class="p">.</span><span class="nx">Direction</span> <span class="o">=</span> <span class="nx">rayDirection</span><span class="o">;</span>
+</span></pre></div>
+</div>
+<p>The ray starts at the beam&#8217;s position and extends in the direction of the beam&#8217;s
+<em>facing vector</em>, defined by its Orientation component. To cast it, just pass it
+into the CastRayFirst function (and give it a place to put the result):</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">castResult</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastRayFirst</span><span class="p">(</span><span class="nx">ray</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This <code class="docutils literal"><span class="pre">castResult</span></code> object has some useful information: it tells us what was
+hit (<code class="docutils literal"><span class="pre">castResult.ObjectHit</span></code>), where it was hit (<code class="docutils literal"><span class="pre">castResult.WorldPosition</span></code>),
+the normal vector of the collision (<code class="docutils literal"><span class="pre">castResult.Normal</span></code>), and so on. What we
+care about in this case is its <strong>distance</strong>:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nx">castResult</span><span class="p">.</span><span class="nx">Distance</span>
+</pre></div>
+</div>
+<p>This tells us how far the ray traveled before it hit whatever it hit. If it
+didn&#8217;t hit anything at all, then the ray would have traveled infinitely far. In
+such a case, <code class="docutils literal"><span class="pre">castResult.Distance</span></code> is equal to the largest possible Real
+value &#8212; effectively infinity, for most practical purposes. With this, we can
+make our <code class="docutils literal"><span class="pre">GetLength</span></code> function give us the actual proper length.</p>
+<ul class="simple">
+<li>Update the <strong>RayCastResizer</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">GetLength</span><span class="p">()</span> <span class="o">:</span> <span class="nx">Real</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">ray</span> <span class="o">=</span> <span class="nx">Ray</span><span class="p">();</span>
+  <span class="k">var</span> <span class="nx">thisPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">WorldTranslation</span><span class="o">;</span>
+  <span class="k">var</span> <span class="nx">rayDirection</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span><span class="o">;</span>
+  <span class="nx">ray</span><span class="p">.</span><span class="nx">Start</span> <span class="o">=</span> <span class="nx">thisPosition</span><span class="o">;</span>
+  <span class="nx">ray</span><span class="p">.</span><span class="nx">Direction</span> <span class="o">=</span> <span class="nx">rayDirection</span><span class="o">;</span>
+
+  <span class="k">var</span> <span class="nx">castResult</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastRayFirst</span><span class="p">(</span><span class="nx">ray</span><span class="p">);</span>
+
+<span class="hll">  <span class="k">return</span> <span class="nx">castResult</span><span class="p">.</span><span class="nx">Distance</span><span class="o">;</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run</span></a> the project</li>
+</ul>
+<p><img alt="InfiniteStretchBeam" src="../../_images/InfiniteStretchBeam1.png" /></p>
+<p>Since the beam has nothing to hit, it is stretched to (practically) infinite
+length. Let&#8217;s give it an object to hit.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the project</span></a></li>
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or
+<span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Obstruction</span></code></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a BoxCollider component</span></a></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[6,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run</span></a> the project</li>
+</ul>
+<p><img alt="BeamHittingObstruction" src="../../_images/BeamHittingObstruction1.png" /></p>
+<p>The beam stops when it hits a collider.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the project</span></a></li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="movement-and-rotation">
+<h3>Movement and Rotation</h3>
+<p>It will be easier to see the results of our ray casting if we are able to move
+and rotate the beam.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named:
+<code class="docutils literal"><span class="pre">KeyboardMovement</span></code></li>
+<li>Change the <strong>KeyboardMovement</strong> script to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">KeyboardMovement</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">MovementSpeed</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">4.0</span><span class="o">;</span>
+  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">RotationSpeed</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">60.0</span><span class="o">;</span>
+
+
+  <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+  <span class="p">}</span>
+
+
+  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">var</span> <span class="nx">mov</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">.</span><span class="nx">Zero</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">rot</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">D</span><span class="p">))</span>
+      <span class="nx">mov</span><span class="p">.</span><span class="nx">X</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">MovementSpeed</span><span class="o">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">A</span><span class="p">))</span>
+      <span class="nx">mov</span><span class="p">.</span><span class="nx">X</span> <span class="o">-=</span> <span class="k">this</span><span class="p">.</span><span class="nx">MovementSpeed</span><span class="o">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">W</span><span class="p">))</span>
+      <span class="nx">mov</span><span class="p">.</span><span class="nx">Y</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">MovementSpeed</span><span class="o">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">S</span><span class="p">))</span>
+      <span class="nx">mov</span><span class="p">.</span><span class="nx">Y</span> <span class="o">-=</span> <span class="k">this</span><span class="p">.</span><span class="nx">MovementSpeed</span><span class="o">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Left</span><span class="p">))</span>
+      <span class="nx">rot</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">RotationSpeed</span><span class="o">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Right</span><span class="p">))</span>
+      <span class="nx">rot</span> <span class="o">-=</span> <span class="k">this</span><span class="p">.</span><span class="nx">RotationSpeed</span><span class="o">;</span>
+
+    <span class="nx">mov</span> <span class="o">*=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">angles</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ToRadians</span><span class="p">(</span><span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="nx">rot</span><span class="p">)</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+=</span> <span class="nx">mov</span><span class="o">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">RotateAnglesLocal</span><span class="p">(</span><span class="nx">angles</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the LaserBeam object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a KeyboardMovement component</span></a></li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Run the project</span></a></li>
+</ul>
+<p><img alt="SingleObstruction" src="../../_images/SingleObstruction1.gif" /></p>
+<p>You can now move and rotate the beam using the WASD and Arrow keys.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the project</span></a></li>
+</ul>
+<p>Let&#8217;s add a few more obstructions.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the Obstruction object</span></a></li>
+<li>Duplicate it a few times with <code class="docutils literal"><span class="pre">Ctrl+D</span></code></li>
+<li>For each duplicate<ul>
+<li>In the Properties Window<ul>
+<li>Under Transform<ul>
+<li>Set the Translation, Rotation and Scale to different numbers</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Note that because we&#8217;re making a 2D project, we should <strong>avoid translating the
+objects along the Z-axis</strong>, and we should <strong>only rotate them around the
+Z-axis</strong>. (Note that you may scale them along their Z-axis if you wish, but you
+are unlikely to see any effect of doing so.)</p>
+<p><img alt="HighlightedTransformProperties" src="../../_images/HighlightedTransformProperties1.png" /></p>
+<p><em>These fields are fair game.</em></p>
+<p></p>
+<p>Be sure to create at least one <strong>circular obstruction</strong> as well, so you can see
+how the beam will interact with a round collider.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or
+<span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Obstruction</span></code></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a SphereCollider component</span></a></li>
+<li>Under Sprite<ul>
+<li>Set SpriteSource to: <code class="docutils literal"><span class="pre">Circle</span></code></li>
+</ul>
+</li>
+<li>Under SphereCollider<ul>
+<li>Set Radius to: <code class="docutils literal"><span class="pre">0.5</span></code></li>
+</ul>
+</li>
+<li>Under Transform<ul>
+<li>Set the Translation and Scale to your liking</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run</span></a> the project</li>
+</ul>
+<p><img alt="MultipleObstructions" src="../../_images/MultipleObstructions1.gif" /></p>
+<p>The beam stretches and shrinks itself as it collides with objects.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the project</span></a></li>
+</ul>
+<div class="admonition-order-of-updates admonition">
+<p class="first admonition-title">Order of Updates</p>
+<p>If you have particularly keen eyes, or you set your movement/rotation speeds
+high enough, you may notice that the beam resizes itself a moment later than
+it should. It&#8217;s subtle, but it&#8217;s there. This is actually because the
+RayCastResizer component&#8217;s <code class="docutils literal"><span class="pre">OnLogicUpdate</span></code> function is being called <em>before</em>
+the <code class="docutils literal"><span class="pre">OnLogicUpdate</span></code> function of the KeyboardMovement component &#8212; that is,
+the beam first updates its size, and then updates its position and rotation,
+and <em>then</em> is drawn to the screen by the engine.</p>
+<p>The effect is so minute that it would probably never make a difference in a
+game, but if it matters to you, you can fix it by <strong>swapping the order of
+these two components</strong> on the LaserBeam cog. (You can quickly do this by
+dragging the components in the Properties Window.)</p>
+<p><img alt="ReorderingComponents" src="../../_images/ReorderingComponents1.gif" /></p>
+<p class="last">The <code class="docutils literal"><span class="pre">LogicUpdate</span></code> event (and, really, every event) is sent to components in
+<em>connection order</em> &#8212; that is, the order that <code class="docutils literal"><span class="pre">Zero.Connect</span></code> is called to
+connect that component to that event. Since this (usually) happens in the
+<code class="docutils literal"><span class="pre">Initialize</span></code> function, and since <strong>components are initialized in order from
+top to bottom</strong>, you can (usually) control the order in which components are
+updated by changing their vertical order in the Properties Window.</p>
+</div>
+<p>Now that we have ray casting working, let&#8217;s get it to do something.</p>
+<p></p>
+</div>
+</div>
+<div class="section" id="getting-it-to-do-something">
+<h2>Getting It To Do Something</h2>
+<p>Let&#8217;s make it so that, when the Space bar is pressed, the laser uses ray casting
+to fire a pulse that turns whatever it hits invisible. We could build this new
+logic into our RayCastResizer component, but it would be better to create a new
+component that contains this functionality separately.</p>
+<p>We&#8217;ll stub out this new component and add to it bit by bit, the same as we did
+for the RayCastResizer.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named:
+<code class="docutils literal"><span class="pre">LaserPulse</span></code></li>
+<li>Change the <strong>LaserPulse</strong> script to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">LaserPulse</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let&#8217;s begin by marking our dependencies. Like before, we&#8217;ll need:</p>
+<ul class="simple">
+<li><strong>Transform</strong> &#8212; to define the <strong>starting point</strong> of the ray</li>
+<li><strong>Orientation</strong> &#8212; to define the <strong>direction</strong> of the ray</li>
+</ul>
+<p>Unlike before, we won&#8217;t need an Area component, because we&#8217;re not going to use
+this component to modify the size of the beam.</p>
+<ul class="simple">
+<li>Update the <strong>LaserPulse</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">LaserPulse</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+<span class="hll">  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nb">Transform</span> <span class="o">:</span> <span class="nb">Transform</span><span class="o">;</span>
+</span><span class="hll">  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nx">Orientation</span> <span class="o">:</span> <span class="nx">Orientation</span><span class="o">;</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p></p>
+<p>Now we can get going. We know we&#8217;re going to use the keyboard to do our pulse
+firing, so we&#8217;ll connect to the <strong>KeyDown</strong> event on <code class="docutils literal"><span class="pre">Zero.Keyboard</span></code>.</p>
+<ul class="simple">
+<li>Update the <strong>LaserPulse</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">LaserPulse</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nb">Transform</span> <span class="o">:</span> <span class="nb">Transform</span><span class="o">;</span>
+  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">Orientation</span> <span class="o">:</span> <span class="nx">Orientation</span><span class="o">;</span>
+
+
+  <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">KeyDown</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnKeyDown</span><span class="p">);</span>
+  <span class="p">}</span>
+
+
+  <span class="kd">function</span> <span class="nx">OnKeyDown</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nb">KeyboardEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nb">Key</span> <span class="o">==</span> <span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">)</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">FirePulse</span><span class="p">();</span>
+  <span class="p">}</span>
+
+
+  <span class="kd">function</span> <span class="nx">FirePulse</span><span class="p">()</span>
+  <span class="p">{</span>
+
+  <span class="p">}</span>
+
+
+  <span class="kd">function</span> <span class="nx">TurnInvisible</span><span class="p">(</span><span class="nx">target</span> <span class="o">:</span> <span class="nx">Cog</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nb">Sprite</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+      <span class="nx">target</span><span class="p">.</span><span class="nb">Sprite</span><span class="p">.</span><span class="nx">Visible</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <strong>FirePulse</strong> function doesn&#8217;t do anything yet, but it&#8217;s going to do some
+ray casting to determine what the beam is pointing at, and pass that cog into
+the <strong>TurnInvisible</strong> function.</p>
+<p></p>
+<div class="section" id="getting-the-object-that-was-hit">
+<h3>Getting the Object that was Hit</h3>
+<p>We&#8217;ll begin the FirePulse function the same way that we began the
+<code class="docutils literal"><span class="pre">RayCastResizer</span></code>&#8216;s <strong>GetLength</strong> function &#8212; by creating a ray.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">ray</span> <span class="o">=</span> <span class="nx">Ray</span><span class="p">();</span>
+<span class="k">var</span> <span class="nx">thisPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">WorldTranslation</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">rayDirection</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span><span class="o">;</span>
+<span class="nx">ray</span><span class="p">.</span><span class="nx">Start</span> <span class="o">=</span> <span class="nx">thisPosition</span><span class="o">;</span>
+<span class="nx">ray</span><span class="p">.</span><span class="nx">Direction</span> <span class="o">=</span> <span class="nx">rayDirection</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Nothing new here. This time, however, we don&#8217;t care about the <strong>distance</strong> of
+the ray, but the <strong>object that it hit</strong>, if any.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">castResult</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastRayFirst</span><span class="p">(</span><span class="nx">ray</span><span class="p">);</span>
+<span class="hll"><span class="k">var</span> <span class="nx">hit</span> <span class="o">=</span> <span class="nx">castResult</span><span class="p">.</span><span class="nx">ObjectHit</span><span class="o">;</span>
+</span></pre></div>
+</div>
+<p>Now, if the beam is aimed so that it misses everything, then <strong>hit</strong> will be
+<code class="docutils literal"><span class="pre">null</span></code>. Otherwise, we have a cog we can use:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="nx">hit</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">TurnInvisible</span><span class="p">(</span><span class="nx">hit</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>With this, we&#8217;re ready to update our code.</p>
+<ul class="simple">
+<li>Update the <strong>LaserPulse</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">FirePulse</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">ray</span> <span class="o">=</span> <span class="nx">Ray</span><span class="p">();</span>
+  <span class="k">var</span> <span class="nx">thisPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">WorldTranslation</span><span class="o">;</span>
+  <span class="k">var</span> <span class="nx">rayDirection</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span><span class="o">;</span>
+  <span class="nx">ray</span><span class="p">.</span><span class="nx">Start</span> <span class="o">=</span> <span class="nx">thisPosition</span><span class="o">;</span>
+  <span class="nx">ray</span><span class="p">.</span><span class="nx">Direction</span> <span class="o">=</span> <span class="nx">rayDirection</span><span class="o">;</span>
+
+  <span class="k">var</span> <span class="nx">castResult</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastRayFirst</span><span class="p">(</span><span class="nx">ray</span><span class="p">);</span>
+  <span class="k">var</span> <span class="nx">hit</span> <span class="o">=</span> <span class="nx">castResult</span><span class="p">.</span><span class="nx">ObjectHit</span><span class="o">;</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nx">hit</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">TurnInvisible</span><span class="p">(</span><span class="nx">hit</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the LaserBeam object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a LaserPulse component</span></a></li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Run the project</span></a></li>
+</ul>
+<p><img alt="TurningThingsInvisibleFirst" src="../../_images/TurningThingsInvisibleFirst1.gif" /></p>
+<p>Now we can press the Space bar to turn the object the beam is hitting invisible.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the project</span></a></li>
+</ul>
+<p>Let&#8217;s add a little more to the effect &#8212; let&#8217;s make it so that, when the pulse
+hits an object, we see a little spot of light for a moment at the location of
+the hit.</p>
+</div>
+<div class="section" id="getting-the-location-of-the-hit">
+<h3>Getting the Location of the Hit</h3>
+<p>To do this, we will create a sprite at the ray cast&#8217;s hit location. So, we must
+first create an archetype that we will then spawn.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or
+<span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">LaserSpot</span></code></li>
+<li>Set Archetype Name to: <code class="docutils literal"><span class="pre">LaserSpot</span></code></li>
+<li>Under Sprite<ul>
+<li>Set SpriteSource to: <code class="docutils literal"><span class="pre">Circle</span></code></li>
+<li>Set BlendMode to: <code class="docutils literal"><span class="pre">Additive</span></code></li>
+</ul>
+</li>
+<li>Update the LaserSpot archetype</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a></li>
+<li>Delete the LaserSpot object</li>
+</ul>
+<p></p>
+<p>Next, we need to add some code to our LaserPulse component. We&#8217;re going to be
+spawning an instance of an archetype, so we&#8217;ll need to add that archetype as a
+property. We&#8217;ll then make it shrink out of existence with an <strong>action
+sequence</strong>, so we&#8217;ll need to define the duration of this action as a property as
+well. Let&#8217;s make the appropriate changes to our code.</p>
+<ul class="simple">
+<li>Update the <strong>LaserPulse</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">LaserPulse</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nb">Transform</span> <span class="o">:</span> <span class="nb">Transform</span><span class="o">;</span>
+  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">Orientation</span> <span class="o">:</span> <span class="nx">Orientation</span><span class="o">;</span>
+
+<span class="hll">  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nx">SpotArchetype</span> <span class="o">:</span> <span class="nx">Archetype</span> <span class="o">=</span> <span class="nx">Archetype</span><span class="p">.</span><span class="nx">LaserSpot</span><span class="o">;</span>
+</span><span class="hll">  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nx">SpotShrinkDuration</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">;</span>
+</span>  <span class="p">.</span>
+  <span class="p">.</span>
+  <span class="p">.</span>
+</pre></div>
+</div>
+<p>Now let&#8217;s add a function that will create the spot of light.</p>
+<ul class="simple">
+<li>Add the following function to the <strong>LaserPulse</strong> script:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>function CreateSpot(position : Real3)
+{
+  var spot = this.Space.CreateAtPosition(this.SpotArchetype, position);
+
+  var shrinkSeq = Action.Sequence(spot.Actions);
+  var duration = this.SpotShrinkDuration;
+
+  Action.Property(shrinkSeq, @spot.Transform.Scale,
+                  Real3.Zero, duration, Ease.QuadInOut);
+  Action.Call(shrinkSeq, spot.Destroy);
+}
+</pre></div>
+</div>
+<p></p>
+<p>This function takes a world position as an argument and creates a spot at that
+location, then uses an action sequence to cause it shrink down and then destroy
+itself. All we need to know for it to work is <strong>where the ray cast hit</strong>. This
+can be found in the <code class="docutils literal"><span class="pre">castResult</span></code> with the rest of the info from the ray cast:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nx">castResult</span><span class="p">.</span><span class="nx">WorldPosition</span>
+</pre></div>
+</div>
+<p>Let&#8217;s update the <strong>FirePulse</strong> function accordingly.</p>
+<ul class="simple">
+<li>Make the following changes to the <strong>FirePulse</strong> function:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">FirePulse</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">ray</span> <span class="o">=</span> <span class="nx">Ray</span><span class="p">();</span>
+  <span class="k">var</span> <span class="nx">thisPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">WorldTranslation</span><span class="o">;</span>
+  <span class="k">var</span> <span class="nx">rayDirection</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span><span class="o">;</span>
+  <span class="nx">ray</span><span class="p">.</span><span class="nx">Start</span> <span class="o">=</span> <span class="nx">thisPosition</span><span class="o">;</span>
+  <span class="nx">ray</span><span class="p">.</span><span class="nx">Direction</span> <span class="o">=</span> <span class="nx">rayDirection</span><span class="o">;</span>
+
+  <span class="k">var</span> <span class="nx">castResult</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastRayFirst</span><span class="p">(</span><span class="nx">ray</span><span class="p">);</span>
+  <span class="k">var</span> <span class="nx">hit</span> <span class="o">=</span> <span class="nx">castResult</span><span class="p">.</span><span class="nx">ObjectHit</span><span class="o">;</span>
+
+<span class="hll">  <span class="k">if</span><span class="p">(</span><span class="nx">hit</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+</span><span class="hll">  <span class="p">{</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TurnInvisible</span><span class="p">(</span><span class="nx">hit</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">CreateSpot</span><span class="p">(</span><span class="nx">castResult</span><span class="p">.</span><span class="nx">WorldPosition</span><span class="p">);</span>
+</span><span class="hll">  <span class="p">}</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run</span></a> the project</li>
+</ul>
+<p><img alt="TurningThingsInvisibleFirstWithSpot" src="../../_images/TurningThingsInvisibleFirstWithSpot1.gif" /></p>
+<p>Now a spot of light appears momentarily whenever the laser pulse attempts to
+turn something invisible.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the project</span></a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<div class="section" id="hitting-multiple-objects">
+<h2>Hitting Multiple Objects</h2>
+<p>Let&#8217;s make things a bit more complicated.</p>
+<ul>
+<li><p class="first">Select the TranslateTool</p>
+</li>
+<li><p class="first">Select an Obstruction object</p>
+</li>
+<li><p class="first">Hold <strong>Ctrl</strong> and drag the object to create a copy</p>
+</li>
+<li><p class="first">Create a few copies and line them up in a row pointing at the LaserBeam object</p>
+<p><img alt="ObstructionsInARow" src="../../_images/ObstructionsInARow1.png" /></p>
+</li>
+</ul>
+<p></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run</span></a> the project</p>
+<p><img alt="OneAtATimeInRow" src="../../_images/OneAtATimeInRow1.gif" /></p>
+</li>
+</ul>
+<p>The pulse can only hit one object at a time: the first one that the ray cast
+hits. What if we want to hit multiple objects with the same pulse? To do this,
+we&#8217;ll need to set aside the <strong>CastRayFirst</strong> function and use <strong>CastRayResults</strong>
+instead.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the project</span></a></li>
+</ul>
+<p></p>
+<p>CastRayResults works very similarly to CastRayFirst: it takes a ray and tells us
+about what it hits. The difference, though, is that CastRayFirst tells us only
+about the <strong>first</strong> hit, while CastRayResults tells us about <strong>any number</strong> of
+hits. Also, CastRayFirst returns a single <strong>CastResult</strong> containing all the
+relevant information, whereas CastRayResults returns a <strong>CastResultsRange</strong> &#8212;
+a range of CastResult objects designed to be examined in a <code class="docutils literal"><span class="pre">foreach</span></code> loop.</p>
+<p>Very little work is required to change our code to use CastRayResults.</p>
+<ul class="simple">
+<li>Make the following changes to the <strong>FirePulse</strong> function:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">FirePulse</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">ray</span> <span class="o">=</span> <span class="nx">Ray</span><span class="p">();</span>
+  <span class="k">var</span> <span class="nx">thisPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">WorldTranslation</span><span class="o">;</span>
+  <span class="k">var</span> <span class="nx">rayDirection</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span><span class="o">;</span>
+  <span class="nx">ray</span><span class="p">.</span><span class="nx">Start</span> <span class="o">=</span> <span class="nx">thisPosition</span><span class="o">;</span>
+  <span class="nx">ray</span><span class="p">.</span><span class="nx">Direction</span> <span class="o">=</span> <span class="nx">rayDirection</span><span class="o">;</span>
+
+<span class="hll">  <span class="k">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+</span><span class="hll">
+</span><span class="hll">  <span class="k">var</span> <span class="nx">castResults</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastRayResults</span><span class="p">(</span><span class="nx">ray</span><span class="o">,</span> <span class="nx">count</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">  <span class="nx">foreach</span><span class="p">(</span><span class="k">var</span> <span class="nx">castResult</span> <span class="k">in</span> <span class="nx">castResults</span><span class="p">)</span>
+</span><span class="hll">  <span class="p">{</span>
+</span><span class="hll">    <span class="k">var</span> <span class="nx">hit</span> <span class="o">=</span> <span class="nx">castResult</span><span class="p">.</span><span class="nx">ObjectHit</span><span class="o">;</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">TurnInvisible</span><span class="p">(</span><span class="nx">hit</span><span class="p">);</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">CreateSpot</span><span class="p">(</span><span class="nx">castResult</span><span class="p">.</span><span class="nx">WorldPosition</span><span class="p">);</span>
+</span><span class="hll">  <span class="p">}</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Cast Results &#8212; How Many is Too Many?</p>
+<p>In general, when using CastRayResults, you should usually use something in the
+order of <em>the largest number you expect to need</em> as your count &#8212; in our
+case, there are only a handful of obstructions, so <code class="docutils literal"><span class="pre">10</span></code> would probably be
+fine, but we might want to add more, so we&#8217;re using <code class="docutils literal"><span class="pre">100</span></code> instead.</p>
+<p class="last">You shouldn&#8217;t worry about using a large number, but don&#8217;t go overboard &#8212; if
+you use something like 100,000 or more for your cast results count, you may
+encounter problems, and if you need the count to be that high, you&#8217;re probably
+doing something wrong anyway.</p>
+</div>
+<p>What&#8217;s going on here?</p>
+<p>Well, we construct the ray the same way as before, only now we also need to
+provide a <code class="docutils literal"><span class="pre">count</span></code>, to tell the engine how many results we care about. We give
+the CastRayResults function the ray and the count and it gives us a range of
+cast results. We then use a <code class="docutils literal"><span class="pre">foreach</span></code> loop to look at each one.</p>
+<p>Note that before, with CastRayFirst, we had to check to make sure that the
+ray actually hit something (<code class="docutils literal"><span class="pre">if(hit</span> <span class="pre">!=</span> <span class="pre">null)</span></code>) before trying to turn
+the thing it hit invisible. We don&#8217;t have to do that now, because if the ray hit
+nothing, then the resulting CastResultsRange object will be empty, and the body
+of the <code class="docutils literal"><span class="pre">foreach</span></code> loop will not be executed at all.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run</span></a> the project</li>
+</ul>
+<p><img alt="MultipleObstructionsOnePulse" src="../../_images/MultipleObstructionsOnePulse1.gif" /></p>
+<p>We can now turn multiple objects invisible with a single press of the Space bar.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the project</span></a></li>
+</ul>
+</div>
+<div class="section" id="cast-filters">
+<h2>Cast Filters</h2>
+<p>Sometimes we don&#8217;t want our ray to hit everything; maybe we want a laser cannon
+to ignore glass walls, or maybe the player character has a mobile turret and we
+want to eliminate the possibility that it will accidentally shoot the player. We
+could manually check for these cases and skip over them as we loop through the
+cast results, but it&#8217;s often much easier to let the engine filter out unwanted
+hits for us. That&#8217;s where <strong>cast filters</strong> come in handy. A cast filter is an
+object that we can pass into our ray casting function (and segment casting, and
+other kinds of casting as well) to tell the engine not to &#8220;care&#8221; about certain
+kinds of cogs when performing the cast.</p>
+<p>Creating a cast filter is easy:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">filter</span> <span class="o">=</span> <span class="nx">CastFilter</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Using it is quite easy as well:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">castResults</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastRayResultsFiltered</span><span class="p">(</span><span class="nx">ray</span><span class="o">,</span> <span class="nx">count</span><span class="o">,</span> <span class="nx">filter</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now, this code as written here will do nothing special because the cast filter
+is &#8220;empty.&#8221; We can add things to the filter by setting the filter&#8217;s various
+properties. See the table below for details:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="28%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3">Cast Filter Properties</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Property</td>
+<td>What it Expects</td>
+<td>What it Does</td>
+</tr>
+<tr class="row-odd"><td>IgnoreDynamic</td>
+<td>a <strong>Boolean</strong> value</td>
+<td>Makes the cast ignore cogs with
+<code class="docutils literal"><span class="pre">Dynamic</span></code> rigid bodies</td>
+</tr>
+<tr class="row-even"><td>IgnoreKinematic</td>
+<td>a <strong>Boolean</strong> value</td>
+<td>Makes the cast ignore cogs with
+<code class="docutils literal"><span class="pre">Kinematic</span></code> rigid bodies</td>
+</tr>
+<tr class="row-odd"><td>IgnoreStatic</td>
+<td>a <strong>Boolean</strong> value</td>
+<td>Makes the cast ignore cogs with
+<code class="docutils literal"><span class="pre">Static</span></code> rigid bodies (and cogs
+<strong>without</strong> rigid bodies)</td>
+</tr>
+<tr class="row-even"><td>IgnoreGhost</td>
+<td>a <strong>Boolean</strong> value</td>
+<td>Makes the cast ignore cogs with
+colliders that have the <strong>Ghost</strong>
+property set to <code class="docutils literal"><span class="pre">true</span></code></td>
+</tr>
+<tr class="row-odd"><td>IgnoreCog</td>
+<td>a cog reference</td>
+<td>Makes the cast ignore the given cog</td>
+</tr>
+<tr class="row-even"><td>CollisionGroup</td>
+<td>a CollisionGroup</td>
+<td><p class="first">Makes the cast behave as if the ray
+were in the given CollisionGroup</p>
+<ul class="last simple">
+<li>This may cause the cast to filter
+out colliders based on their
+collision groups, according to the
+PhysicsSpace&#8217;s <strong>CollisionTable</strong></li>
+<li>Colliders are filtered on a
+<strong>SkipDetection</strong> basis</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<p>Let&#8217;s try it out: let&#8217;s build some walls around our scene, and make it so that
+the beam can&#8217;t turn the walls invisible, but it ignores the obstructions when
+resizing itself.</p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or
+<span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Wall</span></code></li>
+<li>Under Sprite<ul>
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">128,</span> <span class="pre">G:</span> <span class="pre">128,</span> <span class="pre">B:</span> <span class="pre">128,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code>, <code class="docutils literal"><span class="pre">#808080</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add a BoxCollider component</span></a></li>
+</ul>
+</li>
+<li>Press <code class="docutils literal"><span class="pre">Ctrl+D</span></code> a few times to duplicate the Wall object</li>
+<li>Adjust the Transform components of the Wall objects to construct a &#8220;cage&#8221;
+around the Obstruction objects and the LaserBeam object</li>
+</ul>
+<p><img alt="Cage" src="../../_images/Cage1.png" /></p>
+<p></p>
+<p>Now let&#8217;s modify our scripts.</p>
+<ul class="simple">
+<li>In the RayCastResizer script<ul>
+<li>Make the following changes to the <strong>GetLength</strong> function:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">GetLength</span><span class="p">()</span> <span class="o">:</span> <span class="nx">Real</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">ray</span> <span class="o">=</span> <span class="nx">Ray</span><span class="p">();</span>
+  <span class="k">var</span> <span class="nx">thisPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">WorldTranslation</span><span class="o">;</span>
+  <span class="k">var</span> <span class="nx">rayDirection</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span><span class="o">;</span>
+  <span class="nx">ray</span><span class="p">.</span><span class="nx">Start</span> <span class="o">=</span> <span class="nx">thisPosition</span><span class="o">;</span>
+  <span class="nx">ray</span><span class="p">.</span><span class="nx">Direction</span> <span class="o">=</span> <span class="nx">rayDirection</span><span class="o">;</span>
+
+<span class="hll">  <span class="k">var</span> <span class="nx">filter</span> <span class="o">=</span> <span class="nx">CastFilter</span><span class="p">();</span>
+</span><span class="hll">  <span class="nx">filter</span><span class="p">.</span><span class="nx">IgnoreKinematic</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nx">castResult</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastRayFirstFiltered</span><span class="p">(</span><span class="nx">ray</span><span class="o">,</span> <span class="nx">filter</span><span class="p">);</span>
+</span>
+  <span class="k">return</span> <span class="nx">castResult</span><span class="p">.</span><span class="nx">Distance</span><span class="o">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>It is common for inert parts of the game world (things like level geometry or
+certain environmental props) to be made <strong>static</strong>, while &#8220;live&#8221; game objects
+(enemies, items, the player, etc.) will be either <strong>dynamic</strong> or <strong>kinematic</strong>.
+Because we will often want one game object to use ray casting to perform actions
+on other game objects, we can frequently filter out all static objects from our
+casting. Likewise, we will occasionally want to hit <em>only</em> static objects, like
+when using ray casting to help position a third-person follow camera.</p>
+<p>Thus, a handy way to filter objects in casting is based on their <strong>dynamic
+state</strong> &#8212; that is, whether they are dynamic, kinematic or static &#8212; and
+that&#8217;s what we&#8217;re doing here. The RayCastResizer will now ignore all kinematic
+objects when performing its ray casting. The next step is to make the
+obstructions kinematic.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select all of the Obstruction objects</span></a></li>
+<li>In the Properties Window<ul>
+<li>Add a RigidBody component</li>
+<li>Under RigidBody<ul>
+<li>Set DynamicState to: <code class="docutils literal"><span class="pre">Kinematic</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run</span></a> the project</li>
+</ul>
+<p><img alt="ResizerIgnoringObstructions" src="../../_images/ResizerIgnoringObstructions1.gif" /></p>
+<p></p>
+<p>The beam now stretches past the obstructions, but stops at the walls of the
+cage. However, its pulse still causes the walls to become invisible. Let&#8217;s fix
+that.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the project</span></a></li>
+<li>In the LaserPulse script<ul>
+<li>Make the following changes to the <strong>FirePulse</strong> function:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">FirePulse</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">ray</span> <span class="o">=</span> <span class="nx">Ray</span><span class="p">();</span>
+  <span class="k">var</span> <span class="nx">thisPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">WorldTranslation</span><span class="o">;</span>
+  <span class="k">var</span> <span class="nx">rayDirection</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span><span class="o">;</span>
+  <span class="nx">ray</span><span class="p">.</span><span class="nx">Start</span> <span class="o">=</span> <span class="nx">thisPosition</span><span class="o">;</span>
+  <span class="nx">ray</span><span class="p">.</span><span class="nx">Direction</span> <span class="o">=</span> <span class="nx">rayDirection</span><span class="o">;</span>
+
+  <span class="k">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+
+<span class="hll">  <span class="k">var</span> <span class="nx">filter</span> <span class="o">=</span> <span class="nx">CastFilter</span><span class="p">();</span>
+</span><span class="hll">  <span class="nx">filter</span><span class="p">.</span><span class="nx">IgnoreStatic</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nx">castResults</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastRayResultsFiltered</span><span class="p">(</span><span class="nx">ray</span><span class="o">,</span> <span class="nx">count</span><span class="o">,</span> <span class="nx">filter</span><span class="p">);</span>
+</span>
+  <span class="nx">foreach</span><span class="p">(</span><span class="k">var</span> <span class="nx">castResult</span> <span class="k">in</span> <span class="nx">castResults</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">var</span> <span class="nx">hit</span> <span class="o">=</span> <span class="nx">castResult</span><span class="p">.</span><span class="nx">ObjectHit</span><span class="o">;</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">TurnInvisible</span><span class="p">(</span><span class="nx">hit</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">CreateSpot</span><span class="p">(</span><span class="nx">castResult</span><span class="p">.</span><span class="nx">WorldPosition</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The walls do not have RigidBody components, and any cog without a RigidBody is
+considered to be <strong>static</strong>. Thus, when we filter out all static objects, we
+ignore the walls.</p>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run</span></a> the project</li>
+</ul>
+<p><img alt="PulseIgnoringWalls" src="../../_images/PulseIgnoringWalls1.gif" /></p>
+<p>The pulse can now no longer turn the walls invisible.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the project</span></a></li>
+</ul>
+</div>
+<div class="section" id="other-casts">
+<h2>Other Casts</h2>
+<p>Rays aren&#8217;t the only thing we can cast in the Zero Engine, though they&#8217;re
+probably the most common. Besides using a ray, we can also cast a <strong>segment</strong>, a
+<strong>sphere</strong>, a <strong>collider</strong>, or an <strong>AABB</strong> (axis-aligned bounding box). Here&#8217;s a
+quick rundown on how they work:</p>
+<div class="section" id="segment-casting">
+<h3>Segment Casting</h3>
+<ul>
+<li><p class="first">Segment casting checks for colliders found along a specified <strong>line segment</strong>.</p>
+</li>
+<li><p class="first">Rather than taking a ray (defined by a <strong>starting point</strong> and a
+<strong>direction</strong>), segment casting requires a <strong>starting point</strong> and an <strong>ending
+point</strong>.</p>
+</li>
+<li><p class="first">Segment casting is useful when you would normally use ray casting, except
+either you have two points instead of a point and a direction, or you know
+that the &#8220;ray&#8221; should have a specific length.</p>
+<p>Example:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">end</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Target</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+
+<span class="hll"><span class="k">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastSegmentResults</span><span class="p">(</span><span class="nx">start</span><span class="o">,</span> <span class="nx">end</span><span class="o">,</span> <span class="nx">count</span><span class="p">);</span>
+</span></pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="sphere-casting">
+<h3>Sphere Casting</h3>
+<ul>
+<li><p class="first">Sphere casting checks for colliders found within (either completely or
+partially) a specified <strong>sphere</strong>.</p>
+</li>
+<li><p class="first">Sphere casting requires a <strong>center</strong> and a <strong>radius</strong> for the sphere to be
+used.</p>
+</li>
+<li><p class="first">Sphere casting is useful when you want to find all objects within a certain
+distance of a given point.</p>
+<p>Example:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">center</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">radius</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">BlastRadius</span><span class="o">;</span> <span class="c1">// let&#39;s just say it&#39;s 5.0 units</span>
+<span class="k">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">filter</span> <span class="o">=</span> <span class="nx">CastFilter</span><span class="p">();</span>
+<span class="nx">filter</span><span class="p">.</span><span class="nx">IgnoreCog</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="o">;</span>
+
+<span class="hll"><span class="k">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastSphereResults</span><span class="p">(</span><span class="nx">center</span><span class="o">,</span> <span class="nx">radius</span><span class="o">,</span> <span class="nx">count</span><span class="o">,</span> <span class="nx">filter</span><span class="p">);</span>
+</span></pre></div>
+</div>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="collider-casting">
+<h3>Collider Casting</h3>
+<ul>
+<li><p class="first">Collider casting checks for colliders that would be in contact with an
+<strong>existing collider</strong>, if it were at a different location.</p>
+</li>
+<li><p class="first">Collider casting requires an reference to an <strong>existing collider</strong> and an
+<strong>offset</strong> to the collider&#8217;s current position</p>
+</li>
+<li><p class="first">Collider casting is useful when you want to know if a collider would collide
+with anything if it were in a different location.</p>
+<p>Example:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">offset</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">TeleportDestination</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">collider</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Collider</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">filter</span> <span class="o">=</span> <span class="nx">CastFilter</span><span class="p">();</span>
+<span class="nx">filter</span><span class="p">.</span><span class="nx">IgnoreCog</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="o">;</span>
+<span class="nx">filter</span><span class="p">.</span><span class="nx">IgnoreGhost</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+<span class="hll"><span class="k">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastColliderResults</span><span class="p">(</span><span class="nx">offset</span><span class="o">,</span> <span class="nx">collider</span><span class="o">,</span> <span class="nx">filter</span><span class="p">);</span>
+</span></pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="aabb-casting">
+<h3>AABB Casting</h3>
+<ul>
+<li><p class="first">AABB casting checks for colliders found within (either completely or
+partially) a specified <strong>axis-aligned bounding box</strong>.</p>
+</li>
+<li><p class="first">AABB casting requires a <strong>center</strong> and <strong>dimensions</strong> for the box to be used.</p>
+</li>
+<li><p class="first">AABB casting is actually only rarely useful &#8212; you&#8217;ll usually want to use
+<strong>collider casting</strong> instead &#8212; except in cases when you want to know whether
+something is in a broad, general area and collider casting is too slow (say,
+because you&#8217;re doing a very large number of them every frame).</p>
+<p>Example:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// let&#39;s say that there are hundreds of potential destinations</span>
+<span class="nx">foreach</span><span class="p">(</span><span class="k">var</span> <span class="nx">position</span> <span class="k">in</span> <span class="k">this</span><span class="p">.</span><span class="nx">PotentialDestinations</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">size</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">2.0</span><span class="o">,</span> <span class="mf">2.0</span><span class="o">,</span> <span class="mf">2.0</span><span class="p">);</span>
+  <span class="k">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+  <span class="k">var</span> <span class="nx">filter</span> <span class="o">=</span> <span class="nx">CastFilter</span><span class="p">();</span>
+  <span class="nx">filter</span><span class="p">.</span><span class="nx">IgnoreCog</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="o">;</span>
+  <span class="nx">filter</span><span class="p">.</span><span class="nx">IgnoreGhost</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+<span class="hll">  <span class="k">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">PhysicsSpace</span><span class="p">.</span><span class="nx">CastAabbResults</span><span class="p">(</span><span class="nx">position</span><span class="o">,</span> <span class="nx">size</span><span class="o">,</span> <span class="nx">count</span><span class="o">,</span> <span class="nx">filter</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PracticalParticles.html" class="btn btn-neutral float-right" title="Particle Effects: Practical Applications" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="VectorMath.html" class="btn btn-neutral" title="Vector Math" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/RayCasting.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:21:32 GMT -->
+</html>

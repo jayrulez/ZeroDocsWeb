@@ -1,0 +1,154 @@
+.. _ReferencePhysicsCar:
+
+.. rst-class:: searchtitle
+
+PhysicsCar
+==========
+
+.. rst-class:: searchdescription
+
+A controller for a high speed physics based car. The car is controlled with a steer, gas and a brake coefficient. The car will raycast wheel positions to try to keep the wheels on the ground and then apply friction and normal forces to propel the car.
+
+.. include:: Description/PhysicsCar.rst
+
+.. cpp:class:: PhysicsCar
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferencePhysicsCarProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PhysicsCar::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space PhysicsCar::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PhysicsCar::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession PhysicsCar::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCar::Steer
+
+            How much the wheel is being steered. This is measured in radians about this object's y-axis.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCar::Gas
+
+            How much the gas is being pressed[-1,1] where-1 is full reverse.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCar::Brake
+
+            How much the brake is being pressed[0,1] where 1 is full brake.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCar::WheelFrictionSideRollCoef
+
+            Coefficient used to apply the side friction force closer to the car's center of mass. 1 means to apply at the wheel position, 0 means to apply at the point along the contact normal closest to the center of mass.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCar::WheelFrictionFrontRollCoef
+
+            Coefficient used to apply the forward friction force closer to the car's center of mass. 1 means to apply at the wheel position, 0 means to apply at the point along the contact normal closest to the center of mass.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsCar::DebugDraw
+
+            Whether or not the car should debug draw.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CarWheelRange PhysicsCar::Wheels
+
+            Returns a range of the car wheels.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCar::MaxSpeed
+
+            The desired maximum speed of the car. Similar to a speed governor.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCar::MaxTorque
+
+            The maximum torque the engine can apply to try to reach the max speed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsCar::GripScalar
+
+            Artificially increases the grip of the car(where 2 is twice the grip). The total grip scalar is computed as CarGripScalar WheelGripScalar so the total car can be easily tweaked while allowing individual wheel tweaks.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsCar::AntiLockBrakes
+
+            Prevents the car from entering dynamic friction when applying brakes. If the brake would start to skid, the brake force is clamped to the max amount that will not slip.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsCar::TorqueGovernor
+
+            Governs the max torque that the engine can apply. This is used to keep the wheels from spinning out(slipping) when too high of a torque is applied. If the tires would slip, the engine will apply the maximum torque where the tires will not slip.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsCar::Active
+
+            Whether or not the car will run any logic at all. If this is false wheels will not work at all, they will not behave as springs or drive or anything.
+
+.. _ReferencePhysicsCarMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsCar::DebugDraw()
+
+            Debug draws all of the wheels associated with this car.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: uint PhysicsCar::NumberOfWheelsInContact()
+
+            The number of wheels currently in contact with an object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsCar::AddWheelCog(Cog wheelCog)
+
+            Add the PhysicsCarWheel to be controlled by this car.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsCar::RemoveWheelCog(Cog wheelCog)
+
+            Remove the PhysicsCarWheel from being controlled by this car.
+
+.. include:: Remarks/PhysicsCar.rst

@@ -1,0 +1,409 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/ZilchInZero/ZilchTypes/String.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:17 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>String &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Zilch In Zero" href="../index.html"/>
+        <link rel="next" title="StringBuilder" href="StringBuilder.html"/>
+        <link rel="prev" title="Real4" href="Real4.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Zilch In Zero</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Variables_And_Data_Types.html">Variables, Data Types, &amp; Scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Conditionals.html">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Looping.html">Looping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Functions.html">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Attributes.html">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Flags.html">Flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Structs.html">Structs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Classes.html">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Memory_Management.html">Memory Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Inheritance.html">Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Casting.html">Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Named_Parameters.html">Named Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Delegates.html">Delegates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Reflection.html">Reflection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Properties.html">Properties (Get-Sets)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Property_Delegates.html">Property Delegates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ConstructByValueVsByRef.html">Local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ConstructByValueVsByRef.html#new">New</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Operators_Precedence_Chart.html">Operator Precedence Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Keywords.html">Keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Array.html">Array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Boolean.html">Boolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Boolean2.html">Boolean2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Boolean3.html">Boolean3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Boolean4.html">Boolean4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Console.html">Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exception.html">Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HashMap.html">HashMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Integer.html">Integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Integer2.html">Integer2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Integer3.html">Integer3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Integer4.html">Integer4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="KeyValue.html">KeyValue [Key, Value]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Math.html">Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Property.html">Property [Type]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quaternion.html">Quaternion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Real.html">Real</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Real2.html">Real2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Real3.html">Real3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Real4.html">Real4</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">String</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="StringBuilder.html">StringBuilder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zilch In Zero</a> &raquo;</li>
+      
+    <li>String</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/ZilchInZero/ZilchTypes/String.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="string">
+<span id="zilchtypestring"></span><h1>String</h1>
+<p class="searchdescription">The basic string type of Zilch used to form sequences for characters.</p>
+<div class="section" id="instance-properties">
+<h2>Instance Properties</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="44%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Count</td>
+<td><a class="reference internal" href="Integer.html"><em>Integer</em></a></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="instance-methods">
+<h2>Instance Methods</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name / Signature</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Get(index : Integer) : Integer</td>
+<td>Gets an individual character&#8217;s value by index (Ascii or Unicode)</td>
+</tr>
+<tr class="row-odd"><td>SubString(start : Integer, length : Integer) : String</td>
+<td>Gets a part of a string using start and length. A &#8216;start&#8217; of 0
+means the front of the string.</td>
+</tr>
+<tr class="row-even"><td>[GetCount]() : Integer</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="static-methods">
+<h2>Static Methods</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name / Signature</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Concatenate(String, String) : String</td>
+<td>Allows for small concatenations of Strings. (To concatenate
+more than two strings, use <a class="reference internal" href="StringBuilder.html"><em>StringBuilder</em></a>)</td>
+</tr>
+<tr class="row-odd"><td>FormatC(format : String, any...) : String</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>FromChar(Integer) : String</td>
+<td>Converts a character value (Ascii or Unicode) into a String</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="samples">
+<h2>Samples</h2>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// String interpolation:</span>
+<span class="k">var</span> <span class="nx">myNumber</span><span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">42</span><span class="o">;</span>
+
+<span class="c1">// The variable name is placed between tick marks.</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;My number is `myNumber`&quot;</span><span class="p">);</span>  <span class="c1">// My number is 42</span>
+
+<span class="c1">// Making a String:</span>
+<span class="k">var</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="s2">&quot;Hello there!&quot;</span><span class="o">;</span>
+
+<span class="c1">// Using Static Concatenation function returns the result:</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nb">String</span><span class="p">.</span><span class="nx">Concatenate</span><span class="p">(</span><span class="nx">greeting</span><span class="o">,</span> <span class="s2">&quot; I&#39;ll be your tour guide.&quot;</span><span class="p">));</span>
+<span class="c1">// Hello there! I&#39;ll be your tour guide.</span>
+
+<span class="c1">// Get retrieves the actual ascii value of the char.</span>
+<span class="c1">// Like other languages, String has 0-based indexing:</span>
+<span class="c1">// 0 1 2 3 4    5    6 7 8 9 10 11 12</span>
+<span class="c1">// H e l l o [space] t h e r  e  !  null</span>
+<span class="nx">myNumber</span> <span class="o">=</span> <span class="nx">greeting</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span> <span class="c1">// Ascii value of ! is 33:</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">myNumber</span><span class="p">);</span> <span class="c1">// 33</span>
+
+<span class="c1">// The Static function FromChar does the reverse of the Get() function:</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nb">String</span><span class="p">.</span><span class="nx">FromChar</span><span class="p">(</span><span class="nx">myNumber</span><span class="p">));</span><span class="c1">// !</span>
+
+<span class="c1">// SubString is NOT a side-effect operator, you must store the output.</span>
+<span class="c1">// Count is an instance variable giving the length of a string. &#39;</span>
+<span class="c1">// Substring will throw a run-time exception if you index out of bounds.</span>
+<span class="c1">// 0 1 2 3 4    5    6     substr: | 7 8 9 10 11 |</span>
+<span class="c1">// H e l l o [space] t     substr: | h e r  e  ! |</span>
+<span class="k">var</span> <span class="nx">exclamation</span> <span class="o">=</span> <span class="nx">greeting</span><span class="p">.</span><span class="nx">SubString</span><span class="p">(</span><span class="mi">7</span><span class="o">,</span> <span class="nx">greeting</span><span class="p">.</span><span class="nx">Count</span> <span class="o">-</span> <span class="mi">7</span><span class="p">);</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">greeting</span><span class="p">);</span>       <span class="c1">// Hello there!</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">greeting</span><span class="p">.</span><span class="nx">Count</span><span class="p">);</span> <span class="c1">// 12</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">exclamation</span><span class="p">);</span>    <span class="c1">// here!</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="StringBuilder.html" class="btn btn-neutral float-right" title="StringBuilder" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Real4.html" class="btn btn-neutral" title="Real4" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/ZilchInZero/ZilchTypes/String.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:17 GMT -->
+</html>

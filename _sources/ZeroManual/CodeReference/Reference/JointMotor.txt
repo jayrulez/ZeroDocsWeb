@@ -1,0 +1,88 @@
+.. _ReferenceJointMotor:
+
+.. rst-class:: searchtitle
+
+JointMotor
+==========
+
+.. rst-class:: searchdescription
+
+A motor for a joint. Used to add a constant pull or push to a joint. A motor defines a desired speed to move at as well as a max force that can be applied to reach that force at any timestep. See each joint for a description of how it reacts to a motor.
+
+.. include:: Description/JointMotor.rst
+
+.. cpp:class:: JointMotor
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceJointMotorProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog JointMotor::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space JointMotor::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog JointMotor::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession JointMotor::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool JointMotor::Active
+
+            Determines if this motor is currently active.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool JointMotor::Reverse
+
+            Determines if this motor should move in reverse. This is a quick hand instead of setting the speed to negative.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real JointMotor::Speed
+
+            The desired speed for this motor. See wiki for each joint's details.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real JointMotor::MaxForce
+
+            The maximum force that the motor can apply each frame to reach the target speed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint JointMotor::AtomIds
+
+            Signifies what atoms on the joint this effects.
+
+.. _ReferenceJointMotorMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void JointMotor::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/JointMotor.rst

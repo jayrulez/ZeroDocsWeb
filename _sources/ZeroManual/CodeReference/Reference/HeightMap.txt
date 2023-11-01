@@ -1,0 +1,70 @@
+.. _ReferenceHeightMap:
+
+.. rst-class:: searchtitle
+
+HeightMap
+=========
+
+.. rst-class:: searchdescription
+
+A common class that represents height map data.
+
+.. include:: Description/HeightMap.rst
+
+.. cpp:class:: HeightMap
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceHeightMapProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog HeightMap::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space HeightMap::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog HeightMap::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession HeightMap::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: HeightMapSource HeightMap::Source
+
+            Get source for height map.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real HeightMap::UnitsPerPatch
+
+            Gets/sets the number of units per patch.
+
+.. _ReferenceHeightMapMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void HeightMap::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/HeightMap.rst

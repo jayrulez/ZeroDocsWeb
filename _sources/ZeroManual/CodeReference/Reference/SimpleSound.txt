@@ -1,0 +1,84 @@
+.. _ReferenceSimpleSound:
+
+.. rst-class:: searchtitle
+
+SimpleSound
+===========
+
+.. include:: Description/SimpleSound.rst
+
+.. cpp:class:: SimpleSound
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceSimpleSoundProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SimpleSound::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space SimpleSound::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SimpleSound::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession SimpleSound::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SoundCue SimpleSound::Cue
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SimpleSound::StartPlaying
+
+            
+
+.. _ReferenceSimpleSoundMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SimpleSound::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: SoundInstance SimpleSound::Play()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SimpleSound::Stop()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool SimpleSound::IsPlaying()
+
+            
+
+.. include:: Remarks/SimpleSound.rst

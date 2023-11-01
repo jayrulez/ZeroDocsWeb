@@ -1,0 +1,126 @@
+.. _UserInterface2014:
+
+.. rst-class:: SearchTitle
+
+User Interface
+==============
+
+.. rst-class:: SearchDescription
+
+This lesson covers how to use the Reactive component in order to make a user interface object that responds to Mouse events.
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2014`
+
+Level Setup
+-----------
+
+**Create a Button sprite**
+  
+* :ref:`Command<Commands2014>`: ``CreateSprite`` or :menuselection:`Create --> Create Sprite` 
+* In the Properties Window
+  
+  * Set Name to: 'Button'
+  
+  * :ref:`Add a Reactive Component <AddComponent2014>`
+  
+  *   Under Transform
+
+    *   Set Scale to: [4, 4, 1]  
+        
+
+* :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`   
+
+We should have this simple level:
+
+|NoBookBegin|
+|InitialSetupWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|InitialSetupBook|
+|NoWebEnd|
+
+* :ref:`Stop the Game <StopGame2014>`
+
+|pbr|
+
+Using the Reactive Component
+----------------------------
+
+:ref:`Add a new ZilchScript resource<ResourceAdding2014>` named: 'SimpleButton' 
+
+* Update the **SimpleButton** script with the following code:
+
+.. code-block:: as
+     
+  class SimpleButton : ZilchComponent
+  {
+      function Initialize(init : CogInitializer)
+      {
+          Zero.Connect(this.Owner, Events.MouseEnter, this.OnMouseEnter);
+          Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);
+          Zero.Connect(this.Owner, Events.MouseDown, this.OnMouseDown);
+          Zero.Connect(this.Owner, Events.MouseUp, this.OnMouseUp);
+          
+          // reduce the alpha
+          this.Owner.Sprite.Color = this.Owner.Sprite.Color + 
+                                    Real4(0.0, 0.0, 0.0, 0.25 - this.Owner.Sprite.Color.W);
+      }
+
+      function OnMouseUp(event : ViewportMouseEvent)
+      {
+          // Destroy button upon clicking
+          this.Owner.Destroy();
+      }
+
+      function OnMouseDown(event : ViewportMouseEvent)
+      {
+          // Become brightest to show clicking
+          this.Owner.Sprite.Color = this.Owner.Sprite.Color + 
+                                    Real4(0.0, 0.0, 0.0, 1.0 - this.Owner.Sprite.Color.W);
+      }
+
+      function OnMouseExit(event : ViewportMouseEvent)
+      {
+          // Become dullest to allow it to fade into the background
+          this.Owner.Sprite.Color = this.Owner.Sprite.Color + 
+                                    Real4(0.0, 0.0, 0.0, 0.25 - this.Owner.Sprite.Color.W);
+      }
+
+      function OnMouseEnter(event : ViewportMouseEvent)
+      {
+          // Become brighter to show you are hovering over the button
+          this.Owner.Sprite.Color = this.Owner.Sprite.Color + 
+                                    Real4(0.0, 0.0, 0.0, 0.75 - this.Owner.Sprite.Color.W);
+      }
+  }
+
+  
+* :ref:`Save the project <SavingProject2014>`
+
+|pbr|
+
+* :ref:`Select the Button <SelectObject2014>`
+* In the Properties Window
+
+  * :ref:`Add a SimpleButton Component <AddComponent2014>`
+
+* :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`   
+
+Here you can see the transparency change upon entering, exiting and pressing the button, as well as deleting upon clicking:
+
+|MouseButton|
+
+
+.. |MouseButton| image:: images/UserInterface/MouseButton.gif
+
+.. |InitialSetupWeb| image:: images/UserInterface/InitialSetup.png
+  :width: 8.35in
+
+.. |InitialSetupBook| image:: images/UserInterface/InitialSetup.png
+    :height: 3.0in
+
+.. include:: BookFormattingShortcuts.rst

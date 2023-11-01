@@ -1,0 +1,345 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Editor/Tools/SpriteSourceEditor.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:26:02 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sprite Source Editor &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Tools" href="index.html"/>
+        <link rel="next" title="Editing Mode 2D vs 3D" href="../EditMode.html"/>
+        <link rel="prev" title="MultiConvexMesh Editor" href="MultiConvexMeshEditor.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Editor</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tags.html">Editor Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EditorCommands/index.html">Editor &amp; Project Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CogPathsManual.html">CogPaths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UsingCustomEaseInActions.html">Using Custom Eases in Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../TextEditor/index.html">Text Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Tools</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="HeightMapTool.html">HeightMapTool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MultiConvexMeshEditor.html">MultiConvexMesh Editor</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Sprite Source Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../EditMode.html">Editing Mode 2D vs 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../AddRemoveComponent.html">Adding &amp; Removing Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UsingTheVoid.html">The Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ExportAnProject.html">Export a Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CustomizeExportedGame.html">Customize an Exported Game</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Editor</a> &raquo;</li>
+      
+          <li><a href="index.html">Tools</a> &raquo;</li>
+      
+    <li>Sprite Source Editor</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Editor/Tools/SpriteSourceEditor.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="sprite-source-editor">
+<span id="manualspritesourceeditor"></span><h1>Sprite Source Editor</h1>
+<div class="searchdescription sidebar">
+<p class="first sidebar-title">Recommended Reading</p>
+<p>This page includes topics one might not have addressed yet. To learn about or review these topics, the following list provides the links to their respective Manual or Tutorial pages:</p>
+<ul class="last simple">
+<li><a class="reference internal" href="../../Graphics/Sprites/Sprite.html#manualsprite"><span>Sprite</span></a></li>
+</ul>
+</div>
+<p>Frequently, when a <a class="reference internal" href="../../CodeReference/Reference/SpriteSource.html#_CPPv212SpriteSource" title="SpriteSource"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteSource</span></code></a> has been imported into Zero, it still needs some minor modifications; this is where the Sprite Source Editor comes into play. This can be used not only to make changes to the SpriteSource, but also to cut a SpriteSource into multiple <a class="reference internal" href="../../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprites</span></code></a> or animate a Multi-Frame Sprite.</p>
+<div class="section" id="common-uses">
+<h2>Common Uses</h2>
+<ul class="simple">
+<li>Making small adjustments to SpriteSources</li>
+<li>Taking multi-frame SpriteSources and creating Sprite Animations</li>
+</ul>
+</div>
+<div class="section" id="using-the-sprite-source-editor">
+<span id="manualspritesourceeditorusing"></span><h2>Using the Sprite Source Editor</h2>
+<p>Once the SpriteSource has been imported, the Sprite Source Editor can be opened by going into the Library tab and double clicking on the <code class="docutils literal"><span class="pre">SpriteSource</span></code> that needs to be edited. It can also be opened by clicking on the small grey arrow next to the <code class="docutils literal"><span class="pre">SpriteSource</span></code> Property, as seen below on the Sprite Component.</p>
+<p><img alt="SpriteSourceArrow" src="../../../_images/SpriteSourceArrow.png" /></p>
+<p><img alt="SpriteSourceEditor" src="../../../_images/SpriteSourceEditor3.png" /></p>
+<div class="sidebar">
+<p class="first sidebar-title">The Origin property</p>
+<p class="last">The origin of any SpriteSource can be changed by adjusting the <code class="docutils literal"><span class="pre">OriginX</span></code> and <code class="docutils literal"><span class="pre">OriginY</span></code> properties, but only if the <code class="docutils literal"><span class="pre">Origin</span></code> property is set to <code class="docutils literal"><span class="pre">Custom</span></code>. If it is set to any of the preset options (<code class="docutils literal"><span class="pre">Center</span></code>, <code class="docutils literal"><span class="pre">UpperLeft</span></code>, <code class="docutils literal"><span class="pre">BottomLeft</span></code> or <code class="docutils literal"><span class="pre">BottomCenter</span></code>) then the Zero Engine will calculate the <code class="docutils literal"><span class="pre">OriginX</span></code> and <code class="docutils literal"><span class="pre">OriginY</span></code> to set the origin in the selected location.</p>
+</div>
+<p>The Editor allows control over the base properties of each SpriteSource, such as its name, pixels per unit, and origin. The <code class="docutils literal"><span class="pre">Origin</span></code> property will place whichever point on the Sprite that is chosen at the coordinates chosen in the <code class="docutils literal"><span class="pre">Transform</span></code> Component. It is also possible to use <code class="docutils literal"><span class="pre">OriginX</span></code> and <code class="docutils literal"><span class="pre">OriginY</span></code> to set the origin in a specific spot, as opposed to one of the four preset options. All of the Sprites below, for example, have had their Origins changed while the position of their Game Objects are represented by the white Sprites.</p>
+<p><img alt="OriginChanged" src="../../../_images/OriginChanges.png" /></p>
+<p>The Editor also allows control over two very important aspects of Sprites: setting Background images and Scaling Properties of Sprites, both of which are covered in <a class="reference internal" href="../../Graphics/Sprites/Area.html#manualarea"><span>Area Component</span></a>, and creating SpriteAnimations.</p>
+<div class="section" id="creating-sprite-animations">
+<span id="manualspritesourceeditoranimations"></span><h3>Creating Sprite Animations</h3>
+<p>By taking a SpriteSource that has multiple frames and opening it in the Sprite Source Editor, it is possible to turn it into a moving animation. The first step is to click on <code class="docutils literal"><span class="pre">Convert</span> <span class="pre">To</span> <span class="pre">Animation</span></code> and make some adjustments.</p>
+<p><img alt="MultiSpriteSheet" src="../../../_images/MultiSpriteSheet.png" /></p>
+<p>While a majority of the information is the same as that found in the Sprite Source Editor, there are a few very important differences highlighted here:</p>
+<p><img alt="Comparison" src="../../../_images/Comparison.png" /></p>
+<p>While all of these options are important, the most commonly used ones will be one or two of the first four: <code class="docutils literal"><span class="pre">FrameWidth</span></code>, <code class="docutils literal"><span class="pre">FrameHeight</span></code>, <code class="docutils literal"><span class="pre">FramesPerRow</span></code>, and <code class="docutils literal"><span class="pre">NumberOfRows</span></code>. If it&#8217;s known what the Height and Width of each frame is intended to be, then by putting that into <code class="docutils literal"><span class="pre">FrameWidth</span></code> and <code class="docutils literal"><span class="pre">FrameHeight</span></code> it will calculate how many Rows to break the original image into as well as how many Frames are in each Row. Likewise by setting the <code class="docutils literal"><span class="pre">NumberOfRows</span></code> and <code class="docutils literal"><span class="pre">FramesPerRow</span></code> it will calculate what the Width and Height of each Frame should be.</p>
+<p><code class="docutils literal"><span class="pre">OffsetX</span></code>, <code class="docutils literal"><span class="pre">OffsetY</span></code>, <code class="docutils literal"><span class="pre">SpacingX</span></code> and <code class="docutils literal"><span class="pre">SpacingY</span></code>, meanwhile, are used to fine tune the Animations. <code class="docutils literal"><span class="pre">OffsetX</span></code> will move the starting point of the first frame forward, which will also push every other frame forward by the same amount. <code class="docutils literal"><span class="pre">OffsetY</span></code> has a similar function, except that it moves the top of each row down by that amount. <code class="docutils literal"><span class="pre">SpacingX</span></code> and <code class="docutils literal"><span class="pre">SpacingY</span></code> do not effect the first Frame or Row, but rather adds a space in between each instead.</p>
+<p>At this point, if the animation is playing properly, it&#8217;s simply a matter of clicking either <code class="docutils literal"><span class="pre">Add</span> <span class="pre">and</span> <span class="pre">Close</span></code> or <code class="docutils literal"><span class="pre">Add</span> <span class="pre">and</span> <span class="pre">Continue</span></code> to add the animations as SpriteSources. <code class="docutils literal"><span class="pre">Add</span> <span class="pre">frames</span> <span class="pre">as</span> <span class="pre">Sprites</span></code> will add each individual frame as its own SpriteSource, and <code class="docutils literal"><span class="pre">Close</span></code> will close the window and discard all work done to the SpriteSource. This assumes, however, that everything connects properly, which may not always be the case. For example:</p>
+<p><img alt="SpriteSheetWithEmpty" src="../../../_images/SpriteSheetWithEmpty.png" /></p>
+<p>The SpriteSource above has an empty frame at the end; if every frame is used the following animation will be produced:</p>
+<p><img alt="AnimationWithBlankFrame" src="../../../_images/AnimationWithBlankFrame.gif" /></p>
+<p>Obviously, this is not the desired result. Therefore, instead of choosing to use all frames, by changing <code class="docutils literal"><span class="pre">ImportFrames</span></code> to <code class="docutils literal"><span class="pre">SelectedFrames</span></code> it becomes possible to choose only the frames wanted, which will then be placed in the order the frames are chosen.</p>
+<p><img alt="ChoosingFrames" src="../../../_images/ChoosingFrames.gif" /></p>
+<p>Selecting the frames in this order will leave out the blank frame at the end, and create a SpriteAnimation of the remaining frames in their chosen order.</p>
+<p><img alt="AnimationWithoutBlankFrame" src="../../../_images/AnimationWithoutBlankFrame.gif" /></p>
+<p>If your SpriteSource doesn&#8217;t have a blank background, it&#8217;s possible to use the Sprite Importer to erase the background color. Simply set the <code class="docutils literal"><span class="pre">AlphaColor</span></code> Property to the color that needs to be erased (this is the perfect application for the EyeDropper tool), and set <code class="docutils literal"><span class="pre">UseAlphaColorKey</span></code> to True. On importing the Sprite, the color chosen will be erased.</p>
+</div>
+</div>
+<div class="section" id="related-materials">
+<span id="manualspritesourceeditorrelated"></span><h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../Graphics/Sprites/BaseSprite.html#manualbasesprite"><span>BaseSprite</span></a></li>
+<li><a class="reference internal" href="../../Graphics/Sprites/Sprite.html#manualsprite"><span>Sprite</span></a></li>
+<li><a class="reference internal" href="../../Graphics/Sprites/Area.html#manualarea"><span>Area</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><span class="xref std std-ref">Sprites</span></li>
+<li><a class="reference internal" href="../../../Tutorials/Graphics/SpritesAndText/AnimatedSpritesSheets.html#tutorialanimatedspritesheets"><span>Animated Player</span></a></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/SpriteSource.html#_CPPv212SpriteSource" title="SpriteSource"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteSource</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/Atlas.html#_CPPv25Atlas" title="Atlas"><code class="xref cpp cpp-type docutils literal"><span class="pre">Atlas</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../EditMode.html" class="btn btn-neutral float-right" title="Editing Mode 2D vs 3D" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MultiConvexMeshEditor.html" class="btn btn-neutral" title="MultiConvexMesh Editor" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Editor/Tools/SpriteSourceEditor.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:26:06 GMT -->
+</html>

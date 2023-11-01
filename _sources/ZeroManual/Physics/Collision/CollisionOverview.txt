@@ -1,0 +1,173 @@
+.. _ManualCollisionOverview:
+
+.. rst-class:: SearchTitle
+
+Collision Overview
+==================
+
+Collision, in some shape or form, is at the very foundation of pretty much any physics-based game one could imagine. From detecting whether a player character is standing on a platform, to whether a bullet has hit an enemy (or the player character), or if a player has entered an area that causes behavioral changes, collision is absolutely integral to a great majority of games.
+
+.. rst-class:: SearchDescription
+
+In Zero collision happens in two phases, detection and the subsequent resolution of any two :cpp:type:`Colliders<Collider>` that intersect each other. Zero provides a number of different Colliders that can be used in both 2D and 3D projects, events that provide a wealth of data from collisions that take place, and :ref:`CollisionGroup and CollisionTable<ManualCollisionGroupAndCollisionTable>` resources for defining whether to detect or resolve collision between specific selections of objects. The :ref:`RigidBody component<ManualRigidBody>` is also integral to collision when it is used.
+
+Colliders
+---------
+
+Zero provides a number of different Colliders (in the form of components that are attached to objects), all of which inherit from the Collider base class. That is, all the subsequent Colliders contain *at least* the properties and methods of the base Collider class. The following is a list of all the Collider components currently available in Zero Engine along with links to their respective Manual pages.
+
+*   :ref:`BoxCollider<ManualBoxCollider>`
+
+    *   A rectangular-shaped box that scales with the object it is attached to.
+    
+*   :ref:`SphereCollider<ManualSphereCollider>`
+
+    *   A perfect sphere that retains its spherical shape even if the object it is attached to is non-uniformly scaled.
+    
+*   :ref:`CylinderCollider<ManualCylinderCollider>`
+
+    *   A cylinder defined by a radius and height.
+    
+*   :ref:`EllipsoidCollider<ManualEllipsoidCollider>`
+
+    *   An ellipsoid defined by three different radii. To be used with a non-uniformly scaled sphere instead of SphereCollider.
+    
+*   :ref:`CapsuleCollider<ManualCapsuleCollider>`
+
+    *   A capsule that is compromised of a cylinder and two half-spheres (one on either end of the cylinder), defined by a radius, height, and direction.
+    
+*   :ref:`MeshCollider<ManualMeshCollider>`
+
+    *   A custom Collider created from a :cpp:type:`Mesh` specified in the ``PhysicsMesh`` property. To be used only with static objects.
+    
+*   :ref:`ConvexMeshCollider<ManualConvexMeshCollider>`
+
+    *   A custom Collider created from a :cpp:type:`ConvexMesh` specified in the ``ConvexMesh`` property. To be used with objects that are entirely convex or very nearly convex. Objects may be dynamic using this Collider.
+    
+*   :ref:`MultiConvexMeshCollider<ManualMultiConvexMeshCollider>`
+
+    *   A custom Collider that created from multiple convex mesh, created by the :ref:`Multi Convex Mesh Editor<ManualMultiConvexMeshEditor>`. The :ref:`Multi Convex Mesh Editor<ManualMultiConvexMeshEditor>` currently only works with :cpp:type:`Sprites<Sprite>`
+    
+*   :ref:`HeightMapCollider<ManualHeightMapCollider>`
+
+    *   A custom Collider that provides collision for a :cpp:type:`HeightMap`.
+
+Events
+------
+
+Collision events provide the user with data based on a detected collision. There are there multiple types of :cpp:type:`CollisionEvents<CollisionEvent>`:
+
+*   :ref:`CollisionEvent<ManualCollisionEvents>`
+    
+    *   There are three CollisionEvents:
+        
+        *   CollisionStarted
+        
+        *   CollisionPersisted
+        
+        *   CollisionEnded
+    
+    *   CollisionEvents are sent  will be received by any Colliders despite their :ref:`CollisionGroup<ManualCollisionGroupAndTableCollisionGroup>`.
+
+*   :ref:`CollisionGroupEvent<ManualGroupCollisionEvents>`
+    
+    *   There are three :cpp:type:`CollisionGroupEvents<CollisionGroupEvent>`:
+        
+        *   GroupCollisionStarted
+        
+        *   GroupCollisionPersisted
+        
+        *   GroupCollisionEnded
+    
+    *   GroupCollisionEvents are used in concert with :ref:`Collision Groups and Collision Tables<ManualCollisionGroupAndTable>`.
+
+*   :ref:`CollisionPreSolveEvent<ManualGroupCollisionEventsGroupPreSolveEvent>`
+    
+    *   There is one :cpp:type:`PreSolveEvent`:
+        
+        *   CollisionGroupPreSolve
+       
+    *   This event is sent *after* detection--but *before* resolution--so that the user may do or change something before resolution.
+    
+
+CollisionGroup and CollisionTable
+---------------------------------
+
+These two resources work in concert with each other to determine how certain Colliders, when assigned to different :cpp:type:`CollisionGroups<CollisionGroup>`, should act. Each CollisionGroup pairing (including those Colliders that belong to the same CollisionGroup) is assigned a filter on a CollisionTable. Each filter has a ``CollisionFlag`` property that can be set to either ``Resolve``, ``Skip Resolution``, or ``SkipDetection``. In addition to changing ``CollisionFlag``, the user may add Collision Filter Blocks to enable CollisionGroupEvents. The following bulleted list shows the basic layout of these resources and components:
+
+*   :ref:`CollisionGroup<ManualCollisionGroupAndTableCollisionGroup>` - The user will usually wish to start by making CollisionGroups for each group in which they find the need for a specific, non-default collision behavior.
+
+*   :ref:`CollisionTable<ManualCollisionGroupAndTableCollisionTable>` - The user will want to make this resource once they are ready to start setting the CollisionFilters for each CollisionGroup pairing (all of which are represented on the table itself)
+
+    *   :ref:`CollisionFilter<ManualCollisionGroupAndTableCollisionFilterAndCollisionFlag>` - These are the individual elements that make up the CollisionTable; there is one filter for each CollisionGroup pairing.
+    
+        *   :ref:`CollisionFlag<ManualCollisionGroupAndTableCollisionFilterAndCollisionFlag>` - This a property of CollisionFilter, allowing the user to change whether the CollisionGroup pairing should ``Resolve``, ``Skip Resolution``, or ``Skip Detection``.
+        
+        *   :ref:`Collision Filter Block<ManualCollisionGroupAndTableCollisionFilterBlock>` - Collision Filter Blocks are added onto to the CollisionFilter to control which objects receive the event specified by the block (Start, Persisted, End, or PreSolve).
+            
+RigidBody
+---------
+
+The :ref:`RigidBody component<ManualRigidBody>` is integral to the functioning of Colliders in most situations. One property in particular, ``DynamicState``, which defines whether the object is ``Static``, ``Kinematic``, or ``Dynamic``, has large implications for the behavior of the Collider component attached to the same object. To learn about each of these states in more detail, see :ref:`the appropriate section of the RigidBody Manual page<ManualRigidBodyDynamicState>`. The primary difference each of these states makes is in how collision is detected and/or resolved based on the ``DynamicState`` of each :cpp:type:`RigidBody`.
+
+Collision Detection and Resolution-
+----------------------------------
+
+There are a number of elements in the overarching Collision system that rely on the distinctions between collision detection, collision resolution, and skipping either one or both. The following list will define exactly what each means:
+
+*   **Collision Detection**
+
+    *   Detection always happens *before* resolution, but is not dependant upon resolution. Detection occurs when two Colliders overlap. This generates a ``ContactPoint`` to be sent to each object. ContactPoints are defined as the deepest penetrating point on one object and a point on the surface of the other object. Detection provides crucial information about the collision while resolution brings about a change to the objects involve.
+
+*   **Collision Resolution**
+
+    *   Resolution happens as a result of detection. If no collision is detected, there is nothing to resolve. If collision is detected, an impulse is applied along the normal of collision. The Impulse is calculated based off the velocities and mases of the bodies involved in the collision.
+    
+The following diagram illustrates the elements in play during collision detection and resolution:
+
+|2DCollisionDiagram1|
+
+The following list defines each part that is labeled in the diagram above:
+
+*   Contact Point
+
+    *   The points on Object A and Object B where collision was first detected.
+    
+*   Normal
+
+    *   The direction on which the impulse is applied to resolve collision.
+    
+*   Penetration
+
+    *   The distance between the contact point on A and the contact point on B along the normal.
+    
+*   Impulse
+
+    *   A scalar applied to the normal of the object so that the relative velocity between Object A and Object B is 0. If factors such as restitution (bounciness) or angular velocity are also set to 0, the objects will come to a complete stop upon resolution.
+
+.. _ManualCollisionOverviewRelated:    
+
+Related Material
+----------------
+
+Tutorial Pages
+~~~~~~~~~~~~~~
+
+*   :ref:`Collision and Collision Events<TutorialCollisionEvents>`
+
+Reference Pages
+~~~~~~~~~~~~~~~
+
+*   :cpp:type:`Collider`
+*   :cpp:type:`RigidBody`
+*   :cpp:type:`CollisionEvent`
+*   :cpp:type:`CollisionGroupEvent`
+*   :cpp:type:`PreSolveEvent`
+*   :cpp:type:`Mesh`
+*   :cpp:type:`ConvexMesh`
+*   :cpp:type:`Sprite`
+    
+    
+    
+    
+.. |2DCollisionDiagram1|              image:: images/CollisionOverview/2DCollisionDiagram1.png

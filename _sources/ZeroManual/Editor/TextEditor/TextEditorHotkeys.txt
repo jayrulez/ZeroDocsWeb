@@ -1,0 +1,520 @@
+ .. _ManualTextEditorHotkeys:
+
+.. rst-class:: SearchTitle
+
+Text Editor Hotkeys
+===================
+
+.. rst-class:: SearchDescription
+
+While Zero implements many features found in other common code editors, it also has many additional features users may find useful in their workflow.
+
+.. _ManualTextEditorHotkeysCommonUses:
+
+Common Uses
+-----------
+
+*   Editing custom Zilch Component/Tool/Command/Fragment
+*   Editing a :cpp:type:`TextBlock`
+
+.. _ManualTextEditorHotkeysUsing:
+
+Using the Text Editor
+---------------------
+
+.. _ManualTextEditorHotkeysTheCursor:
+
+The Cursor
+^^^^^^^^^^
+
+The Cursor serves to indicate the location in a text file or script where new text will be entered. By default the cursor is set to insertion mode like most text editors. In insertion mode the cursor highlights the space between two characters. Pressing a character key will insert the character at the location of the cursor.
+
+|Cursor|
+
+Moving The Cursor By Character
+++++++++++++++++++++++++++++++
+
+The cursor can be moved left, right, up, and down between characters using the arrow keys. You can also move the cursor by clicking on any space between two characters to move the cursor to that location.
+ 
+*	:kbd:`Left`, :kbd:`Right`, :kbd:`Up`, and :kbd:`Down`
+
+|HKUpDownLeftRight|
+
+*	:kbd:`LeftClick`
+
+|LeftClick|
+
+Moving The Cursor By Token & Whitespace
++++++++++++++++++++++++++++++++++++++++
+
+Often in a text file a single character will not have much meaning in the context of the whole file. So at times it make sense to navigate code at the conceptual level one is thinking about it. By using :kbd:`Control` and an arrow key we can moving the cursor by token jumping over characters which belong to the previous or next token or whitespace sequence.
+
+*	:kbd:`Control` + :kbd:`Left`
+
+|HKCtrlLeft|
+
+*	:kbd:`Control` + :kbd:`Right`
+
+|HKCtrlRight|
+
+Moving the File
++++++++++++++++
+
+Continuing the trend of minimizing unnecessary mouse use while typing in the text editor the hotkeys :kbd:`Control` + :kbd:`Up` & :kbd:`Control` + :kbd:`Down` can be used to scroll the file view up and down.
+
+*	:kbd:`Control` + :kbd:`Up`
+
+*	:kbd:`Control` + :kbd:`Down`
+
+|HKCtrlUpDown|
+
+Multi-Cursors
++++++++++++++
+
+The Zero text editor has the capability of placing multiple cursors in the file from which one is currently editing. Holding :kbd:`Control` while clicking in the text file will result in the placement of additional cursors instead of moving the original cursor.
+
+|HKCtrlClick|
+
+Each of these cursors can be expanded uniformly into a selection using the various methods of selection outlined below. Keep in mind that each keystroke will be applied to each cursor and/or selection. This is particularly useful when there are multiple identical constructs that need to be identically modified. 
+
+Column Cursors
+++++++++++++++
+
+Another form of cursor is the vertically extended column cursor. A column cursor can be created from a standard cursor by holding :kbd:`Alt` + :kbd:`Shift` and pressing :kbd:`Up` or :kbd:`Down`.
+
+*	:kbd:`Alt` + :kbd:`Shift` + :kbd:`Up`
+
+|HKALtShiftUp|
+
+*	:kbd:`Alt` + :kbd:`Shift` + :kbd:`Down`
+
+|HKAltShiftDown|
+
+.. _ManualTextEditorHotkeysSelection:
+
+Selection
+^^^^^^^^^
+
+Cursors can be extended into selections, allowing the user to modify entire sections of text.
+
+Row & Token Selection
++++++++++++++++++++++
+
+To use row selection using the only the keyboard, :kbd:`Shift` should be held while performing standard cursor commands. 
+
+By holding :kbd:`Shift` + :kbd:`Left` characters are selected along the row. If :kbd:`Shift` + :kbd:`Right` is held the selection cursor box will continue expanding to the right until it wraps around with the text to the next row.
+
+|HKShiftLeftRight|
+
+To select entire rows with each keystroke use :kbd:`Shift` + :kbd:`Up`, or :kbd:`Shift` + :kbd:`Down` can also be used.
+
+|HKShiftUpDown|
+
+This is the same behavior one would get if one were to :kbd:`Click & Drag` in the text file. 
+
+|ClickDrag|
+
+:kbd:`Shift` can also be held while clicking to extend the current cursor or selection.
+
+|HKShiftClick|
+
+Row Selection by Token and WhiteSpace
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Row selection can be done by token just as you can move the cursor with :kbd:`Control` + :kbd:`Left` and :kbd:`Control` + :kbd:`right`.
+
+*	:kbd:`Control` + :kbd:`Shift` + :kbd:`Left`
+
+*	:kbd:`Control` + :kbd:`Shift` + :kbd:`Right`
+
+|HKCtrlShiftRightLeft|
+
+Token & Line Selection
+~~~~~~~~~~~~~~~~~~~~~~
+
+One can also select any given token by double clicking it, an entire line can be selected by triple clicking it.
+
+|DoubleTripleClick|
+
+Once a token is selected to can add the next instance of that token to appear in the file to the selection by pressing :kbd:`Control` + :kbd:`D`.
+
+|HKCtrlD|
+
+Column Selection
+++++++++++++++++
+
+.. note::
+	
+	Column selection is also sometimes called rectangle selection.
+
+Column selections can be created in various ways with and without a preexisting column cursor.
+
+Creating a Column Selection From a Standard Cursor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By holding :kbd:`Alt` + :kbd:`Shift` and then pressing :kbd:`Left Click` you can create a column selection that covers all character between the cursor and the point clicked.
+
+|HKAltShiftClick|
+
+Expanding a Column Cursor Into a Selection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:kbd:`Alt` + :kbd:`Shift` and :kbd:`Left` or :kbd:`Right` can be used to expand an existing column cursor into a column selection.
+
+|HKAltShiftDownThenRight|
+
+:kbd:`Alt` + :kbd:`Shift` and :kbd:`Up` or :kbd:`Down` can be used to expand an existing row selection into a column selection.
+
+|HKAltShiftRightThenDown|
+
+Selecting the Entire File
++++++++++++++++++++++++++
+
+To select all text in the focused file use the :kbd:`Control` + :kbd:`A` hotkey.
+
+|HKCtrlA|
+
+.. _ManualTextEditorHotkeysRowOperations:
+
+Row Operations
+^^^^^^^^^^^^^^
+
+Some hotkeys perform a basic operation on the row that the cursor is currently on.
+
+Commenting
+++++++++++
+
+To quickly comment in and out all lines on which cursors/selections exist use the :kbd:`Control` + :kbd:`K` hotkey.
+
+|HKCtrlK|
+
+Duplication
++++++++++++
+
+Use the :kbd:`Control` + :kbd:`Shift` + :kbd:`D` hotkey to duplicate each line with a cursor on it.
+
+|HKCtrlShiftD|
+
+Deletion
+++++++++
+
+Use the :kbd:`Control` + :kbd:`L` hotkey to quickly remove each line with a cursor on it from the file.
+
+|HKCtrlL|
+
+Swapping
+++++++++
+
+Use the :kbd:`Control` + :kbd:`T` hotkey to quickly swap each line with a cursor on it with the line above it with out moving the cursor.
+
+|HKCtrlT|
+
+The hotkeys :kbd:`Control` + :kbd:`Shift` + :kbd:`Up` or :kbd:`Control` + :kbd:`Shift` + :kbd:`Down` to swap each line with a cursor on it with the line above or below it.
+
+|HKCtrlShiftUpDown|
+
+This command also shifts the cursor to the newline. This allows the line to be continuously shifted up or down by repeating the hotkey sequence.
+
+.. _ManualTextEditorHotkeysClipboardOperations:
+
+Clipboard Operations
+^^^^^^^^^^^^^^^^^^^^
+
+The Zero Editor supports the standard clipboard operations of copy, cut, and paste. To copy selected text to the clipboard use the :kbd:`Control` + :kbd:`C` hotkey. To copy selected text to the clipboard and remove it from the file use the :kbd:`Control` + :kbd:`X` hotkey. To paste the text from the clipboard to the location of eah cursor in a file use the :kbd:`Control` + :kbd:`V` hotkey. All three operations are shown in the gif below.
+
+|HKCtrlCXV|
+
+.. _ManualTextEditorHotkeysUndoRedo:
+
+Undo & Redo
+^^^^^^^^^^^
+
+To undo a previous operation use the :kbd:`Control` + :kbd:`Z` hotkey. To redo a previous operation use the :kbd:`Control` + :kbd:`Y` hotkey. 
+
+|HKCtrlZY|
+
+.. _ManualTextEditorHotkeysSearchOperations:
+
+Search Operations
+^^^^^^^^^^^^^^^^^
+
+The search tool is useful for finding instances of specific text through out individual files or an entire project.
+
+Find Mode
++++++++++
+
+To quickly access the search window in find mode use the :kbd:`Control` + :kbd:`F` hotkey.
+
+|HKCtrlF|
+
+If there is an active selection in the current text file, it will be pasted in as the search argument upon opening the window. Notice that because the search window is in find mode it will find locations of the given text but not modify them.
+
+Replace Mode
+++++++++++++
+
+To quickly access the search window in replace mode use the :kbd:`Control` + :kbd:`F` hotkey.
+
+|HKCtrlH|
+
+If there is an active selection in the current text file, it will be pasted in as the search argument upon opening the window. Notice that because the search window is in replace mode it will find locations of the given text and replace them with whatever string is in the replace field of the search window.
+
+.. _ManualTextEditorHotkeysGoToDefinition:
+
+Go to Definition
+^^^^^^^^^^^^^^^^
+
+One of the most common patterns while programming is to reference the definition of a particular type being used. This can be done in Zero via a shortcut.
+
+|GoToDef|
+
+When the user right clicks in a text file ``GoToDefintion`` is listed as an option in the context. If the context menu option is chosen, then the definition of the type currently highlighted by or containing the cursor will be displayed in the file that contains it. This functionality can also be activated by pressing :kbd:`F12` while the text editor cursor is highlighting or sitting within a valid type.
+
+.. _ManualTextEditorHotkeysWindowOperations:
+
+Window Operations
+^^^^^^^^^^^^^^^^^
+
+Some hotkeys used in the text editor will not actually affect the text file or cursor. By using the :kbd:`Ctrl` + :kbd:`Tab` and :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`Tab` hotkey sequences the tabs in the main docked window can be cycled through to the right and left, respectively.
+
+*	:kbd:`Control` + :kbd:`Tab`
+
+*	:kbd:`Control` + :kbd:`Shift` + :kbd:`Tab`
+
+|HKCtrlTab|
+
+.. _ManualTextEditorHotkeyReference:
+
+Hotkey Reference
+----------------
+
+The tables below are meant for both quick reference via the name column as well as more detailed information in the description column.
+
+Keyboard Sequences
+^^^^^^^^^^^^^^^^^^
+
++----------------------------------------------+-----------------------------------------------------+
+| Keyboard Command                             | Brief                                               |
++==============================================+=====================================================+
+| :kbd:`Left`                                  | Move cursor left by character                       |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Right`                                 | Move cursor right by character                      |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Up`                                    | Move cursor up one row                              |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Down`                                  | Move cursor down one row                            |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`Left`                 | Move cursor left by symbol                          |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`Right`                | Move cursor right by one symbol                     |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`Up`                   | Scroll file up                                      |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`Down`                 | Scroll file down                                    |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`F`                    | Open the search window in find mode                 |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`H`                    | Open the search window in replace mode              |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`F12`                                   | Go to Definition of the highlighted type.           |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`A`                    | Select all text in the file                         |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`T`                    | Swap line with the row above without the cursor     |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`K`                    | Comment/Uncomment current line                      |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`L`                    | Delete current line                                 |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`S`                    | Save project                                        |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`Z`                    | Undo last action                                    |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`Z`                    | Redo last action                                    |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`X`                    | Cut current selection                               |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`C`                    | Copy current selection                              |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`V`                    | Paste from the clipboard                            |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`=`                    | Increase font size                                  |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`-`                    | Decrease font size                                  |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`Tab`                  | Cycle to the next tab in the window                 |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`Shift` + :kbd:`Tab`   | Cycle to the previous tab in the window             |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`Shift` + :kbd:`D`     | Duplicate the line the cursor is on                 |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`Shift` + :kbd:`Up`    | Swap line with row above with the cursor            |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`Shift` + :kbd:`Down`  | Swap line with row below with the cursor            |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`Shift` + :kbd:`Left`  | Row selection/deselection left by symbol            |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Control` + :kbd:`Shift` + :kbd:`Right` | Row selection/deselection right by symbol           |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Shift` + :kbd:`Left`                   | Row selection/deselection to the left by character  |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Shift` + :kbd:`Right`                  | Row selection/deselection to the right by character |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Shift` + :kbd:`Up`                     | Row selection/deselection up by character           |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Shift` + :kbd:`Down`                   | Row selection/deselection down by character         |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Alt` + :kbd:`Shift` + :kbd:`Left`      | Column selection/deselection left by character      |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Alt` + :kbd:`Shift` + :kbd:`Right`     | Column selection/deselection right by character     |
+|                                              |                                                     |
+|                                              |                                                     |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Alt` + :kbd:`Shift` + :kbd:`Up`        | Column selection/deselection up by row              |
+|                                              |                                                     |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+| :kbd:`Alt` + :kbd:`Shift` + :kbd:`Down`      | Column selection/deselection down by row            |
+|                                              |                                                     |
+|                                              |                                                     |
++----------------------------------------------+-----------------------------------------------------+
+
+.. _ManualTextEditorHotkeysMouseActions:
+
+Mouse Actions
+^^^^^^^^^^^^^
+
++-----------------------------------------------+--------------------------+
+| Mouse Command                                 | Brief                    |
++===============================================+==========================+
+| :kbd:`Left Click`                             | Move cursor              |
++-----------------------------------------------+--------------------------+
+| :kbd:`Left Click` x2                          | Select token             |
++-----------------------------------------------+--------------------------+
+| :kbd:`Left Click` x3                          | Select entire line       |
++-----------------------------------------------+--------------------------+
+| :kbd:`Left Click` + :kbd:`Drag`               | Row selection            |
+|                                               |                          |
+|                                               |                          |
+|                                               |                          |
++-----------------------------------------------+--------------------------+
+| :kbd:`Control` + :kbd:`Left Click`            | Create additional cursor |
++-----------------------------------------------+--------------------------+
+| :kbd:`Shift` + :kbd:`Left Click`              | Row selection            |
+|                                               |                          |
+|                                               |                          |
+|                                               |                          |
+|                                               |                          |
+|                                               |                          |
+|                                               |                          |
+|                                               |                          |
+|                                               |                          |
+|                                               |                          |
+|                                               |                          |
+|                                               |                          |
+|                                               |                          |
+|                                               |                          |
+|                                               |                          |
++-----------------------------------------------+--------------------------+
+| :kbd:`Alt` + :kbd:`Shift` + :kbd:`Left Click` | Column selection         |
+|                                               |                          |
++-----------------------------------------------+--------------------------+
+
+.. _ManualTextEditorHotkeysRelatedMaterials:
+
+Related Materials
+-----------------
+
+Manual Pages
+^^^^^^^^^^^^
+
+*	:ref:`Code Completion<ManualCodeCompletion>`
+*	:ref:`Text Editor Config<ManualTextEditorConfig>`
+
+Code Reference
+++++++++++++++
+
+*	:cpp:type:`TextEditorConfig`
+
+
+.. |Cursor|															image:: images/TextEditorHotkeys/Cursor.png
+.. |LeftClick|														image:: images/TextEditorHotkeys/LeftClick.gif
+.. |DoubleTripleClick|												image:: images/TextEditorHotkeys/DoubleTripleClick.gif
+.. |ClickDrag|														image:: images/TextEditorHotkeys/ClickDrag.gif
+.. |HKUpDownLeftRight|												image:: images/TextEditorHotkeys/HKUpDownLeftRight.gif
+
+.. |HKCtrlLeft|														image:: images/TextEditorHotkeys/HKCtrlLeft.gif
+.. |HKCtrlRight|													image:: images/TextEditorHotkeys/HKCtrlRight.gif
+.. |HKCtrlUpDown|													image:: images/TextEditorHotkeys/HKCtrlDownUp.gif
+.. |HKCtrlClick|													image:: images/TextEditorHotkeys/HKCtrlClick.gif
+
+.. |HKCtrlShiftRightLeft|											image:: images/TextEditorHotkeys/HKCtrlShiftRightLeft.gif
+.. |HKCtrlShiftUpDown|												image:: images/TextEditorHotkeys/HKCtrlShiftUpDown.gif
+
+.. |HKShiftClick|													image:: images/TextEditorHotkeys/HKShiftClick.gif
+.. |HKShiftLeftRight|												image:: images/TextEditorHotkeys/HKShiftLeftRight.gif
+.. |HKShiftUpDown|													image:: images/TextEditorHotkeys/HKShiftUpDown.gif
+
+
+.. |HKAltShiftClick|												image:: images/TextEditorHotkeys/HKAltShiftClick.gif
+.. |HKALtShiftUp|													image:: images/TextEditorHotkeys/HKALtShiftUp.gif
+.. |HKAltShiftDown|													image:: images/TextEditorHotkeys/HKAltShiftDown.gif
+.. |HKAltShiftDownThenRight|										image:: images/TextEditorHotkeys/HKAltShiftDownThenRight.gif
+.. |HKAltShiftRightThenDown|										image:: images/TextEditorHotkeys/HKAltShiftRightThenDown.gif
+
+.. |HKCtrlA|														image:: images/TextEditorHotkeys/HKCtrlA.gif
+.. |HKCtrlD|														image:: images/TextEditorHotkeys/HKCtrlD.gif
+.. |HKCtrlK|														image:: images/TextEditorHotkeys/HKCtrlK.gif
+.. |HKCtrlShiftD|													image:: images/TextEditorHotkeys/HKCtrlShiftD.gif
+.. |HKCtrlL|														image:: images/TextEditorHotkeys/HKCtrlL.gif
+.. |HKCtrlT|														image:: images/TextEditorHotkeys/HKCtrlT.gif
+.. |HKCtrlCXV|														image:: images/TextEditorHotkeys/HKCtrlCXV.gif
+.. |HKCtrlF|														image:: images/TextEditorHotkeys/HKCtrlF.gif
+.. |HKCtrlH|														image:: images/TextEditorHotkeys/HKCtrlH.gif
+.. |HKCtrlTab|														image:: images/TextEditorHotkeys/HKCtrlTab.gif
+.. |HKCtrlZY|														image:: images/TextEditorHotkeys/HKCtrlZY.gif

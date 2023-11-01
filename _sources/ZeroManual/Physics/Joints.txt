@@ -1,0 +1,121 @@
+.. raw:: html
+
+  <!-- As this is the only file in this section it is included into the index; remove and add to toctree in index when more files exist. -->
+
+.. _ManualJoints:
+
+.. rst-class:: SearchTitle
+
+Joints
+======
+
+.. rst-class:: SearchDescription
+
+A :cpp:type:`Joint` is a physical rule that connects two objects with colliders. First, a joint requires an :cpp:type:`ObjectLink` in order to be created. This is because the object link manages who the two objects are and correctly deals with saving and loading objects.
+
+Joint Add-ons
+-------------
+
+Each kind of joint can have a motor, a limit and a spring added to it. While this is allowable for all joints, it is not desirable for all. See each joint for a description on how these interact and whether or not they are useful. 
+
+The add-ons are defined as:
+
+ :cpp:type:`JointLimit` : A limit takes a portion of the joint and makes it active only under certain conditions. These conditions are specified by an upper and lower limit value. This limit value can be either in distance for linear limits or in radians for an angular limit. A limit also has an active property, so it can be turned on/off at any point in time.
+
+ :cpp:type:`JointMotor` : A motor takes a portion of the joint and adds energy to that portion. The type of motor is generally a linear motor which pushes or pulls on an axis or an angular motor which turns on an axis. A motor has a max force that it can apply at any frame in order to correct itself. A motor also has a speed that it attempts to match. A motor can be turned on/off via the active flag. For convenience, a motor can be put into reverse to make it go the other direction via the MotorReverse option.
+
+ :cpp:type:`JointSpring` : A spring takes a portion of the joint and makes it soft. This makes that portion act like a spring. This can be put on linear or angular axes. Like all other add-ons, a spring can be turned on/off via the active flag. The spring also has a frequency in Hz (oscillations per second) that it oscillates at. Also, the spring has a dampening ratio that should vary from 0 to 1. 0 is no dampening and 1 is critical dampening (should be almost no oscillation).
+
+Joint Properties
+----------------
+ 
+All joints have several useful properties:
+
+ **Active:** A joint can be in existence while not actually running. This can be used if it is easier to set up a joint beforehand but not be running, or upon certain criteria setting a joint to invalid without actually deleting it.
+
+ **MaxForce:** A joint can be given a max amount of force that it can apply on any frame. To specify infinite force, set max force to 0.
+
+ **SendsEvents:** A joint will send an event upon reaching its max force limit (if it is set) if this property is on. By default this is off to avoid event flooding.
+
+ **AutoSnaps:** When reaching its max force limit, a joint can also automatically destroy itself on top of sending a message. This is useful as a quick means to destroy a joint instead of sending an event that then destroys the joint. An event will still be sent if AutoSnaps and SendsEvents are both true.
+
+Joint Types 
+-----------
+ 
+Listed below are the basic joint types. There exists 2D counterparts to some of these joints. These will lock certain axes and ignore calculations for increased speed and stability. If a game being made is 2D, then the 2D counterpart should be used if available. The current 2D joints available are the revolute, prismatic, and the wheel.
+
+:cpp:type:`StickJoint` :
+
+  A stick joint enforces a fixed distance between two points on two objects. These points are specified in the local space of the object. This is very useful for creating "ropes" between objects. Note : while the behavior may act like a rope, there is no physical rope to collide with, so objects can pass through the "rope" without colliding. To create a real rope, sub objects must be created with actual collision volume. A stick behaves as follows with the joint add ons.
+
+  Limit : A limit will turn a stick constraint from acting like a stick to acting like a rope. This will change the joint from enforcing a distance of "Length" to enforcing a range from the min to the max distance.
+
+  Motor: A motor will pull/push along the stick axis.
+
+  Spring: A spring will make the distance between the points behave soft and spring-like.
+
+:cpp:type:`PositionJoint` :
+
+  A position joint enforces two points defined on two objects to be equal to each other. These points are specified in the local space of the object. This creates something similar to a ball and socket with infinite rotational movement.
+
+  The only add-on that should be added to the position joint is a spring. A spring will soften the correction to make the points equal.
+
+:cpp:type:`WeldJoint` :
+
+  A weld joint fixes two points on two objects to be equal to each other as well as locking their rotation together based upon an initial rotation of each object. Welds should be infrequently used as object composition makes more efficient and stable rigid connections. No add-ons should be used with a weld.
+
+:cpp:type:`PrismaticJoint` :
+
+  A prismatic joint creates a slider or a piston between two points on two objects. These two objects are allowed to slide along one axis, but move together on the other two axes. Also, the objects will rotate together on all axes. All add-ons can be used on the prismatic and do the following.
+
+  Limit : The limit creates a min/max distance of the points on the slider axis.
+
+  Motor : The motor will push/pull the objects by the points along the slider axis.
+
+  Spring : The spring will make the boundaries on the slider axis soft.
+
+:cpp:type:`RevoluteJoint` :
+
+  A RevoluteJoint can be used to create a wheel or a hinge between two objects. A RevoluteJoint brings the two locally defined axes together and allows free rotation on only that axis in the world. This axis also defines what axis the motor is applied on. The two axes that are orthogonal to the motor axis have their rotation locked (objects rotate together unless on the motor axis). The add-ons can be used on the revolute as follows.
+
+  Limit : A limit will provide a min/max angle on the motor axis.
+
+  Motor : A motor will turn the objects about the motor axis.
+
+  Spring : A spring will make the motor axis springy at the limits.
+
+:cpp:type:`WheelJoint` :
+
+  A wheel joint is a joint that models a wheel with shocks. A wheel aligns the two local axes together and allows free rotation about this axis. The specified shock axis is turned into a soft constraint to model the shocks. Note: object 0 should be the root object as the shock axis rotates with this object. If object 0 is the wheel, then the shock axis will rotate with the wheel, causing the shocks to not stay aligned. The add-ons can be used on the wheel as follows.
+
+  Limit : a limit will provide a min/max angle on the motor axis.
+
+  Motor : A motor will turn the objects about the motor axis.
+
+  Spring : A spring will make the shock axis springy. A spring is attached by default to a wheel.
+
+:cpp:type:`UniversalJoint` :
+
+  A universal joint allows 2 degrees of rotational freedom as opposed to the revolute which only allows 1. This can be used to model an arm joint or something similar. This joint is in prototype and does not support any joint add-ons at the moment.
+
+:cpp:type:`UprightJoint` :
+
+  The upright joint tries to align two local vectors on two objects. By constraining an object to the world and using the world's up vector this will be used to help keep the object upright. The add-ons can be used as follows:
+
+  Limit : alter how exact the two axes must line up.
+
+  Spring : make the correction of lining up the vectors behave springy.
+
+:cpp:type:`GearJoint` :
+
+  A gear connects two joints on two objects together. Either joint can be a prismatic or a revolute. A gear ratio is used to bind the two joints together. Joint add-ons should not be used with a gear. Also, the gear is currently in a prototype phase, so position correction will not be enforced but velocity will be fixed.
+
+:cpp:type:`PulleyJoint` :
+
+  A pulley turns two stick joints into a pulley via a ratio. A pulley connects the two free objects of two different stick joints. These two objects will then be bound to move together via the formula:
+
+  length0 + ratio * length1 = 0.
+
+  The add-ons should not be used on a pulley joint.
+
+Several joints have 2D versions. These are for simplicity and stability and should be used over their 3D counterpart when doing 2D games. There is one extra add-on that can be added to any joint called :cpp:type:`JointConfigOverride` that allows tweaking of the correction rate and allowed error in the joint.

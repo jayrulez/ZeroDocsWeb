@@ -1,0 +1,1055 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/Scripting.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:14:38 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scripting &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2015" href="index.html"/>
+        <link rel="next" title="Scripting 2" href="Scripting2.html"/>
+        <link rel="prev" title="Sprites and Text" href="Text.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2015</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprites and Text</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Scripting</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ArraysLoops.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Random.html">Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath.html">Vector Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RayCasting.html">Ray Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PracticalParticles.html">Particle Effects: Practical Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LauncherNewProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Adding &amp; Removing Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tags.html">Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2015</a> &raquo;</li>
+      
+    <li>Scripting</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2015/Scripting.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="scripting">
+<span id="id1"></span><h1>Scripting</h1>
+<p class="searchdescription">This lesson introduces basic scripting using Zilch in the Zero Engine, including printing to the Console Window, <strong>if</strong> statements, <strong>else</strong> statements, <strong>variables</strong>, <strong>Strings</strong>, string interpolation, and generating random numbers.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="LauncherNewProject.html#createnewproject2015"><span>Create a New Project</span></a></p>
+<p><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named: GameLogic</p>
+<p>The newly created GameLogic script should open in a new tab next to the Level tab, and it should appear in the Library Window:</p>
+<p><img alt="Library1" src="../../_images/Library12.png" /> <img alt="Library2" src="../../_images/Library22.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a></li>
+</ul>
+<p>We can use ZilchScripts to write code using the Zilch programming language. Then
+we can add these scripts to our cogs as components.</p>
+<div class="admonition-cogs admonition">
+<p class="first admonition-title">Cogs</p>
+<p>A game object in the Zero Engine is a collection of components &#8212; it is a
+<strong>G</strong>ame <strong>O</strong>bject <strong>C</strong>omposition, and that&#8217;s what <strong>cog</strong> stands
+for, backwards. Almost everything that you make and use in your game is a
+cog.</p>
+<p class="last">In this text, you will find the terms <strong>cog</strong> and <strong>game object</strong> used
+interchangeably.</p>
+</div>
+<p>Your new GameLogic script should look like this:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here&#8217;s what some of this stuff means:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+</pre></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Classes</p>
+<p class="last">A <strong>class</strong> is like a blueprint &#8212; it&#8217;s the instructions for making an
+object. Classes can have functions and variables, and every object made from
+that class will have those same functions and variables.</p>
+</div>
+<div class="admonition-case-sensitivity admonition">
+<p class="first admonition-title">Case Sensitivity</p>
+<p>Zilch is a <strong>case-sensitive</strong> language. That means that you could declare a
+class called <code class="docutils literal"><span class="pre">ExampleClass</span></code> and another one called <code class="docutils literal"><span class="pre">Exampleclass</span></code>, and
+the engine would have no trouble distinguishing the two. Likewise, if you
+create a component called <code class="docutils literal"><span class="pre">GameLogic</span></code> and add it to a cog, you won&#8217;t be
+able to find it if you look for <code class="docutils literal"><span class="pre">Gamelogic</span></code>.</p>
+<p class="last">Remember, though &#8212; just because you <strong>can</strong> does not mean that you
+<strong>should</strong>. Generally, it&#8217;s a bad idea to give things names that are
+differentiated only by capitalization.</p>
+</div>
+<ul>
+<li><p class="first">The <code class="docutils literal"><span class="pre">class</span></code> keyword here means that <code class="docutils literal"><span class="pre">GameLogic</span></code> is a new Zilch
+<strong>class</strong>.</p>
+<p>To make your own new component, you have to declare it as a class.
+Furthermore, the name of a class must always begin with a capital letter.</p>
+</li>
+</ul>
+<div class="sidebar">
+<p class="first sidebar-title">Inheritance</p>
+<p class="last"><strong>Inheritance</strong> is a concept in object-oriented programming, or OOP, that
+allows one class to gain all the features of another, plus any additional
+features that the programmer wishes to add.</p>
+</div>
+<ul>
+<li><p class="first">The colon <code class="docutils literal"><span class="pre">:</span></code> between <code class="docutils literal"><span class="pre">GameLogic</span></code> and <code class="docutils literal"><span class="pre">ZilchComponent</span></code> tells the
+engine that your new class <em>inherits from</em> the <code class="docutils literal"><span class="pre">ZilchComponent</span></code> class.</p>
+<p>In order for your new component to show up in the editor, and to be able to
+add it to a cog, its class must inherit from the <code class="docutils literal"><span class="pre">ZilchComponent</span></code> class.</p>
+<p><img alt="AddingCustomComponent" src="../../_images/AddingCustomComponent1.png" /></p>
+<p><em>A class will show up in the editor if it inherits from</em>
+<code class="docutils literal"><span class="pre">ZilchComponent</span></code></p>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Functions and Parameters</p>
+<p>A <strong>function</strong> is a block of code that may be <em>called</em> when it is needed.
+The code of a function may use any number of <strong>parameters</strong> that are
+<em>passed</em> to it. These parameters may be numbers, such as <code class="docutils literal"><span class="pre">Integer</span></code>s or
+<code class="docutils literal"><span class="pre">Real</span></code>s, or any other type or custom class &#8212; it&#8217;s up to the programmer
+who wrote the function.</p>
+<p><strong>Data Types</strong></p>
+<p class="last">Classes can store data. The way that data is interpreted by the engine is
+determined by its <strong>type</strong>. Types will be covered in the next lesson.</p>
+</div>
+<ul>
+<li><p class="first">The <code class="docutils literal"><span class="pre">function</span></code> keyword is used to declare a new <strong>function</strong>.
+<code class="docutils literal"><span class="pre">Initialize</span></code> is the name of the function that we have declared.</p>
+<p><code class="docutils literal"><span class="pre">Initialize</span></code> is a special function that is inherited from the
+<code class="docutils literal"><span class="pre">ZilchComponent</span></code> class. The engine automatically calls the <code class="docutils literal"><span class="pre">Initialize</span></code>
+function of every component on a cog when that cog is first created.</p>
+</li>
+<li><p class="first">Next is <code class="docutils literal"><span class="pre">(init</span> <span class="pre">:</span> <span class="pre">CogInitializer)</span></code>. This is called the <strong>parameter list</strong>
+of this function. You can think of a function&#8217;s parameter list as a part of
+its name.</p>
+<p>Note that the colon <code class="docutils literal"><span class="pre">:</span></code> between <code class="docutils literal"><span class="pre">init</span></code> and <code class="docutils literal"><span class="pre">CogInitializer</span></code> does <em>not</em>
+do the same thing as the colon between <code class="docutils literal"><span class="pre">GameLogic</span></code> and <code class="docutils literal"><span class="pre">ZilchComponent</span></code>.
+This one specifies the <strong>data type</strong> of the <code class="docutils literal"><span class="pre">init</span></code> parameter.</p>
+<p>If a component&#8217;s <code class="docutils literal"><span class="pre">Initialize</span></code> function does not take a single parameter of
+type <code class="docutils literal"><span class="pre">CogInitializer</span></code>, the engine will not call it when it is created.</p>
+</li>
+<li><p class="first">Also, notice how in our code here, <code class="docutils literal"><span class="pre">function</span></code> is printed in bold text and
+in a different color from the rest of the code (and so is <code class="docutils literal"><span class="pre">class</span></code>). This
+is because it is a <strong>reserved</strong> word. You can&#8217;t name anything <code class="docutils literal"><span class="pre">function</span></code>
+or <code class="docutils literal"><span class="pre">class</span></code> (or any of a number of other keywords).</p>
+</li>
+</ul>
+<div class="sidebar">
+<p class="first sidebar-title">Reserved Words</p>
+<p class="last">In Zilch, no function, class, or anything else can be named <code class="docutils literal"><span class="pre">function</span></code> or
+<code class="docutils literal"><span class="pre">class</span></code> because those words are <strong>reserved</strong> &#8212; they already mean
+something to the language and we can&#8217;t change that.</p>
+</div>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="hll"><span class="p">{</span>
+</span>    <span class="p">[...]</span>
+
+    <span class="c1">// code that is part of the class</span>
+<span class="hll"><span class="p">}</span>
+</span>
+<span class="c1">// code that is not part of the class</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>A pair of <strong>curly braces</strong> <code class="docutils literal"><span class="pre">{}</span></code> encloses everything in the <code class="docutils literal"><span class="pre">GameLogic</span></code>
+class. Everything between them is a part of the class; anything outside of
+them is not.</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="hll">    <span class="p">{</span>
+</span>        <span class="p">[...]</span>
+
+        <span class="c1">// code that is inside the function</span>
+<span class="hll">    <span class="p">}</span>
+</span>
+    <span class="c1">// code that is outside the function</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Similarly, another pair of braces surrounds the <code class="docutils literal"><span class="pre">Initialize</span></code> function.
+Any code written between them is a part of the function, and will be
+executed every time the function is called.</li>
+</ul>
+<p>Zilch is a <strong>whitespace-insensitive</strong> language. This means that any number
+of spaces inserted by the Space bar or Tab key are treated just the same by
+the engine as a single space. (The same is true of newlines inserted by the
+Enter key.)</p>
+<p>Your <code class="docutils literal"><span class="pre">GameLogic</span></code> class could be written in the following manner, with no
+impact on how well it works:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span><span class="o">:</span><span class="nx">ZilchComponent</span><span class="p">{</span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span><span class="o">:</span><span class="nx">CogInitializer</span><span class="p">){</span>
+<span class="c1">//Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);</span>
+<span class="p">}</span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nx">UpdateEvent</span><span class="p">){}}</span>
+</pre></div>
+</div>
+<p>Of course, it&#8217;s much harder to read that way! Conversely, you could write it
+like this:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span>   <span class="nx">GameLogic</span>   <span class="o">:</span>   <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+
+
+    <span class="kd">function</span>   <span class="nx">Initialize</span>   <span class="p">(</span>   <span class="nx">init</span>   <span class="o">:</span>   <span class="nx">CogInitializer</span>   <span class="p">)</span>
+    <span class="p">{</span>
+
+
+        <span class="c1">//Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);</span>
+
+
+    <span class="p">}</span>
+
+
+    <span class="kd">function</span>   <span class="nx">OnLogicUpdate</span>   <span class="p">(</span>   <span class="nx">event</span>   <span class="o">:</span>   <span class="nx">UpdateEvent</span>   <span class="p">)</span>
+    <span class="p">{</span>
+
+
+    <span class="p">}</span>
+
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>... but this might be a bit excessive. Remember that you are free to use as
+much or as little whitespace as you like in writing your code, as long as
+you don&#8217;t put it in the middle of words.</p>
+</div>
+<div class="section" id="comments">
+<h2>Comments</h2>
+<div class="sidebar">
+<p class="first sidebar-title">&#8220;Commenting Out&#8221;</p>
+<p>In Zilch, it&#8217;s possible to turn a line of code into a comment by adding
+<code class="docutils literal"><span class="pre">//</span></code> to the beginning of the line. This causes the compiler to ignore that
+line, just as if it were an actual, literal comment. The advantage of this
+is that you haven&#8217;t deleted that code, you&#8217;ve just <em>commented it out</em>, so it
+can easily be put back in if needed.</p>
+<p class="last">Commenting code out rather than deleting it can be a good habit <em>if you
+think you may want to get that code back later</em>, but don&#8217;t go overboard and
+comment out every single thing you aren&#8217;t using anymore.</p>
+</div>
+<p>Comments allow us to leave notes to ourselves and others reading our code in our
+human language (instead of a programming language) so that we can quickly
+understand what we were doing. Commenting not only allows us to write the logic
+behind what we are doing beforehand, but it helps us quickly remember what the
+code was for when we haven’t looked at it in a long time. We create comments in
+Zilch by placing <code class="docutils literal"><span class="pre">//</span></code> at the beginning of the comment; it extends until the
+end of the line. The comment will be ignored when the script is processed, so it
+doesn&#8217;t affect the script&#8217;s functionality.</p>
+<p>You can see some code &#8220;commented out&#8221; in your generated file inside the Initialize function.</p>
+<ul>
+<li><p class="first">In the GameLogic ZilchScript Window</p>
+<ul>
+<li><p class="first">In the Initialize function</p>
+<ul>
+<li><p class="first">Change:
+<code class="docutils literal"><span class="pre">//Zero.Connect(this.Space,</span> <span class="pre">Events.LogicUpdate,</span> <span class="pre">this.OnLogicUpdate);</span></code></p>
+<p>to</p>
+<p><code class="docutils literal"><span class="pre">//</span> <span class="pre">This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">comment.</span></code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>A comment does not affect the program, but allows you to leave notes to
+yourself.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="printing">
+<h2>Printing</h2>
+<p>Now we will print to our Console Window using Zilch&#8217;s Console library. We will print a number in our GameLogic&#8217;s Initialize function.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>In the Initialize function<ul>
+<li>On the line after the comment<ul>
+<li>Type: <code class="docutils literal"><span class="pre">Console.WriteLine(9001);</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>This line of code will print the number 9001 in the Console Window. Don&#8217;t forget about the semicolon at the end of the line! Your <strong>GameLogic</strong> script should look like this:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// This is a comment.</span>
+<span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="mi">9001</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a></li>
+</ul>
+</div>
+<div class="section" id="errors">
+<h2>Errors</h2>
+<p>If you make a mistake, such as putting an extra closing parenthesis at the end, you will get a compiler error that looks something like this:</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>The statement must end with a semicolon. We found &#39;)&#39; but we expected to find &#39;;&#39;.
+</pre></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">What is a Compiler?</p>
+<p class="last">A <strong>compiler</strong> is a program that takes code written in a language that you
+can understand (in this case, Zilch) and turns it into program logic (in
+this case, your game project). The Zero Engine <em>compiles</em> your Zilch code
+into parts of your game. When it comes across something in your code that
+confuses it, it produces a <strong>compiler error</strong>.</p>
+</div>
+<p>Errors occur the moment the compiler finds a symbol or word it doesn&#8217;t recognize in context. Therefore, when looking for your bug you should always investigate the code at or before the area indicated by the error. <strong>Always READ the errors.</strong> They are helpful!
+Here it does not know what to do with a closing parenthesis when it did not see a matching open one come before it. It was expecting a semicolon right then. <em>Note:</em> Error messages clear upon typing or erasing within the script editor, but this doesn&#8217;t mean the error is gone. If you do not fix an error, the message will reappear the next time you compile (i.e. when you try to save or run your game).</p>
+<p>Once your code is bug-free we can see the new component in action.</p>
+</div>
+<div class="section" id="running-the-script">
+<h2>Running the Script</h2>
+<p>Let&#8217;s see our statement print to the console:</p>
+<ul class="simple">
+<li>Open the Console Window via the <code class="docutils literal"><span class="pre">Console</span></code> command</li>
+<li>In the Console Window<ul>
+<li>Press <code class="docutils literal"><span class="pre">Ctrl+Delete</span></code> to clear the console</li>
+</ul>
+</li>
+<li>Press the <code class="docutils literal"><span class="pre">F5</span></code> key to <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Now if we look at the Console Window, it should have printed the number. Why
+wasn&#8217;t the number printed? Oh! We forgot to add the script to an object. An
+object uses or <strong>calls</strong> the Initialize function on all of its components when
+it is first created. Since it wasn&#8217;t on any object, it never got called, and our
+code wasn&#8217;t used.</p>
+<p>Typically, when a script&#8217;s logic applies to all objects in a current level, we put it on that Level&#8217;s LevelSettings object:</p>
+<ul>
+<li><p class="first">Close the Game Window via: <code class="docutils literal"><span class="pre">Escape</span></code> key when in the Game Window OR the X button on the Game Window tab</p>
+</li>
+<li><p class="first">In the Objects Window</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Click the Add Component button</p>
+</li>
+<li><p class="first">Type: GameLogic</p>
+<p><img alt="AddingGameLogic" src="../../_images/AddingGameLogic1.png" /></p>
+</li>
+<li><p class="first">Select GameLogic via: a <code class="docutils literal"><span class="pre">Left-Click</span></code> on the drop down list OR <code class="docutils literal"><span class="pre">Enter</span></code></p>
+<p>Note that <code class="docutils literal"><span class="pre">GameLogic</span></code> shows up here because there is a <strong>class</strong> by
+that name. The project does also contain a file called &#8220;GameLogic.z&#8221; &#8212;
+but the names of a class and the file that contains it do not
+necessarily have to match. If you renamed the <code class="docutils literal"><span class="pre">GameLogic</span></code> class to
+<code class="docutils literal"><span class="pre">MyGameLogicClass</span></code>, then <code class="docutils literal"><span class="pre">MyGameLogicClass</span></code> would be what you would
+see when you went to add it to the LevelSettings cog. Conversely, if you
+were to rename the &#8220;GameLogic.z&#8221; script to &#8220;MyGameLogicScript.z&#8221;, you would
+still see <code class="docutils literal"><span class="pre">GameLogic</span></code> when you added it to LevelSettings.</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Run the Game</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></p>
+</li>
+</ul>
+<div class="sidebar">
+<p class="first sidebar-title">Console.Write</p>
+<p>The <code class="docutils literal"><span class="pre">Console.WriteLine</span></code> function will always print the given text on a new
+line. If you want to append (attach to the end) text to the last line
+printed you can use the <code class="docutils literal"><span class="pre">Console.Write</span></code> function:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">);</span>
+<span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">);</span>
+<span class="hll"><span class="nx">Console</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="s2">&quot;World&quot;</span><span class="p">);</span>
+</span></pre></div>
+</div>
+<p>will print</p>
+<p class="last"><code class="docutils literal"><span class="pre">Hello</span> <span class="pre">World</span></code></p>
+</div>
+<p>Now if we look at the Console Window, it should have printed the number. This is the console output we should get:</p>
+<blockquote>
+<div><p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Saved level file &#39;Level&#39;.
+Saved : Project and all scripts saved.
+----------------  End  Game ---------------
+---------------- Begin Game ---------------
+9001
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+</div></blockquote>
+<p>Notice that after the game begins, our number is printed in the console. This lets us know that our script is working and that our Initialize function is getting called.</p>
+</div>
+<div class="section" id="order-of-execution">
+<h2>Order of Execution</h2>
+<ul class="simple">
+<li>Go back to the GameLogic script via: Clicking on the GameLogic tab OR
+Double-clicking on the GameLogic script in the Library Window: <span class="menuselection">ZilchScript ‣ GameLogic</span></li>
+</ul>
+<p>What else can we print? How about a message? Text between quotation marks can be
+stored by the computer; we call such text a <strong>string</strong>.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>In the Initialize function<ul>
+<li>On the line after <code class="docutils literal"><span class="pre">Console.WriteLine(9001);</span></code><ul>
+<li>Type: <code class="docutils literal"><span class="pre">Console.WriteLine(&quot;Here</span> <span class="pre">be</span> <span class="pre">dragons.&quot;);</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Your <strong>Initialize</strong> function should look like this:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span>    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// This is a comment.</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="mi">9001</span><span class="p">);</span>
+<span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Here be dragons.&quot;</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Make sure your sentence, or String, is in between quotation marks!</em></p>
+<ul class="simple">
+<li>In the Console Window<ul>
+<li>Press <code class="docutils literal"><span class="pre">Ctrl+Delete</span></code> to clear the console</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Saved : Project and all scripts saved.
+---------------- Begin Game ---------------
+9001
+Here be dragons.
+Level &#39;Level&#39; was loaded.
+Loaded level 0.01s
+----------------  End  Game ---------------
+</pre></div>
+</div>
+<p>Notice how the outputs of our print statements in the console window are in the
+same order as the print statements themselves in our code. This is because
+programs execute one statement at a time. If we were to switch the order of the
+lines, it would change the order they print in.</p>
+</div>
+<div class="section" id="random">
+<h2>Random</h2>
+<p>Our program is static and does the same thing every time. Let&#8217;s add a little excitement &#8212; let&#8217;s roll a die.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>In the <strong>Initialize</strong> function change your code to:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Here be dragons.&quot;</span><span class="p">);</span>
+
+<span class="hll">        <span class="c1">// Create a random number generator</span>
+</span><span class="hll">        <span class="k">var</span> <span class="nx">randNumGen</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Random</span><span class="p">();</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="c1">// In honor of dragons and D&amp;D, roll a d20:</span>
+</span><span class="hll">        <span class="k">var</span> <span class="nx">randNum</span> <span class="o">=</span> <span class="nx">randNumGen</span><span class="p">.</span><span class="nx">DieRoll</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="c1">// See what we rolled:</span>
+</span><span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">randNum</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+</pre></div>
+</div>
+<p>This new code creates a random number generator, and then <em>calls its</em>
+<code class="docutils literal"><span class="pre">DieRoll</span></code> <em>function</em>. This function simulates rolling a die, but it requires a
+parameter to be passed to it to specify the number of sides on the die to roll.
+We want to roll a d20, so we <em>pass in</em> <code class="docutils literal"><span class="pre">20</span></code>. If we had passed in <code class="docutils literal"><span class="pre">6</span></code>,
+<code class="docutils literal"><span class="pre">DieRoll</span></code> would give us the result of a d6 roll.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>You&#8217;ll see your random number printed out in the Console Window.</p>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Rerun the game</span></a> multiple times.</li>
+</ul>
+<p>You should see that the number printed is changing between runs.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="variables">
+<h2>Variables</h2>
+<p>Here you used the <strong>var</strong> keyword to make a <strong>variable</strong>.
+Variables are like buckets. They are simple containers you can store stuff in. When you come back, the last thing you put inside it will still be there and you can change the contents of the bucket as you see fit. You can fill it with explicit items or <strong>literals</strong>, such as <code class="docutils literal"><span class="pre">3</span></code> or <code class="docutils literal"><span class="pre">&quot;Hello!&quot;</span></code>. You can mimic the contents of another bucket via assignment, as in the following example:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">bucket1</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">bucket2</span> <span class="o">=</span> <span class="mi">16</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">bucket3</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+
+<span class="c1">// Set bucket1&#39;s contents equal to bucket2&#39;s contents:</span>
+<span class="nx">bucket1</span> <span class="o">=</span> <span class="nx">bucket2</span><span class="o">;</span>
+
+<span class="c1">// bucket1 now has a value of 16</span>
+<span class="c1">// bucket2&#39;s contents remain unchanged, having a value of 16</span>
+
+<span class="c1">// Set bucket3&#39;s contents equal to the sum of the contents of bucket3 and bucket1</span>
+<span class="nx">bucket3</span> <span class="o">+=</span> <span class="nx">bucket1</span><span class="o">;</span>
+
+<span class="c1">// The value of bucket1 is still 16 because that is the last thing we stored in it, so:</span>
+<span class="c1">// bucket3 += bucket 1          becomes:</span>
+<span class="c1">// bucket3  = bucket3 + bucket1 becomes:</span>
+<span class="c1">// bucket3  = 4       + 16</span>
+<span class="c1">// The contents of bucket3 are now updated to 20.</span>
+</pre></div>
+</div>
+<p>Or you can use it as a container to receive the output of a function call, as we
+did with the <code class="docutils literal"><span class="pre">DieRoll</span></code> function.</p>
+<p>In this script, you&#8217;ve used variables to store:</p>
+<ul class="simple">
+<li>the object created by <code class="docutils literal"><span class="pre">new</span> <span class="pre">Random()</span></code> and</li>
+<li>the value returned by the <code class="docutils literal"><span class="pre">DieRoll</span></code> function</li>
+</ul>
+<p>Because you had the ability to store the value from the <code class="docutils literal"><span class="pre">DieRoll</span></code>, you were
+able to pass it along to the <code class="docutils literal"><span class="pre">Console.WriteLine</span></code> function to see its value:
+<code class="docutils literal"><span class="pre">Console.WriteLine(randNum);</span></code></p>
+</div>
+<div class="section" id="conditionals">
+<h2>Conditionals</h2>
+<p>Let&#8217;s say we are a pretty average player and these are concerning dragons. If we
+roll a 1&#8211;10, we get burned by the fearsome dragon; if we roll 11&#8211;20 we slay
+the dragon. Knowing that rolling a d20 will give us a number between 1 and 20,
+we can check how the number compares to 11:</p>
+<p><code class="docutils literal"><span class="pre">If</span> <span class="pre">the</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">is</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="pre">less</span> <span class="pre">than</span> <span class="pre">11</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="pre">(randNum</span> <span class="pre">&lt;</span>&nbsp; <span class="pre">11),</span> <span class="pre">it</span> <span class="pre">must</span> <span class="pre">be</span> <span class="pre">between</span>&nbsp; <span class="pre">1</span> <span class="pre">and</span> <span class="pre">10.</span></code></p>
+<p><code class="docutils literal"><span class="pre">If</span> <span class="pre">the</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">is</span>&nbsp;&nbsp; <span class="pre">greater</span> <span class="pre">than</span> <span class="pre">or</span> <span class="pre">equal</span> <span class="pre">to</span> <span class="pre">11</span>&nbsp;&nbsp; <span class="pre">(randNum</span> <span class="pre">&gt;=</span> <span class="pre">11),</span> <span class="pre">it</span> <span class="pre">must</span> <span class="pre">be</span> <span class="pre">between</span> <span class="pre">11</span> <span class="pre">and</span> <span class="pre">20.</span></code></p>
+<p>These <strong>comparison operators</strong> operate the same way they do in mathematics.
+These statements are either <strong>true</strong> or <strong>false</strong>. We will use these comparison
+operators in an <strong>if</strong> statement.</p>
+<p><strong>if Statements</strong></p>
+<p>An <code class="docutils literal"><span class="pre">if</span></code> statement takes a <strong>boolean condition</strong> (something that evaluates to
+true or false), to determine whether or not it should run some code.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Code between these curly braces always gets run.</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Code between these curly braces always gets skipped.</span>
+<span class="p">}</span>
+<span class="c1">// Comparison operators can be used as boolean conditions</span>
+<span class="c1">// because they result in true or false.</span>
+<span class="k">if</span> <span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Code between these curly braces always runs because the value of 5 will</span>
+  <span class="c1">// always be greater than 3. This boolean condition will always result in true.</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">randomNumber</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Code between these curly braces may or may not run --</span>
+  <span class="c1">// it depends on the value stored in the randomNumber variable.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We can use these concepts to &#8220;fight&#8221; the dragon.</p>
+<ul class="simple">
+<li>In the <strong>GameLogic</strong> ZilchScript Window<ul>
+<li>In the <strong>Initialize</strong> function change your code to:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;A Dragon attacks!&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Create a random number generator</span>
+    <span class="k">var</span> <span class="nx">randNumGen</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Random</span><span class="p">();</span>
+    <span class="c1">// In honor of dragons and D&amp;D, roll a d20:</span>
+    <span class="k">var</span> <span class="nx">randNum</span> <span class="o">=</span> <span class="nx">randNumGen</span><span class="p">.</span><span class="nx">DieRoll</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+
+    <span class="c1">// See what we rolled:</span>
+<span class="hll">    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;(you roll a `randNum`)&quot;</span><span class="p">);</span>
+</span><span class="hll">        <span class="c1">// Note the grave accent marks, ``, used here -- see below</span>
+</span><span class="hll">        <span class="c1">// These are NOT the same as apostrophes or single quotes (&#39;&#39;)</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">// If we rolled a less than 11:</span>
+</span><span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="nx">randNum</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// We lose.</span>
+</span><span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Taking you by surprise, the dragon burns you to a crisp!&quot;</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="c1">// If we roll greater than 11:</span>
+</span><span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="nx">randNum</span> <span class="o">&gt;=</span> <span class="mi">11</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// We win.</span>
+</span><span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Dodging the dragon&#39;s fiery breath, you slay the dragon with your sword!&quot;</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>When writing the value of <code class="docutils literal"><span class="pre">randNum</span></code> within a string, place <strong>grave accent
+marks</strong>, ` (the tilde ~ key, under Esc on an American keyboard), around the
+variable&#8217;s name. In general, surrounding a bit of code (such as a variable name)
+with ` marks and putting it in a string will replace it with its value instead
+of its name. This is called <strong>string interpolation</strong>.</p>
+<p>You&#8217;ll see your story unfold in the Console Window.</p>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Rerun the game</span></a> multiple times.</li>
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p>What if we want to reward great technical skill? Let&#8217;s alter the message when you&#8217;ve rolled a 20.</p>
+<ul class="simple">
+<li>In the <strong>GameLogic</strong> ZilchScript Window<ul>
+<li>In the <strong>Initialize</strong> function change your code to:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;A Dragon attacks!&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Create a random number generator</span>
+    <span class="k">var</span> <span class="nx">randNumGen</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Random</span><span class="p">();</span>
+    <span class="c1">// In honor of dragons and D&amp;D, roll a d20:</span>
+    <span class="k">var</span> <span class="nx">randNum</span> <span class="o">=</span> <span class="nx">randNumGen</span><span class="p">.</span><span class="nx">DieRoll</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+
+    <span class="c1">// See what we rolled:</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;(you roll a `randNum`)&quot;</span><span class="p">);</span>
+
+    <span class="c1">// If we rolled a less than 11:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">randNum</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// We lose.</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Taking you by surprise, the dragon burns you to a crisp!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// If we roll a 20:</span>
+<span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="nx">randNum</span> <span class="o">==</span> <span class="mi">20</span><span class="p">)</span> <span class="c1">// Be sure to use two equals signs -- see below</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// We win with style.</span>
+</span><span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Before the dragon can muster its fire, you slay it with your sword!&quot;</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span>    <span class="c1">// If we roll greater than 11:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">randNum</span> <span class="o">&gt;=</span> <span class="mi">11</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// We win.</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Dodging the dragon&#39;s fiery breath, you slay the dragon with your sword!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The equals sign, <code class="docutils literal"><span class="pre">=</span></code>, is <em>not</em> the same as the double equals sign, <code class="docutils literal"><span class="pre">==</span></code>. The
+double equals sign asks a question: &#8220;Is this the same as that?&#8221; It&#8217;s frequently
+used in <code class="docutils literal"><span class="pre">if</span></code> statements. The single equals sign stores a value in a variable:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="nx">hitPoints</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>sets the value of <code class="docutils literal"><span class="pre">hitPoints</span></code> to be equal to <code class="docutils literal"><span class="pre">100</span></code>.</p>
+<p>You&#8217;ll see your story unfold in the Console Window.</p>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Rerun the game</span></a> until you roll a 20</li>
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p>Console Ouput:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>----------------  End  Game ---------------
+---------------- Begin Game ---------------
+A Dragon attacks!
+(you roll a 20)
+Before the dragon can muster its fire, you slay the dragon with your sword!
+Dodging the dragon&#39;s fiery breath, you slay the dragon with your sword!
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<p>Here you can see that both win conditions ran as if <em>two</em> dragons attacked.</p>
+<p>This is because both of the conditions were true: when we rolled a 20, that
+meant the value in <code class="docutils literal"><span class="pre">randNum</span></code> was 20, so:</p>
+<p><code class="docutils literal"><span class="pre">if</span> <span class="pre">(randNum</span> <span class="pre">==</span> <span class="pre">20)</span></code> became <code class="docutils literal"><span class="pre">if</span> <span class="pre">(20</span> <span class="pre">==</span> <span class="pre">20)</span></code> became <code class="docutils literal"><span class="pre">if</span> <span class="pre">(true)</span></code> so <br />
+<code class="docutils literal"><span class="pre">Console.WriteLine(&quot;Before</span> <span class="pre">the</span> <span class="pre">dragon</span> <span class="pre">can</span> <span class="pre">muster</span> <span class="pre">its</span> <span class="pre">fire,</span> <span class="pre">you</span> <span class="pre">slay</span> <span class="pre">the</span> <span class="pre">dragon</span> <span class="pre">with</span> <span class="pre">your</span> <span class="pre">sword!&quot;);</span></code> ran,</p>
+<p>and also:</p>
+<p><code class="docutils literal"><span class="pre">if</span> <span class="pre">(randNum</span> <span class="pre">&gt;=</span> <span class="pre">11)</span></code> became <code class="docutils literal"><span class="pre">if</span> <span class="pre">(20</span> <span class="pre">&gt;=</span> <span class="pre">11)</span></code> became <code class="docutils literal"><span class="pre">if</span> <span class="pre">(true)</span></code> so <br />
+<code class="docutils literal"><span class="pre">Console.WriteLine(&quot;Dodging</span> <span class="pre">the</span> <span class="pre">dragon's</span> <span class="pre">fiery</span> <span class="pre">breath,</span> <span class="pre">you</span> <span class="pre">slay</span> <span class="pre">the</span> <span class="pre">dragon</span> <span class="pre">with</span> <span class="pre">your</span> <span class="pre">sword!&quot;);</span></code> also ran.</p>
+<p><strong>else/else if Statements</strong></p>
+<p>Once we&#8217;ve defeated the dragon, we don&#8217;t want to do it again. We can avoid this by only checking if necessary.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// When the boolean condition evaluates to true:</span>
+<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code between these curly braces gets run.</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="c1">// Code between these curly braces gets skipped.</span>
+<span class="p">}</span>
+
+
+<span class="c1">// When the boolean condition evaluates to false:</span>
+<span class="k">if</span> <span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code between these curly braces gets skipped.</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="c1">// Code between these curly braces gets run.</span>
+<span class="p">}</span>
+
+<span class="c1">// when you have more conditions to check you can pair an else with another if:</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">randNumber</span> <span class="o">==</span> <span class="mi">20</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code between these curly braces may or may not run.</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">randNumber</span> <span class="o">&gt;=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code between these curly braces may or may not run.</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">randNumber</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code between these curly braces may or may not run.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let&#8217;s fix our game by adding an <strong>else if</strong> statement:</p>
+<ul class="simple">
+<li>In the <strong>GameLogic</strong> ZilchScript Window<ul>
+<li>In the <strong>Initialize</strong> function change your code to:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="hll"><span class="c1">// If we didn&#39;t roll a 20 but did roll greater than 11:</span>
+</span><span class="hll"><span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">randNum</span> <span class="o">&gt;=</span> <span class="mi">11</span><span class="p">)</span>
+</span><span class="p">{</span>
+    <span class="c1">// We win.</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Dodging the dragon&#39;s fiery breath, you slay the dragon with your sword!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You&#8217;ll see your story unfold in the Console Window.</p>
+<ul class="simple">
+<li><a class="reference internal" href="RunTheGame.html#runthegame2015"><span>Rerun the game</span></a> until you roll a 20</li>
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>----------------  End  Game ---------------
+---------------- Begin Game ---------------
+A Dragon attacks!
+(you roll a 20)
+Before the dragon can muster its fire, you slay the dragon with your sword!
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<p>Now it works as intended and we&#8217;ve learned about variables, if, else, errors, printing, and strings.</p>
+</div>
+<div class="section" id="on-your-own">
+<h2>On Your Own</h2>
+<p>Beside rewarding great technical skill, it is also common to acknowledge abysmal failure. Write another check for if you roll a 1, and print out a different message describing your unfortunate encounter with the dragon. Make sure the normal failure condition doesn&#8217;t run!</p>
+<p>There are many different ways to approach the same problem when programming. Experiment with different comparison operators while maintaining the same functionality.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Comparison Operators</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&lt;</td>
+<td>less than</td>
+</tr>
+<tr class="row-odd"><td>&lt;=</td>
+<td>less than or equal to</td>
+</tr>
+<tr class="row-even"><td>&gt;</td>
+<td>greater than</td>
+</tr>
+<tr class="row-odd"><td>&gt;=</td>
+<td>greater than or equal to</td>
+</tr>
+<tr class="row-even"><td>==</td>
+<td>equality</td>
+</tr>
+<tr class="row-odd"><td>!=</td>
+<td>inequality</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Scripting2.html" class="btn btn-neutral float-right" title="Scripting 2" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Text.html" class="btn btn-neutral" title="Sprites and Text" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/Scripting.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:14:40 GMT -->
+</html>

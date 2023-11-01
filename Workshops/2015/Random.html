@@ -1,0 +1,602 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/Random.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:18:12 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Random &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2015" href="index.html"/>
+        <link rel="next" title="Vector Math" href="VectorMath.html"/>
+        <link rel="prev" title="Saving and Loading Data" href="ObjectStore.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2015</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprites and Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ArraysLoops.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Random</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath.html">Vector Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RayCasting.html">Ray Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PracticalParticles.html">Particle Effects: Practical Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LauncherNewProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Adding &amp; Removing Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tags.html">Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2015</a> &raquo;</li>
+      
+    <li>Random</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2015/Random.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- this is used as a file for inclusion in other .rst files --><div class="searchtitle section" id="random">
+<span id="random2015"></span><h1>Random</h1>
+<p class="searchdescription">This section covers reference for the <strong>Random</strong> class &amp; the <strong>RandomContext</strong> component.</p>
+<div class="section" id="creating-a-random-number-generator-object">
+<h2>Creating a Random Number Generator Object</h2>
+<p>Random is an important part of a game and is commonly used to, for example:</p>
+<ul class="simple">
+<li>Generating objects with random property values (position, color, size, etc)</li>
+<li>Determining player&#8217;s stats</li>
+<li>Determining player&#8217;s reward when they finish an objective</li>
+<li>And more...</li>
+</ul>
+<p>Without randomness, a game will be deterministic meaning the same outcome will always happen given the same set of player inputs.</p>
+<p>There are 2 ways you can create a Random Number Generator Object in Zero Engine:</p>
+<ul class="simple">
+<li><strong>RandomContext component</strong></li>
+<li><strong>Random class object</strong> (only available through Zilch Scripts)</li>
+</ul>
+<p>RandomContext is a component that can be added to an object while Random is a type (such as Real2 or Quaternion). While they both offer slightly different methods, they both can be used to accomplish the same goals and are often interchangeable.</p>
+<p><strong>RandomContext component</strong></p>
+<p>The RandomContext component can be added to a game object just like every other component either through the editor or through a script.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">AddComponent2015ByName</span><span class="p">(</span><span class="s2">&quot;RandomContext&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>Random class object</strong></p>
+<p>The Random class object can be created much like every other object in the game.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">RandomScript</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="p">...</span>
+    <span class="k">var</span> <span class="nx">RandomGenerator</span> <span class="o">:</span> <span class="nx">Random</span> <span class="o">=</span> <span class="nx">Random</span><span class="p">();</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>or if you want to where exactly when the object is created</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="p">...</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">RandomGenerator</span> <span class="o">=</span> <span class="nx">Random</span><span class="p">();</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p></p>
+</div>
+<div class="section" id="using-the-random-number-generator-object">
+<h2>Using the Random Number Generator Object</h2>
+<p>Below are some examples on how to use the functions offered by the Random Number Generator object.</p>
+<p><strong>DieRoll</strong></p>
+<p>Integer DieRoll (Integer Sides)
+DieRoll is a function that takes an integer that determines the number of sides of a die and returns a random number between 1 and Sides.</p>
+<p>Here&#8217;s an example:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">GenerateRandomNumber</span> <span class="p">()</span>
+<span class="p">{</span>
+  <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">RandomGenerator</span><span class="p">.</span><span class="nx">DieRoll</span><span class="p">(</span><span class="mi">20</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Range</strong></p>
+<p>Real Range (Real Min, Real Max)</p>
+<p>The Range function can be used when you need to generate a random number between two numbers.</p>
+<p>Why can call this function by</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">GenerateRandomRange</span> <span class="p">()</span>
+<span class="p">{</span>
+  <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">RandomGenerator</span><span class="p">.</span><span class="nx">Range</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Linear vs Non-Linear</strong></p>
+<p>Up untill now we are only generating random numbers linearly. This means that all possible numbers in a specified range has an equal chance to be generated. There are functions that the generator offer that generates random numbers in a non-linear manner where all possible numbers in a specified range does not have an equal chance to be generated. Functions like BellCurve generate numbers in a non-linear manner so in a range of 0 to 1, numbers in the middle of the range has a higher chance of being generated than the numbers on the edges.</p>
+<p></p>
+</div>
+<div class="section" id="deterministic-random-number-generator">
+<h2>Deterministic Random Number Generator</h2>
+<p>In some situations, deterministic random number might be needed in order for a feature to work correctly. This can normally be found in a Replay feature or networked games. In a Replay feature, game sessions are recorded and replayed for people to see and evaluate. This means that we will have to record all randomness in the game as well. Or in a networked game where randomness are involved, we need to make sure that all the connected players are playing the same game which means we have to somehow make sure that random number generator generates the same number between the different players.</p>
+<p><strong>Seeding a Random Number Generator</strong></p>
+<p>When we seed a random number generator, we make sure that the random number generator will generate the same sequence of number when it is called.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="p">...</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">RandomGenerator</span><span class="p">.</span><span class="nx">Seed</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When the following function is called multiple times, the same sequence of number will be generated every time.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">GenerateRandomNumber</span> <span class="p">()</span>
+<span class="p">{</span>
+  <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">RandomGenerator</span><span class="p">.</span><span class="nx">DieRoll</span><span class="p">(</span><span class="mi">20</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>So in a Replay feature, we simply save the current seed of the random number generator and then seed the random number generator with the seed to get the same sequence of random number every time we run the replay. Also, in a networked game, we can simply share the seed between all connected players to make sure that everyone shares the same gameplay experience between multiple random number generator.</p>
+<p></p>
+</div>
+<div class="section" id="functions-available-for-random-class-object-and-randomcontext-component">
+<h2>Functions available for Random class object and RandomContext component</h2>
+<p>Below are functions available for both generators, what they have to offer and what functions are different between them.</p>
+<p><strong>Random Class</strong> (Zilch only)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="28%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Return</th>
+<th class="head">Name</th>
+<th class="head">Parameters</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Integer</td>
+<td>DieRoll</td>
+<td>(Integer sides)</td>
+</tr>
+<tr class="row-odd"><td>Integer</td>
+<td>GetMaxInt</td>
+<td>(void)</td>
+</tr>
+<tr class="row-even"><td>Integer</td>
+<td>Integer</td>
+<td>(void)</td>
+</tr>
+<tr class="row-odd"><td>Integer</td>
+<td>Variance</td>
+<td>(Integer base, Integer variance)</td>
+</tr>
+<tr class="row-even"><td>Integer</td>
+<td>RangeExclusiveMax</td>
+<td>(Integer min, Integer max)</td>
+</tr>
+<tr class="row-odd"><td>Integer</td>
+<td>RangeInclusiveMax</td>
+<td>(Integer min, Integer max)</td>
+</tr>
+<tr class="row-even"><td>Boolean</td>
+<td>Boolean</td>
+<td>(void)</td>
+</tr>
+<tr class="row-odd"><td>Boolean</td>
+<td>CoinFlip</td>
+<td>(void)</td>
+</tr>
+<tr class="row-even"><td>Boolean</td>
+<td>Probability</td>
+<td>(Real probOfTrue)</td>
+</tr>
+<tr class="row-odd"><td>Real</td>
+<td>BellCurve</td>
+<td>(void)</td>
+</tr>
+<tr class="row-even"><td>Real</td>
+<td>Range</td>
+<td>(Real min, Real max)</td>
+</tr>
+<tr class="row-odd"><td>Real</td>
+<td>Real</td>
+<td>(void)</td>
+</tr>
+<tr class="row-even"><td>Real2</td>
+<td>UnitReal2</td>
+<td>(void)</td>
+</tr>
+<tr class="row-odd"><td>Real3</td>
+<td>UnitReal3</td>
+<td>(void)</td>
+</tr>
+<tr class="row-even"><td>Real2</td>
+<td>Real2</td>
+<td>(Real minLength, Real maxLength)</td>
+</tr>
+<tr class="row-odd"><td>Real3</td>
+<td>Real3</td>
+<td>(Real minLength, Real maxLength)</td>
+</tr>
+<tr class="row-even"><td>Quaternion</td>
+<td>Quaternion</td>
+<td>(void)</td>
+</tr>
+<tr class="row-odd"><td>Quaternion</td>
+<td>Rotation</td>
+<td>(void)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Seed</td>
+<td>(Integer Seed)</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<p><strong>RandomContext Component</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="32%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Return</th>
+<th class="head">Name</th>
+<th class="head">Parameters</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Integer</td>
+<td>DieRoll</td>
+<td>(Integer sides)</td>
+</tr>
+<tr class="row-odd"><td>Integer</td>
+<td>MaxInt</td>
+<td>(void)</td>
+</tr>
+<tr class="row-even"><td>Integer</td>
+<td>Int</td>
+<td>(void)</td>
+</tr>
+<tr class="row-odd"><td>Integer</td>
+<td>IntVariance</td>
+<td>(Integer base, Integer variance)</td>
+</tr>
+<tr class="row-even"><td>Integer</td>
+<td>RangeExclusiveMax</td>
+<td>(Integer min, Integer max)</td>
+</tr>
+<tr class="row-odd"><td>Integer</td>
+<td>RangeInclusiveMax</td>
+<td>(Integer min, Integer max)</td>
+</tr>
+<tr class="row-even"><td>Boolean</td>
+<td>Bool</td>
+<td>(void)</td>
+</tr>
+<tr class="row-odd"><td>Boolean</td>
+<td>CoinFlip</td>
+<td>(void)</td>
+</tr>
+<tr class="row-even"><td>Boolean</td>
+<td>Probability</td>
+<td>(Real probOfTrue)</td>
+</tr>
+<tr class="row-odd"><td>Real</td>
+<td>BellCurve</td>
+<td>(void)</td>
+</tr>
+<tr class="row-even"><td>Real</td>
+<td>BellCurveDistribution</td>
+<td>(Real center, Real range, Real sd)</td>
+</tr>
+<tr class="row-odd"><td>Real</td>
+<td>BellCurveRange</td>
+<td>(Real center, Real range)</td>
+</tr>
+<tr class="row-even"><td>Real</td>
+<td>Range</td>
+<td>(Real min, Real max)</td>
+</tr>
+<tr class="row-odd"><td>Real</td>
+<td>Real</td>
+<td>(void)</td>
+</tr>
+<tr class="row-even"><td>Real</td>
+<td>RealVariance</td>
+<td>(Real base, Real variance)</td>
+</tr>
+<tr class="row-odd"><td>Real</td>
+<td>Float</td>
+<td>(void)</td>
+</tr>
+<tr class="row-even"><td>Real</td>
+<td>FloatVariance</td>
+<td>(Real base, Real variance)</td>
+</tr>
+<tr class="row-odd"><td>Real2</td>
+<td>UnitVector2</td>
+<td>(void)</td>
+</tr>
+<tr class="row-even"><td>Real3</td>
+<td>UnitVector3</td>
+<td>(void)</td>
+</tr>
+<tr class="row-odd"><td>Real2</td>
+<td>Vector2</td>
+<td>(Real minLength, Real maxLength)</td>
+</tr>
+<tr class="row-even"><td>Real3</td>
+<td>Vector3</td>
+<td>(Real minLength, Real maxLength)</td>
+</tr>
+<tr class="row-odd"><td>Quaternion</td>
+<td>Quaternion</td>
+<td>(void)</td>
+</tr>
+<tr class="row-even"><td>Quaternion</td>
+<td>Rotation</td>
+<td>(void)</td>
+</tr>
+<tr class="row-odd"><td>Boolean</td>
+<td>RandomSeed</td>
+<td>(void)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="VectorMath.html" class="btn btn-neutral float-right" title="Vector Math" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ObjectStore.html" class="btn btn-neutral" title="Saving and Loading Data" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/Random.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:18:12 GMT -->
+</html>

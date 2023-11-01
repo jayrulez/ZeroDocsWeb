@@ -1,0 +1,376 @@
+.. _ReferenceSpace:
+
+.. rst-class:: searchtitle
+
+Space
+=====
+
+.. rst-class:: searchdescription
+
+A space is a near boundless, three-dimensional extent in which objects and events occur and have relative position, direction, and time. Essentially a world of objects that exist together. Used to divide objects between UI, World, Editor, and others. The two most Common spaces are the'World' for the game world and the'Ui' for the HUD and menus.
+
+.. include:: Description/Space.rst
+
+.. cpp:class:: Space
+
+    Base Class: :cpp:type:`Cog`
+
+.. _ReferenceSpaceProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String Space::Name
+
+            Name of the Object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String Space::ArchetypeName
+
+            The name of the archetype this object was created from.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: u32 Space::RuntimeId
+
+            Gets a unique integer for this object(used primarily for debugging)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Actions Space::Actions
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint Space::ObjectCount
+
+            Number of objects in the space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Level Space::CurrentLevel
+
+            Last level loaded.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Space::Space
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Space::Parent
+
+            Get the parent of this object in the Hierarchy.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Space::IsBeingDestroyed
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Space::Transient
+
+            Object will not be saved.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Space::Persistent
+
+            Object will not be destroyed on level load or change.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Space::EditorViewportHidden
+
+            Hidden from view used for editor.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Space::ObjectViewHidden
+
+            If the object needs to not show up in the object view.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Space::Locked
+
+            Not able to be modified or selected in the viewport.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: HierarchyList::range Space::Children
+
+            Grab the children directly from the hierarchy component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Space::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Space::GameSession
+
+            Get the GameSession that owns us and our space.
+
+.. _ReferenceSpaceMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::Destroy()
+
+            Destroy the space and all objects inside it.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::DispatchEvent(String eventId, Event event)
+
+            Dispatches an event on this object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool Space::AddComponentByName(String name)
+
+            Add a component by name.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool Space::RemoveComponentByName(String name)
+
+            Remove a component by name. Returns true if the component existed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::Create(Archetype archetype)
+
+            Create an object in the space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::CreateAtPosition(Archetype archetype, Vec3 position)
+
+            Create a object at a position in the space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::CreateLink(Archetype archetype, Cog objectA, Cog objectB)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::LoadLevel(Level levelName)
+
+            Load new level replace the current level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::ReloadLevel()
+
+            Reload the current level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Level Space::AddObjectsFromLevel(Level levelName)
+
+            Add all objects from a level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::FindObjectByName(String name)
+
+            Find an object in the space with a given name.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::FindFirstObjectByName(String name)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::FindLastObjectByName(String name)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::FindFirstRootObjectByName(String name)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::FindLastRootObjectByName(String name)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: CogNameRange Space::FindAllObjectsByName(String name)
+
+            Find an object in the space with a given name.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::DestroyAll()
+
+            Destroy all objects in space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::DestroyAllFromLevel()
+
+            Destroy all objects created from level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: range Space::AllObjects()
+
+            All objects in the space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool Space::IsEditorMode()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::Modified()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::DebugDraw()
+
+            Calls DebugDraw on all components in this cog.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::AttachTo(Cog parent)
+
+            Attach to a parent object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::Detach()
+
+            Detach from a parent object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::AttachToRelative(Cog parent)
+
+            Attach to a parent object and compute the new transform so that the objects are relative.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::DetachRelative()
+
+            Detach from a parent object and compute the new transform so that the objects are relative.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::FindChildByName(String name)
+
+            Find a child object with the given name.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: HierarchyNameRange Space::FindAllChildrenByName(String name)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::DispatchUp(String eventId, Event event)
+
+            Dispatches an event up the tree on each parent recursively(pre-order traversal)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::DispatchDown(String eventId, Event event)
+
+            Dispatches an event down the tree on all children recursively(pre-order traversal)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::FindRoot()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::UploadToArchetype()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::ModifiedFromArchetype()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::Clone()
+
+            Clones this cog.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Space::ClearArchetype()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::FindNextSibling()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::FindPreviousSibling()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::FindNextInOrder()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Space::FindPreviousInOrder()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool Space::IsDescendant(Cog cog)
+
+            Returns whether or not the given cog is a descendant of us.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Component Space::GetComponentByName(String componentTypeName)
+
+            
+
+.. include:: Remarks/Space.rst

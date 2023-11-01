@@ -1,0 +1,127 @@
+.. _Written_by_Jason_Clark
+
+.. _ManualCollisionEvents:
+
+Collision Events
+================
+
+Zero sends out a :cpp:type:`CollisionEvent` when contact between two :cpp:type:`Colliders<Collider>` begins, ends, or persists. CollisionEvent contains a number of properties providing data about the collision that may be of use to the user.
+
+.. sidebar:: Recommended Reading
+
+    This page includes topics one might not have encountered yet. To learn about or review these materials, the following list provides the links to their respective Manual or Tutorial pages:
+    
+    *   :ref:`Events and Connections<ManualEventsAndConnections>`
+    
+    *   :ref:`Collision Overview<ManualCollisionOverview>`
+
+.. _ManualCollisionEventsCommon:
+
+Common Uses
+-----------
+
+*   Providing certain data of the two colliding objects so so the user may make changes to the objects involved or any other object that should change in response to it.
+
+*   Providing certain data for the user to add visual, audio, and other feedback based on the collision.
+
+.. _ManualCollisionEventsUsing:
+
+Using Collision Events
+----------------------
+
+There are three different CollisionEvent-type events:
+
+*   ``CollisionStarted`` : :cpp:type:`CollisionEvent`
+
+    *   The CollisionEvent dispatched when Colliders first come into contact.
+    
+*   ``CollisionPersisted`` : :cpp:type:`CollisionEvent`
+
+    *   The CollisionEvent dispatched every frame (*after* the initial, collision started frame) that two Colliders are in contact with each other.
+    
+*   ``CollisionEnded`` : :cpp:type:`CollisionEvent`
+
+    *   The CollisionEvent dispatched on the first frame when two Colliders stop colliding.
+    
+Connecting and Disconnecting to Collision Events
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+To connect and disconnect(or "listen" and "stop listening") to a particular CollisionEvent, use the same ``Zero.Connect`` and ``Zero.Disconnect`` syntax that is used for all events:
+
+.. code-block:: csharp
+
+    //Connecting to CollisionEvents
+    
+    //Connect to the CollisionStarted CollisionEvent sent to the Owner
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    
+    //Connect to the CollisionPersisted CollisionEvent sent to the Owner
+    Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+    
+    //Connect to the CollisionEnded CollisionEvent sent to the Owner
+    Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+    
+    //Disconnecting to CollisionEvents
+    
+    //Disconnect to the CollisionStarted CollisionEvent sent to the Owner
+    Zero.Disconnect(this.Owner, Events.CollisionStarted, this);
+    
+    //Disconnect to the CollisionPersisted CollisionEvent sent to the Owner
+    Zero.Disconnect(this.Owner, Events.CollisionPersisted, this);
+    
+    //Disconnect to the CollisionStarted CollisionEvent sent to the Owner
+    Zero.Disconnect(this.Owner, Events.CollisionPersisted, this);
+    
+While CollisionEvent connections are usually made in the  ``Initialize`` function, they do not have to be; the connections may be made in any function within a ZilchScript. The caveat to this rule is that if the event connection is in a function that ends up being called more than once, the event will end up connecting more than once, which will almost always cause undesired behavior.
+
+.. _ManualCollisionEventsData:
+
+Data Included with Collision Events
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The types of data in CollisionEvents can be split into two main categories:
+
+*   **The Objects Involved**
+
+    *   This data involves the two objects involved in the collision.
+    
+*   **Data about Contact Points**
+
+    *   This includes a range of all contact points, the number of contact points, and the first point of contact(which is provided to save unnecessary iteration through the range)
+
+The Properties of CollisionEvent
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`CollisionEvent Code Reference<ReferenceCollisionEvent>`
+
+.. _ManualCollisionEventsRelated:
+
+Related Material
+----------------
+
+Manual Pages
+~~~~~~~~~~~~
+
+*	:ref:`Collision Overview<ManualCollisionOverview>`
+
+*	:ref:`Group Collision Events<ManualGroupCollisionEvents>`
+
+Tutorial Pages
+~~~~~~~~~~~~~~
+
+*	:ref:`Collision Events Tutorial<TutorialCollisionEvents>`
+
+Reference Pages
+~~~~~~~~~~~~~~~
+
+*   :cpp:type:`Collider`
+*   :cpp:type:`CollisionEvent`
+*   :cpp:type:`Cog`
+*   :cpp:type:`ContactPoint`
+*   :cpp:type:`ContactPointRange`
+*   :cpp:type:`uint`
+
+
+.. Written by Jason Clark
+
+

@@ -1,0 +1,132 @@
+.. _ZilchFunctions:
+
+.. rst-class:: SearchTitle
+
+Functions
+=========
+
+.. rst-class:: SearchDescription
+
+Functions are declared using the **function** keyword:
+
+.. code-block:: as
+
+    // Note:
+    // -function keyword is used
+    // -function name is capitalized
+    // -function name is followed by ()
+    // -when present parameters go in between ()
+    //  -parameters must be lowercase
+    //  -parameters must have their type specified
+    // -when a return type is present a colon ':' follows the ')' & the returned type follows the ':'
+    function MyFunctionName(param1: MyParamType1, param2: MyParamType2) : MyReturnType
+    {// Body of the function in wrapped in {}
+        // Do function duties in here.
+        
+        // Use return keyword to pass back return value specified.
+        return new MyReturnType(param1 + param2);
+    }
+    
+**Important things to note:**
+
+**1.** Zilch *cannot* have standalone functions. They must be contained within either a ``class`` or ``struct``. Thus the above would actually be encased like this:
+
+.. code-block:: as
+
+    class MyClassName
+    {
+        function MyFunctionName(param1: MyParamType1, param2: MyParamType2) : MyReturnType
+        {
+            // Do function duties in here.
+            return new MyReturnType(param1 + param2);
+        }
+    }
+    
+|  or this:    
+
+.. code-block:: as
+
+    struct MyStructName
+    {
+        function MyFunctionName(param1: MyParamType1, param2: MyParamType2) : MyReturnType
+        {
+            // Do function duties in here.
+            return new MyReturnType(param1 + param2);
+        }
+    }
+
+Otherwise you may see an error like this
+
+Console Output::
+
+      Parsing could not be completed (we ran into something we didn't understand). The token we hit 
+      was 'function' with token type 'Function'.
+    
+You can *simulate* standalone functions by creating static functions on your ``struct`` or ``class``. Do this by adding the Static tag, ``[Static]``:
+    
+.. code-block:: as
+    
+    class MyClass
+    {
+        [Static] // Marking it static allows you to reference the function without creating an instance.
+        function ClassName():String
+        {
+            return "MyClass";
+        }
+    }
+    
+    // If we were to test it:
+    Console.WriteLine(MyClass.ClassName());
+    // MyClass
+    
+**Note:** *This* **does not** *work for fields, only functions.* Unlike other languages this *cannot* be called from an instance, **only** the class name. 
+    
+**2.** Function names MUST be capitalized.
+
+.. code-block:: as
+     
+    // Lowercase function name will cause a compiler error.
+    function myFunctionName() // This won't work..
+    
+    {
+        // Do function duties in here.
+    }
+
+Console Output::
+      
+      Function declaration is missing a name. Upper-camel case names are required here (use
+      'MyFunctionName' instead of 'myFunctionName').
+ 
+**3.** Parameters and locally-scoped variables MUST start with a lowercase character.
+
+.. code-block:: as
+
+    // Capitalized parameter identifiers will cause a compiler error.
+    function MyFunctionName(Param: MyParamType) // This won't work.
+    {
+        // Capitalized locally-scoped variables will also cause a compiler error.
+        var Count: Integer = 10; // This won't work.
+    }
+
+Console Output::
+
+      Function declaration 'MyFunctionName' has an invalid argument list. We found 'UpperIdentifier' 
+      but we expected to find ')'.
+        
+
+**4.** Return types are appended to the function signature *after* the argument list separated by the **colon** operator. When this is left off the return type is assumed to be Void. You can use the **return** keyword to return a value from the function; however, if the function signature has a Void return type, it will be ignored. 
+
+.. code-block:: as 
+    
+    // Leaving off the return value, assumes nothing is returned.
+    function MyFunctionName()
+    {
+        // 8 will NOT be returned since the signature does not specify a 
+        // return type.
+        return 8;
+    }
+
+Console Output::
+
+      The return statement was not expected to return a '[ErrorType]' value, since the function
+      does not declare it (no ':' at the end).   

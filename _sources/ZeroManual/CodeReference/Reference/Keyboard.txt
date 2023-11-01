@@ -1,0 +1,55 @@
+.. _ReferenceKeyboard:
+
+.. rst-class:: searchtitle
+
+Keyboard
+========
+
+.. rst-class:: searchdescription
+
+Keyboard representing the physical keyboard.
+
+.. include:: Description/Keyboard.rst
+
+.. cpp:class:: Keyboard
+
+    Base Class: :cpp:type:`ZeroObject`
+
+.. _ReferenceKeyboardProperties:
+
+.. _ReferenceKeyboardMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool Keyboard::KeyIsDown(Keys::Enum key)
+
+            Is the particular currently down.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool Keyboard::KeyIsUp(Keys::Enum key)
+
+            Is the particular currently up.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool Keyboard::KeyIsPressed(Keys::Enum key)
+
+            Is the key pressed this frame.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool Keyboard::KeyIsReleased(Keys::Enum key)
+
+            Is the key released this frame.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: String Keyboard::GetKeyName(Keys::Enum key)
+
+            Gets a string name of a particular key.
+
+.. include:: Remarks/Keyboard.rst

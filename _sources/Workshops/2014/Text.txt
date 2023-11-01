@@ -1,0 +1,209 @@
+.. _Text2014:
+
+.. rst-class:: SearchTitle
+
+Text
+====
+
+.. rst-class:: SearchDescription
+
+This lesson covers the creation of Text objects, including modifications to their alignment, confining them to a text box area, and changing their orientation.
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2014`
+
+Level Setup
+-----------
+
+**Create a Sprite**
+
+*  :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+    |1000000000000233000000CED2B951D3_png|
+
+*   :ref:`Select the newly created object <SelectObject2014>`
+*   In the Properties Window
+
+    *   Set Name to: Sign
+    *   Under Transform
+    
+        *   Set Translation to: [0, 0, 1]
+        *   Set Scale to: [4, 4, 1]
+
+            |1000000000000113000000E82DED602B_png|
+
+|pbr|
+
+**Create a SpriteText**
+
+*  :ref:`Command<Commands2014>` : ``CreateSpriteText`` or :menuselection:`Create --> Create Sprite Text`
+
+*   In the Properties Window
+
+    *   Set Name to: Text
+    *   Under SpriteText
+
+        *   Set Text to: This is text
+        *   Set FontSize to: 150
+        *   Set Color to: [R: 255, G: 32, B: 0]
+
+            |100000000000014E0000018B51943ED7_png|
+            
+*   In the Objects Window
+
+    *   :ref:`Select the Camera object <SelectObject2014>`
+    
+*   In the Properties Window
+    
+    *   Under Camera
+        
+        *   Set Size to: 25            
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+|pbr|
+
+The level should look like this:
+
+|10000000000005670000040094378E4D_png|
+
+Text Alignment
+--------------
+
+The Text object's Translation is [0, 0, 0], but the text isn't centered there. This is because the Position property is set to UpperLeft.
+
+*   :ref:`Stop the Game <StopGame2014>`
+
+*   In the Property Window
+
+    *   Under SpriteText
+            
+        *   Set Position to: Centered
+
+        |pbr|
+
+Now the Text object's position will refer to the center of the text object:
+
+|100000000000056E000003FEC9E11693_png|
+
+The Block object is covering up the Text object. What if this is not what we want?
+
+        *   Set OnTop to: True
+
+            |100000000000011A0000003FDC1A92C8_png|
+    
+Now the text will always be on top of other objects:
+
+|10000000000002C900000180E10BE736_png|
+
+|pbr|
+
+Text Box
+---------
+
+What if we want our text confined to an area? Let's confine our text so it lines up over our Sign.
+
+        *   Set the Size to: [3.5, 3.5]
+
+        |100000000000011C0000005557F0F4D6_png|
+
+As you can see below, when the text does not fit within the confines it's clipped:
+
+|100000000000014400000105A6AD315B_png|
+
+            *   Set the FontSize to: 70
+
+Now that it fits you can see it word wraps, but it's formatted funny for our sign:
+
+|10000000000000F1000000D9F2D6CE55_png|
+
+            *   Set Align to: Center
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+Much better.
+
+|pbr|
+
+Vertical Text
+-------------
+
+*   :ref:`Stop the Game <StopGame2014>`
+
+**Copy our Text Object**
+
+*   In the Objects Window
+
+    *   Select Text
+*   In the Tools Window
+
+    *   Select the TranslateGizmo
+*   In the Level Window
+
+    *   Hold ``Ctrl`` while Left Mouse Button + Dragging the red x axis arrow
+*   :ref:`Select the newly created object <SelectObject2014>`
+
+|100000000000024F00000107F260F099_png|
+
+*   In the Property Window
+
+    *   Set the Name to: VerticalTextReadsDown
+    *   Under Transform
+
+        *   Set the Translation to: [6, 0, 0]
+        *   Set the Rotation to: [0, 0, -90]
+    *   Under SpriteText
+    
+        *   Set the Size to: [0, 0]
+*   In the Level Window
+
+    *   Hold ``Ctrl`` while Left Mouse Button + Dragging the red x axis arrow
+*   :ref:`Select the newly created object <SelectObject2014>`
+*   In the Property Window
+
+    *   Set Name to: VerticalTextReadsUp
+    *   Under Transform
+
+        *   Set the Translation to: [-6, 0, 0]
+        *   Set the Rotation to: [0, 0, 90]
+
+            |1000000000000120000000D77C0337F4_png|
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+    |10000000000002BB000001774B918BFB_png|
+
+Now we know how to make Text.
+
+.. |1000000000000233000000CED2B951D3_png| image:: images/Text/1000000000000233000000CED2B951D3.png
+
+.. |10000000000002C900000180E10BE736_png| image:: images/Text/10000000000002C900000180E10BE736.png
+
+.. |1000000000000113000000E82DED602B_png| image:: images/Text/1000000000000113000000E82DED602B.png
+
+.. |1000000000000120000000D77C0337F4_png| image:: images/Text/1000000000000120000000D77C0337F4.png
+
+.. |100000000000014E0000018B51943ED7_png| image:: images/Text/100000000000014E0000018B51943ED7.png
+
+.. |100000000000011A0000003FDC1A92C8_png| image:: images/Text/100000000000011A0000003FDC1A92C8.png
+
+.. |100000000000024F00000107F260F099_png| image:: images/Text/100000000000024F00000107F260F099.png
+
+.. |10000000000000F1000000D9F2D6CE55_png| image:: images/Text/10000000000000F1000000D9F2D6CE55.png
+
+.. |10000000000002BB000001774B918BFB_png| image:: images/Text/10000000000002BB000001774B918BFB.png
+
+.. |10000000000005670000040094378E4D_png| image:: images/Text/10000000000005670000040094378E4D.png
+    :width: 8.35in
+
+.. |100000000000011C0000005557F0F4D6_png| image:: images/Text/100000000000011C0000005557F0F4D6.png
+
+.. |100000000000014400000105A6AD315B_png| image:: images/Text/100000000000014400000105A6AD315B.png
+
+.. |100000000000056E000003FEC9E11693_png| image:: images/Text/100000000000056E000003FEC9E11693.png
+
+.. |CreateSpriteText_png|                 image:: images/Text/CreateSpriteText.PNG
+
+.. include:: BookFormattingShortcuts.rst

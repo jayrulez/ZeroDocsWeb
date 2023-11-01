@@ -1,0 +1,376 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Gameplay/VectorMath/Orientation.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:25:46 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Orientation &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Vector Math" href="index.html"/>
+        <link rel="next" title="Handle the Quit Message (Stop Esc from Exiting Game)" href="../HandlingQuitMessage.html"/>
+        <link rel="prev" title="Vector Math" href="index.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Gameplay</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Random.html">Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Input/index.html">Input</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Vector Math</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Orientation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../HandlingQuitMessage.html">Handle the Quit Message (Stop Esc from Exiting Game)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LevelPath.html">LevelPath</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Gameplay</a> &raquo;</li>
+      
+          <li><a href="index.html">Vector Math</a> &raquo;</li>
+      
+    <li>Orientation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Gameplay/VectorMath/Orientation.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="orientation">
+<span id="manualorientation"></span><h1>Orientation</h1>
+<p class="searchdescription">The orientation component is a utility component that helps makes the manipulation of the transform of an object easier. It can be particularly useful when your object has its own sense of forward (for example where a person or a spaceship is facing).
+By using the Orientation Component, the object can then be easily manipulated relatively to the object&#8217;s forward instead of being restricted to the world axis.</p>
+<p>Using the Orientation Component, you can easily find out:</p>
+<ul class="simple">
+<li>WorldForward of an object (direction the object is facing)</li>
+<li>WorldUp of an object (top of the object from the center of the object)</li>
+<li>WorldRight of an object (right of the object from the center of the object)</li>
+<li>LocalForward of an object</li>
+<li>LocalUp of an object</li>
+<li>LocalRight of an object</li>
+</ul>
+<div class="section" id="attaching-the-orientation-component">
+<h2>Attaching the Orientation Component</h2>
+<p>The Orientation component can be added to a game object just like every other component.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Adding a component</span></a></li>
+</ul>
+<p><img alt="Orientation09" src="../../../_images/ComponentAttachment.png" /></p>
+<p><cite>Orientation &amp; Transform components version 11093</cite></p>
+<p>As the component is based on making it easier to manipulating an objects orientation, it follows that it needs access to the object&#8217;s rotation. Thus, in order to add the Orientation component, the object must already have the Transform component.</p>
+</div>
+<div class="section" id="notable-properties">
+<h2>Notable Properties</h2>
+<p>Let&#8217;s take a look at some of the information the Orientation Component provides for you:</p>
+<ul class="simple">
+<li>WorldForward</li>
+<li>WorldUp</li>
+<li>WorldRight</li>
+<li>LocalForward</li>
+<li>LocalUp</li>
+<li>LocalRight</li>
+</ul>
+<p>Let&#8217;s take a look at this example cube, in this example, we have arrows that correspond to the object&#8217;s up (green), forward (blue) and right (red). This gives us the following result:</p>
+<p><a class="reference internal" href="../../../_images/Orientation1.png"><img alt="Orientation01" src="../../../_images/Orientation1.png" style="width: 8.35in;" /></a></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">WorldForward</span>&nbsp; <span class="pre">-&gt;</span> <span class="pre">(</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">1)</span></code></li>
+<li><code class="docutils literal"><span class="pre">WorldUp</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="pre">-&gt;</span> <span class="pre">(</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">1,</span>&nbsp; <span class="pre">0)</span></code></li>
+<li><code class="docutils literal"><span class="pre">WorldRight</span>&nbsp;&nbsp;&nbsp; <span class="pre">-&gt;</span> <span class="pre">(</span> <span class="pre">-1,</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">0)</span></code></li>
+<li><code class="docutils literal"><span class="pre">LocalForward</span>&nbsp; <span class="pre">-&gt;</span> <span class="pre">(</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">1)</span></code></li>
+<li><code class="docutils literal"><span class="pre">LocalUp</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="pre">-&gt;</span> <span class="pre">(</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">1,</span>&nbsp; <span class="pre">0)</span></code></li>
+<li><code class="docutils literal"><span class="pre">LocalRight</span>&nbsp;&nbsp;&nbsp; <span class="pre">-&gt;</span> <span class="pre">(</span> <span class="pre">-1,</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">0)</span></code></li>
+</ul>
+<p>Here we have a baseline of the information about the object obtained from the Orientation component. If we rotate the object 90 degrees around the Y axis, we get the following result:</p>
+<p><img alt="Orientation02" src="../../../_images/Orientation2.png" /></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">WorldForward</span>&nbsp; <span class="pre">-&gt;</span> <span class="pre">(</span>&nbsp; <span class="pre">1,</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">0)</span></code></li>
+<li><code class="docutils literal"><span class="pre">WorldUp</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="pre">-&gt;</span> <span class="pre">(</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">1,</span>&nbsp; <span class="pre">0)</span></code></li>
+<li><code class="docutils literal"><span class="pre">WorldRight</span>&nbsp;&nbsp;&nbsp; <span class="pre">-&gt;</span> <span class="pre">(</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">1)</span></code></li>
+<li><code class="docutils literal"><span class="pre">LocalForward</span>&nbsp; <span class="pre">-&gt;</span> <span class="pre">(</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">1)</span></code></li>
+<li><code class="docutils literal"><span class="pre">LocalUp</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="pre">-&gt;</span> <span class="pre">(</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">1,</span>&nbsp; <span class="pre">0)</span></code></li>
+<li><code class="docutils literal"><span class="pre">LocalRight</span>&nbsp;&nbsp;&nbsp; <span class="pre">-&gt;</span> <span class="pre">(</span> <span class="pre">-1,</span>&nbsp; <span class="pre">0,</span>&nbsp; <span class="pre">0)</span></code></li>
+</ul>
+<p>Notice that how the World information changes while the Local information stays the same.</p>
+<p>By using these information, we can easily find the forward vector of an object and move it using the forward vector. This is useful to make a character move forward in the direction it is facing.</p>
+<p>There are also some other conveniences that the Orientation provides:</p>
+<ul class="simple">
+<li><strong>AbsoluteAngle</strong> : The angle of the object about the up vector.</li>
+<li><strong>Rotation</strong>      : The rotation that this orientation defines. Useful to align the object’s bases with the world bases (i.e. using the inverse rotation).</li>
+<li><strong>WorldRotation</strong> : The rotation that brings your defined bases into the world. The inverse of this brings a world space vector into the object’s local space.</li>
+</ul>
+</div>
+<div class="section" id="rotating-objects">
+<h2>Rotating Objects</h2>
+<p>There are a few ways to rotate the object by using the Orientation component, however it boils down to two functions:</p>
+<ul class="simple">
+<li><strong>LookAtPoint</strong> : sets the forward of the object to look at a given point</li>
+<li><strong>LookAtDirection</strong> : sets the forward of the object to the given direction</li>
+</ul>
+<p>Let&#8217;s take a look at the following example.</p>
+<p><a class="reference internal" href="../../../_images/Orientation3.png"><img alt="Orientation03" src="../../../_images/Orientation3.png" style="width: 8.35in;" /></a></p>
+<p>Here we have our white cube with the Orientation component surrounded by three other cubes. We can call the <strong>LookAtPoint</strong> function to have our white cube look at the position of the other cubes:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="p">...</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">LookAtPoint</span><span class="p">(</span> <span class="nx">YellowCubePosition</span> <span class="p">);</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<p><img alt="Orientation04" src="../../../_images/Orientation4.png" /></p>
+<p>We can do this for the pink cube.</p>
+<p><a class="reference internal" href="../../../_images/Orientation5.png"><img alt="Orientation05" src="../../../_images/Orientation5.png" style="width: 8.35in;" /></a></p>
+<p>And, of course to the cyan cube as well.</p>
+<p><img alt="Orientation06" src="../../../_images/Orientation6.png" /></p>
+<p>Another way to rotate the cube is by using the <strong>LookAtDirection</strong> function.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="k">var</span> <span class="nx">CurrentAngle</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+<span class="p">...</span>
+
+<span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">lookAt</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">Cos</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">CurrentAngle</span> <span class="p">)</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Sin</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">CurrentAngle</span> <span class="p">));</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">LookAtDirection</span><span class="p">(</span> <span class="nx">lookAt</span> <span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">CurrentAngle</span> <span class="o">+=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="o">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, we have the object rotate around the Y-Axis based on a vector that we constructed by incrementing the CurrentAngle variable.</p>
+<p><img alt="Orientation07" src="../../../_images/Orientation7.gif" /></p>
+<p>Up until now we have been rotating an object without specifying the Up vector. This means that a rotation could result in the object being upside down. The following example shows us rotating the object around the Z-Axis, notice the Up vector (green arrow) of the object isn&#8217;t behaving as intended.</p>
+<p><img alt="Orientation08" src="../../../_images/Orientation8.gif" /></p>
+<p>These are some functions that rotate the object with a user-specified Up vector:</p>
+<ul class="simple">
+<li><strong>LookAtPointWithUp</strong> : same as LookAtPoint but allows the user to specify the up vector</li>
+<li><strong>LookAtDirectionWithUp</strong> : same as LookAtDirection but allows the user to specify the up vector</li>
+</ul>
+</div>
+<div class="section" id="getting-the-rotation-quaternion">
+<h2>Getting the Rotation Quaternion</h2>
+<p>Now that we&#8217;ve learned about rotating the object towards another point or to a direction, there are also ways to calculate the rotation that is required of the object instead of rotating the object itself:</p>
+<ul class="simple">
+<li><strong>GetLookAtPointRotation</strong> : Get the rotation so that the forward will look at the given point. Keeps the current world up.</li>
+<li><strong>GetLookAtDirectionRotation</strong> : Gets the forward to look in the given direction. Keeps the current world up.</li>
+<li><strong>GetLookAtPointWithUpRotation</strong> : Same as GetLookAtPointRotation but allows the user to specify the up vector.</li>
+<li><strong>GetLookAtDirectionWithUpRotation</strong> : Same as GetLookAtDirectionRotation but allows the user to specify the up vector.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../HandlingQuitMessage.html" class="btn btn-neutral float-right" title="Handle the Quit Message (Stop Esc from Exiting Game)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Vector Math" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Gameplay/VectorMath/Orientation.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:25:48 GMT -->
+</html>

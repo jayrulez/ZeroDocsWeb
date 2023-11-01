@@ -1,0 +1,410 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Architecture/Resources/SampleCurve.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:26:15 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SampleCurve &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Resources" href="index.html"/>
+        <link rel="next" title="TextBlock" href="TextBlock.html"/>
+        <link rel="prev" title="Path" href="Path.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Architecture</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Cogs/index.html">Cogs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Objects/index.html">Siginficant Objects</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Resources</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ResourceTable.html">ResourceTable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ColorGradient.html">Color Gradient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Font.html">Font</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Level.html">Level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Path.html">Path</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SampleCurve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TextBlock.html">TextBlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ZilchScript.html">ZilchScript</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpriteSource.html">SpriteSource</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Components/index.html">Components</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Architecture</a> &raquo;</li>
+      
+          <li><a href="index.html">Resources</a> &raquo;</li>
+      
+    <li>SampleCurve</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Architecture/Resources/SampleCurve.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="samplecurve">
+<span id="manualsamplecurve"></span><h1>SampleCurve</h1>
+<p class="searchdescription">The <a class="reference internal" href="../../CodeReference/Reference/SampleCurve.html#_CPPv211SampleCurve" title="SampleCurve"><code class="xref cpp cpp-type docutils literal"><span class="pre">SampleCurve</span></code></a> editor is Zero&#8217;s tool for creating custom curves that can be used with any value that can be normalized, such as the Ease parameter in Actions. Just as eases can be represented on a graph as a function of a change of one value given another, the same applies to the curves created with the SampleCurve editor.</p>
+<div class="section" id="common-uses">
+<h2>Common Uses</h2>
+<ul class="simple">
+<li>Creating a custom curve that can be used in place of the <code class="docutils literal"><span class="pre">Ease</span></code> parameter in an Action.</li>
+<li>Visually representing a range of outputs for a range of inputs.</li>
+</ul>
+</div>
+<div class="section" id="using-a-samplecurve">
+<h2>Using a SampleCurve</h2>
+<div class="section" id="creating-a-samplecurve">
+<h3>Creating a SampleCurve</h3>
+<p>A new SampleCurve can be added by using the Add command &#8220;<a class="reference internal" href="../../Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">Add</span></code>&#8220;&#8221; or clicking on the <code class="docutils literal"><span class="pre">Add</span></code> button, followed by selecting <code class="docutils literal"><span class="pre">SampleCurve</span></code>. By default, the initial curve shows a linear progression. To begin manipulating the curve, an anchor point will need to be added by double-clicking on the curve where the anchor point is desired. It can then be grabbed by holding down the left mouse button on top of the point, and moved around the graph, as is demonstrated below:</p>
+<p><img alt="CreatingAnchorPoint" src="../../../_images/CreatingAnchorPoint1.gif" /></p>
+<p>If more anchor points are needed on the curve, simply double-click again on the curve at the next desired edit point. A virtually unlimited number of anchor points can be added, but eventually the curve will fill up to the point where effective edits are no longer possible.</p>
+</div>
+<div class="section" id="editing-a-samplecurve">
+<h3>Editing a SampleCurve</h3>
+<p>Once an anchor point has been created, the tangents of that point can be manipulated using one of four options: Linear Tangents, Weighted Linear Tangents, Split Tangents, and Weighted Split Tangents. All four are demonstrated below:</p>
+<div class="section" id="linear-tangents">
+<h4>Linear Tangents</h4>
+<p><img alt="LinearTangents" src="../../../_images/LinearTangents1.gif" /></p>
+</div>
+<div class="section" id="weighted-linear-tangents">
+<h4>Weighted Linear Tangents</h4>
+<p><img alt="WeightedLinearTangents" src="../../../_images/WeightedLinearTangents1.gif" /></p>
+</div>
+<div class="section" id="split-tangents">
+<h4>Split Tangents</h4>
+<p><img alt="SplitTangents" src="../../../_images/SplitTangents1.gif" /></p>
+</div>
+<div class="section" id="weighted-split-tangents">
+<h4>Weighted Split Tangents</h4>
+<p><img alt="WeightedSplitTangents" src="../../../_images/WeightedSplitTangents1.gif" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">While Linear and Weighted Linear Tangents are mutually exclusive and selecting one will deselect the other, Split Tangents act as a toggle and can be used alongside either Linear or Weighted Linear Tangents.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="applying-the-samplecurve">
+<h2>Applying the SampleCurve</h2>
+<p>In the abstract a SampleCurve is a visual representation of a change over time or any other range. Once a SampleCurve has been created and edited to the desired result, it can then be used to effect changes in various Component properties such as position, color, light intensity, etc. The upcoming examples of using SampleCurves will be using the same Curve:</p>
+<p><img alt="ExampleCurve" src="../../../_images/ExampleCurve.png" /></p>
+<div class="section" id="using-actions">
+<h3>Using Actions</h3>
+<p>A SampleCurve can be used in place of the <code class="docutils literal"><span class="pre">Ease</span></code> parameter of an Action and alters the manner in which the value changes between its starting and ending values. The vertical axis of the SampleCurve represents a normalized value of the property being changed, with <code class="docutils literal"><span class="pre">0</span></code> representing the starting value and <code class="docutils literal"><span class="pre">1</span></code> representing the desired ending value.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="na">[Property]</span>
+<span class="c1">// The SampleCurve to be used</span>
+<span class="kt">var</span> <span class="n">Curve</span> <span class="p">:</span> <span class="n">SampleCurve</span><span class="p">;</span>
+
+<span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// The property to be changed; in this case the object&#39;s translation</span>
+    <span class="kt">var</span> <span class="n">propertyToChange</span> <span class="p">=</span> <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">;</span>
+    <span class="c1">// The final location to move it to</span>
+    <span class="kt">var</span> <span class="n">locationToMoveTo</span> <span class="p">=</span> <span class="n">Real3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
+    <span class="c1">// How long it takes to move</span>
+    <span class="kt">var</span> <span class="n">timeToTake</span> <span class="p">=</span> <span class="m">5.0</span><span class="p">;</span>
+
+    <span class="c1">// Assigning the action to the object</span>
+    <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Actions</span><span class="p">,</span>
+                    <span class="n">propertyToChange</span><span class="p">,</span>
+                    <span class="n">locationToMoveTo</span><span class="p">,</span>
+                    <span class="n">timeToTake</span><span class="p">,</span>
+                    <span class="k">this</span><span class="p">.</span><span class="n">Curve</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This code will move an object from <code class="docutils literal"><span class="pre">(0,0,0)</span></code> to <code class="docutils literal"><span class="pre">(0,5,0)</span></code> over a period of 5 seconds, with the SampleCurve determining the path of the object. The shape of the SampleCurve will dictate where along the path the object should be, with <code class="docutils literal"><span class="pre">1</span></code> on the vertical axis representing the end value (in this case <code class="docutils literal"><span class="pre">(0,5,0)</span></code>) and <code class="docutils literal"><span class="pre">1</span></code> on the horizontal axis representing the total time (5 seconds). Since the SampleCurve being used ends at <code class="docutils literal"><span class="pre">0</span></code> on the vertical axis, the cube will move back to its starting position at the end of the curve before snapping to the desired location.</p>
+<p><img alt="ActionsExample" src="../../../_images/ActionsExample.gif" /></p>
+<p>While the maximum value of both axes can be modified, using a SampleCurve in an action will still always use <code class="docutils literal"><span class="pre">1</span></code> from both axes as representing the ending values. Therefore moving past <code class="docutils literal"><span class="pre">1</span></code> along the vertical axis will change the property beyond what the final result will be; in this case the object moves past its final location, as it is having its <code class="docutils literal"><span class="pre">Translation</span></code> modified. Likewise if the horizontal maximum is changed: if it is set to a value lower than <code class="docutils literal"><span class="pre">1</span></code> then it will finish moving in the manner the SampleCurve dictates early then wait until the total time has passed before moving to its final position, and if it is set higher than <code class="docutils literal"><span class="pre">1</span></code> it simply will not finish the entirety of the curve.</p>
+</div>
+<div class="section" id="sampling-from-the-samplecurve">
+<h3>Sampling from the SampleCurve</h3>
+<p>SampleCurve has access to a function, <code class="docutils literal"><span class="pre">Sample</span></code>, that returns the value of the curve at a given point. It takes one argument of type <code class="xref cpp cpp-type docutils literal"><span class="pre">Real</span></code>, which represents an input value on the horizontal axis, and returns an output of type Real, representing the value of the vertical axis at that point.</p>
+<p>The return value is scaled by the Y maximum as defined in the curve editor. If the input value is less that the X value of the curve&#8217;s first anchor point (usually 0.0), or greater than the X value of the curve&#8217;s final anchor point (usually the X maximum as defined in the curve editor), then the value will clamp to the Y value of that anchor point.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LightExample</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+<span class="na">    [Dependency]</span>
+    <span class="c1">// Make sure the object has a Light component</span>
+    <span class="kt">var</span> <span class="n">Light</span> <span class="p">:</span> <span class="n">Light</span><span class="p">;</span>
+
+<span class="na">    [Property]</span>
+    <span class="c1">// The SampleCurve to be used</span>
+    <span class="kt">var</span> <span class="n">Curve</span> <span class="p">:</span> <span class="n">SampleCurve</span><span class="p">;</span>
+
+<span class="na">    [Property]</span>
+    <span class="c1">// A variable to give the object a limited lifetime</span>
+    <span class="kt">var</span> <span class="n">LightTimeEnd</span> <span class="p">:</span> <span class="n">Real</span><span class="p">;</span>
+
+    <span class="c1">// A timer to track how long the object has existed.</span>
+    <span class="kt">var</span> <span class="n">LightTimer</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Increment the LightTimer variable</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">LightTimer</span> <span class="p">+=</span> <span class="k">event</span><span class="p">.</span><span class="n">Dt</span><span class="p">;</span>
+        <span class="c1">// Increase the intensity of the Light using the values taken from the SampleCurve</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Light</span><span class="p">.</span><span class="n">Intensity</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Curve</span><span class="p">.</span><span class="n">Sample</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">LightTimer</span><span class="p">);</span>
+        <span class="c1">// Destroys self once the total lifetime of the object reaches the preset time limit</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">LightTimer</span> <span class="p">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="n">LightTimeEnd</span><span class="p">)</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Destroy</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>By adding this component to an archetype, it can then be created at runtime to create a sudden burst of light that will destroy itself after it flashes.</p>
+<p><img alt="LightExample" src="../../../_images/LightExample.gif" /></p>
+<p>Since using <code class="docutils literal"><span class="pre">SampleCurve.Sample()</span></code> uses the full values of both axes, if they are changed then it will affect the light&#8217;s behavior. By changing the vertical axis to <code class="docutils literal"><span class="pre">5</span></code> and the horizontal axis to <code class="docutils literal"><span class="pre">2</span></code> it&#8217;s possible to both extend its lifetime and make it brighter easily.</p>
+<p><img alt="StrongerLightExample" src="../../../_images/StrongerLightExample.gif" /></p>
+</div>
+</div>
+<div class="section" id="related-materials">
+<h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../Editor/UsingCustomEaseInActions.html#manualusingcustomeaseinactions"><span>Using Custom Eases in Actions</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorials">
+<h3>Tutorials</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../Tutorials/Scripting/Actions.html#tutorialactions"><span>Using Actions</span></a></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/SampleCurve.html#_CPPv211SampleCurve" title="SampleCurve"><code class="xref cpp cpp-type docutils literal"><span class="pre">SampleCurve</span></code></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="TextBlock.html" class="btn btn-neutral float-right" title="TextBlock" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Path.html" class="btn btn-neutral" title="Path" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Architecture/Resources/SampleCurve.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:18 GMT -->
+</html>

@@ -1,0 +1,183 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _2016TeachersGuide:
+
+.. rst-class:: SearchTitle
+
+Teacher's Guide
+===============
+
+.. rst-class:: SearchDescription
+
+The Teacher's Guide for ProjectFUN 2016.
+
+.. Warning:: **You may be looking for ProjectFun VD1 2015**
+
+	This page has been updated for the Summer 2016 ProjectFun sessions. You may be using the 2015 session for one of the earlier or off campus classes. The curriculum for 2015 can be found :ref:`here<VG12015Index>`. In addition the working build for the 2015 version of the curriculum is 12046.
+
+Installation Instructions
+-------------------------
+
+The Zero Launcher
+~~~~~~~~~~~~~~~~~
+
+The Zero Engine Launcher is an application that lets you manage various versions of the engine, and which version you are opening your project in. 
+
+`Download the latest installer of Zero Engine Launcher for ProjectFUN <http://zero.digipen.edu/Builds/ZeroLauncherSetup.exe>`_ (use your DigiPen login & password)
+
+More about the Launcher can be found on the :ref:`Launcher page<2016ZeroLauncher>`.
+
+The Zero Engine
+~~~~~~~~~~~~~~~
+
+Upon curriculum creation the up to date build for Project Fun VD1 2016 is version `13480`. However, in the event that breaking issues are discovered in the build a ``Warning`` will be posted below this paragraph which posts the correct build.
+
+.. Warning::
+
+    **BUILD 13480 DEPRECATED**
+
+    Build 13480 has been deprecated due to engine crashes involving Audio. The new build for ProjectFun 2016 is ``13602``.
+
+
+Other useful Programs
++++++++++++++++++++++
+
+#. Paint.NET (For image editing)
+#. Audacity (For sound editing)
+#. Sfxr (For sound generation)
+
+Backups and History Folder
+--------------------------
+On a regular basis remind your student to backup their projects with the ``ArchiveProject`` command. 
+All edited files store backups in the history folder. Here is how to recover lost files: :ref:`File Recovery<SupportFileRecovery>`.
+
+When you run into issues as a teacher, you can use the request help button to talk with a developer about your issue, or if they are unavailable, send an inquiry via the BugReporter. (This functionality requires you login to the Zero Engine)
+
+Debugging Crashes & Export Bugs
+-------------------------------
+
+Occasionally you may run into executable crashes, bugs in exported projects, or engine crashes. There are a few steps you can take to solve these issues yourself before asking for help. If you open a file explorer window and type ``%temp%`` in the address bar you will immediately be directed to your windows user profile temp directory. Many programs store temporary files here, including Zero.
+
+You should see up to four types of files from Zero which follow these formats.
+
+*   Log Files:
+    
+    *   ``ZeroLog_20XX-M-DD--HH-MM-SS.txt``
+
+    *   These store the console outputs from exported games as well as game which crash the editor.
+
+*   Stack Files:
+    
+    *   ``ZeroStack_20XX-M-DD--HH-MM-SS.txt``
+
+    *   These files capture the function call stack if the game or engine crashes. Normally the call stack is revealed to you through the console in editor. This supplies the same information for exported projects.
+
+*   Zero Launcher Logs:
+
+    *   ``ZeroLauncherLog_20XX-M-DD--HH-MM-SS.txt``
+
+    *   These files are generated with internal debug output when the Launcher application crashes. The files are sent back to the developers to help resolve the issue for the future.
+
+*   Crash Dump Files:
+
+    *   ``ZeroDump__20XX-M-DD--HH-MM-SS.dmp``
+    
+    *   This is a file generated to be sent to the Zero team in th eevent of an engine crash. It is not human readable and is for internal purposes only.
+
+.. Note::
+
+    Some educational organizations are required by law to allow user data to be collected for development purposes. Locations teaching this curriculum should have implemented solutions to prevent data collection before the beginning of the curriculum sequence. If you are managing the curriculum on your campus and are unsure whether this is an issue or if it has been resolved please contact your DigiPen Representitive.
+
+The two files which will be of use to your are the ZeroLog and ZeroStack files. Using ZeroLog you can do print debugging in an exported version of the project. The second file  type is the stack files which will tell you where in code the project crashed.
+
+Video Game Development Level 1
+------------------------------
+
+Your goal is to teach kids as young 13 with no programming experience enough to make their own (simple) games without assistance, while having fun. 
+
+The first week focuses on learning via lessons and projects while the second week is focused on creating their own games.  
+
+The Marshmallow Challenge
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Marshmallow Challenge suggested for the first days' icebreaker can be understood by watching the `TEDTalk <http://marshmallowchallenge.com/TED_Talk.html>`_. As the talk covers the material more succinctly, I generally prefer it to the `website's instructions <http://marshmallowchallenge.com/Instructions.html>`_; however it does provide more facilitation notes and may be of use to you. Be sure to get the supplies from your supervisor. 
+
+Example Projects
+----------------
+
+*   Rube Goldberg:
+    
+    *   :download:`Here There Be Dragons!<files/RubeGoldbergExample.exe>`
+
+*   Arcade Game Example:
+    
+    *   :download:`Station Smasher<files/ArcadeGameExample.exe>`
+
+*   Platformer Example:
+    
+    *   :download:`Simple Monkey Platformer<files/PlatformerExample.exe>`
+
+.. Note:: **Please Do not Distribute**
+
+    Please do not distribute these example project executables to students. While DigiPen owns all rights to these works they are for classroom demonstration only.
+
+Additional Materials
+--------------------
+
+Here is a list of additional materials on :ref:`zero.digipen.edu<ZeroDocRoot>` you may find useful.
+
+*   Editor
+    
+    *   :ref:`Tagging System<ManualEditorTags>`
+
+        *   Useful for organizing large projects, probably will not be used in your clases to much.
+
+    *   :ref:`Text Editor Hotkeys<ManualTextEditorHotkeys>`
+
+        *   Useful for yourself and more advanced students.
+
+    *   :ref:`Code Completion<ManualCodeCompletion>`
+
+        *   A quick guide to the auto complete interface for Zero's code editor.
+
+    *   :ref:`Multi-Convex Mesh Editor<ManualMultiConvexMeshEditor>`
+
+        *   Useful for creating custom sprite collision. Be sure to read the whole page as there are performance considerations to be made when using this feature.
+
+*   Scripting
+    
+    *   :ref:`Debug Drawing<ManualDebugDrawing>`
+
+        *   Useful to help students debug object functionality visually.
+
+*   Gameplay
+    
+    *   :ref:`Handling the Quit Game Message<ManualHandlingQuitMessage>`
+
+        *   While this topic is covered in the `User Interface lesson<2016UserInterface>` this is useful as a quick reference.
+
+*   Graphics
+
+    *   :ref:`ManualCamerasViewportsRenderersIndex`
+
+        *   A refresher on cameras, viewports, and renders.
+
+*   Physics
+
+    *   :ref:`Casting overview<ManualPhysicsCastingOverview>`
+
+        *    Examples for various casting types in Zero.
+
+
+Known Book Issues 2016
+----------------------
+
+This section will list known content breaking issues in the VD1 2016 book curriculum. ou are encouraged to report book issues not listed here. Issues such as typos will not be posted here unless they break the flow or functionality of a lesson in the book.
+
+*   :ref:`2016ZeroLauncher`
+
+    *   :ref:`2016LauncherNewProjectTab`
+
+        *   5. Specify which Zero Engine :ref:`build version<2016LauncherBuildsTab>` that you want to use to create the project in the **Build** popup menu (build 13480). 
+
+            *   Build number has since changed to 13602 in light of fixed audio crash fixes.

@@ -1,0 +1,160 @@
+.. _ReferenceSpriteText:
+
+.. rst-class:: searchtitle
+
+SpriteText
+==========
+
+.. rst-class:: searchdescription
+
+Sprite Text is sprite based text box.
+
+.. include:: Description/SpriteText.rst
+
+.. cpp:class:: SpriteText
+
+    Base Class: :cpp:type:`BaseSprite`
+
+.. _ReferenceSpriteTextProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SpriteText::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space SpriteText::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SpriteText::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession SpriteText::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SpriteText::Visible
+
+            If object should be rendered.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SpriteText::VisibilityCulling
+
+            If object is culled and not graphically updated when it's not visible.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SpriteText::VisibilityEvents
+
+            If object receives events when entering/exiting the view of a rendering camera or shadow.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SpriteText::CastShadows
+
+            If object is rendered to shadow maps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 SpriteText::Color
+
+            Modulation color of this sprite.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: BlendMode::Type SpriteText::BlendMode
+
+            Blend Mode of the sprite.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SpriteGeometryMode::Type SpriteText::GeometryMode
+
+            Geometry mode determines how the sprite is mapped to 3d.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SpriteLayer SpriteText::SpriteLayer
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Font SpriteText::Font
+
+            Font used to display the text.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint SpriteText::FontSize
+
+            Font size for the text.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String SpriteText::Text
+
+            Text to Display.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SpriteText::PixelsPerUnit
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SpriteText::Smoothing
+
+            Smoothing.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: TextAlign::Type SpriteText::Align
+
+            Text alignment in the box.
+
+.. _ReferenceSpriteTextMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SpriteText::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec2 SpriteText::MeasureText()
+
+            Get the size of the text block.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec2 SpriteText::MeasureGivenText(String text) const
+
+            Get the size that the sprite text would be if this was its text.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 SpriteText::GetCharacterPosition(int a)
+
+            Get position of character in world space.
+
+.. include:: Remarks/SpriteText.rst

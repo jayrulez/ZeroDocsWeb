@@ -1,0 +1,40 @@
+.. _ReferenceLevel:
+
+.. rst-class:: searchtitle
+
+Level
+=====
+
+.. rst-class:: searchdescription
+
+A level is resource that stores a set of objects that can be loaded into a space. Level is different from most resource types in that it does not really store the level data on the object but always loads the data from the file system.
+
+.. include:: Description/Level.rst
+
+.. cpp:class:: Level
+
+    Base Class: :cpp:type:`Resource`
+
+.. _ReferenceLevelProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String Level::Name
+
+            Name of resource for display.
+
+.. _ReferenceLevelMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Resource Level::RuntimeClone()
+
+            Clone a resource for runtime modification.
+
+.. include:: Remarks/Level.rst

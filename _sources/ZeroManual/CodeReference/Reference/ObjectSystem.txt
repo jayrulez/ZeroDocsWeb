@@ -1,0 +1,184 @@
+.. _ReferenceObjectSystem:
+
+.. rst-class:: searchtitle
+
+ObjectSystem
+============
+
+.. rst-class:: searchdescription
+
+Object System creates particles as object.
+
+.. include:: Description/ObjectSystem.rst
+
+.. cpp:class:: ObjectSystem
+
+    Base Class: :cpp:type:`ParticleSystemCommonData`
+
+.. _ReferenceObjectSystemProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ObjectSystem::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space ObjectSystem::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ObjectSystem::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession ObjectSystem::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ObjectSystem::Visible
+
+            If object should be rendered.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ObjectSystem::VisibilityCulling
+
+            If object is culled and not graphically updated when it's not visible.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ObjectSystem::VisibilityEvents
+
+            If object receives events when entering/exiting the view of a rendering camera or shadow.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ObjectSystem::CastShadows
+
+            If object is rendered to shadow maps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint ObjectSystem::ChildMode
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint ObjectSystem::SystemSpace
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint ObjectSystem::DrawOrder
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real ObjectSystem::WarmUpTime
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 ObjectSystem::Tint
+
+            Color to tint/multiply all particles in the system.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ObjectSystem::StartRotation
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ObjectSystem::RandomRotation
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ObjectSystem::StartTorque
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ObjectSystem::RandomTorque
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ObjectSystem::FaceVelocity
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ObjectSystem::EffectsTranslation
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ObjectSystem::EffectsScale
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ObjectSystem::EffectsColor
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ObjectSystem::ControlsLifetime
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Archetype ObjectSystem::SpawnArchetype
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ObjectSystem::SystemSize
+
+            Size of the particles system for visibility culling.
+
+.. _ReferenceObjectSystemMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ObjectSystem::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: ParticleListRange ObjectSystem::AllParticles()
+
+            Allows direct editing of particles.
+
+.. include:: Remarks/ObjectSystem.rst

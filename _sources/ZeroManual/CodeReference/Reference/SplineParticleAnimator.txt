@@ -1,0 +1,108 @@
+.. _ReferenceSplineParticleAnimator:
+
+.. rst-class:: searchtitle
+
+SplineParticleAnimator
+======================
+
+.. include:: Description/SplineParticleAnimator.rst
+
+.. cpp:class:: SplineParticleAnimator
+
+    Base Class: :cpp:type:`ParticleAnimator`
+
+.. _ReferenceSplineParticleAnimatorProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SplineParticleAnimator::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space SplineParticleAnimator::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog SplineParticleAnimator::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession SplineParticleAnimator::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SplineParticleAnimator::Speed
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SplineParticleAnimator::AutoCalculateLifetime
+
+            If checked, the lifetime on the SplineParticleEmitter will be updated to the time it would take to travel the entire path at the current speed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool SplineParticleAnimator::Helix
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SplineParticleAnimator::HelixRadius
+
+            The radius of the helix.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SplineParticleAnimator::HelixWaveLength
+
+            How fast the helix rotates in radians/ second.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SplineParticleAnimator::HelixOffset
+
+            Offset in radians for where the helix starts.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SplineAnimatorMode::Enum SplineParticleAnimator::Mode
+
+            The current animate mode.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SplineParticleAnimator::SpringFrequencyHz
+
+            Spring properties.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real SplineParticleAnimator::SpringDampingRatio
+
+            
+
+.. _ReferenceSplineParticleAnimatorMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void SplineParticleAnimator::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/SplineParticleAnimator.rst

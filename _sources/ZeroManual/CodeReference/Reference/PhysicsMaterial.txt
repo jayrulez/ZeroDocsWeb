@@ -1,0 +1,64 @@
+.. _ReferencePhysicsMaterial:
+
+.. rst-class:: searchtitle
+
+PhysicsMaterial
+===============
+
+.. rst-class:: searchdescription
+
+This material describes properties of a collider mainly used during collision.
+
+.. include:: Description/PhysicsMaterial.rst
+
+.. cpp:class:: PhysicsMaterial
+
+    Base Class: :cpp:type:`Resource`
+
+.. _ReferencePhysicsMaterialProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String PhysicsMaterial::Name
+
+            Name of resource for display.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsMaterial::Density
+
+            Density is used to determine the mass of an object. Mass can be computed as density volume. Density can be set to 0 exactly to produce a massless object, however this should only be done with children objects to add collision.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsMaterial::Restitution
+
+            How much an object will bounce during a collision. Values should be in the range[0,1] where 0 is an in-elastic collision and 1 is a fully elastic collision. Note: due to solving constraints with baumgarte energy will not be perfectly conserved with restitution 1.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsMaterial::Friction
+
+            How slippery or rough the object is. When friction is 0 the object will be completely slippery. As friction increases sliding objects will stop quicker. The friction of two object's are combined with the formula sqrt(a b).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsMaterial::HighPriority
+
+            If high priority is set, this object's restitution will be used always unless the other material is also high priority. If both are high priority then the max restitution is taken.
+
+.. _ReferencePhysicsMaterialMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Resource PhysicsMaterial::RuntimeClone()
+
+            Clone a resource for runtime modification.
+
+.. include:: Remarks/PhysicsMaterial.rst

@@ -1,0 +1,124 @@
+.. _ReferencePointGravityEffect:
+
+.. rst-class:: searchtitle
+
+PointGravityEffect
+==================
+
+.. rst-class:: searchdescription
+
+A force effect that pulls an object towards a central point. This effect is identical to the PointForceEffect except it ignores the mass of the object. This means that all objects will accelerate at the same speed irrespective of their mass(just like gravity). This is useful to make planetary gravity or other similar effects.
+
+.. include:: Description/PointGravityEffect.rst
+
+.. cpp:class:: PointGravityEffect
+
+    Base Class: :cpp:type:`BasicPointEffect`
+
+.. _ReferencePointGravityEffectProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PointGravityEffect::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space PointGravityEffect::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PointGravityEffect::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession PointGravityEffect::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PointGravityEffect::Active
+
+            Enable/disable this effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PointGravityEffect::WakeUpOnChange
+
+            Whether the object associated with this is woken up when any property is changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EffectType::Enum PointGravityEffect::EffectType
+
+            What kind of effect this is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PointGravityEffect::MinDistance
+
+            The first distance at which attenuation will start. If an object is under the min distance, it will get the strength at min applied. If an object is in between min and max, then it will attenuate.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PointGravityEffect::MaxDistance
+
+            The max distance that attenuation will happen at. If an object is between min and max distance, the value will be attenuated. If the object is further away, the effect strength will be determined by EndCondition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PointGravityEffect::StrengthAtMin
+
+            The strength that this effect applies at the min distance.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PointGravityEffect::StrengthAtMax
+
+            The strength that this effect applies at the max distance.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 PointGravityEffect::LocalPositionOffset
+
+            The offset from the transform position(in local space) that the point effect will be applied at.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: PointInterpolationStates::Enum PointGravityEffect::InterpolationType
+
+            The type of interpolation used(ie. Linear, Quadratic) for the effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: PointEndCondition::Enum PointGravityEffect::EndCondition
+
+            How the interpolation should be handled at the max distance. ClampToMax will clamp to strength at max. NoEffect will ignore the effect. ContinueFalloff will continue the interpolation(this may go negative).
+
+.. _ReferencePointGravityEffectMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PointGravityEffect::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PointGravityEffect::Toggle()
+
+            Toggles whether or not this effect is active.
+
+.. include:: Remarks/PointGravityEffect.rst

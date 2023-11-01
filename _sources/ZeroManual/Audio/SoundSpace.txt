@@ -1,0 +1,216 @@
+.. _ManualSoundSpace:
+
+.. rst-class:: SearchTitle
+
+SoundSpace
+==========
+
+.. rst-class:: SearchDescription
+
+The SoundSpace is one of the four default components of a Space. It is the only one of these default components that have no properties that can be set in the editor and can therefore only be accessed through a ZilchScript. Within a ZilchScript, the SoundSpace can be used to set many helpful properties and has a number of member functions that allow the user to play SoundCues and affect SoundTags without the use of the SoundEmitter and SimpleSound components.
+
+Common Uses
+-----------
+
+*   Playing :ref:`SoundCues<ManualSoundCue>` at specific positions and across the entire level
+
+*   Directly setting Volume and Pitch for all the :ref:`SoundCues<ManualSoundCue>` in a level
+
+*   Interpolating the Volume and Pitch for all the :ref:`SoundCues<ManualSoundCue>` in a level
+
+*   Manipulating the properties (stopping, pausing, interpolating volume and pitch) of :ref:`SoundCues<ManualSoundCue>` grouped under a :ref:`SoundTag<ManualSoundTags>`
+
+*   Creating :ref:`SoundInstance<ManualSoundInstance>` objects of individual plays of :ref:`SoundCues<ManualSoundCue>`
+
+Using the SoundSpace
+--------------------
+
+As mentioned above, the SoundSpace is only accessible through a ZilchScript. The following code-blocks will demonstrate the various properties and functions accessible through the SoundSpace.
+
+
+SoundSpace Code Samples
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _PlaySoundCue:
+
+Playing a SoundCue on the SoundSpace
+++++++++++++++++++++++++++++++++++++
+
+The following code-block illustrates how to play a SoundCue from the SoundSpace both non-positionally (using ``PlayCue()``) and positionally (using ``PlayCutAt()``). 
+
+.. code-block:: csharp
+    
+    //Create a variable with the Property attribute to set the SoundCue to use
+    [Property]
+    var MySoundCue : SoundCue;
+    
+    //Create a variable with the Property attribute to set the position to play a specific SoundCue
+    [Property]
+    var PosToPlayCue : Real3;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Playing a SoundCue at the position of the Owner of the ZilchScript
+        this.Space.SoundSpace.PlayCue(this.MySoundCue);
+        
+        //Playing a SoundCue at a user-defined Position
+        this.Space.SoundSpace.PlayCueAt(this.MySoundCue, this.PosToPlayCue);
+    }
+
+.. _PlaySoundCueWithSoundInstance:  
+  
+Playing a SoundCue While Creating a SoundInstance Resource
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following code-block illustrates how using the two functions from the code-block immediately above this one (Playing a SoundCue) also creates a :ref:`SoundInstance object<ManualSoundInstance>`. SoundInstance objects are the exact instance of the SoundCue that is being played. In other words, it is the SoundCue as it is coming through one's speakers or headphones at that moment. One very important thing to note is that during runtime, it is **always** preferable to alter the properties of the SoundInstance rather than the SoundCue. The SoundCue is a resource shared by potentially many SoundInstances, while a SoundInstance represents only itself
+
+.. code-block:: csharp
+    
+    //Create a variable with the Property attribute to set the SoundCue to use
+    [Property]
+    var MySoundCue : SoundCue;
+    
+    //Create a variable with the Property attribute to set the position to play a specific SoundCue
+    [Property]
+    var PosToPlayCue : Real3;
+    
+    //Create a variable for the first SoundInstance object
+    var MySoundInstance1 : SoundInstance;
+    
+    //Create a variable for the second SoundInstance object
+    var MySoundInstance2 : SoundInstance;
+    
+    function Initialize(init : CogInitializer)
+    {
+    
+        //Playing a SoundCue while creating SoundInstance object for this particular
+        //instance of playing the SoundCue
+        this.MySoundInstance1 = this.Space.SoundSpace.PlayCue(this.MySoundCue);
+        
+        //Playing a SoundCue at a user-defined Position while creating SoundInstance 
+        //object for this particular instance of playing the SoundCue
+        this.MySoundInstance2 = this.Space.SoundSpace.PlayCueAt(this.MySoundCue, this.PosToPlayCue);
+    }
+    
+.. _SetVolPitchWithWarning:
+    
+Setting the Volume and Pitch for All Sounds Currently Playing on the SoundSpace
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. Caution:: Changing Volume and Pitch in Multiple Places
+
+    When changing the Volume and Pitch in the audio, one must be extremely careful that they are aware of what happens when multiple Volume or Pitch changes happen in separate parts of the Engine (e.g changing the Volume for the entire SoundSpace while also changing the Volume for a number of SoundInstances grouped by SoundTags).
+
+    If the user changes the Volume in more than one place (and those changes will have an effect on the same instance of a SoundCue that is playing) the following rule applies:
+    
+    All of the different Volume values will be *multiplied* together to form a single, new Volume that will be used for that instance. For example, if the Volume on a SoundCue Resource is changed during runtime to ``0.8``, while at the same time in another part of one's code a SoundInstance object derived from that SoundCue has its Volume changed to ``0.5``, the two Volume changes will be multiplied and the final Volume for the SoundInstance will be ``0.4`` (0.8 * 0.5  = 0.4). This is most likely not what the user will have intended.
+    
+    If the user changes the Pitch in more than one place (and those changes will have an effect on the same instance of a SoundCue that is playing) the following rule applies:
+    
+    All of the different Pitch values will be *added* together to form a single, new Pitch that will be used for that Instance. For example, if the Pitch on a the entire SoundSpace is changed during runtime to ``1.2``, while at the same time in another part of one's code a SoundInstance object has its Pitch changed to ``-0.2``, the two Pitch changes will be added and the final Pitch for the SoundInstance will be ``1.0`` (1.2 + -0.2 = 1.0). Again, this is most likely not what the user will have intended.
+    
+    So, in conclusion, it's best not to change the Volume or Pitch (or Interpolate the Volume or Pitch) during runtime while any other changes are taking place. If there is a need for an identical sound to be played at a different Pitch or Volume, create another SoundInstance and modify that particular SoundInstance alone.
+    
+The following code-block illustrates how to set the Volume and Pitch for all sounds currently being played in the SoundSpace.   
+
+.. code-block:: csharp
+
+    //Directly set the Volume for the SoundCues to value of 0.8 (Range: [0.0, 1.0])
+    this.Space.SoundSpace.Volume = 0.8;
+
+    //Volume can also be set using decibel levels (Range: [-32, 6])
+    this.Space.SoundSpace.VolumeDB = -2;
+    
+    //Directly set the Pitch for the SoundCues to value of 0.5 (Range: [-2.0, 2.0])
+    this.Space.SoundSpace.Pitch = 0.5;
+
+    //Pitch can be changed using Semitones as well (Range: [-24, 24])
+    this.Space.SoundSpace.PitchSemitones = 8;
+    
+Interpolating the Volume and Pitch for All Sounds Currently Playing on the SoundSpace
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following code-block illustrates how to interpolate the Volume and Pitch for all sounds currently playing in the SoundSpace. See the Caution notice directly above for more information on how to avoid problems with changing Volume and Pitch at the same time in different places.
+
+.. code-block:: csharp
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        //Define a variable for interpolation time
+        var timeToInterpolate : Real = 2.0;
+        
+        if(event.Key == Keys.V)
+        {
+            //Interpolate the Volume of all currently playing sounds over time to value of 0.8
+            this.Space.SoundSpace.InterpolateVolume(0.8, timeToInterpolate);
+        }
+
+        if(event.Key == Keys.D)
+        {
+            //Interpolation of volume can also use decibel levels
+            this.Space.SoundSpace.InterpolateVolumeDB(5, timeToInterpolate);
+        }
+        
+        if(event.Key == Keys.P)
+        {
+            //Interpolate the Pitch of all currently playing sounds over time to value of 0.5
+            this.Space.SoundSpace.InterpolatePitch(0.5, timeToInterpolate);
+        }
+
+        if(event.Key == Keys.S)
+        {
+            //Pitch interpolation can also Semitones
+            this.Space.SoundSpace.InterpolatePitchSemitones(-2, timeToInterpolate);
+        }
+    }
+
+.. _PauseSoundSpaceWithWarning:    
+   
+Pausing All Sounds Currently Playing on the SoundSpace
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. Caution:: **Effects of Pausing in Multiple Locations**
+
+    Pausing the SoundSpace works independently of pausing a particular SoundInstance or a SoundTag group. That is, Pausing and Unpausing will have no effect on the Pausing and Unpausing functionality found on the SoundInstance and SoundTag (even though the function for pausing by SoundTag is found in the SoundSpace). For example, if a group of SoundInstances have been paused by SoundTag, setting the SoundSpace Pause property to false will not unpause those sounds. However, if the SoundSpace Pause property is set to true, all sounds will continue be paused whether or not they are individually paused (through SoundInstance) or paused by group (through SoundTags).
+
+
+The following code-block illustrates how to pause all currently playing sounds on the SoundSpace. 
+
+.. code-block:: csharp
+
+    //Pauses all SoundCues
+    this.Space.SoundSpace.Pause = true;
+    
+
+Properties and methods of SoundSpace
+------------------------------------  
+
+:ref:`SoundSpace Code Reference<ReferenceSoundSpace>`    
+
+Related Materials
+-----------------
+
+Manual Pages
+~~~~~~~~~~~~
+
+*   :ref:`SoundCue<ManualSoundCue>`
+
+*   :ref:`SoundInstance<ManualSoundInstance>` 
+
+Tutorial Pages
+~~~~~~~~~~~~~~
+
+*   :ref:`Using Audio<TutorialAudio>`
+
+Reference Pages
+~~~~~~~~~~~~~~~
+
+*   :cpp:type:`Boolean`
+
+*   :cpp:type:`Real`
+
+*   :cpp:type:`SoundCue`
+
+*   :cpp:type:`SoundInstance`
+
+*   :cpp:type:`Real3`

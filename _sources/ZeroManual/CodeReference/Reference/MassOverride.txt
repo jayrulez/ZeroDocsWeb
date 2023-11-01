@@ -1,0 +1,100 @@
+.. _ReferenceMassOverride:
+
+.. rst-class:: searchtitle
+
+MassOverride
+============
+
+.. rst-class:: searchdescription
+
+Takes a snap shot of the current mass and inertia and overrides the object's mass so it can be resized while keeping it's old mass.
+
+.. include:: Description/MassOverride.rst
+
+.. cpp:class:: MassOverride
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceMassOverrideProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MassOverride::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space MassOverride::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MassOverride::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession MassOverride::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool MassOverride::Active
+
+            Determines whether the RigidBody on this component will use this mass and inertia or it's actual mass and inertia.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real MassOverride::Mass
+
+            Allow the user to set the mass. Overrides the inertia as a ratio of the new mass to the old mass.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 MassOverride::LocalCenterOfMass
+
+            The center of mass in local space to to. When the set function is called the center of mass will be locked to this value until ClearCenterOfMassLock is called.
+
+.. _ReferenceMassOverrideMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void MassOverride::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 MassOverride::GetInvInertiaLocalDiagonal(QuatParam rotation)
+
+            Returns the diagonal of the inertia tensor. This is a hack for now with zero gravity.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void MassOverride::SetInvInertiaLocalDiagonal(QuatParam rotation, Vec3 invInertiaDiag)
+
+            Set the diagonal of the inertia tensor. This is a hack for now with zero gravity.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void MassOverride::RecomputeMass()
+
+            Takes a new snapshot of the current mass and inertia.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void MassOverride::ClearCenterOfMassLock()
+
+            Frees the lock that this has on the center of mass and then recomputes the physically correct center of mass for this body.
+
+.. include:: Remarks/MassOverride.rst

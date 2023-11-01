@@ -1,0 +1,78 @@
+.. _ManualHeightMapCollider:
+
+.. rst-class:: SearchTitle
+
+HeightMapCollider
+=================
+
+.. rst-class:: SearchDescription
+
+The :cpp:type:`HeightMapCollider` is a component placed on a HeightMapObject. When using the :ref:`HeightMapTool<ManualHeightMapTool>` to create a HeightMapObject, the HeightMapCollider is automatically applied to the height map. Similar to the :ref:`MeshCollider<ManualMeshCollider>`, the HeightMapCollider has no volume (i.e. if anything is in it, or spawns it, collision will not be resolved). 
+
+.. sidebar:: Recommended Reading
+
+    This page includes topics one might not have encountered yet. To learn about or review these materials, the following list provides the links to their respective Manual or Tutorial pages:
+    
+    *   :ref:`Collider<ManualCollider>`
+    
+    *   :ref:`HeightMapTool<ManualHeightMapTool>`
+
+.. _ManualHeightMapColliderCommon:
+
+Common Uses
+-----------
+
+*   Provides collision for a HeightMap.
+
+.. _ManualHeightMapColliderUsing:
+
+Using HeightMapCollider
+-----------------------
+
+Creating a HeightMap
+~~~~~~~~~~~~~~~~~~~~
+
+In order to use the HeightMapCollider component, one must first create a HeightMap object, which requires the use of the :ref:`HeightMapTool<ManualHeightMapTool>`. The HeightMapCollider will adapt to any changes made to the HeightMap object through the use of the :ref:`HeightMapTool<ManualHeightMapTool>`, as can be seen in the following demonstration:
+
+|HeightMapDemo|
+
+Properties and Methods of HeightMapCollider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`HeightMapCollider Code Reference<ReferenceHeightMapCollider>`
+
+Events of HeightMaphCollider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*   :ref:`Collision Events<ManualCollisionEvents>`
+
+*   :ref:`Group Collision Events<ManualGroupCollisionEvents>`
+
+.. _ManualHeightMapColliderRelated:
+
+Related Material
+----------------
+
+Manual Pages
+~~~~~~~~~~~~
+
+*   :ref:`Collision Overview<ManualCollisionOverview>`
+
+*   :ref:`HeightMapTool<ManualHeightMapTool>`
+
+Tutorial Pages
+~~~~~~~~~~~~~~
+
+*   :ref:`Collision<TutorialCollisionEvents>`
+
+Reference Pages
+~~~~~~~~~~~~~~~
+
+*   :cpp:type:`HeightMapCollider`
+
+
+
+.. |UseHeightMapTool|                    image:: images/HeightMapCollider/UseHeightMapTool.gif
+.. |HeightMapDemo|                       image:: images/HeightMapCollider/HeightMapDemo.gif
+
+.. Written by: Jason Clark

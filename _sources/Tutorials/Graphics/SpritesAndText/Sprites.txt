@@ -1,0 +1,160 @@
+.. _TutorialsSprites:
+
+.. rst-class:: SearchTitle
+
+Sprites
+=======
+
+.. rst-class:: SearchDescription
+
+This lesson covers using the Sprite component, importing a SpriteSource, and applying a SpriteSource to an object. Sprite animations are also covered.
+
+.. _TutorialsSpritesVocab:
+
+Learning Objectives
+-------------------
+
+*   Learn to import an sprite with an animation.
+
+.. rst-class:: VocabSection
+
++-------------------------+
+| Vocabulary              |
++==========+==============+
+| Sprite   | SpriteSource |
++----------+--------------+
+| Importer | Animation    |
++----------+--------------+
+
+Creating a Sprite
+-----------------
+
+* :ref:`ManualCreateNewProject`
+
+*   :ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   :ref:`Select the Sprite object <ManualSelectObject>`
+*   In the Projects Window
+
+    *   Set Name to: ``Player``
+
+*   :ref:`Save the project <ManualSavingProject>`
+
+|PWInitalPlayer|
+
+
+
+Sprite Component
+----------------
+
+The Sprite component encompasses the properties that will determine the visual representation of the SpriteSource on a per object level. This means that settings such as whether or not the SpriteSource should be flipped horizontally/vertically, whether or not it should be animating, the animation speed, and which SpriteSource should currently be used are accessible from the Sprite component.
+
+
+
+Adding a SpriteSource
+---------------------
+
+.. sidebar:: Limitations
+
+  Only PNGs are accepted as SpriteSources, and the importer caps the FrameWidth and FrameHeight to 512.
+  
+*   :download:`Download the Sprites for the lesson <files/Sprites>`
+
+*   Open the Zero Search Window
+*   Enter command: ``Add``
+
+The Add Content window will appear:
+
+|WebAWSpriteSource|
+
+
+
+*   Select **SpriteSource**
+
+*   ``Left Click`` the **File** button to open up the file dialog
+
+|100000000000031C000001EE65DF3046_png|
+
+*   Locate and Download the ``VD1 _PlayerRunSprite`` package from The Void.
+
+The SpriteSource Tag should appear in the Library Window because we now have an imported SpriteSource in our project.
+
+|LWLibraryTag|
+
+* In the Library Window
+
+  * ``Double Left Click`` SpriteSource
+  * ``Double Left Click`` PlayerRun
+  
+The Sprite Source Editor Window should open. 
+
+|SSEWPlayerRun|  
+
+Since our sprite contains an animation, we'll want to set more properties. 
+
+* In the Sprite Source Editor Window
+  
+  * ``Left Click`` the "Convert to Animation" button. 
+  
+The SpriteSource Importer Window should open:
+
+|10000000000005570000025E070DF5F6_png|
+
+
+
+SpriteSource Importer
+---------------------
+
+The SpriteSource importer allows you to preview and define how the sprite animation is laid out. This includes specifying details such as the number of frames the sprite sheet has per row, the number of rows, and several other customizable properties. One important one to note is the **PixelsPerUnit**, **which most games typically do not want to change**.
+
+We need to tell the SpriteSource importer that this sprite sheet has 8 frames of animation.
+
+*   In the SpriteSource Importer Window
+
+    *   Set FramesPerRow to: ``8``
+
+        |100000000000010B000000332A9165B9_png|
+
+|1000000000000551000000A9354525C7_png|
+    
+    *   Set Name to: ``PlayerRunAnimation``
+
+    *   Click the |10000000000000A00000002542AB669A_png| (add & close) button
+
+
+
+*   :ref:`Select the Player object <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Under Sprite
+
+        *   Set SpriteSource to: ``PlayerRunAnimation``
+
+
+|SpriteComp|
+
+The Player object's Sprite should now be animating. You turn the animation on and off with the **AnimationActive** property. Keep in mind that this **stops** the animation. If you want to **pause** the animation, you can set the **AnimationSpeed** property to zero, and then unpausing is simply setting it back to a non-zero value.
+
+Now we know how to create a SpriteSource with animations.
+
+.. |PWInitalPlayer|                           image:: images/Sprites/PWInitalPlayer.png
+  :height: 3.0in
+.. |10000000000005570000025E070DF5F6_png|     image:: images/Sprites/10000000000005570000025E070DF5F6.png
+    :width: 5.0in
+.. |Web1000000000000199000000D63DB0E414_png|  image:: images/Sprites/1000000000000199000000D63DB0E414.png
+    :width: 5.0in
+.. |Book1000000000000199000000D63DB0E414_png| image:: images/Sprites/1000000000000199000000D63DB0E414.png
+.. |1000000000000551000000A9354525C7_png|     image:: images/Sprites/1000000000000551000000A9354525C7.png
+    :width: 5.0in
+.. |WebAWSpriteSource|                        image:: images/Sprites/AWSpriteSource.png
+.. |BookAWSpriteSource|                       image:: images/Sprites/AWSpriteSource.png
+    :height: 4.0in
+.. |100000000000010B000000332A9165B9_png|     image:: images/Sprites/100000000000010B000000332A9165B9.png
+.. |100000000000031C000001EE65DF3046_png|     image:: images/Sprites/100000000000031C000001EE65DF3046.png
+    :width: 5.0in
+.. |LWLibraryTag|                             image:: images/Sprites/LWLibraryTag.png
+.. |SSEWPlayerRun|                            image:: images/Sprites/SSEWPlayerRun.png
+    :width: 5.0in
+.. |10000000000000A00000002542AB669A_png|     image:: images/Sprites/10000000000000A00000002542AB669A.png
+.. |SpriteComp|                               image:: images/Sprites/SpriteComp.png
+    :height: 3.0in

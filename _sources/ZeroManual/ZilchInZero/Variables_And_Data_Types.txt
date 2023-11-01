@@ -1,0 +1,268 @@
+.. _ZilchVariablesAndDataTypes:
+
+.. rst-class:: SearchTitle
+
+Variables, Data Types, & Scopes
+===============================
+
+.. rst-class:: SearchDescription
+
+This section covers the basics of variables, their types, and how they interact with scopes.
+
+Creating Variables
+~~~~~~~~~~~~~~~~~~
+
+Variables are created with the **var** keyword:
+
+.. code-block:: as
+
+   var greeting = "Hello";
+    
+Although the language can infer the type, it is still a statically typed language. The type can also be explicitly set via the **colon** ``:`` i.e. 
+
+.. code-block:: as
+
+   var greeting: String = "Hello";
+
+Identifier names must be alphanumeric and may include underscores. They cannot start with a number, and no other symbols are allowed.   
+Remember to choose identifier names that don't clash with the  :doc:`keywords!<Keywords>`   
+
+Data Types
+~~~~~~~~~~
+
+Zilch has a few built in variable types:
+  
++----------------+----------------+----------------+----------------+
+| Integer        | Integer2       | Integer3       | Integer4       |
++----------------+----------------+----------------+----------------+
+| Boolean        | Boolean2       | Boolean3       | Boolean4       |
++----------------+----------------+----------------+----------------+
+| DoubleInteger  | Real           | DoubleReal     | Void           |
++----------------+----------------+----------------+----------------+
+| Real2          | Real3          | Real4          | Math           |
++----------------+----------------+----------------+----------------+
+|  Quaternion    | String         | Exception      | Events         | 
++----------------+----------------+----------------+----------------+
+|  Null          | Error          |       OverloadedMethods         |
++----------------+----------------+----------------+----------------+  
+
+.. sidebar:: C++ Equivalents
+
+   Many primitive types come straight from C++
+  
+   +----------------+---------------+
+   | Zilch Type     | C++ Type      |
+   +================+===============+
+   | Integer        | int           |
+   +----------------+---------------+
+   | DoubleInteger  | long long int |
+   +----------------+---------------+
+   | Real           | float         |
+   +----------------+---------------+
+   | DoubleReal     | double        |
+   +----------------+---------------+
+   | Boolean        | bool          |
+   +----------------+---------------+
+  
+   Note: there are no unsigned types in Zilch.
+
+Some of these built-in types can be created from literals:
+
+   +----------------+---------+
+   | Zilch Type     | Literal |
+   +================+=========+
+   | Integer        |   1     |
+   +----------------+---------+
+   | DoubleInteger  |   1d    |
+   +----------------+---------+
+   | Real           |   1.0   |
+   +----------------+---------+
+   | DoubleReal     |   1.0d  |
+   +----------------+---------+
+   | Boolean        |  true   |
+   +                +---------+
+   |                |  false  | 
+   +----------------+---------+
+   | String         | "hello" |
+   +----------------+---------+
+   | Null           |  null   |
+   +----------------+---------+
+
+|
+
+Creating Variables With Constructors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. raw:: html
+
+  <!-- this is used as a file for inclusion in other .rst files -->
+
+Local
++++++
+
+When working with by-value types that have constructors, such as structs or more complex stack primitive data types, the keyword **local** may be used:
+
+.. code-block:: as
+
+    var up: Real3 = local Real3(0.0, 1.0, 0.0);
+    var stackStructInstance: CustomStruct = local CustomStruct();
+ 
+The compiler will infer the use of local for by-value types:
+
+.. code-block:: as
+
+    // This is also valid.
+    var up: Real3 = Real3(0.0, 1.0, 0.0);
+    var stackStructInstance: CustomStruct = CustomStruct();
+ 
+ 
+New
++++
+ 
+When working with classes, references, or other or anything located on the heap with a constructor, use the **new** keyword:
+
+.. code-block:: as
+
+    var heapObject: CustomClass = new CustomClass();
+    var heapStructInstance: ref CustomStruct = new CustomStruct();
+    
+Once again the compiler will infer the use of new for by-ref types:
+
+.. code-block:: as 
+
+    // This is also valid.
+    var heapObject: CustomClass = CustomClass();
+    
+Since structs are by-value, in order to get a ref you **must** specify new.
+
+.. code-block:: as    
+
+    // This does not compile
+    var heapStructInstance: ref CustomStruct = CustomStruct();
+    
+Console Output::
+
+      The value being assigned to 'heapStructInstance' must be of type 'ref CustomStruct'. Its 
+      type is 'CustomStruct'.
+    
+.. warning:: 
+    
+    Zilch does not currently have a dereferencing operator.
+    
+    Although you can still use the ``ref`` type with the **dot operator** to access functionality, those typed with ``ref`` will not be equivalent to the ``non-ref`` type. *Anything expecting a* ``non-ref`` *type will not accept a* ``ref`` *type without dereferencing.* Consider the following:
+    
+    .. code-block:: as
+    
+        var heapObject: ref CustomStruct = new CustomStruct();
+        // The following will not compile because they are different types:
+        //              CustomStruct != ref CustomStruct
+        var stackObject: CustomStruct = heapObject;
+
+.. _ZilchVariablesAndDataTypesGlobalVariables:       
+        
+Global Variables
+~~~~~~~~~~~~~~~~
+
+This concept does not exist in Zilch. You cannot make global variables; if needed, you can make static fields on classes. 
+        
+.. code-block:: csharp
+    
+    class Example
+    {
+        // Mark it with the [Static] attribute
+        [Static] 
+        var MyStaticField : Real = 0;
+        
+        function PrintMyStaticField()
+        {
+            // Access it through the class name and the dot operator
+            Console.WriteLine(Example.MyStaticField);
+        }
+    }
+        
+The creation of a true global variable would require binding through C++.
+
+Scopes
+~~~~~~
+
+Scopes help determine the lifetime of a variable. Their start and end are generally denoted by the left and right curly braces, {}, respectively. Scopes are created while using many of the other language constructs:
+
+.. code-block:: as
+
+  class Driver                       // Beginning scope of the class:
+  { 
+     var MyNumber: Integer = 0;
+    function ScopeDemo()             // Beginning scope of the function:
+    {
+      // This variable 'a' lives in the scope denoted by 
+      // the curly braces that define the function's body.
+      var a = 15;
+      if (true)                      // Beginning scope of the if statement:
+      { 
+        // This variable 'b' lives in the scope denoted by the 
+        // curly braces that define the if statement's body.
+        var b = 16;
+      }                              // End scope of the if statement.
+      // b died with the end of its scope (the if statement scope), and thus is not 
+      // available in this outer, function-body, scope.
+      a = b; // This won't compile.
+    }                                // End Scope of the function.
+  }                                  // End Scope of the class.
+  
+Some language constructs start the scope a little earlier:
+
+.. code-block:: as
+  
+  for (var a = 3; a > 0; --a)        // Beginning scope of for loop:
+  {
+    // This scope is shared with the initializer list of the for loop
+    // so we are unable to redefine 'a':
+    var a = 13; // This won't compile.
+  }                                  // End scope of for loop,
+  // The initializer list is tied to the for loop's scope which ended with
+  // the right curly brace, }, so there is no 'a' to reference:
+  a = 8; // This won't compile.
+  
+In order to create a scope without repurposing a language construct (like we did with the always-true if statement) you can use the **scope** keyword:
+
+.. code-block:: as
+
+  class Driver                       // Beginning scope of the class:
+  { 
+     var MyNumber: Integer = 0;
+    function ScopeDemo()             // Beginning scope of the function:
+    {
+      var a = 15;
+      scope                          // Beginning scope designated scope:
+      { 
+        // Things in the outer scopes are available in the inner scope:
+        var b = this.MyNumber;
+      }                              // End scope designated scope.
+        // Things in the inner scope are NOT available in the outer scope:
+      a = b + 3; // This won't compile.
+    }                                // End Scope of the function.
+  }  
+
+
+.. warning::
+  
+  Unlike other languages, you **cannot** hide an outer scope's variable by declaring your own:
+  
+  .. code-block:: as
+
+    class Driver                       // Beginning scope of the class:
+    {  
+      var MyNumber: Integer = 0;
+      function ScopeDemo()             // Beginning scope of the function:
+      {
+        var a = 15;
+        scope                          // Beginning scope designated scope
+        { 
+          // Unlike other languages, you cannot hide another variable 
+          // in an outer scope by defining a new one:
+          var a = 13; // This won't compile.
+        }                              // End scope designated scope
+      }                                // End Scope of the function
+
+    }
+

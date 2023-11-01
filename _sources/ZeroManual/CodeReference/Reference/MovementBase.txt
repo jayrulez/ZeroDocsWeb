@@ -1,0 +1,100 @@
+.. _ReferenceMovementBase:
+
+.. rst-class:: searchtitle
+
+MovementBase
+============
+
+.. rst-class:: searchdescription
+
+Base class for movement components.
+
+.. include:: Description/MovementBase.rst
+
+.. cpp:class:: MovementBase
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceMovementBaseProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MovementBase::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space MovementBase::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MovementBase::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession MovementBase::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool MovementBase::Active
+
+            Is the component active.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real MovementBase::MaxAngleChange
+
+            The maximum angle that this component can output.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real MovementBase::Strength
+
+            The strength of this particular movement component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool MovementBase::QueryOnly
+
+            Do we query the component(and not rotate our object?)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool MovementBase::DebugDraw
+
+            Do we draw the debug information?
+
+.. _ReferenceMovementBaseMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void MovementBase::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Real MovementBase::QueryAngleChangeRadians()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Real MovementBase::QueryAngleChangeDegrees()
+
+            
+
+.. include:: Remarks/MovementBase.rst

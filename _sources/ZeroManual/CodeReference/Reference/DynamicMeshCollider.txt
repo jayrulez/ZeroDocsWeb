@@ -1,0 +1,130 @@
+.. _ReferenceDynamicMeshCollider:
+
+.. rst-class:: searchtitle
+
+DynamicMeshCollider
+===================
+
+.. rst-class:: searchdescription
+
+Dynamic Mesh Collider is a collision primitive for colliding with a moving and deforming triangle mesh.
+
+.. include:: Description/DynamicMeshCollider.rst
+
+.. cpp:class:: DynamicMeshCollider
+
+    Base Class: :cpp:type:`Collider`
+
+.. _ReferenceDynamicMeshColliderProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DynamicMeshCollider::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space DynamicMeshCollider::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DynamicMeshCollider::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession DynamicMeshCollider::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: PhysicsMaterial DynamicMeshCollider::Material
+
+            The material used to determine the density, restitution and friction of this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CollisionGroup DynamicMeshCollider::CollisionGroup
+
+            The collision group is a tag used to alter collision behavior based upon the CollisionTable on this object's space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DynamicMeshCollider::Ghost
+
+            Ghosted colliders do not resolve collision. They do still detect collisions and send events. Ghosted colliders are typically used for trigger regions.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DynamicMeshCollider::SendsEvents
+
+            Determines if this object will send collision events. Used mainly for increasing performance by not sending unnecessary collision events.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 DynamicMeshCollider::Offset
+
+            Moves the physics defined center of the object away from the transform's translation. Used to move physics to match a model.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: RigidBody DynamicMeshCollider::ActiveBody
+
+            The rigid body that owns this collider. This is the body that forces/impulses/etc... should be applied to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint DynamicMeshCollider::ContactCount
+
+            Returns the number of contacts on this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ContactRange DynamicMeshCollider::Contacts
+
+            Range of all contacts on this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint DynamicMeshCollider::JointCount
+
+            Returns the number of joints attached to this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: JointRange DynamicMeshCollider::Joints
+
+            Range of all joints on this collider.
+
+.. _ReferenceDynamicMeshColliderMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicMeshCollider::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: real DynamicMeshCollider::ComputeVolume()
+
+            Compute the world-space volume of this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 DynamicMeshCollider::GetPointVelocity(Vec3 worldPoint)
+
+            Returns the point velocity of a world-space point with respect to the current rigid body's linear and angular velocity. If there is no rigid body this returns zero.
+
+.. include:: Remarks/DynamicMeshCollider.rst

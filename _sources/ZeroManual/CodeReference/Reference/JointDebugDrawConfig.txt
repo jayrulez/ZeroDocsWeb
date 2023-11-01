@@ -1,0 +1,88 @@
+.. _ReferenceJointDebugDrawConfig:
+
+.. rst-class:: searchtitle
+
+JointDebugDrawConfig
+====================
+
+.. rst-class:: searchdescription
+
+Allows the user to override some parameters for debug drawing of joints. Used to debug draw more from different object perspectives and to change the size of drawn data. This class is nothing more than a piece of data that each joint looks at to determine how it draws itself.
+
+.. include:: Description/JointDebugDrawConfig.rst
+
+.. cpp:class:: JointDebugDrawConfig
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceJointDebugDrawConfigProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog JointDebugDrawConfig::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space JointDebugDrawConfig::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog JointDebugDrawConfig::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession JointDebugDrawConfig::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool JointDebugDrawConfig::Active
+
+            Whether or not this component is active.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real JointDebugDrawConfig::Size
+
+            A size modifier for the debug drawing. 1 is base size.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real JointDebugDrawConfig::Detail
+
+            The amount of detail to use when drawing. For example, the detail on a revolute will increase the number of lines used to draw the arc of a circle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool JointDebugDrawConfig::Object1Perspective
+
+            If we draw the joint's debug info from the perspective of object 1. This is most useful when object 1 is marked as a static object and object 2 has free movement.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool JointDebugDrawConfig::Object2Perspective
+
+            If we draw the joint's debug info from the perspective of object 2. This is most useful when object 2 is marked as a static object and object 1 has free movement.
+
+.. _ReferenceJointDebugDrawConfigMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void JointDebugDrawConfig::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/JointDebugDrawConfig.rst

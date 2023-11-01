@@ -1,0 +1,100 @@
+.. _ReferenceTorqueEffect:
+
+.. rst-class:: searchtitle
+
+TorqueEffect
+============
+
+.. rst-class:: searchdescription
+
+Applies a general torque to the object(objects will act differently based on their mass).
+
+.. include:: Description/TorqueEffect.rst
+
+.. cpp:class:: TorqueEffect
+
+    Base Class: :cpp:type:`PhysicsEffect`
+
+.. _ReferenceTorqueEffectProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog TorqueEffect::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space TorqueEffect::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog TorqueEffect::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession TorqueEffect::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool TorqueEffect::Active
+
+            Enable/disable this effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool TorqueEffect::WakeUpOnChange
+
+            Whether the object associated with this is woken up when any property is changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EffectType::Enum TorqueEffect::EffectType
+
+            What kind of effect this is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool TorqueEffect::LocalTorque
+
+            Determines if the directional torque is applied in world space or locally.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real TorqueEffect::TorqueStrength
+
+            The strength of the torque force being applied.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 TorqueEffect::TorqueDirection
+
+            The direction that the torque is being applied about.
+
+.. _ReferenceTorqueEffectMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void TorqueEffect::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void TorqueEffect::Toggle()
+
+            Toggles whether or not this effect is active.
+
+.. include:: Remarks/TorqueEffect.rst

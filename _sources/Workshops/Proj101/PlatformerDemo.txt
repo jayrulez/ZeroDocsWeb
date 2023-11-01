@@ -1,0 +1,162 @@
+Proj 101 Demo steps
+===================
+
+A simple follow along platformer demo assembled from prebuilt components.
+
+Making the Environment
+----------------------
+
+The first step is to make an evironment our player can move around in.
+
+Walls
++++++
+
+* 	:ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+* 	In the Properties Window
+
+  	* 	Set Name to: Wall  
+  	* 	Under :cpp:type:`Transform`
+    
+   		* 	Set ``Translation`` to: ``[-9.5, 0, 0]``
+    	* 	Set ``Scale`` to: ``[1, 10, 1]``
+
+  	*	:ref:`Add Component<ManualAddRemoveComponents>`	:cpp:type:`BoxCollider`
+
+* 	:ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+* 	In the Properties Window
+
+  	* 	Set Name to: Wall  
+  	* 	Under :cpp:type:`Transform`
+    
+   		* 	Set ``Translation`` to: ``[9.5, 0, 0]``
+    	* 	Set ``Scale`` to: ``[1, 10, 1]``
+
+  	*	:ref:`Add Component<ManualAddRemoveComponents>`	:cpp:type:`BoxCollider`
+
+Ground
+++++++
+
+* 	:ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+* 	In the Properties Window
+
+  	* 	Set Name to: Ground  
+  	* 	Under :cpp:type:`Transform`
+    
+   		* 	Set ``Translation`` to: ``[0, -5.5, 0]``
+    	* 	Set ``Scale`` to: ``[20, 1, 1]``
+
+	*	:ref:`Add Component<ManualAddRemoveComponents>`	:cpp:type:`BoxCollider`
+
+Ceiling
++++++++
+
+* 	:ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+* 	In the Properties Window
+
+  	* 	Set Name to: Ceiling  
+  	* 	Under :cpp:type:`Transform`
+    
+   		* 	Set ``Translation`` to: ``[0, 5.5, 0]``
+    	* 	Set ``Scale`` to: ``[20, 1, 1]``
+
+	*	:ref:`Add Component<ManualAddRemoveComponents>`	:cpp:type:`BoxCollider`
+
+
+The Player
+----------
+
+Alright now let's set up the player.
+
+
+* 	:ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+* 	In the Properties Window
+
+  	* 	Set Name to: Player  
+  	* 	Under :cpp:type:`Transform`
+    
+   		* 	Set ``Translation`` to: ``[0, 0, 0]``
+   	
+   	*	Under :cpp:type:`Sprite`
+
+   		*	Set ``Color`` to: ``[0,255,0]``
+   		*	Set ``SpriteSource`` to: ``Circle``
+
+* :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+If we run the game now the player will just sit where we created him. This is because the engine is not simulating any physics for it.
+
+* :ref:`Select the Player object<ManualSelectObject>`
+
+	* 	In the Properties Window
+	
+   		*	:ref:`Add Component<ManualAddRemoveComponents>`	:cpp:type:`RigidBody`
+   	 	
+* :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+If we run the game the player object will now fall, but just fall through the floor.
+
+
+* :ref:`Select the Player object<ManualSelectObject>`
+
+	* 	In the Properties Window
+	
+		*	:ref:`Add Component<ManualAddRemoveComponents>`	:cpp:type:`SphereCollider`
+
+		*	Under :cpp:type:`SphereCollider`
+
+	    	*	Set ``Radius`` to: ``0.5``
+
+* :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+Cool we now have are player correctly resolving collision with the environment.
+
+Input
+-----
+
+Now lets make the player move based off WASD input.
+
+* :ref:`Select the Player object<ManualSelectObject>`
+
+	* 	In the Properties Window
+	
+		*	:ref:`Add Component<ManualAddRemoveComponents>`	:cpp:type:`Orientation`
+		*	:ref:`Add Component<ManualAddRemoveComponents>`	``GroundDetection``
+		*	:ref:`Add Component<ManualAddRemoveComponents>`	``PlayerInput``
+		*	:ref:`Add Component<ManualAddRemoveComponents>`	``PlayerMovement``
+
+* :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+Now using ``A`` we can move to the left, ``D`` to move to the right, and ``W`` or ``Space`` to jump.
+
+Wall Jumping
+------------
+
+Now what if we want to add a slightly more complex feature like wall jumping to our player.
+
+
+* :ref:`Select the Player object<ManualSelectObject>`
+
+	* 	In the Properties Window
+	
+		*	:ref:`Add Component<ManualAddRemoveComponents>`	``WallDetection``
+		*	:ref:`Add Component<ManualAddRemoveComponents>`	``WallSlide``
+		*	:ref:`Add Component<ManualAddRemoveComponents>`	``WallJump``
+
+
+Moving Platforms
+----------------
+
+Let's give our player something to jump on.
+
+
+
+* 	:ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+* 	In the Properties Window
+
+  	* 	Set Name to: Platform  
+  	* 	Under :cpp:type:`Transform`
+    
+   		* 	Set ``Translation`` to: ``[0, 5.5, 0]``
+    	* 	Set ``Scale`` to: ``[20, 1, 1]``
+
+	*	:ref:`Add Component<ManualAddRemoveComponents>`	:cpp:type:`BoxCollider`

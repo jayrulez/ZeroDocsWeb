@@ -1,0 +1,130 @@
+.. _ReferenceCollider:
+
+.. rst-class:: searchtitle
+
+Collider
+========
+
+.. rst-class:: searchdescription
+
+A collider controls how collision detection is performed for an object. A collider also gives mass properties to a RigidBody(via the material and volume). If there is no RigidBody associated with this collider then it is considered static. Note: colliders without RigidBodies should not be moved at run-time!
+
+.. include:: Description/Collider.rst
+
+.. cpp:class:: Collider
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceColliderProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Collider::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Collider::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Collider::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Collider::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: PhysicsMaterial Collider::Material
+
+            The material used to determine the density, restitution and friction of this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CollisionGroup Collider::CollisionGroup
+
+            The collision group is a tag used to alter collision behavior based upon the CollisionTable on this object's space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Collider::Ghost
+
+            Ghosted colliders do not resolve collision. They do still detect collisions and send events. Ghosted colliders are typically used for trigger regions.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Collider::SendsEvents
+
+            Determines if this object will send collision events. Used mainly for increasing performance by not sending unnecessary collision events.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Collider::Offset
+
+            Moves the physics defined center of the object away from the transform's translation. Used to move physics to match a model.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: RigidBody Collider::ActiveBody
+
+            The rigid body that owns this collider. This is the body that forces/impulses/etc... should be applied to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint Collider::ContactCount
+
+            Returns the number of contacts on this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ContactRange Collider::Contacts
+
+            Range of all contacts on this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint Collider::JointCount
+
+            Returns the number of joints attached to this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: JointRange Collider::Joints
+
+            Range of all joints on this collider.
+
+.. _ReferenceColliderMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Collider::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: real Collider::ComputeVolume()
+
+            Compute the world-space volume of this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 Collider::GetPointVelocity(Vec3 worldPoint)
+
+            Returns the point velocity of a world-space point with respect to the current rigid body's linear and angular velocity. If there is no rigid body this returns zero.
+
+.. include:: Remarks/Collider.rst

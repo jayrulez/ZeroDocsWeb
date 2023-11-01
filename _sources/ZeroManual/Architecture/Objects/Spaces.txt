@@ -1,0 +1,305 @@
+.. _ManualSpaces:
+
+.. rst-class:: SearchTitle
+
+The Space Object
+================
+
+.. rst-class:: SearchDescription
+
+Space is the infinite three-dimensional extent in which objects and events 
+have relative position and direction. It consists of 3 dimensional axis and 
+time.
+
+.. rst-class:: SearchDescription
+
+Spaces in the Zero Engine are containers for game objects. When a level is 
+loaded, all the game objects from that level are put into a space. Also, when 
+you create a game object in code, you must put it into a space, usually the same 
+one that the level was loaded into. In a simple game you only have one space, 
+which is where all your game objects go. Each space has its own instances of 
+the core systems of the engine: graphics, physics, etc. Because of this, game 
+objects in two different spaces will not collide or otherwise physically 
+interact. Game objects in different spaces are rendered separately, but can be 
+layered, such as when using one space for level game objects and another for UI 
+game objects. Creating a separate space for UI game objects is one of the most 
+common uses of multiple spaces in a game.
+
+.. _ManualSpacesCommonUses:
+
+Common Uses
+-----------
+
+*   Loading levels
+*   Creating game objects
+*   Accessing core engine system functionality
+*   Rendering sets of graphical elements over each other without interaction
+
+.. _ManualSpacesUsing:
+
+Using the Space
+---------------
+
+Creating a Space
+^^^^^^^^^^^^^^^^
+
+You can create a space through the :ref:`GameSession object<ManualGameSession>`.
+
+.. code-block::
+    
+    class SpaceCreator : ZilchComponent
+    {
+      [Property]
+      var MySpaceArchetype : Archetype;
+      
+      [Property]
+      var MySpaceName : String = "MyNamedSpace";
+      
+      var MyNewSpace : Space;
+      
+      var MyNewNamedSpace : Space;
+      
+      function Initialize(init : CogInitializer)
+      {
+        //Here we create an unnamed Space object
+        this.MyNewSpace = this.GameSession.CreateSpace(this.MySpaceArchetype);
+        //Here we create a Space object named "MyNamedspace"
+        this.MyNewNamedSpace = this.GameSession.CreateNamedSpace(this.MySpaceName, this.MySpaceArchetype);
+      }
+    }
+
+Naming a space is not absolutely necessary, if you have a good system keeping track of the spaces you are creating. However, naming your space is a good general practice as you'll find when trying to access Spaces you have created.
+
+Accessing a the Space
+^^^^^^^^^^^^^^^^^^^^^
+
+You can access the Space object from scripts via any component or Cog:
+
+.. code-block:: csharp
+
+  class ExampleComponent : ZilchComponent
+  {
+    // Accessing the Space object through the component
+    var CurrentSpace : Cog
+    {
+      get { return this.Space; }
+    }
+    
+    // Accessing the Space object through the component's object
+    var AlsoCurrentSpace : Cog
+    {
+      get { return this.Owner.Space; }
+    }
+    
+    function Initialize(init : CogInitializer)
+    {
+      // If we compare the values of the to properties which access the
+      // Space object through different objects we can prove that they
+      // are accessing the same Space object.
+      if(this.CurrentSpace == this.AlsoCurrentSpace)
+      {
+        Console.WriteLine("These properties reference the same Space object.");
+      }
+    }
+  }
+
+Accessing the Space this way will give you a reference to the Space that the object ``ExampleComponent`` is attached to exists in.
+In some games you may have multiple spaces in order to implement certain features such as an in game HUD. In situations such as this you must store a reference to the `HUDSpace` on creation in order to access it later.
+    
+.. _ManualSpacesComponents:
+
+
+Space Components
+----------------
+
+Spaces have special space components that can not be removed. These are core 
+engine components for containing different aspects of the game objects like 
+physics, graphics, and sound.
+
+Spaces are stored as :ref:`TutorialArchetypes` and can be modified to change the properties of a space.
+
+To access the space of the current level Press: 
+
+* In the Level Window
+
+  * Press Shift + S
+
+**Or** 
+
+* In Select drop down
+
+  * Click Select Space
+
+When opened, a space should look something like this:
+
+|SampleSpaceWeb|
+
+By default a space has 4 components TimeSpace, GraphicsSpace, PhysicsSpace, and SoundSpace, but if needed you may add more by creating a new space archetype and adding the desired components.
+
+In each component of the space you can change the specific of how the engine will treat that space.
+
+TimeSpace
+---------
+
+ As you might expect, each space has its own TimeSpace. This allows pausing of the game without effecting the time of other spaces.
+
+**Properties**
+
+* **TimeMode**
+
+  * When in FixedFrameTime mode the engine will use a set dt for each frame. This is useful for creating deterministic game play and tests.
+
+* **MinDt**
+
+  * When in ActualFrameTime TimeMode this is the minimum dt of a frame.
+
+* **MaxDt**
+
+  * When in ActualFrameTime TimeMode this is the maximum dt of a frame.
+
+* **TimeScale**
+
+  * Modifies the amount of time per dt. This will let you speed up or slow down the game for cool time-related effects.
+
+* **Paused**
+
+  * The paused state of the space. Can be changed by calling the TogglePause() member.
+
+* **StepCount**
+
+  * The number of times the engine is updated per graphics update. This has a similar effect to TimeScale except that it is focused around optimization and unit testing.
+
+
+**Member Functions**
+
+* **Toggle Pause**
+
+  * Toggles the state of paused for this space.
+
+* **Step**
+
+  * Allows the engine to advance one frame forward. Useful for debugging one frame at a time.
+
+
+Using TimeSpace
+----------------
+
+To show off what kind of effects can be created using the TimeSpace component of Spaces one can create a scene similar to the one below using the commands "Create Sphere" and "Create Cube". All objects (except the camera) are Z-Axis aligned at 0, with the Cubes's RigidBody components's DynamicState set to Static. First run the game without changing the TimeSpace property. Then, in the Level's Space, in TimeSpace set TimeScale to 10 and run it again. One will notice the Spheres drop much more quickly this time as one has changed how quickly time passes within the engine.
+
+|TimeSpaceSampleWeb|
+
+
+Also, the TimeSpace is used to pause the space which can be useful for pause screens, UI, or cut scenes. Below, we connect to the KeyDown event and call the TogglePause function on the TimeSpace when that events happens.
+
+.. code-block:: as
+
+  class TimeSpaceSample : ZilchComponent
+  {
+      function Initialize(init : CogInitializer)
+      {
+          Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+      }
+      
+      function OnKeyDown(event : KeyboardEvent)
+      {
+          this.Space.TimeSpace.TogglePause();
+      }
+  }
+
+GraphicsSpace
+-------------
+
+Each space has a few properties on how that space is rendered which are shown in the GraphicsSpace.
+
+
+**Properties**
+
+* **TransparentSort**
+
+  * How transparent objects will be sorted if the camera does not.
+
+* **SpriteLayerOrder**
+
+  * The SpriteLayerOrder is used by the space's renderer. This Interfaces with the SpriteLayer of the :ref:`TutorialSprites` component to change the render order.
+
+PhysicsSpace
+------------
+
+The PhysicsSpace can be altered to modify the physical interaction of colliders throughout the space. It also holds several useful functions for more advance Physics related functionality such as Ray, Segment, and Collider casts. 
+
+**Properties**
+
+* **SubStepCount**
+
+  * The number of iterations the physics space will take every frame. Used to achieve higher accuracy and visual results.
+
+* **AllowSleep**
+
+  * Allows colliders within the space to sleep. Enabling this will improve performance, but at the possible cost of losing specific collision events.
+
+* **Mode2D**
+
+  * Set the physics space in 2D mode to dis-allow collision resolution in the Z-Axis.
+
+* **Deterministic**
+
+  * In combination with a TimeMode of FixedFrameTime this takes extra steps to ensure a deterministic simulation.
+
+* **CollisionTable**
+
+  * Used to determine the collisions between objects of different :ref:`Collision Tables<ManualCollisionTables>`.
+
+* **PhysicsSolverConfig**
+
+  * Probably don't need to mess with the PhysicsSolverConfig.
+
+* **ContactTangentType**
+
+  * Probably don't need to mess with the ContactTangentType.
+
+**Member Functions**
+
+* **CreateJoint**
+
+  * Creates a joint of jointName between the two cogs. The anchor of the join is set in the world point.
+
+* **DispatchWithinBox**, **DispatchWithinSphere**
+
+  * Dispatches a given event to a box or spherical area around a point.
+
+* **Ray, Segment, Collider, and their ObjectCasts.**
+
+ * :ref:`Click here for a detailed example of ray casting.<TutorialRayCasting>` See :cpp:type:`PhysicsSpace` for a full list of cast functions.
+
+SoundSpace
+----------
+
+Documentation for SoundSpace has been rewritten and moved to our new :ref:`audio section<ManualAudioIndex>`.
+
+:ref:`Click here to go directly to the documentation of the SoundSpace component.<ManualSoundSpace>`
+
+For a practical exercise, consider the :ref:`TutorialHeadsUpDisplay` lesson, as it deals with creating and communicating between spaces.
+
+
+Events Dispatched On The LevelSettings Object
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
++---------------------------+----------------------------+---------------------------------------------------------------------+
+| Event Name                | Type                       | Description                                                         |
++===========================+============================+=====================================================================+
+| PhysicsUpdateFinished     |  :cpp:type:`ObjectEvent`   | Dispatched immediately after physics has finished updating.         |
++---------------------------+----------------------------+---------------------------------------------------------------------+
+| LogicUpdate               |  :cpp:type:`UpdateEvent`   | Dispatched after the major systems's updates (doesn't run in editor)|
++---------------------------+----------------------------+---------------------------------------------------------------------+
+| FrameUpdate               |  :cpp:type:`UpdateEvent`   | Dispatched after the engine update. Runs in editor.                 |
++---------------------------+----------------------------+---------------------------------------------------------------------+
+
+
+
+.. |SampleSpaceWeb|        image:: images/Spaces/SampleSpace.png
+  :width: 4.0in
+
+.. |TimeSpaceSampleWeb|    image:: images/Spaces/TimeSpaceSample.png
+  :width: 8.35in
+  
+.. Author Arend Danielek

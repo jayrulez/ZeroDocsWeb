@@ -1,0 +1,94 @@
+.. _ReferenceLockStepGame:
+
+.. rst-class:: searchtitle
+
+LockStepGame
+============
+
+.. rst-class:: searchdescription
+
+Manages all the client/server/peer connections.
+
+.. include:: Description/LockStepGame.rst
+
+.. cpp:class:: LockStepGame
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceLockStepGameProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog LockStepGame::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space LockStepGame::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog LockStepGame::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession LockStepGame::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Frame LockStepGame::BufferFramesAllowed
+
+            How many frames of input buffering that we allow(should remain constant!) Note that this parameter.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LockStepGame::DebugMode
+
+            Controls whether we send/store extra information Typically used to find desyncs.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: LockStepPeer LockStepGame::UnsafeLocalPeer
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetGuid LockStepGame::UnsafeLocalPeerGuid
+
+            
+
+.. _ReferenceLockStepGameMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void LockStepGame::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void LockStepGame::QueueSyncedEvent(String eventId, LockStepEvent event)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: LockStepPeer LockStepGame::GetPeerByGuid(NetGuid guid)
+
+            
+
+.. include:: Remarks/LockStepGame.rst

@@ -1,0 +1,379 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Graphics/SpritesAndText/Area.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:58:42 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Area Component &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Sprites &amp; Text" href="index.html"/>
+        <link rel="next" title="Animated Player" href="AnimatedSpritesSheets.html"/>
+        <link rel="prev" title="Sprite Text" href="Text.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Graphics</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Sprites &amp; Text</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Text.html">Sprite Text</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Area Component</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Particles/index.html">Particles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ParallaxBackground.html">Parallax Background</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Tutorials</a> &raquo;</li>
+      
+          <li><a href="../index.html">Graphics</a> &raquo;</li>
+      
+          <li><a href="index.html">Sprites &amp; Text</a> &raquo;</li>
+      
+    <li>Area Component</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/Tutorials/Graphics/SpritesAndText/Area.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="area-component">
+<span id="tutorialarea"></span><h1>Area Component</h1>
+<p class="searchdescription">This lesson explains the basics of using the Area Component.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/LauncherNewProject.html#manualcreatenewproject"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<p>Create the Test Sprite</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Sprite you created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set name to: AreaTest</li>
+<li>Under Transform<ul>
+<li>Set Scale to: [5, 1, 1]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Stretched" src="../../../_images/Stretched.png" /></p>
+</div>
+<div class="section" id="why-area">
+<h2>Why Area?</h2>
+<p>Notice that the edges of the sprite are all blurry. How can we fix that?</p>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><a class="reference internal" href="../../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add the Area Component</span></a></p>
+</li>
+<li><p class="first">Under Transform</p>
+<blockquote>
+<div><ul class="simple">
+<li>Reset Scale to: [1, 1, 1]</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Under Area</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Size to: [5, 1]</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Here is what it will look like</p>
+<p><img alt="NineSliced" src="../../../_images/NineSliced.png" /></p>
+<p>First note that Area&#8217;s Size unlike scale will not be inherited by children.</p>
+<p>Now the edges are nice on our sprite. This is because the default Square sprite already has feature know as nine slice scaling enabled.</p>
+<p>Here is how it works.</p>
+<p><img alt="NineSliceDemo" src="../../../_images/NineSliceDemo1.png" /></p>
+</div>
+<div class="section" id="adding-your-own-nine-sliced-sprite">
+<h2>Adding Your Own Nine Sliced Sprite</h2>
+<p><a class="reference download internal" href="../../../_downloads/Button.png.png"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Sprite</span></code></a></p>
+<ul>
+<li><p class="first">Import a Nine Slice ready sprite.</p>
+</li>
+<li><p class="first">Find the sprite in the library and edit it</p>
+</li>
+<li><p class="first">In Sprite Editor Window</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set the mode to nine slice</li>
+<li>Change the Left, Right, Top, and Bottom to 5,5,5,5</li>
+</ul>
+<p><img alt="NineSliceSettings" src="../../../_images/NineSliceSettings.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Select this sprite on your object</p>
+</li>
+</ul>
+<p><img alt="NiceButton" src="../../../_images/NiceButton.png" /></p>
+</div>
+<div class="section" id="tiling-mode">
+<h2>Tiling Mode</h2>
+<p>Sprites can also be tiled by the Area component</p>
+<p><a class="reference download internal" href="../../../_downloads/TiledBackground.png.png"><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Sprite</span></code></a></p>
+<ul>
+<li><p class="first">Import a tilable sprite to your project.</p>
+</li>
+<li><p class="first">Find the sprite in the library</p>
+</li>
+<li><p class="first">In Sprite Editor Window</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set the mode to Tiled</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Set the sprite to tiled background</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add the Area Component</span></a></p>
+</li>
+<li><p class="first">Under Area</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Size to: [200, 200]</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference internal" href="../../../_images/TileDemo.png"><img alt="FinalButtonWeb" src="../../../_images/TileDemo.png" style="width: 8.35in;" /></a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="AnimatedSpritesSheets.html" class="btn btn-neutral float-right" title="Animated Player" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Text.html" class="btn btn-neutral" title="Sprite Text" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Graphics/SpritesAndText/Area.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:58:44 GMT -->
+</html>

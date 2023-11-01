@@ -1,0 +1,160 @@
+.. _ReferenceRuntimeSpline:
+
+.. rst-class:: searchtitle
+
+RuntimeSpline
+=============
+
+.. rst-class:: searchdescription
+
+A spline that is manipulated at runtime(such as a rope)
+
+.. include:: Description/RuntimeSpline.rst
+
+.. cpp:class:: RuntimeSpline
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceRuntimeSplineProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog RuntimeSpline::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space RuntimeSpline::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog RuntimeSpline::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession RuntimeSpline::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Math::CurveType::Type RuntimeSpline::SplineType
+
+            Get and set the spline type for the curve.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RuntimeSpline::Closed
+
+            Get and set whether or not the spline closed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: TargetSpace::Type RuntimeSpline::TargetSpace
+
+            The space that all the points are relative to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint RuntimeSpline::Subdivisions
+
+            The number of subdivisions we apply to the rope(how smooth it looks)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int RuntimeSpline::ControlPointCount
+
+            Get the number of points on.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int RuntimeSpline::BakedPointCount
+
+            Get the number of points in the baked curve.
+
+.. _ReferenceRuntimeSplineMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RuntimeSpline::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RuntimeSpline::AddControlPoint(Vec3 point)
+
+            Add a control point to the spline.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RuntimeSpline::RemoveControlPoint(int index)
+
+            Removes a control point from the spline.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RuntimeSpline::ClearControlPoints()
+
+            Removes all control points from the spline.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RuntimeSpline::PushControlPoint()
+
+            Push another point onto the curve.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RuntimeSpline::PopControlPoint()
+
+            Pops a control point from the back of the spline.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 RuntimeSpline::GetControlPoint(int index)
+
+            Get a control point by index.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RuntimeSpline::SetControlPoint(int index, Vec3 point)
+
+            Set a control point by index.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 RuntimeSpline::GetBakedLocalPoint(int bakedIndex)
+
+            Get a baked point by index.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 RuntimeSpline::GetBakedWorldPoint(int bakedIndex)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Quat RuntimeSpline::GetLocalBakedRotation(int bakedIndex)
+
+            Get a quaternion that represents the rotation of a control point.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Quat RuntimeSpline::GetWorldBakedRotation(int bakedIndex)
+
+            
+
+.. include:: Remarks/RuntimeSpline.rst

@@ -1,0 +1,132 @@
+.. _ReferenceRibbon:
+
+.. rst-class:: searchtitle
+
+Ribbon
+======
+
+.. include:: Description/Ribbon.rst
+
+.. cpp:class:: Ribbon
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceRibbonProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Ribbon::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Ribbon::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Ribbon::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Ribbon::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Ribbon::Spawning
+
+            Whether or not it is active.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Ribbon::LocalSpawnPointA
+
+            The two local positions that the ribbon is spawned on.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 Ribbon::LocalSpawnPointB
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint Ribbon::MaxLength
+
+            The maximum length of the ribbon.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Ribbon::LengthBetweenSpawn
+
+            The length between each newly spawned segment of the ribbon(detail)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Ribbon::TimeBetweenSpawn
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Math::CurveType::Type Ribbon::CurveType
+
+            Adds smoothing for fast moving ribbons.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Ribbon::CurveResolution
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 Ribbon::TextureScalar
+
+            A scalar to the meshes UV's.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Ribbon::FlipTextureX
+
+            Texture flipping.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Ribbon::FlipTextureY
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Ribbon::UseDecayCurve
+
+            Whether or not the decay curve is being used(this flag is needed because the engine does not support NULL resourced)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SampleCurve Ribbon::DecayCurve
+
+            Decay curve setter/getter.
+
+.. _ReferenceRibbonMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Ribbon::DebugDraw()
+
+            Draw the object.
+
+.. include:: Remarks/Ribbon.rst

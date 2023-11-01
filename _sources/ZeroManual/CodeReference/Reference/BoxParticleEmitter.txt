@@ -1,0 +1,172 @@
+.. _ReferenceBoxParticleEmitter:
+
+.. rst-class:: searchtitle
+
+BoxParticleEmitter
+==================
+
+.. rst-class:: searchdescription
+
+Emits particles inside a box.
+
+.. include:: Description/BoxParticleEmitter.rst
+
+.. cpp:class:: BoxParticleEmitter
+
+    Base Class: :cpp:type:`ParticleEmitterShared`
+
+.. _ReferenceBoxParticleEmitterProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog BoxParticleEmitter::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space BoxParticleEmitter::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog BoxParticleEmitter::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession BoxParticleEmitter::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool BoxParticleEmitter::Active
+
+            Is this emitter currently emitting particles?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint BoxParticleEmitter::EmitCount
+
+            Number of particles to emit per reset.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real BoxParticleEmitter::EmitRate
+
+            Rate that particles spawn per second.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real BoxParticleEmitter::EmitVariance
+
+            How much the emit can vary per sample.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real BoxParticleEmitter::Size
+
+            Size of each particle spawned.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real BoxParticleEmitter::SizeVariance
+
+            How much the emit can vary per sample.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real BoxParticleEmitter::Lifetime
+
+            How a particle's starting lifetime is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real BoxParticleEmitter::LifetimeVariance
+
+            Hom much lifetime can vary per particle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real BoxParticleEmitter::Spin
+
+            Speed in rads per second of the particle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real BoxParticleEmitter::SpinVariance
+
+            Hom much speed speed can vary per particle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool BoxParticleEmitter::RandomSpin
+
+            Each particle should start with random spin.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real BoxParticleEmitter::Fill
+
+            How much area of the emitter to used 0 to 1.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real BoxParticleEmitter::EmitterVelocityPercent
+
+            How much of the objects velocity is added to the particles.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 BoxParticleEmitter::StartVelocity
+
+            Velocity of each particle at start.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 BoxParticleEmitter::RandomVelocity
+
+            Random Velocity per particle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 BoxParticleEmitter::TangentVelocity
+
+            Velocity of each particle in x horizontal tangent y vertical tangent and z outward tangent.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 BoxParticleEmitter::EmitterSize
+
+            Size of the emitter.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool BoxParticleEmitter::FastMovingEmitter
+
+            Whether or not we attempt to emit along the vector between the previous position to the current position, which looks better for fast moving particle systems Note: Particle systems that teleport will emit along the teleport line.
+
+.. _ReferenceBoxParticleEmitterMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void BoxParticleEmitter::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void BoxParticleEmitter::ResetCount()
+
+            Reset the number of particles to emit back to EmitCount.
+
+.. include:: Remarks/BoxParticleEmitter.rst

@@ -1,0 +1,142 @@
+.. _ReferenceVoxelChunk:
+
+.. rst-class:: searchtitle
+
+VoxelChunk
+==========
+
+.. rst-class:: searchdescription
+
+A voxel chunk builds a cube mesh where each cube face is a sprite(sprites are atlased for performance) The voxel chunk can represent multiple graphical materials within it(such as a transparent material, diffuse material, etc) Keep in mind that the more graphical materials added, the more draw calls and meshes the chunk will have to make.
+
+.. include:: Description/VoxelChunk.rst
+
+.. cpp:class:: VoxelChunk
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceVoxelChunkProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog VoxelChunk::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space VoxelChunk::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog VoxelChunk::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession VoxelChunk::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int VoxelChunk::VoxelCount
+
+            Get the total number of voxels in this chunk.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: IntVec3 VoxelChunk::Dimensions
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog VoxelChunk::VoxelChunkMaterialsCog
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: VoxelChunkMaterials VoxelChunk::VoxelChunkMaterials
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool VoxelChunk::AutoRebuild
+
+            
+
+.. _ReferenceVoxelChunkMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void VoxelChunk::DebugDraw()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void VoxelChunk::SetVoxel(IntVec3 position, int voxelType)
+
+            Set the voxel type at a given position The voxel id must be registered with the VoxelChunkMaterials or else it will not be drawn.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: int VoxelChunk::GetVoxel(IntVec3 position)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: int VoxelChunk::GetVoxelOrDefault(IntVec3 position, int defaultVoxelType)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void VoxelChunk::SetColor(IntVec3 position, Vec4 color)
+
+            Set the color of a given voxel(default is white(1, 1, 1, 1))
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec4 VoxelChunk::GetColor(IntVec3 position)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec4 VoxelChunk::GetColorOrDefault(IntVec3 position, Vec4 color)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool VoxelChunk::IsPositionValid(IntVec3 position)
+
+            Checks if a position is valid.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void VoxelChunk::RebuildMesh()
+
+            Force rebuilding of a mesh(only needed to be called if'AutoRebuild' is false)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void VoxelChunk::RebuildMeshIfNeeded()
+
+            Only rebuilds the mesh if it is needed(only needed to be called if'AutoRebuild' is false)
+
+.. include:: Remarks/VoxelChunk.rst

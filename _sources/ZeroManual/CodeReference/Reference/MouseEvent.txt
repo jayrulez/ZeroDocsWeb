@@ -1,0 +1,106 @@
+.. _ReferenceMouseEvent:
+
+.. rst-class:: searchtitle
+
+MouseEvent
+==========
+
+.. rst-class:: searchdescription
+
+Mouse events for any every with the mouse.
+
+.. include:: Description/MouseEvent.rst
+
+.. cpp:class:: MouseEvent
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceMouseEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String MouseEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: MouseButtons::Enum MouseEvent::Button
+
+            If this is a MouseDown event which button was changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: byte MouseEvent::ButtonDown
+
+            State of all the mouse buttons.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 MouseEvent::Position
+
+            Position of the Mouse.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 MouseEvent::Movement
+
+            Movement since last mouse move.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 MouseEvent::Scroll
+
+            Movement of scroll wheel.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool MouseEvent::ShiftPressed
+
+            Is Shift held down on the keyboard?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool MouseEvent::AltPressed
+
+            Is Alt held down on the keyboard?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool MouseEvent::CtrlPressed
+
+            Is Ctrl held down on the keyboard?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Mouse MouseEvent::Mouse
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Boolean MouseEvent::HandledEvent
+
+            
+
+.. _ReferenceMouseEventMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool MouseEvent::IsButtonDown(MouseButtons::Enum button)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool MouseEvent::IsButtonUp(MouseButtons::Enum button)
+
+            
+
+.. include:: Remarks/MouseEvent.rst

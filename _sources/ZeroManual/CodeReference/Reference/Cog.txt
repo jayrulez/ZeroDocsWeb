@@ -1,0 +1,262 @@
+.. _ReferenceCog:
+
+.. rst-class:: searchtitle
+
+Cog
+===
+
+.. rst-class:: searchdescription
+
+Game Object Composition class. This class is the foundational object for all dynamic objects in the game world. The Cog is a piece of logical interactive content and the primary mechanism game systems(Graphics, Physics, Etc.) provide functionality and communicate. A Cog can be anything from physical objects like trees, tanks, players to to logical objects like teams, triggers, or AI objects.
+
+.. include:: Description/Cog.rst
+
+.. cpp:class:: Cog
+
+    Base Class: :cpp:type:`ZeroObject`
+
+.. _ReferenceCogProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String Cog::Name
+
+            Name of the Object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String Cog::ArchetypeName
+
+            The name of the archetype this object was created from.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: u32 Cog::RuntimeId
+
+            Gets a unique integer for this object(used primarily for debugging)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Actions Cog::Actions
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Cog::Space
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Cog::Parent
+
+            Get the parent of this object in the Hierarchy.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Cog::IsBeingDestroyed
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Cog::Transient
+
+            Object will not be saved.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Cog::Persistent
+
+            Object will not be destroyed on level load or change.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Cog::EditorViewportHidden
+
+            Hidden from view used for editor.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Cog::ObjectViewHidden
+
+            If the object needs to not show up in the object view.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Cog::Locked
+
+            Not able to be modified or selected in the viewport.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: HierarchyList::range Cog::Children
+
+            Grab the children directly from the hierarchy component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Cog::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Cog::GameSession
+
+            Get the GameSession that owns us and our space.
+
+.. _ReferenceCogMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Cog::Destroy()
+
+            Destroy an object removing it from the Space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Cog::DispatchEvent(String eventId, Event event)
+
+            Dispatches an event on this object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool Cog::AddComponentByName(String name)
+
+            Add a component by name.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool Cog::RemoveComponentByName(String name)
+
+            Remove a component by name. Returns true if the component existed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Cog::DebugDraw()
+
+            Calls DebugDraw on all components in this cog.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Cog::AttachTo(Cog parent)
+
+            Attach to a parent object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Cog::Detach()
+
+            Detach from a parent object.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Cog::AttachToRelative(Cog parent)
+
+            Attach to a parent object and compute the new transform so that the objects are relative.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Cog::DetachRelative()
+
+            Detach from a parent object and compute the new transform so that the objects are relative.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Cog::FindChildByName(String name)
+
+            Find a child object with the given name.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: HierarchyNameRange Cog::FindAllChildrenByName(String name)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Cog::DispatchUp(String eventId, Event event)
+
+            Dispatches an event up the tree on each parent recursively(pre-order traversal)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Cog::DispatchDown(String eventId, Event event)
+
+            Dispatches an event down the tree on all children recursively(pre-order traversal)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Cog::FindRoot()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Cog::UploadToArchetype()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Cog::ModifiedFromArchetype()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Cog::Clone()
+
+            Clones this cog.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Cog::ClearArchetype()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Cog::FindNextSibling()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Cog::FindPreviousSibling()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Cog::FindNextInOrder()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Cog Cog::FindPreviousInOrder()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool Cog::IsDescendant(Cog cog)
+
+            Returns whether or not the given cog is a descendant of us.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Component Cog::GetComponentByName(String componentTypeName)
+
+            
+
+.. include:: Remarks/Cog.rst

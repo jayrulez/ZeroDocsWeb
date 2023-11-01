@@ -1,0 +1,41 @@
+.. _ZilchClasses:
+
+.. rst-class:: SearchTitle
+
+Classes
+=======
+
+.. rst-class:: SearchDescription
+
+Classes are a :doc:`by-reference types<Memory_Management>`  that may have functions and their own set of data members accessible by the **this** keyword.
+
+.. code-block:: as
+
+    // Note:
+    // -class keyword is used
+    // -class name must be capitalized
+    class MyClassName
+    {
+        // Classes can have their own data 
+        // Note: their names must be capitalized.
+        var MyData : Integer = 0;
+        
+        // Constructors use the 'constructor' keyword
+        constructor()
+        {
+        }
+        function MyFunction(): Integer
+        {
+          // Use 'this' to access instance fields and other functions
+          this.Increment();
+          return this.MyData;
+        }
+        
+        function Increment()
+        {
+          this.MyData += 1;
+        }
+    }
+
+Constructors are similar to functions in that they can take parameters, but they always return an instance of the type they are constructing. 
+Because their return type is set, the area used for a function's return type is actually used for calling parent constructors as necessary. For more, look into :doc:`Inheritance`.

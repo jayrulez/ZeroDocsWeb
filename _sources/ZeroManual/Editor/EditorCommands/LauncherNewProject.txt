@@ -1,0 +1,85 @@
+.. _ManualCreateNewProject:
+
+.. rst-class:: SearchTitle
+
+Create a New Project
+====================
+
+.. rst-class:: SearchDescription
+
+This page covers various methods and options for creating a new project.
+
+Creating the Project
+--------------------
+
+To create a new project, either:
+
+* Open the :ref:`Zero Launcher <ManualZeroLauncher>` and go to the **New Project** subtab
+  of the **Projects** tab.
+
+or
+
+* :ref:`Command<Commands>` : ``NewProject`` or
+  :menuselection:`Project --> New Project`
+
+Then, follow these steps:
+
+|ProjectsNewNumbered|
+
+1. Choose a template to start with --- you may choose between **Empty 2D
+   Project** and **Empty 3D Project**. Both options will result in an empty Zero
+   project, but with a few differences in settings.
+   
+   +--------------+-----------------+----------------------+----------------------+
+   | New Project Default Settings by Template                                     |
+   +==============+=================+======================+======================+
+   | **Setting**  | **Description** | **EMPTY 2D PROJECT** | **EMPTY 3D PROJECT** |
+   +--------------+-----------------+----------------------+----------------------+
+   | PhysicsSpace | Default         |                      |                      |
+   | **Mode2D**   | behavior for    |                      |                      |
+   |              | collision       |                      |                      |
+   |              | resolution      |   ``true``           |        ``false``     |
+   +--------------+-----------------+----------------------+----------------------+
+   | EditorCamera | Settings of     | 2D (orthographic     | 3D (perspective      |
+   |              | editor camera   | projection, etc.)    | projection, etc.)    |
+   +--------------+-----------------+----------------------+----------------------+
+   | Default      | Settings of the | 2D (orthographic     | 3D (perspective      |
+   | camera       | camera that is  | projection, etc.)    | projection, etc.)    |
+   |              | placed by       |                      |                      |
+   |              | default in each |                      |                      |
+   |              | new level       |                      |                      |
+   +--------------+-----------------+----------------------+----------------------+
+   | GridDraw     | Perpendicular   |                      |                      |
+   | **Axis**     | axis to the     |                      |                      |
+   |              | grid plane      | ``ZAxis``            |    ``YAxis``         |
+   +--------------+-----------------+----------------------+----------------------+
+   
+   .. admonition:: Note
+     
+     **Remember**, even if you start with the 2D template, **you can still use
+     3D elements and concepts in your game**, and vice versa. The template you
+     choose simply specifies the default settings for certain properties.
+
+2. Type a name for the project in the **Name** field. (You will be notified if a
+   project by the same name already exists in the folder specified in the
+   **Location** field.)
+3. Specify where the project should be created in the **Location** field. The
+   default path for new projects can be changed in :ref:`LauncherSettingsTab`.
+   
+   * You can use the **Open Path** button next to the field to browse to a
+     desired folder in your operating system's Folder Selection dialog
+4. Optionally, you may give the project *tags* by typing them, separated by
+   commas, in the **Tags** field. Tags are just bits of text that can be used as
+   keywords when searching for projects in the :ref:`LauncherRecentProjects`
+   subtab.
+5. Specify which Zero Engine :ref:`build version<LauncherBuildsTab>` that you
+   want to use to create the project in the **Build** popup menu.
+6. When you are ready, click the **Create Project** button. This will create a
+   folder with the project name in the specified location containing the project
+   file and Content folder.
+
+..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..
+
+.. |ProjectsNewNumbered| image:: images/Launcher/ProjectsNewNumbered.png
+    :width: 8.35in
+

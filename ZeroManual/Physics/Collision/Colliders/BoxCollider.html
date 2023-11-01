@@ -1,0 +1,387 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Physics/Collision/Colliders/BoxCollider.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:43:40 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Box Collider &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../../index-2.html"/>
+        <link rel="up" title="Collision" href="../index.html"/>
+        <link rel="next" title="CapsuleCollider" href="CapsuleCollider.html"/>
+        <link rel="prev" title="Collider" href="Collider.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../PhysicsSpace.html">PhysicsSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../RigidBody.html">RigidBody</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Collision</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../CollisionOverview.html">Collision Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Collider.html">Collider</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Box Collider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CapsuleCollider.html">CapsuleCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConvexMeshCollider.html">ConvexMeshCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CylinderCollider.html">CylinderCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EllipsoidCollider.html">EllipsoidCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HeightMapCollider.html">HeightMapCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MeshCollider.html">MeshCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MultiConvexMeshCollider.html">MultiConvexMeshCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SphereCollider.html">SphereCollider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CollisionGroups/CollisionGroupAndCollisionTable.html">CollisionGroup and CollisionTable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CollisionGroups/CollisionGroupEvents.html">Group Collision Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../WhyNoCollision.html">Why is my object not colliding?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../PhysicsCasting/PhysicsCastingOverview.html">Physics Casting Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../PhysicsEffects/index.html">Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Joints.html">Joints</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Physics</a> &raquo;</li>
+      
+          <li><a href="../index.html">Collision</a> &raquo;</li>
+      
+    <li>Box Collider</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/ZeroManual/Physics/Collision/Colliders/BoxCollider.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="box-collider">
+<span id="manualboxcollider"></span><h1>Box Collider</h1>
+<p class="searchdescription">The <a class="reference internal" href="../../../CodeReference/Reference/BoxCollider.html#_CPPv211BoxCollider" title="BoxCollider"><code class="xref cpp cpp-type docutils literal"><span class="pre">BoxCollider</span></code></a> component is one of the primitive Collider types available in the Zero Engine. It takes the shape of a rectangular box with the user setting the width, height, and depth. The BoxCollider component can be added to any object as long as it has a <a class="reference internal" href="../../../CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a> component.</p>
+<div class="sidebar">
+<p class="first sidebar-title">Recommended Reading</p>
+<p>This page includes topics one might not have encountered yet. To learn about or review these materials, the following list provides the links to their respective Manual or Tutorial pages:</p>
+<ul class="last simple">
+<li><a class="reference internal" href="Collider.html#manualcollider"><span>Collider</span></a></li>
+<li><span class="xref std std-ref">Object Parenting</span></li>
+</ul>
+</div>
+<div class="section" id="common-uses">
+<span id="manualboxcollidercommonuses"></span><h2>Common Uses</h2>
+<ul class="simple">
+<li>Defining simple (sometimes inexact) collision boundaries for a Cog</li>
+<li>Defining a region where an effect takes place while the Player is inside it</li>
+<li>Defining a trigger zone that causes an event to occur</li>
+</ul>
+</div>
+<div class="section" id="using-the-boxcollider">
+<span id="manualboxcolliderusing"></span><h2>Using the BoxCollider</h2>
+<div class="section" id="creating-a-boxcollider">
+<span id="manualboxcolliderusingcreating"></span><h3>Creating a BoxCollider</h3>
+<p>When adding a BoxCollider component to an otherwise empty Transform object, the BoxCollider still retains all of its functionality and properties. The In-Editor properties for the BoxCollider can be seen in the following picture, where a BoxCollider component has been placed on an otherwise empty Transform object:</p>
+<p><img alt="BoxColliderProperties" src="../../../../_images/BoxColliderProperties.png" /></p>
+<p>When this object is selected and viewed on the Level Window, the only thing that will be visible are the <a class="reference internal" href="../../../Scripting/DebugDrawing.html#manualdebugdrawing"><span>DebugDraw</span></a> lines marking the boundaries of the BoxCollider; that is, the area in which collision will be resolved if this Collider comes into contact with another Collider of similar <a class="reference internal" href="../CollisionGroups/CollisionGroupAndCollisionTable.html#manualcollisiongroupandtable"><span>CollisionGroup</span></a> type.</p>
+<p><img alt="BoxColliderInEditor" src="../../../../_images/BoxColliderInEditor.png" /></p>
+</div>
+<div class="section" id="applying-boxcollider-to-an-object">
+<h3>Applying BoxCollider to an Object</h3>
+<p>The BoxCollider component is best used with objects that have a rectangular shape. While it&#8217;s not the most efficient primitive collider (see: <a class="reference internal" href="SphereCollider.html#manualspherecollider"><span>SphereCollider</span></a>), it is more efficient than most other types and is therefore a good choice when applying collision to rectangular-shaped objects (or parts of an object that approximate a rectangle).</p>
+<div class="section" id="boxcollider-on-a-cube">
+<h4>BoxCollider on a Cube</h4>
+<p>A Cube (or any perfectly rectangular shape) is the ideal type of object on which to use a BoxCollider as it will fit and scale with the dimensions of the cube perfectly. If one creates a Cube object, the Zero Editor anticipates the need for a BoxCollider and provides one already attached to the Cube object, as can be seen here:</p>
+<p><img alt="CubeComponents" src="../../../../_images/CubeComponents.png" /></p>
+<p>The BoxCollider will scale along with any changes made to the size of the Cube. In the following screenshot, the size of the Cube has been changed to a non-uniform scale. As can be seen, the <a class="reference internal" href="../../../Scripting/DebugDrawing.html#manualdebugdrawing"><span>DebugDraw</span></a> lines still fit perfectly around the scaled Cube:</p>
+<p><img alt="NormalSizeBox" src="../../../../_images/NormalSizeBox.png" /></p>
+<p>One way to show this explicitly is to change the size of the BoxCollider itself. When changing the size of the BoxCollider, it is changed relative to the size of the Cube. That is, if the size of a BoxCollider on a scaled Cube is changed, the BoxCollider&#8217;s new size is still affected by the Cube&#8217;s size.</p>
+<p>For example, if the BoxCollider&#8217;s size is changed so that its x-axis value is 2.0, the BoxCollider will increase in size on the x-axis double the amount of the Cube&#8217;s current x-axis value. As the BoxCollider&#8217;s size is now larger than the Cube, the BoxCollider <a class="reference internal" href="../../../Scripting/DebugDrawing.html#manualdebugdrawing"><span>DebugDraw</span></a> lines appear outside the bounds of the Cube object. The following screenshot shows the BoxCollider with the following dimensions: <code class="docutils literal"><span class="pre">[2.0,</span> <span class="pre">1.5,</span> <span class="pre">1.25]</span></code></p>
+<p><img alt="HighSizeBox" src="../../../../_images/HighSizeBox.png" /></p>
+<p>The BoxCollider is now twice the size of the Cube on the x-axis, 1.5 times the size on the y-axis, and 1.25 times the size on the z-axis. So, in the case of using a BoxCollider with a Cube, the BoxCollider will provide precise collision relative to the shape of the object it is on, unless the user purposely changes the properties of the BoxCollider itself.</p>
+</div>
+<div class="section" id="boxcollider-on-a-non-cube-shape">
+<h4>BoxCollider on a Non-Cube Shape</h4>
+<p>To look at how a BoxCollider can be applied to an object that is not perfectly rectangular, a model of an axe will be used, as seen here:</p>
+<p><img alt="CreatedAxeInLevel" src="../../../../_images/CreatedAxeInLevel.png" /></p>
+<p>If one were to put a single BoxCollider on this object that covers the entire object, the volume for detecting collision would be almost twice the volume of the axe itself. It would resolve collision far outside the bounds of the model.</p>
+<p>What can be done, however, is to use more than one BoxCollider to create a set of colliders that more accurately represents the object. In order to add all these new BoxColliders to the model, the user will need to:</p>
+<blockquote>
+<div><ul class="simple">
+<li>create objects with Transform components</li>
+<li>add BoxCollider components (just like in the <span class="xref std std-ref">section above</span>)</li>
+<li>parent them to the object collision is being added to</li>
+<li>resize the colliders appropriately</li>
+</ul>
+</div></blockquote>
+<p>The following screenshots illustrate this process step by step:</p>
+<p>Empty Transform objects are created and BoxCollider components are attached to them, which are then parented to the Axe object:</p>
+<p><img alt="AxeObjectWithColliders" src="../../../../_images/AxeObjectWithColliders.png" /></p>
+<p>The two colliders must be reshaped to approximate the two main parts of the Axe: the Head and the Handle.</p>
+<p>The AxeHead BoxCollider is shaped to as close of an approximation as is possible, like so:</p>
+<p><img alt="AxeHeadCollider" src="../../../../_images/AxeHeadCollider.png" /></p>
+<p>The pink <a class="reference internal" href="../../../Scripting/DebugDrawing.html#manualdebugdrawing"><span>DebugDraw</span></a> lines represent the collision bounding box (i.e where collision will be detected), while the orange lines are the object&#8217;s bounding box (i.e. the Transform object that contains the BoxCollider component). Since the offset of the collider was changed the collision bounding box moved up, while the object bounding box grows to include the offset. This is all merely to say that the pink box shows the actual collision-detecting volume.</p>
+<p>The AxeHandle Collider is shaped so that it fits quite snugly around the boundaries of the handle of the Axe, like so:</p>
+<p><img alt="AxeHandleCollider" src="../../../../_images/AxeHandleCollider.png" /></p>
+<p>Now that they have both been reshaped, one can see the full collision boundaries set by the two BoxColliders (by selecting both of the BoxCollider objects in the Object Window), as is shown here:</p>
+<p><img alt="AxeHeadAndHandleColliders" src="../../../../_images/AxeHeadAndHandleColliders.png" /></p>
+<p>While this setup is about as simple as one could make it, for a weapon of this type scaled to one-sixth the size of the player character, there need not be any more complexity brought to it. There will be some collision that will not be exactly along the lines of the model, especially around the head, but with a weapon like this most users would not want to take up the resources to make a more precise and complex setup of colliders.</p>
+<p>If the user wishes for more precise collision, however, they may make BoxColliders for every mildly distinguishable rectangle shape that can be formed from the model, like so:</p>
+<p><img alt="AxeWithManyColliders" src="../../../../_images/AxeWithManyColliders.png" /></p>
+<p>And the resulting <a class="reference internal" href="../../../Editor/EditorUI.html#manualeditoruiobjectwindow"><span>Objects Window</span></a>:</p>
+<p><img alt="AxeObjectWithManyColliders" src="../../../../_images/AxeObjectWithManyColliders.png" /></p>
+<p>Ultimately, the choice of how many colliders one needs will come down to object in question and its place in the game.</p>
+</div>
+</div>
+<div class="section" id="properties-and-methods-of-boxcollider">
+<h3>Properties and Methods of BoxCollider</h3>
+<p><a class="reference internal" href="../../../CodeReference/Reference/BoxCollider.html#referenceboxcollider"><span>BoxCollider Code Reference</span></a></p>
+</div>
+<div class="section" id="events-of-boxcollider">
+<h3>Events of BoxCollider</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../CollisionEvents.html#manualcollisionevents"><span>Collision Events</span></a></li>
+<li><a class="reference internal" href="../CollisionGroups/CollisionGroupEvents.html#manualgroupcollisionevents"><span>Group Collision Events</span></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="related-materials">
+<span id="manualboxcolliderrelated"></span><h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../CollisionOverview.html#manualcollisionoverview"><span>Collision Overview</span></a></li>
+<li><a class="reference internal" href="SphereCollider.html#manualspherecollider"><span>SphereCollider</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../../Tutorials/Physics/Collision/CollisionEvents.html#tutorialcollisionevents"><span>Collision</span></a></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a></li>
+<li><a class="reference internal" href="../../../CodeReference/Reference/Collider.html#_CPPv28Collider" title="Collider"><code class="xref cpp cpp-type docutils literal"><span class="pre">Collider</span></code></a></li>
+<li><a class="reference internal" href="../../../CodeReference/Reference/BoxCollider.html#_CPPv211BoxCollider" title="BoxCollider"><code class="xref cpp cpp-type docutils literal"><span class="pre">BoxCollider</span></code></a></li>
+<li><a class="reference internal" href="../../../CodeReference/Reference/SphereCollider.html#_CPPv214SphereCollider" title="SphereCollider"><code class="xref cpp cpp-type docutils literal"><span class="pre">SphereCollider</span></code></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CapsuleCollider.html" class="btn btn-neutral float-right" title="CapsuleCollider" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Collider.html" class="btn btn-neutral" title="Collider" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Physics/Collision/Colliders/BoxCollider.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:43:53 GMT -->
+</html>

@@ -1,0 +1,268 @@
+.. _ReferenceDeformableCollider:
+
+.. rst-class:: searchtitle
+
+DeformableCollider
+==================
+
+.. rst-class:: searchdescription
+
+A collider to store a deformable object. This object is made up of a collection of tetrahedra and is solved with finite element method. Used to create a deformable object that can be bent and broken.
+
+.. include:: Description/DeformableCollider.rst
+
+.. cpp:class:: DeformableCollider
+
+    Base Class: :cpp:type:`Collider`
+
+.. _ReferenceDeformableColliderProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DeformableCollider::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space DeformableCollider::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DeformableCollider::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession DeformableCollider::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: PhysicsMaterial DeformableCollider::Material
+
+            The material used to determine the density, restitution and friction of this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CollisionGroup DeformableCollider::CollisionGroup
+
+            The collision group is a tag used to alter collision behavior based upon the CollisionTable on this object's space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeformableCollider::Ghost
+
+            Ghosted colliders do not resolve collision. They do still detect collisions and send events. Ghosted colliders are typically used for trigger regions.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeformableCollider::SendsEvents
+
+            Determines if this object will send collision events. Used mainly for increasing performance by not sending unnecessary collision events.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 DeformableCollider::Offset
+
+            Moves the physics defined center of the object away from the transform's translation. Used to move physics to match a model.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: RigidBody DeformableCollider::ActiveBody
+
+            The rigid body that owns this collider. This is the body that forces/impulses/etc... should be applied to.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint DeformableCollider::ContactCount
+
+            Returns the number of contacts on this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ContactRange DeformableCollider::Contacts
+
+            Range of all contacts on this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint DeformableCollider::JointCount
+
+            Returns the number of joints attached to this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: JointRange DeformableCollider::Joints
+
+            Range of all joints on this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeformableCollider::DrawWireframe
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeformableCollider::StiffnessWarping
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real DeformableCollider::YoungsModulus
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real DeformableCollider::PoissonRatio
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real DeformableCollider::Density
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeformableCollider::OptimizedMode
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeformableCollider::Plastic
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real DeformableCollider::Yield
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real DeformableCollider::Creep
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real DeformableCollider::Max
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real DeformableCollider::MassDampening
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real DeformableCollider::StiffnessDampening
+
+            
+
+.. _ReferenceDeformableColliderMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DeformableCollider::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: real DeformableCollider::ComputeVolume()
+
+            Compute the world-space volume of this collider.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 DeformableCollider::GetPointVelocity(Vec3 worldPoint)
+
+            Returns the point velocity of a world-space point with respect to the current rigid body's linear and angular velocity. If there is no rigid body this returns zero.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DeformableCollider::ApplyForceAtPoint(Vec3 point, Vec3 force)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DeformableCollider::ClearForces()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DeformableCollider::AddVertex(Vec3 localPos)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DeformableCollider::AddTetrahedra(uint index1, uint index2, uint index3, uint index4)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DeformableCollider::AddSurfaceTriangle(uint index1, uint index2, uint index3)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DeformableCollider::SetFixed(uint vertexIndex, bool state)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DeformableCollider::RemoveInvalidVertices()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: uint DeformableCollider::GetTetrahedraAtPoint(Vec3 point)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec4 DeformableCollider::GetBarycentricCoordinates(uint index, Vec3 point)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 DeformableCollider::GetWorldPosition(uint index, Vec4 barycentricCoordinates)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DeformableCollider::ClearPlastic()
+
+            
+
+.. include:: Remarks/DeformableCollider.rst

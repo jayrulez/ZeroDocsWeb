@@ -1,0 +1,190 @@
+.. _ReferenceViewportMouseEvent:
+
+.. rst-class:: searchtitle
+
+ViewportMouseEvent
+==================
+
+.. rst-class:: searchdescription
+
+All mouse events that are forwarded to reactive components or the space use this event to add extra data.
+
+.. include:: Description/ViewportMouseEvent.rst
+
+.. cpp:class:: ViewportMouseEvent
+
+    Base Class: :cpp:type:`MouseEvent`
+
+.. _ReferenceViewportMouseEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String ViewportMouseEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: MouseButtons::Enum ViewportMouseEvent::Button
+
+            If this is a MouseDown event which button was changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: byte ViewportMouseEvent::ButtonDown
+
+            State of all the mouse buttons.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 ViewportMouseEvent::Position
+
+            Position of the Mouse.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 ViewportMouseEvent::Movement
+
+            Movement since last mouse move.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 ViewportMouseEvent::Scroll
+
+            Movement of scroll wheel.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ViewportMouseEvent::ShiftPressed
+
+            Is Shift held down on the keyboard?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ViewportMouseEvent::AltPressed
+
+            Is Alt held down on the keyboard?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ViewportMouseEvent::CtrlPressed
+
+            Is Ctrl held down on the keyboard?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Mouse ViewportMouseEvent::Mouse
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Boolean ViewportMouseEvent::HandledEvent
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Ray ViewportMouseEvent::WorldRay
+
+            The world mouse ray.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ViewportMouseEvent::RayStart
+
+            Mouse Ray start.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ViewportMouseEvent::RayDirection
+
+            Mouse Ray Direction.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ViewportMouseEvent::HitPosition
+
+            The intersection point with an object. Used with Reactive components.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 ViewportMouseEvent::HitNormal
+
+            The normal at the intersection point with an object. Used with Reactive components.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 ViewportMouseEvent::HitUv
+
+            The uv of the surface that we hit(check HitUvProvided)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ViewportMouseEvent::HitUvProvided
+
+            The uv may not be provided by some ray-casters.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real ViewportMouseEvent::HitDistance
+
+            The distance away the hit point is. Used with Reactive components.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ViewportMouseEvent::HitObject
+
+            Object hit in ray cast.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CameraViewport ViewportMouseEvent::CameraViewport
+
+            Camera viewport that generated this event.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Viewport ViewportMouseEvent::Viewport
+
+            
+
+.. _ReferenceViewportMouseEventMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool ViewportMouseEvent::IsButtonDown(MouseButtons::Enum button)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool ViewportMouseEvent::IsButtonUp(MouseButtons::Enum button)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 ViewportMouseEvent::ToWorldZPlane(Real worldDepth)
+
+            The world mouse position on the z plane at depth.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 ViewportMouseEvent::ToWorldViewPlane(Real viewDepth)
+
+            The world mouse position on the view plane at view depth.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 ViewportMouseEvent::ToWorldPlane(Vec3 worldPlaneNormal, Vec3 worldPlanePosition)
+
+            The world mouse position on any arbitrary plane.
+
+.. include:: Remarks/ViewportMouseEvent.rst

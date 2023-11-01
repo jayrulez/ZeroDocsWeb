@@ -1,0 +1,94 @@
+.. _ReferenceVoxelChunkMaterials:
+
+.. rst-class:: searchtitle
+
+VoxelChunkMaterials
+===================
+
+.. rst-class:: searchdescription
+
+Contains all the material definitions used by VoxelChunks when building the meshes The materials should generally be setup by script(typically the integer id used is an enum in script)
+
+.. include:: Description/VoxelChunkMaterials.rst
+
+.. cpp:class:: VoxelChunkMaterials
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceVoxelChunkMaterialsProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog VoxelChunkMaterials::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space VoxelChunkMaterials::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog VoxelChunkMaterials::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession VoxelChunkMaterials::GameSession
+
+            Get the GameSession that owns us and our space.
+
+.. _ReferenceVoxelChunkMaterialsMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void VoxelChunkMaterials::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void VoxelChunkMaterials::SetFaceGraphicsMaterial(int voxelType, VoxelFace::Enum face, Material graphicsMaterial)
+
+            Sets the graphical material used to draw the voxels(all faces/sides must be set using SetMaterialFaceSprite)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void VoxelChunkMaterials::SetFaceSprite(int voxelType, VoxelFace::Enum face, SpriteSource spriteSource)
+
+            Sets one face/side of a material to the given sprite source.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void VoxelChunkMaterials::SetInternalFaceCullGroup(int voxelType, VoxelFace::Enum face, int internalFaceCullGroup)
+
+            Sets one face/side of a material to be within a certain culling group All materials in the same culling group will cull faces if they are next to another mateiral in the same group.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void VoxelChunkMaterials::SetTransparent(int voxelType, VoxelFace::Enum face, bool transparent)
+
+            If a block is considered transparent, then shared faces of opaque voxels will not be culled.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void VoxelChunkMaterials::SetUniformMaterial(int voxelType, Material graphicsMaterial, SpriteSource source, bool transparent)
+
+            Sets both the graphics material and all sides of the voxel to the given sprite.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool VoxelChunkMaterials::ClearMaterial(int voxelType)
+
+            Removes a material by id, or returns false if the material didn't exist.
+
+.. include:: Remarks/VoxelChunkMaterials.rst

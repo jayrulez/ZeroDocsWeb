@@ -1,0 +1,94 @@
+.. _ReferenceDynamicModel:
+
+.. rst-class:: searchtitle
+
+DynamicModel
+============
+
+.. rst-class:: searchdescription
+
+DynamicModel is used to render dynamic meshes that are constantly updated(Cloth, Etc) or dynamical generated.
+
+.. include:: Description/DynamicModel.rst
+
+.. cpp:class:: DynamicModel
+
+    Base Class: :cpp:type:`Graphical`
+
+.. _ReferenceDynamicModelProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DynamicModel::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space DynamicModel::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DynamicModel::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession DynamicModel::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DynamicModel::Visible
+
+            If object should be rendered.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DynamicModel::VisibilityCulling
+
+            If object is culled and not graphically updated when it's not visible.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DynamicModel::VisibilityEvents
+
+            If object receives events when entering/exiting the view of a rendering camera or shadow.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DynamicModel::CastShadows
+
+            If object is rendered to shadow maps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Material DynamicModel::Material
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 DynamicModel::Color
+
+            
+
+.. _ReferenceDynamicModelMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DynamicModel::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/DynamicModel.rst

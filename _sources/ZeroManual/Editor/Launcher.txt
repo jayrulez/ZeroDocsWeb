@@ -1,0 +1,333 @@
+.. _ManualZeroLauncher:
+
+.. rst-class:: SearchTitle
+
+The Zero Launcher
+=================
+
+.. rst-class:: SearchDescription
+
+This lesson introduces the **Zero Launcher** and explains how to use it.
+
+*   `Download the Zero Engine Launcher here <https://zero.digipen.edu/Launcher/ZeroLauncherSetup.exe>`_
+
+.. _LauncherDiscoverTab:
+
+The Discover Tab
+----------------
+
+|DiscoverBanner|
+
+The first thing you will see when you open the Launcher is the **Discover** tab.
+
+The Discover tab is the Launcher's information hub, featuring links to documentation,
+news, and informative websites:
+
+|DiscoverNumbered|
+
+**1.** The **Documentation** link opens the Zero Engine documentation website.
+
+**2.** The **Zilch** link takes you to the online manual for Zilch, the scripting language
+created for the Zero Engine.
+   
+**3.** The **Upcoming** link shows you the Zero Engine's public task organization
+page, where you can see what the Zero development team is working on.
+   
+**4.** The **DigiPen** link brings you to the main website of DigiPen Institute
+of Technology, where the Zero Engine was born.
+   
+**5.** The **Q&A** link connects you to the Zero Engine's Q&A page, where you can
+ask questions the Zero developers and other Zero users about the engine, the editor, Zilch, etc.
+
+--------------------------------------------------------------------------------
+
+.. _LauncherProjectsTab:
+
+The Projects Tab
+----------------
+
+|ProjectsBanner|
+
+Next is the **Projects** tab, which you will use when you want to create a new project or open
+one you've created before.
+
+Clicking on the **New** button will bring you to the New Project subtab.
+
+.. _LauncherNewProjectTab:
+
+New Project
+~~~~~~~~~~~
+
+Here, you can create a new 2D or 3D Zero project.
+
+Creating a New Project
+______________________
+
+|ProjectsNewNumbered|
+
+ **1** Choose a template to start with --- you may choose between **Empty 2D
+ Project** and **Empty 3D Project**. Both options will result in an empty Zero
+ project, but with a few differences in settings.
+   
+   **Default Settings for New 2D and 3D Projects**
+   
+   +--------------------+--------------------+---------------------+--------------------+-------------------+
+   | **Project Type**   | **Physics Space**  | **Editor Camera**   | **Default Camera** | **GridDraw Axis** |
+   +====================+====================+=====================+====================+===================+
+   | **2D Project**     | ``true``           | 2D (Orthographic    | 2D (Orthographic   | ``Z-Axis``        |
+   |                    |                    | Projection,         | Projection,        |                   |
+   |                    |                    | etc...)             | etc...)            |                   |
+   +--------------------+--------------------+---------------------+--------------------+-------------------+
+   | **3D Project**     | ``false``          | 3D (Perspective     |  3D (Perspective   | ``Y-Axis``        |
+   |                    |                    | Projection,         |  Projection,       |                   |
+   |                    |                    | etc...)             |  etc...)           |                   |
+   +--------------------+--------------------+---------------------+--------------------+-------------------+
+ 
+ **Physics Space** -- Default behavior for collision resolution
+ 
+ **Editor Camera** -- Settings of the editor camera
+ 
+ **Default Camera** -- Settings of the camera that is placed by default in each new level
+ 
+ **GridDraw Axis** -- Perpendicular axis to the grid plane
+   
+   .. admonition:: Note
+     
+     **Remember**, even if you start with the 2D template, **you can still use
+     3D elements and concepts in your game**, and vice versa. The template you
+     choose simply specifies the default settings for certain properties.
+
+ **2.** Type a name for the project in the **Name** field. (You will be notified if a
+ project by the same name already exists in the folder specified in the
+ **Location** field.)
+ 
+ **3.** Specify where the project should be created in the **Location** field. The
+ default path for new projects can be changed in :ref:`LauncherSettingsTab`.
+   
+ * You can use the **Open Path** button next to the field to browse to a
+   desired folder in your operating system's Folder Selection dialog
+   
+ **4.** In the **Tags** field, you may give the project descriptive *tags* by typing them,
+ separated by commas. Tags (which are strictly optional) are just bits of text that can 
+ be used as keywords when searching for projects in the :ref:`LauncherRecentProjects`
+ subtab.
+ 
+ **5.** Specify which Zero Engine :ref:`build version<LauncherBuildsTab>` you
+ wish to use to create the project in the **Build** popup menu.
+ 
+ **6.** When you are ready, click the **Create Project** button. This will create a
+ folder with the project name in the specified location containing the project
+ file (*.zeroproj) and Content folder.
+
+
+.. _LauncherRecentProjects:
+
+Recent Projects
+~~~~~~~~~~~~~~~
+
+Moving on to projects previously created, by clicking the **Recent** button you will bring
+up the Recent Projects subtab.
+
+Here, you will see a list of the latest Zero projects that you have worked on.
+
+  .. admonition:: Note
+  
+    As you will see later in this Lesson, you will be able to select exactly how many
+    previous projects are visibile in the **Recent Projects** window.
+
+|ProjectsRecentNumbered|
+
+ **1.** Each recently-used project appears here, with its name and modified date
+ shown next to a thumbnail screenshot.
+ 
+ **2.** You may use the **Search** field to search through your recent projects,
+ either by name or by tags.
+ 
+ **3.** When you mouse over a recent project, its **Remove** button will appear,
+ which you may use to remove the project from the Recent Projects subtab.
+   
+   * Removing a project in this way does not delete it from your computer --- it
+     only removes it from this list.
+
+When you click on a recent project, you will see this:
+
+|ProjectsRecentSelectedNumbered|
+
+ **1.** To open the project, click the **Launch Project** button.
+ 
+ **2.** You may choose which installed Zero Engine build
+ (:ref:`see below<LauncherBuildsTab>`) you wish to open the project in by
+ selecting the desired build from the **Build** popup menu.
+ 
+ **3.** Clicking the **Open Path** button will open the project folder in your
+ operating system.
+ 
+ **4.** To return to the list of recent projects, click the **Back** button.
+
+And finally under the Projects tab, there's the **Browse** button.
+
+Browse Projects
+~~~~~~~~~~~~~~~
+
+The last option under the Projects tabs, you can use **Browse** to find a Zero project.
+Clicking on the **Browse** button will open your operating system's Open dialog, 
+allowing you to search for a Zero project.
+
+--------------------------------------------------------------------------------
+
+.. _LauncherBuildsTab:
+
+The Builds Tab
+--------------
+
+|BuildsBanner|
+
+The last primary tab in the Launcher is the **Builds** tab.
+
+ .. tip::  **Why Choose a Different Build?**
+    
+     While it may seem apparent why you would want
+     to use the latest build of the engine, there are still a few
+     cases where having access to previous builds can save you a
+     great deal of time and frustration.
+     
+     * First, there may be times when a change to the engine renders your game unplayable,
+       unlaunchable, or otherwise broken. While the problem can usually be fixed by
+       updating your code according to the new changes, this might not be an option
+       if you have to present your latest build in thirty minutes. In this case, it
+       would definitely be to your benefit to revert to the last build on which your
+       game ran smoothly.
+     
+     * Second, you may want to make some changes to an old game--one that hasn't
+       been worked on in a year or two. There may very well be a number of changes
+       to the engine that now break your game. As in the previous example, just revert
+       back to the last build you used when you last worked on the project.
+     
+     * Finally, there are times when you may want to use a feature that for any
+       number of reasons has been removed from the engine; it may be going under
+       revision or is being replaced altogether. In either case, if you're really
+       attached to that feature, just use the last build where it was still functional.
+
+The Builds tab features a list of Zero Engine build versions that are installed
+on your computer or available for download.
+
+|BuildsNumbered|
+
+**1.** Each build is listed in the **Build List** pane, with its build number,
+release date, and tags.
+
+**2.** Further information on the selected build can be found in the **Details**
+pane.
+
+**3.** You may use the **Search** field to search through the Build List, either by
+build number or by tags.
+
+**4.** Click the **Install Build** button to download and install the selected
+build.
+
+**5.** Click the **Uninstall** button to remove the selected build from your
+computer.
+
+.. admonition:: Note
+  
+  You may have **any number of different builds** installed simultaneously.
+
+--------------------------------------------------------------------------------
+
+.. _LauncherSettingsTab:
+
+The Settings Tab
+----------------
+
+|SettingsBanner|
+
+Finally, there's the **Settings** tab, found by clicking the little orange
+horizontal lines (which can be found to the left of the primary **Discover** tab).
+
+Here, you can configure a number of different properties about how the Launcher
+itself behaves.
+
+|SettingsNumbered|
+
+**1.** The **Project Settings** popup menu controls what happens when you open a
+project from your operating system (i.e., by double-clicking on its icon):
+   
+   * ``Always open launcher`` --- opening a project will open the Launcher and
+     bring you directly to it in the Recent Projects subtab
+   * ``Auto run project if build installed`` --- if the Zero Engine build
+     version that was used to save the project is installed on your computer,
+     then the project will directly open in that version, bypassing the Launcher
+**2.** The **Default Project Location** field defines the default path where new
+projects will be created and saved
+   
+   * You can use the **Open Path** button next to the field to browse to a
+     desired folder in your operating system's Folder Selection dialog
+   * New projects can still be created elsewhere, by specifying a different path
+     in the New Project subtab (:ref:`see above<LauncherNewProject>`)
+**3.** The **Default Download Location** field defines the path to which new build
+versions are downloaded and installed
+   
+   * You can use the **Open Path** button next to the field to browse to a
+     desired folder in your operating system's Folder Selection dialog
+**4.** The **Max Recent Projects** field sets how many recent projects will appear
+in the Recent Projects subtab
+
+**5.** The **Revert to default** button restores the Launcher to its default
+settings
+
+--------------------------------------------------------------------------------
+
+And that concludes the Lesson on how to use the Launcher to create and open projects, install
+Zero Engine builds, and change the Settings of the Launcher itself.
+
+..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..  ..
+
+.. |Launcher|
+    image:: images/Launcher/Launcher.png
+.. |DiscoverBanner|
+    image:: images/Launcher/DiscoverBanner.png
+.. |Discover|
+    image:: images/Launcher/Discover.png
+    :width: 8.35in
+.. |DiscoverNumbered|
+    image:: images/Launcher/DiscoverNumbered.png
+    :width: 8.35in
+.. |ProjectsBanner|
+    image:: images/Launcher/ProjectsBanner.png
+.. |ProjectsNewBanner|
+    image:: images/Launcher/ProjectsNewBanner.png
+.. |ProjectsNew|
+    image:: images/Launcher/ProjectsNew.png
+    :width: 8.35in
+.. |ProjectsRecentBanner|
+    image:: images/Launcher/ProjectsRecentBanner.png
+.. |ProjectsRecent|
+    image:: images/Launcher/ProjectsRecent.png
+    :width: 8.35in
+.. |ProjectsRecentNumbered|
+    image:: images/Launcher/ProjectsRecentNumbered.png
+    :width: 8.35in
+.. |ProjectsRecentSelectedNumbered|
+    image:: images/Launcher/ProjectsRecentSelectedNumbered.png
+    :width: 8.35in
+.. |BuildsBanner|
+    image:: images/Launcher/BuildsBanner.png
+.. |Builds|
+    image:: images/Launcher/Builds.png
+    :width: 8.35in
+.. |BuildsNumbered|
+    image:: images/Launcher/BuildsNumbered.png
+    :width: 8.35in
+.. |XButton|
+    image:: images/Launcher/XButton.png
+.. |SettingsBanner|
+    image:: images/Launcher/SettingsBanner.png
+.. |Settings|
+    image:: images/Launcher/Settings.png
+    :width: 8.35in
+.. |SettingsNumbered|
+    image:: images/Launcher/SettingsNumbered.png
+    :width: 8.35in
+.. |ProjectsNewNumbered|
+    image:: images/Launcher/ProjectsNewNumbered.png
+    :width: 8.35in

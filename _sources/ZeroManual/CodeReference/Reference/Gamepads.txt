@@ -1,0 +1,52 @@
+.. _ReferenceGamepads:
+
+.. rst-class:: searchtitle
+
+Gamepads
+========
+
+.. rst-class:: searchdescription
+
+Gamepads is a collection of gamepads.
+
+.. include:: Description/Gamepads.rst
+
+.. cpp:class:: Gamepads
+
+    Base Class: :cpp:type:`ZeroObject`
+
+.. _ReferenceGamepadsProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint Gamepads::MaxGamepadCount
+
+            Gets the maximum number of supported gamepads.
+
+.. _ReferenceGamepadsMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Gamepads::PauseVibration()
+
+            Pause Vibration on all gamepads.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Gamepads::ResumeVibration()
+
+            Resume vibration on all gamepads.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Gamepad Gamepads::GetGamePad(uint gamepadIndex)
+
+            Get the gamepad for a given index from[0, GamepadCount].
+
+.. include:: Remarks/Gamepads.rst

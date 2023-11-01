@@ -1,0 +1,321 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Graphics/Sprites/Area.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:32 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Area Component &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Sprites and SpriteText" href="index.html"/>
+        <link rel="next" title="SpriteLayer and SpriteLayerOrder" href="SpriteLayer.html"/>
+        <link rel="prev" title="SpriteText" href="SpriteText.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Graphics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../CamerasViewportsRenderers/index.html">Cameras, Viewports and Renderers</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Sprites and SpriteText</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="BaseSprite.html">BaseSprite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Sprite.html">Sprite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpriteText.html">SpriteText</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Area Component</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpriteLayer.html">SpriteLayer and SpriteLayerOrder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Graphics</a> &raquo;</li>
+      
+          <li><a href="index.html">Sprites and SpriteText</a> &raquo;</li>
+      
+    <li>Area Component</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Graphics/Sprites/Area.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="area-component">
+<span id="manualarea"></span><h1>Area Component</h1>
+<p class="searchdescription">The <code class="xref cpp cpp-type docutils literal"><span class="pre">Area</span></code> Component is a very powerful tool when working with <a class="reference internal" href="../../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprites</span></code></a> or <a class="reference internal" href="../../CodeReference/Reference/SpriteText.html#_CPPv210SpriteText" title="SpriteText"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteText</span></code></a>, allowing for the manipulation of sizes without losing visual acuity. It is able to work in conjunction with the SpriteSourceEditor or the <a class="reference internal" href="../../CodeReference/Reference/SpriteTextBlock.html#_CPPv215SpriteTextBlock" title="SpriteTextBlock"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteTextBlock</span></code></a> component in order to define the Area that the Sprite or SpriteText cover.</p>
+<div class="section" id="nine-slicing-sprites">
+<span id="manualareanineslice"></span><h2>Nine-Slicing Sprites</h2>
+<p>Often when scaling Sprites (particularly UI sprites) the edges of the sprite will be stretched causing undesirable results as can be seen here:</p>
+<p><img alt="StretchedSprite" src="../../../_images/StretchedSprite.png" /></p>
+<p>By adding an Area Component instead, the Sprite can be enlarged without having the issues of blurry and stretched edges. Changing the <code class="docutils literal"><span class="pre">SpriteFill</span></code> option found in the SpriteSourceEditor to <code class="docutils literal"><span class="pre">NineSlice</span></code></p>
+<p><img alt="NineSliceOptions" src="../../../_images/NineSliceOptions.png" /></p>
+<p>and then changing the <code class="docutils literal"><span class="pre">Left</span></code> <code class="docutils literal"><span class="pre">Right</span></code> <code class="docutils literal"><span class="pre">Top</span></code> and <code class="docutils literal"><span class="pre">Bottom</span></code> options that come after it changes the borders the Sprite uses to Stretch. It then stretches based on this format instead:</p>
+<p><img alt="NineSliceDemo" src="../../../_images/NineSliceDemo9.png" /></p>
+<p>By using these options instead of simply using <code class="docutils literal"><span class="pre">Scale</span></code>, Sprites can be increased in size while still being clear visually.</p>
+<p><img alt="StretchedWithArea" src="../../../_images/StretchedWithArea.png" /></p>
+<p>The <code class="docutils literal"><span class="pre">NineSliceClipped</span></code> option works much the same way, with the only difference being how it effects the Sprite if it is shrunk to be smaller than the size of the sliced dimensions. <code class="docutils literal"><span class="pre">NineSlice</span></code> will squish the edges together while <code class="docutils literal"><span class="pre">NineSliceClipped</span></code> will keep the scaling of the sliced areas and clip them at the intersections.</p>
+</div>
+<div class="section" id="tiling-sprites">
+<span id="manualareatiling"></span><h2>Tiling Sprites</h2>
+<p>Similar to using the <code class="docutils literal"><span class="pre">NineSlice</span></code> option, any Sprite can use the Area in order to tile itself and repeatedly copy itself when stretched.</p>
+<p><img alt="StretchedTile" src="../../../_images/StretchedTile.png" /></p>
+<p>Adjusting the Scale of a Sprite like this isn&#8217;t the solution. Instead attach the Area Component and change the <code class="docutils literal"><span class="pre">SpriteFill</span></code> option in the SpriteSourceEditor to <code class="docutils literal"><span class="pre">Tiled</span></code>.</p>
+<p><img alt="TiledOptions" src="../../../_images/TiledOptions.png" /></p>
+<p>This will allow the Area component to properly adjust and repeat the image as the <code class="docutils literal"><span class="pre">Size</span></code> property is increased beyond the original scale of the SpriteSource.</p>
+<p><img alt="TiledSprite" src="../../../_images/TiledSprite.png" /></p>
+</div>
+<div class="section" id="organizing-text">
+<span id="manualareatext"></span><h2>Organizing Text</h2>
+<p>By utilizing the Area Component alongside the SpriteText and SpriteTextBlock Components, it becomes possible to gain a large amount of control over how the SpriteText is displayed. The SpriteTextBlock already gives the ability to set the formatting of the Text, however it&#8217;s missing alignment options.</p>
+<p><img alt="LeftAlign" src="../../../_images/LeftAlign.png" />
+<img alt="CenterAlign" src="../../../_images/CenterAlign.png" />
+<img alt="RightAlign" src="../../../_images/RightAlign.png" /></p>
+<p>Adding the Area Component however will give the ability to define the area the text is displayed in, and then changes the alignment of the text inside that area. It also will use word wrapping to make sure no text spills outside of the defined area.</p>
+<p><img alt="AreaAlign" src="../../../_images/AreaAlign1.gif" /></p>
+</div>
+<div class="section" id="related-materials">
+<span id="manualarearelated"></span><h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="SpriteText.html#manualspritetext"><span>SpriteText</span></a></li>
+<li><a class="reference internal" href="../../Editor/Tools/SpriteSourceEditor.html#manualspritesourceeditor"><span>SpriteSourceEditor</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorials">
+<h3>Tutorials</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../Tutorials/Graphics/SpritesAndText/Text.html#tutorialtext"><span>SpriteText</span></a></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/SpriteText.html#_CPPv210SpriteText" title="SpriteText"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteText</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/SpriteTextBlock.html#_CPPv215SpriteTextBlock" title="SpriteTextBlock"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteTextBlock</span></code></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SpriteLayer.html" class="btn btn-neutral float-right" title="SpriteLayer and SpriteLayerOrder" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SpriteText.html" class="btn btn-neutral" title="SpriteText" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Graphics/Sprites/Area.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:35 GMT -->
+</html>

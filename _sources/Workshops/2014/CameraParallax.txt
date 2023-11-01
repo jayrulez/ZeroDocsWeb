@@ -1,0 +1,216 @@
+.. _CameraParallax2014:
+
+.. rst-class:: SearchTitle
+
+Camera Parallax
+===============
+
+.. rst-class:: SearchDescription
+
+This lesson teaches how to make a parallax effect with a foreground and a background.
+
+
+Open Previous Project
+---------------------
+
+*Open the project created for the* :ref:`TileEditorAndSpriteSheets2014` *lesson*
+
+Level Setup
+-----------
+
+**Player Object**
+
+Create a very simple player and its character controller.
+
+* :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+* In Properties Window
+
+  * Set Name to: Player
+  * Under Transform
+  
+    * Set Translation's z-value to: 0.01
+
+Using Past Scripts
+++++++++++++++++++
+
+You have already created player controllers and camera controllers, so once you have the hang of it, there's no point in making it a second time.  Just like how we were able to import a stock script into our game, we too can import our own past scripts.
+
+*   :ref:`Command<Commands2014>` : ``ShowProjectFolder`` or :menuselection:`Project --> Show Project Folder`
+
+*   Locate and enter the project folder for the :ref:`FollowingCamera2014` lesson
+
+*   Enter the Content folder
+
+This is the folder that contains all resources for our project.  Recall, we had both a player controller and a camera controller, so we can retrieve both scripts.
+
+*   Drag both Movement.z and CameraLogic.z into the Zero Editor
+
+* :ref:`Save your project <SavingProject2014>`  
+* :ref:`Select the Player object <SelectObject2014>`
+* In Properties Window
+
+  * :ref:`Add a Movement Component <AddComponent2014>`
+
+|pbr|
+
+**Camera Object**
+
+We imported a camera controller that follows the player. Now we can attach it and set its properties.
+
+* :ref:`Select the Camera object <SelectObject2014>`
+* In Properties Window
+
+  * :ref:`Add a CameraLogic Component <AddComponent2014>`
+  * Under CameraLogic
+
+    * Set TargetObject to: **:/Player**
+
+Backgrounds and Foregrounds
+---------------------------
+In 2D video games, parallax refers to the illusion of 3D by having multiple layers moving at different speeds. Because Zero is a 3D engine, rather than simulating the illusion, we simply make it 3D. We'll set the "different speeds" by changing the Z coordinate of our "layers." The "layers" will be represented by additional tile maps.
+
+We'll make two tile maps, the foreground and the background.
+
+.. sidebar:: Camera Settings
+    
+    In this lesson you may find it useful to rotate the camera in a 3D environment to see the depth of each tile map.  To do this, use the command Mode3D; when you are done use Mode2D to switch back.
+        
+The foreground and the background will contain sprites to give us the sense of depth.
+
+You'll need to obtain the `Twinkle` Sprite:
+
+|NoBookBegin|
+
+* :download:`Twinkle.png <images/platformer/Twinkle.png>`
+
+|NoBookEnd|
+
+* :menuselection:`Resources --> Import Sprite Sheet`
+  
+  * Browse to and select Twinkle.png
+  * Press the Add and Close button
+  
+**Background Tile map**
+
+* Press the |TileEditor2DButton| button
+* In the Tools Window
+  
+  * Press the CreateTileMap button
+  * Select the Twinkle sprite
+* In the Level Window 
+
+  * Draw the Twinkle tiles
+
+  |pbr|
+  
+* In Properties Window
+
+  * Set Name to: Background
+  * Under Transform
+    
+    * Set the Translation Z to: -100
+        
+  * Under Multisprite
+    
+    * Set BlendMode to: Additive
+
+    
+|NoBookBegin| 
+|CP4_BackgroundWeb| 
+|NoBookEnd|
+    
+    |NoWebBegin| |CP4_BackgroundBook| |NoWebEnd|
+
+*Some images are rotated in 3D to give a better perspective on how the level is set up*
+
+Make a similar Foreground Tile map with the following properties:
+
+**Foreground Tile map**
+
+* Press the |TileEditor2DButton| button
+* In the Tools Window
+  
+  * Press the CreateTileMap button
+  * Select the Twinkle sprite
+* In the Level Window 
+
+  * Draw the Twinkle tiles
+* In Properties Window
+
+  * Set Name to: Foreground
+  * Under Transform
+    
+    * Set the Translation Z to: 30
+        
+  * Under Multisprite
+    
+    * Set BlendMode to: Additive
+
+|CP4_BackgroundForground|
+    
+Now :ref:`run the project <RunTheGame2014>`:
+
+|CP4_MonkeyOrthographic|
+
+Was this the result you were looking for?  Let's check the status of the camera. By Selecting the camera object in Mode3D, we can see how it sees the world.
+
+|pbr|
+
+|CP4_CameraOrthographic|
+
+*You can Toggle between the modes by entering their respective commands. Refer to the Camera Controls sidebar in the* :ref:`Game Objects <GameObjects2014>` *lesson for more information.*
+
+The camera is in a mode called orthographic. We can see this set in the Camera's properties listed as its **ProjectionMode**. Orthographic means the distance of an object from the camera does not affect the object's size. This is not realistic to us because we always see the world in a perspective view.
+
+*   :ref:`Select the Camera object <SelectObject2014>`
+*   In Properties Window
+
+    *   Under Camera
+    
+        *   Set ProjectionMode to: Perspective
+
+        |pbr|
+        
+The camera should now look similar to this:
+
+|NoBookBegin|
+|CP4_CameraPerspectiveWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|CP4_CameraPerspectiveBook|
+|NoWebEnd|
+
+:ref:`Run the game <RunTheGame2014>`.  
+
+|CP4_MonkeyPerspective|
+
+*The objects are now scaled by depth.*
+
+Now we know how to make background layers in our 2D scene.
+
+.. |CP4_BackgroundWeb| image:: images/platformer/CP4_2.png
+    :width: 8in
+    :height: 4.5in
+
+.. |CP4_BackgroundBook| image:: images/platformer/CP4_2.png
+    :height: 3.0in
+    
+.. |CP4_BackgroundForground| image:: images/platformer/CP4_3.png
+    :width: 8in
+    :height: 4.5in
+    
+.. |CP4_MonkeyOrthographic| image:: images/platformer/CP4_4.png
+
+.. |CP4_MonkeyPerspective| image:: images/platformer/CP4_5.png
+
+.. |CP4_CameraOrthographic| image:: images/platformer/CP4_6.png
+
+.. |CP4_CameraPerspectiveWeb| image:: images/platformer/CP4_7.png
+
+.. |CP4_CameraPerspectiveBook| image:: images/platformer/CP4_7.png
+    :height: 4.0in
+
+.. |TileEditor2DButton| image:: images/platformer/TileEditor2DButton.png
+
+.. include:: BookFormattingShortcuts.rst

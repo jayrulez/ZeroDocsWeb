@@ -1,0 +1,479 @@
+.. _GameObjects2014:
+
+.. rst-class:: SearchTitle
+
+Game Objects
+============
+
+.. rst-class:: SearchDescription
+
+This lesson focuses on putting the editor to use in order to perform various tasks: creating objects, running the game, searching, and manipulating objects by scaling, rotating, translating, and using the Area component.
+
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2014`
+
+Level Setup
+-----------
+
+Here is our new empty level:
+
+|NoBookBegin|
+|1000000000000555000003DD7420BA57_pngWeb|
+|NoBookEnd|
+
+
+|NoWebBegin|
+|1000000000000555000003DD7420BA57_pngBook|
+|NoWebEnd|
+
+The level is not actually empty because there is a Camera object (notice the
+|100000000000002200000023895F3F31_png|
+in the Level window) as well as other objects that come with a level by default:
+
+|100000000000011600000087AB178CB9_png|
+
+|pbr|
+
+Create a Game Object
+--------------------
+
+* Select Menu :menuselection:`Create --> Create Transform`
+  
+  |CreateTransformMenuItem|
+
+Notice that the Transform object can be found in the Objects Window:
+
+|10000000000001160000009E0EFE2334_png|
+
+* In the Objects Window
+
+  * Click on the Transform object
+* If the Properties Window is not visible, then enter the Command: ``Properties`` in the Search Window. (Remember you can open the Search Window from any where in the engine using ``Ctrl+Shift+Space``.
+
+The properties of the Transform object can be found in the Properties Window:
+
+|100000000000016100000071989B52E1_png|
+
+* In the Properties Window
+
+  * Click on the |100000000000001100000017F76E0A28_png| next to the Transform component
+    
+    |pbr|
+  
+This displays the properties of the Transform component:
+
+.. sidebar:: "Under"
+ 
+ When accessing properties using the |100000000000001100000017F76E0A28_png| we use the term "Under". For instance:
+ 
+ * In the Properties Window
+
+   * Under the Transform Component
+     
+     * Set Scale To: [2, 2, 1]
+      
+ You would have to press the |100000000000001100000017F76E0A28_png| to see the Scale Property that is listed **under** the Transform component.
+
+|1000000000000163000000EADE818705_png|
+
+The Transform component provides the Translation (position), Rotation, and Scale of an object. 
+
+
+An object has been created at the center of the level, but we can't see it yet. Let's add a visual component to our game object.
+
+Adding a Component
+------------------
+
+* In the Properties Window
+
+  * Click the |10000000000000190000001A74ED2CD9_png| button 
+
+This brings up the Add Component drop down:
+
+|100000000000016600000051297BEDAC_png|
+
+* Start typing: “Sprite”
+
+|pbr|
+
+The Sprite component should appear in the drop down selection:
+
+|SpriteComponentSearch|
+
+* Click on Sprite to add a Sprite component
+
+In the Properties Window, we can see that the Transform object now has a Sprite component:
+
+|100000000000011A000000821948BFBF_png|
+
+.. sidebar:: Camera Controls
+    
+    `Pan:` 
+    
+    *   Middle Mouse Button + Drag
+    *   E + Left Mouse Button + Drag
+    *   E + Right Mouse Button + Drag
+    *   Arrow Keys
+    *   WASD
+    
+    `Zoom:` 
+    
+    *   Scroll Wheel
+    *   Shift + Middle Mouse Button + Drag (up/down)
+    
+    with an object selected:
+    
+    *   Double Tap F
+    
+    `Rotate (In Mode3D):`
+    
+    *   Right Mouse Button + Drag
+    *   Q + Left Mouse Button + Drag
+    *   Q + Middle Mouse Button + Drag
+    
+    |NoBookBegin|  :ref:`Switching Mode2D/Mode3D <SwitchingMode2Dto3D2014>` |NoBookEnd|
+
+|pbr|
+The Sprite component provides a 2D visual representation of the Transform object. In the Level Window, we can see the Transform object's Sprite:
+
+|1000000000000101000000DBFA5CA3AB_png|
+
+The question mark is the visual representation of the Sprite object known as a **SpriteSource**. We won't go into much detail about what exactly is a SpriteSource and how they work just yet. Instead, we just need to know that the square with the question mark inside is the DefaultSprite.
+
+Changing the Name of an Object
+------------------------------
+
+* In the Objects Window
+  
+  * Select the Transform object by clicking on it
+  
+  |100000000000011400000026C278F9FE_png|
+
+* In the Properties Window
+
+  * Set Name to: Square
+
+    |NoBookBegin| |Web100000000000011B00000084562918F1_png| |NoBookEnd|
+    |NoWebBegin| |Book100000000000011B00000084562918F1_png| |NoWebEnd|
+      
+  * Under Sprite
+
+    * Set SpriteSource to: Square
+
+    |10000000000000FF0000007BC9968FEE_png|
+
+Making a Copy of an Object
+--------------------------
+
+* :ref:`Select the Square object <SelectObject2014>`
+* Duplicate it:
+ 
+  * Press ``Ctrl+C`` to copy it 
+  * Press ``Ctrl+V`` to paste a new copy
+    
+
+Notice how there are 2 Square objects in the Objects Window,
+but we only see one in the Level Editor.
+
+* :ref:`Select a Square object <SelectObject2014>`
+* In the Properties Window
+
+  * Set Name to: BlueSquare
+  * Under Transform
+
+    * Set Translation to: [5, 0, 0]
+  * Under Sprite
+
+    * Click on the |10000000000000F200000019F67CDA99_png| Color property
+
+The following window should appear:
+
+|100000000000019C000000ECDBB61DC5_png|
+
+    |pbr|
+
+    * Set Color to: [R:0, G:128, B:255, A:1.00]
+
+    |100000000000019C000000EBA3E6F2C5_png|
+
+    * Click the OK button
+
+The level should look like this:
+
+|10000000000001CC000000A9E1F6BA6B_png|
+
+Running the Game
+----------------
+
+There are multiple ways to run the game in the editor.
+
+1. Press ``F5`` key on the keyboard 
+2. Press the |100000000000001F0000001A6A045DC6_png| button 
+3. :ref:`Command<Commands2014>` : ``PlayGame`` or :menuselection:`Project --> Run Game`
+
+* :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+|pbr|
+
+Here is how the game should look:
+
+|NoBookBegin|
+|1000000000000551000003E391CA2C53_pngWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|1000000000000551000003E391CA2C53_pngBook|
+|NoWebEnd|
+
+* :ref:`Stop the Game <StopGame2014>`
+
+Changing Visibility
+-------------------
+
+We are able to choose whether or not a sprite is visible when the level starts by setting the Sprite component's Visible property to True or False.
+
+
+* :ref:`Select the Square object<SelectObject2014>`
+
+.. sidebar:: "Set ... to: True" "Set .. to: False"
+    
+    Many properties are simply flags that mark something as on or off, true or false. In the Zero Engine these types of properties are shown as a checkbox.
+
+    Those checked are **True**, those unchecked are **False**.
+    
+    |Checkboxes|
+    
+    *Notice SelectChildren is set to: False and SelectRoot is set to: True*
+
+|pbr|
+    
+* In the Properties Window
+
+  * Under Sprite
+
+    * Set Visible to: False
+
+      |100000000000011B0000009A22D1FB28_png|
+
+* :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+The Square object is not visible, but keep in mind that it is indeed still there.
+
+* :ref:`Stop the Game <StopGame2014>`
+* :ref:`Select the Square object<SelectObject2014>`
+* In the Properties Window
+
+  * Under Sprite
+
+    * Set Visible to: True
+
+TranslateGizmo
+--------------
+
+Another way to move objects around in the editor is by using the TranslateGizmo. This is a tool located in the Tools Window.
+
+* In the Tool Bar
+
+  * Click the |translategizmo| button
+* :ref:`Select the BlueSquare object<SelectObject2014>`
+
+|pbr|
+
+You should see colored arrows and a small white box:
+
+|1000000000000126000000F78F3D97EA_png|
+
+These arrows lay on the X (red), Y (green) and Z (blue) axes of object.
+
+* Click and drag along one of these colored arrows to move the object along one of the axes
+* Click and drag the mouse from the white box in the center to translate on all axes at once
+
+Notice that in the Properties Window, the Translation values are changing while you move the object.
+
+RotateGizmo
+------------
+
+The RotateGizmo is used to rotate objects.
+
+|NoBookBegin|
+|1000000000000120000000F01F0B2FB2_pngWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|1000000000000120000000F01F0B2FB2_pngBook|
+|NoWebEnd|
+
+* In the Tool Bar
+
+  * Click the |rotategizmo| button
+* Click on one of the circles (red, blue and green circles) and drag the mouse.
+
+This rotates the object around its X (red), Y (green), or Z (blue) axes. In 2D, we usually just rotate around the Z-axis.
+
+|pbr|
+
+ScaleGizmo
+-----------
+
+The ScaleGizmo tool is used to scale objects.
+
+|100000000000012D000000FEA21EFD21_png|
+
+* In the Tool Bar
+
+  * Click the |scalegizmo| button
+
+Colored lines with Boxes at the tips with a white box in the center will be drawn from the object.
+
+* Click and drag along the colored axes
+* Click and drag the mouse from the white box in the center to scale on all axes at once
+
+This scales the object along its X (red), Y (green), or Z (blue) axes.
+
+Notice that in the Properties Window, the Scale values are changing while you scale the object.
+
+|pbr|
+
+ManipulatorGizmo \& Area Component
+----------------------------------
+
+You may notice that there are some scaling artifacts that skews the borders
+
+|NoBookBegin|
+|skewedBorderWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|skewedBorderBook|
+|NoWebEnd|  
+
+To create crisp borders, we can add the Area Component and scale via the manipulator tool.
+
+* :ref:`Select the BlueSquare object<SelectObject2014>`
+
+  * In the Properties Window
+        
+    * :ref:`Add the Area component <AddComponent2014>`
+        
+    |AreaComponent|
+        
+* In the Tool Bar 
+    
+  * Click the |manipulatorgizmo| button    
+* :ref:`Select the BlueSquare object<SelectObject2014>`
+
+|pbr|
+
+You'll see points in which you can grab to change the scale of the object:
+
+|BSManipulatorGizmo|
+
+You can see that scaling no longer affects the borders:
+
+.. sidebar:: Hotkeys for tools
+    
+    All the numbers have been made hotkeys for the tools:
+    
+    +-------+-------------------------+
+    | Hotkey| Tool                    |
+    +=======+=========================+
+    |   1   | SelectTool              |
+    +-------+-------------------------+
+    | **2** | **TranslateGizmo**      |
+    +-------+-------------------------+
+    | **3** | **RotateGizmo**         |
+    +-------+-------------------------+
+    | **4** | **ScaleGizmo**          |
+    +-------+-------------------------+
+    | **5** | **ManipulatorGizmo**    |
+    +-------+-------------------------+
+    |   6   | CreationTool            |
+    +-------+-------------------------+
+    |   7   | ParentingTool           |
+    +-------+-------------------------+
+    |   8   | 3DJointTool             |
+    +-------+-------------------------+
+    |   9   | GeometryPainter2D       |
+    +-------+-------------------------+
+    |   0   | GeometryPointManipulator|
+    +-------+-------------------------+
+        
+    *Notice 2, 3, 4, and 5 correspond to TranslateGizmo, RotateGizmo, ScaleGizmo, and ManipulatorGizmo respectively* 
+
+|NoBookBegin|
+|NoArtifactsWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|NoArtifactsBook|
+|NoWebEnd|  
+
+
+Now we know how to create, save, and run our game projects, create and copy game objects, edit game object's properties, change a Sprite's visibility, and use the TranslateGizmo, RotateGizmo, ScaleGizmo, and ManipulatorGizmo.
+
+.. |10000000000001CC000000A9E1F6BA6B_png|         image:: images/GameObjects/10000000000001CC000000A9E1F6BA6B.png
+.. |100000000000011600000087AB178CB9_png|         image:: images/GameObjects/100000000000011600000087AB178CB9.png
+.. |100000000000019C000000ECDBB61DC5_png|         image:: images/GameObjects/100000000000019C000000ECDBB61DC5.png
+.. |100000000000019C000000EBA3E6F2C5_png|         image:: images/GameObjects/100000000000019C000000EBA3E6F2C5.png
+.. |1000000000000551000003E391CA2C53_pngWeb|      image:: images/GameObjects/1000000000000551000003E391CA2C53.png
+.. |1000000000000551000003E391CA2C53_pngBook|     image:: images/GameObjects/1000000000000551000003E391CA2C53.png
+    :height: 4.0in
+.. |1000000000000101000000DBFA5CA3AB_png|         image:: images/GameObjects/1000000000000101000000DBFA5CA3AB.png
+.. |1000000000000120000000F01F0B2FB2_pngWeb|      image:: images/GameObjects/1000000000000120000000F01F0B2FB2.png
+.. |1000000000000120000000F01F0B2FB2_pngBook|     image:: images/GameObjects/1000000000000120000000F01F0B2FB2.png
+    :height: 2.0in
+.. |10000000000000FF0000007BC9968FEE_png|         image:: images/GameObjects/10000000000000FF0000007BC9968FEE.png
+.. |10000000000001160000009E0EFE2334_png|         image:: images/GameObjects/10000000000001160000009E0EFE2334.png
+.. |100000000000011B0000009A22D1FB28_png|         image:: images/GameObjects/100000000000011B0000009A22D1FB28.png
+.. |Web100000000000011B00000084562918F1_png|      image:: images/GameObjects/100000000000011B00000084562918F1.png
+.. |Book100000000000011B00000084562918F1_png|     image:: images/GameObjects/100000000000011B00000084562918F1.png
+    :height: 1.0in
+.. |100000000000016600000051297BEDAC_png|         image:: images/GameObjects/100000000000016600000051297BEDAC.png
+    :width: 3.7291in
+    :height: 0.8437in
+.. |100000000000016100000071989B52E1_png|         image:: images/GameObjects/100000000000016100000071989B52E1.png
+.. |1000000000000126000000F78F3D97EA_png|         image:: images/GameObjects/1000000000000126000000F78F3D97EA.png
+    :height: 2.0in
+.. |100000000000002200000023895F3F31_png|         image:: images/GameObjects/100000000000002200000023895F3F31.png
+.. |200000090000256B0000175DF7335E44_svm|         image:: images/GameObjects/200000090000256B0000175DF7335E44.svm
+    :width: 3.7717in
+    :height: 2.3547in
+.. |10000000000000F200000019F67CDA99_png|         image:: images/GameObjects/10000000000000F200000019F67CDA99.png
+    :width: 2.5209in
+    :height: 0.2602in
+.. |Save|                                         image:: images/GameObjects/100000000000001C0000001D328DEB07.png
+.. |100000000000012D000000FEA21EFD21_png|         image:: images/GameObjects/100000000000012D000000FEA21EFD21.png
+    :height: 2.0in
+.. |10000000000000190000001A74ED2CD9_png|         image:: images/GameObjects/10000000000000190000001A74ED2CD9.png
+.. |10000000000001B50000004A3D433E7B_png|         image:: images/GameObjects/10000000000001B50000004A3D433E7B.png
+    :width: 4.552in
+    :height: 0.7709in
+.. |1000000000000555000003DD7420BA57_pngWeb|      image:: images/GameObjects/1000000000000555000003DD7420BA57.png
+    :width: 8.35in
+.. |1000000000000555000003DD7420BA57_pngBook|     image:: images/GameObjects/1000000000000555000003DD7420BA57.png
+    :height: 4.0in
+.. |100000000000011A000000821948BFBF_png|         image:: images/GameObjects/100000000000011A000000821948BFBF.png
+.. |100000000000001F0000001A6A045DC6_png|         image:: images/GameObjects/100000000000001F0000001A6A045DC6.png
+.. |100000000000011400000026C278F9FE_png|         image:: images/GameObjects/100000000000011400000026C278F9FE.png
+.. |1000000000000163000000EADE818705_png|         image:: images/GameObjects/1000000000000163000000EADE818705.png
+.. |100000000000001100000017F76E0A28_png|         image:: images/GameObjects/100000000000001100000017F76E0A28.png
+.. |NoArtifactsWeb|                               image:: images/GameObjects/NoArtifacts.PNG
+.. |NoArtifactsBook|                              image:: images/GameObjects/NoArtifacts.PNG
+    :height: 3.0in
+.. |BSManipulatorGizmo|                           image:: images/GameObjects/BSManipulatorGizmo.png
+.. |AreaComponent|                                image:: images/GameObjects/AreaComponent.png
+.. |rotategizmo|                                  image:: images/GameObjects/rotategizmo.png
+.. |scalegizmo|                                   image:: images/GameObjects/scalegizmo.png
+.. |manipulatorgizmo|                             image:: images/GameObjects/manipulatorgizmo.png
+.. |translategizmo|                               image:: images/GameObjects/translategizmo.png
+.. |SpriteComponentSearch|                        image:: images/GameObjects/SpriteComponentSearch.png
+.. |Checkboxes|                                   image:: images/GameObjects/Checkboxes.png
+.. |CreateTransformMenuItem|                      image:: images/GameObjects/CreateTransformMenuItem.PNG
+.. |skewedBorderWeb|                              image:: images/GameObjects/skewedBorder.PNG
+.. |skewedBorderBook|                             image:: images/GameObjects/skewedBorder.PNG
+    :height: 3.0in
+
+.. include:: BookFormattingShortcuts.rst

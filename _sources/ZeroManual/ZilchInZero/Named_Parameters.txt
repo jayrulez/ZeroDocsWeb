@@ -1,0 +1,94 @@
+.. _ZilchNameParameters:
+
+.. rst-class:: SearchTitle
+
+Named Parameters
+================
+
+.. rst-class:: SearchDescription
+
+Named parameters allow for self-documenting code. Moreover, the names you choose for your parameters matters because they act as part of a function's signature:
+
+.. code-block:: as
+
+  struct Square
+  {
+    var SideLength: Real = 0.0;    
+    
+    // Here the constructors are overloaded solely on the parameter name:
+    constructor(sideLength: Real)
+    {
+      this.SideLength = sideLength;
+    }
+    constructor(perimeter: Real)
+    {
+      this.SideLength = perimeter * 0.25;
+    }
+    constructor(area: Real)
+    {
+      this.SideLength = area^(0.5);
+    }
+  }
+  
+  class Driver 
+  {
+    function NamedParameterOverloading()
+    {
+        var square1 = local Square(sideLength:4.0);
+        Console.WriteLine("square1.SideLength = `square1.SideLength`");// square1.SideLength = 4
+        var square2 = local Square(perimeter: 4.0);      
+        Console.WriteLine("square2.SideLength = `square2.SideLength`");// square2.SideLength = 1
+        var square3 = local Square(area: 4.0);           
+        Console.WriteLine("square3.SideLength = `square3.SideLength`");// square3.SideLength = 2
+        
+        // The default overload is the first valid one found in the class 
+        // that said, if you have overloads on named parameters err on the 
+        // side of the explicit call (as shown above).
+        var square4 = local Square(4.0);     
+        Console.WriteLine("square4.SideLength = `square4.SideLength`"); // square4.SideLength = 4
+        
+        // Since named parameters are a part of the signature, they must be correct
+        var square5 = local Square(invalid: 4.0);// This won't compile, no overload with "invalid"
+    }
+  }
+  
+The fact that named parameters are part of a function's signature also plays a large role in declaring delegates, you can :doc:`read more about delegates here.<Delegates>`
+
+.. Warning::
+
+  Make sure you still enter the values into the functions in the correct order. If you were to switch the order of the values and mismatch the names, it will be actively detrimental to your documentation! 
+  
+  .. code-block:: as
+  
+    class Person
+    {
+        var FirstName: String = "Unknown";    
+        var LastName: String = "";
+
+        constructor(firstName: String, lastName: String)
+        {
+          this.FirstName = firstName;
+          this.LastName = lastName;
+        }
+        
+        function PrintName()
+        {
+          Console.WriteLine("Name: `this.LastName`, `this.FirstName`");
+        }
+    }    
+ 
+    class Driver
+    {
+        function BadDocumenting()
+        {   
+            // Ordering of the parameters still trumps the names given. Notice that each claim
+            // to have a last name of "Doe", but only one correctly prints Doe first:
+            var person1 = new Person(firstName: "Shawn", lastName: "Doe");
+            person1.PrintName();                                          // Name: Doe, Shawn   
+            var person2 = new Person(lastName: "Doe", firstName: "Shawn");
+            person2.PrintName();                                          // Name: Shawn, Doe
+            
+        }
+    }
+  
+

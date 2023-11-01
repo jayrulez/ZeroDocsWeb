@@ -1,0 +1,372 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _Events2015:
+
+.. rst-class:: SearchTitle
+
+Events
+======
+
+.. rst-class:: SearchDescription
+
+Events are one of the most important features in Zero and are often used by other features in the engine. In this lesson we will cover **Spaces**, **Game Loops**, connecting to the **LogicUpdate** event, and some basic keyboard input.
+
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2015`
+
+Level Setup
+-----------
+
+*   :ref:`Command<Commands2015>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   :ref:`Select the Sprite you created <SelectObject2015>`
+*   In the Properties Window
+
+    *   Set name to: Player
+
+*   :ref:`Save the project <SavingProject2015>` 
+
+Before we start talking about events there are a few topics we need to know about that will help us along the way.
+
+Spaces
+------
+
+A **Space** ,  like everything else in the engine, is still an object; however, unlike most game objects, **Spaces** do not represent an individual object. You may think of a **Space** as a container for a group of other objects, but more accurately it represents the real world space that a group of objects would inhabit if they existed in real life.
+
+In a simple game you only have one space, which is where all your game objects go. Each space has its own instances of the core systems of the engine: graphics, physics, etc. Because of this, game objects in two different spaces will not collide or otherwise physically interact. Creating a separate space for UI game objects is one of the most common uses of multiple spaces in a game.
+
+*   Click anywhere in the Level Window
+*   Press ``Shift+S`` or :menuselection:`Select --> Select Space` to bring up the properties of the current Space
+
+|pbr|
+
+Notice that the Property Window shows the space that all the objects in this level are contained in. You should see that the object count is ``5`` because there are five objects in the level (the World Anchor is part of this number):
+
+|PWSpace|
+
+One of the nice feature of **Spaces** is that all game object that exist inside of a **Space** object have access to it inherently. This is very convenient and useful for events, and at times very dangerous, we will talk about this more in a future lesson.
+
+Game Loops
+----------
+In all games, there is a continuous element to the game play.
+Consider *The Sims* for a moment.
+The game continuously checks for player input, moves characters across the screen over several seconds, queues actions such as cleaning and eating to be done at the appropriate times, and more.
+
+Using this example, you can break *The Sims* down into what is known in the games industry as a series of frames. Think of a single frame as one picture on a reel of film. When you string each of these frames together and play them back at a specific rate, you can see the movie that is on the film.
+
+Much of the same idea applies to games. In our frames example, one frame consists of several common actions that are executed in a specific sequence. For instance, the game would first check for user input, then it would update the game logic that governs moving the characters, and finally, it would then draw that frame to the screen.
+
+If this process of executing one frame of a game is looped at a specific rate, much like the film, the game comes alive and becomes real-time. This is precisely the concept of the game loop, where it loops the process of executing one frame of the game over and over again. It should be noted that in most games, as well as the Zero Engine, the game loop repeats at a rate of 60 frames per second. This is called the frame rate.
+
+Basically, before drawing to the screen, the game engine's systems perform several tasks such as: detecting user input, performing physics calculations, and handling game logic. These systems often communicate with each other through the use of events.
+
+|pbr|
+
+Events
+------
+
+Events are the main way that objects and components talk to each other in the Zero Engine, which follows a common programming pattern called the **Event-Listener** pattern. Events are messages that are sent to specific objects in reaction to something happening in the game. Like with any type of message, an Event often contains information about the circumstance that caused the Event to get dispatched. However, sometimes just the fact that the Event happened is all the information whoever is listening needs. Let's take a look at the most commonly used Event in the engine, which uses both of the topics of Spaces and Game Loops.
+
+Adding the PlayerController ZilchScript
+---------------------------------------
+
+* :ref:`Add a new ZilchScript resource<ResourceAdding2015>` Named: ``PlayerController``
+* In the **PlayerController** script
+
+  * Update the **PlayerController** component with the following code:
+  
+.. code-block:: as
+
+    class PlayerController : ZilchComponent
+    {
+        // This function is called when the object is created
+        function Initialize(init : CogInitializer)
+        {
+            // Say hello:
+            Console.WriteLine("Hello from Player");
+        }
+
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+            Console.WriteLine("updated");
+        }
+    }
+    
+The LogicUpdate Event
+---------------------
+
+When a space begins handling game logic, it dispatches an event to all the game objects who have connected to the ``Events.LogicUpdate`` event. This event is run during every logical frame and is generally used to run the game logic portion of the **Game Loop** discussed above. We want to have logic to update our objects every frame, so even without interaction, the game world can appear alive. This code we write, so that it can be called when an event is dispatched, is known as a **CallBack** function.
+
+* Open the **PlayerController** script
+
+In the generated code you'll see a function called OnLogicUpdate that accepts an event of type: ``UpdateEvent``. This is the **CallBack** function we will connect to respond to the ``UpdateEvent``.
+
+* :ref:`Save the project <SavingProject2015>` 
+* :ref:`Select the Player Object <SelectObject2015>`
+* In the Properties Window
+
+  * :ref:`Add a PlayerController component <AddComponent2015>`
+
+|pbr|
+
+This should be the output in the Console Window:
+
+Console Output::
+
+    ---------------- Begin Game  ----------------
+    Hello from Player
+    Level 'Level' was loaded.
+    Loaded level 0.00s  
+
+We have yet to actually connect the **OnLogicUpdate** to respond to the ``UpdateEvent`` dispatched by the space so "updated" never gets printed; let's do that now.
+
+
+Connecting to LogicUpdate
+-------------------------
+
+Remember that events are how the engine/objects/spaces inform you that something has happened and lets you decide what to do. When you want to respond to an event you need to connect to it. You connect a specific event that happens to a specific object to a specific function you've defined. 
+
+For example, lets say you connect your function, ApplyChanges() to the OKButton object's ButtonUp event. When the user clicks the OKButton, the ButtonUp event will be **dispatched** on the OKButton. Since you are **listening** to the OKButton for this event, when it is **dispatched**, the function you connected to, ApplyChanges(), will be called. 
+
+It's important to connect them correctly, so you don't have your function called when you press the cancel button (wrong object) or when hovering over the button (wrong event). 
+
+We want to **connect** to our **Space** , which is where the **LogicUpdate** event is dispatched. We will have our ``OnLogicUpdate`` function called when we receive the event. To do this we will use the ``Zero.Connect`` function.
+
+*   In your **PlayerController** script
+
+    *   Replace the code in the **Initialize** function with the following code:
+
+    .. code-block:: as
+    
+        function Initialize(init : CogInitializer)
+        {
+            // Connect to the LogicUpdate event fired by the space:
+            //       when the space    gets a LogicUpdate event   call my OnLogicUpdate function
+            Zero.Connect(this.Space,   Events.LogicUpdate,        this.OnLogicUpdate);
+        }
+
+*   :ref:`Save the project <SavingProject2015>` 
+*   :ref:`Run the game <RunTheGame2015>`
+
+|pbr|
+
+We now know that our ``OnLogicUpdate`` function is being called because the word `updated` is repeatedly being printed in the Console Window:
+
+Console Output::
+
+    updated
+    updated
+    updated
+    updated
+    updated
+    updated
+    updated
+    updated
+    updated
+    updated
+
+Events send different event types. The LogicUpdate event sends an **UpdateEvent** which contains how much time has passed in the space (**TimePassed**) and the change in time from the previous frame to this frame (denoted by **Dt** to represent delta time) in **seconds**.
+
+*   :ref:`Stop the Game <StopGame2015>` if it is currently open
+*   Open the **PlayerController** script
+*   Replace the code in the **OnLogicUpdate** function with the following code:
+
+.. code-block:: as
+ :emphasize-lines: 3,4
+ 
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        Console.WriteLine("TimePassed: `event.TimePassed`");
+        Console.WriteLine("Updated with dt of: `event.Dt`");
+    }
+
+*   :ref:`Run the game <RunTheGame2015>`
+
+We should see the time passed (in seconds) is increasing by the Dt (delta time) of each frame:
+
+            
+Console Output::
+
+    ---------------- Begin Game  ----------------
+    Compiling Zilch Library
+    Hello from Player
+    Level 'Level' was loaded.
+    Loaded level 0.00s  
+    TimePassed: 0.0159611
+    Updated with dt of: 0.0166567
+    TimePassed: 0.0340954
+    Updated with dt of: 0.0166567
+    TimePassed: 0.0510914
+    Updated with dt of: 0.0166567
+    TimePassed: 0.068136
+    Updated with dt of: 0.0166567
+    TimePassed: 0.0851685
+    Updated with dt of: 0.0166567
+    TimePassed: 0.102257
+
+|pbr|
+
+Keyboard Input
+--------------
+
+Now we will detect keyboard input in the ``OnLogicUpdate`` function. In the Zero Engine, we can use the ``Zero.Keyboard.KeyIsPressed`` function to detect user input. This function accepts a key id argument that is associated with specific keys on the keyboard.
+
+Let's detect if the Up arrow key is pressed:
+
+*   :ref:`Stop the Game <StopGame2015>`
+*   Open the **PlayerController** script
+*   Update the **OnLogicUpdate** function with the following code:
+
+.. code-block:: as
+ :emphasize-lines: 3-8
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        // If I press the up arrow key,
+        if (Zero.Keyboard.KeyIsPressed(Keys.Up))
+        {
+            // print confirmation it happened.
+            Console.WriteLine("Up Arrow Pressed");
+        }
+    }
+
+The Zero.Keyboard.KeyIsPressed function returns a **Boolean** value. This value can either be **true** or **false**; therefore, the function call can be used by the if statement as its boolean condition. 
+
+*   :ref:`Save the project <SavingProject2015>` and :ref:`run the game <RunTheGame2015>`
+
+Now when you pressed the Up arrow key on the keyboard, it should print "Up Arrow Pressed" in the Console Window.
+
+*   :ref:`Stop the Game <StopGame2015>`
+
+Frame-based Movement
+--------------------
+
+Up until now, we have been detecting input from the keyboard and printing to the Console Window. Now we are going to make our Player object move using code in our PlayerController script. We know from setting our properties in the editor that the **Transform** component is where our **Translation** (position) is held. Our Translation is stored as a 3D Vector. Now we will update the Translation vector inside the Transform component from within our PlayerController script.
+
+|pbr|
+
+Let's make our Player move along the positive world y-axis when we press the Up arrow key:
+
+*   Open the **PlayerController** script
+
+*   Update the **OnLogicUpdate** function with the following line of code:
+
+.. code-block:: as
+ :emphasize-lines: 8,9
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        // If I press the up arrow key,
+        if (Zero.Keyboard.KeyIsPressed(Keys.Up))
+        {
+            // print confirmation it happened.
+            Console.WriteLine("Up Arrow Pressed");
+            // Move up along world y-axis.
+            this.Owner.Transform.Translation +=  Real3(0.0, 1.0, 0.0);
+        }
+    }
+
+With this code, we are adding a 3D vector to our Transform's 3D translation vector. This should move our object in the positive direction along the world y-axis.
+
+*   :ref:`Save the project <SavingProject2015>` and :ref:`run the game <RunTheGame2015>`
+*   Press the Up arrow key repeatedly
+
+Now in addition to printing, the Player object should be moving by one unit in the positive direction along the world y-axis. We have been checking for the up arrow key being **pressed**. Let's check for if the up arrow key is being held **down**.
+
+*   :ref:`Stop the Game <StopGame2015>`
+*   Open the **PlayerController** script
+*   In the **OnLogicUpdate** function, change ``KeyIsPressed`` to ``KeyIsDown``:
+
+.. code-block:: as 
+    
+    // If I hold down the up arrow key,
+    if (Zero.Keyboard.KeyIsDown(Keys.Up))
+
+
+*   :ref:`Save the project <SavingProject2015>` and :ref:`run the game <RunTheGame2015>`
+*   Hold the up arrow key down
+
+
+The Player object continues moving as long as the Up arrow key is held down. 
+
+*   :ref:`Stop the Game <StopGame2015>`
+
+|pbr|
+
+*   Open the **PlayerController** script
+
+*   change the **OnLogicUpdate** to the following code:
+
+.. code-block:: as
+ :emphasize-lines: 3-7,13-14,16-33, 35-37
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+       // Have a place to record the total movement we want to make:
+       var movement =  Real3(0.0, 0.0, 0.0);
+
+       // If I hold down the up arrow key,
+       if (Zero.Keyboard.KeyIsDown(Keys.Up))
+       {
+           // Record desired upward motion along the world y-axis:
+           movement +=  Real3(0.0, 1.0, 0.0);
+       }
+       // If I hold down the down arrow key,
+       if (Zero.Keyboard.KeyIsDown(Keys.Down))
+       {
+           // Record desired downward motion along the world y-axis:
+           movement +=  Real3(0.0, -1.0, 0.0);
+       }
+       // If I hold down the right arrow key,
+       if (Zero.Keyboard.KeyIsDown(Keys.Right))
+       {
+           // Record desired rightward motion along the world x-axis:
+           movement +=  Real3(1.0, 0.0, 0.0);
+       }
+       // If I hold down the left arrow key,
+       if (Zero.Keyboard.KeyIsDown(Keys.Left))
+       {
+           // Record desired leftward motion along the world x-axis:
+           movement +=  Real3(-1.0, 0.0, 0.0);
+       }
+
+       // Apply the recorded movement to our Transform
+       this.Owner.Transform.Translation += movement;
+    }
+
+
+*   :ref:`Save the project <SavingProject2015>` and :ref:`run the game <RunTheGame2015>`
+
+Now you can move the player up, down, left, and right; however it is moving incredibly fast. This is because currently the player is being moved one unit each frame, and at sixty frames per second the block is moving way to fast. 
+
+|pbr|
+
+*   Update the **OnLogicUpdate** with the following code:
+
+.. code-block:: as
+ :emphasize-lines: 8
+ 
+       // If I hold down the left arrow key,
+       if (Zero.Keyboard.KeyIsDown(Keys.Left))
+       {
+           // Record desired leftward motion along the world x-axis:
+           movement +=  Real3(-1.0, 0.0, 0.0);
+       }
+       // Apply the recorded movement to our Transform
+       this.Owner.Transform.Translation += movement * event.Dt;
+    }
+
+*   :ref:`Save the project <SavingProject2015>` and :ref:`run the game <RunTheGame2015>`
+
+By multiplying our movement vector by Dt we can scale the speed to move the object at a time scale of units per second instead of units per frame. This is a far more practical way of moving objects and keeping them at a consistent timescale. If Dt is used consistently throughout the project it also makes it easy to do time sensitive effects such as slow motion.
+
+Conclusions
+-----------
+
+Connecting to events is one of the most important things to learn in the engine. The Engine will send individual objects specific events based off what is happening in the game, events such as **LogicUpdate** and **CollisionEvents** (will be discussed in the next lesson) can drive a majority of your gameplay. Learning how to respond to the events correctly is core to your ability to function in the engine.
+
+
+.. |PWSpace|                 image:: images/Events/PWSpace.PNG
+

@@ -1,0 +1,353 @@
+.. _HeadsUpDisplay2014:
+
+.. rst-class:: SearchTitle
+
+Heads Up Display
+================
+
+.. rst-class:: SearchDescription
+
+This lesson explains the basics of creating a HUD in the Zero Engine.
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2014`
+
+Level Setup
+-----------
+
+* In the Library Window 
+
+  * Right click the Level `Level`
+
+    * Set the Name to: Background 
+
+* In the Objects Window
+
+  * :ref:`Select LevelSettings <SelectObject2014>`
+  
+* In the Properties Window
+  
+  * Under ForwardRenderer
+    
+    * Set ClearColor to: [0, 0, 0]
+    
+* :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+    
+It should look like this:
+
+|NoBookBegin|
+|BlackLevelWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|BlackLevelBook|
+|NoWebEnd|
+
+*Note that the Level tab says Level:Level*
+
+* :ref:`Stop the Game <StopGame2014>`
+
+|pbr|
+
+:ref:`Add a new Level resource<ResourceAdding2014>` named: 'HUD' 
+
+* In the Objects Window
+
+  * :ref:`Select LevelSettings <SelectObject2014>`
+* In the Properties Window
+  
+  * Under ForwardRenderer
+    
+    * Set ClearColor to: [255, 0, 0]
+  * Under CameraViewport
+    
+    * Set Layer to: 1
+    
+**Create a HUD sprite**
+  
+* :ref:`Command<Commands2014>`: ``CreateSprite`` or :menuselection:`Create --> Create Sprite` 
+* In the Properties Window
+  
+  * Set Name to: 'HUDSprite'
+  * Under Transform
+  
+    * Set Translation to: [0, 8, 0]
+  * :ref:`Add an Area Component <AddComponent2014>`
+  * Under Area Component
+  
+    * Set Size to: [20, 1]
+
+* :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`   
+    
+It should look like this:
+
+|NoBookBegin|
+|RedLevelweb|
+|NoBookEnd|
+
+|NoWebBegin|
+|RedLevelBook|
+|NoWebEnd|
+
+*Note that the Level tab says Level:HUD*
+
+* :ref:`Stop the Game <StopGame2014>`
+
+Making a HUD
+------------
+
+In order to create our HUD, we are going to render one level over the other. Spaces can only have one level loaded at a time, so to make this happen we need to make our own space; we can do this in code.
+
+:ref:`Add a new ZilchScript resource<ResourceAdding2014>` named: 'HUDCreator' 
+
+* Add the following lines to the **HUDCreator** script:
+
+.. code-block:: as
+  :emphasize-lines: 3-5,12-15,18-22
+     
+  class HUDCreator : ZilchComponent
+  {
+      [Property]
+      var HudLevel: Level = null; // Level that has our HUD in it
+      var HudSpace: Space = null;
+
+      function Initialize(init : CogInitializer)
+      {
+          // Create a new Space to load our HUD level into
+          this.HudSpace = this.GameSession.CreateNamedSpace("HudSpace", Archetype.Find("Space"));
+          // Load the HUD level set in the property
+          this.HudSpace.LoadLevel(this.HudLevel);
+      }
+      
+      function Destroyed()
+      {
+          // Make sure to clean up the extra Space we created
+          this.HudSpace.Destroy();
+      }
+      
+  }
+
+* :ref:`Save the project <SavingProject2014>`
+* In the Library Window
+
+  * Under Level tag
+  
+    * ``Double-Click`` on Level
+* In the Objects Window
+
+  * :ref:`Select LevelSettings <SelectObject2014>`
+* In the Properties Window
+  
+  * :ref:`Add the HUDCreator Component <AddComponent2014>`
+  * Under HUDCreator
+  
+    * Set HUDLevel to: HUD
+
+* :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+|pbr|
+
+Having set our HUDLevel's layer during the Level Setup to 1, we ensured it would render on top of our game. Unfortunately, our HUDLevel *completely* hides our game:
+
+|NoBookBegin|
+|HUDEclipseWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|HUDEclipseBook|
+|NoWebEnd|
+
+*Notice the Level tab says Level:Level but it still has a red background*
+
+* :ref:`Stop the Game <StopGame2014>`
+
+Transparent Background
+----------------------
+
+In order to make our game visible under the HUD we need to make the HUD not render its background.
+
+* In the Library Window
+
+  * Under Level tag
+  
+    * ``Double-Click`` on HUD
+* In the Objects Window
+
+  * :ref:`Select LevelSettings <SelectObject2014>`
+* In the Properties Window
+  
+  * Under CameraViewport
+  
+    * Set Background to: False
+
+* In the Library Window
+
+  * Under Level tag
+  
+    * ``Double-Click`` on Level
+* :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+|NoBookBegin|
+|GoodHUDWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|GoodHUDBook|
+|NoWebEnd|
+
+*Now we have the HUD and the black background of the game*
+
+* :ref:`Stop the Game <StopGame2014>`
+
+Interacting with the HUD
+------------------------
+
+In order to access objects in the HUD we have to ensure we are looking in the correct space. You can follow this simple example:
+
+:ref:`Add a new ZilchScript resource<ResourceAdding2014>` named: 'HUDInteraction' 
+
+* Add the following lines to the **HUDInteraction** script:
+
+.. code-block:: as
+  :emphasize-lines: 9,14-17
+     
+  class HUDInteraction : ZilchComponent
+  {
+      function Initialize(init : CogInitializer)
+      {
+          Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+          // Get an Object from HUDLevel 
+          // using FindObjectByName() on the Space it was created in
+          var hudSprite = this.Owner.HUDCreator.HudSpace.FindObjectByName("HUDSprite");
+          // Simply show we can interact with it by making the HUD slowly fall
+          hudSprite.Transform.Translation = hudSprite.Transform.Translation + Real3(0.0,-1.0 * event.Dt, 0.0);
+      }
+  }
+
+* :ref:`Save the project <SavingProject2014>`
+
+|pbr|
+
+* In the Objects Window
+
+  * :ref:`Select LevelSettings <SelectObject2014>`
+* In the Properties Window
+  
+  * :ref:`Add the HUDInteraction Component <AddComponent2014>`
+
+* :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+Our HUD is now updating based on our game:
+
+|NoBookBegin|
+|HUDUpdatingWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|HUDUpdatingBook|
+|NoWebEnd|
+
+*Our HUDInteraction Component in Level is updating our HUDSprite in HUD*
+
+* :ref:`Stop the Game <StopGame2014>`
+
+Sending Information Back to the Game
+------------------------------------
+
+In order to send the information back to the Level from the HUD, we once again need to ensure we use the correct space. You can follow this simple example:
+
+:ref:`Add a new ZilchScript resource<ResourceAdding2014>` named: 'HUDChangesLevel' 
+
+* Add the following lines to the **HUDChangesLevel** script:
+
+.. code-block:: as
+  :emphasize-lines: 9-13
+     
+  class HUDChangesLevel : ZilchComponent
+  {
+      function Initialize(init : CogInitializer)
+      {
+           // Since we don't already have access to the Space we have to find it.
+           // The default name for the Space a Level is loaded in is called Main
+           var gameSpace = this.GameSession.FindSpaceByName("Main");
+           // Here we can quickly show we can affect the game by changing the background color:
+           gameSpace.LevelSettings.ForwardRenderer.ClearColor = Real4(0.0, 1.0, 0.0, 1.0);
+      }
+  }
+
+* :ref:`Save the project <SavingProject2014>`
+* In the Library Window
+
+  * Under Level tag
+  
+    * ``Double-Click`` on HUD
+* In the Objects Window
+
+  * :ref:`Select LevelSettings <SelectObject2014>`
+* In the Properties Window
+  
+  * :ref:`Add the HUDChangesLevel Component <AddComponent2014>`
+* In the Library Window
+
+  * Under Level tag
+  
+    * ``Double-Click`` on Level
+* :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>` 
+
+Our game is now updating based on our HUD:
+
+|NoBookBegin|
+|HUDChangingLevelWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|HUDChangingLevelBook|
+|NoWebEnd|
+
+*Our HUDChangesLevel Component in HUD is updating our background color in Level*
+
+Now we know how to overlay a HUD on our game and pass data to and from each other.
+
+.. |BlackLevelWeb|       image:: images/HeadsUpDisplay/BlackLevel.png
+  :width: 8.35in
+
+.. |BlackLevelBook|       image:: images/HeadsUpDisplay/BlackLevel.png
+    :height: 3.0in
+  
+.. |RedLevelWeb|         image:: images/HeadsUpDisplay/RedLevel.png
+  :width: 8.35in
+
+.. |RedLevelBook|         image:: images/HeadsUpDisplay/RedLevel.png
+    :height: 3.0in 
+  
+.. |HUDEclipseWeb|       image:: images/HeadsUpDisplay/HUDEclipse.png
+  :width: 8.35in
+
+.. |HUDEclipseBook|       image:: images/HeadsUpDisplay/HUDEclipse.png
+    :height: 3.0in
+  
+.. |GoodHUDWeb|          image:: images/HeadsUpDisplay/GoodHUD.png
+  :width: 8.35in
+
+.. |GoodHUDBook|          image:: images/HeadsUpDisplay/GoodHUD.png
+    :height: 3.0in
+
+.. |HUDUpdatingWeb|      image:: images/HeadsUpDisplay/HUDUpdating.png
+  :width: 8.35in
+
+.. |HUDUpdatingBook|      image:: images/HeadsUpDisplay/HUDUpdating.png
+    :height: 3.0in
+  
+.. |HUDChangingLevelWeb| image:: images/HeadsUpDisplay/HUDChangingLevel.png
+  :width: 8.35in
+
+.. |HUDChangingLevelBook| image:: images/HeadsUpDisplay/HUDChangingLevel.png
+    :height: 3.0in
+  
+.. include:: BookFormattingShortcuts.rst

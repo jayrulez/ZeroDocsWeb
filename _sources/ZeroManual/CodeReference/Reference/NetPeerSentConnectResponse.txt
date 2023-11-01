@@ -1,0 +1,73 @@
+.. _ReferenceNetPeerSentConnectResponse:
+
+.. rst-class:: searchtitle
+
+NetPeerSentConnectResponse
+==========================
+
+.. rst-class:: searchdescription
+
+Dispatched after sending a connect response If denied, their net peer ID is released and link is destroyed immediately after this.
+
+.. include:: Description/NetPeerSentConnectResponse.rst
+
+.. cpp:class:: NetPeerSentConnectResponse
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceNetPeerSentConnectResponseProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetPeerSentConnectResponse::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetPeerId NetPeerSentConnectResponse::TheirNetPeerId
+
+            Data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: IpAddress NetPeerSentConnectResponse::TheirIpAddress
+
+            Their net peer ID(set only if accepted)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EventBundle NetPeerSentConnectResponse::TheirRequestBundle
+
+            Their IP address(as seen from our perspective)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint NetPeerSentConnectResponse::TheirPendingUserAddRequestCount
+
+            Their bundled request event data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: IpAddress NetPeerSentConnectResponse::OurIpAddress
+
+            Their pending user add requests following this connect request(within the same frame)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ConnectResponse::Enum NetPeerSentConnectResponse::OurConnectResponse
+
+            Our IP address(as seen from their perspective)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EventBundle NetPeerSentConnectResponse::OurResponseBundle
+
+            Our connect response.
+
+.. _ReferenceNetPeerSentConnectResponseMethods:
+
+.. include:: Remarks/NetPeerSentConnectResponse.rst

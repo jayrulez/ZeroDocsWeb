@@ -1,0 +1,110 @@
+.. _ReferenceJoystick:
+
+.. rst-class:: searchtitle
+
+Joystick
+========
+
+.. rst-class:: searchdescription
+
+A Joystick is associated with a hardware joystick, and provides the ability to query axes and buttons.
+
+.. include:: Description/Joystick.rst
+
+.. cpp:class:: Joystick
+
+.. _ReferenceJoystickProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Joystick::IsActive
+
+            Gets whether or not the joystick is active.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String Joystick::Name
+
+            Get the name of the Joystick.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint Joystick::ButtonCount
+
+            Get the number of buttons or axes.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint Joystick::AxisCount
+
+            
+
+.. _ReferenceJoystickMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Real Joystick::GetAxisValue(int index)
+
+            Queries an axes and returns a value between[-1, 1] The valid range of axes is between 0 and'GetMaxAxes' If the axis is not valid, then the value returned is 0.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: String Joystick::GetAxisName(int index)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: int Joystick::GetAxisIndex(String name)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Real Joystick::GetAxisValueByName(String name)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool Joystick::GetButtonValue(uint index)
+
+            Queries a button and returns true if it is down, false if it is up The valid range of buttons is between 0 and'GetMaxButtons' If the button is not valid, then the value returned is false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Joystick::LoadInputMapping(String name)
+
+            Load an input mapping.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Joystick::SaveInputMapping(String name)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Joystick::StartCalibration(void)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Joystick::EndCalibration(void)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool Joystick::Calibrating(void)
+
+            
+
+.. include:: Remarks/Joystick.rst

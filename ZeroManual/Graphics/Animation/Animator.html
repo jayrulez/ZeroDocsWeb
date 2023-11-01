@@ -1,0 +1,368 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Graphics/Animation/Animator.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:25 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Animator &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Animation" href="index.html"/>
+        <link rel="next" title="Physics" href="../../Physics/index.html"/>
+        <link rel="prev" title="Animation" href="index.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Graphics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../CamerasViewportsRenderers/index.html">Cameras, Viewports and Renderers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Sprites/index.html">Sprites and SpriteText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Materials/index.html">Materials</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Animation</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Animator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Graphics</a> &raquo;</li>
+      
+          <li><a href="index.html">Animation</a> &raquo;</li>
+      
+    <li>Animator</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Graphics/Animation/Animator.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="animator">
+<span id="manualanimator"></span><h1>Animator</h1>
+<p class="searchdescription">The <strong>Animator</strong> allows you to change a value of the properties of components over time.</p>
+<div class="section" id="why-it-exists">
+<h2>Why it exists</h2>
+<p>Animator allows your to custom build complex animations to suit a certain type of situation through the Zero Editor using a graphical representation that is sometimes too tedious or impossible to do in code. Using the <strong>Animator</strong> you can line up multiple <strong>Keyframes</strong> (explained below) of the properties on a timeline to achieve complex animation.</p>
+<p>These are some examples of the type of animation the <strong>Animator</strong> can do:</p>
+<ul class="simple">
+<li>Moving Platforms</li>
+<li>Day/Night cycles</li>
+<li>Flickering lights</li>
+<li>Opening doors</li>
+<li>Cinematic Events</li>
+<li>UI animations</li>
+<li>and more...</li>
+</ul>
+</div>
+<div class="section" id="opening-the-animator">
+<h2>Opening the Animator</h2>
+<p>This is accomplished through the use of a special tool known as the <strong>Animator</strong> which can be accessed by pressing the button at the top of the Zero Editor window.</p>
+<p><img alt="AnimatorButton" src="../../../_images/AnimatorButton.png" /></p>
+<p>Alternatively, the <strong>Animator</strong> can also be opened through the Zero Search Window.</p>
+<p><img alt="SearchWindow" src="../../../_images/SearchWindow1.png" /></p>
+<p>You should see a window opened up at the button of the Zero Editor that looks like the following:</p>
+<p><img alt="AnimatorWindow" src="../../../_images/AnimatorWindow.png" /></p>
+</div>
+<div class="section" id="animationgraph-component">
+<h2>AnimationGraph Component</h2>
+<p>Before we can start animating your object&#8217;s properties using the <strong>Animator</strong>, you first need to add the <strong>AnimationGraph</strong> component to your object. This tells Zero that this object&#8217;s properties are now able to be animated as well as how fast it should be played. You add the <strong>AnimationGraph</strong> component just like any other component or by clicking on the highlighted text at the bottom of the screen:</p>
+<p><img alt="AnimatorWindowAddAnimationGraph" src="../../../_images/AnimatorWindowAddAnimationGraph.png" /></p>
+</div>
+<div class="section" id="adding-an-animation">
+<h2>Adding an Animation</h2>
+<p>The last step, before we can start, is to create an <strong>Animation</strong> with the <strong>RichAnimation</strong> template. This can be done, through Zero&#8217;s <strong>Add a Resource</strong> window:</p>
+<p><img alt="SearchWindowAddAnimation" src="../../../_images/SearchWindowAddAnimation.png" /></p>
+<p>This can also be done by clicking on the highlighted text at the bottom of the screen:</p>
+<p><img alt="AnimatorWindowAddAnimation" src="../../../_images/AnimatorWindowAddAnimation.png" /></p>
+<p>You should see the object now have a new SimpleAnimation Component.</p>
+</div>
+<div class="section" id="simpleanimation-component">
+<h2>SimpleAnimation Component</h2>
+<p>This component indicates what animation to associate with the object. From this component, you can choose which animation to play and also the play mode of the animation which is discussed below.</p>
+<p>Now you&#8217;re ready to start animating.</p>
+</div>
+<div class="section" id="keyframes">
+<h2>Keyframes</h2>
+<p>To begin animating, you must create keyframes. Keyframes tell the animation that, at a given point in time, you want a property to be at a given value. Between each keyframe, the <strong>Animator</strong> will create a curve that will interpolate the chosen property values between each keyframe.</p>
+<p>To choose the property to keyframe, click on the [7. Key.png] icon next to the property that you want to animate. This will create a keyframe of that property, with its current value, at the time indicated by the <strong>Play Head</strong> (the vertical blue bar in the animation graph).</p>
+<p><img alt="Playhead" src="../../../_images/Playhead.png" /></p>
+<p>The next step is to move the <strong>Play Head</strong> to a future time, change the value of the property to a different one and then create a new frame. You can also scrub through the timeline by dragging the playhead around. Subsequent frames can be created by clicking on the <img alt="Key" src="../../../_images/Key.png" /> icons or by pressing K.</p>
+<p><img alt="FirstKeyFrame" src="../../../_images/FirstKeyFrame.png" /></p>
+<p>Notice how the <strong>Animator</strong> creates a curve interpolating between the two values. By repeating this, you can create multiple keyframe with the chosen time and value. Next, we&#8217;ll use the animation controls on the lower left corner to play and see the animation in action.</p>
+<p><img alt="LowerLeftControls" src="../../../_images/LowerLeftControls.png" /></p>
+</div>
+<div class="section" id="animation-list">
+<h2>Animation List</h2>
+<p>You may have noticed that on the left-hand side of the Animator window, you see the name of the animation that you have created. This location shows the current animation you are editing together with the values you are manipulating and also it allows your to switch to different animations if you want to editor the other animation easily.</p>
+</div>
+<div class="section" id="animation-controls">
+<h2>Animation Controls</h2>
+<p>By default, the animation plays at <strong>30 frames per second</strong>, meaning that if your second keyframe was at frame 30, your animation will take exactly one second to complete.</p>
+<p>You can also use the animation controls to play, play in reverse, step frames and move to the beginning or end of your animation which allows you to preview and fine tune the value changes over time.</p>
+<p><img alt="AnimationControls" src="../../../_images/AnimationControls.png" /></p>
+<p>At the bottom of the animation controls you&#8217;ll also be able to set your animation preview playmode:</p>
+<ul class="simple">
+<li><strong>Play Once:</strong> Plays your animation and stops when the animation is over</li>
+<li><strong>Loop:</strong>      Plays your animation again after it&#8217;s over and repeats it indefinitely</li>
+<li><strong>Pingpong:</strong>  Plays your animation forward and then backward after it&#8217;s over and repeats it indefinitely</li>
+</ul>
+<p>Take note that these changes do not take effect in-game. You can change the in-game playmode through the object&#8217;s SimpleAnimation component.</p>
+<p><img alt="PlayTypeControl" src="../../../_images/PlayTypeControl.png" /></p>
+<ul class="simple">
+<li><strong>Preview Time Scale:</strong> Determines how fast the animation is played when previewed. This does not affect the in-game speed. You can adjust the in-game timescale through the object&#8217;s AnimationGraph Component.</li>
+</ul>
+<p><img alt="TimeScale" src="../../../_images/TimeScale.png" /></p>
+</div>
+<div class="section" id="animator-settings">
+<h2>Animator Settings</h2>
+<p>Here is a list of the other settings and functionalities of the Animator:</p>
+<p><img alt="AnimationSettings" src="../../../_images/AnimationSettings.png" /></p>
+<p>From left to right:</p>
+<ul class="simple">
+<li><strong>X:</strong> A field that displays the position of a key with respect to time (Horizontal Axis)</li>
+<li><strong>Y:</strong> A field that displays the position of a key with respect to its value (Vertical Axis)</li>
+<li><strong>AutoKey:</strong> Allows for dynamically creating keys whenever the property of the object is altered.</li>
+<li><strong>AutoFocus:</strong> Frames the selected curve or collection of keys on the animator screen when the curve changes (also accessible by pressing F)</li>
+<li><strong>Snapping X:</strong> When toggled, the playhead will snap to the nearest X value.</li>
+<li><strong>Onion Skinning:</strong> When toggled displays ghost versions of the object with property values equivalent to frames close to the <strong>Play Head</strong></li>
+<li><strong>Frames / Timecodes:</strong> Swaps between frames and timecode display at the bottom of the Playhead</li>
+<li><strong>Linear Tangents:</strong> ???</li>
+<li><strong>Split Tangents:</strong> Toggle between splitting and joining the tangent between the left and right side of the point</li>
+<li><strong>Weighted Tangents:</strong> Toggle between weighted and non-weighted tangents</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p><strong>Moving Platform</strong>
+It is very easy to create a moving platform by using the Animator.</p>
+<p>Firstly, add an AnimationGraph and SimpleAnimation component to the platform. Next create a new animation to edit.</p>
+<p>Keyframe the initial position of the platform. Next move the playhead to sometime in the future (this will determine how fast your platform move ) and have a keyframe of the platform at the end location.</p>
+<p>Finally, we can have the platform move back and forth by selecting the Pingpong playmode on the platform&#8217;s SimpleAnimation component.</p>
+<p><strong>Day-night Cycle</strong>
+It is also very easy to create a day-night cycle by using the animator.</p>
+<p>Here we have a Sun object that is centered at the center of the level. Inside the Sun object, we have a directional light object that lights the level from a distance away. We want to be able to simulate a day-night cycle by rotating the light around the level with the light always facing the center of the level.</p>
+<p>We can do this by adding the AnimationGraph and SimpleAnimation component to our Sun object. We then have to create a new animation to edit.</p>
+<p>Next, we keyframe the starting position of the Sun object rotation property. Move the playhead forward and create another keyframe. Click on the appropriate rotation property in the Animator and change the Y value of the Animator settings to the value &#8220;360&#8221;.</p>
+<p>Finally, set the playmode to loop and then you have a day-night cycle.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../Physics/index.html" class="btn btn-neutral float-right" title="Physics" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Animation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Graphics/Animation/Animator.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:29 GMT -->
+</html>

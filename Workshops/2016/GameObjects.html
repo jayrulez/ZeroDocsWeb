@@ -1,0 +1,687 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2016/GameObjects.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:48:29 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Game Objects &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2016" href="index.html"/>
+        <link rel="next" title="Adding Components" href="AddingComponents.html"/>
+        <link rel="prev" title="Editor UI" href="EditorUI.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2016</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Game Objects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath1.html">Vector Math, part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hierarchies.html">Hierarchies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprite Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting4.html">Scripting 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HierarchiesInCode.html">Hierarchies in Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events3.html">Events 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events4.html">Events 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogPaths.html">Cog Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Spaces.html">Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath2.html">Vector Math, part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2016</a> &raquo;</li>
+      
+    <li>Game Objects</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2016/GameObjects.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- this is used as a file for inclusion in other .rst files --><div class="searchtitle section" id="game-objects">
+<span id="gameobject"></span><h1>Game Objects</h1>
+<p class="searchdescription">This lesson focuses on putting the editor to use in order to perform various tasks: creating objects, running the game, searching, and manipulating objects by scaling, rotating, translating, and using the Area component, and the effects of the ParentingTool.</p>
+<div class="section" id="learning-objectives">
+<span id="gameobjectvocab"></span><h2>Learning Objectives</h2>
+<p>Learn to...</p>
+<ul class="simple">
+<li>Create game objects.</li>
+<li>Name objects.</li>
+<li>Copy objects.</li>
+<li>Manipulate objects using various tools.</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="48%" />
+<col width="30%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Game Object ( Cog )</td>
+<td>Parent</td>
+<td>Child</td>
+</tr>
+<tr class="row-odd"><td>Component</td>
+<td>Sprite</td>
+<td>Camera</td>
+</tr>
+<tr class="row-even"><td>Transform</td>
+<td>Translation</td>
+<td>Rotation</td>
+</tr>
+<tr class="row-odd"><td>Scale</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<ul class="simple">
+<li><a class="reference internal" href="LauncherNewProject.html#createnewproject"><span>Create a New Project</span></a></li>
+</ul>
+<p>Here is our new empty level:</p>
+<p> <img alt="EmptyLevelWeb" src="../../_images/EmptyLevel2.png" /></p>
+<p><!--
+<a class="reference internal" href="../../_images/EmptyLevel2.png"><img alt="EmptyLevelBook" src="../../_images/EmptyLevel2.png" style="height: 3.0in;" /></a>
+--></p>
+<p>The level is not actually empty because there is a Camera object (notice the
+<img alt="CameraIcon" src="../../_images/CameraIcon2.png" />
+in the Level window) as well as other objects that come with a level by default:</p>
+<p><img alt="DefaultObjects" src="../../_images/DefaultObjects3.png" /></p>
+</div>
+<div class="section" id="create-a-game-object">
+<h2>Create a Game Object</h2>
+<ul>
+<li><p class="first">Select Menu <span class="menuselection">Create ‣ Create Transform</span></p>
+<p><img alt="MICreateTransform" src="../../_images/MICreateTransform2.png" /></p>
+</li>
+</ul>
+<p>Notice that the Transform object can be found in the Objects Window:</p>
+<blockquote>
+<div><img alt="OWNewTransform" src="../../_images/OWNewTransform2.png" /></div></blockquote>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li>Click on the Transform object</li>
+</ul>
+</li>
+<li>If the Properties Window is not visible, then enter the Command: <code class="docutils literal"><span class="pre">Properties</span></code> in the Search Window.
+(Remember you can open the Search Window from any where in the engine using <code class="docutils literal"><span class="pre">Ctrl+Shift+Space</span></code>.)</li>
+</ul>
+<p>The properties of the Transform component attached to the object can be found in the Properties Window:</p>
+<blockquote>
+<div><img alt="PWTransform" src="../../_images/PWTransform2.png" /></div></blockquote>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Click on the <a class="reference internal" href="../../_images/UnderArrow2.png"><img alt="UnderArrow" src="../../_images/UnderArrow2.png" style="width: 0.25in;" /></a> next to the Transform component</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p>This displays the properties of the Transform component:</p>
+<div class="sidebar">
+<p class="first sidebar-title">&#8220;Under&#8221;</p>
+<p>When accessing properties using the <a class="reference internal" href="../../_images/UnderArrow2.png"><img alt="UnderArrow" src="../../_images/UnderArrow2.png" style="width: 0.25in;" /></a> we use the term &#8220;Under&#8221;. For instance:</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under the Transform Component<ul>
+<li>Set Scale To: [2, 2, 1]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="last">You would have to press the <a class="reference internal" href="../../_images/UnderArrow2.png"><img alt="UnderArrow" src="../../_images/UnderArrow2.png" style="width: 0.25in;" /></a> to see the Scale Property that is listed <strong>under</strong> the Transform component.</p>
+</div>
+<p><img alt="PWTransformContents" src="../../_images/PWTransformContents2.png" /></p>
+<p>The Transform component provides the Translation (position), Rotation, and Scale of an object.</p>
+<p>An object has been created at the center of the level, but we can&#8217;t see it yet. Let&#8217;s add a visual component to our game object.</p>
+</div>
+<div class="section" id="adding-a-component">
+<h2>Adding a Component</h2>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Click the <a class="reference internal" href="../../_images/AddComponentButton2.png"><img alt="AddComponentButton" src="../../_images/AddComponentButton2.png" style="width: 0.25in;" /></a> button</li>
+</ul>
+</li>
+</ul>
+<p>This brings up the Add Component drop down:</p>
+<p><img alt="AddComponentDropDown" src="../../_images/AddComponentDropDown2.png" /></p>
+<ul class="simple">
+<li>Start typing: “Sprite”</li>
+</ul>
+<p></p>
+<p>The Sprite component should appear in the drop down selection:</p>
+<p><img alt="SpriteComponentSearch" src="../../_images/AddComponentSprite2.png" /></p>
+<ul class="simple">
+<li>Click on Sprite to add a Sprite component</li>
+</ul>
+<p>In the Properties Window, we can see that the Transform object now has a Sprite component:</p>
+<p><img alt="PWTransSprite" src="../../_images/PWTransSprite2.png" /></p>
+<p>You can also add components to a selected object by using the hotkey <code class="docutils literal"><span class="pre">Ctrl+M</span></code>.</p>
+<div class="sidebar">
+<p class="first sidebar-title">Camera Controls</p>
+<p><cite>Pan:</cite></p>
+<ul class="simple">
+<li>Middle Mouse Button + Drag</li>
+<li>E + Left Mouse Button + Drag</li>
+<li>E + Right Mouse Button + Drag</li>
+<li>Arrow Keys</li>
+<li>WASD</li>
+</ul>
+<p><cite>Zoom:</cite></p>
+<ul class="simple">
+<li>Scroll Wheel</li>
+<li>Shift + Middle Mouse Button + Drag (up/down)</li>
+</ul>
+<p>with an object selected:</p>
+<ul class="simple">
+<li>Double Tap F</li>
+</ul>
+<p><cite>Rotate (In Mode3D):</cite></p>
+<ul class="simple">
+<li>Right Mouse Button + Drag</li>
+<li>Q + Left Mouse Button + Drag</li>
+<li>Q + Middle Mouse Button + Drag</li>
+</ul>
+<p class="last"> <a class="reference internal" href="SwitchingMode2Dto3D.html#switchingmode2dto3d"><span>Switching Mode2D/Mode3D</span></a></p>
+</div>
+<p></p>
+<p>The Sprite component provides a 2D visual representation of the Transform object. In the Level Window, we can see the Transform object&#8217;s Sprite:</p>
+<p><img alt="DefaultSprite" src="../../_images/DefaultSprite2.png" /></p>
+<p>The question mark is the visual representation of the Sprite object known as a <strong>SpriteSource</strong>. We won&#8217;t go into much detail about what exactly is a SpriteSource and how they work just yet. Instead, we just need to know that the square with the question mark inside is the DefaultSprite.</p>
+</div>
+<div class="section" id="changing-the-name-of-an-object">
+<h2>Changing the Name of an Object</h2>
+<ul>
+<li><p class="first">In the Objects Window</p>
+<ul class="simple">
+<li>Select the Transform object by clicking on it</li>
+</ul>
+<p><img alt="OWSelectTransform" src="../../_images/OWSelectTransform2.png" /></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Set Name to: Square</p>
+<p> <img alt="PWSetNameSquareWeb" src="../../_images/PWSetNameSquare2.png" />
+<!-- <a class="reference internal" href="../../_images/PWSetNameSquare2.png"><img alt="PWSetNameSquareBook" src="../../_images/PWSetNameSquare2.png" style="height: 1.0in;" /></a> --></p>
+</li>
+<li><p class="first">Under Sprite</p>
+<ul class="simple">
+<li>Set SpriteSource to: Square</li>
+</ul>
+<p><a class="reference internal" href="../../_images/PWSetSSToSquare2.png"><img alt="PWSetSSToSquare" src="../../_images/PWSetSSToSquare2.png" style="width: 5.0in;" /></a></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="making-a-copy-of-an-object">
+<h2>Making a Copy of an Object</h2>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Square object</span></a></li>
+<li>Duplicate it:<ul>
+<li>Press <code class="docutils literal"><span class="pre">Ctrl+C</span></code> to copy it</li>
+<li>Press <code class="docutils literal"><span class="pre">Ctrl+V</span></code> to paste a new copy</li>
+</ul>
+</li>
+</ul>
+<p>Notice how there are 2 Square objects in the Objects Window,
+but we only see one in the Level Editor.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select a Square object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: BlueSquare</li>
+<li>Under Transform<ul>
+<li>Set Translation to: [5, 0, 0]</li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Click on the <img alt="PWColorProperty" src="../../_images/PWColorProperty2.png" /> Color property</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The following window should appear:</p>
+<p><a class="reference internal" href="../../_images/ColorPickerRed2.png"><img alt="ColorPickerRed" src="../../_images/ColorPickerRed2.png" style="height: 2.0in;" /></a></p>
+<blockquote>
+<div><ul>
+<li><p class="first">Set Color to: [R:0, G:128, B:255, A:1.00]</p>
+<p><a class="reference internal" href="../../_images/ColorPickerBlue2.png"><img alt="ColorPickerBlue" src="../../_images/ColorPickerBlue2.png" style="height: 2.0in;" /></a></p>
+</li>
+<li><p class="first">Click the OK button</p>
+</li>
+</ul>
+</div></blockquote>
+<p>The level should look like this:</p>
+<p><a class="reference internal" href="../../_images/LWWhiteAndBlueSquare2.png"><img alt="LWWhiteAndBlueSquare" src="../../_images/LWWhiteAndBlueSquare2.png" style="height: 1.0in;" /></a></p>
+</div>
+<div class="section" id="running-the-game">
+<h2>Running the Game</h2>
+<p>There are multiple ways to run the game in the editor.</p>
+<ol class="arabic simple">
+<li>Press <code class="docutils literal"><span class="pre">F5</span></code> key on the keyboard</li>
+<li>Press the <a class="reference internal" href="../../_images/TBPlayButton2.png"><img alt="TBPlayButton" src="../../_images/TBPlayButton2.png" style="width: 0.25in;" /></a> button</li>
+<li><a class="reference internal" href="Commands.html#commands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">PlayGame</span></code> or <span class="menuselection">Project ‣ Play Game</span></li>
+</ol>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame"><span>run the game</span></a></li>
+</ul>
+<p>Here is how the game should look:</p>
+<p> <img alt="GWWhiteAndBlueSquareWeb" src="../../_images/GWWhiteAndBlueSquare2.png" /></p>
+<p><!--
+<a class="reference internal" href="../../_images/GWWhiteAndBlueSquare2.PNG"><img alt="GWWhiteAndBlueSquareBook" src="../../_images/GWWhiteAndBlueSquare2.PNG" style="height: 2.5in;" /></a>
+--></p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="changing-visibility">
+<h2>Changing Visibility</h2>
+<p>We are able to choose whether or not a sprite is visible when the level starts by setting the Sprite component&#8217;s Visible property to True or False.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Square object</span></a></li>
+</ul>
+<div class="sidebar">
+<p class="first sidebar-title">&#8220;Set ... to: True&#8221; &#8220;Set ... to: False&#8221;</p>
+<p>Many properties are simply flags that mark something as on or off, true or false. In the Zero Engine these types of properties are shown as checkboxes.</p>
+<p>Those checked are <strong>True</strong>, those unchecked are <strong>False</strong>.</p>
+<p><img alt="Checkboxes" src="../../_images/Checkboxes3.png" /></p>
+<p class="last"><em>Notice SelectChildren is set to: False and SelectRoot is set to: True</em></p>
+</div>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Under Sprite<ul>
+<li>Set Visible to: False</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/MakeInvisible2.png"><img alt="MakeInvisible" src="../../_images/MakeInvisible2.png" style="width: 50%;" /></a></p>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>The Square object is not visible, but keep in mind that it is indeed still there.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the Square object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under Sprite<ul>
+<li>Set Visible to: True</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="translate-tool">
+<h2>Translate Tool</h2>
+<p>Another way to move objects around in the editor is by using the TranslateTool. This is a tool located in the Tools Window.</p>
+<ul class="simple">
+<li>In the Tool Bar<ul>
+<li>Click the <a class="reference internal" href="../../_images/TBTranslate2.png"><img alt="translategizmo" src="../../_images/TBTranslate2.png" style="width: 0.35in;" /></a> button</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the BlueSquare object</span></a></li>
+</ul>
+<p></p>
+<p>You should see colored arrows and a small white box:</p>
+<p><img alt="LWTranslating" src="../../_images/LWTranslating2.png" /></p>
+<p>These arrows lay on the X (red), Y (green) and Z (blue) axes of object.</p>
+<ul class="simple">
+<li>Click and drag along one of these colored arrows to move the object along one of the axes</li>
+<li>Click and drag the mouse from the white box in the center to translate on all axes at once</li>
+</ul>
+<p>Notice that in the Properties Window, the Translation values are changing while you move the object.</p>
+</div>
+<div class="section" id="rotate-tool">
+<h2>Rotate Tool</h2>
+<p>The RotateTool is used to rotate objects.</p>
+<p> <img alt="LWRotatingWeb" src="../../_images/LWRotating2.png" /></p>
+<p><!--
+<a class="reference internal" href="../../_images/LWRotating2.png"><img alt="LWRotatingBook" src="../../_images/LWRotating2.png" style="height: 2.0in;" /></a>
+--></p>
+<ul class="simple">
+<li>In the Tool Bar<ul>
+<li>Click the <a class="reference internal" href="../../_images/TBRotate2.png"><img alt="rotategizmo" src="../../_images/TBRotate2.png" style="width: 0.35in;" /></a> button</li>
+</ul>
+</li>
+<li>Click on one of the circles (red, blue and green circles) and drag the mouse.</li>
+</ul>
+<p>This rotates the object around its X (red), Y (green), or Z (blue) axes. In 2D, we usually just rotate around the Z-axis.</p>
+<p></p>
+</div>
+<div class="section" id="scale-tool">
+<h2>Scale Tool</h2>
+<p>The ScaleTool tool is used to scale objects.</p>
+<p><img alt="LWScaling" src="../../_images/LWScaling2.png" /></p>
+<ul class="simple">
+<li>In the Tool Bar<ul>
+<li>Click the <a class="reference internal" href="../../_images/TBScale2.png"><img alt="scalegizmo" src="../../_images/TBScale2.png" style="width: 0.35in;" /></a> button</li>
+</ul>
+</li>
+</ul>
+<p>Colored lines with Boxes at the tips with a white box in the center will be drawn from the object.</p>
+<ul class="simple">
+<li>Click and drag along the colored axes</li>
+<li>Click and drag the mouse from the white box in the center to scale on all axes at once</li>
+</ul>
+<p>This scales the object along its X (red), Y (green), or Z (blue) axes.</p>
+<p>Notice that in the Properties Window, the Scale values are changing while you scale the object.</p>
+</div>
+<div class="section" id="manipulator-tool-area-component">
+<h2>Manipulator Tool &amp; Area Component</h2>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the BlueSquare object</span></a><ul>
+<li>In the Properties Window<ul>
+<li>Under Sprite<ul>
+<li>Set SpriteSource to: <code class="docutils literal"><span class="pre">SquareBordered</span></code></li>
+</ul>
+</li>
+<li>Under Transform<ul>
+<li>Set Scale to: [5,1,1]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>You may notice that the borders of the sprite are stretched.</p>
+<p> <img alt="skewedBorderWeb" src="../../_images/skewedBorder3.png" /></p>
+<p><!--
+<a class="reference internal" href="../../_images/skewedBorder3.PNG"><img alt="skewedBorderBook" src="../../_images/skewedBorder3.PNG" style="height: 3.0in;" /></a>
+--></p>
+<p>To create crisp borders, we can add the Area Component and scale via the manipulator tool.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the BlueSquare object</span></a></p>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Under Transform<ul>
+<li>Set Scale to: [1,1,1]</li>
+</ul>
+</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent"><span>Add the Area component</span></a></li>
+</ul>
+<p><img alt="AreaComponent" src="../../_images/AreaComponent3.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">In the Tool Bar</p>
+<ul class="simple">
+<li>Click the <a class="reference internal" href="../../_images/TBManipulator2.png"><img alt="manipulatorgizmo" src="../../_images/TBManipulator2.png" style="width: 0.35in;" /></a> button</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject"><span>Select the BlueSquare object</span></a></p>
+</li>
+</ul>
+<p>You&#8217;ll see points in which you can grab to change the scale of the object:</p>
+<p><img alt="BSManipulatorGizmo" src="../../_images/BSManipulatorGizmo3.png" /></p>
+<p>You can see that scaling no longer affects the borders:</p>
+<p> <img alt="NoArtifactsWeb" src="../../_images/NoArtifacts3.png" /></p>
+<p><!--
+<a class="reference internal" href="../../_images/NoArtifacts3.PNG"><img alt="NoArtifactsBook" src="../../_images/NoArtifacts3.PNG" style="height: 3.0in;" /></a>
+--></p>
+<p>Now the edges are nice on our sprite. This is because the default SquareBordered sprite already has feature known as Nine-Slice Scaling enabled, here is how it works.</p>
+<p><a class="reference internal" href="../../_images/NineSliceDemo5.png"><img alt="NineSliceDemo" src="../../_images/NineSliceDemo5.png" style="height: 3.0in;" /></a></p>
+<p>Nine-Slice scaling is enabled through the sprite source editor which you will see in a later lesson.</p>
+<p>Now we know how to create, save, and run our game projects, create and copy game objects, edit a game object&#8217;s properties, change a Sprite&#8217;s visibility, and use the TranslateTool, RotateTool, ScaleTool, and ManipulatorTool.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="AddingComponents.html" class="btn btn-neutral float-right" title="Adding Components" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="EditorUI.html" class="btn btn-neutral" title="Editor UI" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2016/GameObjects.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:48:43 GMT -->
+</html>

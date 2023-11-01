@@ -1,0 +1,431 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Audio/SoundTags.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:57:20 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SoundTag &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Audio" href="index.html"/>
+        <link rel="next" title="SoundInstance" href="SoundInstance.html"/>
+        <link rel="prev" title="SoundSpace" href="SoundSpace.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Audio</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Sounds.html">Sounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundCue.html">SoundCue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundEmitterAndSimpleSound.html">SoundEmitter and SimpleSound</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundListener.html">SoundListener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundSpace.html">SoundSpace</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SoundTag</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="SoundInstance.html">SoundInstance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="index.html">Audio</a> &raquo;</li>
+      
+    <li>SoundTag</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/ZeroManual/Audio/SoundTags.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="soundtag">
+<span id="manualsoundtags"></span><h1>SoundTag</h1>
+<p class="searchdescription">SoundTags are a resource that allow the user to group together SoundCues and modify those SoundCues as a group. SoundTags are added to SoundCues by adding a <code class="docutils literal"><span class="pre">SoundTagEntry</span></code> sub-object, which takes a SoundTag resource as a parameter. A SoundCue can have have multiple SoundTags applied to it through SoundTagEntries, belonging to many groups at once. The ways in which SoundCues grouped by SoundTags can be modified are the same as any individual SoundCue (Interpolate Volume and Pitch, Pause and Continue, etc...).</p>
+<div class="section" id="common-uses">
+<h2>Common Uses</h2>
+<ul class="simple">
+<li>Grouping SoundCues by type (e.g Sound Effects, Character Voices, Music Cues)</li>
+<li>Grouping SoundCues for randomization (e.g randomizing explosion sounds, character responses, player feedback sounds)</li>
+<li>Grouping SoundCues by compression type (e.g. .wav files, .ogg files, streaming files)</li>
+<li>Grouping <a class="reference internal" href="SoundInstance.html#manualsoundinstance"><span>SoundInstances</span></a> (i.e. instances of SoundCues) for modification at runtime instead of modifying multiple SoundCue Resources (<strong>Highly Recommended</strong>)</li>
+</ul>
+</div>
+<div class="section" id="using-soundtags">
+<h2>Using SoundTags</h2>
+<p>This section will cover creating SoundTags, how to apply them to SoundCues, and how to modify SoundCues based on SoundTag groups.</p>
+<div class="section" id="creating-a-soundtag-resource-and-soundtagentry-object">
+<h3>Creating a SoundTag Resource and SoundTagEntry Object</h3>
+<p>In order to use SoundTags, they must be applied to a SoundCue that is in use. This will allow all SoundCues that share any particular SoundTag to be modified at the same time.</p>
+<p>Once a SoundTag has been created, the resource can be opened from the Library window to be modified.</p>
+<p><img alt="SoundCuePropWindow" src="../../_images/SoundCueProperties4.png" /></p>
+<p>By clicking on the orange arrow next to the SoundTag label the SoundTag window will be opened, allowing new SoundTags to be applied or old ones removed.</p>
+<p><img alt="SoundTagsLabel" src="../../_images/SoundTagsLabel.png" /></p>
+<p>All SoundCues have the <code class="docutils literal"><span class="pre">DefaultSoundTag</span></code> applied to them by default, but this can be changed by clicking on the orange arrow next to <code class="docutils literal"><span class="pre">Tag:</span> <span class="pre">DefaultSoundTag</span></code> to open the Tag properties view, then on the <code class="docutils literal"><span class="pre">DefaultSoundTag</span></code> resource to change the applied SoundTag.</p>
+<p><img alt="ChoosingTagResource" src="../../_images/ChoosingTagResource.gif" /></p>
+<p>To add more than one SoundTag to a SoundCue, simply click on the &#8220;Add SoundTagEntry&#8221; button found below the default SoundTag.</p>
+<p><img alt="AddingSoundTagEntry" src="../../_images/AddingSoundTagEntry.gif" /></p>
+</div>
+<div class="section" id="modifying-soundcues-grouped-by-soundtag">
+<h3>Modifying SoundCues Grouped by SoundTag</h3>
+<p>As stated previously, SoundCues grouped together by SoundTags can be modified at the same time through a reference to that SoundTag. This can be used to modify the pitch and volume of the sounds, pause and unpause them, or even apply or remove SoundTags from SoundInstances.</p>
+<div class="section" id="interpolate-sound-and-pitch">
+<h4>Interpolate Sound and Pitch</h4>
+<p>The following code-blocks illustrate how to interpolate the volume and pitch of currently playing sounds that are grouped under a specific SoundTag. See <a class="reference internal" href="SoundSpace.html#setvolpitchwithwarning"><span>this warning</span></a> in the SoundSpace page about changing volume or pitch in two places at once.</p>
+<p>This code-block sets up the SoundTag variable, given the Property attribute so it can be set in the Editor, that indicates the particular group of sounds the user wishes to change:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Create a variable with the Property attribute to set the SoundTag to use</span>
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">MySoundTag</span> <span class="p">:</span> <span class="n">SoundTag</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>While this code-block shows the actual interpolation of volume and pitch, called by key presses:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">OnKeyDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">//Define variable for interpolation time</span>
+    <span class="kt">var</span> <span class="n">timeToInterpolate</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">2.0</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">V</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Interpolate Volume of SoundCues grouped by SoundTag over time to value of 0.8</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">MySoundTag</span><span class="p">.</span><span class="n">InterpolateVolume</span><span class="p">(</span><span class="m">0.8</span><span class="p">,</span> <span class="n">timeToInterpolate</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">P</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Interpolate Pitch of SoundCues grouped by SoundTag over time to value of 0.5</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">MySoundTag</span><span class="p">.</span><span class="n">InterpolatePitch</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span> <span class="n">timeToInterpolate</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For both <code class="docutils literal"><span class="pre">SoundTag.InterpolateVolume</span></code> and <code class="docutils literal"><span class="pre">SoundTag.InterpolatePitch</span></code>, the first value passed to the function is the desired value of the volume/pitch, and the second value is the amount of time it takes for the interpolation to go from the starting value to the desired value.</p>
+</div>
+<div class="section" id="pause-continue-and-stop-soundcues">
+<h4>Pause, Continue, and Stop SoundCues</h4>
+<p>The following code-blocks illustrate how to pause, resume, and stop sounds on the SoundSpace that are grouped by a SoundTag. See <a class="reference internal" href="SoundSpace.html#pausesoundspacewithwarning"><span>this warning</span></a> about the effects of pausing in multiple locations.</p>
+<p>As before, this code-blocks sets up the SoundTag variable, given the Property attribute so that it may be set in the Editor, that indicates the particular group of sounds the user wishes to affect:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Create a variable with the Property attribute to set the SoundTag to use</span>
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">MySoundTag</span> <span class="p">:</span> <span class="n">SoundTag</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This code-block shows the functions used to pause, resume, or stop the sounds grouped by SoundTag</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">OnKeyDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">P</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Pauses SoundCues grouped by SoundTag</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">MySoundTag</span><span class="p">.</span><span class="n">PauseSounds</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">C</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Continues paused SoundCues grouped by SoundTag</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">MySoundTag</span><span class="p">.</span><span class="n">ContinueSounds</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">S</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Stop SoundCues grouped by SoundTag</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">MySoundTag</span><span class="p">.</span><span class="n">StopSounds</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tagging-and-untagging-soundinstances">
+<h4>Tagging and Untagging SoundInstances</h4>
+<p>The following code-block illustrates how to tag and untag SoundInstances (created through playing SoundCues) with SoundTags. As the user is <em>highly</em> encouraged to make all changes to SoundInstances instead of SoundCues, this functionality allows the user to give SoundInstances the same SoundTag functionality SoundCues already have. Everything that can be done to SoundCues grouped by SoundTag can also be done to SoundInstances grouped by SoundTag.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Create a variable with the Property attribute to set the SoundCue to use</span>
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">MySoundCue</span> <span class="p">:</span> <span class="n">SoundCue</span><span class="p">;</span>
+
+<span class="c1">//Create a variable with the Property attribute to set the SoundTag to use</span>
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">MySoundTag</span> <span class="p">:</span> <span class="n">SoundTag</span><span class="p">;</span>
+
+<span class="c1">//Create a variable for the first SoundInstance object</span>
+<span class="kt">var</span> <span class="n">MySoundInstance</span> <span class="p">:</span> <span class="n">SoundInstance</span><span class="p">;</span>
+
+<span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">//Playing a SoundCue while creating SoundInstance object for this particular</span>
+    <span class="c1">//instance of playing the SoundCue</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">MySoundInstance</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">PlayCue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">MySoundCue</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="nf">OnKeyDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Tagging a SoundInstance with a SoundTag</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">MySoundTag</span><span class="p">.</span><span class="n">TagSound</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">MySoundInstance</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">U</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Untagging a SoundInstance with a SoundTag</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">MySoundTag</span><span class="p">.</span><span class="n">UnTagSound</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">MySoundInstance</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="soundcue-functionality">
+<h4>SoundCue Functionality</h4>
+<p>SoundCue also has a member function that involves SoundTags called <code class="docutils literal"><span class="pre">AddSoundTagEntry</span></code> that allows the user to add a SoundTag to a SoundCue at runtime. As stated in the page on SoundCues, it is best to not alter the SoundCue resource at runtime, but rather create a SoundInstance. With that said, here is a code-block demonstrating the function:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">ApplyTag</span> <span class="p">:</span> <span class="n">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">SoundCueToUse</span> <span class="p">:</span> <span class="n">SoundCue</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">SoundTagToUse</span> <span class="p">:</span> <span class="n">SoundTag</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">//If the ApplySoundTag boolean variable is true...</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">ApplySoundTag</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Add a SoundTag to the SoundCue</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">SoundCueToUse</span><span class="p">.</span><span class="n">AddSoundTagEntry</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">SoundTagToUse</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="related-materials">
+<h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="SoundSpace.html#manualsoundspace"><span>SoundSpace</span></a></li>
+<li><a class="reference internal" href="SoundCue.html#manualsoundcue"><span>SoundCue</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../Tutorials/Audio/Audio.html#tutorialaudio"><span>Using Audio</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SoundInstance.html" class="btn btn-neutral float-right" title="SoundInstance" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SoundSpace.html" class="btn btn-neutral" title="SoundSpace" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Audio/SoundTags.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:57:21 GMT -->
+</html>

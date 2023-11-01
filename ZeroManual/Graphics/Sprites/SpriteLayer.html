@@ -1,0 +1,310 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Graphics/Sprites/SpriteLayer.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:35 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SpriteLayer and SpriteLayerOrder &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Sprites and SpriteText" href="index.html"/>
+        <link rel="next" title="Lighting" href="../Lighting/index.html"/>
+        <link rel="prev" title="Area Component" href="Area.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Graphics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../CamerasViewportsRenderers/index.html">Cameras, Viewports and Renderers</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Sprites and SpriteText</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="BaseSprite.html">BaseSprite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Sprite.html">Sprite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpriteText.html">SpriteText</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SpriteLayer and SpriteLayerOrder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Graphics</a> &raquo;</li>
+      
+          <li><a href="index.html">Sprites and SpriteText</a> &raquo;</li>
+      
+    <li>SpriteLayer and SpriteLayerOrder</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Graphics/Sprites/SpriteLayer.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="spritelayer-and-spritelayerorder">
+<span id="manualspritelayer"></span><h1>SpriteLayer and SpriteLayerOrder</h1>
+<p class="searchdescription"><a class="reference internal" href="../../CodeReference/Reference/SpriteLayer.html#_CPPv211SpriteLayer" title="SpriteLayer"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteLayers</span></code></a> are used to give an order of precedence to different <a class="reference internal" href="../../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprites</span></code></a> and/or <a class="reference internal" href="../../CodeReference/Reference/SpriteText.html#_CPPv210SpriteText" title="SpriteText"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteText</span></code></a> that are at the same depth away from the Camera. By utilizing SpriteLayers in conjunction with <a class="reference internal" href="../../CodeReference/Reference/SpriteLayerOrder.html#_CPPv216SpriteLayerOrder" title="SpriteLayerOrder"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteLayerOrders</span></code></a>, the Engine can be told how to layer the images to eliminate any Z-fighting or clipping issues.</p>
+<div class="section" id="using-spritelayers">
+<span id="manualspritelayerusing"></span><h2>Using SpriteLayers</h2>
+<p>SpriteLayers are added like any other Resource, by using <a class="reference internal" href="../../Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">Add</span></code> and selecting <code class="docutils literal"><span class="pre">SpriteLayer</span></code>. After naming the new SpriteLayer and selecting <code class="docutils literal"><span class="pre">Create</span></code> the new Resource will be added to the project, however nothing will change with just adding a SpriteLayer resource as it won&#8217;t be assigned to any SpriteLayerOrder yet.</p>
+<p>To assign any new SpriteLayers, first a new SpriteLayerOrder Resource needs to be created by using <a class="reference internal" href="../../Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">Add</span></code> and selecting <code class="docutils literal"><span class="pre">SpriteLayerOrder</span></code>. Once created a new window will open which will allow new SpriteLayers to be applied and organized.</p>
+<div class="sidebar">
+<p class="first sidebar-title">SpriteLayerOrder Limitations</p>
+<p class="last">Regardless of how many SpriteLayerOrders are created, only one may be used at any given time on each space that exists in a project. Not only that, but Zero needs to have the SpriteLayerOrder assigned to the <code class="docutils literal"><span class="pre">Space</span></code> Archetype being used to load the level. Be aware that any new Spaces created using that Archetype will also be effected in the same way.</p>
+</div>
+<p><img alt="NewSpriteLayerOrder" src="../../../_images/NewSpriteLayerOrder.png" /></p>
+<div class="sidebar">
+<p class="first sidebar-title">Default Resources Best Practices</p>
+<p class="last">With the exception of the default <code class="docutils literal"><span class="pre">Space</span></code> archetype, any other default resources that are modified will be reset once the Zero Engine has closed and restarted. Rather than attempt to modify the default resource for any that are needed, it&#8217;s better to create a new resource of that type and modify that instead.</p>
+</div>
+<p>Clicking on <code class="docutils literal"><span class="pre">Add</span> <span class="pre">SpriteLayer</span></code> will bring up a list of all existing SpriteLayers, and the chosen SpriteLayer will then be added to the bottom of the list. The list represents the order of all SpriteLayers in it, with the top of the list being the Layer the furthest back and the bottom of the list being the most forward layer. If a SpriteLayer is mistakenly added in the wrong order, or needs to be changed after the fact, simply select that SpriteLayer and click on either the <code class="docutils literal"><span class="pre">Back</span></code> or <code class="docutils literal"><span class="pre">Front</span></code> arrow to adjust it.</p>
+<p><img alt="OrderAdjusting" src="../../../_images/OrderAdjusting.gif" /></p>
+<p>Once the SpriteLayerOrder has been organized as desired, it will need to be assigned to the <code class="docutils literal"><span class="pre">GraphicsSpace</span></code> Component on the Space Archetype. This can be found by either pressing <code class="docutils literal"><span class="pre">Shift+S</span></code> when the level window has focus, opening the <code class="docutils literal"><span class="pre">Space</span></code> Archetype in the Library Window, or using <a class="reference internal" href="../../Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">SelectSpace</span></code>. Once the object is selected, in the <code class="docutils literal"><span class="pre">GraphicsSpace</span></code> Component change the <code class="docutils literal"><span class="pre">SpriteLayerOrder</span></code> Property to the desired SpriteOrderLayer.</p>
+<p><img alt="SpaceProperties" src="../../../_images/SpaceProperties.png" /></p>
+</div>
+<div class="section" id="properties-and-methods-of-spritelayer-and-spritelayerorder">
+<h2>Properties and Methods of SpriteLayer and SpriteLayerOrder</h2>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/SpriteLayer.html#referencespritelayer"><span>SpriteLayer Code Reference</span></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/SpriteLayerOrder.html#referencespritelayerorder"><span>SpriteLayerOrder Code Reference</span></a></li>
+</ul>
+</div>
+<div class="section" id="related-materials">
+<span id="manualspritelayerrelated"></span><h2>Related Materials</h2>
+<div class="section" id="tutorials">
+<h3>Tutorials</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../../Tutorials/Graphics/SpritesAndText/Text.html#tutorialtext"><span>SpriteText</span></a></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/SpriteLayer.html#_CPPv211SpriteLayer" title="SpriteLayer"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteLayer</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/SpriteText.html#_CPPv210SpriteText" title="SpriteText"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteText</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/SpriteLayerOrder.html#_CPPv216SpriteLayerOrder" title="SpriteLayerOrder"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteLayerOrder</span></code></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Lighting/index.html" class="btn btn-neutral float-right" title="Lighting" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Area.html" class="btn btn-neutral" title="Area Component" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Graphics/Sprites/SpriteLayer.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:36 GMT -->
+</html>

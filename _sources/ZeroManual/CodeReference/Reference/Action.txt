@@ -1,0 +1,50 @@
+.. _ReferenceAction:
+
+.. rst-class:: searchtitle
+
+Action
+======
+
+.. rst-class:: searchdescription
+
+Base action class.
+
+.. include:: Description/Action.rst
+
+.. cpp:class:: Action
+
+.. _ReferenceActionProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Action::Completed
+
+            The action ran until it completed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Action::Active
+
+            The action is queued and not stared or running.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Action::Started
+
+            Has the action started?
+
+.. _ReferenceActionMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Action::Cancel()
+
+            Cancel the action and all child actions.
+
+.. include:: Remarks/Action.rst

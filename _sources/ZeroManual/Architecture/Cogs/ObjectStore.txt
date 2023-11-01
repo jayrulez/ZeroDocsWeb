@@ -1,0 +1,26 @@
+.. _ManualObjectStore:
+
+.. rst-class:: SearchTitle
+
+Save and Load Data
+==================
+
+.. rst-class:: SearchDescription
+
+ObjectStore saves an object to a persistent local store.  All properties that are normally saved on the object are saved with ObjectStore.  The data is stored on the local computer and will be saved between runs of the game.  Can be used for progress, game saving, or preferences. 
+
+When used with Zilch, make sure you mark the data to be saved with either [Serialized] or [Property] tags. 
+        
+.. literalinclude:: code/ObjectStoreTest.z
+  :language: actionscript
+  :lines: 13-15
+  
+.. literalinclude:: code/ObjectStoreTest.z
+  :language: actionscript
+  :lines: 17-18
+  
+.. literalinclude:: code/ObjectStoreTest.z
+  :language: actionscript
+  :lines: 20-21
+    
+To clear all stored objects on a computer you can use the "ClearStore" command.

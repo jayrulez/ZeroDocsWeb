@@ -1,0 +1,43 @@
+.. _ReferenceNetUserLostObjectOwnership:
+
+.. rst-class:: searchtitle
+
+NetUserLostObjectOwnership
+==========================
+
+.. rst-class:: searchdescription
+
+Dispatched after the net user loses network ownership of a net object.
+
+.. include:: Description/NetUserLostObjectOwnership.rst
+
+.. cpp:class:: NetUserLostObjectOwnership
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceNetUserLostObjectOwnershipProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetUserLostObjectOwnership::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NetUserLostObjectOwnership::LostObject
+
+            Data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NetUserLostObjectOwnership::CurrentNetUserOwner
+
+            The object this user just lost network ownership of.
+
+.. _ReferenceNetUserLostObjectOwnershipMethods:
+
+.. include:: Remarks/NetUserLostObjectOwnership.rst

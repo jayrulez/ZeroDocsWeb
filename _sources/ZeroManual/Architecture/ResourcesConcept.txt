@@ -1,0 +1,31 @@
+.. _ManualResources:
+
+.. rst-class:: SearchTitle
+
+Resources
+=========
+
+.. rst-class:: SearchDescription
+
+Basic resource reference.
+
+Overview
+--------
+Resources are the source data of a game. They include things like textures, sounds, scripts, and levels. Everything the editor works is either a resource or derived from one, such as levels, archetypes, and tables. The list of existing resources that you have loaded into your project can be found through the Library Window.
+
+Shared and Immutable 
+--------------------
+    
+When the game is running in the editor or exported, the resources are considered immutable or not changeable. This is because resources are shared, only one instance of a resource is loaded at a time.  This saves on memory and helps with performance.
+
+Because Resources are shared, those that can be edited, should only be open for editing in one location. If a second unaltered copy is opened it may save over the edits you make in the other location, resulting in erratic behavior.
+
+Resource IDs
+------------
+Resource IDs are the hex numbers displayed on resources. Each resource is assigned a unique ID when it is created. This allows objects in levels and archetypes to refer to resources and not break their connection even if the name of the resource is changed.
+
+
+
+
+
+

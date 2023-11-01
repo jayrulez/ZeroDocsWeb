@@ -1,0 +1,503 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/Text.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:23:07 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Text &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Introduction to 2D Video Game Programming" href="index.html"/>
+        <link rel="next" title="Scripting" href="Scripting.html"/>
+        <link rel="prev" title="Regions &amp; Physics Effects" href="PhysicsEffects.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Introduction to 2D Video Game Programming</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Text</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ScriptingEvents.html">Scripting Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Orientation.html">Rotating Towards a Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FireAtMouse.html">Firing At the Mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleSystems.html">Particle Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleAi.html">Ai Shooting and Movement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CameraParallax.html">Camera Parallax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CreateProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting an Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Add a Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Introduction to 2D Video Game Programming</a> &raquo;</li>
+      
+    <li>Text</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2014/Text.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="text">
+<span id="text2014"></span><h1>Text</h1>
+<p class="searchdescription">This lesson covers the creation of Text objects, including modifications to their alignment, confining them to a text box area, and changing their orientation.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="CreateProject.html#createnewproject2014"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<p><strong>Create a Sprite</strong></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></p>
+<blockquote>
+<div><p><img alt="1000000000000233000000CED2B951D3_png" src="../../_images/1000000000000233000000CED2B951D3.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the newly created object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Set Name to: Sign</p>
+</li>
+<li><p class="first">Under Transform</p>
+<ul>
+<li><p class="first">Set Translation to: [0, 0, 1]</p>
+</li>
+<li><p class="first">Set Scale to: [4, 4, 1]</p>
+<p><img alt="1000000000000113000000E82DED602B_png" src="../../_images/1000000000000113000000E82DED602B.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p><strong>Create a SpriteText</strong></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSpriteText</span></code> or <span class="menuselection">Create ‣ Create Sprite Text</span></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Set Name to: Text</p>
+</li>
+<li><p class="first">Under SpriteText</p>
+<ul>
+<li><p class="first">Set Text to: This is text</p>
+</li>
+<li><p class="first">Set FontSize to: 150</p>
+</li>
+<li><p class="first">Set Color to: [R: 255, G: 32, B: 0]</p>
+<p><img alt="100000000000014E0000018B51943ED7_png" src="../../_images/100000000000014E0000018B51943ED7.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">In the Objects Window</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the Camera object</span></a></li>
+</ul>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Under Camera<ul>
+<li>Set Size to: 25</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></p>
+</li>
+</ul>
+<p></p>
+<p>The level should look like this:</p>
+<p><a class="reference internal" href="../../_images/10000000000005670000040094378E4D.png"><img alt="10000000000005670000040094378E4D_png" src="../../_images/10000000000005670000040094378E4D.png" style="width: 8.35in;" /></a></p>
+</div>
+<div class="section" id="text-alignment">
+<h2>Text Alignment</h2>
+<p>The Text object&#8217;s Translation is [0, 0, 0], but the text isn&#8217;t centered there. This is because the Position property is set to UpperLeft.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first">In the Property Window</p>
+<ul>
+<li><p class="first">Under SpriteText</p>
+<ul class="simple">
+<li>Set Position to: Centered</li>
+</ul>
+<p></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now the Text object&#8217;s position will refer to the center of the text object:</p>
+<p><img alt="100000000000056E000003FEC9E11693_png" src="../../_images/100000000000056E000003FEC9E11693.png" /></p>
+<p>The Block object is covering up the Text object. What if this is not what we want?</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Set OnTop to: True</p>
+<p><img alt="100000000000011A0000003FDC1A92C8_png" src="../../_images/100000000000011A0000003FDC1A92C8.png" /></p>
+</li>
+</ul>
+</div></blockquote>
+<p>Now the text will always be on top of other objects:</p>
+<p><img alt="10000000000002C900000180E10BE736_png" src="../../_images/10000000000002C900000180E10BE736.png" /></p>
+<p></p>
+</div>
+<div class="section" id="text-box">
+<h2>Text Box</h2>
+<p>What if we want our text confined to an area? Let&#8217;s confine our text so it lines up over our Sign.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set the Size to: [3.5, 3.5]</li>
+</ul>
+<p><img alt="100000000000011C0000005557F0F4D6_png" src="../../_images/100000000000011C0000005557F0F4D6.png" /></p>
+</div></blockquote>
+<p>As you can see below, when the text does not fit within the confines it&#8217;s clipped:</p>
+<p><img alt="100000000000014400000105A6AD315B_png" src="../../_images/100000000000014400000105A6AD315B.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li>Set the FontSize to: 70</li>
+</ul>
+</div></blockquote>
+<p>Now that it fits you can see it word wraps, but it&#8217;s formatted funny for our sign:</p>
+<p><img alt="10000000000000F1000000D9F2D6CE55_png" src="../../_images/10000000000000F1000000D9F2D6CE55.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li>Set Align to: Center</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></li>
+</ul>
+<p>Much better.</p>
+<p></p>
+</div>
+<div class="section" id="vertical-text">
+<h2>Vertical Text</h2>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2014"><span>Stop the Game</span></a></li>
+</ul>
+<p><strong>Copy our Text Object</strong></p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li>Select Text</li>
+</ul>
+</li>
+<li>In the Tools Window<ul>
+<li>Select the TranslateGizmo</li>
+</ul>
+</li>
+<li>In the Level Window<ul>
+<li>Hold <code class="docutils literal"><span class="pre">Ctrl</span></code> while Left Mouse Button + Dragging the red x axis arrow</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the newly created object</span></a></li>
+</ul>
+<p><img alt="100000000000024F00000107F260F099_png" src="../../_images/100000000000024F00000107F260F099.png" /></p>
+<ul>
+<li><p class="first">In the Property Window</p>
+<ul class="simple">
+<li>Set the Name to: VerticalTextReadsDown</li>
+<li>Under Transform<ul>
+<li>Set the Translation to: [6, 0, 0]</li>
+<li>Set the Rotation to: [0, 0, -90]</li>
+</ul>
+</li>
+<li>Under SpriteText<ul>
+<li>Set the Size to: [0, 0]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">In the Level Window</p>
+<ul class="simple">
+<li>Hold <code class="docutils literal"><span class="pre">Ctrl</span></code> while Left Mouse Button + Dragging the red x axis arrow</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the newly created object</span></a></p>
+</li>
+<li><p class="first">In the Property Window</p>
+<ul>
+<li><p class="first">Set Name to: VerticalTextReadsUp</p>
+</li>
+<li><p class="first">Under Transform</p>
+<ul>
+<li><p class="first">Set the Translation to: [-6, 0, 0]</p>
+</li>
+<li><p class="first">Set the Rotation to: [0, 0, 90]</p>
+<p><img alt="1000000000000120000000D77C0337F4_png" src="../../_images/1000000000000120000000D77C0337F4.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingproject2014"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2014"><span>run the game</span></a></p>
+<p><img alt="10000000000002BB000001774B918BFB_png" src="../../_images/10000000000002BB000001774B918BFB.png" /></p>
+</li>
+</ul>
+<p>Now we know how to make Text.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">orphan:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<!-- this is used as a file for inclusion in other .rst files --></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Scripting.html" class="btn btn-neutral float-right" title="Scripting" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PhysicsEffects.html" class="btn btn-neutral" title="Regions &amp; Physics Effects" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/Text.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:23:10 GMT -->
+</html>

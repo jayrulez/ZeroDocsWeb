@@ -1,0 +1,114 @@
+.. _ReferenceParticleSystemCommonData:
+
+.. rst-class:: searchtitle
+
+ParticleSystemCommonData
+========================
+
+.. include:: Description/ParticleSystemCommonData.rst
+
+.. cpp:class:: ParticleSystemCommonData
+
+    Base Class: :cpp:type:`ParticleSystem`
+
+.. _ReferenceParticleSystemCommonDataProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ParticleSystemCommonData::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space ParticleSystemCommonData::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ParticleSystemCommonData::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession ParticleSystemCommonData::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ParticleSystemCommonData::Visible
+
+            If object should be rendered.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ParticleSystemCommonData::VisibilityCulling
+
+            If object is culled and not graphically updated when it's not visible.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ParticleSystemCommonData::VisibilityEvents
+
+            If object receives events when entering/exiting the view of a rendering camera or shadow.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool ParticleSystemCommonData::CastShadows
+
+            If object is rendered to shadow maps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint ParticleSystemCommonData::ChildMode
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint ParticleSystemCommonData::SystemSpace
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint ParticleSystemCommonData::DrawOrder
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real ParticleSystemCommonData::WarmUpTime
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 ParticleSystemCommonData::Tint
+
+            Color to tint/multiply all particles in the system.
+
+.. _ReferenceParticleSystemCommonDataMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ParticleSystemCommonData::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: ParticleListRange ParticleSystemCommonData::AllParticles()
+
+            Allows direct editing of particles.
+
+.. include:: Remarks/ParticleSystemCommonData.rst

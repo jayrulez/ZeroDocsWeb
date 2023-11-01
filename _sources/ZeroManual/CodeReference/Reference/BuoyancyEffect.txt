@@ -1,0 +1,106 @@
+.. _ReferenceBuoyancyEffect:
+
+.. rst-class:: searchtitle
+
+BuoyancyEffect
+==============
+
+.. rst-class:: searchdescription
+
+Applies a buoyancy force to an object in a given direction.
+
+.. include:: Description/BuoyancyEffect.rst
+
+.. cpp:class:: BuoyancyEffect
+
+    Base Class: :cpp:type:`PhysicsEffect`
+
+.. _ReferenceBuoyancyEffectProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog BuoyancyEffect::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space BuoyancyEffect::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog BuoyancyEffect::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession BuoyancyEffect::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool BuoyancyEffect::Active
+
+            Enable/disable this effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool BuoyancyEffect::WakeUpOnChange
+
+            Whether the object associated with this is woken up when any property is changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EffectType::Enum BuoyancyEffect::EffectType
+
+            What kind of effect this is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real BuoyancyEffect::Density
+
+            The density of the fluid.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 BuoyancyEffect::Gravity
+
+            The direction of gravity.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint BuoyancyEffect::Detail
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool BuoyancyEffect::DebugDraw
+
+            Draw the points used to compute the buoyancy during run-time. This helps in debugging, but should be left off during normal run.
+
+.. _ReferenceBuoyancyEffectMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void BuoyancyEffect::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void BuoyancyEffect::Toggle()
+
+            Toggles whether or not this effect is active.
+
+.. include:: Remarks/BuoyancyEffect.rst

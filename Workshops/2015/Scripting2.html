@@ -1,0 +1,705 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/Scripting2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:14:40 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scripting 2 &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2015" href="index.html"/>
+        <link rel="next" title="Scripting 3" href="ArraysLoops.html"/>
+        <link rel="prev" title="Scripting" href="Scripting.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2015</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprites and Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Scripting 2</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ArraysLoops.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Random.html">Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath.html">Vector Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RayCasting.html">Ray Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PracticalParticles.html">Particle Effects: Practical Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LauncherNewProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Adding &amp; Removing Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tags.html">Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2015</a> &raquo;</li>
+      
+    <li>Scripting 2</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2015/Scripting2.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- this is used as a file for inclusion in other .rst files --><div class="searchtitle section" id="scripting-2">
+<span id="scripting22015"></span><h1>Scripting 2</h1>
+<p class="searchdescription">Scripting is a very large topic. In the last lesson we introduced <strong>if</strong> statements, <strong>else</strong> statements, <strong>variables</strong>, <strong>Strings</strong>, string interpolation, and randomly generating numbers. In this lesson we will cover <strong>scopes</strong>, <strong>variable types</strong>, and <strong>properties</strong>.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="LauncherNewProject.html#createnewproject2015"><span>Create a New Project</span></a></p>
+<p><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource named:</span></a> <code class="docutils literal"><span class="pre">GameLogic</span></code></p>
+<p>Your script will look like the template Zilch component to start.</p>
+</div>
+<div class="section" id="scopes">
+<h2>Scopes</h2>
+<p>Scopes help determine the lifetime of a variable. Their start and end are generally denoted by the left and right curly braces, {}, respectively. Let&#8217;s make an example to show how this works.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="k">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">9001</span><span class="o">;</span>
+</span><span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the LevelSettings object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add the GameLogic component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p></p>
+<p>You should see the following console output.</p>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+9001
+Level &#39;Level&#39; was loaded.
+Loaded level 0.01s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p>Looking at the Initialize function, we created a variable <code class="docutils literal"><span class="pre">test</span></code> and printed it to the console. This variable is called a local scope variable because of the location of its definition.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="k">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">9001</span><span class="o">;</span>
+</span><span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;test in Initialize: `test`&quot;</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">ScopeTest</span><span class="p">();</span>
+</span><span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;test in Initialize after ScopeTest: `test`&quot;</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+
+<span class="hll">    <span class="kd">function</span> <span class="nx">ScopeTest</span><span class="p">()</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">9002</span><span class="o">;</span>
+</span><span class="hll">        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;test in ScopeTest: `test`&quot;</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+test in Initialize: 9001
+test in ScopeTest: 9002
+test in Initialize after ScopeTest: 9001
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p>In the above code we define the test variable and print it in the Initialize function, we then call the function ScopeTest. When we call the ScopeTest function we enter the scope of that function. Whenever we are in a scope we can define variables that are local to that scope. This means if we go into another separate scope we will not be able to access the local variables of the scope we left. It also means that if a scope ends the local variables will be deleted forever. When we define another <code class="docutils literal"><span class="pre">test</span></code> variable in ScopeTest there is no error from creating a duplicate variable, this is because the ScopeTest function starts a new scope. When we reach the end of the ScopeTest function the <code class="docutils literal"><span class="pre">test</span></code> variable defined within it is deleted. While naming local variables the same thing is an incredibly bad practice it is useful for demonstrating this concept of scope.</p>
+<p></p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">9001</span><span class="o">;</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;test in Initialize: `test`&quot;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ScopeTest</span><span class="p">();</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;test in Initialize after ScopeTest: `test`&quot;</span><span class="p">);</span>
+
+<span class="hll">    <span class="k">if</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">9003</span><span class="o">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a></li>
+</ul>
+<p> <a class="reference internal" href="../../_images/ScopeError1.png"><img alt="ScopeError" src="../../_images/ScopeError1.png" style="height: 3.0in;" /></a>
+<!--
+<img alt="ScopeErrorBook" src="../../_images/ScopeErrorBook1.PNG" />
+--></p>
+<p>We got an error! Now looking at your code again you may ask, &#8220;Isn&#8217;t this new <code class="docutils literal"><span class="pre">test</span></code> variable in a different scope?&#8221; While it is in a different scope than the first test variable we created, the scope it is in is actually nested within the scope of the initialize function. The scope of the <code class="docutils literal"><span class="pre">ScopeTest</span></code> function existed outside of the scope of the <code class="docutils literal"><span class="pre">Initialize</span></code> function, and therefore had no knowledge of the original <code class="docutils literal"><span class="pre">test</span></code> variable when we defined a second within the <code class="docutils literal"><span class="pre">ScopeTest</span></code> function.</p>
+<p></p>
+<p>However the scope of the <code class="docutils literal"><span class="pre">if</span></code> statement is considered nested within the <code class="docutils literal"><span class="pre">Initialize</span></code> function as it was created and operates within the scope of the function. Because of its nested position, the scope of the <code class="docutils literal"><span class="pre">if</span></code> statement is aware of variables defined above it in the scope of <code class="docutils literal"><span class="pre">Initialize</span></code> function. When we tried to define <code class="docutils literal"><span class="pre">test</span></code> within the <code class="docutils literal"><span class="pre">if</span></code> statement, the compiler sees the <code class="docutils literal"><span class="pre">test</span></code> variable declared a few lines above and realizes it wouldn&#8217;t be able to tell them apart, so it throws an error.</p>
+</div>
+<div class="section" id="variable-types">
+<h2>Variable Types</h2>
+<p>Now that we have a general idea of how scopes work, let&#8217;s take a closer look at variables. In Zilch, every variable has a type; so far we have only worked with variables of one type, Integer. Different types serve different purposes. Let&#8217;s expand our example.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+<span class="hll">    <span class="k">var</span> <span class="nx">Test</span> <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title">Zilch built-in variable types:</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Integer</td>
+<td>Integer2</td>
+<td>Boolean3</td>
+<td>Boolean4</td>
+<td>Real3</td>
+<td>Real4</td>
+<td>Events</td>
+<td>Null</td>
+</tr>
+<tr class="row-even"><td>Integer3</td>
+<td>Integer4</td>
+<td>DoubleInteger</td>
+<td>Real</td>
+<td>String</td>
+<td>Math</td>
+<td>Error</td>
+<td>Void</td>
+</tr>
+<tr class="row-odd"><td>Boolean</td>
+<td>Boolean2</td>
+<td>DoubleReal</td>
+<td>Real2</td>
+<td>Quaternion</td>
+<td>Exception</td>
+<td colspan="2">OverloadedMethods</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Notice we declared a new variable <code class="docutils literal"><span class="pre">Test</span></code> in the scope of the class. Previously we had only declared variables within the scope of a function. Just as variables that are local to the scope of a function will only exist while we are in the function&#8217;s scope, the variable <code class="docutils literal"><span class="pre">Test</span></code> exists only as long as the GameLogic component exists. <code class="docutils literal"><span class="pre">Test</span></code> is called a member variable, and each instance of the <strong>GameLogic</strong> component that is attached to an object will have a <code class="docutils literal"><span class="pre">Test</span></code> variable.</p>
+<p>Notice the <code class="docutils literal"><span class="pre">:</span></code> when we declare the <code class="docutils literal"><span class="pre">Test</span></code> variable: this denotes the next symbol (in this case <code class="docutils literal"><span class="pre">Integer</span></code>) is the type of the <code class="docutils literal"><span class="pre">Test</span></code> variable. There are many types of variables, but the most commonly used are Boolean, Integer, Real, and Real3. Now, you may be wondering why <code class="docutils literal"><span class="pre">Test</span></code> has a defined type and <code class="docutils literal"><span class="pre">test</span></code> appears not to. The local <code class="docutils literal"><span class="pre">test</span></code> variable has an Integer type because it is initially assigned an <code class="docutils literal"><span class="pre">Integer</span></code> when it is declared. This is called <strong>implicit</strong> typing. When we use a <code class="docutils literal"><span class="pre">:</span></code> we are <strong>explicitly</strong> defining the type. Local variables can have their types implicitly defined, but member variables must always have their types explicitly defined with a <code class="docutils literal"><span class="pre">:</span></code>.</p>
+<p></p>
+<p>Let&#8217;s add some examples to talk about in our script.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nx">TestBoolean</span> <span class="o">:</span> <span class="nb">Boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+    <span class="k">var</span> <span class="nx">TestInteger</span> <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="k">var</span> <span class="nx">TestReal</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+
+    <span class="k">var</span> <span class="nx">TestReal3</span> <span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span><span class="mf">0.0</span><span class="o">,</span><span class="mf">0.0</span><span class="p">);</span>
+
+    <span class="k">var</span> <span class="nx">TestString</span> <span class="o">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;String&quot;</span><span class="o">;</span>
+
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;TestBoolean: `this.TestBoolean`&quot;</span><span class="p">);</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;TestInteger: `this.TestInteger`&quot;</span><span class="p">);</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;TestReal: `this.TestReal`&quot;</span><span class="p">);</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;TestReal3: `this.TestReal3`&quot;</span><span class="p">);</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;TestString: `this.TestString`&quot;</span><span class="p">);</span>
+        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;test: `test`&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+TestBoolean: true
+TestInteger: 0
+TestReal: 0
+TestReal3: (0, 0, 0)
+TestString: String
+test: 0
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p>First, let&#8217;s look at <code class="docutils literal"><span class="pre">TestBoolean</span></code>. <strong>Booleans</strong> are binary types, meaning they can either have a value of <code class="docutils literal"><span class="pre">true</span></code> or <code class="docutils literal"><span class="pre">false</span></code>. They are very useful for keeping track of states, such as whether a character is invincible or not. <code class="docutils literal"><span class="pre">TestInteger</span></code> is the same as the <code class="docutils literal"><span class="pre">Test</span></code> variable we had previously.</p>
+<p></p>
+<p><strong>Integers</strong> are whole number such as <code class="docutils literal"><span class="pre">1</span></code>, <code class="docutils literal"><span class="pre">2</span></code>, <code class="docutils literal"><span class="pre">3</span></code>, or <code class="docutils literal"><span class="pre">2,147,483,647</span></code>, which do not have fractional parts. Now let&#8217;s look at <code class="docutils literal"><span class="pre">TestReal</span></code> which has a value of <code class="docutils literal"><span class="pre">0.0</span></code>. Unlike <strong>Integers</strong>, <strong>Real</strong> variables deal with fractional parts (as seen by having numbers to the right of the decimal) allowing you to have numbers such as <code class="docutils literal"><span class="pre">1.0</span></code>, <code class="docutils literal"><span class="pre">2.5</span></code>, or <code class="docutils literal"><span class="pre">3.141592</span></code>. We use <strong>Real</strong> variables for many things that require fractional accuracy, such as angles and speeds. We use <strong>Integers</strong> to keep track of things like how many lives the players has, or how many enemies are alive. Half of an enemy can&#8217;t exist, so it would be pointless to keep track of the decimal places when counting enemies; thus, we use <strong>Integers</strong>.</p>
+<p>The next variable we define is <code class="docutils literal"><span class="pre">TestReal3</span></code>. A <strong>Real3</strong> is simply three <strong>Real</strong> variables clumped together into one variable type. <strong>Real3</strong> variables are most often used to store position, velocity, and other vector-based data. We&#8217;ll be using <strong>Real3</strong> variables heavily in later lessons.</p>
+<p>The last member variable we define is <code class="docutils literal"><span class="pre">TestString</span></code> which is a <strong>String</strong> type. Strings are sequences of characters such as <code class="docutils literal"><span class="pre">a</span></code>, <code class="docutils literal"><span class="pre">R</span></code>, <code class="docutils literal"><span class="pre">7</span></code>, or <code class="docutils literal"><span class="pre">&amp;</span></code>. Any time we want to store the characters that make up a sequence of text, we use a String.</p>
+</div>
+<div class="section" id="properties">
+<h2>Properties</h2>
+<p>The last major portion of the topic of variables is <strong>Properties</strong>. Properties are special member variables of components that can have their values set through the Properties Window in between game sessions. Let&#8217;s turn the test variables in the <strong>GameLogic</strong> script into properties.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">GameLogic</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+<span class="hll">    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+</span>    <span class="k">var</span> <span class="nx">TestBoolean</span> <span class="o">:</span> <span class="nb">Boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+<span class="hll">    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+</span>    <span class="k">var</span> <span class="nx">TestInteger</span> <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+<span class="hll">    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+</span>    <span class="k">var</span> <span class="nx">TestReal</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+
+<span class="hll">    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+</span>    <span class="k">var</span> <span class="nx">TestReal3</span> <span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span><span class="mf">0.0</span><span class="o">,</span><span class="mf">0.0</span><span class="p">);</span>
+
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">TestString</span> <span class="o">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="s2">&quot;String&quot;</span><span class="o">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a></li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the LevelSettings object</span></a><ul>
+<li>Under the GamgeLogic component</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Properties1" src="../../_images/Properties11.png" /></p>
+<p>By using the <code class="docutils literal"><span class="pre">[Property]</span></code> attribute,  each of the variables now show up in the Properties Window. Let&#8217;s go change the values in the Properties Window.</p>
+<ul class="simple">
+<li>In the Property Window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Under the GameLogic component<ul>
+<li>Set TestBoolean to: <code class="docutils literal"><span class="pre">false</span></code></li>
+<li>Set TestInteger to: <code class="docutils literal"><span class="pre">5</span></code></li>
+<li>Set TestReal to: <code class="docutils literal"><span class="pre">3.141592</span></code></li>
+<li>Set TestReal3 to: <code class="docutils literal"><span class="pre">[4.0,</span> <span class="pre">5.9,</span> <span class="pre">152.125]</span></code></li>
+<li>Set TestString to: <code class="docutils literal"><span class="pre">This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">String</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p></p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+TestBoolean: false
+TestInteger: 5
+TestReal: 3.14159
+TestReal3: (4, 5.9, 152.125)
+TestString: This is a String
+test: 0
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p>The values of all our property variables have changed to reflect the values in the Properties Window.</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Update the <strong>GameLogic</strong> component to the following code</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+<span class="hll">    <span class="k">var</span> <span class="nx">TestInteger</span> <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">52</span><span class="o">;</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+TestBoolean: false
+TestInteger: 5
+TestReal: 3.14159
+TestReal3: (4, 5.9, 152.125)
+TestString: This is a String
+test: 0
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgame2015"><span>Stop the Game</span></a></li>
+</ul>
+<p></p>
+<p>Notice the printed value of <code class="docutils literal"><span class="pre">TestInteger</span></code> did not change, even though we changed the declared value in script. This is because properties are serialized, which means that when the game is ran the values displayed in the Properties Window are saved off and later used to initialize the member variables when they&#8217;re created. The only time the script-declared value of a property is used is to set the <em>default value</em> of that property in the Properties Window. After the component is first attached to an object, it uses the serialized value of the variable and never looks at the script-declared value again.</p>
+<p>While many components have need for variables that have values that are only determined while the game is running, most components base their behavior off various values held by Properties. Using properties has several advantages. First, you do not have to open a script in order to change a value; this makes it quicker to iterate, or make changes, in your game. Second, your properties are saved per component, which allows for more code reuse.</p>
+<div class="admonition-consider-the-following admonition">
+<p class="first admonition-title">Consider the Following</p>
+<p>Imagine you wanted two objects to have a <code class="docutils literal"><span class="pre">Health</span></code> component, your player and your enemy. After a little consideration, you determine your player and enemy should have different starting healths.</p>
+<p>If the starting health is a property we can set the starting value per instance of the component that is attached to the different objects, i.e. <strong>We can set the player to have a
+different starting health than the enemy right from the Properties Window.</strong></p>
+<p class="last">However, if starting health was <em>not</em> a property we would be forced to use the same starting value for <em>all</em> objects using the <code class="docutils literal"><span class="pre">Health</span></code> component, <em>or</em> be forced to write another component with duplicate functionality for the enemy, just to get a different starting health value.</p>
+</div>
+</div>
+<div class="section" id="features-of-properties">
+<h2>Features of Properties</h2>
+<ul class="simple">
+<li>Each object has its own copy of every property variable.</li>
+<li>Changing the value of the property on an object does not affect the value of the property on other objects.</li>
+<li>Properties are automatically saved for every object in the level.</li>
+<li>Properties are saved on archetypes.</li>
+</ul>
+<p></p>
+</div>
+<div class="section" id="other-property-types">
+<h2>Other Property Types</h2>
+<p>So far we have shown we can make properties out of any type and set them through the Properties Window. However, so far we have only utilized basic Zilch types to do so. What if we wanted to make a property for a resource?</p>
+<ul class="simple">
+<li>In the GameLogic ZilchScript Window<ul>
+<li>Add the the following code to the <strong>GameLogic</strong> component</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">TestInteger</span> <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">52</span><span class="o">;</span>
+
+<span class="hll">    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+</span><span class="hll">    <span class="k">var</span> <span class="nx">TestPhysicsMaterial</span> <span class="o">:</span> <span class="nx">PhysicsMaterial</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+</span><span class="hll">    <span class="k">var</span> <span class="nx">TestModel</span> <span class="o">:</span> <span class="nx">Mesh</span> <span class="o">=</span> <span class="nx">Mesh</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;Cone&quot;</span><span class="p">);</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save your project</span></a></li>
+</ul>
+<p><img alt="ResourceProperties" src="../../_images/ResourceProperties1.png" /></p>
+<p>We made a couple more properties, but this time we used resources instead of the built-in language types; nonetheless, the syntax for making the variables properties is exactly the same as before. The biggest change is in the initial value options for resource properties. Since resources are not primitive (i.e. built-in) language types (e.g. Integers, Reals, Booleans, etc.) they do not have inherent default values (Integer has 0, Real has 0.0, Real3 has [0.0,0.0,0.0], etc.). Instead of assigning a literal value such as <code class="docutils literal"><span class="pre">0</span></code> or <code class="docutils literal"><span class="pre">String</span></code>, we must <em>assign a value that matches the resource type.</em></p>
+<div class="sidebar">
+<p class="first sidebar-title">Meshes</p>
+<p class="last">Meshes are collections of vertices and edges used to define the geometry of the world in a 3D game. While you will not be using meshes, they serve as a good example of a resource type that must be imported into the engine. (The resources that don&#8217;t need to be imported are those types that are generated by the user through the engine itself, such as PhysicsMaterials.)</p>
+</div>
+<p>There are two ways do this. The first, which we show with the <code class="docutils literal"><span class="pre">TestPhysicsMaterial</span></code> property, is to assign <code class="docutils literal"><span class="pre">null</span></code> to the property. <code class="docutils literal"><span class="pre">null</span></code> is to resource and object types as <code class="docutils literal"><span class="pre">0</span></code> is to Integers; that is to say, it is the empty value. In fact, <code class="docutils literal"><span class="pre">null</span></code> can serve as the empty value for any non-primitive language type. In this case, the property is set to <code class="docutils literal"><span class="pre">None</span></code>.</p>
+<p>The second way to initialize a resource property is demonstrated with the <code class="docutils literal"><span class="pre">TestMesh</span></code> property. Each resource type has a function called <code class="docutils literal"><span class="pre">Find</span></code> which takes the raw string name of a resource of that type. This function will return the resource with the given name if it exists; otherwise, it returns <code class="docutils literal"><span class="pre">null</span></code>. This is useful if you want to use a specific resource as the default value for a resource property.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Many people will think of using the <code class="docutils literal"><span class="pre">Find</span></code> function throughout their code to get access to resources. The <code class="docutils literal"><span class="pre">Find</span></code> function <em>should only be used to initialize variables</em> and should never be called from within another function. The <code class="docutils literal"><span class="pre">Find</span></code> call can be very expensive if there are a lot of resources (which there often are).</p>
+<p class="last">Because you always have the ability to make and initialize a resource property, there is no reason to call the <code class="docutils literal"><span class="pre">Find</span></code> function in any other circumstance. You can always make that property, use it, and change the resource property through the Properties Window later, if necessary.</p>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions</h2>
+<p>We learned that scopes define the lifetime of a variable, and that we can have <strong>local</strong> and <strong>member</strong> variables. These variables all have types whether we explicitly define them or not, and each type has its various purposes. Finally, we went over properties: how they help keep you from rewriting code, and speed up iteration. The concepts of these scripting lessons are used through out development in the Zero Engine, so make sure you are comfortable with them.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ArraysLoops.html" class="btn btn-neutral float-right" title="Scripting 3" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Scripting.html" class="btn btn-neutral" title="Scripting" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/Scripting2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:14:41 GMT -->
+</html>

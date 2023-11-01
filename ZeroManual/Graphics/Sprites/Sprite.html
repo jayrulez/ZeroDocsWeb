@@ -1,0 +1,379 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Graphics/Sprites/Sprite.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:30 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sprite &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Sprites and SpriteText" href="index.html"/>
+        <link rel="next" title="SpriteText" href="SpriteText.html"/>
+        <link rel="prev" title="BaseSprite" href="BaseSprite.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Graphics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../CamerasViewportsRenderers/index.html">Cameras, Viewports and Renderers</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Sprites and SpriteText</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="BaseSprite.html">BaseSprite</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Sprite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpriteText.html">SpriteText</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpriteLayer.html">SpriteLayer and SpriteLayerOrder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Animation/index.html">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Graphics</a> &raquo;</li>
+      
+          <li><a href="index.html">Sprites and SpriteText</a> &raquo;</li>
+      
+    <li>Sprite</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Graphics/Sprites/Sprite.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="sprite">
+<span id="manualsprite"></span><h1>Sprite</h1>
+<div class="searchdescription sidebar">
+<p class="first sidebar-title">Recommended Reading</p>
+<p>This section only covers the properties that are specific to Sprites, and doesn&#8217;t cover the properties shared by the <a class="reference internal" href="../../CodeReference/Reference/BaseSprite.html#_CPPv210BaseSprite" title="BaseSprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">BaseSprite</span></code></a>. To find those properties, see:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li><a class="reference internal" href="BaseSprite.html#manualbasesprite"><span>Base Sprite</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<p>The <a class="reference internal" href="../../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a> Component is used to add and control the visual elements of two-dimensional artwork. A Sprite can be used for many things from a simple poster on a three-dimensional wall to all the visual elements of a 2D game. The Sprite Component has no dependencies and can be added to any Game Object.</p>
+<div class="section" id="common-uses">
+<h2>Common Uses</h2>
+<ul class="simple">
+<li>Characters and other artwork in a two dimensional project</li>
+<li>Placing 2D pictures into a 3D landscape</li>
+<li>2D animations</li>
+</ul>
+</div>
+<div class="section" id="using-sprites">
+<h2>Using Sprites</h2>
+<div class="section" id="creating-sprites">
+<span id="manualspritecreating"></span><h3>Creating Sprites</h3>
+<p>Sprites can be made in one of two ways. Typically they will be made by using <a class="reference internal" href="../../Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code>; however, the Sprite Component can also be added to any Game Object. There is a minor difference between the two: whereas creating a Sprite will default to having a <code class="docutils literal"><span class="pre">Square</span></code> <a class="reference internal" href="../../CodeReference/Reference/SpriteSource.html#_CPPv212SpriteSource" title="SpriteSource"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteSource</span></code></a>, adding the Sprite Component to an existing Game Object will default to having the <code class="docutils literal"><span class="pre">DefaultSprite</span></code> SpriteSource. Otherwise, all other parameters will be the same, as seen here:</p>
+<p><img alt="SpriteProperties" src="../../../_images/SpriteProperties.png" /></p>
+<p>After adding the Sprite, the next step is to import an image and create the SpriteSource resource that will be used.</p>
+</div>
+<div class="section" id="adding-a-spritesource">
+<span id="manualspriteadding"></span><h3>Adding a SpriteSource</h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Zero Engine only allows the importing of .PNG type images.</p>
+</div>
+<p>The Zero Engine has numerous resources available on <span class="xref std std-ref">The Void</span>, giving the user access to several Sprites and other animations. You can access The Void by clicking on the Void icon in the top right corner of the Engine.</p>
+<p><img alt="VoidIcon" src="../../../_images/VoidIcon1.png" /></p>
+<p>It is possible to add SpriteSources of your own as well. By simply grabbing the file on your computer and dragging it into the Editor window, Zero Engine will import the chosen asset. Alternatively, one can invoke the <a class="reference internal" href="../../Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">Add</span></code> or click the <code class="docutils literal"><span class="pre">Add</span></code> button, select SpriteSource from the list, followed by clicking on &#8220;From File&#8221;:</p>
+<p><img alt="ImportSpriteSource" src="../../../_images/ImportSpriteSource1.png" /></p>
+<p>A window will open where the user may select the image or images to import, keeping the saved Resolution and Size. Once imported, these files can then be used to create single frame images or multi-frame animations.</p>
+<div class="section" id="changing-spritesources">
+<span id="manualspritechanging"></span><h4>Changing SpriteSources</h4>
+<p>After importing one&#8217;s images, the next step is to change the SpriteSource Property on the Sprite Component to the resource created by the imported image. This is done by clicking on the current SpriteSource and finding the imported image in the drop-down menu that opens.</p>
+<p><img alt="SpriteSourceChanged" src="../../../_images/SpriteChoice1.gif" /></p>
+<p>If the Sprite is facing the wrong direction, or you wish to have a section in your project with reversed gravity, it&#8217;s simply a matter of using the <code class="docutils literal"><span class="pre">FlipX</span></code> and <code class="docutils literal"><span class="pre">FlipY</span></code> variables.</p>
+<p><img alt="FlipXY" src="../../../_images/FlipXY.gif" /></p>
+</div>
+</div>
+<div class="section" id="render-masks">
+<h3>Render Masks</h3>
+<p>Sprites can also be used as Render Masks with just a little set up. First, <code class="docutils literal"><span class="pre">LevelSettings</span></code> will need to have its <code class="docutils literal"><span class="pre">ForwardRenderer</span></code> Component removed and replaced with the <code class="docutils literal"><span class="pre">DeferredRenderer</span></code> Component. Inside the <code class="docutils literal"><span class="pre">DefferedRenderer</span></code> Component, <code class="docutils literal"><span class="pre">RenderMasks</span></code> will need to be set to <code class="docutils literal"><span class="pre">True</span></code>, which will turn the scene to black once the project is run. Any Sprite that now has the <code class="docutils literal"><span class="pre">RenderMask</span></code> property set to <code class="docutils literal"><span class="pre">True</span></code> will be multiplied with the black background, so when the Sprite is solid black nothing will show through, and when solid white everything will show through. Adjusting the alpha property will effect the opacity as expected.</p>
+</div>
+<div class="section" id="sprites-as-animations">
+<h3>Sprites As Animations</h3>
+<p>To use Sprites as animations rather than still images, please refer to <a class="reference internal" href="../../Editor/Tools/SpriteSourceEditor.html#manualspritesourceeditor"><span>SpriteSourceEditor</span></a>.</p>
+</div>
+</div>
+<div class="section" id="properties-and-methods-of-sprites">
+<h2>Properties and Methods of Sprites</h2>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/Sprite.html#referencesprite"><span>Sprite Code Reference</span></a></li>
+</ul>
+</div>
+<div class="section" id="sprite-events">
+<h2>Sprite Events</h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">EnterView</span></code> : <a class="reference internal" href="../../CodeReference/Reference/GraphicalEvent.html#_CPPv214GraphicalEvent" title="GraphicalEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GraphicalEvent</span></code></a><ul>
+<li>The Graphical Event dispatched when the Sprite enters the view of the current <a class="reference internal" href="../../CodeReference/Reference/Camera.html#_CPPv26Camera" title="Camera"><code class="xref cpp cpp-type docutils literal"><span class="pre">Camera</span></code></a></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">EnterViewAny</span></code>: <a class="reference internal" href="../../CodeReference/Reference/GraphicalEvent.html#_CPPv214GraphicalEvent" title="GraphicalEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GraphicalEvent</span></code></a><ul>
+<li>The Graphical Event dispatched when the Sprite enters the view of any Camera in the scene</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">ExitView</span></code> : <a class="reference internal" href="../../CodeReference/Reference/GraphicalEvent.html#_CPPv214GraphicalEvent" title="GraphicalEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GraphicalEvent</span></code></a><ul>
+<li>The Graphical Event dispatched when the Sprite exits the view of the current Camera</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">ExitViewAll</span></code> : <a class="reference internal" href="../../CodeReference/Reference/GraphicalEvent.html#_CPPv214GraphicalEvent" title="GraphicalEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GraphicalEvent</span></code></a><ul>
+<li>Graphical Event dispatched when the Sprite exits the view of all Cameras in the scene</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">SpriteAnimationEnded</span></code> : <a class="reference internal" href="../../CodeReference/Reference/ObjectEvent.html#_CPPv211ObjectEvent" title="ObjectEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ObjectEvent</span></code></a><ul>
+<li>Event sent when the Animation stops playing</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="related-materials">
+<span id="manualspriterelated"></span><h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="BaseSprite.html#manualbasesprite"><span>BaseSprite</span></a></li>
+<li><a class="reference internal" href="SpriteLayer.html#manualspritelayer"><span>SpriteLayer</span></a></li>
+<li><a class="reference internal" href="../../Editor/Tools/SpriteSourceEditor.html#manualspritesourceeditor"><span>SpriteSourceEditor</span></a></li>
+<li><a class="reference internal" href="Area.html#manualarea"><span>Area</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><span class="xref std std-ref">Sprites</span></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/SpriteSource.html#_CPPv212SpriteSource" title="SpriteSource"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteSource</span></code></a></li>
+<li><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteSourceEditor</span></code></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">Component</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/BaseSprite.html#_CPPv210BaseSprite" title="BaseSprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">BaseSprite</span></code></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SpriteText.html" class="btn btn-neutral float-right" title="SpriteText" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="BaseSprite.html" class="btn btn-neutral" title="BaseSprite" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Graphics/Sprites/Sprite.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:27:32 GMT -->
+</html>

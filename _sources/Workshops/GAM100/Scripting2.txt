@@ -1,0 +1,527 @@
+.. _Scripting2GAM100:
+
+.. rst-class:: SearchTitle
+
+Scripting 2
+===========
+
+.. rst-class:: SearchDescription
+
+This lesson will focus on conditionals (``if``, ``else``, and ``else if``).
+
+.. _Scripting2VocabGAM100:
+
+Learning Objectives
+-------------------
+
+By the end of this lesson you should be able to...
+
+*   Be able to write nested **if**, **else**, and **else if** statements.
+
+*   Be able to print a **String** with a **variable**.
+
+.. rst-class:: VocabSection
+
++--------------------------------------+
+| Vocabulary                           |
++==============+========+==============+
+| Variable     | Scope  | String       |
++--------------+--------+--------------+
+| Data Type    | Random | Conditionals |
++--------------+--------+--------------+
+| if           | else   | else if      |
++--------------+--------+--------------+
+| ``||``       | ``&&`` | ``!``        |
++--------------+--------+--------------+
+
+Open Previous Project
+---------------------
+
+*Open the project created for the* :ref:`Scripting 1<Scripting1GAM100>` *lesson*
+
+Conditionals
+------------
+
+Now that variables have been covered it is time to take a look at how they may be used beside just printing to the console. The example used for random numbers in the first scripting lesson will come in handy here.
+
+*   In the GameLogic ZilchScript Window
+
+    *   In the **GameLogic** component change your code to:
+
+.. code-block:: as
+    :emphasize-lines: 5-14
+    
+    class GameLogic : ZilchComponent
+    {
+        function Initialize(init : CogInitializer)
+        {
+            Console.WriteLine("Here be dragons.");
+            
+            // Create a random number generator
+            var randNumGen = Random();
+            
+            // In honor of dragons and D&D, roll a d20:
+            var randNum = randNumGen.DieRoll(20);
+            
+            // See what we rolled:
+            Console.WriteLine(randNum);
+        }
+    }
+
+
+
+Now, let's say we are a pretty average player and these are concerning dragons. If we roll a 1--10, we get burned by the fearsome dragon; if we roll 11--20 we slay the dragon. Knowing that rolling a d20 will give us a number between 1 and 20, we can check how the number compares to 11:
+
+``If the random number is          less than 11           (randNum <  11), it must be between  1 and 10.``
+
+``If the random number is   greater than or equal to 11   (randNum >= 11), it must be between 11 and 20.``
+
+These **comparison operators** operate the same way they do in mathematics. These statements are either **true** or **false**. We will use these comparison operators in an **if** statement.
+
+if Statements
+^^^^^^^^^^^^^
+
+An ``if`` statement takes a **boolean condition** (something that evaluates to true or false), to determine whether or not it should run some code.
+
+.. code-block:: csharp
+    
+    if (true) //Evaluating the boolean value `true`
+    {
+      // Code between these curly braces always gets run.
+    }
+    if (false) //Evaluating the boolean value `false`
+    {
+      // Code between these curly braces always gets skipped. 
+    }
+
+    // Comparison operators can be used as boolean conditions 
+    // because they result in true or false.
+    if (5 > 3)
+    {
+      // Code between these curly braces always runs because the value of 5 will
+      // always be greater than 3. This boolean condition will always result in true.
+    }
+    if (randomNumber > 3)
+    {
+      // Code between these curly braces may or may not run --
+      // it depends on if the value stored in the randomNumber variable
+      // is greater than 3 or not.
+    }
+
+We can use these concepts to fight the dragon.
+
+
+
+*   In the **GameLogic** ZilchScript Window
+
+    *   In the **Initialize** function change your code to: 
+    
+.. code-block:: as
+    :emphasize-lines: 11-27
+    
+    function Initialize(init : CogInitializer)
+    {
+        Console.WriteLine("A Dragon attacks!");
+        
+        // Create a random number generator
+        var randNumGen = Random();
+        // In honor of dragons and D&D, roll a d20:
+        var randNum = randNumGen.DieRoll(20);
+        
+        // See what we rolled:
+        Console.WriteLine("(you roll a `randNum`)");
+            // Note the grave accent marks, ``, used here -- see below
+            // These are NOT the same as apostrophes or single quotes ('')
+        
+        // If we rolled a less than 11:
+        if (randNum < 11)
+        {
+            // We lose.
+            Console.WriteLine("Taking you by surprise, the dragon burns you to a crisp!");
+        }
+        // If we roll greater than 11:
+        if (randNum >= 11)
+        {
+            // We win.
+            Console.WriteLine("Dodging the dragon's fiery breath, you slay the dragon with your sword!");
+        }
+    }
+
+When writing the value of ``randNum`` within a string, place **grave accent marks**, ` (the tilde ~ key, under Esc on an American QWERTY keyboards), around the variable's name. In general, surrounding a bit of code (such as a variable name) with ` marks and putting it in a string will replace it with its value instead of its name. This is called **string interpolation**.
+
+You'll see your story unfold in the Console Window.
+
+*   :ref:`Rerun the game <RunTheGameGAM100>` multiple times.
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+What if we want to reward great technical skill? Let's alter the message when you've rolled a 20.
+
+
+
+*   In the **GameLogic** ZilchScript Window
+
+    *   In the **Initialize** function change your code to: 
+    
+.. code-block:: as
+    :emphasize-lines: 21-26
+    
+    function Initialize(init : CogInitializer)
+    {
+        Console.WriteLine("A Dragon attacks!");
+        
+        // Create a random number generator
+        var randNumGen = Random();
+        // In honor of dragons and D&D, roll a d20:
+        var randNum = randNumGen.DieRoll(20);
+        
+        // See what we rolled:
+        Console.WriteLine("(you roll a `randNum`)");
+        
+        // If we rolled a less than 11:
+        if (randNum < 11)
+        {
+            // We lose.
+            Console.WriteLine("Taking you by surprise, the dragon burns you to a crisp!");
+        }
+        
+        // If we roll a 20:
+        if (randNum == 20) // Be sure to use two equals signs -- see below
+        {
+            // We win with style.
+            Console.WriteLine("Before the dragon can muster its fire, you slay it!");
+        }
+        
+        // If we roll greater than 11:
+        if (randNum >= 11)
+        {
+            // We win.
+            Console.WriteLine("Dodging the dragon's fiery breath, you slay the dragon!");
+        }
+    }
+
+
+
+The equals sign, ``=``, is *not* the same as the double equals sign, ``==``. The double equals sign asks a question: "Is this the same as that?" It's frequently used in ``if`` statements. The single equals sign stores a value in a variable, so if we were to write:
+
+.. code-block:: as
+    
+    hitPoints = 100;
+
+the value of ``hitPoints`` would be set to be equal to ``100``.
+
+*   :ref:`Rerun the game <RunTheGameGAM100>` until you roll a 20
+
+You'll see your story unfold in the Console Window.
+        
+Console Output::
+
+    ----------------  End  Game ---------------
+    ---------------- Begin Game ---------------
+    A Dragon attacks!
+    (you roll a 20)
+    Before the dragon can muster its fire, you slay the it!
+    Dodging the dragon's fiery breath, you slay the dragon!
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+Here you can see that both win conditions ran as if *two* dragons attacked.
+
+This is because both of the conditions were true: when we rolled a 20, that meant the value in ``randNum`` was 20, so:
+
+``if (randNum == 20)`` became ``if (20 == 20)`` became ``if (true)`` so |br|
+``Console.WriteLine("Before the dragon can muster its fire, you slay the dragon with your sword!");`` ran,
+
+and also:
+
+``if (randNum >= 11)`` became ``if (20 >= 11)`` became ``if (true)`` so |br|
+``Console.WriteLine("Dodging the dragon's fiery breath, you slay the dragon with your sword!");`` also ran.
+
+
+
+else & else if Statements
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once we've defeated the dragon, we don't want to do it again. We can avoid this by only checking if necessary. 
+
+Look at this example of ``else`` and ``else if`` statements.
+
+.. code-block:: csharp
+    
+    // When the boolean condition evaluates to true:
+    if (true)
+    {
+        // Code between these curly braces gets run.
+    }
+    else 
+    {
+        // Code between these curly braces gets skipped.
+    }
+    
+    
+    // When the boolean condition evaluates to false:
+    if (false)
+    {
+        // Code between these curly braces gets skipped.
+    }
+    else 
+    {
+        // Code between these curly braces gets run.
+    }
+    
+    // when you have more conditions to check you can pair an else with another if:
+    if (randNumber == 20)
+    {
+        // Code between these curly braces may or may not run.
+    }
+    else if (randNumber >= 11)
+    {
+        // Code between these curly braces may or may not run.
+    }
+    else if (randNumber < 11)
+    {
+        // Code between these curly braces may or may not run.
+    }
+    
+Let's fix our game by adding an **else if** statement:
+
+*   In the **GameLogic** ZilchScript Window
+
+    *   In the **Initialize** function change your code to: 
+    
+.. code-block:: as
+    :emphasize-lines: 1,2
+    
+    // If we didn't roll a 20 but did roll greater than 11:
+    else if (randNum >= 11)
+    {
+        // We win.
+        Console.WriteLine("Dodging the dragon's fiery breath, you slay the dragon with your sword!");
+    }
+
+You'll see your story unfold in the Console Window.
+
+*   :ref:`Rerun the game <RunTheGameGAM100>` until you roll a 20
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+
+
+Console Output::
+
+    ----------------  End  Game ---------------
+    ---------------- Begin Game ---------------
+    A Dragon attacks!
+    (you roll a 20)
+    Before the dragon can muster its fire, you slay it!
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+Now it works as intended and we've learned about variables, if, else, errors, printing, and strings.
+
+Boolean Algebra & Operators 
+---------------------------
+
+So far the examples have only used comparison operators. While these are the most common operators to be used with conditionals there are other operators which perform Boolean operations. These are part of a topic called Boolean algebra. Take a look at the following examples.
+
+The ``||`` Operator
+^^^^^^^^^^^^^^^^^^^
+
+The ``||`` operator is read as "or" and always will evaluate its left and right values (assuming they are boolean values) to a Boolean result. If either the left or right value is true, the statement will evaluate to true. Only if both the left and right value are false will the statement evaluate to false. 
+
+
+
+Look at this code block:
+
+*   In the **GameLogic** ZilchScript Window
+
+    *   In the **Initialize** function change your code to: 
+
+    .. code-block:: csharp
+    
+        function Initialize(init : CogInitializer)
+        {
+          var a : Boolean = true;
+          var b : Boolean = false;
+          var c : Boolean = false;
+        
+          if(a || b)
+          {
+            Console.WriteLine("a or b is true");
+          }
+
+          if(b || c)
+          {
+            Console.WriteLine("b or c is true");
+          }
+        }
+
+*   :ref:`Run the game <RunTheGameGAM100>`
+
+You should see the following console output:
+
+Console Output::
+    
+    ---------------- Begin Game ----------------
+    a or b is true
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+Notice that the second print statement does not execute. This is because neither b **or** c is true while a is so the first print statement fires. The following table demonstrates the possible cases for an **or** statement.
+
++--------------------------------------+
+| ``||`` operator truth table          |
++=======+=======+======================+
+| a     | b     | Result of ``a || b`` |
++-------+-------+----------------------+
+| true  | true  | true                 |
++-------+-------+----------------------+
+| true  | false | true                 |
++-------+-------+----------------------+
+| false | true  | true                 |
++-------+-------+----------------------+
+| false | false | false                |
++-------+-------+----------------------+
+
+
+
+The ``&&`` Operator
+^^^^^^^^^^^^^^^^^^^
+
+The ``&&`` operator is read as "and" and always will evaluate its left and right values (assuming they are boolean values) to a Boolean result. Look at this code block:
+
+*   In the **GameLogic** ZilchScript Window
+
+    *   In the **Initialize** function change your code to: 
+
+    .. code-block:: csharp
+    
+        function Initialize(init : CogInitializer)
+        {
+          var a : Boolean = true;
+          var b : Boolean = false;
+          var c : Boolean = false;
+          var d : Boolean = true;
+        
+          if(a && b)
+          {
+            Console.WriteLine("a and b are both true");
+          }
+
+          if(b && c)
+          {
+            Console.WriteLine("b and c are both true");
+          }
+
+          if(a && d)
+          {
+            Console.WriteLine("a and d are both true");
+          }
+        }
+
+*   :ref:`Run the game <RunTheGameGAM100>`
+
+You should see the following console output:
+
+Console Output::
+    
+    ---------------- Begin Game ----------------
+    a and d are both true
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+Notice that only the third print statement executes. This is because only ``a`` **and** ``d`` are true. The following table demonstrates the possible cases for an **and** statement.
+
++--------------------------------------+
+| ``&&`` operator truth table          |
++=======+=======+======================+
+| a     | b     | Result of ``a && b`` |
++-------+-------+----------------------+
+| true  | true  | true                 |
++-------+-------+----------------------+
+| true  | false | false                |
++-------+-------+----------------------+
+| false | true  | false                |
++-------+-------+----------------------+
+| false | false | false                |
++-------+-------+----------------------+
+
+The ``!`` Operator
+------------------
+
+The last major Boolean algebra operator is the **negation** operator written as ``!``. Look at this code block:
+
+*   In the **GameLogic** ZilchScript Window
+
+    *   In the **Initialize** function change your code to: 
+
+    .. code-block:: csharp
+    
+        function Initialize(init : CogInitializer)
+        {
+          var a : Boolean = true;
+          var b : Boolean = false;
+          var c : Boolean = false;
+          var d : Boolean = true;
+        
+          if(a && !b)
+          {
+            Console.WriteLine("a or b are true");
+          }
+
+          if(!b && !c)
+          {
+            Console.WriteLine("b and c are both false");
+          }
+
+          if(a && d)
+          {
+            Console.WriteLine("a and d are both true");
+          }
+        }
+
+*   :ref:`Run the game <RunTheGameGAM100>`
+
+You should see the following console output:
+
+Console Output::
+
+    ---------------- Begin Game ----------------
+    a or b are true
+    b and c are both false
+    a and d are both true
+    Level 'Level' was loaded.
+    Loaded level 0.01s
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+As can be seen in the console output, all three print statements fire. While the original boolean variables of ``b`` and ``c`` still hold the value of ``false``, the ``if`` statements still evaluate to true. This is because the ``!`` operator is being evaluated before the ``&&`` statement. Since the ``!`` operator negates ``b`` and ``c`` they evaluate as ``true`` instead of ``false`` where the ``&&`` statements are evaluated.
+
+
+
+On Your Own
+-----------
+
+Beside rewarding great technical skill, it is also common to acknowledge abysmal failure. Write another check for if you roll a 1, and print out a different message describing your unfortunate encounter with the dragon. Make sure the normal failure condition doesn't run!
+
+There are many different ways to approach the same problem when programming. Experiment with different comparison operators while maintaining the same functionality.
+
+    +----------+----------------------------------+
+    | Comparison Operators                        |
+    +==========+==================================+
+    | <        | less than                        |
+    +----------+----------------------------------+
+    | <=       | less than or equal to            |
+    +----------+----------------------------------+
+    | >        | greater than                     |
+    +----------+----------------------------------+
+    | >=       | greater than or equal to         |
+    +----------+----------------------------------+
+    | ==       | equality                         |
+    +----------+----------------------------------+
+    | !=       | inequality                       |
+    +----------+----------------------------------+

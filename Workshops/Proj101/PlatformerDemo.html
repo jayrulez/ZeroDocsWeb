@@ -1,0 +1,396 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/Proj101/PlatformerDemo.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:13:10 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Proj 101 Demo steps &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+    <li>Proj 101 Demo steps</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/Proj101/PlatformerDemo.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="proj-101-demo-steps">
+<h1>Proj 101 Demo steps</h1>
+<p>A simple follow along platformer demo assembled from prebuilt components.</p>
+<div class="section" id="making-the-environment">
+<h2>Making the Environment</h2>
+<p>The first step is to make an evironment our player can move around in.</p>
+<div class="section" id="walls">
+<h3>Walls</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: Wall</li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a><ul>
+<li>Set <code class="docutils literal"><span class="pre">Translation</span></code> to: <code class="docutils literal"><span class="pre">[-9.5,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Set <code class="docutils literal"><span class="pre">Scale</span></code> to: <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">10,</span> <span class="pre">1]</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/BoxCollider.html#_CPPv211BoxCollider" title="BoxCollider"><code class="xref cpp cpp-type docutils literal"><span class="pre">BoxCollider</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: Wall</li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a><ul>
+<li>Set <code class="docutils literal"><span class="pre">Translation</span></code> to: <code class="docutils literal"><span class="pre">[9.5,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Set <code class="docutils literal"><span class="pre">Scale</span></code> to: <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">10,</span> <span class="pre">1]</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/BoxCollider.html#_CPPv211BoxCollider" title="BoxCollider"><code class="xref cpp cpp-type docutils literal"><span class="pre">BoxCollider</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="ground">
+<h3>Ground</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: Ground</li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a><ul>
+<li>Set <code class="docutils literal"><span class="pre">Translation</span></code> to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">-5.5,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Set <code class="docutils literal"><span class="pre">Scale</span></code> to: <code class="docutils literal"><span class="pre">[20,</span> <span class="pre">1,</span> <span class="pre">1]</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/BoxCollider.html#_CPPv211BoxCollider" title="BoxCollider"><code class="xref cpp cpp-type docutils literal"><span class="pre">BoxCollider</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="ceiling">
+<h3>Ceiling</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: Ceiling</li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a><ul>
+<li>Set <code class="docutils literal"><span class="pre">Translation</span></code> to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">5.5,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Set <code class="docutils literal"><span class="pre">Scale</span></code> to: <code class="docutils literal"><span class="pre">[20,</span> <span class="pre">1,</span> <span class="pre">1]</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/BoxCollider.html#_CPPv211BoxCollider" title="BoxCollider"><code class="xref cpp cpp-type docutils literal"><span class="pre">BoxCollider</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-player">
+<h2>The Player</h2>
+<p>Alright now let&#8217;s set up the player.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: Player</li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a><ul>
+<li>Set <code class="docutils literal"><span class="pre">Translation</span></code> to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite</span></code></a><ul>
+<li>Set <code class="docutils literal"><span class="pre">Color</span></code> to: <code class="docutils literal"><span class="pre">[0,255,0]</span></code></li>
+<li>Set <code class="docutils literal"><span class="pre">SpriteSource</span></code> to: <code class="docutils literal"><span class="pre">Circle</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>If we run the game now the player will just sit where we created him. This is because the engine is not simulating any physics for it.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Player object</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>If we run the game the player object will now fall, but just fall through the floor.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Player object</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SphereCollider.html#_CPPv214SphereCollider" title="SphereCollider"><code class="xref cpp cpp-type docutils literal"><span class="pre">SphereCollider</span></code></a></li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SphereCollider.html#_CPPv214SphereCollider" title="SphereCollider"><code class="xref cpp cpp-type docutils literal"><span class="pre">SphereCollider</span></code></a></li>
+<li>Set <code class="docutils literal"><span class="pre">Radius</span></code> to: <code class="docutils literal"><span class="pre">0.5</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>Cool we now have are player correctly resolving collision with the environment.</p>
+</div>
+<div class="section" id="input">
+<h2>Input</h2>
+<p>Now lets make the player move based off WASD input.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Player object</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Orientation.html#_CPPv211Orientation" title="Orientation"><code class="xref cpp cpp-type docutils literal"><span class="pre">Orientation</span></code></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <code class="docutils literal"><span class="pre">GroundDetection</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <code class="docutils literal"><span class="pre">PlayerInput</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <code class="docutils literal"><span class="pre">PlayerMovement</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>Now using <code class="docutils literal"><span class="pre">A</span></code> we can move to the left, <code class="docutils literal"><span class="pre">D</span></code> to move to the right, and <code class="docutils literal"><span class="pre">W</span></code> or <code class="docutils literal"><span class="pre">Space</span></code> to jump.</p>
+</div>
+<div class="section" id="wall-jumping">
+<h2>Wall Jumping</h2>
+<p>Now what if we want to add a slightly more complex feature like wall jumping to our player.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Player object</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <code class="docutils literal"><span class="pre">WallDetection</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <code class="docutils literal"><span class="pre">WallSlide</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <code class="docutils literal"><span class="pre">WallJump</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="moving-platforms">
+<h2>Moving Platforms</h2>
+<p>Let&#8217;s give our player something to jump on.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: Platform</li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a><ul>
+<li>Set <code class="docutils literal"><span class="pre">Translation</span></code> to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">5.5,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Set <code class="docutils literal"><span class="pre">Scale</span></code> to: <code class="docutils literal"><span class="pre">[20,</span> <span class="pre">1,</span> <span class="pre">1]</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component</span></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/BoxCollider.html#_CPPv211BoxCollider" title="BoxCollider"><code class="xref cpp cpp-type docutils literal"><span class="pre">BoxCollider</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/Proj101/PlatformerDemo.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:13:10 GMT -->
+</html>

@@ -1,0 +1,469 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/Archetypes.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:23:19 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Archetypes &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Introduction to 2D Video Game Programming" href="index.html"/>
+        <link rel="next" title="Object Creation" href="ObjectCreation.html"/>
+        <link rel="prev" title="Properties" href="Properties.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Introduction to 2D Video Game Programming</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ScriptingEvents.html">Scripting Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Archetypes</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Orientation.html">Rotating Towards a Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FireAtMouse.html">Firing At the Mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleSystems.html">Particle Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleAi.html">Ai Shooting and Movement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CameraParallax.html">Camera Parallax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CreateProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting an Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Add a Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Introduction to 2D Video Game Programming</a> &raquo;</li>
+      
+    <li>Archetypes</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2014/Archetypes.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="archetypes">
+<span id="archetypes2014"></span><h1>Archetypes</h1>
+<p class="searchdescription">This lessons covers the creation and use of archetypes.</p>
+<div class="section" id="id1">
+<h2>Archetypes</h2>
+<p>An archetype in the Zero Engine (also known as blueprints, prefabs, or templates in other engines)
+is a collection of components and their settings which is used to create objects.
+All of the objects created from a certain archetype start with the same data,
+but any changes to that data after their creation do not affect the archetype.
+One benefit of archetypes is that any changes to the archetype affect all of the
+objects you have created from it. We are going to create some archetypes so that
+we can use them to create objects later.</p>
+</div>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="CreateProject.html#createnewproject2014"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="adding-a-pickup-zilchscript">
+<h2>Adding a Pickup ZilchScript</h2>
+<p><a class="reference internal" href="ResourceAdding.html#resourceadding2014"><span>Add a new ZilchScript resource</span></a> named: &#8216;PickUp&#8217;</p>
+<p>Update your script to look like this:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">Pickup</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">Points</span> <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-an-object">
+<h2>Creating an Object</h2>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2014"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Pickup</span></code></li>
+<li>Under Sprite<ul>
+<li>Set Color to : Yellow [ R: 255, G: 255, B: 0, A: 1.00 ]</li>
+</ul>
+</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2014"><span>Add the Component Pickup</span></a><ul>
+<li>Under Pickup<ul>
+<li>Set Points to 100</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p>Here&#8217;s what your object should look like:</p>
+<p>
+<img alt="PickupSettingsWeb" src="../../_images/PickupSettings1.png" />
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/PickupSettings1.png"><img alt="PickupSettingsBook" src="../../_images/PickupSettings1.png" style="height: 4.0in;" /></a>
+--></p>
+</div>
+<div class="section" id="why-archetypes">
+<h2>Why Archetypes?</h2>
+<p>Imagine we where to copy and paste this object many times throught the level.
+What happens if we want to change the value of this pickup? We would have
+to find all pickups in the level and change their points values. Even with
+mutliselect we might miss a few or their might be pickups on other levels.
+Archetypes will allow us to change all pickups at once</p>
+<p>Let&#8217;s create our first Archetype</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2014"><span>Select the Object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set the Archetype Name to: <code class="docutils literal"><span class="pre">Pickup</span></code></li>
+<li><img alt="SetArchetypeName" src="../../_images/SetArchetypeName1.png" /></li>
+<li>Press the green upload to archetype button  <img alt="Upload" src="../../_images/UploadButton1.png" /></li>
+</ul>
+</li>
+</ul>
+<p>This object is now <strong>Archetyped</strong>.</p>
+<p></p>
+</div>
+<div class="section" id="creating-multiple-objects">
+<h2>Creating Multiple Objects</h2>
+<p>Copy and paste the object multiple times</p>
+<img alt="../../_images/Copied1.png" src="../../_images/Copied1.png" />
+</div>
+<div class="section" id="changing-archetyped-objects">
+<h2>Changing Archetyped Objects</h2>
+<p>Let&#8217;s change the property values of one of the pickups. Say
+that we want it to be more of gold color and worth more points.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under Sprite<ul>
+<li>Set Color to : Gold [ R: 255, G: 200, B: 0, A: 1.00 ]</li>
+<li>Set SpriteSource to: Circle</li>
+</ul>
+</li>
+<li>Under Pickup<ul>
+<li>Set Value to 200</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p>Notice that object now looks like this:</p>
+<img alt="../../_images/BeforeUpload1.png" src="../../_images/BeforeUpload1.png" />
+<p>Notice the Properties Window the archetype property looks like this:</p>
+<img alt="../../_images/Modified1.png" src="../../_images/Modified1.png" />
+<p><cite>Notice the</cite> <code class="docutils literal"><span class="pre">(*)</span></code> <cite>after the word Archetype</cite></p>
+<p>This means the object is <strong>modified from archetype</strong>. This object has
+local changes that are not part of the archetype. The archetype property
+has two buttons now the <img alt="Revert" src="../../_images/RevertButton1.png" /> revert button and the <img alt="Upload" src="../../_images/UploadButton1.png" /> button.
+The revert button will remove the local changes. The upload button will
+take the local changes and apply them to all archetyped objects.</p>
+<p></p>
+</div>
+<div class="section" id="uploading-to-archetype">
+<h2>Uploading to Archetype</h2>
+<ul class="simple">
+<li>In the Properties Window</li>
+<li>Press <img alt="Upload" src="../../_images/UploadButton1.png" /> upload button.</li>
+</ul>
+<img alt="../../_images/Uploaded1.png" src="../../_images/Uploaded1.png" />
+<p>Notice all the objects have now change to be the same. Check to see that
+both the color and the Points under Pickup have changed. This change would change
+all archetyped objects in <strong>all levels</strong> to the new values.</p>
+</div>
+<div class="section" id="reverting-to-archetype">
+<h2>Reverting to Archetype</h2>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under Sprite<ul>
+<li>Set Color to: White [ R: 0, G: 0, B: 0, A: 1.00 ]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+<img alt="PreRevertWeb" src="../../_images/BeforeRevert1.png" />
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/BeforeRevert1.png"><img alt="PreRevertBook" src="../../_images/BeforeRevert1.png" style="height: 3.0in;" /></a>
+--></p>
+<p>After testing it out we determine we like what we had before, so press the <img alt="Revert" src="../../_images/RevertButton1.png" />  revert button
+to revert the object to gold.</p>
+<p></p>
+<img alt="../../_images/Uploaded1.png" src="../../_images/Uploaded1.png" />
+<p></p>
+<p>Created Archetypes can be found in the library.</p>
+<ul class="simple">
+<li>In the Library Window</li>
+</ul>
+<img alt="../../_images/LibraryWindow1.png" src="../../_images/LibraryWindow1.png" />
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Double-Click</span></code> on the <code class="docutils literal"><span class="pre">Archetypes</span></code> Tag</li>
+</ul>
+<img alt="../../_images/ArchetypeTag1.png" src="../../_images/ArchetypeTag1.png" />
+<ul class="simple">
+<li>Select the <code class="docutils literal"><span class="pre">Pickup</span></code> archetype</li>
+</ul>
+<img alt="../../_images/SelectingPickup1.png" src="../../_images/SelectingPickup1.png" />
+<p><cite>Notice the the property grid show you the archetyped object.</cite></p>
+<ul class="simple">
+<li>Drag the object from the library onto the game window.</li>
+</ul>
+<p>This creates an instance of your archetyped object. This allow you to quickly
+populate your levels with object you have already setup.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">orphan:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<!-- this is used as a file for inclusion in other .rst files --></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ObjectCreation.html" class="btn btn-neutral float-right" title="Object Creation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Properties.html" class="btn btn-neutral" title="Properties" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/Archetypes.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:23:23 GMT -->
+</html>

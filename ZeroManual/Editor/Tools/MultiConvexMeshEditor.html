@@ -1,0 +1,412 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Editor/Tools/MultiConvexMeshEditor.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:13:38 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MultiConvexMesh Editor &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Tools" href="index.html"/>
+        <link rel="next" title="Sprite Source Editor" href="SpriteSourceEditor.html"/>
+        <link rel="prev" title="HeightMapTool" href="HeightMapTool.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Editor</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tags.html">Editor Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EditorCommands/index.html">Editor &amp; Project Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CogPathsManual.html">CogPaths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UsingCustomEaseInActions.html">Using Custom Eases in Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../TextEditor/index.html">Text Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Tools</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="HeightMapTool.html">HeightMapTool</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">MultiConvexMesh Editor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpriteSourceEditor.html">Sprite Source Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../EditMode.html">Editing Mode 2D vs 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../AddRemoveComponent.html">Adding &amp; Removing Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../UsingTheVoid.html">The Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ExportAnProject.html">Export a Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CustomizeExportedGame.html">Customize an Exported Game</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Editor</a> &raquo;</li>
+      
+          <li><a href="index.html">Tools</a> &raquo;</li>
+      
+    <li>MultiConvexMesh Editor</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Editor/Tools/MultiConvexMeshEditor.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="multiconvexmesh-editor">
+<span id="manualmulticonvexmesheditor"></span><h1>MultiConvexMesh Editor</h1>
+<p class="searchdescription">The MultiConvexMesh Editor is a tool that allows the user to create a MultiConvexMesh Resource to use as the Mesh in a <a class="reference internal" href="../../Physics/Collision/Colliders/MultiConvexMeshCollider.html#manualmulticonvexmeshcollider"><span>MultiConvexMeshCollilder</span></a>. The Editor provides a number of different methods for creating the Mesh allowing the user a great of customizability.</p>
+<div class="section" id="common-uses">
+<h2>Common Uses</h2>
+<ul class="simple">
+<li>Creating a <a class="reference internal" href="../../CodeReference/Reference/MultiConvexMesh.html#_CPPv215MultiConvexMesh" title="MultiConvexMesh"><code class="xref cpp cpp-type docutils literal"><span class="pre">MultiConvexMesh</span></code></a> for complex two-dimensional sprites where precise collision boundaries are needed.</li>
+</ul>
+</div>
+<div class="section" id="using-the-multiconvexmesh-editor">
+<h2>Using the MultiConvexMesh Editor</h2>
+<p>The following section will be split up into two main sections: the In-Editor properties and methods of the MultiConvexMesh Editor and creating a MultiConvexMesh using the Editor.</p>
+<div class="section" id="in-editor-properties-and-methods">
+<h3>In-Editor Properties and Methods</h3>
+<div class="section" id="properties-and-methods-to-the-left-of-the-editor-view">
+<h4>Properties and Methods to the Left of the Editor View</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">MeshThickness</span> <span class="pre">:</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">Real</span></code><ul>
+<li>This property determines the length the Mesh is extended in the z-axis.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">SpriteSource</span> <span class="pre">:</span></code> <a class="reference internal" href="../../CodeReference/Reference/SpriteSource.html#_CPPv212SpriteSource" title="SpriteSource"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteSource</span></code></a><ul>
+<li>This property sets the base SpriteSource that the Mesh is being created for. It is used for reference and Auto-Computing.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">ClearColor</span> <span class="pre">:</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">Real4</span></code><ul>
+<li>The color of the Editor window&#8217;s background.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">OuterContourColor</span> <span class="pre">:</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">Real4</span></code><ul>
+<li>The color of the outer edges (the contour line) of the current shape of the MultiConvexMesh being created.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">DrawMode</span> <span class="pre">:</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">MultiConvexMeshDrawMode</span></code><ul>
+<li>This property sets the DrawMode for the MultiConvexMesh currently being created. Options include:<ul>
+<li>None - Removes all internal coloring</li>
+<li>Edges - Only shows the internal edges of the polygons of the MultiConvexMesh</li>
+<li>Filled - Shows the combined area of the polygons of the MultiConvexMesh</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">AutoComputeMode</span> <span class="pre">:</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">AutoComputeMode</span></code><ul>
+<li>This property sets the mode for auto-computing the MultiConvexMesh. Options include:<ul>
+<li>Alpha - Uses alpha values of the SpriteSource to compute where the vertices for the MultiConvexMesh should be.</li>
+<li>Intensity - Uses the color intensity values (derived from a comparison of RGB values) of the SpriteSource to compute where the vertices for the MultiConvexMesh should be.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">SurfaceLevelThreshold</span> <span class="pre">:</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">Real</span></code><ul>
+<li>This propertysets the value that defines how much the Alpha/Intensity affects the Auto-Compute process. Value ranges from 0.0 - 1.0.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">AutoComputeMethod</span> <span class="pre">:</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">AutoComputeMethod</span></code><ul>
+<li>This property sets the method for auto-computing the MultiConvexMesh. Options include:<ul>
+<li>Pixels - Uses pixel position to the perform the auto-computing process.</li>
+<li>MarchingSquares - Uses the Marching Squares algorithm to perform the auto-computing process.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">SimplificationThreshold</span> <span class="pre">:</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">Real</span></code><ul>
+<li>This property determines how close any vertex can be from another</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">AutoCompute()</span></code><ul>
+<li>This method performs the calculations to generate a MultiConvexMesh based on the parameters defined above.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="properties-and-methods-above-the-editor-view">
+<h4>Properties and Methods Above the Editor View</h4>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">X</span> <span class="pre">:</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">Real</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li>This property sets the X position of the currently selected vertex.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Y</span> <span class="pre">:</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">Real</span></code></p>
+<ul class="simple">
+<li>This property sets the Y position of the currently selected vertex.</li>
+</ul>
+</li>
+<li><p class="first"><img alt="MultiConvexMeshGrid" src="../../../_images/MultiConvexMeshGrid.png" /></p>
+<ul class="simple">
+<li>This property toggles the grid and determines the size of each grid square</li>
+</ul>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">SetGridSizeToPixels()</span></code></p>
+<ul class="simple">
+<li>This method sets the grid size to be the same as the pixels of the current SpriteSource</li>
+</ul>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Snapping</span></code></p>
+<ul class="simple">
+<li>This property defines whether or not a selected vertex will snap to the closest grid vertex. Options include:<ul>
+<li>None - The selected vertex will not snap to a grid vertex</li>
+<li>IfClose - The selected vertex will only snap to a grid vertex if it is close enough to that the grid vertex</li>
+<li>Always - The selected vertex will always snap to the closest grid vertex</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Using the MultiConvexMesh Editor</h3>
+<div class="section" id="adding-a-multiconvexmesh-resource">
+<h4>Adding a MultiConvexMesh Resource</h4>
+<p>To add a new MultiConvexMesh Resource, use the <a class="reference internal" href="../EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add Resource</span></a> window.</p>
+<p>When the Resource is created, the MultiConvexMesh Editor window will automatically open, like so:</p>
+<p><img alt="AddMultiConvexMeshResource" src="../../../_images/AddMultiConvexMeshResource.gif" /></p>
+</div>
+<div class="section" id="editing-the-multiconvexmesh-resource">
+<h4>Editing the MultiConvexMesh Resource</h4>
+<p>The first thing one needs when making a new MultiConvexMesh is a SpriteSource to use as the base onto which the Mesh is created. To show how the Editor parameters may be used to customize the Mesh, the following SpriteSource will be used:</p>
+<p><img alt="OJSprite" src="../../../_images/OJSprite.png" /></p>
+<p>This particular SpriteSource has a very high resolution, so when it is selected as the base SpriteSource, the grid properties will need to be adjusted to see the entire image, like so:</p>
+<p><img alt="SetSpriteSource" src="../../../_images/SetSpriteSource.gif" /></p>
+<p>With the rest of the parameters still set to their default value, the MultiConvexMesh that will be created looks like this:</p>
+<p><img alt="DefaultParams" src="../../../_images/DefaultParams.png" /></p>
+<p>As can be seen, the entire glass is covered and about half of the shadow projected by the glass. To include the rest of the shadow within the Mesh, the property to change is <code class="docutils literal"><span class="pre">SurfaceThreshold</span></code>. As the value of <code class="docutils literal"><span class="pre">SurfaceThreshold</span></code> is lowered&#8211;and <code class="docutils literal"><span class="pre">Alpha</span></code> is selcted as the <code class="docutils literal"><span class="pre">AutoComputeMode</span></code>&#8211;other parts of the SpriteSource that have a lower alpha value will be included, as seen here:</p>
+<p><img alt="ChangingThreshold" src="../../../_images/ChangingThreshold.gif" /></p>
+<p>Now the entire shadow has been included in the resulting Mesh. As can be seen in the following demonstration, when using the MultiConvexMesh just created as the Mesh for the <span class="xref std std-ref">MultiConvexMeshCollider</span>, it does provide collision along the boundaries auto-computed by the Editor:</p>
+<p><img alt="MultiConvexMeshDemo" src="../../../_images/MultiConvexMeshDemo.gif" /></p>
+</div>
+</div>
+</div>
+<div class="section" id="relevant-material">
+<h2>Relevant Material</h2>
+<div class="section" id="manual">
+<h3>Manual</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../Physics/Collision/Colliders/MultiConvexMeshCollider.html#manualmulticonvexmeshcollider"><span>MultiConvexMeshCollilder</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SpriteSourceEditor.html" class="btn btn-neutral float-right" title="Sprite Source Editor" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="HeightMapTool.html" class="btn btn-neutral" title="HeightMapTool" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Editor/Tools/MultiConvexMeshEditor.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:14:13 GMT -->
+</html>

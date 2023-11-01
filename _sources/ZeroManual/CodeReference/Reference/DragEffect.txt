@@ -1,0 +1,94 @@
+.. _ReferenceDragEffect:
+
+.. rst-class:: searchtitle
+
+DragEffect
+==========
+
+.. rst-class:: searchdescription
+
+Applies a drag acceleration(damping) to slow down an object's linear and angular velocity. Note that this is an acceleration not a force so mass doesn't apply. Otherwise this uses a simple linear approximation of drag.
+
+.. include:: Description/DragEffect.rst
+
+.. cpp:class:: DragEffect
+
+    Base Class: :cpp:type:`PhysicsEffect`
+
+.. _ReferenceDragEffectProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DragEffect::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space DragEffect::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DragEffect::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession DragEffect::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DragEffect::Active
+
+            Enable/disable this effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DragEffect::WakeUpOnChange
+
+            Whether the object associated with this is woken up when any property is changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EffectType::Enum DragEffect::EffectType
+
+            What kind of effect this is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real DragEffect::Drag
+
+            The linear drag coefficient for applying a linear drag acceleration(linear damping). The simple equation is: accel=-bv.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real DragEffect::AngularDrag
+
+            The angular drag coefficient for applying an angular drag acceleration(angular damping). The simple equation is: accel=-kw.
+
+.. _ReferenceDragEffectMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DragEffect::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DragEffect::Toggle()
+
+            Toggles whether or not this effect is active.
+
+.. include:: Remarks/DragEffect.rst

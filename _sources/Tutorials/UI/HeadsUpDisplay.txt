@@ -1,0 +1,983 @@
+.. _TutorialHeadsUpDisplay:
+
+.. rst-class:: SearchTitle
+
+Heads Up Display
+================
+
+.. rst-class:: SearchDescription
+
+This lesson explains the basics of creating a head's up display in the Zero Engine by creating and manipulating two different spaces.
+
+.. rst-class:: VocabSection
+
+Learning Objectives
+-------------------
+
+*   To gain a deeper understanding of Spaces and how they interact between each other; specifically, the interaction between the "game space" and the "HUD space".
+
+*   Learn how to reference objects in different spaces so that their components--and the properties and functions within them--may be accessed and called.
+
+.. _TutorialHeadsUpDisplayVocab:
+
++----------------+------------------------+
+| Vocabulary                              |
++================+========================+
+| UI             | HUD (Heads Up Display) |
++----------------+------------------------+
+| Area           | Space                  |
++----------------+------------------------+
+| CameraViewport |                        |
++----------------+------------------------+
+
+Create a New Project
+--------------------
+
+:ref:`Create a new 2D Project<LauncherNewProjectTab>`
+
+Level Setup
+-----------
+
+* :ref:`Select LevelSettings <ManualSelectObject>`
+* In the Properties Window
+  
+  * Under ForwardRenderer
+    
+    * Set ClearColor to: ``[R: 0, G: 0, B: 0, A: 1.00]``, ``#000000``
+    
+* :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+    
+It should look like this:
+
+|BlackLevel|
+
+*Note that the Level tab says Level:Level.*
+
+* :ref:`Stop the Game <ManualStopGame>`
+
+Adding the Player
+^^^^^^^^^^^^^^^^^
+
+The only :cpp:type:`Sprite` we'll be adding to this level is for the player. Instead of making the player a square or circle, let's use The Void to pick out a :cpp:type:`SpriteSource` to use.
+
+*   :ref:`Download the "PickUpItems" SpriteSource package from The Void<ManualUsingTheVoid>`
+
+*   :ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+*   In the Properties Window
+
+    *   Set Name to: Player
+    
+    *   Under Sprite
+    
+        *   Set SpriteSource to: Any one of the objects in the drop-down list. For the example project in this lesson, I'll be using: ``Broccoli``
+        
+    *   :ref:`Add the Area component<ManualAddRemoveComponents>`
+    
+    *   Under Area
+    
+        *   Set Size to: ``[10, 10]``
+
+* :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+|PlayerInLevel|
+
+Adding the HUD Level
+^^^^^^^^^^^^^^^^^^^^
+
+Now let's add a new level for our Heads Up Display.        
+
+* :ref:`Add a new Level resource<ManualResourceAdding>` named: ``HUDLevel``
+
+* :ref:`Select LevelSettings <ManualSelectObject>`
+* In the Properties Window
+  
+  * Under ForwardRenderer
+
+    * Set ClearColor to: ``[R: 0, G: 255, B: 0, A: 1.00]``, ``#00FF00``
+
+  * Under CameraViewport
+    
+    * Set Layer to: ``1``
+    
+Creating the HUD Elements
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For our HUD, we'll need a few things: a :cpp:type:`Sprite` for the player's health bar, a :cpp:type:`SpriteText` to display the player's current health, a :cpp:type:`Sprite` to act as a button, and one more :cpp:type:`SpriteText` to label the button.
+
+We'll also need to download one more asset package from The Void. Let's do that first.
+
+*   :ref:`Download the "BasicUI" SpriteSource package from The Void<ManualUsingTheVoid>`
+
+**The Health Bar**
+  
+*   :ref:`Command<ManualCommands>`: ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+*   In the Properties Window
+  
+    *   Set Name to: ``HealthBar``
+    
+    *   Under Sprite
+
+        *   Set Color to: ``[R: 255, G: 0, B: 0, A: 1.00]`` , ``#FF0000``
+        
+    *   :ref:`Add an Area Component <ManualAddRemoveComponents>`
+    
+    *   Under Area
+  
+        *   Set Size to: ``[8.0, 0.75]``
+        
+**The Player's Health**
+
+*   :ref:`Command<ManualCommands>`: ``CreateSpriteText`` or :menuselection:`Create --> Create SpriteText`
+
+*   In the Properties window
+
+    *   Set Name to: HealthText
+    
+    *   Under SpriteText
+    
+        *   Set FontSize to: ``80``
+        
+        *   Set Text to: ``Health:``
+        
+        *   Set Align to: ``Center``
+        
+    *   :ref:`Add an Area Component <ManualAddRemoveComponents>`
+    
+    *   Under Area
+  
+        *   Set Size to: ``[8, 2]``
+        
+**The Button**
+
+*   :ref:`Command<ManualCommands>`: ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+*   In the Properties Window
+  
+    *   Set Name to: ``RestartButton``
+    
+    *   Under Transform
+    
+        *   Set Translation to: ``[0, -5, 0]``
+    
+    *   Under Sprite
+    
+        *   Set Visible to: ``false``
+    
+        *   Set Color to: ``[R: 0, G: 0, B: 255, A: 1.00]`` , ``#0000FF``
+        
+        *   Set SpriteSource to: ``Button5``
+        
+        *   :ref:`Add a Reactive Component <ManualAddRemoveComponents>`
+        
+        *   :ref:`Add an Area Component <ManualAddRemoveComponents>`
+    
+        *   Under Area
+      
+            *   Set Size to: ``[10, 2]``
+           
+**The Button Label**
+
+*   :ref:`Command<ManualCommands>`: ``CreateSpriteText`` or :menuselection:`Create --> Create SpriteText`
+
+*   In the Objects window
+
+    *   :ref:`Parent the newly created SpriteText object to the RestartButton object<TutorialObjectHierarchies>`
+
+*   In the Properties window
+
+    *   Set Name to: RestartText
+    
+    *   Under Transform
+    
+        *   Set Translation to: ``[0, -5, 0]``
+    
+    *   Under SpriteText
+    
+        *   Set Visible to: ``false``
+    
+        *   Set FontSize to: ``50``
+        
+        *   Set Text to: ``Restart the Game?``
+        
+        *   Set Align to: ``Center``
+        
+    *   :ref:`Add an Area Component <ManualAddRemoveComponents>`
+    
+    *   Under Area
+  
+        *   Set Size to: ``[9, 1]``
+
+*   :ref:`Save your project <ManualSavingProject>`          
+    
+The HUDLevel window should look like this:
+
+|HUDSpritesAndText|
+
+And that's all for the level setup. Everything else will come from creating the components to make these pieces work together.
+
+
+
+Making a Head's Up Display
+--------------------------
+
+In order to create our head's up display, we are going to render one level over the other. Spaces can only have one level loaded at a time, so to make this happen we need to make our own space. The only way to make our own space is through code, so we'll need to make a new component to create the space for the HUD.
+
+* :ref:`Add a new ZilchScript resource<ManualResourceAdding>` named: ``HUDCreator``
+
+* In the **HUDCreator** script
+
+  * Update the **HUDCreator** class with the following code:
+
+.. code-block:: csharp
+     
+  class HUDCreator : ZilchComponent
+  {
+    // The level that our HUD is contained within
+    [Property]
+    var HUDLevel : Level = null;
+    
+    //The space archetype from which to create the new HUD space
+    [Property]
+    var SpaceArchetype : Archetype = Archetype.Find("Space");
+    
+    //Reference to the Player object
+    [Property]
+    var PlayerRef : CogPath = null;
+    
+    // Store the space where our HUD is so that we can access and destroy it
+    var HUDSpace : Space = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        // Create the HUD space and then load our HUD level into it
+        this.HUDSpace = this.GameSession.CreateNamedSpace("HUDSpace", this.SpaceArchetype);
+        
+        //Load the level specified in the HUDLevel Property above
+        this.HUDSpace.LoadLevel(this.HUDLevel);
+    }
+    
+    function Destroyed()
+    {
+        // Make sure to clean up the HUD space when we get destroyed
+        if(this.HUDSpace != null)
+        {
+            this.HUDSpace.Destroy();
+        }
+    }
+  }
+
+*   :ref:`Save the project <ManualSavingProject>`
+
+
+
+*   In the Library window
+
+    *   Under Level
+    
+        *   Select and open ``Level``
+        
+*   In the Objects window
+
+    * :ref:`Select LevelSettings <ManualSelectObject>`
+
+*   In the Properties window
+  
+    *   :ref:`Add the HUDCreator Component <ManualAddRemoveComponents>`
+    
+    *   Under HUDCreator
+  
+        *   Set HUDLevel to: ``HUDLevel``
+        
+        *   Set PlayerRef by: :ref:`choosing the Player object<TutorialCogPaths>` or typing ``:/Player`` into the text field
+
+* :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+Having set our HUDLevel's layer during the Level Setup to 1, we ensured it would render on top of our game. Unfortunately, our HUDLevel *completely* hides our game:
+
+|HUDEclipse|
+
+* :ref:`Stop the Game <ManualStopGame>`
+
+
+
+Transparent Background
+----------------------
+
+In order to make our game visible under the HUD level we need to make the HUD level not render its background.
+
+*   In the Library Window
+
+    *   Under Level
+  
+        *   Select and open ``HUDLevel``
+
+*   In the Objects window
+        
+    *   :ref:`Select the LevelSettings object <ManualSelectObject>`
+    
+*   In the Properties Window
+  
+    *   Under CameraViewport
+  
+        *   Set Background to: ``False``
+
+*   In the Library Window
+
+    *   Under Level
+  
+        *   Select and open ``Level``
+    
+* :ref:`Save the project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+|GoodHUD|
+
+Now we have the HUD displaying against our game level.
+
+* :ref:`Stop the Game <ManualStopGame>`
+
+Interacting with the Head's Up Display
+--------------------------------------
+
+References from the HUD Space
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In order to access objects in the head's up display we have to ensure we are looking in the correct space. To do this, we're going to write a couple of new components. The first one will contain no logic, but only variables so that we can access certain objects from the game space.
+
+
+
+*   :ref:`Add a new ZilchScript resource<ManualResourceAdding>` named: ``HUDSpaceReferences``
+
+*   Update the ``HUDSpaceReferences`` class with the following code:
+  
+.. code-block:: csharp
+     
+  class HUDSpaceReferences : ZilchComponent
+  {
+    //Variable to hold the reference to the main space
+    //Set in HUDCreator component
+    var MainSpaceRef : Space = null;
+    
+    //Reference to Health Bar object
+    [Property]
+    var HealthBarRef : CogPath = null;
+    
+    //Reference to the Health SpriteText object
+    [Property]
+    var HealthTextRef : CogPath = null;
+    
+    //Reference to the Restart button object
+    [Property]
+    var RestartButtonRef : CogPath = null;
+    
+    //Reference to the Restart SpriteText object
+    [Property]
+    var RestartTextRef : CogPath = null;
+  }
+
+The first variable, ``MainSpaceRef``, cannot be set from inside the HUD space, so we need to set it in a component inside the game space. We can do this very simply in our ``HUDCreator`` component.
+
+*   In the ``HUDCreator`` ZilchScript, replace the following:
+
+.. code-block:: csharp
+
+  function Initialize(init : CogInitializer)
+  {
+    // Create the HUD space and then load our HUD level into it
+    this.HUDSpace = this.GameSession.CreateNamedSpace("HUDSpace", this.SpaceArchetype);
+    
+    //Load the level specified in the HUDLevel Property above
+    this.HUDSpace.LoadLevel(this.HUDLevel);
+  }
+
+with this:
+
+.. code-block:: csharp
+ :emphasize-lines: 9
+ 
+  function Initialize(init : CogInitializer)
+  {
+    // Create the HUD space and then load our HUD level into it
+    this.HUDSpace = this.GameSession.CreateNamedSpace("HUDSpace", this.SpaceArchetype);
+    
+    //Load the level specified in the HUDLevel Property above
+    this.HUDSpace.LoadLevel(this.HUDLevel);
+    
+    this.HUDSpace.LevelSettings.HUDSpaceReferences.MainSpaceRef = this.Space;
+  }
+
+*   :ref:`Save the project <ManualSavingProject>`
+
+
+
+Now let's attach the new component and set the values of all the variables that have the Property attribute
+
+*   In the Library window
+
+    *   Under Level
+    
+        *   Select and open ``HUDLevel``
+        
+*   In the Objects window
+
+    *   :ref:`Select the LevelSettings object <ManualSelectObject>`
+    
+*   In the Properties Window
+  
+    *   :ref:`Add the HUDSpaceReferences Component <ManualAddRemoveComponents>`
+    
+    *   Under HUDSpaceReferences
+    
+        *   Set HealthBarRef by: :ref:`choosing the HealthBar object<TutorialCogPaths>` or typing ``:/HealthBar`` into the text field
+        
+        *   Set HealthTextRef by: :ref:`choosing the HealthText object<TutorialCogPaths>` or typing ``:/HealthText`` into the text field
+        
+        *   Set RestartButtonRef by: :ref:`choosing the RestartButton object<TutorialCogPaths>` or typing ``:/RestartButton`` into the text field
+        
+        *   Set RestartTextRef by: :ref:`choosing the RestartText object<TutorialCogPaths>` or typing ``:/RestartButton/RestartText`` into the text field
+
+
+* :ref:`Save the project <ManualSavingProject>` 
+
+By itself, this component does nothing, but it does setup some very important references to the objects in our HUD. Let's start interacting with those objects by creating our next component.
+
+Changing the Player's Health
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We want to make a small, interactive game so we can see the HUD updating according to changing conditions in the game. Given what we've setup so far, let's make a game where the player can decrease or increase the player's health by hitting the left and right arrow keys, respectively (it may not be much of a game, but it's something we can work with in the interests of time and space).
+
+As this component will be rather large, let's attack it in pieces, covering the initial variables and ``Initialize()`` function first.
+
+.. Warning:: Incomplete Code Ahead
+
+  The following code-block **is not** the entire code-block for the ``PlayerHealth`` component. If you cut and paste this code in and try to run it, it will not compile. Before saving and compiling, keep reading through the tutorial until you reach the next code-block. Once you add the code found there to the script, it should save and compile properly. 
+
+
+
+*   :ref:`Add a new ZilchScript resource<ManualResourceAdding>` named: ``PlayerHealth``
+
+*   Update the ``PlayerHealth`` class with the following code:
+
+.. code-block:: csharp
+
+  class PlayerHealth : ZilchComponent
+  {
+    //The total health of the player at any given time
+    [Property]
+    var Health : Real = 100.0;
+    
+    //Real that stores the health the player starts with
+    var StartHealth : Real = 0.0;
+    
+    //Stores the percentage of max health the player has
+    var HealthPercentage : Real = 0.0;
+    
+    //Real2 that stores the player's initial size
+    var StartSize : Real2 = Real2();
+    
+    //Real by which to increment or decrement the Player's health
+    [Property]
+    var HealthScalar : Real = 0.0;
+    
+    //Reference to HUDSpace
+    var HUDSpace : Space = null;
+    
+    //References to the HealthBar, HealthText, Restart Button, and
+    //Restart Text objects in the HUD Space
+    var HealthBar : Cog = null;
+    var HealthText : Cog = null;
+    var RestartButton : Cog = null;
+    var RestartText : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+      //Set StartHealth to the full amount of Health when game starts
+      this.StartHealth = this.Health;
+      
+      //Sets players start size to it's size at the start of the game
+      this.StartSize = this.Owner.Area.Size;
+      
+      //Reference to the HUDSpace
+      this.HUDSpace = this.Space.LevelSettings.HUDCreator.HUDSpace;
+      //Reference to the SpaceReferences component
+      var hudSpaceRefs = this.HUDSpace.LevelSettings.HUDSpaceReferences;
+      
+      //Reference to the HealthBar,HealthText,RestartButton,and
+      //RestartText objects
+      this.HealthBar = hudSpaceRefs.HealthBarRef.Cog;
+      this.HealthText = hudSpaceRefs.HealthTextRef.Cog;
+      this.RestartButton = hudSpaceRefs.RestartButtonRef.Cog;
+      this.RestartText = hudSpaceRefs.RestartTextRef.Cog;
+      
+      //Connect to the KeyDown event
+      Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    }
+
+
+
+Our initial variable is for the player's health, which has the Property attribute so that it can be set to whatever value you like within the Property window once the component has been attached to the player. The second variable stores the health at the start of the game so we can use it to derive the player's current health percentage, which happens to be the next variable, at any given time in the game. Following that we have the starting size of the player defined as a :cpp:type:`Real2`. This is because the ``Size`` property of the ``Area`` component is a :cpp:type:`Real2`; should we wish to update it, we'll need to provide the entire :cpp:type:`Real2`.
+
+The next variable, ``HealthScalar``, which also has the Property attribute, will let us set how much to decrease or increase the player's health on every left or right arrow press. Then we have a reference to the HUDSpace, similar to how we have a reference to the Main space in the ``HUDSpaceReferences`` component. Finally, we have variables to hold references to the four objects we made ``CogPath`` variables for in the ``HUDSpaceReferences`` component.
+
+In the ``Initialize()`` function, we set ``StartHealth`` to the value of ``Health`` and ``StartSize`` to the value of the player's Area component's ``Size`` property. We set the HUDSpace reference to the ``HUDSpace`` we created in our ``HUDCreator`` component. Then we need to create a new variable to reference the ``HUDSpaceReferences`` component itself so that we can set the references for the four ``HUDLevel`` objects. Finally, as we are going to be using the arrow keys to change the player's health, we connect to the ``KeyDown`` event.
+
+Let's keep filling out our component by adding the ``OnKeyDown()`` response function and a function to change the player's size.
+
+
+
+*   Add the following code to the ``PlayerHealth`` class after the ``Initialize()`` function:
+
+.. code-block:: csharp
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+      //Make sure the Player has not already been destroyed
+      if(this.Owner != null)
+      {
+        if(event.Key == Keys.Right) //If the Right arrow is pressed...
+        {
+          //If the Player's health is between 0 and 100
+          if(this.Health < 100 && this.Health > 0)
+          {
+            //Increment the Player's health by the value of HealthScalar
+            this.Health += this.HealthScalar;
+          }
+        }
+        if(event.Key == Keys.Left) //If the Left arrow is pressed...
+        {
+          //If the player's health is greater than 0
+          if(this.Health > 0)
+          {
+            //Decrement the Player's health by the value of HealthScalar
+            this.Health -= this.HealthScalar;
+          }
+        }
+        
+        //Current percentage (a Real from 0 - 1) of StartHealth
+        this.HealthPercentage = this.Health / this.StartHealth;
+        
+        //Calls function to change the Player object's size
+        this.ChangePlayerSize();
+        
+        //Calls function to change the Health Bar's size
+        //this.HealthBar.ChangeHealth.ChangeHealthBar(this.HealthPercentage);
+        
+        //Calls function to change the Health SpriteText's size
+        //this.HealthBar.ChangeHealth.ChangeHealthText(this.Health);
+        
+        //If the player's health reaches zero...
+        if(this.Health <= 0)
+        {
+          //Make player object invisible
+          this.Owner.Sprite.Visible = false;
+          
+          //Make HUD objects visible
+          this.RestartButton.Sprite.Visible = true;
+          this.RestartText.SpriteText.Visible = true;
+        }
+      }
+    }
+
+    function ChangePlayerSize()
+    {
+      //Get new player size
+      var newPlayerSize : Real2 = this.StartSize * this.HealthPercentage;
+      //Sets the Player's size to this new size
+      this.Owner.Area.Size = newPlayerSize;
+    }  
+  }
+  
+The first part of the ``OnKeyDown()`` function is pretty straightforward. We're just checking to see if either the left or right arrow key has been pressed, and if one of them has, either decrease (if it's the left key) or increase (if it's the right key) the player's health, as long as the player's health is still in between 0 and 100. We then set the current ``HealthPercentage`` as the result of the player's current health divided by it's starting health. We then make a call to a function directly below the one we're in that will change the size of our player object.
+
+We then makes calls to two functions on a component we haven't seen yet (which is why they are currently commented out) that will change the player's health bar to represent the current health percentage and change the health text to show the numerical value of the player's current health. Finally, we check to see if the player's health has reached zero or below, and if it has, we make the player's :cpp:type:`Sprite` invisible and make the Restart button and text objects in the HUD visible.
+
+In the ``ChangePlayerSize()`` function, we create a new variable to store the new player size that's set by multiplying the start size by the current health percentage. We then set the ``Size`` property on the player's ``Area`` component to that new size, causing the player :cpp:type:`Sprite` to grow and shrink as we increase and decrease its health.
+
+Let's stop there for now and attach this component to the player object.
+
+*   In the Library window
+
+    *   Under Level
+    
+        *   Select and open ``Level``
+        
+*   In the Objects window
+
+    *   :ref:`Select the Player object <ManualSelectObject>`
+    
+*   In the Properties window
+
+    *   :ref:`Add the PlayerHealth Component <ManualAddRemoveComponents>`
+    
+    *   Under PlayerHealth
+    
+        *   Set Health to: ``100``
+        
+        *   Set HealthScalar to: ``10``
+        
+Before we can run the game and start changing the values of the objects on the HUD, we need to make one more component that will control the properties of those objects.
+
+
+
+Sending Information to the HUD
+------------------------------
+
+While we now have all the values we need to change our HUD objects, we have no way of interacting with them yet. Here is where our next component, ``ChangeHealth``, comes in.
+
+*   :ref:`Add a new ZilchScript resource<ManualResourceAdding>` named: ``ChangeHealth``
+
+*   Update the ``ChangeHealth`` class with the following code:
+
+.. code-block:: csharp
+
+  class ChangeHealth : ZilchComponent
+  {
+    //The start size of the Health bar
+    var HealthBarStartSize : Real = 0;
+    
+    //Reference to the Health SpriteText
+    [Property]
+    var HealthTextPath : CogPath = null;
+    
+    //Real3 to offset of the HealthBar from the Player
+    [Property]
+    var HealthBarOffset : Real3 = Real3();
+    
+    //Real3 to offset the Health SpriteText from the Player
+    [Property]
+    var HealthTextOffset : Real3 = Real3();
+    
+    function Initialize(init : CogInitializer)
+    {
+      //Sets start size of health bar to the x-axis size of the health bar
+      this.HealthBarStartSize = this.Owner.Area.Size.X;
+      
+      //Offsets the Health bar according to value set in the Property above
+      this.Owner.Transform.Translation += this.HealthBarOffset;
+      
+      //Offsets the Health SpriteText according to the value set in the Property above
+      this.HealthTextPath.Cog.Transform.Translation += this.HealthTextOffset;
+    }
+    
+    //Function to change the size of the health bar based on the
+    //change in health percentage being passed in
+    function ChangeHealthBar(healthPercentage : Real)
+    {
+      //Create the new x-axis value of the Area's size of the Health Bar by
+      //multiplying the healthPercentage value by the bar's start size
+      var healthBarNewSize = healthPercentage * this.HealthBarStartSize;
+      
+      //Set the Health Bar's size to the new size
+      this.Owner.Area.Size = Real2(healthBarNewSize, this.Owner.Area.Size.Y);
+    }
+    
+    //Function to the change the Health SpriteText based on the player's
+    //current health that's being passed in
+    function ChangeHealthText(health : Real)
+    {
+      //Update the Health SpriteText text property with the current player health 
+      this.HealthTextPath.Cog.SpriteText.Text = "Health: `health`";
+    }
+  }
+  
+In short, all we're doing here is gaining access to a couple of objects, the health bar and the health text, and changing them to reflect the current state of the player's health. You may have noticed that there's only a :cpp:type:`CogPath` variable for the health text. That's because we'll be attaching this component directly onto to the health bar itself and can access its components through the ``this.Owner`` syntax.
+
+In our ``Initialize()`` function, besides getting the x-axis (or horizontal in our case) start size of the health bar, we're offsetting both the health bar and the health text by the values of variables with Property attributes, meaning we'll set them in the Property window once we attach the component. In the ``ChangeHealthBar()`` function, we take the player's current health percentage as an argument and use it to find the new size of the health bar by multiplying the the health bar's start size by that percentage. We then simply update the "Size" property of the health bar's ``Area`` component, much like we did with the player's :cpp:type:`Sprite`. Finally, the ``ChangeHealthText()`` function takes in the player's current health as an argument and then updates the "Text" property of the health text's ``SpriteText`` component.
+
+Now that we have that explained, let's hook it up and see if it all works.
+
+Attaching the ChangeHealth Component
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*   In the Library window
+
+    *   Under Level
+    
+        *   Select and choose "HUDLevel"
+        
+*   In the Objects window
+
+    *   :ref:`Select the HealthBar object <ManualSelectObject>`
+    
+*   In the Properties window
+
+    *   :ref:`Add the ChangeHealth Component <ManualAddRemoveComponents>`
+    
+    *   Under ChangeHealth
+    
+        *   Set HealthTextpath by: :ref:`choosing the HealthText object<TutorialCogPaths>` or typing ``:/HealthText`` into the text field 
+        
+        *   Set HealthBarOffset to: ``[0, 5, 0]``
+        
+        *   Set HealthTextOffset to: ``[0, 7, 0]``
+        
+Now all we need to do is uncomment those two lines of code in the ``PlayerHealth`` component and we should be set.
+
+*   In the ``PlayerHealth`` ZilchScript, replace the following:
+
+.. code-block:: csharp
+
+  //Calls function to change the Health Bar's size
+  //this.HealthBar.ChangeHealth.ChangeHealthBar(this.HealthPercentage);
+  
+  //Calls function to change the Health SpriteText's size
+  //this.HealthBar.ChangeHealth.ChangeHealthText(this.Health);
+  
+with this:
+
+.. code-block:: csharp
+ :emphasize-lines: 2, 5
+
+  //Calls function to change the Health Bar's size
+  this.HealthBar.ChangeHealth.ChangeHealthBar(this.HealthPercentage);
+  
+  //Calls function to change the Health SpriteText's size
+  this.HealthBar.ChangeHealth.ChangeHealthText(this.Health);
+        
+*   Return to the level named ``Level``
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+You should be able to change the player's health by pressing the left and right arrows, causing the player sprite and health bar to decrease and increase in size and the health text to reflect the current health.
+
+|HUDUpdating|
+
+Now, if you happened to take your player's health all the way down to zero, you probably saw that everything disappeared and our restart the game button appeared. Well, providing the functionality for that button will be the last part of this project.
+
+Sending Information Back to the Game
+------------------------------------
+
+Our restart button appears in the HUD only when the player has run out of health. By clicking on that button, we want to effectively restart the game at the same place we started it at. The first thing we'll need is a component that checks for mouse events and updates the button accordingly. The component we're about to make should hopefully look quite familiar after doing the :ref:`User Interface<TutorialUserInterface>` lesson.
+
+*   :ref:`Add a new ZilchScript resource<ManualResourceAdding>` named: ``Button``
+
+*   Update the ``Button`` class with the following code:
+
+.. code-block:: csharp
+
+  class Button : ZilchComponent
+  {
+    //Reference for the Player
+    var Player : Cog = null;
+    
+    //Reference for the main space
+    var MainSpace : Space = null;
+    
+    //The Reactive component is required for this component
+    [Dependency] 
+    var Reactive : Reactive = null;
+    
+    //The default sprite when the button is not hovered over or selected
+    [Property] 
+    var DefaultSprite : SpriteSource = null;
+    
+    //Color for the Default Sprite
+    [Property]
+    var DefaultColor : Real4 = Real4(0,0,0,0);
+    
+    //The sprite to use when hovering over the button with mouse
+    [Property]
+    var HoveredSprite : SpriteSource = null;
+    
+    //Color for the Hovered Sprite
+    [Property]
+    var HoveredColor : Real4 = Real4(0,0,0,0);
+    
+    //The sprite source to use when the button is clicked
+    [Property] 
+    var ClickedSprite : SpriteSource = null;
+    
+    //Reference to restart sprite text object
+    [Property]
+    var ButtonTextPath : CogPath = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+      //Connecting to all the mouse events to use in the UI
+      Zero.Connect(this.Owner, Events.MouseEnter, this.OnMouseEnter);
+      Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);
+      Zero.Connect(this.Owner, Events.MouseDown, this.OnMouseDown);
+    }
+    //Responds to the mouse entering the boundaries of the button
+    function OnMouseEnter(event : ViewportMouseEvent)
+    {
+      this.HoveredState();
+    }
+    //Responds to the mouse exiting the boundaries of the button
+    function OnMouseExit(event : ViewportMouseEvent)
+    {
+      this.DefaultState();
+    }
+    //Responds to the clicking of a button on the mouse
+    function OnMouseDown(event : ViewportMouseEvent)
+    {
+      this.ClickedState();
+    }
+    
+    //Returns button to its default sprite source
+    function DefaultState()
+    {
+      this.Owner.Sprite.SpriteSource = this.DefaultSprite;
+      this.Owner.Sprite.Color = this.DefaultColor;
+    }
+    
+    //Changes button's sprite source to the value of HoveredSprite
+    function HoveredState()
+    {
+      this.Owner.Sprite.SpriteSource = this.HoveredSprite;
+      this.Owner.Sprite.Color = this.HoveredColor;
+    }
+    
+    //Changes button's sprite source to the value of ClickedSprite,
+    //restarts the game, and sets visibility properties
+    function ClickedState()
+    {
+      this.Owner.Sprite.SpriteSource = this.ClickedSprite;
+      
+      //Accessing the main space
+      this.MainSpace = this.LevelSettings.HUDSpaceReferences.MainSpaceRef;
+      
+      //Getting reference to the Player from the main space
+      this.Player = this.MainSpace.LevelSettings.HUDCreator.PlayerRef.Cog;
+      
+      //Calling the restart function on Player's PlayerHealth component,
+      //which restarts the game
+      this.Player.PlayerHealth.Restart();
+      
+      //Set button and text visibility to false
+      this.Owner.Sprite.Visible = false;
+      this.ButtonTextPath.Cog.SpriteText.Visible = false;
+    }
+  }
+  
+Given that the majority of this script is identical to one we used in the previous project, I'll mention just a couple of things. In the ``ClickedState()`` function, we first get a reference to the main (or game) space and then immediately get a reference to the player through that space reference. Then we call a function inside our ``PlayerHealth`` component that we've yet to write called ``Restart()``. Finally, we make the button and the button label invisible again.
+
+Let's add that last function to our ``PlayerHealth`` component now.
+
+*   In the ``PlayerHealth`` ZilchScript, add the following directly after the ``ChangePlayerSize()`` function:
+
+.. code-block:: csharp
+
+  //Function that is called when user hits the Restart Game button
+  function Restart()
+  {
+    //Health returned to its original value
+    this.Health = this.StartHealth;
+    
+    //Player object's visibility set to true
+    this.Owner.Sprite.Visible = true;
+    
+    //Resets the Player's original size
+    this.Owner.Area.Size = this.StartSize;
+    
+    //Calls function to change the Health Bar back to full health
+    //(by passing in a 1 or 100% health percentage value)
+    this.HealthBar.ChangeHealth.ChangeHealthBar(1);
+    
+    //Updates Health SpriteText to the reset Health value
+    this.HealthBar.ChangeHealth.ChangeHealthText(this.Health);
+  }
+
+*   Make sure you haven't written code past the last curly brace that closes the ``PlayerHealth`` class or the script won't compile.
+
+All this function does is reset the values for all of the major objects in play. The player's health is returned to its starting health, its :cpp:type:`Sprite` is set to visible again, and its size is returned to its original start size. On the HUD, the health bar's size is reset to it's starting value by effectively passing in a health percentage of 100%, while the the health text is reset by updating it's text with the player's current health, which was just reset back to its original starting health.
+
+Now all that's left to do is to attach the ``Button`` component to our button!
+
+
+
+Attaching the Button Component
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*   In the Library window
+
+    *   Under Level
+    
+        *   Select and choose ``HUDLevel``
+        
+*   In the Objects window
+
+    *   :ref:`Select the RestartButton object <ManualSelectObject>`
+    
+*   In the Properties window
+
+    *   :ref:`Add the Button Component <ManualAddRemoveComponents>`
+    
+    *   Under Button
+    
+        *   Set DefaultSprite to: ``Button5``
+        
+        *   Set DefaultColor to: ``[R; 0, G: 0, B: 255, A: 1.00]`` , ``#0000FF``
+        
+        *   Set HoveredSprite to: ``Button4``
+        
+        *   Set HoveredColor to: ``[R; 0, G; 0, B: 125, A: 1.00]`` , ``#00007D``
+        
+        *   Set ClickedSprite to: ``Button3``
+        
+        *   Set ButtonTextPath by: :ref:`choosing the RestartText object<TutorialCogPaths>` or typing ``:/RestartText`` into the text field
+        
+*   Return to the level named ``Level``
+
+*   :ref:`Save your project <ManualSavingProject>` and :ref:`run the game <ManualRunTheGame>`
+
+Now when the player's health hits zero, use the mouse to click on the restart button and you should see the game reset back to its original state. Now you've learned how to create a HUD space and level and how to send information back and forth between the game space and the HUD space.
+
+|FinalHUD|
+
+
+On Your Own
+-----------
+
+**Novice**
+
+*   Add an extra button to the level allowing the player to restart the game at any time instead of just at the end.
+
+**Intermediate**
+
+*   Integrate this level into the User Interface menu project as the "Game Level"
+
+**Advanced**
+
+*   Turn the game into a two-player game complete with controls, Sprites, and HUDs for both players. 
+
+Related Materials
+-----------------
+
+Manual Pages
+^^^^^^^^^^^^
+
+*   :ref:`Using The Void<ManualUsingTheVoid>`
+*   :ref:`Commands<ManualCommands>`
+*   :ref:`Selecting Objects<ManualSelectObject>`
+*   :ref:`Adding a Resource<ManualResourceAdding>`
+*   :ref:`Adding Components<ManualAddRemoveComponents>`
+*   :ref:`Saving<ManualSavingProject>`
+*   :ref:`Running the Project<ManualRunTheGame>`
+*   :ref:`Stop the Project<ManualStopGame>`
+
+Tutorial Pages
+^^^^^^^^^^^^^^
+
+*   :ref:`Object Hierarchies<TutorialObjectHierarchies>`
+
+Reference Pages
+^^^^^^^^^^^^^^^
+
+*   :cpp:type:`SpriteSource`
+*   :cpp:type:`Sprite`
+*   :cpp:type:`SpriteText`
+*   :cpp:type:`CogPath`
+
+
+.. |BlackLevel|           image:: images/HeadsUpDisplay/BlackLevel.png
+.. |PlayerInLevel|        image:: images/HeadsUpDisplay/PlayerInLevel.png
+.. |HUDSpritesAndText|    image:: images/HeadsUpDisplay/HUDSpritesAndText.png
+.. |HUDEclipse|           image:: images/HeadsUpDisplay/HUDEclipse.png
+.. |GoodHUD|              image:: images/HeadsUpDisplay/GoodHUD.png
+.. |HUDUpdating|          image:: images/HeadsUpDisplay/HudUpdating.gif
+.. |FinalHUD|             image:: images/HeadsUpDisplay/FinalHUD.gif
+
+.. Written by: Jason Clark
+  ``

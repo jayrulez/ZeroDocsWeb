@@ -1,0 +1,128 @@
+.. _ReferenceNetChannel:
+
+.. rst-class:: searchtitle
+
+NetChannel
+==========
+
+.. rst-class:: searchdescription
+
+Network Channel Manages the replication of a set of properties on the network.
+
+.. include:: Description/NetChannel.rst
+
+.. cpp:class:: NetChannel
+
+.. _ReferenceNetChannelProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetChannel::ChannelName
+
+            Returns the net channel's name.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetChannel::ManualChangeFlag
+
+            Returns the manual change flag.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetChannel::EventOnOutgoingPropertyChange
+
+            Returns whether or not the event NetChannelOutgoingPropertyChange will be dispatched when an outgoing net property change is detected.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetChannel::EventOnIncomingPropertyChange
+
+            Returns whether or not the event NetChannelIncomingPropertyChange will be dispatched when an incoming net property change is received.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: AuthorityMode::Enum NetChannel::AuthorityMode
+
+            Returns the change authority mode.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Authority::Enum NetChannel::Authority
+
+            Returns the change authority.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real NetChannel::DetectionInterval
+
+            Returns the change detection interval(in seconds)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: DetectionMode::Enum NetChannel::DetectionMode
+
+            Returns the change detection mode.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetChannel::ReplicateOnOnline
+
+            Returns whether or not the net channel will be replicated when the net object comes online.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetChannel::ReplicateOnChange
+
+            Returns whether or not the net channel will be replicated on net property change.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetChannel::ReplicateOnOffline
+
+            Returns whether or not the net channel will be replicated when the net object goes offline.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SerializationMode::Enum NetChannel::SerializationMode
+
+            Returns the change serialization mode.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ReliabilityMode::Enum NetChannel::ReliabilityMode
+
+            Returns the change reliability mode.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: TransferMode::Enum NetChannel::TransferMode
+
+            Returns the change message transfer mode.
+
+.. _ReferenceNetChannelMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void NetChannel::ResetConfig()
+
+            Resets all configuration settings.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool NetChannel::HasNetProperty(Component component, String propertyName) const
+
+            Returns true if the net channel has a net property with the specified property name, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: NetProperty NetChannel::GetNetProperty(Component component, String propertyName) const
+
+            Returns the net property with the specified property name, else nullptr Note: Nullifies any net property handle previously obtained from this net channel.
+
+.. include:: Remarks/NetChannel.rst

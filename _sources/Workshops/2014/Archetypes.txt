@@ -1,0 +1,223 @@
+.. _Archetypes2014:
+
+.. rst-class:: SearchTitle
+
+Archetypes
+==========
+
+.. rst-class:: SearchDescription
+
+This lessons covers the creation and use of archetypes.
+
+Archetypes
+----------
+
+An archetype in the Zero Engine (also known as blueprints, prefabs, or templates in other engines) 
+is a collection of components and their settings which is used to create objects.
+All of the objects created from a certain archetype start with the same data, 
+but any changes to that data after their creation do not affect the archetype. 
+One benefit of archetypes is that any changes to the archetype affect all of the 
+objects you have created from it. We are going to create some archetypes so that
+we can use them to create objects later. 
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2014`
+
+Adding a Pickup ZilchScript
+---------------------------
+
+:ref:`Add a new ZilchScript resource<ResourceAdding2014>` named: 'PickUp' 
+
+Update your script to look like this:
+
+.. code-block:: as
+    
+    class Pickup : ZilchComponent
+    {
+        [Property]    
+        var Points : Integer = 0;  
+    }
+
+Creating an Object
+------------------
+
+* :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+* In the Properties Window
+
+  * Set Name to: ``Pickup``
+    
+  * Under Sprite
+
+    * Set Color to : Yellow [ R: 255, G: 255, B: 0, A: 1.00 ]       
+        
+  * :ref:`Add the Component Pickup <AddComponent2014>`
+
+    * Under Pickup 
+        
+      * Set Points to 100
+
+|pbr|
+      
+Here's what your object should look like:
+
+|NoBookBegin|
+|PickupSettingsWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|PickupSettingsBook|
+|NoWebEnd|
+
+Why Archetypes?
+---------------
+
+Imagine we where to copy and paste this object many times throught the level.
+What happens if we want to change the value of this pickup? We would have
+to find all pickups in the level and change their points values. Even with
+mutliselect we might miss a few or their might be pickups on other levels.
+Archetypes will allow us to change all pickups at once
+
+Let's create our first Archetype
+
+* :ref:`Select the Object <SelectObject2014>`
+ 
+* In the Properties Window
+ 
+  * Set the Archetype Name to: ``Pickup``
+    
+  * |SetArchetypeName|
+ 
+  * Press the green upload to archetype button  |Upload| 
+
+This object is now **Archetyped**. 
+
+|pbr|
+
+Creating Multiple Objects
+-------------------------
+Copy and paste the object multiple times
+
+.. image:: images/Archetypes/Copied.png 
+
+
+Changing Archetyped Objects
+---------------------------
+
+Let's change the property values of one of the pickups. Say
+that we want it to be more of gold color and worth more points.
+
+* In the Properties Window
+    
+  * Under Sprite
+
+    * Set Color to : Gold [ R: 255, G: 200, B: 0, A: 1.00 ]
+        
+    * Set SpriteSource to: Circle
+        
+  * Under Pickup
+    
+    * Set Value to 200
+
+|pbr|
+    
+Notice that object now looks like this:
+
+.. image:: images/Archetypes/BeforeUpload.png 
+
+
+Notice the Properties Window the archetype property looks like this:
+
+
+.. image:: images/Archetypes/Modified.png 
+
+`Notice the` ``(*)`` `after the word Archetype`
+
+This means the object is **modified from archetype**. This object has
+local changes that are not part of the archetype. The archetype property
+has two buttons now the |Revert| revert button and the |Upload| button. 
+The revert button will remove the local changes. The upload button will 
+take the local changes and apply them to all archetyped objects.
+
+|pbr|
+
+Uploading to Archetype
+-----------------------
+
+* In the Properties Window
+
+* Press |Upload| upload button.
+
+.. image:: images/Archetypes/Uploaded.png 
+
+Notice all the objects have now change to be the same. Check to see that
+both the color and the Points under Pickup have changed. This change would change
+all archetyped objects in **all levels** to the new values.
+
+
+Reverting to Archetype
+-----------------------
+
+* In the Properties Window
+    
+  * Under Sprite
+
+    * Set Color to: White [ R: 0, G: 0, B: 0, A: 1.00 ]
+     
+|NoBookBegin|
+|PreRevertWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|PreRevertBook|
+|NoWebEnd|   
+
+After testing it out we determine we like what we had before, so press the |Revert|  revert button
+to revert the object to gold.
+
+|NoBookBegin| 
+
+.. image:: images/Archetypes/Uploaded.png 
+
+|NoBookEnd|
+
+Created Archetypes can be found in the library. 
+
+* In the Library Window
+
+.. image:: images/Archetypes/LibraryWindow.png
+
+* ``Double-Click`` on the ``Archetypes`` Tag
+
+.. image:: images/Archetypes/ArchetypeTag.png
+
+* Select the ``Pickup`` archetype
+
+.. image:: images/Archetypes/SelectingPickup.png
+
+`Notice the the property grid show you the archetyped object.`
+
+*  Drag the object from the library onto the game window.
+
+This creates an instance of your archetyped object. This allow you to quickly
+populate your levels with object you have already setup. 
+
+.. |SetArchetypeName|         image:: images/Archetypes/SetArchetypeName.png  
+
+.. |Upload|                   image:: images/Archetypes/UploadButton.png  
+
+.. |Revert|                   image:: images/Archetypes/RevertButton.png  
+
+.. |PreRevertWeb|             image:: images/Archetypes/BeforeRevert.png   
+
+.. |PreRevertBook|            image:: images/Archetypes/BeforeRevert.png   
+    :height: 3.0in
+    
+.. |PickupSettingsWeb|        image:: images/Archetypes/PickupSettings.png  
+
+.. |PickupSettingsBook|        image:: images/Archetypes/PickupSettings.png 
+    :height: 4.0in 
+
+.. include:: BookFormattingShortcuts.rst

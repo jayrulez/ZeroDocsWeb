@@ -1,0 +1,64 @@
+.. _ReferenceEventBundle:
+
+.. rst-class:: searchtitle
+
+EventBundle
+===========
+
+.. rst-class:: searchdescription
+
+Event Bundle Serialized event storage container.
+
+.. include:: Description/EventBundle.rst
+
+.. cpp:class:: EventBundle
+
+    Base Class: :cpp:type:`ZeroObject`
+
+.. _ReferenceEventBundleProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool EventBundle::IsEmpty
+
+            Returns true if the event bundle is empty(doesn't contain any events), else false.
+
+.. _ReferenceEventBundleMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool EventBundle::AddEvent(Event event)
+
+            Adds the event to back of the event bundle Returns true if successful, else false(an event of that type has already been added)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: EventRange EventBundle::GetEvents()
+
+            Returns all the events that have been added to the event bundle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Boolean EventBundle::RemoveEvent(event : Event)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool EventBundle::RemoveEvent(Event event)
+
+            Removes the event specified from the event bundle Returns true if successful, else false(an event of that type has already been added)
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void EventBundle::Clear()
+
+            Clears the event bundle.
+
+.. include:: Remarks/EventBundle.rst

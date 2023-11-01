@@ -1,0 +1,70 @@
+.. _ReferenceAttractive:
+
+.. rst-class:: searchtitle
+
+Attractive
+==========
+
+.. rst-class:: searchdescription
+
+Attracts objects with the Attractor component.
+
+.. include:: Description/Attractive.rst
+
+.. cpp:class:: Attractive
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceAttractiveProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Attractive::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Attractive::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Attractive::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Attractive::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Attractive::Active
+
+            Is this object currently attractive.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Attractive::Strength
+
+            How attractive the object is.
+
+.. _ReferenceAttractiveMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Attractive::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/Attractive.rst

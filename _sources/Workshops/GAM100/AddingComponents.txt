@@ -1,0 +1,450 @@
+.. _AddingComponentsGAM100:
+
+.. rst-class:: SearchTitle
+
+Adding Components
+=================
+
+.. rst-class:: SearchDescription
+
+This lesson covers :cpp:type:`component<Component>`-based design, including how
+to create a sprite, :cpp:type:`rigid bodies<RigidBody>`, collision,
+:cpp:type:`physics effects<PhysicsEffect>`, and an overview of the LevelSettings
+object.
+
+.. _AddingComponentsVocabGAM100:
+
+Learning Objectives
+-------------------
+
+*   Understand the basics of components and the goals of component-based design
+*   Become familiar with the built-in components attached to the LevelSettings object 
+*   Understand the basics of RigidBody and Collider components
+
+.. rst-class:: VocabSection
+
++---------------------------------------------------------------------------------+
+| Vocabulary                                                                      |
++===========================+======================+==============================+
+| :cpp:type:`Component`     | Sprite               | Physics                      |
++---------------------------+----------------------+------------------------------+
+| :cpp:type:`RigidBody`     | :cpp:type:`Collider` | :cpp:type:`Drag<DragEffect>` |
++---------------------------+----------------------+------------------------------+
+| :cpp:type:`PhysicsEffect` |                      |                              |
++---------------------------+----------------------+------------------------------+
+
+
+Level Setup
+-----------
+
+*   :ref:`CreateNewProject`
+
+
+**Create a Sprite**
+
+*   :ref:`Command<CommandsGAM100>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+        
+    |MICreateSprite| 
+
+This is what the :cpp:type:`Level` should look like:
+
+|LWDefaultSprite|
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+Nothing happens.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+*   In the Object Window
+
+    *   :ref:`Select the Sprite object <SelectObjectGAM100>`
+
+    |OWDefaultSprite|
+
+    
+    
+*   In the Properties Window
+
+    *   Set Name to: Player
+
+        |PWSetNamePlayer|
+
+    *   :ref:`Add the RigidBody component <AddComponentGAM100>`
+
+|PWAddRigidBodyPlayer|
+
+`Notice the component description pop up when Rigidbody is highlighted in the auto-complete drop down menu.`
+
+        |PWRigidBodyonPlayer|   
+
+*   :ref:`Save the project <SavingProjectGAM100>`  and :ref:`run the game <RunTheGameGAM100>`
+
+The Player object is falling because its :cpp:type:`RigidBody`
+:cpp:type:`component<Component>` is affected by the default gravity in the
+:cpp:type:`level<Level>`.
+
+
+
+.. _AddingComponentsComponents:
+
+Components
+----------
+
+:cpp:type:`Components<Component>` are bits of functionality that can be added to a game object. You can see 
+the three :cpp:type:`components<Component>` on our Player in the Properties window: :cpp:type:`Transform`, :cpp:type:`Sprite`, and :cpp:type:`RigidBody`. 
+
+* :cpp:type:`Transform` gives our game object a position, rotation, and scale. 
+* :cpp:type:`Sprite`, which requires a :cpp:type:`Transform`, allows us to visualize our game object.
+* :cpp:type:`RigidBody` allows our :cpp:type:`Transform`'s Translation (position) and Rotation to be altered by the Physics engine. 
+
+While these come with Zero, others we'll create ourself by coding in Zilch.
+By using :cpp:type:`components<Component>` to create our game objects we can easily reuse our code to make new and different items. 
+This set-up can aid you in rapid prototyping when making your own games. 
+
+Let's imagine we are making Bats, Wolves, and Birds. You could create 3 :cpp:type:`components<Component>`:
+
+* BatLogic
+* WolfLogic 
+* BirdLogic
+
+|BadComponentsExample| 
+
+While making them you find they have some things in common. Rather than copying
+and pasting (which becomes messy fast), we can use the
+:cpp:type:`component<Component>`-based engine to our advantage and rearrange our
+logic. By making smaller :cpp:type:`components<Components>` of functionality, we
+can factor out the code into common :cpp:type:`components<Components>`, making
+it easier to share between them. For instance:
+
+ |VennWeb|
+
+ *The* :cpp:type:`components<Component>` *in gray are built-in to the Zero Engine*
+
+
+|VennBook|
+
+*The* :cpp:type:`components<Component>` *in white are built-in to the Zero Engine*
+
+
+
+
+|ComponentExample| 
+
+*Noticing shared functionality allows us to restructure our code*
+
+By having these things separated you can more easily prototype and create new game objects. 
+
+
+For example, say it is later decided to create a flying healthpack. By utilizing the :cpp:type:`components<Components>` already made, Flying and ChangeOtherHealth, most of the work is done.
+
+|FlyingPowerup|
+
+*Something we* **can't** *make with BatLogic, WolfLogic or BirdLogic* :cpp:type:`components<Component>`
+
+:cpp:type:`Components<Component>` are meant to be generic (when plausible), in
+order to allow for reuse. In many ways, :cpp:type:`components<Component>` can be 
+made more generic by adding Properties to them.
+
+In our example, we could make our DropLoot :cpp:type:`component<Component>` more generic by having a Property represent which loot is dropped. With this new property our :cpp:type:`component<Component>` could allow our Bat to drop health, while the Wolf drops a power-up, etc.
+
+
+
+Let's explore a Property on the :cpp:type:`RigidBody` :cpp:type:`component<Component>`.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+*   :ref:`Select the Player object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    *   Under :cpp:type:`RigidBody`
+
+        *   Set Velocity to: [5, 0, 0]
+
+This is the initial velocity that the object will have when the level starts.
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+Zero Engine has a lot of built-in :cpp:type:`components<Component>`; next we'll explore the :cpp:type:`Physics effects<PhysicsEffect>`.
+
+Physics Effects
+---------------
+
+A :cpp:type:`PhysicsEffect` is a :cpp:type:`component<Component>` that applies some sort of a force to an object. A :cpp:type:`PhysicsEffect` can be attached in a variety of ways. This effect will then perform its action every frame according to the rules of the object it is attached to.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+*   In the Objects Window
+
+    *   :ref:`Select the LevelSettings object <SelectObjectGAM100>`
+
+        |OWSelectLevelSettings|
+
+The LevelSettings Object
+------------------------
+
+The LevelSettings object is a special object that influences the behavior of the
+objects in a level. It has :cpp:type:`GravityEffect` and :cpp:type:`DragEffect`
+:cpp:type:`components<Component>` by default. The :cpp:type:`DragEffect` and the
+:cpp:type:`GravityEffect` both fall under the :cpp:type:`PhysicsEffect`
+category.
+
+|PWLevelSettingsPhysicsEffects|
+
+
+
+DragEffect
+----------
+
+A :cpp:type:`drag effect<DragEffect>` can apply drag to an object to slow it down based upon its mass and inertia.
+
+*   In the Properties Window
+
+    *   Under :cpp:type:`DragEffect`
+
+        *   ``Left-Click`` (and hold) on the  |RadialSliderButton| symbol next to the Drag property
+        *   This brings up the radial slider numerical editing interface
+        *   Drag the mouse in a circle around the slider to edit the numerical value
+
+            *   Set the Drag to: 0
+
+            |PWLevelSettingsDragZero|
+
+*   :ref:`Run the Game <RunTheGameGAM100>`
+
+Notice how the Player object falls faster now. This is because the drag is no longer slowing down objects (similar to how air-resistance would affect objects).
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+*   :ref:`Select the LevelSettings object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    *   Under :cpp:type:`DragEffect`
+
+        *   Set Drag to: 10
+
+*   :ref:`Run the Game <RunTheGameGAM100>`
+
+Notice how the Player object falls slower now as a result of the increase in drag. Let's set it back to what its original value was.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+
+
+*   :ref:`Select the LevelSettings object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    *   Under :cpp:type:`DragEffect`
+
+        *   Set Drag to: 0.7
+
+*   :ref:`Save the project <SavingProjectGAM100>` 
+
+GravityEffect
+-------------
+
+In real-world physics, we calculate a force with the equation: **Force = Mass * Acceleration**. A :cpp:type:`gravity effect<GravityEffect>` will apply a mass-less force to an object. This means that the object's mass is ignored (treated as 1.0 in the equation).
+
+*   :ref:`Select the LevelSettings object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    *   Under :cpp:type:`GravityEffect`
+
+        *   Set Direction to: [0, 0, 0]
+
+            |PWLevelSettingsGravityDirectionless|
+
+*   :ref:`Save the project <SavingProjectGAM100>` 
+*   :ref:`Run the game <RunTheGameGAM100>`
+
+Notice that the Player object does not fall but the initial velocity set on the :cpp:type:`RigidBody` :cpp:type:`component<Component>` is still applied.
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+
+
+*   :ref:`Select the LevelSettings object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    *   Under :cpp:type:`GravityEffect`
+
+        *   Set Direction to: [0, -1, 0]
+        *   Set Strength to: 30
+
+The Strength property is the magnitude of the gravitation force.
+
+RigidBodies and Colliders
+-------------------------
+
+A :cpp:type:`RigidBody` by itself is a movable point cloud that cannot collide
+with anything. Dealing with the physics of an object, :cpp:type:`RigidBody`
+defines the linear and angular velocity of an object as well as its force and
+torque (rotation force). It also works in conjunction with the associated
+:cpp:type:`Collider` of the object to determine material density and the volume
+when doing mass-based calculation such as the inertia of the object. Basically,
+the :cpp:type:`RigidBody` :cpp:type:`component<Component>` deals with movement
+of the object. 
+
+*   :ref:`Select the Player object <SelectObjectGAM100>`
+*   In the Tools Window
+
+    *   Select the TranslateTool from the drop down selection
+    *   Set Snapping to: True
+
+        |TWTranslateSnapping|
+
+*   Hold the ``Ctrl`` key on the keyboard and then drag the Player object downward along the y-axis until its Translation is [0, -5, 0]
+
+Holding the ``Ctrl`` key and then dragging an object with the TranslateTool will create a copy of the selected object.
+
+*   :ref:`Select the newly created object <SelectObjectGAM100>` (copied from the Player object)
+
+*   In the Properties Window
+
+    *   Set Name to: Ground
+
+    *   Under :cpp:type:`Transform`
+        
+        *   Set Scale to: [8, 1, 1]
+    
+    *   Under :cpp:type:`RigidBody`
+
+        *   Set DynamicState to: Static
+
+
+
+Static objects cannot be moved by collisions, forces or velocity changes.
+
+Here is how the :cpp:type:`level<Level>` should look:
+
+ |LWPlayerAndGroundWeb|
+
+
+|LWPlayerAndGroundBook|
+
+
+*   :ref:`Save the project <SavingProjectGAM100>`  and :ref:`run the game <RunTheGameGAM100>`
+
+The Player object falls through the Ground object.
+
+Collision Between Objects
+-------------------------
+
+In order to make collisions work, we need to add the :cpp:type:`Collider`. The
+:cpp:type:`RigidBody` :cpp:type:`component<Component>` alone cannot determine
+the edges of the shape, so the movement works as if all your objects are ghosts.
+Once you add a :cpp:type:`collider<Collider>`, it can determine when collisions
+happen and have things push back. Let's see it in action.
+
+
+*   :ref:`Stop the Game <StopGameGAM100>`
+*   :ref:`Select the Ground object <SelectObjectGAM100>`
+*   In the Properties Window
+
+    *   :ref:`Add the BoxCollider component <AddComponentGAM100>`
+
+        |PWGroundAddBoxCollider|
+
+*   :ref:`Select the Player object <SelectObjectGAM100>`
+
+*   In the Properties Window
+
+    *   :ref:`Add the BoxCollider component <AddComponentGAM100>`
+
+        |PWPlayerAddBoxCollider|
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+The Player object should fall and land on the Ground object as shown:
+
+ |LWCollisionWeb|
+
+
+|LWCollisionBook|
+
+
+.. Warning:: 
+
+    Physics will not check for collisions between two Static objects.
+    
+    Static Objects include:
+    
+    *   Objects that have a :cpp:type:`Collider`, but *do not possess a* :cpp:type:`RigidBody`.
+    *   Objects with a :cpp:type:`RigidBody` that has its DynamicState set to Static.
+    
+    **Moving** :cpp:type:`Colliders<Collider>` **that don't have**
+    :cpp:type:`RigidBodies<RigidBody>` **during run-time will cause performance
+    to drop drastically.** Therefore, avoid moving :cpp:type:`Colliders<Collider>` that don't have
+    :cpp:type:`RigidBodies<RigidBody>`; if you must, use a :cpp:type:`RigidBody`
+    with its DynamicState set to Static. By using a :cpp:type:`Rigidbody` marked
+    Static, you greatly increase performance and retain the option to change it
+    to Dynamic or Kinematic, should you later need collision with other Static
+    objects.
+
+IgnoreSpaceEffects
+------------------
+
+Every once in a while there is an object you want to be an exception to the rule, e.g. implementing anti-gravity boots. A quick way to make an exception to the applied :cpp:type:`physics effects<PhysicsEffect>` is to add the :cpp:type:`IgnoreSpaceEffects` :cpp:type:`component<Component>`. Let's try it out.
+
+
+*   :ref:`Select the Player object <SelectObjectGAM100>`
+*   In the :cpp:type:`Level` Window
+
+    *   Press ``2`` to select the TranslateTool 
+    *   Hold the ``Ctrl`` key on the keyboard and then drag the Player object upward along the y-axis until its Translation is [0, 1.5, 0]
+*   :ref:`Select the newly created object <SelectObjectGAM100>` (copied from the Player object)
+
+
+
+*   In the Properties Window
+
+    *   Set Name to: Player2
+    *   :ref:`Add the IgnoreSpaceEffects component <AddComponentGAM100>`
+    *   Under :cpp:type:`IgnoreSpaceEffects`
+    
+        *   Set IgnoreDrag to: True
+        *   Set IgnoreGravity to: True
+    
+|PWPlayer2| 
+        
+*   :ref:`Save the project <SavingProjectGAM100>`  and :ref:`run the game <RunTheGameGAM100>`
+
+ |LWIgnoreSpaceEffects|  
+
+Player2 should be unaffected by the LevelSettings' effects. Now you have the basic concept behind :cpp:type:`component<Component>`-based design, learned to create a Sprite with a :cpp:type:`Rigidbody` and :cpp:type:`Collider`, found out where default :cpp:type:`physics effects<PhysicsEffect>` came from and how to ignore, them while looking into the LevelSettings object. 
+
+
+
+.. |MICreateSprite|                       image:: images/Components/MICreateSprite.png
+.. |OWDefaultSprite|                      image:: images/Components/OWDefaultSprite.png
+.. |PWLevelSettingsPhysicsEffects|        image:: images/Components/PWLevelSettingsPhysicsEffects.png
+.. |PWGroundAddBoxCollider|               image:: images/Components/PWGroundAddBoxCollider.png
+    :height: 1.5in
+.. |TWTranslateSnapping|                  image:: images/Components/TWTranslateSnapping.png
+.. |PWRigidBodyonPlayer|                  image:: images/Components/PWRigidBodyonPlayer.png
+.. |PWLevelSettingsGravityDirectionless|  image:: images/Components/PWLevelSettingsGravityDirectionless.png
+.. |PWPlayerAddBoxCollider|               image:: images/Components/PWPlayerAddBoxCollider.png
+    :height: 1.5in
+.. |PWLevelSettingsDragZero|              image:: images/Components/PWLevelSettingsDragZero.png
+.. |LWCollisionWeb|                       image:: images/Components/LWCollision.png
+.. |LWCollisionBook|                      image:: images/Components/LWCollision.png
+    :height: 2.0in
+
+.. |PWGround|                             image:: images/Components/PWGround.png
+.. |PWSetNamePlayer|                      image:: images/Components/PWSetNamePlayer.png
+.. |LWDefaultSprite|                      image:: images/Components/LWDefaultSprite.PNG
+.. |OWSelectLevelSettings|                image:: images/Components/OWSelectLevelSettings.png
+.. |RadialSliderButton|                   image:: images/Components/RadialSliderButton.png
+.. |PWAddRigidBodyPlayer|                 image:: images/Components/PWAddRigidBodyPlayer.png
+.. |LWPlayerAndGroundWeb|                 image:: images/Components/LWPlayerAndGround.png
+.. |LWPlayerAndGroundBook|                image:: images/Components/LWPlayerAndGround.png
+    :height: 3.0in
+
+.. |BadComponentsExample|                 image:: images/Components/BadComponentExample.png
+.. |ComponentExample|                     image:: images/Components/ComponentExample.png
+.. |FlyingPowerup|                        image:: images/Components/FlyingPowerup.png
+.. |VennWeb|                              image:: images/Components/VennWeb.png
+.. |VennBook|                             image:: images/Components/Venn.png
+    :height: 3.0in
+    
+.. |PWPlayer2|                            image:: images/Components/PWPlayer2.png  
+    :height: 3.0in  
+.. |LWIgnoreSpaceEffects|                 image:: images/Components/LWIgnoreSpaceEffects.png
+    :height: 3.0in
+

@@ -1,0 +1,150 @@
+.. _ManualCollider:
+
+.. rst-class:: SearchTitle
+
+Collider
+========
+
+.. rst-class:: SearchDescription
+
+A :cpp:type:`Collider` represents shapes that detects collision and is the interface for all other Colliders, sharing functionality and a number of properties and methods.
+
+.. _ManualColliderCommon:
+
+Common Uses
+-----------
+
+*   Defining collision boundaries for objects or parts of an object.
+
+*   Defining the boundaries for a :cpp:type:`Region` with a :cpp:type:`PhysicsEffect` attached to it.
+
+*   Defining the boundaries for a collision-based trigger volume or surface that causes a :cpp:type:`CollisionEvent` to be dispatched.
+
+.. _ManualColliderUsing:
+
+Using Collider
+--------------
+
+.. warning::
+
+    In order to have a Collider on an object, one must use one of the basic Collider types listed in the :ref:`Collision Index<ManualCollisionIndex>`.
+
+.. sidebar:: Interface vs Base Class
+
+    A class inheritting from an interface (such as BoxCollider from Collider) guarantees that all members of the interface will be implemented on itself. If you wish to learn further about the topics of an interfaces and polymorphism you can check out `this article`_ for further reading.
+    
+As an interface, Collider does not exist as its own component, though all of the Collider components derive from this class and share its methods and properties.
+
+Shared Properties of Collider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*   ``ActiveBody`` : :cpp:type:`RigidBody`
+
+    *   Returns the RigidBody on which this specific Collider's mass is taken into account. If a Collider is attached to an object without a RigidBody, it is automatically considered Static and does not move. See the :ref:`RigidBody Manual Page<ManualRigidBody>` for more information.
+    
+*   ``CollisionGroup`` : :cpp:type:`CollisionGroup`
+
+    *   Sets the CollisionGroup on this Collider that is used to filter collisions. The rules for filtering collisions are found on the :cpp:type:`CollisionTable` currently set on the current space's PhysicsSpace. See the :ref:`CollisionGroup and CollisionTable Manual Page<ManualCollisionGroupAndCollisionTable>` for more information.
+    
+*   ``ContactCount`` : :cpp:type:`Integer`
+
+    *   Returns the number of contacts on this Collider. 
+    
+*   ``Contacts`` : :cpp:type:`ContactRange`
+
+    *   Returns the range of all contacts on this Collider (so that they may iterated through).
+    
+*   ``GameSession`` : :cpp:type:`GameSession`
+
+    *   Returns the GameSession object that owns this Collider. See the :ref:`GameSession Object Manual Page<ManualGameSession>` for more information.
+    
+*   ``Ghost`` : :cpp:type:`Boolean<Bool>`
+
+    *   When set to true the Collider's surface or volume is "ghosted", so that it will not resolve collisions (i.e, the object with this Collider will behave visually in-game as if it has no Collider at all) but will still detect and send messages from collisions.
+    
+*   ``JointCount`` : :cpp:type:`Real`
+
+    *   Returns the number of joints attached to the Collider.
+    
+*   ``Joints`` : :cpp:type:`JointRange` 
+
+    *   Returns a range of all the joints on the Collider (so that they may be iterated through).
+    
+*   ``LevelSettings`` : :cpp:type:`Cog`
+
+    *   Gets the object named 'LevelSettings'--the object where components can be attached to affect entire level. See the :ref:`LevelSettings Object Manual Page<ManualLevelSettings>` for more information.
+    
+*   ``Material`` : :cpp:type:`PhysicsMaterial`
+
+    *   Sets the PhysicsMaterial for the Collider, which sets the Collider's values for density, restitution, and friction. Note that the Collider's volume multiplied with its PhysicsMaterial's density results in the object's mass (which is found on the object's RigidBody component).  See the :ref:`Physics Materials Section<TutorialResourcesPhysics>` of the Resources Tutorial page for more information.
+    
+*   ``Offset`` : :cpp:type:`Real3`
+
+    *   Sets the values to move the physics defined center of the object away from the transform's translation. This is primarily used to align a collision volume to a particular :cpp:type:`Sprite` or :cpp:type:`Mesh`.
+    
+*   ``Owner`` : :cpp:type:`Cog`
+
+    *   Gets the object that owns this Collider. This is **not** necessarily the parent of the Collider.
+    
+*   ``SendsEvents`` : :cpp:type:`Boolean`
+
+    *   Determines if this Collider will send collision events. This is set to ``false`` by default to increase performance by not sending unnecessary collision events. See the :ref:`CollisionEvents Manual Page<ManualCollisionEvents>` for more information.
+    
+*   ``Space`` : :cpp:type:`Space`
+
+    *   Returns the Space where this Collider is located. See the :ref:`Space Object Manual Page<ManualSpaces>` for more information.
+    
+Shared Methods of Collider
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*   ComputeVolume()
+
+    *   Returns the volume of this particular Collider as a Real.
+    
+*   GetPointVelocity(pointOnBody : ``Real3``)
+
+    *   Returns the linear velocity of a point on the body. The parameter ``pointOnBody`` refers to the point from which one is attempting to get the linear velocity. The linear velocity is returned as a Real3.  
+    
+.. _ManualColliderRelated:
+
+Related Materials
+-----------------
+
+Manual Pages
+~~~~~~~~~~~~
+
+*   :ref:`Collision Index<ManualCollisionIndex>`
+
+*   :ref:`Collision Overview<ManualCollisionOverview>`
+
+Tutorial Pages
+~~~~~~~~~~~~~~
+
+*   :ref:`Collision Events<TutorialCollisionEvents>`
+
+Reference Pages
+~~~~~~~~~~~~~~~
+
+*   :cpp:type:`Collider`
+*   :cpp:type:`Region`
+*   :cpp:type:`PhysicsEffect`
+*   :cpp:type:`CollisionEvent`
+*   :cpp:type:`RigidBody`
+*   :cpp:type:`CollisionGroup`
+*   :cpp:type:`CollisionTable`
+*   :cpp:type:`Integer`
+*   :cpp:type:`Real`
+*   :cpp:type:`Real3`
+*   :cpp:type:`Boolean<Bool>`
+*   :cpp:type:`GameSession`
+*   :cpp:type:`Space`
+*   :cpp:type:`Cog`
+*   :cpp:type:`PhysicsMaterial`
+*   :cpp:type:`ContactRange`
+*   :cpp:type:`JointRange`
+
+.. _this article: http://www.cplusplus.com/doc/tutorial/polymorphism/
+
+.. Written by: Jason Clark
+    
+    

@@ -1,0 +1,304 @@
+.. _ReferenceNetSpace:
+
+.. rst-class:: searchtitle
+
+NetSpace
+========
+
+.. rst-class:: searchdescription
+
+Network Space Manages the replication of a single space on the network.
+
+.. include:: Description/NetSpace.rst
+
+.. cpp:class:: NetSpace
+
+    Base Class: :cpp:type:`NetObject`
+
+.. _ReferenceNetSpaceProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NetSpace::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space NetSpace::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NetSpace::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession NetSpace::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Role::Enum NetSpace::Role
+
+            Returns our open peer's network role(client, server, offline), else Role::Unspecified.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsClient
+
+            Returns true if our open peer's network role is client, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsServer
+
+            Returns true if our open peer's network role is server, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsOffline
+
+            Returns true if our open peer's network role is offline, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsClientOrOffline
+
+            Returns true if our open peer's network role is client or offline, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsServerOrOffline
+
+            Returns true if our open peer's network role is server or offline, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsClientOrServer
+
+            Returns true if our open peer's network role is client or server, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsOnline
+
+            Returns true if the net object is online, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetObjectId NetSpace::NetObjectId
+
+            Returns the net object ID(set if the net object is live), else 0.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetChannelConfig NetSpace::AutomaticChannel
+
+            Returns the automatic net channel configuration resource(assigned to net properties unless another channel is specified)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint NetSpace::NetObjectCount
+
+            Returns the number of net objects in this space(but not including the net space itself)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint NetSpace::NetUserCount
+
+            Returns the number of net users in this space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsOwnedByAUser
+
+            Returns true if the net object is conceptually owned by a user, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsNotOwnedByAUser
+
+            Returns true if the net object is not conceptually owned by a user, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsMine
+
+            Returns true if the net object is conceptually owned by a user added by our local peer, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsNotMine
+
+            Returns true if the net object is not conceptually owned by a user added by our local peer, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsClientAndMine
+
+            Returns true if our open peer's network role is client and the net object is conceptually owned by a user added by our local peer, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsClientButNotMine
+
+            Returns true if our open peer's network role is client and the net object is not conceptually owned by a user added by our local peer, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsServerAndMine
+
+            Returns true if our open peer's network role is server and the net object is conceptually owned by a user added by our local peer, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsServerButNotMine
+
+            Returns true if our open peer's network role is server and the net object is not conceptually owned by a user added by our local peer, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsOfflineAndMine
+
+            Returns true if our open peer's network role is offline and the net object is conceptually owned by a user added by our local peer, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NetSpace::IsOfflineButNotMine
+
+            Returns true if our open peer's network role is offline and the net object is not conceptually owned by a user added by our local peer, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NetSpace::NetUserOwner
+
+            Returns the network user this object conceptually belongs to, else nullptr.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetUserId NetSpace::NetUserOwnerUserId
+
+            Returns the network user identifier of the user this object conceptually belongs to, else 0.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetPeerId NetSpace::NetUserOwnerPeerId
+
+            Returns the network peer identifier of the peer who added the user this object conceptually belongs to, else 0.
+
+.. _ReferenceNetSpaceMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void NetSpace::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool NetSpace::Forget()
+
+            [Client] Forgets the online net object locally[Server] Forgets the online net object locally and remotely for all relevant peers Effectively removes the net object from the network system without destroying it Returns true if successful, else false
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool NetSpace::SelectRemote()
+
+            [Client] Selects the remote net object on the first server peer found running in another game session instance on the engine[Server] Selects the remote net object on the first client peer found running in another game session instance on the engine Will fail if the net object is not online, or not found remotely Returns true if successful, else false
+
+    .. rst-class:: collapsible
+
+        .. cpp:function::  NetSpace::HasNetChannel
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool NetSpace::HasNetChannel(NetChannelConfig netChannelConfig) const
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function::  NetSpace::GetNetChannel
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: NetChannel NetSpace::GetNetChannel(NetChannelConfig netChannelConfig) const
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void NetSpace::DispatchLocal(String eventId, Event event)
+
+            Dispatches the net event on the net object for the local peer.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void NetSpace::DispatchRemote(String eventId, Event event, NetPeerId netPeerId)
+
+            Dispatches the net event on the net object for the remote peer In Offline mode, this calls DispatchLocal only.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void NetSpace::DispatchBroadcast(String eventId, Event event)
+
+            Dispatches the net event on the net object for all remote peers In Offline mode, this calls DispatchLocal only.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void NetSpace::DispatchLocalAndRemote(String eventId, Event event, NetPeerId netPeerId)
+
+            Dispatches the net event on the net object for the local peer and for the remote peer In Offline mode, this calls DispatchLocal only.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void NetSpace::DispatchLocalAndBroadcast(String eventId, Event event)
+
+            Dispatches the net event on the net object for the local peer and for all remote peers In Offline mode, this calls DispatchLocal only.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool NetSpace::IsOwnedByUser(Cog cog) const
+
+            Returns true if the net object is conceptually owned by the specified user, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: bool NetSpace::IsOwnedByPeer(NetPeerId netPeerId) const
+
+            Returns true if the net object is conceptually owned by a user added by the specified peer, else false.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void NetSpace::SetNetUserOwnerUp(Cog cog)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void NetSpace::SetNetUserOwnerDown(Cog cog)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: NetSpace NetSpace::GetNetSpace() const
+
+            Returns the operating net space(which may or may not be this net object)
+
+.. include:: Remarks/NetSpace.rst

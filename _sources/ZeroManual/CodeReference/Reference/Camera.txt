@@ -1,0 +1,106 @@
+.. _ReferenceCamera:
+
+.. rst-class:: searchtitle
+
+Camera
+======
+
+.. rst-class:: searchdescription
+
+3D Camera class. The camera uses the position and rotation of the Transform component.
+
+.. include:: Description/Camera.rst
+
+.. cpp:class:: Camera
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceCameraProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Camera::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Camera::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Camera::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Camera::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ProjectionMode::Type Camera::ProjectionMode
+
+            How the geometry in the scene is projected. Perspective or Orthographic.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Facing::Enum Camera::Facing
+
+            Direction the camera is facing.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CameraTransparentSort::Type Camera::TransparentSort
+
+            How transparent objects will be sorted relative to this camera.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Camera::FieldOfView
+
+            The Field of View of the Camera in Degrees.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Camera::NearPlane
+
+            The near clipping plane of the camera.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Camera::FarPlane
+
+            The far clipping plane of the camera.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Camera::Size
+
+            Size of the orthographic projection.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Camera::Viewport
+
+            Viewport Object using this camera.
+
+.. _ReferenceCameraMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Camera::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/Camera.rst

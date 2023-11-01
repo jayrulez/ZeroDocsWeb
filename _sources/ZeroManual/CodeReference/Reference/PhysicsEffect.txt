@@ -1,0 +1,82 @@
+.. _ReferencePhysicsEffect:
+
+.. rst-class:: searchtitle
+
+PhysicsEffect
+=============
+
+.. rst-class:: searchdescription
+
+A common interface for all effects in physics. An effect is something that can be attached to a collider, rigid body, region or even a space. This effect will then perform its action every frame according to the rules of the object it is attached to.
+
+.. include:: Description/PhysicsEffect.rst
+
+.. cpp:class:: PhysicsEffect
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferencePhysicsEffectProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PhysicsEffect::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space PhysicsEffect::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog PhysicsEffect::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession PhysicsEffect::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsEffect::Active
+
+            Enable/disable this effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsEffect::WakeUpOnChange
+
+            Whether the object associated with this is woken up when any property is changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EffectType::Enum PhysicsEffect::EffectType
+
+            What kind of effect this is.
+
+.. _ReferencePhysicsEffectMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsEffect::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void PhysicsEffect::Toggle()
+
+            Toggles whether or not this effect is active.
+
+.. include:: Remarks/PhysicsEffect.rst

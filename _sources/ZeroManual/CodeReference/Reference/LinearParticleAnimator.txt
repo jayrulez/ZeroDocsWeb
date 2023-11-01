@@ -1,0 +1,94 @@
+.. _ReferenceLinearParticleAnimator:
+
+.. rst-class:: searchtitle
+
+LinearParticleAnimator
+======================
+
+.. rst-class:: searchdescription
+
+Basic Particle Animation Effects.
+
+.. include:: Description/LinearParticleAnimator.rst
+
+.. cpp:class:: LinearParticleAnimator
+
+    Base Class: :cpp:type:`ParticleAnimator`
+
+.. _ReferenceLinearParticleAnimatorProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog LinearParticleAnimator::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space LinearParticleAnimator::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog LinearParticleAnimator::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession LinearParticleAnimator::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 LinearParticleAnimator::Force
+
+            Constance force applied to particles.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 LinearParticleAnimator::RandomForce
+
+            Random force applied to particles.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real LinearParticleAnimator::Torque
+
+            Force that applies spin.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real LinearParticleAnimator::Growth
+
+            Rate of particle size growth.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real LinearParticleAnimator::Dampening
+
+            Velocity dampening.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 LinearParticleAnimator::Twist
+
+            Twist applies a twisting/tornado force to the particles.
+
+.. _ReferenceLinearParticleAnimatorMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void LinearParticleAnimator::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/LinearParticleAnimator.rst

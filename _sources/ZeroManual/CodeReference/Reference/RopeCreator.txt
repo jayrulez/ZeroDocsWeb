@@ -1,0 +1,84 @@
+.. _ReferenceRopeCreator:
+
+.. rst-class:: searchtitle
+
+RopeCreator
+===========
+
+.. include:: Description/RopeCreator.rst
+
+.. cpp:class:: RopeCreator
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceRopeCreatorProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog RopeCreator::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space RopeCreator::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog RopeCreator::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession RopeCreator::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint RopeCreator::Slices
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real RopeCreator::Thickness
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real RopeCreator::LengthUvScale
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real RopeCreator::RadialUvScale
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool RopeCreator::AllowUvStretching
+
+            
+
+.. _ReferenceRopeCreatorMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void RopeCreator::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/RopeCreator.rst

@@ -1,0 +1,506 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _2016Scripting3:
+
+.. rst-class:: SearchTitle
+
+Scripting 3
+===========
+
+.. rst-class:: SearchDescription
+
+In this lesson we will review the concepts of **variables**, **random numbers**, and **data types**; while also introducing **Properties**, and more information on **scopes**.
+
+.. _2016Scripting3LearningObjectives:
+
+Learning Objectives
+-------------------
+
+By the end of this lesson you should be able to...
+
+*   Use **variables** to store any of the built in **data types**.
+
+*   Understand the difference between an **Integer** and a **Real**.
+
+*   Know when a **member variable** vs a **local variable** is needed.
+
+*   Be able to print a **String** with a **variable** in it.
+
+.. rst-class:: VocabSection
+
++--------------------------------------+
+| Vocabulary                           |
++==============+========+==============+
+| Variable     | Scope  | String       |
++--------------+--------+--------------+
+| Data Type    | Random | Property     |
++--------------+--------+--------------+
+
+Create a New Project
+--------------------
+
+:ref:`Create a New 2D Project<2016CreateNewProject>`
+
+:ref:`Add a new ZilchScript resource named:<2016ResourceAdding>` ``GameLogic``
+
+Your script will look like the template Zilch component to start.
+
+Scopes
+------
+
+Scopes help determine the lifetime of a variable. Their start and end are denoted by the left and right curly braces, {}, respectively. Let's make an example to show how this works.
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+    
+.. code-block:: as
+    :emphasize-lines: 5-6
+ 
+    class GameLogic : ZilchComponent
+    {
+        function Initialize(init : CogInitializer)
+        {
+            var test = 9001;
+            Console.WriteLine(test);
+        }
+    }
+
+* :ref:`Select the LevelSettings object <2016SelectObject>`
+    
+* In the Properties Window
+        
+  * :ref:`Add the GameLogic component <2016AddComponent>` 
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+
+
+.. sidebar:: Using \`\` in a String
+    
+    In the code below you will see ``"test in Initialize: `test`"`` within a ``Console.WriteLine()``. Using the graves symbol (`````) to surround a variable in a string will attempt to parse the variable to a string value. In this case the ``test`` variable is translated to a string and then printed as part of the larger string.
+
+You should see the following console output.
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    9001
+    Level 'Level' was loaded.
+    Loaded level 0.01s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+Looking at the Initialize function, we created a variable ``test`` and printed it to the console. This variable is called a local scope variable because of the location of its definition. 
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+    
+.. code-block:: as
+    :emphasize-lines: 5-8, 11-15
+ 
+    class GameLogic : ZilchComponent
+    {
+        function Initialize(init : CogInitializer)
+        {
+            var test = 9001;
+            Console.WriteLine("test in Initialize: `test`");
+            this.ScopeTest();
+            Console.WriteLine("test in Initialize after ScopeTest: `test`");
+        }
+        
+        function ScopeTest()
+        {
+            var test = 9002;
+            Console.WriteLine("test in ScopeTest: `test`");
+        }
+    }
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    test in Initialize: 9001
+    test in ScopeTest: 9002
+    test in Initialize after ScopeTest: 9001
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+In the above code we define the test variable and print it in the Initialize function. We then call the function ScopeTest. When we call the ScopeTest function we enter the scope of that function. Whenever we are in a scope we can define variables that are local to that scope. This means if we go into another separate scope we will not be able to access the local variables of the scope we left. It also means that if a scope ends the local variables will be deleted forever. 
+
+When we define another ``test`` variable in ScopeTest there is no error from creating a duplicate variable, this is because the ScopeTest function starts a new scope. When we reach the end of the ScopeTest function the ``test`` variable defined within it is deleted. While naming local variables the same thing is an incredibly bad practice it is useful for demonstrating this concept of scope.
+
+|pbr|
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+    
+.. code-block:: as
+    :emphasize-lines: 8-11
+
+    function Initialize(init : CogInitializer)
+    {
+        var test = 9001;
+        Console.WriteLine("test in Initialize: `test`");
+        this.ScopeTest();
+        Console.WriteLine("test in Initialize after ScopeTest: `test`");
+        
+        if(true)
+        {
+            var test = 9003;
+        }
+    }
+
+*   :ref:`Save your project <2016SavingProject>`
+
+|NoBookSingleLine| |ScopeError|
+
+
+.. code-block:: csharp
+    :emphasize-lines: 13-17
+
+    class GameLogic : ZilchComponent
+    {
+      function Initialize(init : CogInitializer)
+      {
+        var test = 9001;
+        Console.WriteLine("test in Initialize: `test`");
+        this.ScopeTest();
+        Console.WriteLine("test in Initialize after ScopeTest: `test`");
+
+        if(true)
+        {
+          var test = 9003;
+              ^
+    A local variable (or paramter) with the same name `test` has already been 
+    defined (or you attempted to name your parameter a reserved name, such as 
+    `this`).
+        }
+      }
+      
+      function ScopeTest()
+      {
+        var test = 9002;
+        Console.WriteLine("test in ScopeTest: `test`");
+      }
+    }
+
+We got an error! Now looking at your code again you may ask, "Isn't this new ``test`` variable in a different scope?" While it is in a different scope than the first test variable we created, the scope it is in is actually nested within the scope of the initialize function. The scope of the ``ScopeTest`` function existed outside of the scope of the ``Initialize`` function, and therefore had no knowledge of the original ``test`` variable when we defined a second within the ``ScopeTest`` function.
+
+
+
+However the scope of the ``if`` statement is considered nested within the ``Initialize`` function as it was created and operates within the scope of the function. Because of its nested position, the scope of the ``if`` statement is aware of variables defined above it in the scope of ``Initialize`` function. When we tried to define ``test`` within the ``if`` statement, the compiler sees the ``test`` variable declared a few lines above and realizes it wouldn't be able to tell them apart, so it throws an error.
+
+Variable Types
+--------------
+
+Now that we have a general idea of how scopes work, let's take a closer look at variables. In Zilch, every variable has a type; so far we have only worked with a few variable types, Integer, Real, and Strings. Different types serve different purposes. Let's expand our example.
+
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code:
+    
+.. code-block:: as
+    :emphasize-lines: 3
+    
+    class GameLogic : ZilchComponent
+    {
+        var Test : Integer = 0;
+        
+        function Initialize(init : CogInitializer)
+        {
+            var test = 0;
+        }
+    }
+
+.. sidebar:: Zilch built-in variable types:
+    
+   
+    +----------------+----------------+----------------+----------------+
+    | Integer        | Integer2       | Boolean3       | Boolean4       |
+    +----------------+----------------+----------------+----------------+
+    | Integer3       | Integer4       | DoubleInteger  | Real           |
+    +----------------+----------------+----------------+----------------+
+    | Boolean        | Boolean2       | DoubleReal     | Real2          | 
+    +----------------+----------------+----------------+----------------+
+    | Real3          | Real4          | Events         | Null           |
+    +----------------+----------------+----------------+----------------+
+    | String         | Math           | Error          | Void           |
+    +----------------+----------------+----------------+----------------+
+    | Quaternion     | Exception      | OverloadedMethods               |
+    +----------------+----------------+---------------------------------+
+    
+Notice we declared a new variable ``Test`` in the scope of the class. Previously we had only declared variables within the scope of a function. Just as variables that are local to the scope of a function will only exist while we are in the function's scope, the variable ``Test`` exists only as long as the GameLogic component exists. ``Test`` is called a member variable, and each instance of the **GameLogic** component that is attached to an object will have a ``Test`` variable.
+    
+
+Notice the ``:`` when we declare the ``Test`` variable: this denotes the next symbol (in this case ``Integer``) is the type of the ``Test`` variable. There are many types of variables, but the most commonly used are Boolean, Integer, Real, and Real3. Now, you may be wondering why ``Test`` has a defined type and ``test`` appears not to. The local ``test`` variable has an Integer type because it is initially assigned an ``Integer`` when it is declared. This is called **implicit** typing. When we use a ``:`` we are **explicitly** defining the type. Local variables can have their types implicitly defined, but member variables must always have their types explicitly defined with a ``:``. 
+
+|pbr|
+
+Let's add some examples to talk about in our script.
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code
+    
+.. code-block:: as
+    
+    class GameLogic : ZilchComponent
+    {
+        var TestBoolean : Boolean = true;
+        
+        var TestInteger : Integer = 0;
+        
+        var TestReal : Real = 0.0;
+        
+        var TestReal3 : Real3 = Real3(0.0,0.0,0.0);
+        
+        var TestString : String = "String";
+        
+        function Initialize(init : CogInitializer)
+        {
+            var test = 0;
+            
+            Console.WriteLine("TestBoolean: `this.TestBoolean`");
+            Console.WriteLine("TestInteger: `this.TestInteger`");
+            Console.WriteLine("TestReal: `this.TestReal`");
+            Console.WriteLine("TestReal3: `this.TestReal3`");
+            Console.WriteLine("TestString: `this.TestString`");
+            Console.WriteLine("test: `test`");
+        }
+    }
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    TestBoolean: true
+    TestInteger: 0
+    TestReal: 0
+    TestReal3: (0, 0, 0)
+    TestString: String
+    test: 0
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+First, let's look at ``TestBoolean``. **Booleans** are binary data types, meaning they can either have a value of ``true`` or ``false``. They are very useful for keeping track of states, such as whether a character is invincible or not. ``TestInteger`` is the same as the ``Test`` variable we had previously. 
+
+
+
+**Integers** are whole numbers such as ``1``, ``2``, ``3``, or ``2,147,483,647``, which do not have fractional parts. Now let's look at ``TestReal`` which has a value of ``0.0``. Unlike **Integers**, **Real** variables deal with fractional parts (as seen by having numbers to the right of the decimal) allowing you to have numbers such as ``1.0``, ``2.5``, or ``3.141592``. We use **Real** variables for many things that require fractional accuracy, such as angles and speeds. We use **Integers** to keep track of things like how many lives the players has, or how many enemies are alive. Half of an enemy can't exist, so it would be pointless to keep track of the decimal places when counting enemies; thus, we use **Integers**.
+
+The next variable we define is ``TestReal3``. A **Real3** is simply three **Real** variables clumped together into one variable type. **Real3** variables are most often used to store position, velocity, and other vector-based data. We'll be using **Real3** variables heavily in later lessons.
+
+The last member variable we define is ``TestString`` which is a **String** type. Strings are sequences of characters such as ``a``, ``R``, ``7``, or ``&``. Any time we want to store the characters that make up a sequence of text, we use a String.
+
+Properties
+----------
+
+The last major portion of the topic of variables is **Properties**. Properties are special member variables of components that can have their values set through the Properties Window in between game sessions. Let's turn the test variables in the **GameLogic** script into properties.
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code
+    
+.. code-block:: as
+    :emphasize-lines: 3-4, 6-7, 9-10, 12-13, 15-16
+    
+    class GameLogic : ZilchComponent
+    {
+        [Property]
+        var TestBoolean : Boolean = true;
+        
+        [Property]
+        var TestInteger : Integer = 0;
+        
+        [Property]
+        var TestReal : Real = 0.0;
+        
+        [Property]
+        var TestReal3 : Real3 = Real3(0.0,0.0,0.0);
+        
+        [Property]
+        var TestString : String = "String";
+
+*   :ref:`Save your project <2016SavingProject>`
+
+
+
+*   :ref:`Select the LevelSettings object <2016SelectObject>`
+
+    *   Under the GamgeLogic component
+    
+|Properties1|
+    
+By using the ``[Property]`` attribute,  each of the variables now show up in the Properties Window. Let's go change the values in the Properties Window.
+
+*    In the Property Window
+
+    *   Under the GameLogic component
+        
+        *   Set TestBoolean to: ``false``
+        *   Set TestInteger to: ``5``
+        *   Set TestReal to: ``3.141592``
+        *   Set TestReal3 to: ``[4.0, 5.9, 152.125]``
+        *   Set TestString to: ``This is a String``
+
+
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    TestBoolean: false
+    TestInteger: 5
+    TestReal: 3.14159
+    TestReal3: (4, 5.9, 152.125)
+    TestString: This is a String
+    test: 0
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+.. warning:: **Setting Properties**
+
+    The value that is assigned to a property when it is defined is the default value that will be used when the component is first attached to an object. Once you have modified a property through the Property Window changing it in script will not affect it. 
+
+The values of all our property variables have changed to reflect the values in the Properties Window.
+
+
+*   In the GameLogic ZilchScript Window
+
+    *   Update the **GameLogic** component to the following code
+    
+.. code-block:: as
+    :emphasize-lines: 2
+    
+        [Property]
+        var TestInteger : Integer = 52;
+
+*   :ref:`Save your project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>` 
+
+Console Output::
+
+    ---------------- Begin Game ---------------
+    TestBoolean: false
+    TestInteger: 5
+    TestReal: 3.14159
+    TestReal3: (4, 5.9, 152.125)
+    TestString: This is a String
+    test: 0
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+*   :ref:`Stop the Game <2016StopGame>`
+
+
+
+Notice the printed value of ``TestInteger`` did not change, even though we changed the declared value in script. This is because properties are serialized, which means that when the game is ran the values displayed in the Properties Window are saved off and later used to initialize the member variables when they're created. The only time the script-declared value of a property is used is to set the *default value* of that property in the Properties Window. After the component is first attached to an object, it uses the serialized value of the variable and never looks at the script-declared value again.
+
+While many components have need for variables that have values that are only determined while the game is running, most components base their behavior off various values held by Properties. Using properties has several advantages. First, you do not have to open a script in order to change a value; this makes it quicker to iterate, or make changes, in your game. Second, your properties are saved per component, which allows for more code reuse.
+
+.. admonition:: Consider the Following
+
+    Imagine you wanted two objects to have a ``Health`` component, your player and your enemy. After a little consideration, you determine your player and enemy should have different starting healths. 
+    
+    If the starting health is a property we can set the starting value per instance of the component that is attached to the different objects, i.e. **We can set the player to have a 
+    different starting health than the enemy right from the Properties Window.**
+    
+    However, if starting health was *not* a property we would be forced to use the same starting value for *all* objects using the ``Health`` component, *or* be forced to write another component with duplicate functionality for the enemy, just to get a different starting health value. 
+
+Features of Properties
+----------------------
+
+.. sidebar:: The ``null`` type
+    
+    ``null`` can be thought of the absence of value for a variable. If you were giving a ``Integer`` a default value you may give it a value of ``0`` to indicate it has no value. What if (like in the example below) you have a variable type that lacks an empty value such as a resource? In this case you set the variable to ``null`` and then initialize its value later (in the case of a resource property through the property window.)
+    
+* Each object has its own copy of every property variable.
+* Changing the value of the property on an object does not affect the value of the property on other objects.
+* Properties are automatically saved for every object in the level.
+* Properties are saved on archetypes.
+
+
+
+Other Property Types
+--------------------
+
+
+So far we have shown we can make properties out of any type and set them through the Properties Window. However, so far we have only utilized basic Zilch types to do so. What if we wanted to make a property for a resource?
+
+*   In the GameLogic ZilchScript Window
+
+    *   Add the the following code to the **GameLogic** component
+    
+.. code-block:: as
+    :emphasize-lines: 4-8
+    
+        [Property]
+        var TestInteger : Integer = 52;
+        
+        [Property]
+        var TestPhysicsMaterial : PhysicsMaterial = null;
+        
+        [Property]
+        var TestModel : Mesh = Mesh.Find("Cone");
+
+*   :ref:`Save your project <2016SavingProject>`
+
+|ResourceProperties|
+
+.. sidebar:: The ``Find`` Function
+
+    When defining the ``TestModel`` property it is desirable to give it a default value that will show up in the Property Window. Where ``Mesh.Find("Cone")`` is seen in the code just entered into the project a mesh is being found that is named ``Cone`` to be used as the default value. The ``Find`` function is a member of every resource type.
+
+We made a couple more properties, but this time we used resources instead of the built-in language types; nonetheless, the syntax for making the variables properties is exactly the same as before. The biggest change is in the initial value options for resource properties. Since resources are not primitive (i.e. built-in) language types (e.g. Integers, Reals, Booleans, etc.) they do not have inherent default values (Integer has 0, Real has 0.0, Real3 has [0.0,0.0,0.0], etc.). Instead of assigning a literal value such as ``0`` or ``String``, we must *assign a value that matches the resource type.*
+
+There are two ways do this. The first, which we show with the ``TestPhysicsMaterial`` property, is to assign ``null`` to the property. ``null`` is to resource and object types as ``0`` is to Integers; that is to say, it is the empty value. In fact, ``null`` can serve as the empty value for any non-primitive language type. In this case, the property is set to ``None``.
+
+.. sidebar:: Meshes
+  
+  Meshes are collections of vertices and edges used to define the geometry of the world in a 3D game. While you will not be using meshes, they serve as a good example of a resource type that must be imported into the engine. (The resources that don't need to be imported are those types that are generated by the user through the engine itself, such as :cpp:type:`PhysicsMaterials<PhysicsMaterial>`.)
+
+The second way to initialize a resource property is demonstrated with the ``TestMesh`` property. Each resource type has a function called ``Find`` which takes the raw string name of a resource of that type. This function will return the resource with the given name if it exists; otherwise, it returns ``null``. This is useful if you want to use a specific resource as the default value for a resource property.
+
+.. warning::
+
+    Many people will think of using the ``Find`` function throughout their code to get access to resources. The ``Find`` function *should only be used to initialize variables* and should never be called from within another function. The ``Find`` call can be very expensive if there are a lot of resources (which there often are). 
+    
+    Because you always have the ability to make and initialize a resource property, there is no reason to call the ``Find`` function in any other circumstance. You can always make that property, use it, and change the resource property through the Properties Window later, if necessary.
+
+Conclusions
+-----------
+
+We learned that scopes define the lifetime of a variable, and that we can have **local** and **member** variables. These variables all have types whether we explicitly define them or not, and each type has its various purposes. Finally, we went over properties: how they help keep you from rewriting code, and speed up iteration. The concepts of these scripting lessons are used through out development in the Zero Engine, so make sure you are comfortable with them.
+
+On your own
+-----------
+
+*   Experiment with resource properties, setting them in the UI, and printing them to the console.
+
+*   Experiment with comparison between variables and properties.
+
+*   Try to use your knowledge of random, conditionals, and properties to randomly choose the text and object displays when the game is started.
+
+
+
+.. |Properties1|                        image:: images/Scripting2/Properties1.PNG
+    :height: 2.5in
+.. |ScopeError|                         image:: images/Scripting2/ScopeError.PNG
+    :height: 2.5in
+.. |ScopeErrorBook|                     image:: images/Scripting2/ScopeErrorBook.PNG
+    :height: 2.5in
+.. |ResourceProperties|                 image:: images/Scripting2/ResourceProperties.PNG
+    :height: 2.5in
+

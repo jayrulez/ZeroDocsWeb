@@ -1,0 +1,49 @@
+.. include:: <isonum.txt>
+
+.. _ZilchTypeStirngBuilder:
+
+.. rst-class:: SearchTitle
+
+StringBuilder
+=============
+
+.. rst-class:: SearchDescription
+
+An efficient way of concatenating strings together, typically used for building large files.
+
+
+Constructors
+------------
++-----------+-----------------------+
+| Signature | Row                   |
++===========+=======================+
+| ()        | *Default constructor* |
++-----------+-----------------------+
+
+Instance Methods
+----------------
++---------------------+-------------+
+| Name / Signature    | Description |
++=====================+=============+
+| ToString() : String |             |
++---------------------+-------------+
+| Write(any)          |             |
++---------------------+-------------+
+| WriteLine()         |             |
++---------------------+-------------+
+| WriteLine(any)      |             |
++---------------------+-------------+
+
+Samples
+-------
+
+The sample below shows using a StringBuilder to concatenate strings:
+
+.. code-block:: as
+    
+    var builder = new StringBuilder();
+    builder.Write(99);
+    builder.Write(" problems");
+     
+    // Now get the resulting '99 problems' String back.
+    var result = builder.ToString();

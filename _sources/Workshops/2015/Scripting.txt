@@ -1,0 +1,847 @@
+.. _Scripting:
+
+.. rst-class:: SearchTitle
+
+Scripting
+=========
+
+.. rst-class:: SearchDescription
+
+This lesson introduces basic scripting using Zilch in the Zero Engine, including printing to the Console Window, **if** statements, **else** statements, **variables**, **Strings**, string interpolation, and generating random numbers.
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2015`
+
+:ref:`Add a new ZilchScript resource<ResourceAdding2015>` named: GameLogic
+
+The newly created GameLogic script should open in a new tab next to the Level tab, and it should appear in the Library Window:
+
+|Library1| |Library2|
+
+*  :ref:`Save your project <SavingProject2015>`
+
+We can use ZilchScripts to write code using the Zilch programming language. Then
+we can add these scripts to our cogs as components.
+
+.. admonition:: Cogs
+    
+    A game object in the Zero Engine is a collection of components --- it is a
+    **G**\ ame **O**\ bject **C**\ omposition, and that's what **cog** stands
+    for, backwards. Almost everything that you make and use in your game is a
+    cog.
+    
+    In this text, you will find the terms **cog** and **game object** used
+    interchangeably.
+
+Your new GameLogic script should look like this:
+
+.. code-block:: as
+    
+    class GameLogic : ZilchComponent
+    {
+        function Initialize(init : CogInitializer)
+        {
+            //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        }
+
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+        }
+    }
+
+Here's what some of this stuff means:
+
+.. code-block:: as
+    
+    class GameLogic : ZilchComponent
+
+.. sidebar:: Classes
+    
+    A **class** is like a blueprint --- it's the instructions for making an
+    object. Classes can have functions and variables, and every object made from
+    that class will have those same functions and variables.
+    
+.. admonition:: Case Sensitivity
+    
+    Zilch is a **case-sensitive** language. That means that you could declare a
+    class called ``ExampleClass`` and another one called ``Exampleclass``, and
+    the engine would have no trouble distinguishing the two. Likewise, if you
+    create a component called ``GameLogic`` and add it to a cog, you won't be
+    able to find it if you look for ``Gamelogic``.
+    
+    Remember, though --- just because you **can** does not mean that you
+    **should**. Generally, it's a bad idea to give things names that are
+    differentiated only by capitalization.
+
+*   The ``class`` keyword here means that ``GameLogic`` is a new Zilch
+    **class**.
+    
+    To make your own new component, you have to declare it as a class.
+    Furthermore, the name of a class must always begin with a capital letter.
+
+.. sidebar:: Inheritance
+    
+    **Inheritance** is a concept in object-oriented programming, or OOP, that
+    allows one class to gain all the features of another, plus any additional
+    features that the programmer wishes to add.
+
+*   The colon ``:`` between ``GameLogic`` and ``ZilchComponent`` tells the
+    engine that your new class *inherits from* the ``ZilchComponent`` class.
+    
+    In order for your new component to show up in the editor, and to be able to
+    add it to a cog, its class must inherit from the ``ZilchComponent`` class.
+    
+    |AddingCustomComponent|
+    
+    *A class will show up in the editor if it inherits from*
+    ``ZilchComponent``
+    
+.. code-block:: as
+    
+    function Initialize(init : CogInitializer)
+
+.. sidebar:: Functions and Parameters
+    
+    A **function** is a block of code that may be *called* when it is needed.
+    The code of a function may use any number of **parameters** that are
+    *passed* to it. These parameters may be numbers, such as ``Integer``\ s or
+    ``Real``\ s, or any other type or custom class --- it's up to the programmer
+    who wrote the function.
+    
+    **Data Types**
+    
+    Classes can store data. The way that data is interpreted by the engine is
+    determined by its **type**. Types will be covered in the next lesson.
+
+*   The ``function`` keyword is used to declare a new **function**.
+    ``Initialize`` is the name of the function that we have declared.
+    
+    ``Initialize`` is a special function that is inherited from the
+    ``ZilchComponent`` class. The engine automatically calls the ``Initialize``
+    function of every component on a cog when that cog is first created.
+    
+*   Next is ``(init : CogInitializer)``. This is called the **parameter list**
+    of this function. You can think of a function's parameter list as a part of
+    its name.
+    
+    Note that the colon ``:`` between ``init`` and ``CogInitializer`` does *not*
+    do the same thing as the colon between ``GameLogic`` and ``ZilchComponent``.
+    This one specifies the **data type** of the ``init`` parameter.
+    
+    If a component's ``Initialize`` function does not take a single parameter of
+    type ``CogInitializer``, the engine will not call it when it is created.
+
+*   Also, notice how in our code here, ``function`` is printed in bold text and
+    in a different color from the rest of the code (and so is ``class``). This
+    is because it is a **reserved** word. You can't name anything ``function``
+    or ``class`` (or any of a number of other keywords).
+
+.. sidebar:: Reserved Words
+    
+    In Zilch, no function, class, or anything else can be named ``function`` or
+    ``class`` because those words are **reserved** --- they already mean
+    something to the language and we can't change that.
+    
+
+.. code-block:: as
+    :emphasize-lines: 2, 6
+    
+    class GameLogic : ZilchComponent
+    {
+        [...]
+        
+        // code that is part of the class
+    }
+    
+    // code that is not part of the class
+
+*   A pair of **curly braces** ``{}`` encloses everything in the ``GameLogic``
+    class. Everything between them is a part of the class; anything outside of
+    them is not.
+
+.. code-block:: as
+    :emphasize-lines: 2, 6
+    
+        function Initialize(init : CogInitializer)
+        {
+            [...]
+            
+            // code that is inside the function
+        }
+        
+        // code that is outside the function
+
+*   Similarly, another pair of braces surrounds the ``Initialize`` function.
+    Any code written between them is a part of the function, and will be
+    executed every time the function is called.
+
+Zilch is a **whitespace-insensitive** language. This means that any number
+of spaces inserted by the Space bar or Tab key are treated just the same by
+the engine as a single space. (The same is true of newlines inserted by the
+Enter key.)
+
+
+
+Your ``GameLogic`` class could be written in the following manner, with no
+impact on how well it works:
+
+.. code-block:: as
+    
+    class GameLogic:ZilchComponent{function Initialize(init:CogInitializer){
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }function OnLogicUpdate(event:UpdateEvent){}}
+
+Of course, it's much harder to read that way! Conversely, you could write it
+like this:
+
+.. code-block:: as
+    
+    class   GameLogic   :   ZilchComponent
+    {
+        
+        
+        function   Initialize   (   init   :   CogInitializer   )
+        {
+            
+            
+            //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+            
+            
+        }
+        
+        
+        function   OnLogicUpdate   (   event   :   UpdateEvent   )
+        {
+            
+            
+        }
+        
+        
+    }
+
+.\ .\ . but this might be a bit excessive. Remember that you are free to use as
+much or as little whitespace as you like in writing your code, as long as
+you don't put it in the middle of words.
+
+
+
+Comments
+--------
+
+.. sidebar:: "Commenting Out"
+    
+    In Zilch, it's possible to turn a line of code into a comment by adding
+    ``//`` to the beginning of the line. This causes the compiler to ignore that
+    line, just as if it were an actual, literal comment. The advantage of this
+    is that you haven't deleted that code, you've just *commented it out*, so it
+    can easily be put back in if needed.
+    
+    Commenting code out rather than deleting it can be a good habit *if you
+    think you may want to get that code back later*, but don't go overboard and
+    comment out every single thing you aren't using anymore.
+
+Comments allow us to leave notes to ourselves and others reading our code in our
+human language (instead of a programming language) so that we can quickly
+understand what we were doing. Commenting not only allows us to write the logic
+behind what we are doing beforehand, but it helps us quickly remember what the
+code was for when we haven’t looked at it in a long time. We create comments in
+Zilch by placing ``//`` at the beginning of the comment; it extends until the
+end of the line. The comment will be ignored when the script is processed, so it
+doesn't affect the script's functionality.
+
+You can see some code "commented out" in your generated file inside the Initialize function. 
+
+*   In the GameLogic ZilchScript Window
+
+    *   In the Initialize function
+        
+        * Change:
+          ``//Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);``
+        
+          to
+        
+          ``// This is a comment.``
+        
+    A comment does not affect the program, but allows you to leave notes to
+    yourself.
+
+Printing
+--------
+
+Now we will print to our Console Window using Zilch's Console library. We will print a number in our GameLogic's Initialize function.
+
+*   In the GameLogic ZilchScript Window
+
+    *   In the Initialize function
+    
+        *   On the line after the comment
+        
+            *   Type: ``Console.WriteLine(9001);``
+
+
+
+This line of code will print the number 9001 in the Console Window. Don't forget about the semicolon at the end of the line! Your **GameLogic** script should look like this:
+    
+    
+.. code-block:: as
+    :emphasize-lines: 6
+    
+    class GameLogic : ZilchComponent
+    {
+        function Initialize(init : CogInitializer)
+        {
+            // This is a comment. 
+            Console.WriteLine(9001);
+        }
+
+        function OnLogicUpdate(event : UpdateEvent)
+        {
+        }
+    }
+
+*  :ref:`Save your project <SavingProject2015>`
+
+Errors
+------
+
+If you make a mistake, such as putting an extra closing parenthesis at the end, you will get a compiler error that looks something like this:
+
+Console Output::
+
+    The statement must end with a semicolon. We found ')' but we expected to find ';'.
+
+.. sidebar:: What is a Compiler?
+    
+    A **compiler** is a program that takes code written in a language that you
+    can understand (in this case, Zilch) and turns it into program logic (in
+    this case, your game project). The Zero Engine *compiles* your Zilch code
+    into parts of your game. When it comes across something in your code that
+    confuses it, it produces a **compiler error**.
+    
+Errors occur the moment the compiler finds a symbol or word it doesn't recognize in context. Therefore, when looking for your bug you should always investigate the code at or before the area indicated by the error. **Always READ the errors.** They are helpful! 
+Here it does not know what to do with a closing parenthesis when it did not see a matching open one come before it. It was expecting a semicolon right then. *Note:* Error messages clear upon typing or erasing within the script editor, but this doesn't mean the error is gone. If you do not fix an error, the message will reappear the next time you compile (i.e. when you try to save or run your game). 
+
+Once your code is bug-free we can see the new component in action. 
+
+
+
+Running the Script
+------------------
+
+Let's see our statement print to the console:
+
+*   Open the Console Window via the ``Console`` command
+*   In the Console Window
+
+    *   Press ``Ctrl+Delete`` to clear the console
+*   Press the ``F5`` key to :ref:`run the game <RunTheGame2015>`
+
+Now if we look at the Console Window, it should have printed the number. Why
+wasn't the number printed? Oh! We forgot to add the script to an object. An
+object uses or **calls** the Initialize function on all of its components when
+it is first created. Since it wasn't on any object, it never got called, and our
+code wasn't used.
+
+Typically, when a script's logic applies to all objects in a current level, we put it on that Level's LevelSettings object:
+
+*   Close the Game Window via: ``Escape`` key when in the Game Window OR the X button on the Game Window tab
+*   In the Objects Window
+
+    *   :ref:`Select the LevelSettings object <SelectObject2015>`
+*   In the Properties Window
+
+    *   Click the Add Component button 
+    *   Type: GameLogic
+
+        |AddingGameLogic|
+
+    
+    
+    *   Select GameLogic via: a ``Left-Click`` on the drop down list OR ``Enter``
+
+        Note that ``GameLogic`` shows up here because there is a **class** by
+        that name. The project does also contain a file called "GameLogic.z" ---
+        but the names of a class and the file that contains it do not
+        necessarily have to match. If you renamed the ``GameLogic`` class to
+        ``MyGameLogicClass``, then ``MyGameLogicClass`` would be what you would
+        see when you went to add it to the LevelSettings cog. Conversely, if you
+        were to rename the "GameLogic.z" script to "MyGameLogicScript.z", you would
+        still see ``GameLogic`` when you added it to LevelSettings.
+
+*   :ref:`Save your project <SavingProject2015>`
+*   :ref:`Run the Game <RunTheGame2015>`
+*   :ref:`Stop the Game <StopGame2015>`
+
+.. sidebar:: Console.Write
+    
+    The ``Console.WriteLine`` function will always print the given text on a new
+    line. If you want to append (attach to the end) text to the last line
+    printed you can use the ``Console.Write`` function:
+    
+    .. code-block:: as
+        :emphasize-lines: 3
+      
+        Console.Write("Hello");
+        Console.Write(" ");
+        Console.Write("World");
+    
+    will print
+    
+    ``Hello World``
+
+Now if we look at the Console Window, it should have printed the number. This is the console output we should get:
+
+    Console Output::
+    
+        Saved level file 'Level'.
+        Saved : Project and all scripts saved.
+        ----------------  End  Game ---------------
+        ---------------- Begin Game ---------------
+        9001
+        Level 'Level' was loaded.
+        Loaded level 0.00s
+
+Notice that after the game begins, our number is printed in the console. This lets us know that our script is working and that our Initialize function is getting called.
+
+
+
+Order of Execution
+------------------
+
+*   Go back to the GameLogic script via: Clicking on the GameLogic tab OR
+    Double-clicking on the GameLogic script in the Library Window: :menuselection:`ZilchScript --> GameLogic`
+
+What else can we print? How about a message? Text between quotation marks can be
+stored by the computer; we call such text a **string**.
+
+*   In the GameLogic ZilchScript Window
+
+    *   In the Initialize function
+    
+        *   On the line after ``Console.WriteLine(9001);``
+        
+            *   Type: ``Console.WriteLine("Here be dragons.");``
+
+Your **Initialize** function should look like this:
+
+.. code-block:: as
+    :emphasize-lines: 5
+    
+        function Initialize(init : CogInitializer)
+        {
+            // This is a comment.
+            Console.WriteLine(9001);
+            Console.WriteLine("Here be dragons.");
+        }
+    
+*Make sure your sentence, or String, is in between quotation marks!*        
+
+*   In the Console Window
+
+    *   Press ``Ctrl+Delete`` to clear the console
+*   :ref:`Save your project <SavingProject2015>` and :ref:`run the game <RunTheGame2015>`          
+*   :ref:`Stop the Game <StopGame2015>`
+            
+            
+Console Output::
+
+    Saved : Project and all scripts saved.
+    ---------------- Begin Game ---------------
+    9001
+    Here be dragons.
+    Level 'Level' was loaded.
+    Loaded level 0.01s
+    ----------------  End  Game ---------------
+
+Notice how the outputs of our print statements in the console window are in the
+same order as the print statements themselves in our code. This is because
+programs execute one statement at a time. If we were to switch the order of the
+lines, it would change the order they print in.
+
+
+
+Random
+------
+
+Our program is static and does the same thing every time. Let's add a little excitement --- let's roll a die.
+
+*   In the GameLogic ZilchScript Window
+
+    *   In the **Initialize** function change your code to:
+    
+.. code-block:: as
+    :emphasize-lines: 5-12
+    
+        function Initialize(init : CogInitializer)
+        {
+            Console.WriteLine("Here be dragons.");
+            
+            // Create a random number generator
+            var randNumGen = new Random();
+            
+            // In honor of dragons and D&D, roll a d20:
+            var randNum = randNumGen.DieRoll(20);
+            
+            // See what we rolled:
+            Console.WriteLine(randNum);
+        }
+
+This new code creates a random number generator, and then *calls its*
+``DieRoll`` *function*. This function simulates rolling a die, but it requires a
+parameter to be passed to it to specify the number of sides on the die to roll.
+We want to roll a d20, so we *pass in* ``20``. If we had passed in ``6``,
+``DieRoll`` would give us the result of a d6 roll.
+
+*   :ref:`Save your project <SavingProject2015>` and :ref:`run the game <RunTheGame2015>`
+
+You'll see your random number printed out in the Console Window.
+
+*   :ref:`Rerun the game <RunTheGame2015>` multiple times.
+
+You should see that the number printed is changing between runs.
+
+*   :ref:`Stop the Game <StopGame2015>`
+
+
+
+Variables
+---------
+
+Here you used the **var** keyword to make a **variable**. 
+Variables are like buckets. They are simple containers you can store stuff in. When you come back, the last thing you put inside it will still be there and you can change the contents of the bucket as you see fit. You can fill it with explicit items or **literals**, such as ``3`` or ``"Hello!"``. You can mimic the contents of another bucket via assignment, as in the following example:
+
+.. code-block:: as 
+    
+    var bucket1 = 8;
+    var bucket2 = 16;
+    var bucket3 = 4;
+    
+    // Set bucket1's contents equal to bucket2's contents:
+    bucket1 = bucket2;
+    
+    // bucket1 now has a value of 16
+    // bucket2's contents remain unchanged, having a value of 16
+    
+    // Set bucket3's contents equal to the sum of the contents of bucket3 and bucket1
+    bucket3 += bucket1;
+    
+    // The value of bucket1 is still 16 because that is the last thing we stored in it, so:
+    // bucket3 += bucket 1          becomes:
+    // bucket3  = bucket3 + bucket1 becomes:
+    // bucket3  = 4       + 16         
+    // The contents of bucket3 are now updated to 20.
+
+Or you can use it as a container to receive the output of a function call, as we
+did with the ``DieRoll`` function.
+
+In this script, you've used variables to store:
+
+* the object created by ``new Random()`` and
+* the value returned by the ``DieRoll`` function
+
+Because you had the ability to store the value from the ``DieRoll``, you were
+able to pass it along to the ``Console.WriteLine`` function to see its value: 
+``Console.WriteLine(randNum);``
+
+Conditionals
+------------
+
+Let's say we are a pretty average player and these are concerning dragons. If we
+roll a 1--10, we get burned by the fearsome dragon; if we roll 11--20 we slay
+the dragon. Knowing that rolling a d20 will give us a number between 1 and 20,
+we can check how the number compares to 11:
+
+``If the random number is          less than 11           (randNum <  11), it must be between  1 and 10.``
+
+``If the random number is   greater than or equal to 11   (randNum >= 11), it must be between 11 and 20.``
+
+These **comparison operators** operate the same way they do in mathematics.
+These statements are either **true** or **false**. We will use these comparison
+operators in an **if** statement.
+
+
+
+**if Statements**
+
+An ``if`` statement takes a **boolean condition** (something that evaluates to
+true or false), to determine whether or not it should run some code.
+
+.. code-block:: as
+    
+    if (true)
+    {
+      // Code between these curly braces always gets run.
+    }
+    if (false)
+    {
+      // Code between these curly braces always gets skipped. 
+    }
+    // Comparison operators can be used as boolean conditions 
+    // because they result in true or false.
+    if (5 > 3)
+    {
+      // Code between these curly braces always runs because the value of 5 will
+      // always be greater than 3. This boolean condition will always result in true.
+    }
+    if (randomNumber > 3)
+    {
+      // Code between these curly braces may or may not run --
+      // it depends on the value stored in the randomNumber variable.
+    }
+
+We can use these concepts to "fight" the dragon.
+  
+*   In the **GameLogic** ZilchScript Window
+
+    *   In the **Initialize** function change your code to: 
+    
+.. code-block:: as
+    :emphasize-lines: 11-27
+    
+    function Initialize(init : CogInitializer)
+    {
+        Console.WriteLine("A Dragon attacks!");
+        
+        // Create a random number generator
+        var randNumGen = new Random();
+        // In honor of dragons and D&D, roll a d20:
+        var randNum = randNumGen.DieRoll(20);
+        
+        // See what we rolled:
+        Console.WriteLine("(you roll a `randNum`)");
+            // Note the grave accent marks, ``, used here -- see below
+            // These are NOT the same as apostrophes or single quotes ('')
+        
+        // If we rolled a less than 11:
+        if (randNum < 11)
+        {
+            // We lose.
+            Console.WriteLine("Taking you by surprise, the dragon burns you to a crisp!");
+        }
+        // If we roll greater than 11:
+        if (randNum >= 11)
+        {
+            // We win.
+            Console.WriteLine("Dodging the dragon's fiery breath, you slay the dragon with your sword!");
+        }
+    }
+
+When writing the value of ``randNum`` within a string, place **grave accent
+marks**, ` (the tilde ~ key, under Esc on an American keyboard), around the
+variable's name. In general, surrounding a bit of code (such as a variable name)
+with ` marks and putting it in a string will replace it with its value instead
+of its name. This is called **string interpolation**.
+
+You'll see your story unfold in the Console Window.
+
+*   :ref:`Rerun the game <RunTheGame2015>` multiple times.
+*   :ref:`Stop the Game <StopGame2015>`
+
+What if we want to reward great technical skill? Let's alter the message when you've rolled a 20.
+
+*   In the **GameLogic** ZilchScript Window
+
+    *   In the **Initialize** function change your code to: 
+    
+.. code-block:: as
+    :emphasize-lines: 21-26
+    
+    function Initialize(init : CogInitializer)
+    {
+        Console.WriteLine("A Dragon attacks!");
+        
+        // Create a random number generator
+        var randNumGen = new Random();
+        // In honor of dragons and D&D, roll a d20:
+        var randNum = randNumGen.DieRoll(20);
+        
+        // See what we rolled:
+        Console.WriteLine("(you roll a `randNum`)");
+        
+        // If we rolled a less than 11:
+        if (randNum < 11)
+        {
+            // We lose.
+            Console.WriteLine("Taking you by surprise, the dragon burns you to a crisp!");
+        }
+        
+        // If we roll a 20:
+        if (randNum == 20) // Be sure to use two equals signs -- see below
+        {
+            // We win with style.
+            Console.WriteLine("Before the dragon can muster its fire, you slay it with your sword!");
+        }
+        
+        // If we roll greater than 11:
+        if (randNum >= 11)
+        {
+            // We win.
+            Console.WriteLine("Dodging the dragon's fiery breath, you slay the dragon with your sword!");
+        }
+    }
+
+
+
+The equals sign, ``=``, is *not* the same as the double equals sign, ``==``. The
+double equals sign asks a question: "Is this the same as that?" It's frequently
+used in ``if`` statements. The single equals sign stores a value in a variable:
+
+.. code-block:: as
+    
+    hitPoints = 100;
+
+sets the value of ``hitPoints`` to be equal to ``100``.
+
+You'll see your story unfold in the Console Window.
+
+*   :ref:`Rerun the game <RunTheGame2015>` until you roll a 20
+*   :ref:`Stop the Game <StopGame2015>`
+        
+Console Ouput::
+
+    ----------------  End  Game ---------------
+    ---------------- Begin Game ---------------
+    A Dragon attacks!
+    (you roll a 20)
+    Before the dragon can muster its fire, you slay the dragon with your sword!
+    Dodging the dragon's fiery breath, you slay the dragon with your sword!
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+Here you can see that both win conditions ran as if *two* dragons attacked.
+
+This is because both of the conditions were true: when we rolled a 20, that
+meant the value in ``randNum`` was 20, so:
+
+``if (randNum == 20)`` became ``if (20 == 20)`` became ``if (true)`` so |br|
+``Console.WriteLine("Before the dragon can muster its fire, you slay the dragon with your sword!");`` ran,
+
+and also:
+
+``if (randNum >= 11)`` became ``if (20 >= 11)`` became ``if (true)`` so |br|
+``Console.WriteLine("Dodging the dragon's fiery breath, you slay the dragon with your sword!");`` also ran.
+
+
+
+**else/else if Statements**
+
+Once we've defeated the dragon, we don't want to do it again. We can avoid this by only checking if necessary. 
+
+.. code-block:: as
+    
+    // When the boolean condition evaluates to true:
+    if (true)
+    {
+        // Code between these curly braces gets run.
+    }
+    else 
+    {
+        // Code between these curly braces gets skipped.
+    }
+    
+    
+    // When the boolean condition evaluates to false:
+    if (false)
+    {
+        // Code between these curly braces gets skipped.
+    }
+    else 
+    {
+        // Code between these curly braces gets run.
+    }
+    
+    // when you have more conditions to check you can pair an else with another if:
+    if (randNumber == 20)
+    {
+        // Code between these curly braces may or may not run.
+    }
+    else if (randNumber >= 11)
+    {
+        // Code between these curly braces may or may not run.
+    }
+    else if (randNumber < 11)
+    {
+        // Code between these curly braces may or may not run.
+    }
+    
+Let's fix our game by adding an **else if** statement:
+
+*   In the **GameLogic** ZilchScript Window
+
+    *   In the **Initialize** function change your code to: 
+    
+.. code-block:: as
+    :emphasize-lines: 1,2
+    
+    // If we didn't roll a 20 but did roll greater than 11:
+    else if (randNum >= 11)
+    {
+        // We win.
+        Console.WriteLine("Dodging the dragon's fiery breath, you slay the dragon with your sword!");
+    }
+
+You'll see your story unfold in the Console Window.
+
+*   :ref:`Rerun the game <RunTheGame2015>` until you roll a 20
+*   :ref:`Stop the Game <StopGame2015>`
+
+
+
+Console Output::
+
+    ----------------  End  Game ---------------
+    ---------------- Begin Game ---------------
+    A Dragon attacks!
+    (you roll a 20)
+    Before the dragon can muster its fire, you slay the dragon with your sword!
+    Level 'Level' was loaded.
+    Loaded level 0.00s
+
+Now it works as intended and we've learned about variables, if, else, errors, printing, and strings.
+
+On Your Own
+-----------
+
+Beside rewarding great technical skill, it is also common to acknowledge abysmal failure. Write another check for if you roll a 1, and print out a different message describing your unfortunate encounter with the dragon. Make sure the normal failure condition doesn't run!
+
+There are many different ways to approach the same problem when programming. Experiment with different comparison operators while maintaining the same functionality.
+
+    +----------+----------------------------------+
+    | Comparison Operators                        |
+    +==========+==================================+
+    | <        | less than                        |
+    +----------+----------------------------------+
+    | <=       | less than or equal to            |
+    +----------+----------------------------------+
+    | >        | greater than                     |
+    +----------+----------------------------------+
+    | >=       | greater than or equal to         |
+    +----------+----------------------------------+
+    | ==       | equality                         |
+    +----------+----------------------------------+
+    | !=       | inequality                       |
+    +----------+----------------------------------+
+
+.. |AddingGameLogic| image:: images/Scripting/AddingGameLogic.png
+
+.. |FirstCompilerError| image:: images/Scripting/FirstCompilerError.png
+
+.. |Library1| image:: images/Scripting/Library1.png
+
+.. |Library2| image:: images/Scripting/Library2.png
+
+.. |AddingCustomComponent| image:: images/Scripting/AddingCustomComponent.png
+
+.. |Console| image:: images/Scripting/Console.png
+
+.. |Console2| image:: images/Scripting/Console2.png
+
+.. |ConsoleCrit20| image:: images/Scripting/ConsoleCrit20.png
+
+.. |ConsoleCrit20Else| image:: images/Scripting/ConsoleCrit20Else.png
+
+.. |br| raw:: html
+    
+    <br />

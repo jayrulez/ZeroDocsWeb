@@ -1,0 +1,43 @@
+.. _ManualEditMode:
+
+.. rst-class:: SearchTitle
+
+Editing Mode 2D vs 3D
+=====================
+
+.. rst-class:: SearchDescription
+
+This section covers the basic differences between 2D and 3D editing modes in the engine.
+
+Overview
+--------
+
+As prototype projects were being developed with the Zero Engine, a shift was made to have strong 2D support. The engine features several 2D support elements, such as the ability to: set the Physics to 2D, change the camera to orthographic, and use a special sorting mode for sprites. 2D mode is a setting that activates all these features by default.
+
+Settings that 2D Mode changes on project startup:
+
+* 	Default camera in the level is orthographic with z depth based sprite sorting
+* 	Level is created with 2D physics
+	*	This means:
+		*	Linear forces applied on the Z axis will not be integrated on objects.
+		*	During Collision Resolution angular forces will only be applied on the Z axis
+
+	*	This does not mean:
+		*	Objects are unable to have their Z Translation et to a value other than Zero.
+
+* 	Editor Camera is changed to orthographic and set into z plane mode
+
+Can I change my 2D project to 3D?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The setting is just defaults, so you can change any setting back. You can also use the :ref:`Command <ManualCommands>`: ``Mode3D``. 
+
+.. note:: Physics when switching to 3D mode
+	
+	Keep in mind that the :cpp:type:`PhysicsSpace` will not change mode when you use the ``Mode2D`` or ``Mode3D`` command. These commands are intended to help with editing not change the foundation of a project.
+
+Collision
+---------
+
+The engine and collision detection are still 3D. This z dimension is a nice way of creating complex layers of collision. You can have objects span multiple layers of collision or jump forward and back between layers, they just won't translate on the Z axis.
+

@@ -1,0 +1,94 @@
+.. _ReferenceWindEffect:
+
+.. rst-class:: searchtitle
+
+WindEffect
+==========
+
+.. rst-class:: searchdescription
+
+Applies a wind force to an object in a given direction. A wind force approximates the surface area of the object in the direction of the force to determine how large the force should be.
+
+.. include:: Description/WindEffect.rst
+
+.. cpp:class:: WindEffect
+
+    Base Class: :cpp:type:`PhysicsEffect`
+
+.. _ReferenceWindEffectProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog WindEffect::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space WindEffect::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog WindEffect::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession WindEffect::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool WindEffect::Active
+
+            Enable/disable this effect.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool WindEffect::WakeUpOnChange
+
+            Whether the object associated with this is woken up when any property is changed.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EffectType::Enum WindEffect::EffectType
+
+            What kind of effect this is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real WindEffect::WindSpeed
+
+            The speed that the wind is blowing.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 WindEffect::WindDirection
+
+            The direction that the wind is blowing.
+
+.. _ReferenceWindEffectMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void WindEffect::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void WindEffect::Toggle()
+
+            Toggles whether or not this effect is active.
+
+.. include:: Remarks/WindEffect.rst

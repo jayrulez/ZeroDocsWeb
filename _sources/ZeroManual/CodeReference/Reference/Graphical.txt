@@ -1,0 +1,82 @@
+.. _ReferenceGraphical:
+
+.. rst-class:: searchtitle
+
+Graphical
+=========
+
+.. rst-class:: searchdescription
+
+Graphical Component is in graphical broad phase/ visibility.
+
+.. include:: Description/Graphical.rst
+
+.. cpp:class:: Graphical
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceGraphicalProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Graphical::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Graphical::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Graphical::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Graphical::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Graphical::Visible
+
+            If object should be rendered.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Graphical::VisibilityCulling
+
+            If object is culled and not graphically updated when it's not visible.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Graphical::VisibilityEvents
+
+            If object receives events when entering/exiting the view of a rendering camera or shadow.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Graphical::CastShadows
+
+            If object is rendered to shadow maps.
+
+.. _ReferenceGraphicalMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Graphical::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/Graphical.rst

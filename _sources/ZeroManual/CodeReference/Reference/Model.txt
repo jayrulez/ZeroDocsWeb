@@ -1,0 +1,100 @@
+.. _ReferenceModel:
+
+.. rst-class:: searchtitle
+
+Model
+=====
+
+.. rst-class:: searchdescription
+
+3D Model component. Basic 3D model made of a 3D polygonal mesh. Uses Transform component position, rotation, and scale.
+
+.. include:: Description/Model.rst
+
+.. cpp:class:: Model
+
+    Base Class: :cpp:type:`Graphical`
+
+.. _ReferenceModelProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Model::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Model::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Model::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Model::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Model::Visible
+
+            If object should be rendered.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Model::VisibilityCulling
+
+            If object is culled and not graphically updated when it's not visible.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Model::VisibilityEvents
+
+            If object receives events when entering/exiting the view of a rendering camera or shadow.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Model::CastShadows
+
+            If object is rendered to shadow maps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Material Model::Material
+
+            Material Used to Render this Model.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Mesh Model::Mesh
+
+            Mesh used for this Model.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 Model::Color
+
+            Color used for per instance color effects.
+
+.. _ReferenceModelMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Model::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/Model.rst

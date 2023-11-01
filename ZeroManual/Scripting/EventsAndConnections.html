@@ -1,0 +1,938 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Scripting/EventsAndConnections.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:43:33 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Events and Connections &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Scripting" href="index.html"/>
+        <link rel="next" title="Debug Drawing" href="DebugDrawing.html"/>
+        <link rel="prev" title="Scripting" href="index.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Scripting</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Events and Connections</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="DebugDrawing.html">Debug Drawing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WYSIWYG.html">The WYSIWYG Approach to Configurable Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="index.html">Scripting</a> &raquo;</li>
+      
+    <li>Events and Connections</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/ZeroManual/Scripting/EventsAndConnections.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="events-and-connections">
+<span id="manualeventsandconnections"></span><h1>Events and Connections</h1>
+<p class="searchdescription">Events are the main way that objects and components talk to each other in the Zero Engine. When a component has information that it wants to share, the easiest way is to package the information into an Event, and then dispatch it.  Then, any component that wants to have that information can listen for it by connecting a member function to the event. In the Zero Engine, there are two main categories of events: the pre-defined Engine events (such as as an Update event or a Collision event) that are that ready-made for you to connect to, and Custom ZilchScript Events that the user creates. The Custom Events allow the user to decide when and where to send them out, what information is sent with them, and what listens for the event after it&#8217;s sent. This page will briefly cover each of the two categories, but will focus specifically on Custom Events(see <span class="xref std std-ref">Events</span> for built-in events).</p>
+<div class="section" id="pre-defined-engine-events">
+<h2>Pre-Defined Engine Events</h2>
+<p>At the bottom of this page is a comprehensive list of the <span class="xref std std-ref">pre-defined engine events</span>, <a class="reference internal" href="../../Tutorials/Physics/Collision/CollisionEvents.html#tutorialcollisionevents"><span>Collision Events</span></a> (which comes in three variations: Started, Ended, and Persisted),
+<span class="xref std std-ref">Keyboard Input Events</span>, and <a class="reference internal" href="../../Tutorials/Gameplay/Input/MouseInput.html#tutorialmouseinput"><span>Mouse Input Events</span></a>.</p>
+</div>
+<div class="section" id="custom-zilchscript-events">
+<h2>Custom ZilchScript Events</h2>
+<p>These are the events that the user will create and dispatch themselves. A primary reason to use custom events is that they move the focus away from whatever triggers an action (such as collision or a frame update) to the object that is responding to the event occurring (i.e. the player&#8217;s health and the HUD element displaying the player&#8217;s health that is changed as a result of colliding with an enemy). There are a number of benefits to this approach, including:</p>
+<ul class="simple">
+<li>One event dispatch on an object can cause many behaviors to occur.<ul>
+<li>i.e. PlayersDamagedEvent is dispatched on the player object<ul>
+<li>The player&#8217;s hp lowers in the Health component attached to the player</li>
+<li>The object representing the player&#8217;s health in the HUD scales to reflect the player&#8217;s new health</li>
+<li>The AnimationController changes the player sprite to the DamagedAnimation</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Multiple components on different objects can all respond to the same event dispatch.</li>
+<li>Events can make it easier to understand and modify your code as particular behavior responses are more closely related to the objects they affect, while also encouraging logical decoupling.</li>
+</ul>
+<p>Keep in mind that the user will only want to use custom events when there is more than one component &#8220;listening&#8221; for the event. The user will get the most use out of custom events when the events that are created are things that affect multiple objects in your game. Using a custom event when only one object is listening adds an unnecessary layer of abstraction, whereas a simple, direct function call to enact the desired behavior change is much simpler.</p>
+</div>
+<div class="section" id="using-custom-events-in-a-game">
+<h2>Using Custom Events in a Game</h2>
+<p>Let&#8217;s go through a quick analogy for events. Imagine a world just like ours, but where vampires and ghosts also happen to exist alongside humans. In this instance, the custom event we are concerned with is the rising of the sun in the morning. In this world we&#8217;re imagining, the appearance of the sun causes specific behaviors in some of the objects that exist in the world, but for others, it means nothing at all. For the humans, the sun rising means it is time to wake up; for the vampires, it can mean instant death if they happen to be outside; for the ghosts, it means they are banished back to the grave; for rocks, however, it means nothing at all. Humans, vampires, and ghosts all have an interest in the sun rising and will respond to it in different ways. Rocks couldn&#8217;t care less.</p>
+<div class="sidebar">
+<p class="first sidebar-title">Exceptions to the Rule</p>
+<p>When might one want to use a custom event when there is only one object listening? Here is at least one example worth covering:</p>
+<p class="last">When the user has a large number of instances of the same object that need to respond to some change. Using the example above, say that the world is overrun with vampires. There are hundreds swarming over an area. Once could put all instances of the vampire into an array and call the behavior-changing function on each one, but in this case it is simpler, and most likely more efficient, to just have the vampire archetype from which the instances are created have a component that listens for a &#8220;sun rises&#8221; event and changes their behavior accordingly.</p>
+</div>
+<p>This scenario could translate into a game as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li>When the sun rises, a custom event is &#8220;sent out&#8221; to the entire game space.</li>
+<li>One must then decide what objects should be &#8220;listening&#8221; for this event. In the example, all humans, vampires, and ghosts.</li>
+<li>These objects that are listening for the event respond to it in different ways, however, requiring the user to define how each separate object responds when they &#8220;hear&#8221; the event (to be written in behavior-changing functions&#8211;in the components attached to the listening objects&#8211;that are called as a result of the component &#8220;hearing&#8221; the event).</li>
+<li>All the other objects that are not affected by the event (rocks, buildings, etc...) have no need to listen to the event. Since they don&#8217;t care about the event, they will have no component that even acknowledges the event was sent.</li>
+</ul>
+</div></blockquote>
+<div class="section" id="decoupling-and-custom-events">
+<h3>Decoupling and Custom Events</h3>
+<p>To understand how Custom Events can help with Decoupling one&#8217;s code, it is helpful to first have a working definition of Coupling. Two elements within a project are considered coupled if a change in one element directly leads to a change in the other element. For example, if the player object has a child object that moves one-to-one with every movement of the player (and the player moves one-to-one with every movement of the child), the movement of those two objects could be considered tightly coupled. If, on the other hand, the child&#8217;s movement is not reliant upon the movement of the player, the movement of the two objects is decoupled (otherwise known as loose or low coupling); that is, the action of either object does not have a direct, corresponding effect on the other.</p>
+<p>Custom Events allow you to decouple elements within one&#8217;s game so that the emphasis lies more with those objects that are listening for an event, causing some change in behavior. The behavior change caused by listening to the event is not directly tied to the sending of the event; on the contrary, the objects that listen for the event can respond to hearing that event in completely different ways that do not affect each other and are not influenced by the sending of the event (the exception in this case being if you are attaching data with an event, as will be shown below).</p>
+</div>
+</div>
+<div class="section" id="event-dispatching">
+<h2>Event Dispatching</h2>
+<p>Events are dispatched per object. The objects that events can be dispatched on can include the Space, the Level Settings of a level, the owner of the component dispatching the event (i.e. <code class="docutils literal"><span class="pre">this.Owner</span></code>), as well as any other specific object to which one has a reference. Events dispatched onto the Space object will be heard by every object that is listening to the Space for that particular event. In short, the listener that is connecting to an event must match up that connection exactly in the way in which the event was dispatched.</p>
+<div class="admonition-consider-the-following admonition">
+<p class="first admonition-title">Consider the Following</p>
+<p>There are two red Players, Player1 and Player2. They both connect to ChangeColorToBlueEvent so they can respond with their OnChangeColorToBlueEvent functions (that, in fact, change their color blue.)</p>
+<p>When Player1 signs up for the ChangeColorToBlueEvent, it listens for the one dispatched by the <strong>Space</strong> object.</p>
+<p>When Player2 signs up for the same ChangeColorToBlueEvent, it listens for the one dispatched out by the <strong>Game</strong> object.</p>
+<p class="last">Later when the ChangeColorToBlueEvent is fired from the Space, Player1 changes to the color Blue having received the event, while Player2 stays red.</p>
+</div>
+</div>
+<div class="section" id="creating-and-using-custom-script-events">
+<h2>Creating and Using Custom Script Events</h2>
+<p>The creation and usage of custom events in Zero is a multi-step process that follows a simple mechanism that relies upon correctly matching up event dispatches with event connections. The following sections will detail the way in which to correctly create, attach data to, dispatch, and connect to custom events.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Occasionally, you will need to store information received in an event for later use. You may be tempted to store a reference to the event object itself. <strong>This is a bad practice and should never be done.</strong> You should instead copy the information within the received event object by value into variables of their corresponding types.</p>
+<p class="last">If you were to store a reference to the event object itself the reference would lose its validity as soon as all event listeners have executed and the event is deallocated. This situation would result in the event reference to point at an address in memory that may be currently be in use by another part of the engine since it is no longer being used by the event. Accessing the broken event reference in the state will result in undefined behavior.</p>
+</div>
+<div class="section" id="creating-the-event-definition">
+<h3>Creating the Event Definition</h3>
+<p>The following code-block demonstrates both how to create a custom event as well as how to include data to send with the event. While it is rare that one will send no data, it is <em>not</em> necessary to include data when creating the event. In these cases, the dispatching of the event itself is the data. In most cases, however, data will be included that will have relevance to the behavior change desired by the object that is connecting to the event (i.e. on a &#8220;enemy destroyed&#8221; event, one might send the amount of points the player receives for destroying the enemy).</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">// Define a custom ZilchEvent</span>
+<span class="k">class</span> <span class="nc">MyCustomEvent</span> <span class="p">:</span> <span class="n">ZilchEvent</span>
+<span class="p">{</span>
+    <span class="c1">//Data to be sent with the event</span>
+    <span class="c1">//that will be used by the object connecting to the event</span>
+    <span class="kt">var</span> <span class="n">InfoToSend</span> <span class="p">:</span> <span class="n">String</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+    <span class="kt">var</span> <span class="n">NumberToSend</span> <span class="p">:</span> <span class="n">Integer</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="kt">var</span> <span class="n">RealToSend</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">0.0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="send-an-event">
+<h3>Send an Event</h3>
+<p>Sending an event is a four part process.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Create an event.</li>
+<li>Attach data to the event. <strong>(optional)</strong></li>
+<li>Use the <code class="docutils literal"><span class="pre">sends</span></code> keyword to add the <em>name</em> of the event you&#8217;re sending to the <code class="docutils literal"><span class="pre">Events</span></code> namespace.</li>
+<li>Using the appropriate event-sender, dispatch the event.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="create-the-event">
+<h3>Create the Event</h3>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Create an instance of the Custom Event</span>
+<span class="kt">var</span> <span class="n">myCustomEvent</span> <span class="p">=</span> <span class="n">MyCustomEvent</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="attach-data-to-the-event">
+<h3>Attach Data to the Event</h3>
+<div class="admonition-remember admonition">
+<p class="first admonition-title">Remember</p>
+<p class="last">Users can only add data to the member variables defined in the event&#8217;s class. To add more data, the user needs to alter the event&#8217;s class to include more member variables.</p>
+</div>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyCustomEvent</span> <span class="p">:</span> <span class="n">ZilchEvent</span>
+<span class="p">{</span>
+    <span class="c1">//Attach Data</span>
+    <span class="n">myCustomEvent</span><span class="p">.</span><span class="n">InfoToSend</span> <span class="p">=</span> <span class="s">&quot;data&quot;</span><span class="p">;</span>
+    <span class="n">myCustomEvent</span><span class="p">.</span><span class="n">NumberToSend</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">EventDispatcher</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">DataThatWillNotBeAdded</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">10.5</span><span class="p">;</span>
+
+    <span class="c1">//This data WILL NOT be sent with the event</span>
+    <span class="c1">//as it is not added within the event-defining class</span>
+    <span class="n">myCustomEvent</span><span class="p">.</span><span class="n">RealToSend</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">DataThatWillNotBeAdded</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-sends-keyword">
+<h3>Using the Sends Keyword</h3>
+<p>The <code class="docutils literal"><span class="pre">sends</span></code> keyword helps users in two ways. First, it registers the string type ID so that it&#8217;s associated with the event type itself (allowing one to send and connect using the <code class="docutils literal"><span class="pre">Events.MyCustomEvent</span></code> syntax) while also keeping the event <em>type safe</em>; that is, an error will be thrown on the event response function if one tries to connect to an event that doesn&#8217;t precisely match the method in which the event was dispatched.</p>
+<p>Users can only use the <code class="docutils literal"><span class="pre">sends</span></code> keyword within the outermost class-scope (of either the class defining the custom event or the class in which it is dispatched), <em>outside of any function</em> within that class. In other words, it must be used outside of <code class="docutils literal"><span class="pre">Initialize</span></code>, <code class="docutils literal"><span class="pre">OnLogicUpdate</span></code>, or any other function. Placing it within the class that creates the event itself is a good way to keep track of it is registered, but ultimately it is up to the user where they wish to put it so long as it not used inside any function. The following two code-blocks show two ways to use the <code class="docutils literal"><span class="pre">sends</span></code> keyword correctly:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyCustomEvent</span> <span class="p">:</span> <span class="n">ZilchEvent</span>
+<span class="p">{</span>
+    <span class="c1">//Using the sends keyword correctly within the class</span>
+    <span class="c1">//that defines that custom event</span>
+    <span class="n">sends</span> <span class="n">MyCustomEvent</span> <span class="p">:</span> <span class="n">MyCustomEvent</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>OR</strong></p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EventDispatcher</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">//Using the sends keyword correctly within the class</span>
+    <span class="c1">//that dispatches the custom event</span>
+    <span class="n">sends</span> <span class="n">MyCustomEvent</span> <span class="p">:</span> <span class="n">MyCustomEvent</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The following code-block will show an <strong>incorrect</strong> way use the <code class="docutils literal"><span class="pre">sends</span></code> keyword:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">EventDispatcher</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Incorrect usage of sends keyword within a function</span>
+        <span class="n">sends</span> <span class="n">MyCustomEvent</span> <span class="p">:</span> <span class="n">MyCustomEvent</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dispatch-the-event">
+<h3>Dispatch the Event</h3>
+<p>Always be mindful of sending the events from the source one&#8217;s subscribers are expecting to hear it from.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyCustomEvent</span> <span class="p">:</span> <span class="n">ZilchEvent</span>
+<span class="p">{</span>
+  <span class="c1">//Registers the string type ID to be associated with the event type</span>
+  <span class="n">sends</span> <span class="n">MyCustomEvent</span> <span class="p">:</span> <span class="n">MyCustomEvent</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">EventDispatcher</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">//Property for selecting the CogPath of the object for which to</span>
+    <span class="c1">//dispatch the event</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">ObjectToDispatchToPath</span> <span class="p">:</span> <span class="n">CogPath</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+    <span class="c1">//Cog variable for which to assign the Cog of the CogPath variable</span>
+    <span class="kt">var</span> <span class="n">ObjectToDispatchTo</span> <span class="p">:</span> <span class="n">Cog</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Sets Cog variable for the object to dispatch</span>
+        <span class="c1">//to the Cog from CogPath variable</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">ObjectToDispatchTo</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">ObjectToDispatchToPath</span><span class="p">.</span><span class="n">Cog</span><span class="p">;</span>
+
+        <span class="c1">//Create an instance of the event</span>
+        <span class="kt">var</span> <span class="n">myCustomEvent</span> <span class="p">:</span> <span class="n">MyCustomEvent</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyCustomEvent</span><span class="p">();</span>
+
+        <span class="c1">//Dispatches the Event onto multiple objects from component</span>
+
+        <span class="c1">//Dispatch onto ``this.Owner``</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">MyCustomEvent</span><span class="p">,</span> <span class="n">myCustomEvent</span><span class="p">);</span>
+        <span class="c1">//Dispatch onto LevelSettings</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">LevelSettings</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">MyCustomEvent</span><span class="p">,</span> <span class="n">myCustomEvent</span><span class="p">);</span>
+        <span class="c1">//Dispatch onto other, specific object</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">ObjectToDispatchTo</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">MyCustomEvent</span><span class="p">,</span> <span class="n">myCustomEvent</span><span class="p">);</span>
+
+        <span class="c1">//Dispatch onto ``this.Space``</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">MyCustomEvent</span><span class="p">,</span> <span class="n">myCustomEvent</span><span class="p">);</span>
+        <span class="c1">//Dispatch onto ``this.GameSession``</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">GameSession</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">MyCustomEvent</span><span class="p">,</span> <span class="n">myCustomEvent</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="listening-for-an-event">
+<h3>Listening for an Event</h3>
+<dl class="docutils">
+<dt><strong>In order to respond to an event, the user must identify which event-sender you are listening to:</strong></dt>
+<dd>Space, LevelSettings, GameSession, Object from which the event is dispatched (along with the object&#8217;s parent or children), another specific object, etc.</dd>
+<dt><strong>Which event the user cares about:</strong></dt>
+<dd>Events.LogicUpdate, Events.MyCustomEvent, etc.</dd>
+<dt><strong>And how the user plans to respond:</strong></dt>
+<dd>OnLogicUpdate, OnMyCustomEvent, etc.</dd>
+</dl>
+<div class="admonition-dispatching-onto-space-vs-levelsettings admonition">
+<p class="first admonition-title">Dispatching Onto Space vs LevelSettings</p>
+<p class="last">One thing to keep in mind when dispatching onto either the Space or LevelSettings is the scope of each. Remember that the LevelSettings object is also scoped to the Level that it is in. This is important to consider when using custom events because if the level is changed, the particular LevelSettings object for that level will no longer exist as well as any events that were dispatched onto LevelSettings. The Space on the other hand, could continue to exist between the changing of levels and any events that dispatch onto the Space will still exist.</p>
+</div>
+<p>Many different functions in various components can connect to the same dispatched event. All that is required is that each object have a function that is connected correctly to the single event that has been dispatched on that object.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Make sure the event connection is made in a place that will only run <strong>once</strong>. If the event ends up <em>connecting multiple times</em>, the object it&#8217;s dispatched onto will <em>respond multiple times to a</em> <strong>single</strong> <em>event</em>.</p>
+</div>
+<p>While connecting to an event is usually done in a component&#8217;s <code class="docutils literal"><span class="pre">Initialize</span></code> function, it doesn&#8217;t have to. The connection may be dependent on other factors or variables, especially if the user wants the object to connect only after something significant has happened. In these cases, one may choose to place the connection outside of the <code class="docutils literal"><span class="pre">Initialize</span></code> function and within the scope of a conditional statement checking for certain criteria.</p>
+</div>
+<div class="section" id="connecting">
+<h3>Connecting</h3>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Listening for Custom Events</span>
+
+<span class="c1">//Listening for Dispatch onto ``this.Owner``</span>
+<span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MyCustomEvent</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMyCustomEvent</span><span class="p">);</span>
+
+<span class="c1">//Listening for Dispatch onto ``this.Space``</span>
+<span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MyCustomEvent</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMyCustomEvent</span><span class="p">);</span>
+
+<span class="c1">//Listening for Dispatch onto ``this.LevelSettings``</span>
+<span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">LevelSettings</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MyCustomEvent</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMyCustomEvent</span><span class="p">);</span>
+
+<span class="c1">//Listening for Dispatch onto ``this.GameSession``</span>
+<span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">GameSession</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MyCustomEvent</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMyCustomEvent</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="responding-to-an-event">
+<h3>Responding to an Event</h3>
+<p>In order to actually respond to the event, the user needs to define the function provided in the call to Zero.Connect.
+Here, one can gain access to the data that is sent with the event, for use in altering behavior or setting properties.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//This function gets called because this is the one</span>
+<span class="c1">//we connected to when we listened to the event</span>
+<span class="n">function</span> <span class="nf">OnMyCustomEvent</span><span class="p">(</span><span class="n">myCustomEvent</span> <span class="p">:</span> <span class="n">MyCustomEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">//Use as much or as little information passed by the event</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">ComponentName</span><span class="p">.</span><span class="n">PropertyName</span> <span class="p">=</span> <span class="n">myCustomEvent</span><span class="p">.</span><span class="n">InfoToSend</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">ComponentName</span><span class="p">.</span><span class="n">Value</span> <span class="p">=</span> <span class="n">myCustomEvent</span><span class="p">.</span><span class="n">NumberToSend</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="disconnecting">
+<h3>Disconnecting</h3>
+<p>Disconnecting makes it so one is no longer notified when the event occurs. If multiple functions are linked to the same event, these too will be disconnected. There is no way to disconnect only one connection to the event; if one is disconnected, all are disconnected.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//Disconnecting From Events</span>
+<span class="n">Zero</span><span class="p">.</span><span class="n">Disconnect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">MyCustomEvent</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Another important thing to keep in mind regarding Disconnecting is that is object-specific and event-specific but <em>not</em> receiver-specific. That is why in the code-block immediately above, only <code class="docutils literal"><span class="pre">this</span></code> is passed in as the final argument instead of the delegate itself (i.e. <code class="docutils literal"><span class="pre">this.OnMyCustomEvent</span></code>).</p>
+</div>
+</div>
+<div class="section" id="event-list">
+<span id="event-list-label"></span><h2>Event List</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="28%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Event Name</th>
+<th class="head">Parameter Type</th>
+<th class="head">Dispatch Location</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CollisionStarted</td>
+<td><a class="reference internal" href="../CodeReference/Reference/CollisionEvent.html#_CPPv214CollisionEvent" title="CollisionEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionEvent</span></code></a></td>
+<td>Both objects involved in collision</td>
+</tr>
+<tr class="row-odd"><td>CollisionEnded</td>
+<td><a class="reference internal" href="../CodeReference/Reference/CollisionEvent.html#_CPPv214CollisionEvent" title="CollisionEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionEvent</span></code></a></td>
+<td>Both objects involved in collision</td>
+</tr>
+<tr class="row-even"><td>CollisionPersisted</td>
+<td><a class="reference internal" href="../CodeReference/Reference/CollisionEvent.html#_CPPv214CollisionEvent" title="CollisionEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionEvent</span></code></a></td>
+<td>Both objects involved in collision</td>
+</tr>
+<tr class="row-odd"><td>GroupCollisionStarted</td>
+<td><a class="reference internal" href="../CodeReference/Reference/CollisionGroupEvent.html#_CPPv219CollisionGroupEvent" title="CollisionGroupEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionGroupEvent</span></code></a></td>
+<td>Both objects involved in collision</td>
+</tr>
+<tr class="row-even"><td>GroupCollisionPersisted</td>
+<td><a class="reference internal" href="../CodeReference/Reference/CollisionGroupEvent.html#_CPPv219CollisionGroupEvent" title="CollisionGroupEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionGroupEvent</span></code></a></td>
+<td>Both objects involved in collision</td>
+</tr>
+<tr class="row-odd"><td>GroupCollisionEnded</td>
+<td><a class="reference internal" href="../CodeReference/Reference/CollisionGroupEvent.html#_CPPv219CollisionGroupEvent" title="CollisionGroupEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionGroupEvent</span></code></a></td>
+<td>Both objects involved in collision</td>
+</tr>
+<tr class="row-even"><td>GroupCollisionPreSolve</td>
+<td><a class="reference internal" href="../CodeReference/Reference/PreSolveEvent.html#_CPPv213PreSolveEvent" title="PreSolveEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">PreSolveEvent</span></code></a></td>
+<td>Both objects involved in collision</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>JointExceedForceLimit</td>
+<td><a class="reference internal" href="../CodeReference/Reference/JointEvent.html#_CPPv210JointEvent" title="JointEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">JointEvent</span></code></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>PhysicsUpdateFinished</td>
+<td><a class="reference internal" href="../CodeReference/Reference/ObjectEvent.html#_CPPv211ObjectEvent" title="ObjectEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ObjectEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Space</span></code> Object</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>RigidBodySlept</td>
+<td><a class="reference internal" href="../CodeReference/Reference/ObjectEvent.html#_CPPv211ObjectEvent" title="ObjectEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ObjectEvent</span></code></a></td>
+<td>The object <code class="docutils literal"><span class="pre">RigidBody</span></code> is attached to</td>
+</tr>
+<tr class="row-odd"><td>RigidBodyAwoke</td>
+<td><a class="reference internal" href="../CodeReference/Reference/ObjectEvent.html#_CPPv211ObjectEvent" title="ObjectEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ObjectEvent</span></code></a></td>
+<td>The object <code class="docutils literal"><span class="pre">RigidBody</span></code> is attached to</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>AllObjectsInitialized</td>
+<td><a class="reference internal" href="../CodeReference/Reference/CogInitializerEvent.html#_CPPv219CogInitializerEvent" title="CogInitializerEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">CogInitializerEvent</span></code></a></td>
+<td>The component&#8217;s <code class="docutils literal"><span class="pre">init</span></code> parameter</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>EngineUpdate</td>
+<td><a class="reference internal" href="../CodeReference/Reference/UpdateEvent.html#_CPPv211UpdateEvent" title="UpdateEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">UpdateEvent</span></code></a></td>
+<td><code class="docutils literal"><span class="pre">Zero.Engine</span></code></td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>AnimationEnded</td>
+<td><a class="reference internal" href="../CodeReference/Reference/AnimationGraphEvent.html#_CPPv219AnimationGraphEvent" title="AnimationGraphEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">AnimationGraphEvent</span></code></a></td>
+<td>The object <code class="docutils literal"><span class="pre">AnimationGraph</span></code> is attached to</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Detached</td>
+<td><a class="reference internal" href="../CodeReference/Reference/HierarchyEvent.html#_CPPv214HierarchyEvent" title="HierarchyEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">HierarchyEvent</span></code></a></td>
+<td>The object being detached from its parent</td>
+</tr>
+<tr class="row-even"><td>Attached</td>
+<td><a class="reference internal" href="../CodeReference/Reference/HierarchyEvent.html#_CPPv214HierarchyEvent" title="HierarchyEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">HierarchyEvent</span></code></a></td>
+<td>The object being parented to another object</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ObjectLinkChanged</td>
+<td><a class="reference internal" href="../CodeReference/Reference/ObjectLinkEvent.html#_CPPv215ObjectLinkEvent" title="ObjectLinkEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ObjectLinkEvent</span></code></a></td>
+<td>The object <code class="docutils literal"><span class="pre">ObjectLink</span></code> is attached to</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>LogicUpdate</td>
+<td><a class="reference internal" href="../CodeReference/Reference/UpdateEvent.html#_CPPv211UpdateEvent" title="UpdateEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">UpdateEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Space</span></code> Object</td>
+</tr>
+<tr class="row-odd"><td>FrameUpdate</td>
+<td><a class="reference internal" href="../CodeReference/Reference/UpdateEvent.html#_CPPv211UpdateEvent" title="UpdateEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">UpdateEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Space</span></code> Object</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>AreaChanged</td>
+<td><code class="xref cpp cpp-type docutils literal"><span class="pre">AreaEvent</span></code></td>
+<td>The object <code class="docutils literal"><span class="pre">Area</span></code> is attached to</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>GameSetup</td>
+<td><a class="reference internal" href="../CodeReference/Reference/GameEvent.html#_CPPv29GameEvent" title="GameEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GameEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">GameSession</span></code> Object</td>
+</tr>
+<tr class="row-even"><td>GameLoad</td>
+<td><a class="reference internal" href="../CodeReference/Reference/GameEvent.html#_CPPv29GameEvent" title="GameEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GameEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">GameSession</span></code> Object</td>
+</tr>
+<tr class="row-odd"><td>GameFocusIn</td>
+<td><a class="reference internal" href="../CodeReference/Reference/GameEvent.html#_CPPv29GameEvent" title="GameEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GameEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">GameSession</span></code> Object</td>
+</tr>
+<tr class="row-even"><td>GameFocusOut</td>
+<td><a class="reference internal" href="../CodeReference/Reference/GameEvent.html#_CPPv29GameEvent" title="GameEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GameEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">GameSession</span></code> Object</td>
+</tr>
+<tr class="row-odd"><td>GameRequestQuit</td>
+<td><a class="reference internal" href="../CodeReference/Reference/GameEvent.html#_CPPv29GameEvent" title="GameEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GameEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">GameSession</span></code> Object</td>
+</tr>
+<tr class="row-even"><td>GameStarted</td>
+<td><a class="reference internal" href="../CodeReference/Reference/GameEvent.html#_CPPv29GameEvent" title="GameEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GameEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">GameSession</span></code> Object</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ButtonDown</td>
+<td><a class="reference internal" href="../CodeReference/Reference/GamepadEvent.html#_CPPv212GamepadEvent" title="GamepadEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GamepadEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Gamepad</span></code> object</td>
+</tr>
+<tr class="row-odd"><td>ButtonUp</td>
+<td><a class="reference internal" href="../CodeReference/Reference/GamepadEvent.html#_CPPv212GamepadEvent" title="GamepadEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GamepadEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Gamepad</span></code> object</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>JoystickButtonDown</td>
+<td><a class="reference internal" href="../CodeReference/Reference/JoystickEvent.html#_CPPv213JoystickEvent" title="JoystickEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">JoystickEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Gamepad</span></code> object</td>
+</tr>
+<tr class="row-even"><td>JoystickButtonUp</td>
+<td><a class="reference internal" href="../CodeReference/Reference/JoystickEvent.html#_CPPv213JoystickEvent" title="JoystickEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">JoystickEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Gamepad</span></code> object</td>
+</tr>
+<tr class="row-odd"><td>JoystickUpdated</td>
+<td><a class="reference internal" href="../CodeReference/Reference/JoystickEvent.html#_CPPv213JoystickEvent" title="JoystickEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">JoystickEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Gamepad</span></code> object</td>
+</tr>
+<tr class="row-even"><td>JoystickFound</td>
+<td><a class="reference internal" href="../CodeReference/Reference/JoystickEvent.html#_CPPv213JoystickEvent" title="JoystickEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">JoystickEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Gamepad</span></code> object</td>
+</tr>
+<tr class="row-odd"><td>JoystickLost</td>
+<td><a class="reference internal" href="../CodeReference/Reference/JoystickEvent.html#_CPPv213JoystickEvent" title="JoystickEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">JoystickEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Gamepad</span></code> object</td>
+</tr>
+<tr class="row-even"><td>JoystickFound</td>
+<td><a class="reference internal" href="../CodeReference/Reference/JoystickEvent.html#_CPPv213JoystickEvent" title="JoystickEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">JoystickEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Gamepad</span></code> object</td>
+</tr>
+<tr class="row-odd"><td>JoystickLost</td>
+<td><a class="reference internal" href="../CodeReference/Reference/JoystickEvent.html#_CPPv213JoystickEvent" title="JoystickEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">JoystickEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Gamepad</span></code> object</td>
+</tr>
+<tr class="row-even"><td>JoysticksChanged</td>
+<td><a class="reference internal" href="../CodeReference/Reference/ObjectEvent.html#_CPPv211ObjectEvent" title="ObjectEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ObjectEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Gamepad</span></code> object</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>KeyUp</td>
+<td><a class="reference internal" href="../CodeReference/Reference/KeyboardEvent.html#_CPPv213KeyboardEvent" title="KeyboardEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">KeyboardEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Zero.Keyboard</span></code> object</td>
+</tr>
+<tr class="row-odd"><td>KeyDown</td>
+<td><a class="reference internal" href="../CodeReference/Reference/KeyboardEvent.html#_CPPv213KeyboardEvent" title="KeyboardEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">KeyboardEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Zero.Keyboard</span></code> object</td>
+</tr>
+<tr class="row-even"><td>KeyRepeated</td>
+<td><a class="reference internal" href="../CodeReference/Reference/KeyboardEvent.html#_CPPv213KeyboardEvent" title="KeyboardEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">KeyboardEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Zero.Keyboard</span></code> object</td>
+</tr>
+<tr class="row-odd"><td>TextTyped</td>
+<td><a class="reference internal" href="../CodeReference/Reference/KeyboardTextEvent.html#_CPPv217KeyboardTextEvent" title="KeyboardTextEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">KeyboardTextEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">Zero.Keyboard</span></code> object</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Exhausted</td>
+<td><a class="reference internal" href="../CodeReference/Reference/ObjectEvent.html#_CPPv211ObjectEvent" title="ObjectEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ObjectEvent</span></code></a></td>
+<td>The object <code class="docutils literal"><span class="pre">SpriteParticleSystem</span></code> is attached to</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SpriteAnimationEnded</td>
+<td><a class="reference internal" href="../CodeReference/Reference/ObjectEvent.html#_CPPv211ObjectEvent" title="ObjectEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">ObjectEvent</span></code></a></td>
+<td>The object <code class="docutils literal"><span class="pre">Sprite</span></code> is attached to</td>
+</tr>
+<tr class="row-even"><td>SpriteTextChanged</td>
+<td><code class="xref cpp cpp-type docutils literal"><span class="pre">TextEvent</span></code></td>
+<td>The object <code class="docutils literal"><span class="pre">Sprite</span></code> is attached to</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>EnterView</td>
+<td><a class="reference internal" href="../CodeReference/Reference/GraphicalEvent.html#_CPPv214GraphicalEvent" title="GraphicalEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GraphicalEvent</span></code></a></td>
+<td>The object that is entering the view</td>
+</tr>
+<tr class="row-odd"><td>ExitView</td>
+<td><a class="reference internal" href="../CodeReference/Reference/GraphicalEvent.html#_CPPv214GraphicalEvent" title="GraphicalEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GraphicalEvent</span></code></a></td>
+<td>The object that is exiting the view</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Pulse</td>
+<td><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundPulseEvent</span></code></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SocketError</td>
+<td><code class="xref cpp cpp-type docutils literal"><span class="pre">ErrorEvent</span></code></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ConnectionCompleted</td>
+<td><code class="xref cpp cpp-type docutils literal"><span class="pre">ConnectionEvent</span></code></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ConnectionFailed</td>
+<td><code class="xref cpp cpp-type docutils literal"><span class="pre">ConnectionEvent</span></code></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Disconnected</td>
+<td><code class="xref cpp cpp-type docutils literal"><span class="pre">ConnectionEvent</span></code></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>ReceivedData</td>
+<td><code class="xref cpp cpp-type docutils literal"><span class="pre">ReceivedDataEvent</span></code></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>WebResponse</td>
+<td><code class="xref cpp cpp-type docutils literal"><span class="pre">WebResponseEvent</span></code></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>WebResponse</td>
+<td><code class="xref cpp cpp-type docutils literal"><span class="pre">WebResponseEvent</span></code></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>MouseEnter</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-odd"><td>MouseEnterPreview</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-even"><td>MouseExit</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-odd"><td>MouseMove</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-even"><td>MouseUpdate</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-odd"><td>MouseScroll</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-even"><td>DoubleClick</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-odd"><td>MouseDown</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-even"><td>MouseUp</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-odd"><td>LeftMouseDown</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-even"><td>LeftMouseUp</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-odd"><td>RightMouseDown</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-even"><td>RightMouseUp</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-odd"><td>MiddleMouseDown</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-even"><td>MiddleMouseUp</td>
+<td><a class="reference internal" href="../CodeReference/Reference/MouseEvent.html#_CPPv210MouseEvent" title="MouseEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">MouseEvent</span></code></a></td>
+<td>The space object, and objects which <code class="docutils literal"><span class="pre">Reactive</span></code> is attached</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>GameStarted</td>
+<td><a class="reference internal" href="../CodeReference/Reference/GameEvent.html#_CPPv29GameEvent" title="GameEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GameEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">GameSession</span></code> Object</td>
+</tr>
+<tr class="row-odd"><td>LevelStarted</td>
+<td><a class="reference internal" href="../CodeReference/Reference/GameEvent.html#_CPPv29GameEvent" title="GameEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GameEvent</span></code></a></td>
+<td>The <code class="docutils literal"><span class="pre">GameSession</span></code> Object</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>PathRequestFinished</td>
+<td><a class="reference internal" href="../CodeReference/Reference/PathRequestEvent.html#_CPPv216PathRequestEvent" title="PathRequestEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">PathRequestEvent</span></code></a></td>
+<td>The object passed into the path request function</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>TouchMove</td>
+<td><a class="reference internal" href="../CodeReference/Reference/TouchEvent.html#_CPPv210TouchEvent" title="TouchEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">TouchEvent</span></code></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>TouchDown</td>
+<td><a class="reference internal" href="../CodeReference/Reference/TouchEvent.html#_CPPv210TouchEvent" title="TouchEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">TouchEvent</span></code></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>TouchUp</td>
+<td><a class="reference internal" href="../CodeReference/Reference/TouchEvent.html#_CPPv210TouchEvent" title="TouchEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">TouchEvent</span></code></a></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="DebugDrawing.html" class="btn btn-neutral float-right" title="Debug Drawing" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Scripting" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Scripting/EventsAndConnections.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:43:33 GMT -->
+</html>

@@ -1,0 +1,108 @@
+.. _ReferenceNavGrid:
+
+.. rst-class:: searchtitle
+
+NavGrid
+=======
+
+.. include:: Description/NavGrid.rst
+
+.. cpp:class:: NavGrid
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceNavGridProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Integer NavGrid::Heuristic
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real NavGrid::HeuristicWeight
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Integer NavGrid::Rubberbanding
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Boolean NavGrid::RemoveCoLinearPoints
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Integer NavGrid::CurveType
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Integer NavGrid::PathResolution
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool NavGrid::Draw
+
+            Debug draw the grid.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NavGrid::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space NavGrid::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog NavGrid::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession NavGrid::GameSession
+
+            Get the GameSession that owns us and our space.
+
+.. _ReferenceNavGridMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Boolean NavGrid::RequestPath(Real3, Real3, Cog)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Void NavGrid::CancelPathRequest(Cog)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void NavGrid::DebugDraw()
+
+            
+
+.. include:: Remarks/NavGrid.rst

@@ -1,0 +1,1270 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Audio/Audio.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 22:33:08 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Audio &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Audio" href="index.html"/>
+        <link rel="next" title="User Interface" href="../UI/index.html"/>
+        <link rel="prev" title="Importing Sounds" href="ImportingSoundTutorial.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Audio</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ImportingSoundTutorial.html">Importing Sounds</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Audio</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Tutorials</a> &raquo;</li>
+      
+          <li><a href="index.html">Audio</a> &raquo;</li>
+      
+    <li>Audio</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Tutorials/Audio/Audio.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="audio">
+<span id="tutorialaudio"></span><h1>Audio</h1>
+<p class="searchdescription">This lesson covers importing sound files, playing music and sound effects, and  persistent objects that are not destroyed in-between level loading/changing. We will use the project completed in the User Interface lesson, adding music and sound effects to our menu and level system.</p>
+<div class="section" id="learning-objectives">
+<span id="tutorialaudiovocab"></span><h2>Learning Objectives</h2>
+<ul class="simple">
+<li>Create playable SoundCues by importing Sound files</li>
+<li>Add multiple Sounds to one SoundCue</li>
+<li>Create a component allowing SoundCues to persist across level changes</li>
+<li>Add basic sound effects to UI elements</li>
+<li>Become familiar with the basic functions of the SoundSpace</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="43%" />
+<col width="57%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>SoundSpace</td>
+<td>Sound</td>
+</tr>
+<tr class="row-odd"><td>SoundCue</td>
+<td>Persistent</td>
+</tr>
+<tr class="row-even"><td>Pitch</td>
+<td>Volume</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="load-an-old-project">
+<h2>Load an Old Project</h2>
+<p>Load your <a class="reference internal" href="../UI/UserInterface.html#tutorialuserinterface"><span>UI Lesson</span></a> project from the Zero Launcher</p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<p>To start this project, we&#8217;ll need to make: a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Space</span></code></a> archetype and and a number of <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> resources. We&#8217;ll also be importing a number of audio tracks that will automatically create their own <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sound.html#_CPPv25Sound" title="Sound"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sound</span></code></a> resource when imported. The space will act as our &#8220;music space&#8221; where we will play, pause, and otherwise modify the background music we want to have playing during the different parts of our game.</p>
+<p>As you should remember from the User Interface and HUD projects, new <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Spaces</span></code></a> can only be created in code. Therefore, we&#8217;ll have to make a new component that makes the space for us, using a space archetype. So before we start writing the new component, let&#8217;s quickly make the new archetype we&#8217;ll need.</p>
+<div class="section" id="creating-a-new-space-archetype">
+<h3>Creating a New Space Archetype</h3>
+<ul class="simple">
+<li>In the Library window<ul>
+<li>Under Space<ul>
+<li>Select the archetype <code class="docutils literal"><span class="pre">Space</span></code>, right-click on it, and click on the <code class="docutils literal"><span class="pre">Duplicate</span></code> option</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>You should now have a new space archetype in the library called <code class="docutils literal"><span class="pre">SpaceCopy1</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li>Select <code class="docutils literal"><span class="pre">SpaceCopy1</span></code>, right-click on it, and click on the <code class="docutils literal"><span class="pre">Rename</span></code> option</li>
+<li>Rename the archetype to: <code class="docutils literal"><span class="pre">MusicSpace</span></code></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>In the Property window<ul>
+<li><a class="reference internal" href="../Architecture/Archetypes.html#tutorialarchetypes"><span>Press the green Upload to Archetype button</span></a></li>
+</ul>
+</li>
+</ul>
+<p>We also need to make a unique <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Space</span></code></a> for the &#8220;confirmation&#8221; space that was first seen created in the <a class="reference internal" href="../UI/UserInterface.html#tutorialuserinterface"><span>User Interface lesson</span></a>. The reason being that, at the moment, the <code class="docutils literal"><span class="pre">ConfirmationPopUp</span></code> component is creating the confirmation space from the default Space archetype. So, whenever the confirmation window is requested in game, a space made from the same space on which we&#8217;ll be playing our background music will get created, causing another instance of the same background music to play on top of the one already playing.</p>
+<ul class="simple">
+<li>In the Library window<ul>
+<li>Under Space<ul>
+<li>Select the archetype <code class="docutils literal"><span class="pre">MusicSpace</span></code>, right-click on it, and click on the <code class="docutils literal"><span class="pre">Duplicate</span></code> option</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>You should now have a new space archetype in the library called <code class="docutils literal"><span class="pre">MusicSpaceCopy1</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li>Select <code class="docutils literal"><span class="pre">MusicSpaceCopy1</span></code>, right-click on it, and click on the <code class="docutils literal"><span class="pre">Rename</span></code> option</li>
+<li>Rename the archetype to: <code class="docutils literal"><span class="pre">ConfirmSpace</span></code></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>In the Property window<ul>
+<li><a class="reference internal" href="../Architecture/Archetypes.html#tutorialarchetypes"><span>Press the green Upload to Archetype button</span></a></li>
+</ul>
+</li>
+</ul>
+<p>The library window with our new spaces:</p>
+<p><img alt="LibraryWithNewSpaces" src="../../_images/LibraryWithNewSpaces.png" /></p>
+<p>Since we&#8217;re using a new <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Space</span></code></a> archetype for the confirmation space, we need to go through all the levels that do not have the <code class="docutils literal"><span class="pre">ConfirmationPopUp</span></code> component on the <code class="docutils literal"><span class="pre">LevelSettings</span></code> object, add the component, and set the <code class="docutils literal"><span class="pre">ConSpaceArchetype</span></code> property. First, let&#8217;s fix the <code class="docutils literal"><span class="pre">ConfirmationPopUp</span></code> component that we already have attached in our menu level.</p>
+<ul class="simple">
+<li>In the Objects window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li>In the Properties window<ul>
+<li>Under ConfirmationPopUp<ul>
+<li>Set ConSpaceArchetype to: <code class="docutils literal"><span class="pre">ConfirmSpace</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now we need to go through each other level that the menu accesses to add the &#8220;ConfirmationPopUp&#8221; component.</p>
+<ul class="simple">
+<li>In the Library window<ul>
+<li>Under Level<ul>
+<li>Select and open <code class="docutils literal"><span class="pre">GameLevel</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the Objects window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li>In the Properties window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add the ConfirmationPopUp component</span></a></li>
+<li>Under ConfirmationPopUp<ul>
+<li>Set ConSpaceArchetype to: <code class="docutils literal"><span class="pre">ConfirmSpace</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Repeat the last few steps for the <code class="docutils literal"><span class="pre">HowToPlayLevel</span></code> and <code class="docutils literal"><span class="pre">CreditsLevel</span></code></li>
+</ul>
+<p>And that completes our work with <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Spaces</span></code></a>...for now.</p>
+</div>
+<div class="section" id="importing-sound-files">
+<h3>Importing Sound Files</h3>
+<p>We now need to import the audio files we&#8217;ll be using for this project from the Void, converting them into <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sound.html#_CPPv25Sound" title="Sound"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sound</span></code></a> resources.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/UsingTheVoid.html#manualusingthevoid"><span>Download and import the ProjectFun_Audio_Assets package from the Void</span></a></li>
+<li>In the Group Import Options windows<ul>
+<li>Set GenerateCue to: <code class="docutils literal"><span class="pre">None</span></code> (this should be the default setting)</li>
+</ul>
+</li>
+</ul>
+<p><img alt="GroupImportOptions" src="../../_images/GroupImportOptions.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li>Click <code class="docutils literal"><span class="pre">Import</span> <span class="pre">All</span></code></li>
+</ul>
+</div></blockquote>
+<p>Doing this just created <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sound.html#_CPPv25Sound" title="Sound"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sound</span></code></a> resources for each track that was imported. While you can also generate the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> resources as well when importing new audio, we&#8217;re going to create those ourselves for reasons you&#8217;ll see in the next section. Before we move on, however, let&#8217;s spend a brief moment elucidating the differences between the Sound resource and the SoundCue resource.</p>
+</div>
+<div class="section" id="sounds-and-soundcues">
+<h3>Sounds and SoundCues</h3>
+<p>The <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sound.html#_CPPv25Sound" title="Sound"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sound</span></code></a> resource is the raw sound data that was imported into Zero. By itself, it cannot be played; to do that, one must create a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> resource that has the Sound resource as one of its <code class="docutils literal"><span class="pre">SoundEntry</span></code> sub-objects. One of the primary reasons they are split up into different resources like this is because you can place multiple Sound resources on the same SoundCue resource. This causes the SoundCue, when played, to randomly choose one of the <code class="docutils literal"><span class="pre">SoundEntry</span></code> sub-objects (which use the Sound resources) to play. You can even give each <code class="docutils literal"><span class="pre">SoundEntry</span></code> a different &#8220;weight&#8221;, making it either more or less likely to be randomly chosen to be played.</p>
+<p>In the following screenshot, I&#8217;ve created a new <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> resource named &#8220;SoundCueDemo&#8221; and have added two <code class="docutils literal"><span class="pre">SoundEntries</span></code> under the component <code class="docutils literal"><span class="pre">Sounds</span></code>. As you can see, each <code class="docutils literal"><span class="pre">SoundEntry</span></code> sub-object has a number of properties, such as <code class="docutils literal"><span class="pre">Sound</span></code>, which is where I&#8217;ve chosen the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sound.html#_CPPv25Sound" title="Sound"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sound</span></code></a> resource to play, and <code class="docutils literal"><span class="pre">Weight</span></code>, where the probability of one sound playing over another when the SoundCue is triggered can be adjusted. The default value for <code class="docutils literal"><span class="pre">Weight</span></code> is 1, meaning there will be an equal chance for either sound to play if left that way.</p>
+<p><img alt="SoundCueDemo" src="../../_images/SoundCueDemo.png" /></p>
+<p>With that brief introduction to the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sound.html#_CPPv25Sound" title="Sound"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sound</span></code></a> and <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> resources done, let&#8217;s go ahead and create our own SoundCues.</p>
+</div>
+<div class="section" id="adding-soundcue-resources">
+<h3>Adding SoundCue Resources</h3>
+<p>Let&#8217;s now make all the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> resources we&#8217;ll need for our project.</p>
+<div class="section" id="background-music-cues">
+<h4>Background Music Cues</h4>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new SoundCue resource</span></a> named <code class="docutils literal"><span class="pre">MenuBackground</span></code>.</li>
+<li>In the Properties window<ul>
+<li>Set PlayMode to: <code class="docutils literal"><span class="pre">Looping</span></code></li>
+<li>Under Sounds<ul>
+<li>Click <code class="docutils literal"><span class="pre">AddSoundEntry</span></code></li>
+<li>Under Sound: DefaultSound<ul>
+<li>Set Sound to: <code class="docutils literal"><span class="pre">jazz_chip_mellow_1</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new SoundCue resource</span></a> named <code class="docutils literal"><span class="pre">GameBackground</span></code>.</li>
+<li>In the Properties window<ul>
+<li>Set PlayMode to: <code class="docutils literal"><span class="pre">Looping</span></code></li>
+<li>Under Sounds<ul>
+<li>Click <code class="docutils literal"><span class="pre">AddSoundEntry</span></code></li>
+<li>Under Sound: DefaultSound<ul>
+<li>Set Sound to: <code class="docutils literal"><span class="pre">jazz_chip_mystery_1</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="button-press-cues">
+<h4>Button Press Cues</h4>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new SoundCue resource</span></a> named <code class="docutils literal"><span class="pre">LevelButtons</span></code>.</li>
+<li>In the Properties window<ul>
+<li>Under Sounds<ul>
+<li>Click <code class="docutils literal"><span class="pre">AddSoundEntry</span></code></li>
+<li>Under Sound: DefaultSound<ul>
+<li>Set Sound to: <code class="docutils literal"><span class="pre">CollectKey</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new SoundCue resource</span></a> named <code class="docutils literal"><span class="pre">QuitButton</span></code>.</li>
+<li>In the Properties window<ul>
+<li>Under Sounds<ul>
+<li>Click <code class="docutils literal"><span class="pre">AddSoundEntry</span></code></li>
+<li>Under Sound: DefaultSound<ul>
+<li>Set Sound to: <code class="docutils literal"><span class="pre">DefeatFanfare</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new SoundCue resource</span></a> named <code class="docutils literal"><span class="pre">ConfirmButtons</span></code>.</li>
+<li>In the Properties window<ul>
+<li>Under Sounds<ul>
+<li>Click <code class="docutils literal"><span class="pre">AddSoundEntry</span></code></li>
+<li>Under Sound: DefaultSound<ul>
+<li>Set Sound to: <code class="docutils literal"><span class="pre">CollectHeart</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="game-sound-effect-cues">
+<h4>Game Sound Effect Cues</h4>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new SoundCue resource</span></a> named <code class="docutils literal"><span class="pre">SpawnObject</span></code>.</li>
+<li>In the Properties window<ul>
+<li>Under Sounds<ul>
+<li>Click <code class="docutils literal"><span class="pre">AddSoundEntry</span></code></li>
+<li>Under Sound: DefaultSound<ul>
+<li>Set Sound to: <code class="docutils literal"><span class="pre">CollectGem</span></code></li>
+</ul>
+</li>
+<li>Click <code class="docutils literal"><span class="pre">AddSoundEntry</span></code> again</li>
+<li>Under Sound: DefaultSound<ul>
+<li>Set Sound to: <code class="docutils literal"><span class="pre">CollectCoin</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new SoundCue resource</span></a> named <code class="docutils literal"><span class="pre">DestroyObject</span></code>.</li>
+<li>In the Properties window<ul>
+<li>Under Sounds<ul>
+<li>Click <code class="docutils literal"><span class="pre">AddSoundEntry</span></code></li>
+<li>Under Sound: DefaultSound<ul>
+<li>Set Sound to: <code class="docutils literal"><span class="pre">Freeze</span> <span class="pre">impact-10</span></code></li>
+</ul>
+</li>
+<li>Click <code class="docutils literal"><span class="pre">AddSoundEntry</span></code> again</li>
+<li>Under Sound: DefaultSound<ul>
+<li>Set Sound to: <code class="docutils literal"><span class="pre">Freeze</span> <span class="pre">impact-18</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>And that should do it. You should now have seven different <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCues</span></code></a> listed in the Library window under SoundCue:</p>
+<p><img alt="SoundCuesCreated" src="../../_images/SoundCuesCreated.png" /></p>
+<p>Now that we&#8217;ve done the initial setup, let&#8217;s make the component that will allow us to continue playing the same <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> over multiple levels.</p>
+</div>
+</div>
+</div>
+<div class="section" id="creating-the-persistentsound-component">
+<h2>Creating the PersistentSound Component</h2>
+<p><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Spaces</span></code></a> by their nature are persistent objects. That is, they persist even when new levels are loaded. Therefore, one of the quickest and easiest ways to maintain persistent audio is to have it playing in a Space. Through code, we can control the audio playing in the Space by stopping it, pausing it, lowering and raising the volume, and many other options when needed. So, let&#8217;s go over what our <code class="docutils literal"><span class="pre">PersistentSound</span></code> component will need.</p>
+<div class="section" id="variables">
+<h3>Variables</h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BackgroundMenuMusic</span></code> - A <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> variable with the Property attribute where we will select the audio track we wish to play persistently on most of the levels</li>
+<li><code class="docutils literal"><span class="pre">BackgroundGameMusic</span></code> - A SoundCue variable with the Property attribute where we will select the audio track we wish to play on <code class="docutils literal"><span class="pre">GameLevel</span></code> only</li>
+<li><code class="docutils literal"><span class="pre">BackgroundMusicSpaceArch</span></code> - An <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Archetype.html#_CPPv29Archetype" title="Archetype"><code class="xref cpp cpp-type docutils literal"><span class="pre">Archetype</span></code></a> variable with the Property attribute where we will select the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Space</span></code></a> archetype needed to create the new Space</li>
+<li><code class="docutils literal"><span class="pre">MusicLevel</span></code> - A <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">Level</span></code></a> variable with the Property attribute where we will select a level to load so we can play a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> on it</li>
+<li><code class="docutils literal"><span class="pre">BackgroundMenuMusicSpace</span></code> - A Space variable that will hold a reference to the Space created to play the menu music</li>
+<li><code class="docutils literal"><span class="pre">BackgroundGameMusicSpace</span></code> - A Space variable that will hold a reference to the Space created to play the game music</li>
+</ul>
+<p>This component needs to accomplish the following objectives:</p>
+<ul class="simple">
+<li>Check to see which level we&#8217;re in, as we have two different background music tracks to play depending on if we&#8217;re on the game level or any other level</li>
+<li>If we&#8217;re on the game level, create a new space to play the game music while also destroying the space created to play the menu music if it currently exists (which it always should, since we start on the main menu level)</li>
+<li>If we&#8217;re on the main menu level, create a new space to play the menu music while also destroying the space created to play the game music if it currently exists (it will only exist if we go to the game level and then return to the menu)</li>
+<li>If we&#8217;re playing the menu music, it must continue to play persistently even if we change to the &#8220;How to Play&#8221; or &#8220;Credits&#8221; levels</li>
+</ul>
+</div>
+<div class="section" id="the-levelstarted-event">
+<h3>The LevelStarted Event</h3>
+<p>Our component will be making use of the built-in event <code class="docutils literal"><span class="pre">LevelStarted</span></code>. It is an event dispatched onto the space once a level has been loaded. We need to use this particular event to make sure that once the level has loaded, we immediately start playing the background music. It also conveniently gives us the name of the current level we&#8217;re in as a data member, which we&#8217;ll use to figure out whether we&#8217;re in <code class="docutils literal"><span class="pre">Level</span></code> (the main menu level) or <code class="docutils literal"><span class="pre">GameLevel</span></code>.</p>
+</div>
+<div class="section" id="the-soundspace">
+<h3>The SoundSpace</h3>
+<p>While there are a few ways to play a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> in the Zero Engine, the simplest method of doing so within a script is by accessing the <strong>SoundSpace</strong>. Go to the Library window and select either the <code class="docutils literal"><span class="pre">Space</span></code> or  <code class="docutils literal"><span class="pre">MusicSpace</span></code> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Archetype.html#_CPPv29Archetype" title="Archetype"><code class="xref cpp cpp-type docutils literal"><span class="pre">Archetypes</span></code></a>, then at the Properties window you&#8217;ll see a number of components. The fourth one down from the top should be the <code class="docutils literal"><span class="pre">SoundSpace</span></code> component.</p>
+<p><img alt="MusicSpaceComponents" src="../../_images/MusicSpaceComponents.png" /></p>
+<p>While there are no properties available when you try to expand the component, there are many member properties and functions to be found in the <code class="docutils literal"><span class="pre">SoundSpace</span></code> when accessing it through code. Feel free to take a look through them when we write the component. The only one we need to concern ourselves with right now, however, is the <code class="docutils literal"><span class="pre">PlayCue()</span></code> function, which takes in a <code class="docutils literal"><span class="pre">SoundCue</span></code> resource as an argument and plays it.</p>
+</div>
+<div class="section" id="adding-the-persistentsound-component">
+<h3>Adding the PersistentSound Component</h3>
+<p>This is going to be a long script, so let&#8217;s split it up into three parts. Remember that you&#8217;ll need to have written the entire code from the following three blocks before it will correctly compile.</p>
+<div class="section" id="the-variables">
+<h4>The Variables</h4>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> called <code class="docutils literal"><span class="pre">PersistentSound</span></code></li>
+<li>Update the <code class="docutils literal"><span class="pre">PersistentSound</span></code> script with the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PersistentSound</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="c1">// The SoundCue to be played persistently in the Main Menu, How to Play,</span>
+  <span class="c1">// and Credits levels</span>
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">BackgroundMenuMusic</span> <span class="p">:</span> <span class="n">SoundCue</span><span class="p">;</span>
+
+  <span class="c1">// The SoundCue to be played on the Game Level</span>
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">BackgroundGameMusic</span> <span class="p">:</span> <span class="n">SoundCue</span><span class="p">;</span>
+
+  <span class="c1">// The space archetype by which the new music space will be created</span>
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">BackgroundMusicSpaceArch</span> <span class="p">:</span> <span class="n">Archetype</span><span class="p">;</span>
+
+  <span class="c1">//Level to load on the new music space</span>
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">MusicLevel</span> <span class="p">:</span> <span class="n">Level</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+  <span class="c1">// A reference for the Menu Level&#39;s (Level, HowToPlayLevel, CreditsLevel) music space</span>
+  <span class="kt">var</span> <span class="n">BackgroundMenuMusicSpace</span> <span class="p">:</span> <span class="n">Space</span><span class="p">;</span>
+
+  <span class="c1">// A reference for the Game Level&#39;s music space</span>
+  <span class="kt">var</span> <span class="n">BackgroundGameMusicSpace</span> <span class="p">:</span> <span class="n">Space</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BackgroundMenuMusic</span></code> - a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> variable with the Property attribute where we will set the music to play over all levels except the game <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">BackgroundGameMusic</span></code> - a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> variable with the Property attribute where we will set the music to play over the game <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">BackgroundMusicSpaceArch</span></code> - an <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Archetype.html#_CPPv29Archetype" title="Archetype"><code class="xref cpp cpp-type docutils literal"><span class="pre">Archetype</span></code></a> variable with the Property attribute where we will set the <code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">archetype</span></code> to use when creating our new spaces</li>
+<li><code class="docutils literal"><span class="pre">MusicLevel</span></code> - a <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code> variable with the Property attribute where we select the <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code> resource to load into the music <code class="xref cpp cpp-type docutils literal"><span class="pre">spaces</span></code></li>
+<li><code class="docutils literal"><span class="pre">BackgroundMenuMusicSpace</span></code> - a <code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code> variable that hold a reference to the newly created <code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code> on which to play the menu music</li>
+<li><code class="docutils literal"><span class="pre">BackgroundGameMusicSpace</span></code> - a <code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code> variable that hold a reference to the newly created <code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code> on which to play the game music</li>
+</ul>
+</div>
+<div class="section" id="playing-the-background-music-part-one">
+<h4>Playing the Background Music, Part One</h4>
+<ul class="simple">
+<li>Add the following code to the <code class="docutils literal"><span class="pre">PersistentSound</span></code> script directly after where the <code class="docutils literal"><span class="pre">BackgroundGameMusicSpace</span></code> variable is defined:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Connect to event dispatched when a level is started</span>
+  <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LevelStarted</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLevelStarted</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Response function called when the LevelStarted event is heard</span>
+<span class="n">function</span> <span class="nf">OnLevelStarted</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">GameEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Check to see if we&#39;re in the game level</span>
+  <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">LevelName</span> <span class="p">==</span> <span class="s">&quot;GameLevel&quot;</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// If the space for the Menu Music exists...</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Destroy it, so we don&#39;t have two different cues overlapping</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span><span class="p">.</span><span class="n">Destroy</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Safety measure to make sure we don&#39;t make a copy of the same space</span>
+    <span class="c1">// Will most likely never be true</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;You almost created the same space twice!&quot;</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span><span class="p">.</span><span class="n">Destroy</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Create a new space for the background game music</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">GameSession</span><span class="p">.</span><span class="n">CreateSpace</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundMusicSpaceArch</span><span class="p">);</span>
+
+    <span class="c1">// Load the music level so we can play the background music</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span><span class="p">.</span><span class="n">LoadLevel</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">MusicLevel</span><span class="p">);</span>
+
+    <span class="c1">// Play the background game music cue from the sound space</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">PlayCue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusic</span><span class="p">);</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>In <code class="docutils literal"><span class="pre">Initialize()</span></code>, all we&#8217;re doing is connecting to the <code class="docutils literal"><span class="pre">LevelStarted</span></code> event. As the name suggests, this event is dispatched when the <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code> that the component is in starts (i.e., is loaded). While you might wonder why we don&#8217;t just put all the logic into the <code class="docutils literal"><span class="pre">Initialize()</span></code> function, as that will also get called as soon as the <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code> is loaded. The reason, in this case and in most cases where you will use this event, has its basis in the object load order.</p>
+<p>If you were to put the code found in <code class="docutils literal"><span class="pre">OnLevelStarted()</span></code> in <code class="docutils literal"><span class="pre">Initialize()</span></code> (and used a different method to check for the name of the <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code>), the script would not compile. You would be informed that the <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code> you are checking for is a <code class="docutils literal"><span class="pre">null</span> <span class="pre">object</span></code>. And if you think about it, at that point, it is. The <code class="docutils literal"><span class="pre">Initialize()</span></code> function is called before the <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code> is properly loaded. The <code class="docutils literal"><span class="pre">OnLevelStarted()</span></code> function, on the other hand, will not run until <em>after</em> the level has fully loaded, as its name implies. That is why we are able to check the name and figure out where in the game we are.</p>
+<p>The first half of the <code class="docutils literal"><span class="pre">OnLevelStarted()</span></code> function in the code-block above first checks to see if the current level is named &#8220;GameLevel&#8221;. If it is, we then make sure no other music spaces currently exist; if they did exist, we destroy them so that we don&#8217;t have overlapping spaces playing the same <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a>.</p>
+<p>The last three lines of code do the heavy lifting:</p>
+<ul class="simple">
+<li>First, a new <code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code> is created solely to play the background music for the game <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code>.</li>
+<li>Second, a <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code> is loaded into that <code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code> (for reasons too many to go into in this lesson, a <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code> is required to play a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a>)</li>
+<li>Third, the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> we chose as the background music for the game <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code> is played on the SoundSpace.</li>
+</ul>
+</div>
+<div class="section" id="playing-the-background-music-part-two">
+<h4>Playing the Background Music, Part Two</h4>
+<ul class="simple">
+<li>Add the following code to the <code class="docutils literal"><span class="pre">PersistentSound</span></code> script directly the last curly brace at the end of the previous code-block:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span>    <span class="c1">// Check to see if we&#39;re in the main menu level</span>
+    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">LevelName</span> <span class="p">==</span> <span class="s">&quot;Level&quot;</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// If the space for the Game music exists...</span>
+      <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="c1">// Destroy it so we don&#39;t have two different cues overlapping</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span><span class="p">.</span><span class="n">Destroy</span><span class="p">();</span>
+      <span class="p">}</span>
+
+      <span class="c1">// If this is currently no space for the menu&#39;s background music</span>
+      <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="c1">// Create the space and assign to our menu music space variable</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">GameSession</span><span class="p">.</span><span class="n">CreateSpace</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundMusicSpaceArch</span><span class="p">);</span>
+
+        <span class="c1">// Load the music level so we can play the menu music</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span><span class="p">.</span><span class="n">LoadLevel</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">MusicLevel</span><span class="p">);</span>
+
+        <span class="c1">// Play the menu background music cue from the sound space</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">PlayCue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusic</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is the second half of the <code class="docutils literal"><span class="pre">OnLevelStarted()</span></code> function, where we now check to see if the <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code> name is <code class="docutils literal"><span class="pre">Level</span></code>, which is our main menu level. Again, we check to see if either of the music <code class="xref cpp cpp-type docutils literal"><span class="pre">spaces</span></code> exist, and if so, destroy them.</p>
+<p>The last three lines follow the exact same format as the ones from the previous code-block. The <code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code> is created, the <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code> is loaded, and the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> is played.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a></li>
+</ul>
+<p>Before we add this component, we need to create one more object necessary for this system to work.</p>
+</div>
+</div>
+<div class="section" id="creating-the-music-level">
+<h3>Creating the Music Level</h3>
+<p>The last thing we need to do before we attach this component is to make a new <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code> that will be loaded onto the new music spaces. The <code class="docutils literal"><span class="pre">SoundSpace</span></code> requires a level to be loaded to play a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a>. If we just loaded the default level, it would block out everything else, just like we saw in the <a class="reference internal" href="../UI/HeadsUpDisplay.html#tutorialheadsupdisplay"><span>HUD lesson</span></a>. So we don&#8217;t run into this problem, we need to make a new <code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code> that has a couple of settings turned off.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new Level resource</span></a> called <code class="docutils literal"><span class="pre">MusicLevel</span></code></li>
+<li>In the Objects window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li>In the Properties window<ul>
+<li>Under CameraViewport<ul>
+<li>Set Background to: <code class="docutils literal"><span class="pre">false</span></code></li>
+<li>Set Blocking to: <code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a></li>
+</ul>
+<p>Now we&#8217;re ready to attach the component and set its properties.</p>
+</div>
+</div>
+<div class="section" id="attaching-the-persistentsound-component">
+<h2>Attaching the PersistentSound Component</h2>
+<p>Since we want to start the background music as soon as the game starts, and as the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Space</span></code></a> for the music does not yet exist, we&#8217;ll need to add this component somewhere it will be used immediately once the game has started. That place, surprisingly enough, is the default Space archetype. When the game starts, the main Space is created using the default archetype and loads whichever level is set as the starting level. As we want the background music to play at this start point, we can add this component to the default Space archetype that is used to create the initial, main Space for the game.</p>
+<ul class="simple">
+<li>In the Library window<ul>
+<li>Under Space<ul>
+<li>Select and open <code class="docutils literal"><span class="pre">Space</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the Property window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add the PersistentSound component</span></a></li>
+<li>Under PersistentSound<ul>
+<li>Set BackgroundMenuMusic to: <code class="docutils literal"><span class="pre">MenuBackground</span></code></li>
+<li>Set BackgroundGameMusic to: <code class="docutils literal"><span class="pre">GameBackground</span></code></li>
+<li>Set BackgroundMusicSpaceArch to: <code class="docutils literal"><span class="pre">MusicSpace</span></code></li>
+<li>Set MusicLevel to: <code class="docutils literal"><span class="pre">MusicLevel</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../Architecture/Archetypes.html#tutorialarchetypes"><span>Press the green Upload to Archetype button</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>You should now be hearing music playing over the main menu. Try going to the &#8220;how to play&#8221; and &#8220;credits&#8221; levels as well; the music should keep playing uninterrupted. Now try going to the &#8220;game&#8221; level. The music currently playing should stop and a new music track should start. If you click on the &#8220;Return to Main Menu&#8221; button, the game music will stop and the menu music start back up.</p>
+<p>So, now we have background music for our menu and game. It&#8217;s now time to add some effect sounds to our various buttons throughout the project.</p>
+</div>
+<div class="section" id="adding-button-sound-effects">
+<h2>Adding Button Sound Effects</h2>
+<p>As you probably guessed when we were making the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCues</span></code></a> above, we will be using three different sounds depending on which button is currently being clicked. While we could make a new component to handle this, we can save time by just making a few changes to our button manager components (<code class="docutils literal"><span class="pre">UIButton</span></code> and <code class="docutils literal"><span class="pre">UIMenuManager</span></code>). This also allows us to easily add sound effects to any new buttons we may create later on.  Logically, we should start making changes inside the <code class="docutils literal"><span class="pre">UIButton</span></code> script, as it contains the class that defines the <code class="docutils literal"><span class="pre">UIButtonEvent</span></code> custom event.</p>
+<div class="section" id="the-uibutton-component">
+<h3>The UIButton Component</h3>
+<p>If you recall from the User Interface lesson, the <code class="docutils literal"><span class="pre">UIButtonEvent</span></code> custom event is the event that contains all the relevant information for each button&#8211;its state: default, hovered, or clicked; its <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Cog.html#_CPPv23Cog" title="Cog"><code class="xref cpp cpp-type docutils literal"><span class="pre">Cog</span></code></a>; and the level to load if clicking the button should load a new level. Therefore, it makes perfect sense that we should now add the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> to play when the button is clicked to the event information.</p>
+<ul class="simple">
+<li>In the <code class="docutils literal"><span class="pre">UIButton</span></code> script, replace the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">UIButtonEvent</span> <span class="p">:</span> <span class="n">ZilchEvent</span>
+<span class="p">{</span>
+  <span class="c1">// Registers UIButtonEvent as the custom event&#39;s string type identifier</span>
+  <span class="n">sends</span> <span class="n">UIButtonEvent</span> <span class="p">:</span> <span class="n">UIButtonEvent</span><span class="p">;</span>
+
+  <span class="c1">// Button that underwent a state change</span>
+  <span class="kt">var</span> <span class="n">Button</span> <span class="p">:</span> <span class="n">Cog</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+  <span class="c1">// The current state of the button</span>
+  <span class="kt">var</span> <span class="n">State</span> <span class="p">:</span> <span class="n">ButtonState</span> <span class="p">=</span> <span class="n">ButtonState</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+
+  <span class="c1">// The level to load when the button is clicked</span>
+  <span class="kt">var</span> <span class="n">LevelToLoad</span> <span class="p">:</span> <span class="n">Level</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>with:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span> <span class="k">class</span> <span class="nc">UIButtonEvent</span> <span class="p">:</span> <span class="n">ZilchEvent</span>
+ <span class="p">{</span>
+   <span class="c1">// Registers UIButtonEvent as the custom event&#39;s string type identifier</span>
+   <span class="n">sends</span> <span class="n">UIButtonEvent</span> <span class="p">:</span> <span class="n">UIButtonEvent</span><span class="p">;</span>
+
+   <span class="c1">// Button that underwent a state change</span>
+   <span class="kt">var</span> <span class="n">Button</span> <span class="p">:</span> <span class="n">Cog</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+   <span class="c1">// The current state of the button</span>
+   <span class="kt">var</span> <span class="n">State</span> <span class="p">:</span> <span class="n">ButtonState</span> <span class="p">=</span> <span class="n">ButtonState</span><span class="p">.</span><span class="n">Default</span><span class="p">;</span>
+
+<span class="hll">   <span class="c1">// The Sound to play when the button is pressed</span>
+</span><span class="hll">   <span class="kt">var</span> <span class="n">ButtonSound</span> <span class="p">:</span> <span class="n">SoundCue</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span>
+   <span class="c1">// The level to load when the button is clicked</span>
+   <span class="kt">var</span> <span class="n">LevelToLoad</span> <span class="p">:</span> <span class="n">Level</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>In the UIButton class itself, the first thing we need to do is add a new <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> variable with the Property attribute so that we can choose which sound effect we want to play for each button.</p>
+<ul class="simple">
+<li>In the <code class="docutils literal"><span class="pre">UIButton</span></code> script, add the following code to the list of global variables, directly above the <code class="docutils literal"><span class="pre">Initialize()</span></code> function:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">//The Sound Cue to play when the button is pressed</span>
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">SoundToPlay</span> <span class="p">:</span> <span class="n">SoundCue</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The last thing we need to do in this script is to set the value of our new event variable (i.e., <code class="docutils literal"><span class="pre">ButtonSound</span></code>) to our new component variable (i.e., <code class="docutils literal"><span class="pre">SoundToPlay</span></code>) so that it&#8217;s sent out with the event dispatch.</p>
+<ul class="simple">
+<li>In the <code class="docutils literal"><span class="pre">UIButton</span></code> script, replace the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">DispatchState</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// Creates a new instance of the UIButtonEvent custom event</span>
+  <span class="kt">var</span> <span class="n">buttonEvent</span> <span class="p">:</span> <span class="n">UIButtonEvent</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UIButtonEvent</span><span class="p">();</span>
+
+  <span class="c1">// Sets the information to be sent with the event</span>
+  <span class="n">buttonEvent</span><span class="p">.</span><span class="n">Button</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">;</span>
+  <span class="n">buttonEvent</span><span class="p">.</span><span class="n">State</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">CurState</span><span class="p">;</span>
+  <span class="n">buttonEvent</span><span class="p">.</span><span class="n">LevelToLoad</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">LevelToLoad</span><span class="p">;</span>
+
+  <span class="c1">//Dispatches the event onto the space</span>
+  <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">UIButtonEvent</span><span class="p">,</span> <span class="n">buttonEvent</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>with:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span> <span class="n">function</span> <span class="nf">DispatchState</span><span class="p">()</span>
+ <span class="p">{</span>
+   <span class="c1">// Creates a new instance of the UIButtonEvent custom event</span>
+   <span class="kt">var</span> <span class="n">buttonEvent</span> <span class="p">:</span> <span class="n">UIButtonEvent</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UIButtonEvent</span><span class="p">();</span>
+
+   <span class="c1">// Sets the information to be sent with the event</span>
+   <span class="n">buttonEvent</span><span class="p">.</span><span class="n">Button</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">;</span>
+   <span class="n">buttonEvent</span><span class="p">.</span><span class="n">State</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">CurState</span><span class="p">;</span>
+<span class="hll">   <span class="n">buttonEvent</span><span class="p">.</span><span class="n">ButtonSound</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">SoundToPlay</span><span class="p">;</span>
+</span>   <span class="n">buttonEvent</span><span class="p">.</span><span class="n">LevelToLoad</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">LevelToLoad</span><span class="p">;</span>
+
+   <span class="c1">//Dispatches the event onto the space</span>
+   <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">DispatchEvent</span><span class="p">(</span><span class="n">Events</span><span class="p">.</span><span class="n">UIButtonEvent</span><span class="p">,</span> <span class="n">buttonEvent</span><span class="p">);</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a></li>
+</ul>
+<p>Now we need to make a few changes to the second part of our button management system, the <code class="docutils literal"><span class="pre">UIMenuManager</span></code> component.</p>
+</div>
+<div class="section" id="the-uimenumanager-component">
+<h3>The UIMenuManager Component</h3>
+<p>If you recall from the User Interface lesson, the <code class="docutils literal"><span class="pre">UIMenuManager</span></code> component listens for the <code class="docutils literal"><span class="pre">UIButtonEvent</span></code> custom event and then responds appropriately based on the information sent with the event. Therefore, our first stop in the script will be in the <code class="docutils literal"><span class="pre">OnUIButtonEvent()</span></code> function, as it is the response function called when a dispatched instance of the <code class="docutils literal"><span class="pre">UIButtonEvent</span></code> custom event is heard.</p>
+<ul class="simple">
+<li>In the <code class="docutils literal"><span class="pre">UIMenuManager</span></code> script, inside the <code class="docutils literal"><span class="pre">OnUIButtonEvent()</span></code> function, replace the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">State</span> <span class="p">==</span> <span class="n">ButtonState</span><span class="p">.</span><span class="n">Clicked</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="n">OnButtonClicked</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Button</span><span class="p">,</span> <span class="k">event</span><span class="p">.</span><span class="n">LevelToLoad</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>with:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span> <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">State</span> <span class="p">==</span> <span class="n">ButtonState</span><span class="p">.</span><span class="n">Clicked</span><span class="p">)</span>
+ <span class="p">{</span>
+<span class="hll">   <span class="k">this</span><span class="p">.</span><span class="n">OnButtonClicked</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Button</span><span class="p">,</span> <span class="k">event</span><span class="p">.</span><span class="n">ButtonSound</span><span class="p">,</span> <span class="k">event</span><span class="p">.</span><span class="n">LevelToLoad</span><span class="p">);</span>
+</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>With this change, we are now passing in the ButtonSound information sent with the dispatched event to the <code class="docutils literal"><span class="pre">OnButtonClicked()</span></code> response function, which is exactly where we would want to play it (that is, when the button is clicked).</p>
+<ul class="simple">
+<li>In the <code class="docutils literal"><span class="pre">UIMenuManager</span></code> script, replace the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">OnButtonClicked</span><span class="p">(</span><span class="n">button</span> <span class="p">:</span> <span class="n">Cog</span><span class="p">,</span> <span class="n">levelToLoad</span> <span class="p">:</span> <span class="n">Level</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">//////////////////////////////////////////////////////////////////</span>
+  <span class="c1">// This is where you check which button was activated and       //</span>
+  <span class="c1">// perform unique logic such as loading levels                  //</span>
+  <span class="c1">//////////////////////////////////////////////////////////////////</span>
+
+  <span class="c1">// Call Default response function to clear the SelectionArrow</span>
+  <span class="k">this</span><span class="p">.</span><span class="n">OnButtonDefault</span><span class="p">(</span><span class="n">button</span><span class="p">);</span>
+
+  <span class="c1">// Check to see if the button is one that loads a level; if it is, load the level.</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">button</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="s">&quot;StartGameButton&quot;</span> <span class="p">||</span>
+      <span class="n">button</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="s">&quot;HowToPlayButton&quot;</span> <span class="p">||</span>
+      <span class="n">button</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="s">&quot;CreditsButton&quot;</span> <span class="p">||</span>
+      <span class="n">button</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="s">&quot;ReturnButton&quot;</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">LoadLevel</span><span class="p">(</span><span class="n">levelToLoad</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">//More code below...</span>
+</pre></div>
+</div>
+<p>with</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="hll"> <span class="n">function</span> <span class="nf">OnButtonClicked</span><span class="p">(</span><span class="n">button</span> <span class="p">:</span> <span class="n">Cog</span><span class="p">,</span> <span class="n">soundToPlay</span> <span class="p">:</span> <span class="n">SoundCue</span><span class="p">,</span> <span class="n">levelToLoad</span> <span class="p">:</span> <span class="n">Level</span><span class="p">)</span>
+</span> <span class="p">{</span>
+   <span class="c1">//////////////////////////////////////////////////////////////////</span>
+   <span class="c1">// This is where you check which button was activated and       //</span>
+   <span class="c1">// perform unique logic such as loading levels                  //</span>
+   <span class="c1">//////////////////////////////////////////////////////////////////</span>
+
+   <span class="c1">// Call Default response function to clear the SelectionArrow</span>
+   <span class="k">this</span><span class="p">.</span><span class="n">OnButtonDefault</span><span class="p">(</span><span class="n">button</span><span class="p">);</span>
+
+<span class="hll">   <span class="c1">// Play the SoundCue passed in with the UIButtonEvent on the SoundSpace</span>
+</span><span class="hll">   <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">PlayCue</span><span class="p">(</span><span class="n">soundToPlay</span><span class="p">);</span>
+</span>
+   <span class="c1">// Check to see if the button is one that loads a level; if it is, load the level.</span>
+   <span class="k">if</span><span class="p">(</span><span class="n">button</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="s">&quot;StartGameButton&quot;</span> <span class="p">||</span>
+       <span class="n">button</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="s">&quot;HowToPlayButton&quot;</span> <span class="p">||</span>
+       <span class="n">button</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="s">&quot;CreditsButton&quot;</span> <span class="p">||</span>
+       <span class="n">button</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="s">&quot;ReturnButton&quot;</span><span class="p">)</span>
+   <span class="p">{</span>
+     <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">LoadLevel</span><span class="p">(</span><span class="n">levelToLoad</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="c1">//More code below...</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a></li>
+</ul>
+<p>First, we add a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> variable to the arguments being passed in to correspond to the function call we changed above. Second, we play the actual SoundCue on the SoundSpace, the same way we play the background music. Now that we have all the necessary changes made, let&#8217;s set the new property on all of our buttons.</p>
+</div>
+<div class="section" id="setting-the-sound-effect-soundcues">
+<h3>Setting the Sound Effect SoundCues</h3>
+<div class="section" id="main-menu-buttons">
+<h4>Main Menu Buttons</h4>
+<ul>
+<li><p class="first">In the Library window</p>
+<ul class="simple">
+<li>Under Level</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Select and open <code class="docutils literal"><span class="pre">Level</span></code></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">In the Objects window</p>
+</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the StartGameButton object</span></a></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>In the Properties window<ul>
+<li>Under UIButton<ul>
+<li>Set SoundToPlay to: <code class="docutils literal"><span class="pre">LevelButtons</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Repeat the previous steps on the <code class="docutils literal"><span class="pre">HowToPlayButton</span></code> and <code class="docutils literal"><span class="pre">CreditsButton</span></code> objects.</li>
+<li>On the <code class="docutils literal"><span class="pre">QuitButton</span></code> object, set SoundToPlay to: <code class="docutils literal"><span class="pre">QuitButton</span></code></li>
+</ul>
+<p>That takes care of the main menu. Now let&#8217;s hit the other levels.</p>
+</div>
+<div class="section" id="buttons-on-other-levels">
+<h4>Buttons on Other Levels</h4>
+<ul>
+<li><p class="first">In the Library window</p>
+<ul class="simple">
+<li>Under Level</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Select and open <code class="docutils literal"><span class="pre">GameLevel</span></code></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">In the Objects window</p>
+</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the ReturnButton object</span></a></li>
+</ul>
+</div></blockquote>
+<p>In the Properties window</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under UIButton<ul>
+<li>Set SoundToPlay to: <code class="docutils literal"><span class="pre">LevelButtons</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Repeat the previous steps on the following levels: <code class="docutils literal"><span class="pre">HowToPlayLevel</span></code> and <code class="docutils literal"><span class="pre">CreditsLevel</span></code></li>
+</ul>
+</div>
+<div class="section" id="confirmation-buttons">
+<h4>Confirmation Buttons</h4>
+<ul class="simple">
+<li>In the Library window<ul>
+<li>Under Level<ul>
+<li>Select and open <code class="docutils literal"><span class="pre">ConfirmLevel</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the Objects window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the ConfirmYesButton object</span></a></li>
+</ul>
+</div></blockquote>
+<p>In the Properties window</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under UIButton<ul>
+<li>Set SoundToPlay to: <code class="docutils literal"><span class="pre">ConfirmButtons</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Repeat the previous steps for the <code class="docutils literal"><span class="pre">ConfirmNoButton</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>Navigate your way around the menu and levels. You should be hearing different sound effects depending on which button you are pressing. Now we have not only background music, but sound effects too.</p>
+<p>For the final part of this project, let&#8217;s add a little bit more code to our <code class="docutils literal"><span class="pre">PersistentSound</span></code> component that will makes changes to the the sounds currently playing based on keyboard input.</p>
+</div>
+</div>
+</div>
+<div class="section" id="changing-properties-on-the-soundspace">
+<h2>Changing Properties on the SoundSpace</h2>
+<p>On the SoundSpace, you can have direct control over such things as volume, pitch, and whether or not the sounds are paused. Let&#8217;s add functionality to our <code class="docutils literal"><span class="pre">PersistentSound</span></code> component that lets the user directly control these properties through key presses.</p>
+<p>First, we need to add two new variables to our list of global variables that will allow us to set the value by which we increase or decrease both the volume and pitch. Then we&#8217;ll connect to the KeyDown event in the <code class="docutils literal"><span class="pre">Initialize()</span></code> function.</p>
+<ul class="simple">
+<li>In the <code class="docutils literal"><span class="pre">PersistentSound</span></code> script, add the following code at the end of the global variable list, directly above the <code class="docutils literal"><span class="pre">Initialize()</span></code> function:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">// The value by which to increase or decrease the volume of all cues on the SoundSpace</span>
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">VolumeScalar</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">0.0</span><span class="p">;</span>
+
+<span class="c1">// The value by which to increase or decrease the pitch of all cues on the SoundSpace</span>
+<span class="na">[Property]</span>
+<span class="kt">var</span> <span class="n">PitchScalar</span> <span class="p">:</span> <span class="n">Real</span> <span class="p">=</span> <span class="m">0.0</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>In the <code class="docutils literal"><span class="pre">PersistentSound</span></code> script, replace the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Connect to event dispatched when a level is started</span>
+  <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LevelStarted</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLevelStarted</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>with</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span> <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+ <span class="p">{</span>
+   <span class="c1">// Connect to event dispatched when a level is started</span>
+   <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LevelStarted</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLevelStarted</span><span class="p">);</span>
+
+<span class="hll">   <span class="c1">// Connect to the KeyDown event dispatched on to the keyboard</span>
+</span><span class="hll">   <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">KeyDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnKeyDown</span><span class="p">);</span>
+</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Finally, we add all of our logic for changing the volume and scale as well as toggling pause in the <code class="docutils literal"><span class="pre">OnKeyDown()</span></code> response function.</p>
+<ul class="simple">
+<li>Update the <code class="docutils literal"><span class="pre">PersistentSound</span></code> script with the following, so that the <code class="docutils literal"><span class="pre">OnKeyDown()</span></code> function starts directly after <code class="docutils literal"><span class="pre">OnLevelStarted()</span></code> function :</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="c1">// Change the volume, pitch, or toggle the pause on the SoundSpace based on keyboard input</span>
+<span class="n">function</span> <span class="nf">OnKeyDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">Right</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// If the background menu music space exists...</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Increase the volume of the background menu music by the volume scalar</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Volume</span> <span class="p">+=</span> <span class="k">this</span><span class="p">.</span><span class="n">VolumeScalar</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// If the background game music space exists...</span>
+    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Increase the volume of the background game music by the volume scalar</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Volume</span> <span class="p">+=</span> <span class="k">this</span><span class="p">.</span><span class="n">VolumeScalar</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">Left</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// If the background game music space exists...</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Decrease the volume of the background menu music by the volume scalar</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Volume</span> <span class="p">-=</span> <span class="k">this</span><span class="p">.</span><span class="n">VolumeScalar</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// If the background game music space exists...</span>
+    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Decrease the volume of the background game music by the volume scalar</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Volume</span> <span class="p">-=</span> <span class="k">this</span><span class="p">.</span><span class="n">VolumeScalar</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">Up</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// If the background menu music space exists...</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Increase the pitch of the background menu music by the pitch scalar</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Pitch</span> <span class="p">+=</span> <span class="k">this</span><span class="p">.</span><span class="n">PitchScalar</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// If the background game music space exists...</span>
+    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Increase the pitch of the background game music by the pitch scalar</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Pitch</span> <span class="p">+=</span> <span class="k">this</span><span class="p">.</span><span class="n">PitchScalar</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">Down</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// If the background game music space exists...</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Decrease the pitch of the background menu music by the pitch scalar</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Pitch</span> <span class="p">-=</span> <span class="k">this</span><span class="p">.</span><span class="n">PitchScalar</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// If the background game music space exists...</span>
+    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Decrease the pitch of the background game music by the pitch scalar</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Pitch</span> <span class="p">-=</span> <span class="k">this</span><span class="p">.</span><span class="n">PitchScalar</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">Space</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// If the background game music space exists...</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Toggle the pause property on the SoundSpace</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Pause</span> <span class="p">=</span> <span class="p">!</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundMenuMusicSpace</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Pause</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// If the background game music space exists...</span>
+    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Toggle the pause property on the SoudnSpace</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Pause</span> <span class="p">=</span> <span class="p">!</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundGameMusicSpace</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">Pause</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a></li>
+</ul>
+<p>The last step is to set the new properties on our <code class="docutils literal"><span class="pre">PersistentSound</span></code> component on the <code class="docutils literal"><span class="pre">Space</span></code> <code class="xref cpp cpp-type docutils literal"><span class="pre">archetype</span></code>.</p>
+<ul class="simple">
+<li>In the Library window<ul>
+<li>Under Space<ul>
+<li>Select <code class="docutils literal"><span class="pre">Space</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the Properties window<ul>
+<li>Under PersistentSound<ul>
+<li>Set VolumeScalar to: <code class="docutils literal"><span class="pre">0.15</span></code></li>
+<li>Set PitchScalar to: <code class="docutils literal"><span class="pre">0.05</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../Architecture/Archetypes.html#tutorialarchetypes"><span>Press the green Upload to Archetype button</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>Now when you press the Right arrow the volume will increase, while the Left arrow decreases it; when you press the Up arrow, the pitch increases, while the Down arrow decreases it; when you press the Space button, and the SoundSpace is not currently paused, all <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCues</span></code></a> on the SoundSpace will pause, while if you press Space and the SoundSpace is currently paused, all the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCues</span></code></a> will resume where they left off when they were paused.</p>
+</div>
+<div class="section" id="playing-multiple-sounds-on-the-same-soundcue">
+<h2>Playing Multiple Sounds on the Same SoundCue</h2>
+<p>The last thing we&#8217;ll do is show what happens when there are multiple <code class="xref cpp cpp-type docutils literal"><span class="pre">Sounds</span></code> on the same <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a>. As you may have noticed at the beginning of the lesson, we already created two <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCues</span></code></a> with two different <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sound.html#_CPPv25Sound" title="Sound"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sound</span></code></a> resources on them. As explained above, the <code class="docutils literal"><span class="pre">Weight</span></code> property, which can be set to give a particular <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sound.html#_CPPv25Sound" title="Sound"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sound</span></code></a> a higher probability of playing over others, has been left at its default value, keeping them equally probable of playing. Since playing these cues has nothing to do with our persistent sounds, we&#8217;ll need to make a new component for it.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> called <code class="docutils literal"><span class="pre">PlayRandomSound</span></code></li>
+<li>Update the <code class="docutils literal"><span class="pre">PlayRandomSound</span></code> script with the following code:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PlayRandomSound</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="c1">// Sound cue for spawning objects</span>
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">SpawnCue</span> <span class="p">:</span> <span class="n">SoundCue</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+  <span class="c1">// Sound cue for destroying objects</span>
+<span class="na">  [Property]</span>
+  <span class="kt">var</span> <span class="n">DestroyCue</span> <span class="p">:</span> <span class="n">SoundCue</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LeftMouseDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLeftMouseDown</span><span class="p">);</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">RightMouseDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnRightMouseDown</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Response function to left mouse button clicked</span>
+  <span class="n">function</span> <span class="nf">OnLeftMouseDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">ViewportMouseEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Play Spawn cue on the sound space</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">PlayCue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">SpawnCue</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Response function to the right mouse button clicked</span>
+  <span class="n">function</span> <span class="nf">OnRightMouseDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">ViewportMouseEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Play Destroy cue on the sound space</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">SoundSpace</span><span class="p">.</span><span class="n">PlayCue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">DestroyCue</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is a very simple script, which simply plays the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> for spawning an object when the left mouse button is clicked and the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a> for destroying an object when the right mouse button is clicked.</p>
+<p>For the sake of isolating the effect, let&#8217;s place this on the &#8220;Game&#8221; level.</p>
+<ul class="simple">
+<li>In the Library window<ul>
+<li>Under Level<ul>
+<li>Select and open <code class="docutils literal"><span class="pre">GameLevel</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the Objects window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li>In the Properties window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add the PlayRandomSound component</span></a></li>
+<li>Under PlayRandomSound<ul>
+<li>Set SpawnCue to: <code class="docutils literal"><span class="pre">SpawnObject</span></code></li>
+<li>Set DestroyCue to: <code class="docutils literal"><span class="pre">DestroyObject</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>Press the left-mouse button repeatedly. You should be hearing two distinct <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sound.html#_CPPv25Sound" title="Sound"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sounds</span></code></a> playing. Do the same for the right-mouse button. Feel free to play with the <code class="docutils literal"><span class="pre">Weight</span></code> property in the two <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCues</span></code></a> to see how it affects the occurrence of each <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sound.html#_CPPv25Sound" title="Sound"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sound</span></code></a>.</p>
+<p>Now you know how to import sounds, make <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCues</span></code></a>, and play <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCues</span></code></a> from the SoundSpace. You&#8217;ve also learned how to change the volume, pitch, and pause properties of the SoundSpace. Finally, you learned how to play multiple <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sound.html#_CPPv25Sound" title="Sound"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sounds</span></code></a> from one <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a>.</p>
+</div>
+<div class="section" id="related-materials">
+<h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/UsingTheVoid.html#manualusingthevoid"><span>Using The Void</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Selecting Objects</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Adding a Resource</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Adding Components</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Saving</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>Running the Project</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../UI/UserInterface.html#tutorialuserinterface"><span>User Interface</span></a></li>
+<li><a class="reference internal" href="../Architecture/Archetypes.html#tutorialarchetypes"><span>Archetypes</span></a></li>
+<li><a class="reference internal" href="../UI/HeadsUpDisplay.html#tutorialheadsupdisplay"><span>Heads Up Display</span></a></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundCue</span></code></a></li>
+<li><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sound.html#_CPPv25Sound" title="Sound"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sound</span></code></a></li>
+<li><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Space</span></code></a></li>
+<li><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Archetype.html#_CPPv29Archetype" title="Archetype"><code class="xref cpp cpp-type docutils literal"><span class="pre">Archetype</span></code></a></li>
+<li><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">Level</span></code></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../UI/index.html" class="btn btn-neutral float-right" title="User Interface" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ImportingSoundTutorial.html" class="btn btn-neutral" title="Importing Sounds" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Audio/Audio.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 22:33:48 GMT -->
+</html>

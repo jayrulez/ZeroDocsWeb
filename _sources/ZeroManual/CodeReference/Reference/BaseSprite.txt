@@ -1,0 +1,106 @@
+.. _ReferenceBaseSprite:
+
+.. rst-class:: searchtitle
+
+BaseSprite
+==========
+
+.. rst-class:: searchdescription
+
+Base Sprite class for common sprite properties and sorting.
+
+.. include:: Description/BaseSprite.rst
+
+.. cpp:class:: BaseSprite
+
+    Base Class: :cpp:type:`Graphical`
+
+.. _ReferenceBaseSpriteProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog BaseSprite::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space BaseSprite::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog BaseSprite::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession BaseSprite::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool BaseSprite::Visible
+
+            If object should be rendered.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool BaseSprite::VisibilityCulling
+
+            If object is culled and not graphically updated when it's not visible.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool BaseSprite::VisibilityEvents
+
+            If object receives events when entering/exiting the view of a rendering camera or shadow.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool BaseSprite::CastShadows
+
+            If object is rendered to shadow maps.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 BaseSprite::Color
+
+            Modulation color of this sprite.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: BlendMode::Type BaseSprite::BlendMode
+
+            Blend Mode of the sprite.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SpriteGeometryMode::Type BaseSprite::GeometryMode
+
+            Geometry mode determines how the sprite is mapped to 3d.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: SpriteLayer BaseSprite::SpriteLayer
+
+            
+
+.. _ReferenceBaseSpriteMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void BaseSprite::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/BaseSprite.rst

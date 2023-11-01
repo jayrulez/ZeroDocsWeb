@@ -1,0 +1,148 @@
+.. _ReferenceDeferredRenderer:
+
+.. rst-class:: searchtitle
+
+DeferredRenderer
+================
+
+.. rst-class:: searchdescription
+
+Deferred Scene renderer. Renders a Geometric scene using the deferred rendering method.
+
+.. include:: Description/DeferredRenderer.rst
+
+.. cpp:class:: DeferredRenderer
+
+    Base Class: :cpp:type:`Renderer`
+
+.. _ReferenceDeferredRendererProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DeferredRenderer::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space DeferredRenderer::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog DeferredRenderer::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession DeferredRenderer::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 DeferredRenderer::ClearColor
+
+            Color to clear the screen.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeferredRenderer::DrawNonVisible
+
+            Draw editor only materials.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeferredRenderer::DrawDebugObjects
+
+            Do debug drawing.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeferredRenderer::DrawEditorIcons
+
+            Draw editor icons.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeferredRenderer::EditorIconDepth
+
+            Depth for editor icons.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeferredRenderer::Hdr
+
+            Use of high dynamic range color.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeferredRenderer::Shadows
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeferredRenderer::AntiAliasing
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeferredRenderer::Refraction
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeferredRenderer::Reflections
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Texture DeferredRenderer::ReflectionEnvironment
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeferredRenderer::GodRays
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeferredRenderer::RenderMasks
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool DeferredRenderer::Glow
+
+            Effects brighter than GlowThreshold will blowout.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real DeferredRenderer::GlowThreshold
+
+            Brightness threshold to control glow.
+
+.. _ReferenceDeferredRendererMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void DeferredRenderer::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/DeferredRenderer.rst

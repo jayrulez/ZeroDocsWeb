@@ -1,0 +1,573 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/ObjectStore.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:18:08 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Saving and Loading Data &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Video Game Development Level 1 - 2015" href="index.html"/>
+        <link rel="next" title="Random" href="Random.html"/>
+        <link rel="prev" title="Audio" href="Audio.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Video Game Development Level 1 - 2015</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprites and Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ArraysLoops.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Saving and Loading Data</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Random.html">Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath.html">Vector Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RayCasting.html">Ray Casting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PracticalParticles.html">Particle Effects: Practical Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LauncherNewProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Adding &amp; Removing Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Tags.html">Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Video Game Development Level 1 - 2015</a> &raquo;</li>
+      
+    <li>Saving and Loading Data</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2015/ObjectStore.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- this is used as a file for inclusion in other .rst files --><div class="searchtitle section" id="saving-and-loading-data">
+<span id="objectstore2015"></span><h1>Saving and Loading Data</h1>
+<p class="searchdescription">This lesson will cover how to use Zero Engine&#8217;s ObjectStore to
+save and load information between running game sessions.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="LauncherNewProject.html#createnewproject2015"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSpriteText</span></code> or <span class="menuselection">Create ‣ Create Sprite Text</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">DisplaySavedDataText</span></code></li>
+</ul>
+</li>
+</ul>
+<p>We are going to use this text to display the data that will be saved
+between sessions.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">DisplaySavedData</span></code><ul>
+<li>In the <strong>DisplaySavedData</strong> script<ul>
+<li>Update <strong>DisplaySavedData</strong> class with the following code:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">DisplaySavedData</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+<span class="hll">    <span class="c1">// The value we&#39;ll eventually want to save</span>
+</span><span class="hll">    <span class="k">var</span> <span class="nx">Score</span><span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span>
+<span class="hll">    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+</span><span class="hll">    <span class="k">var</span> <span class="nx">SpriteText</span><span class="o">:</span> <span class="nx">SpriteText</span><span class="o">;</span>
+</span>    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="c1">// Display the data</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SpriteText</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="s2">&quot;Score: `this.Score`&quot;</span><span class="o">;</span>
+</span>    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="c1">// When space is pressed</span>
+</span><span class="hll">        <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">))</span>
+</span><span class="hll">        <span class="p">{</span>
+</span><span class="hll">            <span class="c1">// Increase the score</span>
+</span><span class="hll">            <span class="k">this</span><span class="p">.</span><span class="nx">Score</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class="hll">
+</span><span class="hll">            <span class="c1">// And update the display</span>
+</span><span class="hll">            <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SpriteText</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="s2">&quot;Score: `this.Score`&quot;</span><span class="o">;</span>
+</span>        <span class="p">}</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobject2015"><span>Select the DisplaySavedDataText object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add the DisplaySavedData component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p></p>
+<p>If you did everything correctly, the game should look like this.</p>
+<p><img alt="LevelSetup_png" src="../../_images/DisplaySavedDataText2.png" /></p>
+<p><em>If you press</em> <code class="docutils literal"><span class="pre">Space</span></code> <em>the number will increase.</em></p>
+<p>If you repeatedly restart the program you can see that the score
+doesn&#8217;t actually save. Because our variable in DisplaySavedData is
+saved in the game&#8217;s memory its data is lost when the game ends, and it will restart with a value of zero each time we run the game. We are going to
+change that. Our DisplaySavedData component will load and save our data via ObjectStore and while continuing to increment
+each time we press space.</p>
+</div>
+<div class="section" id="factor-out-saved-data-into-an-archetype">
+<h2>Factor Out Saved Data into an Archetype</h2>
+<p>We are going to start by factoring out the information we plan on saving. We&#8217;ll do this by placing the properties we want to save on a new component.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceadding2015"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">DataSaver</span></code></li>
+<li>In the <strong>DataSaver</strong> script<ul>
+<li>Update <strong>DataSaver</strong> class with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="kd">class</span> <span class="nx">DataSaver</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+  <span class="p">{</span>
+<span class="hll">      <span class="p">[</span><span class="nx">Serialized</span><span class="p">]</span>
+</span><span class="hll">      <span class="k">var</span> <span class="nx">Score</span> <span class="o">:</span> <span class="nx">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span>  <span class="p">}</span>
+</pre></div>
+</div>
+<p>We mark the variable as <strong>[Serialized]</strong> to explicitly tell Zero engine that this
+data will be saved between game sessions. <strong>Serializing</strong> is the process of doing what is necessary to store an object on the computer such that it can be restored at a later time; you can think of this as simply saving.  <strong>Properties</strong> <cite>are also implicitly serialized.</cite> If we didn&#8217;t mark it [Serialized] (or [Property]), then the data would be reset each game session.</p>
+<p></p>
+<p>Now we&#8217;ll place the special factored out data, i.e. the data we put in our DataSaver component, in an archetype.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateTransform</span></code> or <span class="menuselection">Create ‣ Create Transform</span></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Set Name to: <code class="docutils literal"><span class="pre">Data</span></code></li>
+<li>Delete the Transform Component</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponent2015"><span>Add the DataSaver component</span></a></li>
+<li>Upload to Archetype named: <code class="docutils literal"><span class="pre">SavedData</span></code></li>
+</ul>
+<p><img alt="Archetype_png" src="../../_images/Archetype2.png" /></p>
+</li>
+<li><p class="first">In the Objects Window</p>
+<ul class="simple">
+<li>Delete the Data object you just created.</li>
+</ul>
+</li>
+</ul>
+<p>In terms of the actual game nothing has changed, except for the fact we now have
+a new Archetype name SavedData that will hold our data that will be saved between
+game sessions.</p>
+<p></p>
+</div>
+<div class="section" id="storing-and-restoring-objects">
+<h2>Storing and Restoring Objects</h2>
+<p>Now we are going to change some code in our DisplaySavedData script, so that instead of using a member on DisplaySavedData, we are using the actual SavedData via ObjectStore.</p>
+<ul class="simple">
+<li>In the <strong>DisplaySavedData</strong> script<ul>
+<li>Update <strong>DisplaySavedData</strong> class with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">DisplaySavedData</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+<span class="hll">    <span class="c1">// This holds the location of our data</span>
+</span><span class="hll">    <span class="k">var</span> <span class="nx">DataCog</span><span class="o">:</span> <span class="nx">Cog</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span>
+    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">SpriteText</span><span class="o">:</span><span class="nx">SpriteText</span><span class="o">;</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+<span class="hll">        <span class="c1">// restore the values we saved: if Data does not exist create an instance of the</span>
+</span><span class="hll">        <span class="c1">// archetype SavedData</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="c1">// Notice that this CREATES an object, we store it so that we don&#39;t create new ones</span>
+</span><span class="hll">        <span class="c1">// every time we want to reference the object.</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">DataCog</span> <span class="o">=</span> <span class="nx">Zero</span><span class="p">.</span><span class="nx">ObjectStore</span><span class="p">.</span><span class="nx">RestoreOrArchetype</span><span class="p">(</span><span class="s2">&quot;Data&quot;</span><span class="o">,</span> <span class="s2">&quot;SavedData&quot;</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SpriteText</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="s2">&quot;Score: `this.DataCog.DataSaver.Score`&quot;</span><span class="o">;</span>
+</span>    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// When space is pressed</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">))</span>
+        <span class="p">{</span>
+<span class="hll">            <span class="c1">// Get the information that was saved and update it</span>
+</span><span class="hll">            <span class="k">this</span><span class="p">.</span><span class="nx">DataCog</span><span class="p">.</span><span class="nx">DataSaver</span><span class="p">.</span><span class="nx">Score</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class="hll">
+</span><span class="hll">            <span class="c1">// Display it</span>
+</span><span class="hll">            <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SpriteText</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="s2">&quot;Score: `this.DataCog.DataSaver.Score`&quot;</span><span class="o">;</span>
+</span><span class="hll">
+</span><span class="hll">            <span class="c1">// Save it for future use</span>
+</span><span class="hll">            <span class="nx">Zero</span><span class="p">.</span><span class="nx">ObjectStore</span><span class="p">.</span><span class="nx">Store</span><span class="p">(</span><span class="s2">&quot;Data&quot;</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">DataCog</span><span class="p">);</span>
+</span>        <span class="p">}</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p></p>
+<p>We could use <strong>ObjectStore.Restore</strong> to specify that we want to
+reload the data that was stored inside of a file called &#8220;Data&#8221;, but since we have yet to save a file by that name an attempt to load Data will give us an error:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Attempted to access a member of a null handle: Attempted to call a member function on a null object
+</pre></div>
+</div>
+<p>So instead we used <strong>RestoreOrArchetype</strong>, so if our save file named &#8220;Data&#8221; does not exist we create a new object using the Archetype we provided.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Keep restarting the project to see that, whenever the game session loads, it will
+keep the last Score.</p>
+<p>The game should look something like this:</p>
+<p><img alt="Counter_png" src="../../_images/Counter2.png" /></p>
+</div>
+<div class="section" id="saved-files-on-your-computer">
+<h2>Saved Files on Your Computer</h2>
+<p>The file you created when you saved the data can be found on your computer.</p>
+<ul>
+<li><p class="first"><span class="menuselection">Project ‣ Show Project Folder</span></p>
+<p><img alt="ProjFold_png" src="../../_images/ProjFold2.png" /></p>
+</li>
+</ul>
+<p></p>
+<ul>
+<li><p class="first">Navigate up to the folder containing Zero Projects; the default location for this is My Documents:</p>
+<p><img alt="ZeroFold_png" src="../../_images/ZeroFold2.png" /></p>
+</li>
+<li><p class="first">Find the corresponding folder within Zero that matches your project:</p>
+<p><img alt="OtherProjFoldWithData_png" src="../../_images/OtherProjFoldWithData2.png" /></p>
+</li>
+</ul>
+<p></p>
+<p>Inside is where you will find the saved data. If you ever want to alter the saved file, or simply check that values are stored correctly, you can open it in a text editor:</p>
+<p><img alt="GeneratedSave_png" src="../../_images/GeneratedSave2.png" /></p>
+<p><cite>Here we can see the DataSaver component&#8217;s saved value, Score.</cite></p>
+</div>
+<div class="section" id="clearing-saved-data">
+<h2>Clearing Saved Data</h2>
+<p>To clear this information you can</p>
+<ul class="simple">
+<li>Delete the data file.</li>
+<li>Use the <a class="reference internal" href="Commands.html#commands2015"><span>Command</span></a> : <code class="docutils literal"><span class="pre">ClearObjectStore</span></code></li>
+<li>Clear the data with ObjectStore.ClearStore() or ObjectStore.Erase()</li>
+</ul>
+<p></p>
+<p>Let&#8217;s experiment with clearing it from code.</p>
+<ul class="simple">
+<li>In the <strong>DisplaySavedData</strong> script<ul>
+<li>Update <strong>DisplaySavedData</strong>&#8216;s <strong>OnLogicUpdate</strong> function with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// When space is pressed</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="c1">// Get the information that was saved and update it</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">DataCog</span><span class="p">.</span><span class="nx">DataSaver</span><span class="p">.</span><span class="nx">Score</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Display it</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SpriteText</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="s2">&quot;Score: `this.DataCog.DataSaver.Score`&quot;</span><span class="o">;</span>
+
+        <span class="c1">// Save it for future use</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">ObjectStore</span><span class="p">.</span><span class="nx">Store</span><span class="p">(</span><span class="s2">&quot;Data&quot;</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">DataCog</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Back</span><span class="p">))</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// Delete our saved file</span>
+</span><span class="hll">        <span class="nx">Zero</span><span class="p">.</span><span class="nx">ObjectStore</span><span class="p">.</span><span class="nx">ClearStore</span><span class="p">();</span>
+</span><span class="hll">        <span class="c1">// Remove the no longer wanted save file&#39;s game object representation</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">DataCog</span><span class="p">.</span><span class="nx">Destroy</span><span class="p">();</span>
+</span><span class="hll">        <span class="c1">// Create a new object from the Archetype and store our handle to it</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">DataCog</span> <span class="o">=</span> <span class="nx">Zero</span><span class="p">.</span><span class="nx">ObjectStore</span><span class="p">.</span><span class="nx">RestoreOrArchetype</span><span class="p">(</span><span class="s2">&quot;Data&quot;</span><span class="o">,</span> <span class="s2">&quot;SavedData&quot;</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">);</span>
+</span><span class="hll">        <span class="c1">// Display it</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SpriteText</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="s2">&quot;Score Reset: `this.DataCog.DataSaver.Score`&quot;</span><span class="o">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingproject2015"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegame2015"><span>run the game</span></a></li>
+</ul>
+<p>Now when you press <code class="docutils literal"><span class="pre">BackSpace</span></code> it clears the ObjectStore and the game should look something like this:</p>
+<p><img alt="Cleared_png" src="../../_images/ClearedviaCode2.png" /></p>
+<p></p>
+<p>This clears all the information saved for this project. If you save more than one file out, i.e. with different names, you can choose to clear specific portions with Erase().
+For instance, in this example you could replace <code class="docutils literal"><span class="pre">Zero.ObjectStore.ClearStore();</span></code> with <code class="docutils literal"><span class="pre">Zero.ObjectStore.Erase(&quot;Data&quot;);</span></code></p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>If you choose to save out whole objects instead of factoring out the saved data into an object, <cite>you will be saving all of your properties, too</cite>.</p>
+<p>An unintended side effect is that those items you don&#8217;t care about storing are still stored. Thus, if you save changes to your Archetype but have a the old values still written into the save file, you may not see the changes you expect. <strong>The old data is brought when you call RestoreOrArchetype</strong> since Restoring takes precedence over generating an object from an Archetype.</p>
+<div class="admonition-consider-the-following last admonition">
+<p class="first admonition-title">Consider the following:</p>
+<p>You choose to make your Player an Archetype, so you can easily save its data. <br /> When you save your Player object, it saves two Properties: the number of lives and the jump strength. <br /> <br />
+You run the Project. <br /> You use RestoreOrArchetype to create your Player. <br /> The Player now has 3 lives and 10 jump strength. <br /> Unable to reach a platform when you jump, you die and your lives are reduced to 2. <br />    You save the Player&#8217;s information via ObjectStore. <br /> You close the game. <br /> <br />
+In the Editor, you change the jump strength on the Player Archetype to 20 and upload your changes so you can reach the platform.
+<br /> <br />
+You run the project and again use RestoreOrArchetype to create your Player. <br /> You have 2 lives and <strong>10 jump strength.</strong>  <cite>even though you uploaded your changes to the Archetype to have a jump strength of 20.</cite> <br /> <br /></p>
+<p class="last">This is because it loaded the file saved not only the lives, which you may have wanted saved, but also the jump strength because it was also a Property.</p>
+</div>
+</div>
+<p>Now that you know how to save basic data types
+you can save high scores, user settings, regular save game data. This also helps with having information span multiple levels.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Random.html" class="btn btn-neutral float-right" title="Random" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Audio.html" class="btn btn-neutral" title="Audio" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2015/ObjectStore.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:18:12 GMT -->
+</html>

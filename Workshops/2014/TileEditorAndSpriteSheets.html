@@ -1,0 +1,453 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/TileEditorAndSpriteSheets.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:23:54 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tile Editor and Sprite Sheets &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Introduction to 2D Video Game Programming" href="index.html"/>
+        <link rel="next" title="Camera Parallax" href="CameraParallax.html"/>
+        <link rel="prev" title="Animated Player" href="AnimatedSpritesSheets.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../GAM100/index.html">GAM100</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Introduction to 2D Video Game Programming</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ScriptingEvents.html">Scripting Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CollisionEvents.html">Collision Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Orientation.html">Rotating Towards a Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FireAtMouse.html">Firing At the Mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleSystems.html">Particle Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleAi.html">Ai Shooting and Movement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Tile Editor and Sprite Sheets</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CameraParallax.html">Camera Parallax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CreateProject.html">Create a New Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RunTheGame.html">Running the Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StopGame.html">Close the Game Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SavingProject.html">Saving the Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SelectObject.html">Selecting an Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddComponent.html">Add a Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResourceAdding.html">Adding a Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SwitchingMode2Dto3D.html">Switching from Mode2D to Mode3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheVoid.html">Using the Void</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P1.html">Project 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P2.html">Project 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P3.html">Project 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P4.html">Project 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="P5.html">Project 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">Introduction to 2D Video Game Programming</a> &raquo;</li>
+      
+    <li>Tile Editor and Sprite Sheets</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/2014/TileEditorAndSpriteSheets.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="tile-editor-and-sprite-sheets">
+<span id="tileeditorandspritesheets2014"></span><h1>Tile Editor and Sprite Sheets</h1>
+<p class="searchdescription">This lesson covers how to use the Tile Editor, create tile maps, and further utilize the Sprite Sheet Importer.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="CreateProject.html#createnewproject2014"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="creating-a-tile-map">
+<h2>Creating a Tile Map</h2>
+<p>You can open TileEditor2D from the drop down menu in the Tools Window.</p>
+<ul class="simple">
+<li>Select The TileEditor2D option from Tools</li>
+</ul>
+<p><img alt="CP1_TileEditor2D" src="../../_images/CP1_13.png" /></p>
+<p>If there is no TileMap in the project, you can add a new by clicking on the text in the Level Window:</p>
+<p><img alt="CP1_AddNewTileMap" src="../../_images/CP1_21.png" /></p>
+</div>
+<div class="section" id="loading-in-sprites-for-a-tile-map">
+<h2>Loading in Sprites for a Tile Map</h2>
+<p>Now we have to load in our Sprites.
+First we will need to obtain a usable Sprite Sheet for the tiles:</p>
+<p></p>
+<ul class="simple">
+<li><a class="reference download internal" href="../../_downloads/TileSpriteSheet1.zip"><code class="xref download docutils literal"><span class="pre">platform.png</span></code></a></li>
+</ul>
+<p></p>
+<ul class="simple">
+<li><span class="menuselection">Resources ‣ Import Sprite Sheet</span><ul>
+<li>Browse to and select platform.png</li>
+</ul>
+</li>
+</ul>
+<p>
+<img alt="WebCP1_SpriteImporter" src="../../_images/CP1_141.png" />
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/CP1_141.png"><img alt="BookCP1_SpriteImporter" src="../../_images/CP1_141.png" style="height: 4.0in;" /></a>
+--></p>
+<p>This is the same importer we use for static and animated sprites. This time we&#8217;ll use it to import each tile in the image as separate sprites.</p>
+<ul>
+<li><p class="first">Set the following properties in the Sprite Importer:</p>
+<ul class="simple">
+<li>Set FramesPerRow to: 9</li>
+<li>Set NumberOfRows to: 16</li>
+<li>Set PixelsPerUnit to: 32</li>
+</ul>
+<p><img alt="CP1_SpriteImporterProperties" src="../../_images/CP1_111.png" /></p>
+</li>
+</ul>
+<p></p>
+<p>Each tile should fit correctly in the grid.  We could include every tile in the tile sheet, but some tiles are empty and would just take up space.  Instead, we will manually choose the tiles we want.</p>
+<ul>
+<li><p class="first">In the Sprite Importer Window</p>
+<ul class="simple">
+<li><span class="menuselection">ImportFrames ‣ SelectedFrames</span></li>
+</ul>
+<p><img alt="SelectedFrames" src="../../_images/SelectedFrames1.png" /></p>
+</li>
+</ul>
+<p>We can now <code class="docutils literal"><span class="pre">Left-Click</span></code> each tile that we want to import.  If you make a mistake, you can click a selected tile, making it blue, and hit the <code class="docutils literal"><span class="pre">delete</span></code> key to deselect it.</p>
+<p>Once you&#8217;ve selected your sprites, Click on Add frames as sprites.  You can now go back to the TileEditor2D.</p>
+</div>
+<div class="section" id="placing-tiles">
+<h2>Placing Tiles</h2>
+<ul class="simple">
+<li>In the sprite drop down menu, change DefaultSprite to the tile of your choice</li>
+</ul>
+<blockquote>
+<div><p> <img alt="CP1_SpriteSelectWeb" src="../../_images/CP1_121.png" /> </p>
+<p><!-- <a class="reference internal" href="../../_images/CP1_121.png"><img alt="CP1_SpriteSelectBook" src="../../_images/CP1_121.png" style="height: 2.0in;" /></a> --></p>
+</div></blockquote>
+<p></p>
+<div class="section" id="draw-tool">
+<h3>Draw Tool</h3>
+<p>By default the DrawTool is selected.</p>
+<p><code class="docutils literal"><span class="pre">Left-Click</span></code> and drag to draw tiles onto your level.</p>
+<p><a class="reference internal" href="../../_images/CP1_41.png"><img alt="CP1_LevelOneHill" src="../../_images/CP1_41.png" /></a></p>
+<p><code class="docutils literal"><span class="pre">Right-Click</span></code> and drag to remove tiles.</p>
+</div>
+<div class="section" id="selection-tool">
+<h3>Selection Tool</h3>
+<p>With the selection tool, you can duplicate parts of your Tile Map.</p>
+<ul>
+<li><p class="first">In the Tools Window</p>
+<ul class="simple">
+<li>Set ToolType to: SelectionTool.</li>
+</ul>
+</li>
+<li><p class="first">In the Level Window</p>
+<ul class="simple">
+<li>Click and drag a blue box around the tiles.</li>
+</ul>
+<p><img alt="CP1_LevelSelectHill" src="../../_images/CP1_51.png" /></p>
+</li>
+</ul>
+<p><em>To more easily change to the selection tool, when using the draw tool hold down</em> <code class="docutils literal"><span class="pre">Shift</span></code> <em>and begin dragging in the Level Window</em></p>
+<p></p>
+<p>By <code class="docutils literal"><span class="pre">Right-Clicking</span></code> your current selection, you switch back to the DrawTool and are able to place those tiles by <code class="docutils literal"><span class="pre">Left-Clicking</span></code>. This is now considered your <strong>active selection</strong>.</p>
+<p>
+<img alt="CP1_LevelThreeHillsWeb" src="../../_images/CP1_61.png" />
+</p>
+<p><!--
+<a class="reference internal" href="../../_images/CP1_61.png"><img alt="CP1_LevelThreeHillsBook" src="../../_images/CP1_61.png" style="height: 1.3in;" /></a>
+--></p>
+<p>If you want to save or maintain a selection of tiles, you need to use a TilePalette.</p>
+</div>
+</div>
+<div class="section" id="using-tile-palettes">
+<h2>Using Tile Palettes</h2>
+<ul class="simple">
+<li>Click the Blue Plus <img alt="CP_BluePlus" src="../../_images/CP_11.png" /> next to TilePalette in the Tools Window.</li>
+</ul>
+<p><img alt="CP1_TileEditor2D" src="../../_images/CP1_13.png" /></p>
+<ul class="simple">
+<li>Give your TilePalette a name and choose Create</li>
+</ul>
+<p><img alt="CP1_PaletteName" src="../../_images/CP1_81.png" /></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Left-Click</span></code> inside the Tile Palette to add a tile.</li>
+<li><code class="docutils literal"><span class="pre">Right-Click</span></code> a tile in the Tile Palette to delete it.</li>
+</ul>
+<p></p>
+<p>You can also populate your Palette with things from your Level Window.</p>
+<ul class="simple">
+<li>Create an <strong>active selection</strong></li>
+<li>In the Tools Window<ul>
+<li>In the Tile Palette<ul>
+<li>Press <code class="docutils literal"><span class="pre">Shift+Right-Click</span></code> on the top-left most tile</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Your Selection is now saved in the current TilePalette.  Not only can you copy the entire TilePalette, but parts of it as well.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Left-Click</span></code> and drag in the TilePalette editor to select part of the TilePalette.</li>
+</ul>
+<p><img alt="CP1_PaletteSelect" src="../../_images/CP1_91.png" /></p>
+<p></p>
+<p>The selection is now an active selection.</p>
+<p><img alt="CP1_PalettePaste" src="../../_images/CP1_101.png" /></p>
+</div>
+<div class="section" id="tileeditor2d-options">
+<h2>TileEditor2D Options</h2>
+<p>Other useful, commonly used options include:</p>
+<ul class="simple">
+<li><strong>ShowCollision:</strong> Displays a boundary around all collision tiles.</li>
+<li><strong>ShowGrid:</strong> Displays the grid to which all the tiles snap.</li>
+<li><strong>CreateTileMap:</strong> Creates a new tile map.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">orphan:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<!-- this is used as a file for inclusion in other .rst files --></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CameraParallax.html" class="btn btn-neutral float-right" title="Camera Parallax" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="AnimatedSpritesSheets.html" class="btn btn-neutral" title="Animated Player" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/2014/TileEditorAndSpriteSheets.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:23:58 GMT -->
+</html>

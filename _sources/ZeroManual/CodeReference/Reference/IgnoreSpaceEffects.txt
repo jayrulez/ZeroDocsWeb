@@ -1,0 +1,130 @@
+.. _ReferenceIgnoreSpaceEffects:
+
+.. rst-class:: searchtitle
+
+IgnoreSpaceEffects
+==================
+
+.. rst-class:: searchdescription
+
+Tells a cog to ignore certain effects on the space/level. Used to special case objects to ignore things such as drag or gravity.
+
+.. include:: Description/IgnoreSpaceEffects.rst
+
+.. cpp:class:: IgnoreSpaceEffects
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceIgnoreSpaceEffectsProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog IgnoreSpaceEffects::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space IgnoreSpaceEffects::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog IgnoreSpaceEffects::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession IgnoreSpaceEffects::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool IgnoreSpaceEffects::IgnoreDrag
+
+            Whether or not to ignore drag effects.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool IgnoreSpaceEffects::IgnoreFlow
+
+            Whether or not to ignore flow effects.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool IgnoreSpaceEffects::IgnoreForce
+
+            Whether or not to ignore force effects.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool IgnoreSpaceEffects::IgnoreGravity
+
+            Whether or not to ignore gravity effects.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool IgnoreSpaceEffects::IgnorePointForce
+
+            Whether or not to ignore point force effects.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool IgnoreSpaceEffects::IgnorePointGravity
+
+            Whether or not to ignore point gravity effects.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool IgnoreSpaceEffects::IgnoreThrust
+
+            Whether or not to ignore thrust effects.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool IgnoreSpaceEffects::IgnoreVortex
+
+            Whether or not to ignore vortex effects.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool IgnoreSpaceEffects::IgnoreWind
+
+            Whether or not to ignore wind effects.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool IgnoreSpaceEffects::IgnoreTorque
+
+            Whether or not to ignore torque effects.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool IgnoreSpaceEffects::IgnoreBuoyancy
+
+            Whether or not to ignore buoyancy effects.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool IgnoreSpaceEffects::IgnoreCustom
+
+            Whether or not to ignore custom effects.
+
+.. _ReferenceIgnoreSpaceEffectsMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void IgnoreSpaceEffects::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/IgnoreSpaceEffects.rst

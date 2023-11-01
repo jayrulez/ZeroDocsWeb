@@ -1,0 +1,73 @@
+.. _ReferenceNetPeerReceivedConnectResponse:
+
+.. rst-class:: searchtitle
+
+NetPeerReceivedConnectResponse
+==============================
+
+.. rst-class:: searchdescription
+
+Dispatched after receiving a connect response If accepted, our net peer ID is set immediately before this and a connect confirmation is sent after this If denied, our net peer ID is cleared and link is destroyed immediately after this.
+
+.. include:: Description/NetPeerReceivedConnectResponse.rst
+
+.. cpp:class:: NetPeerReceivedConnectResponse
+
+    Base Class: :cpp:type:`Event`
+
+.. _ReferenceNetPeerReceivedConnectResponseProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String NetPeerReceivedConnectResponse::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: IpAddress NetPeerReceivedConnectResponse::TheirIpAddress
+
+            Data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EventBundle NetPeerReceivedConnectResponse::OurRequestBundle
+
+            Their IP address(as seen from our perspective)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint NetPeerReceivedConnectResponse::OurPendingUserAddRequestCount
+
+            Our bundled request event data.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: IpAddress NetPeerReceivedConnectResponse::OurIpAddress
+
+            Our pending user add requests following this connect request(within the same frame)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ConnectResponse::Enum NetPeerReceivedConnectResponse::TheirConnectResponse
+
+            Our IP address(as seen from their perspective)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: EventBundle NetPeerReceivedConnectResponse::TheirResponseBundle
+
+            Their connect response.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: NetPeerId NetPeerReceivedConnectResponse::OurNetPeerId
+
+            Their bundled response event data.
+
+.. _ReferenceNetPeerReceivedConnectResponseMethods:
+
+.. include:: Remarks/NetPeerReceivedConnectResponse.rst

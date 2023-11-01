@@ -1,0 +1,682 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/GAM100/Events3.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:10:15 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Events 3 &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="GAM100" href="index.html"/>
+        <link rel="next" title="Events 4" href="Events4.html"/>
+        <link rel="prev" title="Events 2" href="Events2.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">GAM100</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath1.html">Vector Math, part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hierarchies.html">Hierarchies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprite Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting4.html">Scripting 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HierarchiesInCode.html">Hierarchies in Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Events 3</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Events4.html">Events 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogPaths.html">Cog Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Spaces.html">Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath2.html">Vector Math, part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">GAM100</a> &raquo;</li>
+      
+    <li>Events 3</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/GAM100/Events3.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="events-3">
+<span id="events3gam100"></span><h1>Events 3</h1>
+<p class="searchdescription">This lesson covers basic collision, collision events and checking for collision with specific objects. It involves creating a small project where we will look at two collision events specifically: CollisionStarted and CollisionEnded. By the end of the lesson, you should have a basic understanding of how collision events are dispatched, how to connect to them, and how to use their response functions.</p>
+<div class="section" id="learning-objectives">
+<span id="events3vocabgam100"></span><h2>Learning Objectives</h2>
+<ul class="simple">
+<li>Become familiar with the three types of collision events and when they are dispatched.</li>
+<li>Learn how to connect to these collision events in code, using their response functions to affect game logic.</li>
+<li>Gain a basic understanding of the information sent with collision events and how they may be of use in designing game logic.</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="23%" />
+<col width="26%" />
+<col width="23%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="4">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Runtime</td>
+<td>Gravity</td>
+<td>Collider</td>
+<td>Ghost Collider</td>
+</tr>
+<tr class="row-odd"><td>CollisionEvent</td>
+<td>CollisionStarted</td>
+<td>CollisionEnded</td>
+<td>CollisionPersisted</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<ul class="simple">
+<li><span class="xref std std-ref">CreateNewProject</span></li>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the LevelSettings object</span></a></li>
+<li>In the Properties Window<ul>
+<li><span class="xref std std-ref">Remove the Drag Component</span></li>
+<li><span class="xref std std-ref">Remove the Gravity Component</span></li>
+</ul>
+</li>
+</ul>
+<p><strong>Ball Object</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commandsgam100"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Ball</span></code></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add a RigidBody component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add a SphereCollider component</span></a></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[-5,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set SpriteSource to: <code class="docutils literal"><span class="pre">Circle</span></code></li>
+</ul>
+</li>
+<li>Under SphereCollider<ul>
+<li>Set Radius to: <code class="docutils literal"><span class="pre">0.5</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Block Object</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="Commands.html#commandsgam100"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Block</span></code></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add a RigidBody component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add a BoxCollider component</span></a></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[3,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+<li>Set Scale to: <code class="docutils literal"><span class="pre">[2,</span> <span class="pre">2,</span> <span class="pre">2]</span></code></li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set Color to:<code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">0.10]</span></code> <cite>to make it transparent</cite></li>
+</ul>
+</li>
+<li>Under RigidBody<ul>
+<li>Set DynamicState to: <code class="docutils literal"><span class="pre">Static</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>BigBlock Object</strong></p>
+<ul class="simple">
+<li>Press <code class="docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code> to duplicate the Block object we just created</li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">BigBlock</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[8,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+<li>Set Scale to: <code class="docutils literal"><span class="pre">[3,</span> <span class="pre">3,</span> <span class="pre">3]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p>Here&#8217;s what our level should look like:</p>
+<p><a class="reference internal" href="../../_images/GWLevelSetup4.png"><img alt="GWLevelSetup" src="../../_images/GWLevelSetup4.png" style="width: 5.0in;" /></a></p>
+</div>
+<div class="section" id="simple-movement">
+<h2>Simple Movement</h2>
+<ul>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="ResourceAdding.html#resourceaddinggam100"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">Movement</span></code></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the Ball object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add the Movement script component</span></a> that we just created to the Ball object:</p>
+<p><img alt="PWBallAddMovement" src="../../_images/PWBallAddMovement4.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">In the <strong>Movement</strong> script</p>
+<ul class="simple">
+<li>Update the <strong>Movement</strong> class with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Movement</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Connect to the LogicUpdate event:</span>
+    <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">LogicUpdate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnLogicUpdate</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">function</span> <span class="nf">OnLogicUpdate</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Get current position:</span>
+    <span class="kt">var</span> <span class="n">position</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">;</span>
+    <span class="c1">// Move to the right:</span>
+    <span class="n">position</span><span class="p">.</span><span class="n">X</span> <span class="p">+=</span> <span class="k">event</span><span class="p">.</span><span class="n">Dt</span> <span class="p">*</span> <span class="m">10.0</span><span class="p">;</span>
+
+    <span class="c1">// If past a certain point,</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">X</span> <span class="p">&gt;=</span> <span class="m">12.0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// reset the position.</span>
+      <span class="n">position</span><span class="p">.</span><span class="n">X</span> <span class="p">=</span> <span class="p">-</span><span class="m">5.0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Update Translation with changes:</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span> <span class="p">=</span> <span class="n">position</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p>The Ball object should continue moving to the right past the block, but instead collides with it, getting stuck. In order to make it pass through, we are going to make our blocks have <strong>ghost</strong> colliders.</p>
+<p><img alt="GWStuck" src="../../_images/GWStuck4.png" /></p>
+<div class="sidebar">
+<p class="first sidebar-title">Using Ghost Colliders</p>
+<p>Using ghost colliders can be rather handy when you want to create areas that trigger behavior but that don&#8217;t actually affect movement.</p>
+<p class="last">In our project we&#8217;ll use it to trigger a color change; in a game, however, you could use it to trigger a wave of enemies to spawn. Looking forward, in the <a class="reference internal" href="SameLevelCheckpoints.html#levelcheckpointsgam100"><span>Level Checkpoints</span></a> lesson, we use them to mark checkpoints in case the player dies.</p>
+</div>
+<p><strong>Ghost colliders</strong>, despite not causing an actual physical collision, allow us to know when collisions happen and still add mass to an object. Let&#8217;s take a look at what happens when we apply ghost colliders to our project.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the Block object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under BoxCollider<ul>
+<li>Set Ghost to: <code class="docutils literal"><span class="pre">True</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the BigBlock object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under BoxCollider<ul>
+<li>Set Ghost to: <code class="docutils literal"><span class="pre">True</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p>Instead of colliding with the block, the Ball now passes right through both of them.</p>
+<p><img alt="GhostBlocks" src="../../_images/GhostBlocks4.gif" /></p>
+<p>Our next step is to detect when the Ball collides with another object. When this happens, a <strong>collision event</strong> is dispatched, or sent out.</p>
+</div>
+<div class="section" id="collision-events">
+<h2>Collision Events</h2>
+<p>The <a class="reference internal" href="Events1.html#events1gam100"><span>first Events lesson</span></a> discussed how LogicUpdate event is a type of UpdateEvent. <strong>CollisionEvent</strong> is another type of event. Three events fall under the CollisionEvent category: CollisionStarted, CollisionEnded, and CollisionPersisted.</p>
+<ol class="arabic simple">
+<li><strong>CollisionPersisted</strong> is when the object was and still is colliding.</li>
+<li><strong>CollisionEnded</strong> is when the object was but is no longer colliding.</li>
+<li><strong>CollisionStarted</strong> is when the object is colliding but was not colliding previously.</li>
+</ol>
+<ul>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="ResourceAdding.html#resourceaddinggam100"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">CollisionLogic</span></code></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the Ball object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add a CollisionLogic component</span></a></p>
+<p><img alt="PWBallAddCollisionLogic" src="../../_images/PWBallAddCollisionLogic4.png" /></p>
+</li>
+</ul>
+</li>
+<li><p class="first">In the <strong>CollisionLogic</strong> script</p>
+<ul class="simple">
+<li>Update the <strong>CollisionLogic</strong> class with the following code:<ul>
+<li>Update <strong>Initialize</strong> class with the following code:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll">  <span class="c1">// Connect to CollisionStarted event</span>
+</span><span class="hll">  <span class="c1">//           when I      get a CollisionStarted event call my OnCollisionStarted function</span>
+</span><span class="hll">  <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">CollisionStarted</span><span class="o">,</span>     <span class="k">this</span><span class="p">.</span><span class="nx">OnCollisionStarted</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><ul class="first">
+<li><ul class="first">
+<li>Add the <strong>OnCollisionStarted</strong> function:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">OnCollisionStarted</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">CollisionEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Change model color to Orange.</span>
+    <span class="c1">// Color orange is    [R:1, G: 0.5, B:0, A:1.0].</span>
+  <span class="kt">var</span> <span class="n">orange</span> <span class="p">=</span>       <span class="n">Real4</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span>    <span class="m">0.5</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span>   <span class="m">1.0</span><span class="p">);</span>
+    <span class="c1">// Apply color to the Sprite:</span>
+  <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">Color</span> <span class="p">=</span> <span class="n">orange</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this code, we connect to the CollisionStarted event and provide the OnCollisionStarted function as the <strong>response</strong> function, as it is called as response to hearing the collision event. Notice that we are connecting to the <strong>Owner</strong> object and <cite>not the Space</cite> like we do for LogicUpdate events. This is because the Owner object (i.e., the object that this component is currently on) is <strong>dispatching</strong>, or sending out, the CollisionEvent. In our OnCollisionStarted function, we change the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">Sprite's</span></code></a> color to visually show that we have collided.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p><img alt="CollisionLogicOrange" src="../../_images/CollisionLogicOrange4.gif" /></p>
+<p>The color of the Ball object changes to orange when we collide with the first block and stays orange. Next, we will change the color back to white when we are no longer colliding with a block by using the CollisionEnded event.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+<li>In the <strong>CollisionLogic</strong> script<ul>
+<li>Update the <strong>Initialize</strong> function by appending the following:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>      <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">CollisionStarted</span><span class="o">,</span>     <span class="k">this</span><span class="p">.</span><span class="nx">OnCollisionStarted</span><span class="p">);</span>
+<span class="hll">      <span class="c1">// Connect to CollisionEnded  event</span>
+</span><span class="hll">      <span class="c1">//           when I      get a CollisionEnded event call my OnCollisionEnded function</span>
+</span><span class="hll">      <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">CollisionEnded</span><span class="o">,</span>     <span class="k">this</span><span class="p">.</span><span class="nx">OnCollisionEnded</span><span class="p">);</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><ul class="first">
+<li>Add the following function to the <strong>CollisionLogic</strong> class:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">OnCollisionEnded</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">CollisionEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Change model color to back to white.</span>
+    <span class="c1">// White is     [R:1,  G:1, B:1, A:1].</span>
+  <span class="kt">var</span> <span class="n">white</span> <span class="p">=</span>  <span class="n">Real4</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span>  <span class="m">1.0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">);</span>
+    <span class="c1">// Apply color to the Sprite:</span>
+  <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">Color</span> <span class="p">=</span> <span class="n">white</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p><img alt="CollisionLogicOrangeWhite" src="../../_images/CollisionLogicOrangeWhite4.gif" /></p>
+<p>The color of the Ball object now changes back to white when we stop colliding. What if we wanted to check for collision with a specific object?</p>
+</div>
+<div class="section" id="checking-for-collision-with-specific-objects">
+<h2>Checking for Collision with Specific Objects</h2>
+<div class="sidebar">
+<p class="first sidebar-title">Why Are They Not Colliding?</p>
+<p>In all these checks, we are using visuals to help up determine if there is a collision. What if there isn&#8217;t a collision? How can we tell what is wrong?</p>
+<p>While there are a multitude of possible reasons a quick way to start is simply to ask the physics engine.</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="kt">var</span> <span class="n">space</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">physics</span> <span class="p">=</span> <span class="n">space</span><span class="p">.</span><span class="n">PhysicsSpace</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span>
+  <span class="n">physics</span><span class="p">.</span><span class="n">WhyAreTheyNotColliding</span><span class="p">(</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">,</span>
+    <span class="n">space</span><span class="p">.</span><span class="n">FindObjectByName</span><span class="p">(</span><span class="s">&quot;BigBlock&quot;</span><span class="p">)));</span>
+</pre></div>
+</div>
+<p>The function <code class="docutils literal"><span class="pre">WhyAreTheyNotColliding</span></code> returns a string that you can print via Console.WriteLine to receive possible answers such as:</p>
+<ul class="last simple">
+<li>Colliders did not pass broadphase, they are too far apart. (Maybe separating on the z axis?).</li>
+<li>They didn&#8217;t pass collision detection, they aren&#8217;t actually colliding.</li>
+<li>One collider is marked ghost. Both colliders send events</li>
+<li>CogB doesn&#8217;t have a collider.</li>
+</ul>
+</div>
+<p>Now we will go over colliding with specific objects by getting information about the object we collided with from the <strong>CollisionEvent</strong> . Similar to how an UpdateEvent has Dt and CurrentTime as accessible data members, every CollisionEvent provides a way of getting the other object with which we were either colliding, are still colliding, or have just started colliding.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+<li>In the <strong>CollisionLogic</strong> script<ul>
+<li>Update the <strong>CollisionLogic</strong> &#8216;s <strong>OnCollisionStarted</strong> function with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nf">OnCollisionStarted</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">CollisionEvent</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll">  <span class="c1">// Get the object we collided with:</span>
+</span><span class="hll">  <span class="kt">var</span> <span class="n">otherObject</span> <span class="p">=</span> <span class="k">event</span><span class="p">.</span><span class="n">OtherObject</span><span class="p">;</span>
+</span><span class="hll">
+</span><span class="hll">  <span class="c1">// If we collided with the block,</span>
+</span><span class="hll">  <span class="k">if</span> <span class="p">(</span><span class="n">otherObject</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="s">&quot;Block&quot;</span><span class="p">)</span>
+</span><span class="hll">  <span class="p">{</span>
+</span>    <span class="c1">// change model color to Orange.</span>
+      <span class="c1">// Orange is    [R:1, G: 0.5, B:0, A:1].</span>
+    <span class="kt">var</span> <span class="n">orange</span> <span class="p">=</span> <span class="n">Real4</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span>    <span class="m">0.5</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">);</span>
+      <span class="c1">// Apply color to the Sprite:</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Sprite</span><span class="p">.</span><span class="n">Color</span> <span class="p">=</span> <span class="n">orange</span><span class="p">;</span>
+<span class="hll">  <span class="p">}</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Notice we use the <strong>OtherObject</strong> property of the CollisionEvent in order to get the other object involved in the collision from the CollisionEvent itself.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p><img alt="ByName" src="../../_images/ByName4.gif" /></p>
+<p>The color of the Ball object <strong>only</strong> changes to orange whenever we collide with the Block object. Now we know how to use specific information about the other colliding object in order to react differently when colliding with different objects.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="on-your-own">
+<h2>On Your Own</h2>
+<p><strong>Disabling Collision Events at Run-Time</strong></p>
+<p>Disabling collision events at run-time is pretty simple. Collider components have a boolean value called <strong>SendsEvents.</strong> If we set SendsEvents to False, the object will not dispatch collision events. Even if we connect to the event, we still can&#8217;t get an event that was never sent.</p>
+<ul class="simple">
+<li>In the <strong>CollisionLogic</strong> script<ul>
+<li>Update the <strong>Initialize</strong> function by appending the following:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">CollisionEnded</span><span class="o">,</span>     <span class="k">this</span><span class="p">.</span><span class="nx">OnCollisionEnded</span><span class="p">);</span>
+<span class="hll">  <span class="c1">// Connect to the LogicUpdate event fired by the space:</span>
+</span><span class="hll">  <span class="c1">//           when the space  gets a LogicUpdate event   call my OnLogicUpdate function</span>
+</span><span class="hll">  <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span>     <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span>        <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><ul class="first">
+<li>Add the <strong>OnLogicUpdate</strong> function by appending the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// If we are holding down space,</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Space</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="c1">// do NOT send the event.</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Collider</span><span class="p">.</span><span class="nx">SendsEvents</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="c1">// Otherwise, if we aren&#39;t holding down space,</span>
+    <span class="p">{</span>
+        <span class="c1">// make sure we dispatch collision events.</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Collider</span><span class="p">.</span><span class="nx">SendsEvents</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p>If you hold down Space, you&#8217;ll see that the Ball object no longer changes color because collision events are no longer being sent.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Events4.html" class="btn btn-neutral float-right" title="Events 4" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Events2.html" class="btn btn-neutral" title="Events 2" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/GAM100/Events3.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:10:24 GMT -->
+</html>

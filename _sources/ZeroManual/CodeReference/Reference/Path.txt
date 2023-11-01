@@ -1,0 +1,118 @@
+.. _ReferencePath:
+
+.. rst-class:: searchtitle
+
+Path
+====
+
+.. rst-class:: searchdescription
+
+A resource for a path object. Bakes out the curve and figures out how to interpolate with a constant speed across all of the points.
+
+.. include:: Description/Path.rst
+
+.. cpp:class:: Path
+
+    Base Class: :cpp:type:`Resource`
+
+.. _ReferencePathProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String Path::Name
+
+            Name of resource for display.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint Path::ControlPointCount
+
+            The number of control points currently making up the curve.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint Path::BakedPointCount
+
+            The number of points used to approximate the curve as linear line segments.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real Path::TotalDistance
+
+            The total arc-length of the curve. Use to normalize the curve if you wish.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Path::Closed
+
+            Does the path loop back on itself?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real Path::Error
+
+            The max number of units that a line segment is allowed to deviate from the curve.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint Path::PathType
+
+            The kind of path(Linear, BSpline, CatmulRom). Determines how the control points affect the curve.
+
+.. _ReferencePathMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Resource Path::RuntimeClone()
+
+            Clone a resource for runtime modification.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Path::DrawPoints(Vec3 offset, real drawSize)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Path::AddControlPoint(Vec3 point)
+
+            Adds a new control point to the end of the path. Recomputes the baked curve.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Path::RemoveControlPoint(uint index)
+
+            Removes the control point at the given index. Recomputes the baked curve.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 Path::GetControlPoint(uint index)
+
+            Get the n-th control point's position.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Path::SetControlPoint(uint index, Vec3 point)
+
+            Set the n-th control point's position. Recomputes the baked curve.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 Path::GetBakedPoint(uint index)
+
+            Get a point on the baked-out curve. Primarily used for debug drawing.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: SampleData Path::SampleDistance(Real distance)
+
+            Samples the curve at a given arc-length distance.
+
+.. include:: Remarks/Path.rst

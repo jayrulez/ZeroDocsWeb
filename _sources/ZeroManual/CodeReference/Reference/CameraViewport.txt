@@ -1,0 +1,220 @@
+.. _ReferenceCameraViewport:
+
+.. rst-class:: searchtitle
+
+CameraViewport
+==============
+
+.. rst-class:: searchdescription
+
+Manages a viewport. If attached to a camera that viewport is used.
+
+.. include:: Description/CameraViewport.rst
+
+.. cpp:class:: CameraViewport
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceCameraViewportProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CameraViewport::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space CameraViewport::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CameraViewport::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession CameraViewport::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CameraViewport::Active
+
+            Is this viewport active.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CameraViewport::Background
+
+            Should the viewport background be transparent or not.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int CameraViewport::Layer
+
+            Layer index relative to other active viewports viewports will be draw from lowest to highest.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool CameraViewport::Blocking
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CameraViewport::Renderer
+
+            Renderer to use for this viewport.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog CameraViewport::Camera
+
+            Camera to use for this viewport.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CogPath CameraViewport::RendererPath
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: CogPath CameraViewport::CameraPath
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 CameraViewport::NormalizedSize
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 CameraViewport::NormalizedOffset
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 CameraViewport::ResolutionOrAspect
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint CameraViewport::Scaling
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec4 CameraViewport::MarginColor
+
+            Color to used for letterbox margins.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 CameraViewport::ViewportResolution
+
+            The current resolution of the viewport.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 CameraViewport::ViewportOffset
+
+            The current offset of the viewport from it's parent, in pixels.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 CameraViewport::ViewportResolutionWithMargin
+
+            The current resolution of the viewport including margin.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameViewport CameraViewport::Viewport
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Ray CameraViewport::MouseWorldRay
+
+            Get the world ray starting from the mouse.
+
+.. _ReferenceCameraViewportMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void CameraViewport::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Ray CameraViewport::ScreenToWorldRay(Vec2 screenPoint)
+
+            Convert a screen point to a ray.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 CameraViewport::ScreenToWorldZPlane(Vec2 screenPoint, Real worldDepth)
+
+            Convert the screen point to a position on the z plane at a given depth.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 CameraViewport::ScreenToWorldViewPlane(Vec2 screenPoint, Real viewDepth)
+
+            Convert the screen point to a position on the view plane at a given depth.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 CameraViewport::ScreenToWorldPlane(Vec2 screenPoint, Vec3 worldPlaneNormal, Vec3 worldPlanePosition)
+
+            Convert the screen point to a position on a given plane.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec2 CameraViewport::WorldToScreen(Vec3 worldPoint)
+
+            Convert a world point to a screen point.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec2 CameraViewport::ScreenToViewport(Vec2 screenPoint)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec2 CameraViewport::ViewportToScreen(Vec2 viewportPoint)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec2 CameraViewport::ViewPlaneSize(Real viewDepth)
+
+            Size of the screen at a Depth.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void CameraViewport::DeferredBufferCapture()
+
+            
+
+.. include:: Remarks/CameraViewport.rst

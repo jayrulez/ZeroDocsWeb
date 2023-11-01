@@ -1,0 +1,385 @@
+.. _AddingComponents2014:
+
+.. rst-class:: SearchTitle
+
+Adding Components
+=================
+
+.. rst-class:: SearchDescription
+
+This lesson covers component-based design, including how to create a sprite, rigid bodies, collision, physics effects, and an overview of the LevelSettings object.
+
+Create a New Project
+--------------------
+
+:ref:`CreateNewProject2014`
+
+Level Setup
+-----------
+
+**Create a Sprite**
+
+*   :ref:`Command<Commands2014>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+        
+    |100000000000014700000054CFD7AFB7_png|
+
+This is what the Level should look like:
+
+|10000000000000EF0000008F20149A95_png|
+
+*   :ref:`Save the project <SavingProject2014>`  and :ref:`run the game <RunTheGame2014>`
+
+Nothing happens.
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   In the Object Window
+
+    *   :ref:`Select the Sprite object <SelectObject2014>`
+
+    |10000000000001190000001F13B3483A_png|
+
+    |pbr|
+    
+*   In the Properties Window
+
+    *   Set Name to: Player
+
+        |100000000000011A0000006D730EF5AA_png|
+
+    *   :ref:`Add the RigidBody component <AddComponent2014>`
+
+|10000000000002FE00000105D3B81D27_png|
+
+        |10000000000001190000009F27F68D66_png|
+
+*   :ref:`Save the project <SavingProject2014>`  and :ref:`run the game <RunTheGame2014>`
+
+The Player object is falling because its RigidBody component is affected by the default gravity in the level.
+
+|pbr|
+
+Components
+----------
+
+Components are bits of functionality that can be added to a game object. You can see 
+the three components on our Player in the Properties window: Transform, Sprite, and RigidBody. 
+
+* Transform gives our game object a position, rotation, and scale. 
+* Sprite, which requires a Transform, allows us to visualize our game object.
+* RigidBody allows our Transform's Translation (position) and Rotation to be altered by the Physics engine. 
+
+By using components to create our game objects we can easily reuse our code to make new and different items. 
+This set-up can aid you in rapid prototyping when making your own games. 
+
+Lets imagine we are making Bats, Wolves, and Birds. You could create 3 components:
+
+* BatLogic
+* WolfLogic 
+* BirdLogic
+
+|BadComponentsExample| 
+
+While making them you find they have some things in common. Rather than copying and pasting (which becomes messy fast), we can use the 
+component-based engine to our advantage and rearrange our logic. By making smaller components of functionality, we can
+factor out the code into common components making it easier to share between them, for instance:
+
+|NoBookBegin|
+|VennWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|VennBook|
+|NoWebEnd|
+
+*The ones in gray are built-in to the Zero Engine*
+
+|ComponentExample| 
+
+*Noticing shared functionality allows us to restructure our code*
+
+By having these things separated you can more easily prototype and create new game objects. 
+
+
+For instance, in our example you later decide to create a flying healthpack. By utilizing the components you already 
+made, Flying and ChangeOtherHealth, most of the work is done.
+
+|FlyingPowerup|
+
+*Something we* **can't** *make with BatLogic, WolfLogic or BirdLogic components*
+
+Components are meant to be generic (when plausible), in order to allow for reuse. In many ways, components can be 
+made more generic by adding Properties to components. 
+
+In our example, we could make our DropLoot component more generic by having a Property represent which loot is dropped. With this new property our component could allow our Bat to drop health, while the Wolf drops a power-up, etc.
+
+|pbr|
+
+Let's explore a Property on the RigidBody component.
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   :ref:`Select the Player object <SelectObject2014>`
+*   In the Properties Window
+
+    *   Under RigidBody
+
+        *   Set Velocity to: [5, 0, 0]
+
+This is the initial velocity that the object will have when the level starts.
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+Zero Engine has a lot of built-in components; next we'll explore the Physics effects.
+
+Physics Effects
+---------------
+
+A PhysicsEffect is a component that applies some sort of a force to an object. A PhysicsEffect can be attached in a variety of ways. This effect will then perform its action every frame according to the rules of the object it is attached to.
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   In the Objects Window
+
+    *   :ref:`Select the LevelSettings object <SelectObject2014>`
+
+        |100000000000011800000049B8CAA90C_png|
+
+The LevelSettings Object
+------------------------
+
+The LevelSettings object is a special object that influences the behavior of the objects in a level. It has GravityEffect and DragEffect components by default. The DragEffect and the GravityEffect both fall under the **PhysicsEffect** category.
+
+|10000000000001170000006E63C824A3_png|
+
+|pbr|
+
+DragEffect
+----------
+
+A drag effect will apply drag to an object to slow it down based upon its mass and inertia.
+
+*   In the Properties Window
+
+    *   Under DragEffect
+
+        *   ``Left-Click`` (and hold) on the  |100000000000001300000014FBBB5B0C_png| symbol next to the Drag property
+        *   This brings up the radial slider numerical editing interface
+        *   Drag the mouse in a circle around the slider to edit the numerical value
+
+            *   Set the Drag to: 0
+
+            |1000000000000179000000A079B9E661_png|
+
+*   :ref:`Run the Game <RunTheGame2014>`
+
+Notice how the Player object falls faster now. This is because the drag is no longer slowing down objects (similar to how air-resistance would affect objects).
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   :ref:`Select the Player object <SelectObject2014>`
+*   In the Properties Window
+
+    *   Under DragEffect
+
+        *   Set Drag to: 10
+
+*   :ref:`Run the Game <RunTheGame2014>`
+
+Notice how the Player object falls slower now as a result of the increase in drag. Let's set it back to what its original value was.
+
+*   :ref:`Stop the Game <StopGame2014>`
+
+|pbr|
+
+*   :ref:`Select the Player object <SelectObject2014>`
+*   In the Properties Window
+
+    *   Under DragEffect
+
+        *   Set Drag to: 0.7
+
+*   :ref:`Save the project <SavingProject2014>` 
+
+GravityEffect
+-------------
+
+In real-world physics, we calculate a force with the equation: **Force = Mass * Acceleration**. A gravity effect will apply a mass-less force to an object. This means that the object's mass is ignored (treated as 1.0 in the equation).
+
+*   :ref:`Select the Player object <SelectObject2014>`
+*   In the Properties Window
+
+    *   Under GravityEffect
+
+        *   Set Direction to: [0, 0, 0]
+
+            |100000000000019C0000012055DEE58F_png|
+
+*   :ref:`Save the project <SavingProject2014>` 
+*   :ref:`Run the game <RunTheGame2014>`
+
+Notice that the Player object does not fall but the initial velocity set on the RigidBody component is still applied.
+
+*   :ref:`Stop the Game <StopGame2014>`
+
+|pbr|
+
+*   :ref:`Select the Player object <SelectObject2014>`
+*   In the Properties Window
+
+    *   Under GravityEffect
+
+        *   Set Direction to: [0, -1, 0]
+        *   Set Strength to: 30
+
+The Strength property is the magnitude of the gravitation force.
+
+RigidBodies and Colliders
+-------------------------
+
+A RigidBody by itself is a moving point cloud that cannot collide with anything. A RigidBody defines the linear and angular velocity of an object, as well as the force and torque (rotation force) of an object. It also deals with the mass and inertia of the object based upon the material density and the volume of the associated Collider.
+
+*   :ref:`Select the Player object <SelectObject2014>`
+*   In the Tools Window
+
+    *   Select the TranslateGizmo from the drop down selection
+    *   Set Snapping to: True
+
+        |100000000000019E0000006D7B34A944_png|
+
+*   Hold the ``Ctrl`` key on the keyboard and then drag the Player object downward along the y-axis until its Translation is [0, -1, 0]
+
+Holding the ``Ctrl`` key, and then dragging an object with the TranslateGizmo will create a copy of the selected object.
+
+*   :ref:`Select the newly created object <SelectObject2014>` (copied from the Player object)
+
+|pbr|
+
+*   In the Properties Window
+
+    *   Set Name to: Ground
+
+        |100000000000019D0000008E447B15EF_png|
+
+    *   Under Transform
+        
+        *   Set Scale to: [8, 1, 1]
+    
+    *   Under RigidBody
+
+        *   Set DynamicState to: Static
+
+Static objects cannot be moved by collisions, forces or velocity changes.
+
+Here is how the level should look:
+
+|NoBookBegin|
+|10000000000001C300000198A0E79B0B_pngWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|10000000000001C300000198A0E79B0B_pngBook|
+|NoWebEnd|
+
+*   :ref:`Save the project <SavingProject2014>`  and :ref:`run the game <RunTheGame2014>`
+
+The Player object falls through the Ground object.
+
+|pbr|
+
+Collision Between Objects
+-------------------------
+
+*   :ref:`Stop the Game <StopGame2014>`
+*   :ref:`Select the Ground object <SelectObject2014>`
+*   In the Properties Window
+
+    *   :ref:`Add the BoxCollider component <AddComponent2014>`
+
+        |100000000000019B000000B09784191F_png|
+
+*   :ref:`Select the Player object <SelectObject2014>`
+
+*   In the Properties Window
+
+    *   :ref:`Add the BoxCollider component <AddComponent2014>`
+
+        |1000000000000199000000AFD4C703E3_png|
+
+*   :ref:`Save the project <SavingProject2014>` and :ref:`run the game <RunTheGame2014>`
+
+|pbr|
+
+The Player object should fall and land on the Ground object as shown:
+
+|NoBookBegin|
+|1000000000000135000000F8016A7093_pngWeb|
+|NoBookEnd|
+
+|NoWebBegin|
+|1000000000000135000000F8016A7093_pngBook|
+|NoWebEnd|
+
+.. Note:: 
+
+    Physics will not check for collisions between two Static objects.
+    
+    Static Objects include:
+    
+    *   Objects that have a Collider, but do not possess a RigidBody 
+    *   Objects with a RigidBody that has its Static property set to True
+    
+    **Moving Colliders that don't have RigidBodies during run-time will cause performance to drop drastically.**
+
+    Therefore, avoid moving Colliders that don't have RigidBodies; if you must, use a RigidBody with its DynamicState set to Static. By using a Rigidbody marked Static, you greatly increase performance and retain the option to change it to Dynamic or Kinematic, should you later need collision with other Static objects.
+
+.. |100000000000014700000054CFD7AFB7_png| image:: images/Components/100000000000014700000054CFD7AFB7.png
+
+.. |10000000000001190000001F13B3483A_png| image:: images/Components/10000000000001190000001F13B3483A.png
+
+.. |10000000000001170000006E63C824A3_png| image:: images/Components/10000000000001170000006E63C824A3.png
+
+.. |100000000000019B000000B09784191F_png| image:: images/Components/100000000000019B000000B09784191F.png
+
+.. |100000000000019E0000006D7B34A944_png| image:: images/Components/100000000000019E0000006D7B34A944.png
+
+.. |10000000000001190000009F27F68D66_png| image:: images/Components/10000000000001190000009F27F68D66.png
+
+.. |100000000000019C0000012055DEE58F_png| image:: images/Components/100000000000019C0000012055DEE58F.png
+
+.. |1000000000000199000000AFD4C703E3_png| image:: images/Components/1000000000000199000000AFD4C703E3.png
+
+.. |1000000000000179000000A079B9E661_png| image:: images/Components/1000000000000179000000A079B9E661.png
+
+.. |1000000000000135000000F8016A7093_pngWeb| image:: images/Components/1000000000000135000000F8016A7093.png
+
+.. |1000000000000135000000F8016A7093_pngBook| image:: images/Components/1000000000000135000000F8016A7093.png
+    :height: 3.0in
+
+.. |100000000000019D0000008E447B15EF_png| image:: images/Components/100000000000019D0000008E447B15EF.png
+
+.. |100000000000011A0000006D730EF5AA_png| image:: images/Components/100000000000011A0000006D730EF5AA.png
+
+.. |10000000000000EF0000008F20149A95_png| image:: images/Components/10000000000000EF0000008F20149A95.png
+
+.. |100000000000011800000049B8CAA90C_png| image:: images/Components/100000000000011800000049B8CAA90C.png
+
+.. |100000000000001300000014FBBB5B0C_png| image:: images/Components/100000000000001300000014FBBB5B0C.png
+    :width: 0.198in
+    :height: 0.2083in
+
+.. |10000000000002FE00000105D3B81D27_png| image:: images/Components/10000000000002FE00000105D3B81D27.png
+
+.. |10000000000001C300000198A0E79B0B_pngWeb| image:: images/Components/10000000000001C300000198A0E79B0B.png
+
+.. |10000000000001C300000198A0E79B0B_pngBook| image:: images/Components/10000000000001C300000198A0E79B0B.png
+    :height: 4.0in
+
+.. |BadComponentsExample| image:: images/Components/BadComponentExample.png
+
+.. |ComponentExample| image:: images/Components/ComponentExample.png
+
+.. |FlyingPowerup| image:: images/Components/FlyingPowerup.png
+
+.. |VennWeb| image:: images/Components/Venn.png
+
+.. |VennBook| image:: images/Components/Venn.png
+    :height: 3.0in
+
+.. include:: BookFormattingShortcuts.rst

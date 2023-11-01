@@ -1,0 +1,84 @@
+.. _ReferencePhysicsSolverConfig:
+
+.. rst-class:: searchtitle
+
+PhysicsSolverConfig
+===================
+
+.. include:: Description/PhysicsSolverConfig.rst
+
+.. cpp:class:: PhysicsSolverConfig
+
+    Base Class: :cpp:type:`Resource`
+
+.. _ReferencePhysicsSolverConfigProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String PhysicsSolverConfig::Name
+
+            Name of resource for display.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint PhysicsSolverConfig::SolverIterationCount
+
+            The number of iterations used in the constraint solver. Affects how stiff joints will be.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint PhysicsSolverConfig::PositionIterationCount
+
+            The number of iterations used for position correction(if position correction is used).
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: real PhysicsSolverConfig::VelocityRestitutionThreshold
+
+            To prevent numerical issues, restitution is only applied if the relative velocity between the two objects is above this value.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsSolverConfig::WarmStart
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool PhysicsSolverConfig::CacheContacts
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint PhysicsSolverConfig::SolverType
+
+            The kind of solver used. For the most part this is internal and should only affect performance.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint PhysicsSolverConfig::PositionCorrectionType
+
+            What method should be used to fix errors in joints. Baumgarte fixes errors by adding extra velocity but results in a more spongy behavior. Post Stabilization.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint PhysicsSolverConfig::SubCorrectionType
+
+            What kind of solver to use for post stabilization. Mostly for testing.
+
+.. _ReferencePhysicsSolverConfigMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Resource PhysicsSolverConfig::RuntimeClone()
+
+            Clone a resource for runtime modification.
+
+.. include:: Remarks/PhysicsSolverConfig.rst

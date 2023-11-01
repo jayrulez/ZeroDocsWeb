@@ -1,0 +1,689 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/GAM100/2DRotation.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:11:08 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2D Rotation &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="GAM100" href="index.html"/>
+        <link rel="next" title="Levels" href="Levels.html"/>
+        <link rel="prev" title="Vector Math, part 2" href="VectorMath2.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">GAM100</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath1.html">Vector Math, part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hierarchies.html">Hierarchies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprite Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting4.html">Scripting 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HierarchiesInCode.html">Hierarchies in Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events3.html">Events 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events4.html">Events 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogPaths.html">Cog Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Spaces.html">Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath2.html">Vector Math, part 2</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2D Rotation</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">GAM100</a> &raquo;</li>
+      
+    <li>2D Rotation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/GAM100/2DRotation.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="d-rotation">
+<span id="drotationgam100"></span><h1>2D Rotation</h1>
+<p class="searchdescription">This lesson covers the basics concepts of rotating an object.</p>
+<div class="section" id="learning-objectives">
+<span id="drotationvocabgam100"></span><h2>Learning Objectives</h2>
+<ul class="simple">
+<li>Understand the difference between local and world rotation</li>
+<li>How to rotate an object using Transform</li>
+<li>How to rotate an object using Orientation</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="19%" />
+<col width="29%" />
+<col width="35%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="4">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Angle</td>
+<td>Axis</td>
+<td>Degrees</td>
+<td>Radians</td>
+</tr>
+<tr class="row-odd"><td>Rotation</td>
+<td><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Orientation.html#_CPPv211Orientation" title="Orientation"><code class="xref cpp cpp-type docutils literal"><span class="pre">Orientation</span></code></a></td>
+<td><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Quat.html#_CPPv24Quat" title="Quat"><code class="xref cpp cpp-type docutils literal"><span class="pre">Quaternion</span></code></a></td>
+<td>Euler Angles</td>
+</tr>
+<tr class="row-even"><td>Local Rotation</td>
+<td>World Rotation</td>
+<td>Parent</td>
+<td>Child</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<ul class="simple">
+<li><span class="xref std std-ref">CreateNewProject</span></li>
+<li><a class="reference internal" href="Commands.html#commandsgam100"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+</ul>
+<p><a class="reference internal" href="../../_images/GWInitialSprite3.png"><img alt="GWInitialSprite" src="../../_images/GWInitialSprite3.png" style="height: 2.0in;" /></a></p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the Sprite you created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set name to: <code class="docutils literal"><span class="pre">Wheel</span></code></li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a><ul>
+<li>Hover over the name of the <cite>Rotation</cite> Property</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>As you can see, <strong>Rotation</strong> is saved as a <code class="xref cpp cpp-type docutils literal"><span class="pre">Quaternion</span></code>. As a high-level developer, you do not need to know how <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Quat.html#_CPPv24Quat" title="Quat"><code class="xref cpp cpp-type docutils literal"><span class="pre">Quaternions</span></code></a> work, but you will need to know how to use them. In the Properties Window, <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Quat.html#_CPPv24Quat" title="Quat"><code class="xref cpp cpp-type docutils literal"><span class="pre">Quaternions</span></code></a> are represented by three angles that are the rotation of the object around the corresponding axes; these are called Euler (pronounced &#8220;oil-er&#8221;) angles. In this lesson, we will be working with a 2D game, so we only need to worry about the Z axis rotation.</p>
+<ul>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a></p>
+<ul>
+<li><p class="first">Set Rotation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">45]</span></code></p>
+<p><a class="reference internal" href="../../_images/GWRotation13.png"><img alt="GWRotation1" src="../../_images/GWRotation13.png" style="height: 2.0in;" /></a></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The sprite is now rotated by <code class="docutils literal"><span class="pre">45</span></code> degrees. It is very simple to set the starting rotation of an object through the Properties Window.</p>
+</div>
+<div class="section" id="local-and-world-rotation">
+<h2>Local and World Rotation</h2>
+<p>Before we get into rotating objects while the game is running, we need to understand the difference between the <strong>LocalRotation</strong> and <strong>WorldRotation</strong> values of an object.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceaddinggam100"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">RotationPrinter</span></code></li>
+<li>Update the <strong>RotationPrinter</strong> script to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">RotationPrinter</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">var</span> <span class="nx">angle</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ToDegrees</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">EulerAngles</span><span class="p">.</span><span class="nx">Z</span><span class="p">);</span>
+    <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s2">&quot;Object Name: `this.Owner.Name`, Z-Angle: `angle`&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the Wheel Object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add the RotationPrinter component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p>Now when the game starts the <code class="docutils literal"><span class="pre">Wheel</span></code> object&#8217;s name and Z rotation are printed to the Console window.</p>
+<blockquote>
+<div><p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+Object Name: Wheel, Z-Angle: 45
+Level &#39;Level&#39; was loaded.
+Loaded level 0.02s
+</pre></div>
+</div>
+</div></blockquote>
+<ul>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a><ul>
+<li>Set Rotation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><a class="reference internal" href="Commands.html#commandsgam100"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the Sprite you created</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul class="simple">
+<li>Set name to: <code class="docutils literal"><span class="pre">WheelChild</span></code></li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a><ul>
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[3,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+<li>Set Rotation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">45]</span></code></li>
+</ul>
+</li>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add the RotationPrinter component</span></a></li>
+</ul>
+</li>
+<li><p class="first">In the Objects Window</p>
+<ul>
+<li><p class="first">Make the <code class="docutils literal"><span class="pre">WheelChild</span></code> a child of the <code class="docutils literal"><span class="pre">Wheel</span></code> object.</p>
+<p><a class="reference internal" href="../../_images/ChildRotation13.png"><img alt="ChildRotation1" src="../../_images/ChildRotation13.png" style="height: 2.0in;" /></a></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>We can see the child is rotated, now let&#8217;s rotate the parent again.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the Wheel object</span></a></p>
+</li>
+<li><p class="first">In the Properties Window</p>
+<ul>
+<li><p class="first">Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a></p>
+<ul>
+<li><p class="first">Set Rotation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">45]</span></code></p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/DoubleRotation3.png"><img alt="DoubleRotation" src="../../_images/DoubleRotation3.png" style="height: 2.0in;" /></a></p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Because the <code class="docutils literal"><span class="pre">WheelChild</span></code> object is a child of the <code class="docutils literal"><span class="pre">Wheel</span></code> object, its <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a> properties are scaled and rotated by the <code class="docutils literal"><span class="pre">Wheel</span></code> object&#8217;s <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a> properties. This is a good illustration of <strong>LocalRotation</strong> vs <strong>WorldRotation</strong> as the <code class="docutils literal"><span class="pre">WheelChild</span></code> object very clearly has its rotation set to <code class="docutils literal"><span class="pre">45</span></code> degrees along with the parent. However since the parent&#8217;s <code class="docutils literal"><span class="pre">Rotation</span></code> is applied to the child it appears to be rotated by <code class="docutils literal"><span class="pre">90</span></code> degrees. Let&#8217;s make this a little easier to see.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceaddinggam100"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">AxisDebug</span></code></li>
+<li>Update the <strong>AxisDebug</strong> script to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">AxisDebug</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nb">Transform</span> <span class="o">:</span> <span class="nb">Transform</span><span class="o">;</span>
+
+  <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">Orientation</span> <span class="o">:</span> <span class="nx">Orientation</span><span class="o">;</span>
+
+  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">ArrowLength</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">3.0</span><span class="o">;</span>
+
+  <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">var</span> <span class="nx">myPos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">WorldTranslation</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">forward</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldForward</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">up</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldUp</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">right</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">WorldRight</span><span class="o">;</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">DrawArrow</span><span class="p">(</span><span class="nx">myPos</span><span class="o">,</span> <span class="nx">forward</span><span class="o">,</span> <span class="nx">Real4</span><span class="p">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="p">));</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">DrawArrow</span><span class="p">(</span><span class="nx">myPos</span><span class="o">,</span> <span class="nx">up</span><span class="o">,</span> <span class="nx">Real4</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="p">));</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">DrawArrow</span><span class="p">(</span><span class="nx">myPos</span><span class="o">,</span> <span class="nx">right</span><span class="o">,</span> <span class="nx">Real4</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">DrawArrow</span><span class="p">(</span><span class="nx">start</span> <span class="o">:</span> <span class="nx">Real3</span><span class="o">,</span> <span class="nx">direction</span> <span class="o">:</span> <span class="nx">Real3</span><span class="o">,</span> <span class="nx">color</span> <span class="o">:</span> <span class="nx">Real4</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">var</span> <span class="nx">arrow</span> <span class="o">=</span> <span class="nx">DebugLine</span><span class="p">();</span>
+    <span class="nx">arrow</span><span class="p">.</span><span class="nx">Float4Color</span><span class="p">(</span><span class="nx">color</span><span class="p">).</span><span class="nx">Start</span><span class="p">(</span><span class="nx">start</span><span class="p">).</span><span class="nx">End</span><span class="p">(</span><span class="nx">start</span> <span class="o">+</span> <span class="p">(</span><span class="nx">direction</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">ArrowLength</span><span class="p">)).</span><span class="nx">Draw</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select  both the Wheel and the WheelChild objects</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add the Orientation component</span></a></li>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add the AxisDebug component</span></a></li>
+</ul>
+</li>
+</ul>
+<p>You may notice that the <code class="docutils literal"><span class="pre">AxisDebug</span></code> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> requires an <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Orientation.html#_CPPv211Orientation" title="Orientation"><code class="xref cpp cpp-type docutils literal"><span class="pre">Orientation</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a>. The <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Orientation.html#_CPPv211Orientation" title="Orientation"><code class="xref cpp cpp-type docutils literal"><span class="pre">Orientation</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> will be explained later in this lesson.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p><img alt="AxisDraw" src="../../_images/AxisDraw3.png" /></p>
+<p>Now we can see the local X axis of the <code class="docutils literal"><span class="pre">WheelChild</span></code> object drawn in blue, and the local Y axis drawn in green. Since these are the local axes of each object, they are rotated by the rotations of the object and its parent (if there is one). This shows that the <code class="docutils literal"><span class="pre">WheelChild</span></code> object is rotated a full <code class="docutils literal"><span class="pre">90</span></code> degrees. However, if we look at the Console Window, we printed a <code class="docutils literal"><span class="pre">45</span></code> degree angle for both objects.</p>
+<blockquote>
+<div><p>Console Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------------- Begin Game ---------------
+Object Name: Wheel, Z-Angle: 45
+Object Name: WheelChild, Z-Angle: 45
+Level &#39;Level&#39; was loaded.
+Loaded level 0.00s
+</pre></div>
+</div>
+</div></blockquote>
+<p>This is because the <code class="docutils literal"><span class="pre">EulerAngles</span></code> property is based off the local rotation of the object, which has not been modified, and is still what we set it to before the game started, whereas the world rotation is the local rotation rotated by the world rotation of its parent.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="rotating-with-transform">
+<h2>Rotating With Transform</h2>
+<p>Rotating objects at runtime is done very commonly in games. Let&#8217;s cover a few ways to do this.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceaddinggam100"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">RotationTest</span></code></li>
+<li>Update the <strong>RotationTest</strong> script to the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">RotationTest</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">RotationSpeed</span> <span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">30.0</span><span class="o">;</span>
+
+  <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">var</span> <span class="nx">rotationSpeedRadians</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ToRadians</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">RotationSpeed</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">RotateAnglesLocal</span><span class="p">(</span><span class="nx">Real3</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="nx">rotationSpeedRadians</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the WheelChild object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add the RotationTest component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p><a class="reference internal" href="../../_images/RotateAnglesWorld3.gif"><img alt="RotateAnglesWorld" src="../../_images/RotateAnglesWorld3.gif" style="width: 8.35in;" /></a></p>
+<p>By calling the above update function, we can rotate the object each frame.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first">Update the <strong>RotationTest</strong> script <code class="docutils literal"><span class="pre">OnLogicUpdate</span></code> function with the following code:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">rotationSpeedRadians</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ToRadians</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">RotationSpeed</span><span class="p">);</span>
+
+<span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">RotateAnglesWorld</span><span class="p">(</span><span class="nx">Real3</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="nx">rotationSpeedRadians</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">));</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>Notice that the result appears the same as when we were using the <code class="docutils literal"><span class="pre">RotateAnglesLocal</span></code> function. This will often be the case when working in 2D, as we do not have any rotations around other axes to affect our Z axis rotation.</p>
+<ul>
+<li><p class="first">Update the <strong>RotationTest</strong> script <code class="docutils literal"><span class="pre">OnLogicUpdate</span></code> function with the following code:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">rotationSpeedRadians</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ToRadians</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">RotationSpeed</span><span class="p">);</span>
+<span class="hll">  <span class="k">var</span> <span class="nx">rotation</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ToQuaternion</span><span class="p">(</span><span class="nx">Real3</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="nx">rotationSpeedRadians</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">));</span>
+</span><span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">RotateAround</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Parent</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">,</span> <span class="nx">rotation</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></p>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/RotateAround3.gif"><img alt="RotateAround" src="../../_images/RotateAround3.gif" style="width: 8.35in;" /></a></p>
+<p>With the <code class="docutils literal"><span class="pre">RotateAround</span></code> function, we are simply telling the <code class="docutils literal"><span class="pre">WheelChild</span></code> object to rotate around the point defined by the translation of the <code class="docutils literal"><span class="pre">Wheel</span></code> object. This could also have been achieved by rotating the <code class="docutils literal"><span class="pre">Wheel</span></code> object with <code class="docutils literal"><span class="pre">RotateAnglesLocal</span></code> or <code class="docutils literal"><span class="pre">RotateAnglesWorld</span></code>.</p>
+<p>There are two more rotation functions of the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a>, <code class="docutils literal"><span class="pre">RotateLocal</span></code> and <code class="docutils literal"><span class="pre">RotateWorld</span></code>. These functions have the same functionality as <code class="docutils literal"><span class="pre">RotateAnglesLocal</span></code> and <code class="docutils literal"><span class="pre">RotateAnglesWorld</span></code> except they take <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Quat.html#_CPPv24Quat" title="Quat"><code class="xref cpp cpp-type docutils literal"><span class="pre">Quaternions</span></code></a>. You can turn Euler angles into a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Quat.html#_CPPv24Quat" title="Quat"><code class="xref cpp cpp-type docutils literal"><span class="pre">Quaternion</span></code></a> in the same way we did in the last code snippet using <code class="docutils literal"><span class="pre">Math.ToQuaternion</span></code>.</p>
+<ul class="simple">
+<li><span class="xref std std-ref">Stop the Game</span></li>
+</ul>
+<p><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a> rotation functions are great for rotating an object a specific amount or continuously over a series of frames. However, what if you want to have an object look at a particular direction? You would have to determine the direction, then the rotation, to make the object face that direction, which could involve quite a bit of vector math. Let&#8217;s look at an easier way to do this.</p>
+</div>
+<div class="section" id="rotating-with-orientation">
+<h2>Rotating With Orientation</h2>
+<p>In the last section we needed to attach the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Orientation.html#_CPPv211Orientation" title="Orientation"><code class="xref cpp cpp-type docutils literal"><span class="pre">Orientation</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> to the <code class="docutils literal"><span class="pre">Wheel</span></code> object in order to draw the axis of the object. <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Orientation.html#_CPPv211Orientation" title="Orientation"><code class="xref cpp cpp-type docutils literal"><span class="pre">Orientation</span></code></a> is a very useful <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> that allows you to redefine the base axis of an object. Using the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Orientation.html#_CPPv211Orientation" title="Orientation"><code class="xref cpp cpp-type docutils literal"><span class="pre">Orientation</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a>, we can stop thinking about transforming the object using X, Y, and Z; instead, we use the Forward, Up, and Right axes.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the Wheel and WheelChild object</span></a><ul>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Orientation.html#_CPPv211Orientation" title="Orientation"><code class="xref cpp cpp-type docutils literal"><span class="pre">Orientation</span></code></a><ul>
+<li>Set DefaultOrientation to: <code class="docutils literal"><span class="pre">ForwardXUpZ</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>By setting the local X axis to be the Forward axis we can now tell the <code class="docutils literal"><span class="pre">Wheel</span></code> object to face a certain direction.</p>
+<ul>
+<li><p class="first">Update the <strong>RotationTest</strong> script <code class="docutils literal"><span class="pre">OnLogicUpdate</span></code> function with the following code:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll">  <span class="k">var</span> <span class="nx">screenPos</span> <span class="o">=</span> <span class="nx">Zero</span><span class="p">.</span><span class="nb">Mouse</span><span class="p">.</span><span class="nx">ScreenPosition</span><span class="o">;</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nx">mousePos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">LevelSettings</span><span class="p">.</span><span class="nx">CameraViewport</span><span class="p">.</span><span class="nx">ScreenToWorldZPlane</span><span class="p">(</span><span class="nx">screenPos</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+</span><span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">LookAtPoint</span><span class="p">(</span><span class="nx">mousePos</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></p>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/LookAtPoint4.gif"><img alt="LookAtPoint" src="../../_images/LookAtPoint4.gif" style="width: 8.35in;" /></a></p>
+<p>Now, if we move the mouse around the screen, we can see the <code class="docutils literal"><span class="pre">WheelChild</span></code> object rotates to have its Forward axis face the mouse.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first">Update the <strong>RotationTest</strong> script <code class="docutils literal"><span class="pre">OnLogicUpdate</span></code> function with the following code:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">screenPos</span> <span class="o">=</span> <span class="nx">Zero</span><span class="p">.</span><span class="nb">Mouse</span><span class="p">.</span><span class="nx">ScreenPosition</span><span class="o">;</span>
+  <span class="k">var</span> <span class="nx">mousePos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">LevelSettings</span><span class="p">.</span><span class="nx">CameraViewport</span><span class="p">.</span><span class="nx">ScreenToWorldZPlane</span><span class="p">(</span><span class="nx">screenPos</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">LookAtPointWithUp</span><span class="p">(</span><span class="nx">mousePos</span><span class="o">,</span> <span class="nx">Real3</span><span class="p">.</span><span class="nx">ZAxis</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></p>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/LookAtPointWithUp3.gif"><img alt="LookAtPointWithUp" src="../../_images/LookAtPointWithUp3.gif" style="width: 8.35in;" /></a></p>
+<p>Now, if we move the mouse around the screen, we can see the <code class="docutils literal"><span class="pre">WheelChild</span></code> object still rotates to have its Forward axis face the mouse. This time, however, the perpendicular axis we see is the local Y axis, where as before it was the Z axis. This is because without giving <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Orientation.html#_CPPv211Orientation" title="Orientation"><code class="xref cpp cpp-type docutils literal"><span class="pre">Orientation</span></code></a> an axis to rotate around, it uses the global Up, which is the Y axis.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the WheelChild object</span></a></p>
+<ul class="simple">
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Orientation.html#_CPPv211Orientation" title="Orientation"><code class="xref cpp cpp-type docutils literal"><span class="pre">Orientation</span></code></a><ul>
+<li>Set GlobalUp to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">1]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Update the <strong>RotationTest</strong> script <code class="docutils literal"><span class="pre">OnLogicUpdate</span></code> function with the following code:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">screenPos</span> <span class="o">=</span> <span class="nx">Zero</span><span class="p">.</span><span class="nb">Mouse</span><span class="p">.</span><span class="nx">ScreenPosition</span><span class="o">;</span>
+  <span class="k">var</span> <span class="nx">mousePos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">LevelSettings</span><span class="p">.</span><span class="nx">CameraViewport</span><span class="p">.</span><span class="nx">ScreenToWorldZPlane</span><span class="p">(</span><span class="nx">screenPos</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">LookAtPoint</span><span class="p">(</span><span class="nx">mousePos</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></p>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/LookAtPoint23.gif"><img alt="LookAtPoint2" src="../../_images/LookAtPoint23.gif" style="width: 8.35in;" /></a></p>
+<p>Even though we have changed the code back to use <code class="docutils literal"><span class="pre">LookAtPoint</span></code> , it is rotating around the Z axis correctly since we fixed the <code class="docutils literal"><span class="pre">GlobalUp</span></code>. Let&#8217;s look at another function on <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Orientation.html#_CPPv211Orientation" title="Orientation"><code class="xref cpp cpp-type docutils literal"><span class="pre">Orientation</span></code></a>.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></p>
+</li>
+<li><p class="first">Update the <strong>RotationTest</strong> script <code class="docutils literal"><span class="pre">OnLogicUpdate</span></code> function with the following code:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">screenPos</span> <span class="o">=</span> <span class="nx">Zero</span><span class="p">.</span><span class="nb">Mouse</span><span class="p">.</span><span class="nx">ScreenPosition</span><span class="o">;</span>
+  <span class="k">var</span> <span class="nx">mousePos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">LevelSettings</span><span class="p">.</span><span class="nx">CameraViewport</span><span class="p">.</span><span class="nx">ScreenToWorldZPlane</span><span class="p">(</span><span class="nx">screenPos</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="hll">  <span class="k">var</span> <span class="nx">mouseDirection</span> <span class="o">=</span> <span class="nx">mousePos</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">WorldTranslation</span><span class="o">;</span>
+</span><span class="hll">  <span class="nx">mouseDirection</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Normalize</span><span class="p">(</span><span class="nx">mouseDirection</span><span class="p">);</span>
+</span><span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">Orientation</span><span class="p">.</span><span class="nx">LookAtDirection</span><span class="p">(</span><span class="nx">mouseDirection</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></p>
+</li>
+</ul>
+<p>While we are now using the <code class="docutils literal"><span class="pre">LookAtDirection</span></code> function, the functionality looks the same, and it basically is. By subtracting <code class="docutils literal"><span class="pre">mousePos</span></code> from the <code class="docutils literal"><span class="pre">WheelChild</span></code> object&#8217;s <code class="docutils literal"><span class="pre">Translation</span></code> , we can get a vector from the object to the mouse, then by normalizing the vector we can just get a direction to have the object face.</p>
+<p><a class="reference internal" href="../../_images/FinalLookAt3.gif"><img alt="FinalLookAt" src="../../_images/FinalLookAt3.gif" style="width: 8.35in;" /></a></p>
+<p>Now we know the basics of making objects rotate using the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> and the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Orientation.html#_CPPv211Orientation" title="Orientation"><code class="xref cpp cpp-type docutils literal"><span class="pre">Orientation</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a>, and we understand the difference between Local and World Rotation.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Levels.html" class="btn btn-neutral float-right" title="Levels" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="VectorMath2.html" class="btn btn-neutral" title="Vector Math, part 2" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/GAM100/2DRotation.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:12:00 GMT -->
+</html>

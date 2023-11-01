@@ -1,0 +1,840 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Workshops/GAM100/Spaces.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:10:31 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Spaces &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="GAM100" href="index.html"/>
+        <link rel="next" title="Object Creation" href="ObjectCreation.html"/>
+        <link rel="prev" title="Archetypes" href="Archetypes.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Classes &amp; Workshops</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">GAM100</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Launcher.html">The Zero Launcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EditorUI.html">Editor UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameObjects.html">Game Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingComponents.html">Adding Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath1.html">Vector Math, part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hierarchies.html">Hierarchies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Resources.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects.html">Regions &amp; Physics Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sprites.html">Sprites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Area.html">Area Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Text.html">Sprite Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting4.html">Scripting 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HierarchiesInCode.html">Hierarchies in Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events3.html">Events 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events4.html">Events 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CogPaths.html">Cog Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Archetypes.html">Archetypes</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Spaces</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath2.html">Vector Math, part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2DRotation.html">2D Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Levels.html">Levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticleEffects.html">Particle Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsingTheSweptController.html">Using the Swept Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FollowingCamera.html">Following Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AnimatedSpritesSheets.html">Animated Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TileEditorAndSpriteSheets.html">Tile Editor and Sprite Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParallaxBackground.html">Parallax Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HeadsUpDisplay.html">Heads Up Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInterface.html">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ObjectStore.html">Saving and Loading Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Proj101/index.html">Project 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/index.html">Video Game Development Level 1 - 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/index.html">Video Game Development Level 1 - 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2015/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/index.html">Introduction to 2D Video Game Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2014/TeachersGuide.html">Teacher&#8217;s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Classes &amp; Workshops</a> &raquo;</li>
+      
+          <li><a href="index.html">GAM100</a> &raquo;</li>
+      
+    <li>Spaces</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Workshops/GAM100/Spaces.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="spaces">
+<span id="spacesgam100"></span><h1>Spaces</h1>
+<p class="searchdescription">This lesson covers the basics of <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Spaces</span></code></a> and demonstrates how
+they do and don&#8217;t interact with each other.</p>
+<div class="section" id="learning-objectives">
+<span id="spacesvocabgam100"></span><h2>Learning Objectives</h2>
+<ul class="simple">
+<li>To learn what <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">spaces</span></code></a> are, and see how they can be used to
+control how <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Cog.html#_CPPv23Cog" title="Cog"><code class="xref cpp cpp-type docutils literal"><span class="pre">cogs</span></code></a> can interact with one another.</li>
+<li>To become familiar with the different <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code></a>
+found on a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a>.</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="4">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Space</span></code></a></td>
+<td><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/TimeSpace.html#_CPPv29TimeSpace" title="TimeSpace"><code class="xref cpp cpp-type docutils literal"><span class="pre">TimeSpace</span></code></a></td>
+<td><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/GraphicsSpace.html#_CPPv213GraphicsSpace" title="GraphicsSpace"><code class="xref cpp cpp-type docutils literal"><span class="pre">GraphicsSpace</span></code></a></td>
+<td><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/PhysicsSpace.html#_CPPv212PhysicsSpace" title="PhysicsSpace"><code class="xref cpp cpp-type docutils literal"><span class="pre">PhysicsSpace</span></code></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundSpace.html#_CPPv210SoundSpace" title="SoundSpace"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundSpace</span></code></a></td>
+<td><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/ReactiveSpace.html#_CPPv213ReactiveSpace" title="ReactiveSpace"><code class="xref cpp cpp-type docutils literal"><span class="pre">ReactiveSpace</span></code></a></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="what-are-spaces">
+<h2>What Are Spaces?</h2>
+<p>In the Zero Engine, a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Space</span></code></a> is a powerful organizational tool. It
+is quite literally the world of your game. It has three <em>spatial</em> dimensions &#8212;
+X, Y, and Z &#8212; and one <em>temporal</em> dimension &#8212; time &#8212; in which objects can
+exist, move, rotate, collide, etc. Just about everything you do, make, or
+interact with in a Zero project happens in a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a>.</p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<p><span class="xref std std-ref">CreateNewProject</span></p>
+<p>When you make a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code></a> in the Zero Editor, you are basically
+making a list of <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Cog.html#_CPPv23Cog" title="Cog"><code class="xref cpp cpp-type docutils literal"><span class="pre">cogs</span></code></a> (and their positions, rotations, etc.)
+that the engine should create. These are made in the order they appear in the
+<strong>Objects</strong> window, and placed in a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a>.</p>
+<p>Let&#8217;s set up a demonstration using a couple of spheres.</p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li><span class="xref std std-ref">Remove the GravityEffect and DragEffect Components</span></li>
+</ul>
+</li>
+<li><a class="reference internal" href="Commands.html#commandsgam100"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSphere</span></code> or <span class="menuselection">Create ‣ Create Sphere</span></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">SphereA</span></code></li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a><ul>
+<li>Set Translation to: [-10, 0, 0]</li>
+</ul>
+</li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Model.html#_CPPv25Model" title="Model"><code class="xref cpp cpp-type docutils literal"><span class="pre">Model</span></code></a><ul>
+<li>Set <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Material.html#_CPPv28Material" title="Material"><code class="xref cpp cpp-type docutils literal"><span class="pre">Material</span></code></a> to: <code class="docutils literal"><span class="pre">Grid</span></code></li>
+</ul>
+</li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a><ul>
+<li>Set Velocity to: [20, 0, 0]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Duplicate</strong> the object by pressing <code class="docutils literal"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">D</span></code></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">SphereB</span></code></li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a><ul>
+<li>Set Translation to: [0, 1, 0]</li>
+</ul>
+</li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Model.html#_CPPv25Model" title="Model"><code class="xref cpp cpp-type docutils literal"><span class="pre">Model</span></code></a><ul>
+<li>Set <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Material.html#_CPPv28Material" title="Material"><code class="xref cpp cpp-type docutils literal"><span class="pre">Material</span></code></a> to: <code class="docutils literal"><span class="pre">DefaultMaterial</span></code></li>
+</ul>
+</li>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a><ul>
+<li>Set Velocity to: [0, 0, 0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a class="reference internal" href="../../_images/InitialSetup6.png"><img alt="InitialSetup" src="../../_images/InitialSetup6.png" style="width: 4.0in;" /></a></p>
+<p>Now we&#8217;re ready to go, but before we do, let&#8217;s examine what we&#8217;ve done, and then
+make a hypothesis about what&#8217;s going to happen when we run the game.</p>
+<ul class="simple">
+<li>We have two spheres, each with <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SphereCollider.html#_CPPv214SphereCollider" title="SphereCollider"><code class="xref cpp cpp-type docutils literal"><span class="pre">SphereCollider</span></code></a> and
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> components</li>
+<li>The sphere on the left has an initial velocity that will send it to the
+right</li>
+<li>The <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code></a> has no <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/GravityEffect.html#_CPPv213GravityEffect" title="GravityEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">gravity</span></code></a> nor
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/DragEffect.html#_CPPv210DragEffect" title="DragEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">drag</span></code></a></li>
+</ul>
+<p>Do you have an idea of what&#8217;s going to happen? Let&#8217;s run it and see.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p><a class="reference internal" href="../../_images/CollidingSpheres2.gif"><img alt="CollidingSpheres" src="../../_images/CollidingSpheres2.gif" style="width: 4.0in;" /></a></p>
+<p>Naturally, the sphere on the left moved to the right and bumped into the other
+sphere, causing both of them to change their velocities.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+</ul>
+<p>Now let&#8217;s change things up a bit.</p>
+</div>
+<div class="section" id="multiple-spaces-multiple-levels">
+<h2>Multiple Spaces, Multiple Levels</h2>
+<p>The spheres in the previous example were able to collide because</p>
+<ul class="simple">
+<li>they both had <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Collider.html#_CPPv28Collider" title="Collider"><code class="xref cpp cpp-type docutils literal"><span class="pre">colliders</span></code></a></li>
+<li>they were aligned on the Z axis</li>
+</ul>
+<p>and, most importantly,</p>
+<ul class="simple">
+<li>they were both in the same <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a></li>
+</ul>
+<p>Now, let&#8217;s see what happens when we try to make two things collide that are in
+different <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">spaces</span></code></a>. Creating additional
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">spaces</span></code></a> is easy &#8212; it&#8217;s just one line of code &#8212; but a
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a> isn&#8217;t much good unless you load a
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code></a> in it. Thus, for our demonstration, we&#8217;re going to need
+a couple more <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">levels</span></code></a>.</p>
+<ul>
+<li><p class="first">In the Library Window</p>
+<ul>
+<li><p class="first">Under the Level tag</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">Right-click</span></code> the level called <code class="docutils literal"><span class="pre">Level</span></code> and select <strong>Duplicate</strong></p>
+<p><img alt="DuplicateLevel" src="../../_images/DuplicateLevel7.png" /></p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Right-click</span></code> the level called <code class="docutils literal"><span class="pre">LevelCopy1</span></code> and select <strong>Rename</strong></p>
+<p><img alt="RenameLevel" src="../../_images/RenameLevel3.png" /></p>
+</li>
+<li><p class="first">Name this duplicate: <code class="docutils literal"><span class="pre">Foreground</span></code></p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Right-click</span></code> the level called <code class="docutils literal"><span class="pre">Level</span></code> and select <strong>Duplicate</strong></p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Right-click</span></code> the level called <code class="docutils literal"><span class="pre">LevelCopy1</span></code> and select <strong>Rename</strong></p>
+</li>
+<li><p class="first">Name this duplicate: <code class="docutils literal"><span class="pre">Background</span></code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now let&#8217;s work in our new Foreground <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code></a>.</p>
+<ul class="simple">
+<li>In the Library Window<ul>
+<li>Under the Level tag<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">left-click</span></code> the level called <code class="docutils literal"><span class="pre">Foreground</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>As you might expect, Foreground is a perfect copy of our original
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code></a>. Let&#8217;s delete one of the spheres.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the SphereB object</span></a></li>
+<li>Delete SphereB</li>
+</ul>
+<p>Now let&#8217;s work in the Background <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code></a>.</p>
+<ul class="simple">
+<li>In the Library Window<ul>
+<li>Under the Level tag<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">left-click</span></code> the level called <code class="docutils literal"><span class="pre">Background</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Here, let&#8217;s delete the other sphere.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the SphereA object</span></a></li>
+<li>Delete SphereA</li>
+</ul>
+</div>
+<div class="section" id="making-spaces">
+<h2>Making Spaces</h2>
+<p>To create a new <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a>, we&#8217;ll have to add a new Zilch script.</p>
+<ul class="simple">
+<li><a class="reference internal" href="ResourceAdding.html#resourceaddinggam100"><span>Add a new ZilchScript resource</span></a> named:
+<code class="docutils literal"><span class="pre">BackgroundCreator</span></code></li>
+<li>Update your new script to look like this:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BackgroundCreator</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+<span class="na">  [Property]</span>
+  <span class="c1">// This is the level we&#39;ll load into the new space</span>
+  <span class="kt">var</span> <span class="n">BackgroundLevel</span> <span class="p">:</span> <span class="n">Level</span> <span class="p">=</span> <span class="n">Level</span><span class="p">.</span><span class="n">Background</span><span class="p">;</span>
+<span class="na">  [Property]</span>
+  <span class="c1">// This is the archetype of space we&#39;ll use</span>
+  <span class="kt">var</span> <span class="n">SpaceArchetype</span> <span class="p">:</span> <span class="n">Archetype</span> <span class="p">=</span> <span class="n">Archetype</span><span class="p">.</span><span class="n">Space</span><span class="p">;</span>
+
+  <span class="c1">// This is the handle we can use from elsewhere to refer to the background space</span>
+  <span class="kt">var</span> <span class="n">BackgroundSpace</span> <span class="p">:</span> <span class="n">Space</span><span class="p">;</span>
+
+
+  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// When the level starts, create the new space and load its level</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">BackgroundSpace</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">GameSession</span><span class="p">.</span><span class="n">CreateNamedSpace</span><span class="p">(</span><span class="s">&quot;Background&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">SpaceArchetype</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">BackgroundSpace</span><span class="p">.</span><span class="n">LoadLevel</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundLevel</span><span class="p">);</span>
+  <span class="p">}</span>
+
+
+  <span class="c1">// When the foreground space is destroyed...</span>
+  <span class="n">function</span> <span class="nf">Destroyed</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="c1">// ...if the background space is still around...</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">BackgroundSpace</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// ...destroy it</span>
+      <span class="k">this</span><span class="p">.</span><span class="n">BackgroundSpace</span><span class="p">.</span><span class="n">Destroy</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="sidebar">
+<p class="first sidebar-title"><cite>ResourceType</cite>.<cite>ResourceName</cite> vs. <cite>ResourceType</cite>.Find</p>
+<p>In our new BackgroundCreator <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a>, we created a
+couple of properties, and we set their default values using the format
+<cite>ResourceType</cite>.<cite>ResourceName</cite>. This is a handy shortcut for when we know
+ahead of time what we probably want to use a property for, but we want to
+leave it open to be changed later.</p>
+<p>In the first example, we could just as well have written</p>
+<p><code class="docutils literal"><span class="pre">Level.Background</span></code></p>
+<p>as</p>
+<p><code class="docutils literal"><span class="pre">Level.Find(&quot;Background&quot;)</span></code></p>
+<p>and it would have done almost the same thing &#8212; the difference is that if
+the <code class="docutils literal"><span class="pre">Find</span></code> function fails, say, because of a typo, we won&#8217;t know about it
+until the game is running, whereas <cite>ResourceType</cite>.<cite>ResourceName</cite> won&#8217;t
+even compile if there&#8217;s a typo.</p>
+<p class="last">Of course, you can always set it to <code class="docutils literal"><span class="pre">null</span></code> (or not set it at all), and
+then fill it in manually afterward via the Properties Window.</p>
+</div>
+<p>A good place for a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> like this is the
+<strong>LevelSettings</strong> object. Since this <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> creates
+the <em>background</em> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a>, we should attach it to the
+<em>foreground</em> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code></a>, but before we do, let&#8217;s run that level
+<em>without</em> the BackgroundCreator, so we have a basis for comparison with what it
+will look like <em>with</em> it.</p>
+<ul class="simple">
+<li>In the Library Window<ul>
+<li>Under the Level tag<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">left-click</span></code> the level called <code class="docutils literal"><span class="pre">Foreground</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p><a class="reference internal" href="../../_images/ForegroundOnly2.gif"><img alt="ForegroundOnly" src="../../_images/ForegroundOnly2.gif" style="width: 4.0in;" /></a></p>
+<p>It&#8217;s just like before, except there&#8217;s only one sphere, and understandably so,
+since the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code></a> only contains one sphere.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+</ul>
+<p>Now let&#8217;s add that <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a>.</p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="AddComponent.html#addcomponentgam100"><span>Add the BackgroundCreator Component</span></a></li>
+</ul>
+</li>
+</ul>
+<p>This new <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> we have added creates a new
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a> when the <code class="docutils literal"><span class="pre">Foreground</span></code> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code></a>
+starts, and loads the <code class="docutils literal"><span class="pre">Background</span></code> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code></a> into it. Thus, we
+should expect to see something like what we had before &#8212; two spheres, one of
+them moving to the right.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p><a class="reference internal" href="../../_images/ThatsIt2.png"><img alt="ThatsIt" src="../../_images/ThatsIt2.png" style="width: 4.0in;" /></a></p>
+<p>So where&#8217;s the other sphere?</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+</ul>
+<p>As a matter of fact, it&#8217;s actually there &#8212; we just can&#8217;t see it because
+there&#8217;s another <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a> in the way. We can fix that by changing
+some settings on the foreground <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code></a>&#8216;s
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a>.</p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a><ul>
+<li>Set Background to: <code class="docutils literal"><span class="pre">False</span></code></li>
+<li>Set Layer to: <code class="docutils literal"><span class="pre">1</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p><a class="reference internal" href="../../_images/NoCollision2.gif"><img alt="NoCollision" src="../../_images/NoCollision2.gif" style="width: 4.0in;" /></a></p>
+<div class="admonition-always-set-your-layer-order admonition">
+<p class="first admonition-title">Always Set Your Layer Order</p>
+<p class="last">If you forget to change the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a>&#8216;s <strong>Layer</strong> property
+when you change its <strong>Background</strong> property to <code class="docutils literal"><span class="pre">False</span></code>, you might notice
+that it still seems to work. This may be the case, but it is important that
+you <strong>always set the Layer order explicitly</strong> when you use multiple spaces,
+as things are not guaranteed to work the way you might expect them to work
+if you don&#8217;t.</p>
+</div>
+<p>The spheres now no longer collide. This is because, although</p>
+<ul class="simple">
+<li>they both have <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Collider.html#_CPPv28Collider" title="Collider"><code class="xref cpp cpp-type docutils literal"><span class="pre">colliders</span></code></a> and</li>
+<li>they are aligned on the Z axis,</li>
+</ul>
+<p>most importantly,</p>
+<ul class="simple">
+<li>they are not in the same <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a>.</li>
+</ul>
+</div>
+<div class="section" id="layering">
+<h2>Layering</h2>
+<p>Observe the way that the foreground <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">level</span></code></a>&#8216;s sphere is drawn
+on top of the background sphere.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+<li>In the Library Window<ul>
+<li>Under the Level tag<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">left-click</span></code> the level called <code class="docutils literal"><span class="pre">Background</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the SphereB object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Transform.html#_CPPv29Transform" title="Transform"><code class="xref cpp cpp-type docutils literal"><span class="pre">Transform</span></code></a><ul>
+<li>Set Translation to: [0, 1, 10]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now the background sphere is much closer to the camera.</p>
+<ul class="simple">
+<li>In the Library Window<ul>
+<li>Under the Level tag<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">left-click</span></code> the level called <code class="docutils literal"><span class="pre">Foreground</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Let&#8217;s also make the foreground sphere move a bit slower so we can see this
+better.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the SphereA object</span></a></li>
+<li>In the Properties Window<ul>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a><ul>
+<li>Set Velocity to: [5, 0, 0]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p><a class="reference internal" href="../../_images/SlowNoCollision2.gif"><img alt="SlowNoCollision" src="../../_images/SlowNoCollision2.gif" style="width: 4.0in;" /></a></p>
+<p>It seems that, even though the background sphere has a much greater
+Z-translation than the foreground sphere, it is still being drawn behind it.
+This is because, via the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a>&#8216;s <strong>Layer</strong> property, we
+have specified that the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">spaces</span></code></a> that these two spheres inhabit
+should be drawn in this layer order, and now Z-ordering makes no difference.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+</ul>
+<p>Let&#8217;s change the layer order and watch what happens.</p>
+<ul class="simple">
+<li>In the Properties Window<ul>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a><ul>
+<li>Set Layer to: <code class="docutils literal"><span class="pre">-1</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now the background sphere should appear on top of the foreground sphere when
+they overlap.</p>
+<ul class="simple">
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p><a class="reference internal" href="../../_images/ThatsIt2.png"><img alt="ThatsIt" src="../../_images/ThatsIt2.png" style="width: 4.0in;" /></a></p>
+<p>Ah, we still need to fix the <strong>Background</strong> property.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+<li>In the Library Window<ul>
+<li>Under the Level tag<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">left-click</span></code> the level called <code class="docutils literal"><span class="pre">Background</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the Objects Window<ul>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a><ul>
+<li>Set Background to: <code class="docutils literal"><span class="pre">False</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the Library Window<ul>
+<li>Under the Level tag<ul>
+<li><code class="docutils literal"><span class="pre">Double</span> <span class="pre">left-click</span></code> the level called <code class="docutils literal"><span class="pre">Foreground</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p><a class="reference internal" href="../../_images/SlowNoCollisionNoBackground2.gif"><img alt="SlowNoCollisionNoBackground" src="../../_images/SlowNoCollisionNoBackground2.gif" style="width: 4.0in;" /></a></p>
+<p>This is almost like before, except that the &#8220;background&#8221; sphere (it now seems
+improper to call it that) gets drawn on top of the &#8220;foreground&#8221; sphere.</p>
+<p>Also note that the background color has changed from the default dark gray to a
+lighter gray. What&#8217;s happening is that the backgrounds of both
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">spaces</span></code></a> are transparent &#8212; neither <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a>
+has its <strong>Background</strong> flag set &#8212; so we see right through the game to the
+editor window behind it.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+<li>In the Objects Window<ul>
+<li><a class="reference internal" href="SelectObject.html#selectobjectgam100"><span>Select the LevelSettings object</span></a></li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Under <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a><ul>
+<li>Set Background to: <code class="docutils literal"><span class="pre">True</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="SavingProject.html#savingprojectgam100"><span>Save the project</span></a> and <a class="reference internal" href="RunTheGame.html#runthegamegam100"><span>run the game</span></a></li>
+</ul>
+<p>Now the background is once again being drawn with the color specified in the
+<strong>ClearColor</strong> property of the <code class="xref cpp cpp-type docutils literal"><span class="pre">LevelSettings</span></code> object&#8217;s
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/ForwardRenderer.html#_CPPv215ForwardRenderer" title="ForwardRenderer"><code class="xref cpp cpp-type docutils literal"><span class="pre">ForwardRenderer</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a>.</p>
+<ul class="simple">
+<li><a class="reference internal" href="StopGame.html#stopgamegam100"><span>Stop the Game</span></a></li>
+</ul>
+</div>
+<div class="section" id="space-components">
+<h2>Space Components</h2>
+<p>Besides being an organizational tool where your game&#8217;s <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Cog.html#_CPPv23Cog" title="Cog"><code class="xref cpp cpp-type docutils literal"><span class="pre">cogs</span></code></a>
+live, a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a> has a few important
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code></a>.</p>
+<ul class="simple">
+<li>In the Level Window<ul>
+<li>Press <code class="docutils literal"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">S</span></code></li>
+</ul>
+</li>
+</ul>
+<p><strong>Or</strong></p>
+<ul class="simple">
+<li>Select Menu <span class="menuselection">Select ‣ Select Space</span></li>
+</ul>
+<p>Let&#8217;s take a look at what we see in the Properties Window.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/TimeSpace.html#_CPPv29TimeSpace" title="TimeSpace"><code class="xref cpp cpp-type docutils literal"><span class="pre">TimeSpace</span></code></a><ul>
+<li>Keeps track of the passage of time within its <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a></li>
+<li>Can be paused/unpaused independently of other <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">spaces</span></code></a><ul>
+<li>This is useful if you want to pause your game but have an animated
+pause menu</li>
+</ul>
+</li>
+<li>Can have its <strong>TimeScale</strong> property changed to cause time to slow down
+or speed up</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/GraphicsSpace.html#_CPPv213GraphicsSpace" title="GraphicsSpace"><code class="xref cpp cpp-type docutils literal"><span class="pre">GraphicsSpace</span></code></a><ul>
+<li>Contains certain properties defining how things are rendered</li>
+<li>To use custom <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Sprite.html#_CPPv26Sprite" title="Sprite"><code class="xref cpp cpp-type docutils literal"><span class="pre">sprite</span></code></a> layering, create a
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SpriteLayerOrder.html#_CPPv216SpriteLayerOrder" title="SpriteLayerOrder"><code class="xref cpp cpp-type docutils literal"><span class="pre">SpriteLayerOrder</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Resource.html#_CPPv28Resource" title="Resource"><code class="xref cpp cpp-type docutils literal"><span class="pre">resource</span></code></a> and set the
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/GraphicsSpace.html#_CPPv213GraphicsSpace" title="GraphicsSpace"><code class="xref cpp cpp-type docutils literal"><span class="pre">GraphicsSpace</span></code></a> to use it</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/PhysicsSpace.html#_CPPv212PhysicsSpace" title="PhysicsSpace"><code class="xref cpp cpp-type docutils literal"><span class="pre">PhysicsSpace</span></code></a><ul>
+<li>Contains certain properties defining how things interact with each other</li>
+<li>Can be used for <strong>ray casting</strong>, etc.</li>
+<li>If the <strong>Mode2D</strong> property is set to <code class="docutils literal"><span class="pre">True</span></code>, then all collision
+resolution will be 2D &#8212; that is, it will result in no position changes
+in the Z-direction, etc.<ul>
+<li>This property may also be set in a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Cog.html#_CPPv23Cog" title="Cog"><code class="xref cpp cpp-type docutils literal"><span class="pre">cog</span></code></a>-by-cog basis
+inside the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/RigidBody.html#_CPPv29RigidBody" title="RigidBody"><code class="xref cpp cpp-type docutils literal"><span class="pre">RigidBody</span></code></a> <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a></li>
+</ul>
+</li>
+<li>To use a custom collision table, create a <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/CollisionTable.html#_CPPv214CollisionTable" title="CollisionTable"><code class="xref cpp cpp-type docutils literal"><span class="pre">CollisionTable</span></code></a>
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Resource.html#_CPPv28Resource" title="Resource"><code class="xref cpp cpp-type docutils literal"><span class="pre">resource</span></code></a> and set the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/PhysicsSpace.html#_CPPv212PhysicsSpace" title="PhysicsSpace"><code class="xref cpp cpp-type docutils literal"><span class="pre">PhysicsSpace</span></code></a> to
+use it</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundSpace.html#_CPPv210SoundSpace" title="SoundSpace"><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundSpace</span></code></a><ul>
+<li>Can be used to play <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/SoundCue.html#_CPPv28SoundCue" title="SoundCue"><code class="xref cpp cpp-type docutils literal"><span class="pre">sound</span> <span class="pre">cues</span></code></a>, etc.</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/CodeReference/Reference/ReactiveSpace.html#_CPPv213ReactiveSpace" title="ReactiveSpace"><code class="xref cpp cpp-type docutils literal"><span class="pre">ReactiveSpace</span></code></a><ul>
+<li>Contains certain properties defining how the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Reactive.html#_CPPv28Reactive" title="Reactive"><code class="xref cpp cpp-type docutils literal"><span class="pre">Reactive</span></code></a>
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">component</span></code></a> works</li>
+</ul>
+</li>
+</ul>
+<p>You can also add your own custom Zilch <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code></a> to a
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a> &#8212; just select the <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a> and click
+<strong>Add Component...</strong> in the Properties Window, the same as with a
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Cog.html#_CPPv23Cog" title="Cog"><code class="xref cpp cpp-type docutils literal"><span class="pre">cog</span></code></a>. Zilch <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Component.html#_CPPv29Component" title="Component"><code class="xref cpp cpp-type docutils literal"><span class="pre">components</span></code></a> on the
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Space</span></code></a> are useful for keeping track of data across multiple levels,
+like score, etc.</p>
+</div>
+<div class="section" id="so-what">
+<h2>So What</h2>
+<p>We&#8217;ve learned how to make <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">spaces</span></code></a>. So why should we? What&#8217;s
+the point? The primary usefulness of being able to put <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Cog.html#_CPPv23Cog" title="Cog"><code class="xref cpp cpp-type docutils literal"><span class="pre">cogs</span></code></a> in
+separate <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">spaces</span></code></a> is in <strong>overlaying things</strong>.</p>
+<p>Consider title screens, pause menus, HUDs, dialogue boxes, that sort of thing
+&#8212; each of these can (and should) be placed in a separate
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">space</span></code></a> from that of the main game. In general, no object from
+your game should collide with anything in your HUD, for example, nor should
+anything in your game get in front of your pause menu. You can strictly control
+what goes where when you have these things separated into their own
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">spaces</span></code></a>.</p>
+<p>We&#8217;ll get into some of these more advanced applications of
+<a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">spaces</span></code></a> a bit later. For now, let&#8217;s move on to a much more
+common use: <strong>creating objects</strong>, which we will cover in the next lesson.</p>
+<p>Now we know how to use <a class="reference internal" href="../../ZeroManual/CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Spaces</span></code></a>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ObjectCreation.html" class="btn btn-neutral float-right" title="Object Creation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Archetypes.html" class="btn btn-neutral" title="Archetypes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Workshops/GAM100/Spaces.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:10:37 GMT -->
+</html>

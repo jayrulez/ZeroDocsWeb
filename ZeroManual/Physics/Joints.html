@@ -1,0 +1,340 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Physics/Joints.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:30 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Joints &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Physics" href="index.html"/>
+        <link rel="next" title="Audio" href="../Audio/index.html"/>
+        <link rel="prev" title="Region and Effects" href="PhysicsEffects/Regions.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="PhysicsSpace.html">PhysicsSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RigidBody.html">RigidBody</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Collision/index.html">Collision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsCasting/PhysicsCastingOverview.html">Physics Casting Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhysicsEffects/index.html">Physics Effects</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Joints</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="index.html">Physics</a> &raquo;</li>
+      
+    <li>Joints</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/ZeroManual/Physics/Joints.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- As this is the only file in this section it is included into the index; remove and add to toctree in index when more files exist. --><div class="searchtitle section" id="joints">
+<span id="manualjoints"></span><h1>Joints</h1>
+<p class="searchdescription">A <a class="reference internal" href="../CodeReference/Reference/Joint.html#_CPPv25Joint" title="Joint"><code class="xref cpp cpp-type docutils literal"><span class="pre">Joint</span></code></a> is a physical rule that connects two objects with colliders. First, a joint requires an <a class="reference internal" href="../CodeReference/Reference/ObjectLink.html#_CPPv210ObjectLink" title="ObjectLink"><code class="xref cpp cpp-type docutils literal"><span class="pre">ObjectLink</span></code></a> in order to be created. This is because the object link manages who the two objects are and correctly deals with saving and loading objects.</p>
+<div class="section" id="joint-add-ons">
+<h2>Joint Add-ons</h2>
+<p>Each kind of joint can have a motor, a limit and a spring added to it. While this is allowable for all joints, it is not desirable for all. See each joint for a description on how these interact and whether or not they are useful.</p>
+<p>The add-ons are defined as:</p>
+<blockquote>
+<div><p><a class="reference internal" href="../CodeReference/Reference/JointLimit.html#_CPPv210JointLimit" title="JointLimit"><code class="xref cpp cpp-type docutils literal"><span class="pre">JointLimit</span></code></a> : A limit takes a portion of the joint and makes it active only under certain conditions. These conditions are specified by an upper and lower limit value. This limit value can be either in distance for linear limits or in radians for an angular limit. A limit also has an active property, so it can be turned on/off at any point in time.</p>
+<p><a class="reference internal" href="../CodeReference/Reference/JointMotor.html#_CPPv210JointMotor" title="JointMotor"><code class="xref cpp cpp-type docutils literal"><span class="pre">JointMotor</span></code></a> : A motor takes a portion of the joint and adds energy to that portion. The type of motor is generally a linear motor which pushes or pulls on an axis or an angular motor which turns on an axis. A motor has a max force that it can apply at any frame in order to correct itself. A motor also has a speed that it attempts to match. A motor can be turned on/off via the active flag. For convenience, a motor can be put into reverse to make it go the other direction via the MotorReverse option.</p>
+<p><a class="reference internal" href="../CodeReference/Reference/JointSpring.html#_CPPv211JointSpring" title="JointSpring"><code class="xref cpp cpp-type docutils literal"><span class="pre">JointSpring</span></code></a> : A spring takes a portion of the joint and makes it soft. This makes that portion act like a spring. This can be put on linear or angular axes. Like all other add-ons, a spring can be turned on/off via the active flag. The spring also has a frequency in Hz (oscillations per second) that it oscillates at. Also, the spring has a dampening ratio that should vary from 0 to 1. 0 is no dampening and 1 is critical dampening (should be almost no oscillation).</p>
+</div></blockquote>
+</div>
+<div class="section" id="joint-properties">
+<h2>Joint Properties</h2>
+<p>All joints have several useful properties:</p>
+<blockquote>
+<div><p><strong>Active:</strong> A joint can be in existence while not actually running. This can be used if it is easier to set up a joint beforehand but not be running, or upon certain criteria setting a joint to invalid without actually deleting it.</p>
+<p><strong>MaxForce:</strong> A joint can be given a max amount of force that it can apply on any frame. To specify infinite force, set max force to 0.</p>
+<p><strong>SendsEvents:</strong> A joint will send an event upon reaching its max force limit (if it is set) if this property is on. By default this is off to avoid event flooding.</p>
+<p><strong>AutoSnaps:</strong> When reaching its max force limit, a joint can also automatically destroy itself on top of sending a message. This is useful as a quick means to destroy a joint instead of sending an event that then destroys the joint. An event will still be sent if AutoSnaps and SendsEvents are both true.</p>
+</div></blockquote>
+</div>
+<div class="section" id="joint-types">
+<h2>Joint Types</h2>
+<p>Listed below are the basic joint types. There exists 2D counterparts to some of these joints. These will lock certain axes and ignore calculations for increased speed and stability. If a game being made is 2D, then the 2D counterpart should be used if available. The current 2D joints available are the revolute, prismatic, and the wheel.</p>
+<p><a class="reference internal" href="../CodeReference/Reference/StickJoint.html#_CPPv210StickJoint" title="StickJoint"><code class="xref cpp cpp-type docutils literal"><span class="pre">StickJoint</span></code></a> :</p>
+<blockquote>
+<div><p>A stick joint enforces a fixed distance between two points on two objects. These points are specified in the local space of the object. This is very useful for creating &#8220;ropes&#8221; between objects. Note : while the behavior may act like a rope, there is no physical rope to collide with, so objects can pass through the &#8220;rope&#8221; without colliding. To create a real rope, sub objects must be created with actual collision volume. A stick behaves as follows with the joint add ons.</p>
+<p>Limit : A limit will turn a stick constraint from acting like a stick to acting like a rope. This will change the joint from enforcing a distance of &#8220;Length&#8221; to enforcing a range from the min to the max distance.</p>
+<p>Motor: A motor will pull/push along the stick axis.</p>
+<p>Spring: A spring will make the distance between the points behave soft and spring-like.</p>
+</div></blockquote>
+<p><a class="reference internal" href="../CodeReference/Reference/PositionJoint.html#_CPPv213PositionJoint" title="PositionJoint"><code class="xref cpp cpp-type docutils literal"><span class="pre">PositionJoint</span></code></a> :</p>
+<blockquote>
+<div><p>A position joint enforces two points defined on two objects to be equal to each other. These points are specified in the local space of the object. This creates something similar to a ball and socket with infinite rotational movement.</p>
+<p>The only add-on that should be added to the position joint is a spring. A spring will soften the correction to make the points equal.</p>
+</div></blockquote>
+<p><a class="reference internal" href="../CodeReference/Reference/WeldJoint.html#_CPPv29WeldJoint" title="WeldJoint"><code class="xref cpp cpp-type docutils literal"><span class="pre">WeldJoint</span></code></a> :</p>
+<blockquote>
+<div>A weld joint fixes two points on two objects to be equal to each other as well as locking their rotation together based upon an initial rotation of each object. Welds should be infrequently used as object composition makes more efficient and stable rigid connections. No add-ons should be used with a weld.</div></blockquote>
+<p><a class="reference internal" href="../CodeReference/Reference/PrismaticJoint.html#_CPPv214PrismaticJoint" title="PrismaticJoint"><code class="xref cpp cpp-type docutils literal"><span class="pre">PrismaticJoint</span></code></a> :</p>
+<blockquote>
+<div><p>A prismatic joint creates a slider or a piston between two points on two objects. These two objects are allowed to slide along one axis, but move together on the other two axes. Also, the objects will rotate together on all axes. All add-ons can be used on the prismatic and do the following.</p>
+<p>Limit : The limit creates a min/max distance of the points on the slider axis.</p>
+<p>Motor : The motor will push/pull the objects by the points along the slider axis.</p>
+<p>Spring : The spring will make the boundaries on the slider axis soft.</p>
+</div></blockquote>
+<p><a class="reference internal" href="../CodeReference/Reference/RevoluteJoint.html#_CPPv213RevoluteJoint" title="RevoluteJoint"><code class="xref cpp cpp-type docutils literal"><span class="pre">RevoluteJoint</span></code></a> :</p>
+<blockquote>
+<div><p>A RevoluteJoint can be used to create a wheel or a hinge between two objects. A RevoluteJoint brings the two locally defined axes together and allows free rotation on only that axis in the world. This axis also defines what axis the motor is applied on. The two axes that are orthogonal to the motor axis have their rotation locked (objects rotate together unless on the motor axis). The add-ons can be used on the revolute as follows.</p>
+<p>Limit : A limit will provide a min/max angle on the motor axis.</p>
+<p>Motor : A motor will turn the objects about the motor axis.</p>
+<p>Spring : A spring will make the motor axis springy at the limits.</p>
+</div></blockquote>
+<p><a class="reference internal" href="../CodeReference/Reference/WheelJoint.html#_CPPv210WheelJoint" title="WheelJoint"><code class="xref cpp cpp-type docutils literal"><span class="pre">WheelJoint</span></code></a> :</p>
+<blockquote>
+<div><p>A wheel joint is a joint that models a wheel with shocks. A wheel aligns the two local axes together and allows free rotation about this axis. The specified shock axis is turned into a soft constraint to model the shocks. Note: object 0 should be the root object as the shock axis rotates with this object. If object 0 is the wheel, then the shock axis will rotate with the wheel, causing the shocks to not stay aligned. The add-ons can be used on the wheel as follows.</p>
+<p>Limit : a limit will provide a min/max angle on the motor axis.</p>
+<p>Motor : A motor will turn the objects about the motor axis.</p>
+<p>Spring : A spring will make the shock axis springy. A spring is attached by default to a wheel.</p>
+</div></blockquote>
+<p><a class="reference internal" href="../CodeReference/Reference/UniversalJoint.html#_CPPv214UniversalJoint" title="UniversalJoint"><code class="xref cpp cpp-type docutils literal"><span class="pre">UniversalJoint</span></code></a> :</p>
+<blockquote>
+<div>A universal joint allows 2 degrees of rotational freedom as opposed to the revolute which only allows 1. This can be used to model an arm joint or something similar. This joint is in prototype and does not support any joint add-ons at the moment.</div></blockquote>
+<p><a class="reference internal" href="../CodeReference/Reference/UprightJoint.html#_CPPv212UprightJoint" title="UprightJoint"><code class="xref cpp cpp-type docutils literal"><span class="pre">UprightJoint</span></code></a> :</p>
+<blockquote>
+<div><p>The upright joint tries to align two local vectors on two objects. By constraining an object to the world and using the world&#8217;s up vector this will be used to help keep the object upright. The add-ons can be used as follows:</p>
+<p>Limit : alter how exact the two axes must line up.</p>
+<p>Spring : make the correction of lining up the vectors behave springy.</p>
+</div></blockquote>
+<p><a class="reference internal" href="../CodeReference/Reference/GearJoint.html#_CPPv29GearJoint" title="GearJoint"><code class="xref cpp cpp-type docutils literal"><span class="pre">GearJoint</span></code></a> :</p>
+<blockquote>
+<div>A gear connects two joints on two objects together. Either joint can be a prismatic or a revolute. A gear ratio is used to bind the two joints together. Joint add-ons should not be used with a gear. Also, the gear is currently in a prototype phase, so position correction will not be enforced but velocity will be fixed.</div></blockquote>
+<p><a class="reference internal" href="../CodeReference/Reference/PulleyJoint.html#_CPPv211PulleyJoint" title="PulleyJoint"><code class="xref cpp cpp-type docutils literal"><span class="pre">PulleyJoint</span></code></a> :</p>
+<blockquote>
+<div><p>A pulley turns two stick joints into a pulley via a ratio. A pulley connects the two free objects of two different stick joints. These two objects will then be bound to move together via the formula:</p>
+<p>length0 + ratio * length1 = 0.</p>
+<p>The add-ons should not be used on a pulley joint.</p>
+</div></blockquote>
+<p>Several joints have 2D versions. These are for simplicity and stability and should be used over their 3D counterpart when doing 2D games. There is one extra add-on that can be added to any joint called <a class="reference internal" href="../CodeReference/Reference/JointConfigOverride.html#_CPPv219JointConfigOverride" title="JointConfigOverride"><code class="xref cpp cpp-type docutils literal"><span class="pre">JointConfigOverride</span></code></a> that allows tweaking of the correction rate and allowed error in the joint.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Audio/index.html" class="btn btn-neutral float-right" title="Audio" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PhysicsEffects/Regions.html" class="btn btn-neutral" title="Region and Effects" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Physics/Joints.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:05:30 GMT -->
+</html>

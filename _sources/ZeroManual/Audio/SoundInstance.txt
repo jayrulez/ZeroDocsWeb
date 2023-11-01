@@ -1,0 +1,355 @@
+.. _ManualSoundInstance:
+
+.. rst-class:: SearchTitle
+
+SoundInstance
+=============
+
+.. rst-class:: SearchDescription
+
+SoundInstance is an object created whenever a SoundCue is played that represents that specific instance of the chosen SoundCue. The SoundInstance object is only created in code, through either a SoundEmitter or SoundSpace.
+
+Common Uses
+-----------
+
+*   Modifying the properties of the SoundInstance of a :ref:`SoundCue<ManualSoundCue>` instead of making changes to the SoundCue Resource itself (**Highly Recommended**)
+
+*   Modifying a *particular* SoundInstance (i.e. the particular instance of a SoundCue playing), while not modifying the other instances of the same SoundCue
+
+*   Tagging and Untagging multiple SoundInstances with :ref:`SoundTags<ManualSoundTags>`
+
+*   Modifying multiple SoundInstances (instead of SoundCues) grouped by SoundTags
+
+Using SoundInstances
+--------------------
+
+This section will cover how to create a SoundInstance, what functionality a SoundInstance has in ZilchScript, and how to tag a SoundInstance with, and modify it through, a SoundTag.
+
+Creating a SoundInstance
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are three ways to create a SoundInstance object, one by using the :ref:`SoundEmitter Component<ManualSoundEmitterAndSimpleSound>` and two ways through the :ref:`SoundSpace<ManualSoundSpace>`.
+
+Creation through the SoundEmitter
++++++++++++++++++++++++++++++++++
+
+The following code-blocks will illustrate how to create a SoundInstance of a SoundCue through the SoundEmitter Component in ZilchScript.
+
+.. code-block:: csharp
+
+    [Property]
+    //A property to be set to the SoundCue desired
+    var MySoundCue : SoundCue;
+    
+    //A variable that will later be set to an instance of MySoundCue
+    var MySoundInstance : SoundInstance;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    }
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        if(event.Key == Keys.Space)
+        {
+            //Both plays the SoundCue and creates a SoundInstance 
+            //of this particular instance of playing the Cue
+            this.MySoundInstance = this.Owner.SoundEmitter.PlayCue(this.MySoundCue);
+        }
+    }
+    
+Creation through the SoundSpace
++++++++++++++++++++++++++++++++
+
+The following code-blocks will illustrate how to create a SoundInstance in two different ways through the SoundSpace in ZilchScript.
+
+.. code-block:: csharp
+
+    [Property]
+    //A property to be set to the SoundCue desired
+    var MySoundCue : SoundCue;
+    
+    [Property]
+    //A position used to set the location of the SoundCue
+    var PositionToPlayCue : Real3;
+    
+    //Variables that will be set to different instances of MySoundCue
+    var MySoundInstanceA : SoundInstance;
+    var MySoundInstanceB : SoundInstance;
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    }
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        if(event.Key == Keys.Shift)
+        {
+            //Creating a SoundInstance and playing a SoundCue non-positionally.
+            this.MySoundInstanceA = this.Space.SoundSpace.PlayCue(this.MySoundCue);
+        }
+        
+        if(event.Key == Keys.Control)
+        {
+            //Creating a SoundInstance and playing a SoundCue positionally.
+            this.MySoundInstanceB = 
+                this.Space.SoundSpace.PlayCueAt(this.MySoundCue, this.PositionToPlayCue);
+        }
+    }
+    
+Modifying a SoundInstance
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SoundInstances can be directly modified in almost all the ways SoundCues can. In fact, it is **very highly recommended** that the user modify the SoundInstance object created from the SoundCue Resource instead of altering the SoundCue Resource itself. One thing to note is that since all the methods of SoundInstance creation require using a function that plays the SoundCue that is the "creator" of the SoundInstance, there is no Play function for SoundInstance.
+
+Pausing and Continuing a SoundInstance
+++++++++++++++++++++++++++++++++++++++
+
+The following code-block will illustrate how to pause and subsequently resume an individual SoundInstance. See the :ref:`note on the SoundSpace page<PauseSoundSpaceWithWarning>` for information on pausing and resuming in different locations.
+
+.. code-block:: csharp
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        if(event.Key == Keys.P)
+        {
+            //Pauses the SoundInstance
+            this.MySoundInstance.Pause();
+        }
+        if(event.Key == Keys.C)
+        {
+            //Continues (resumes) the paused SoundInstance
+            this.MySoundInstance.Continue();
+        }
+        
+    }
+    
+Stopping a SoundInstance
+++++++++++++++++++++++++
+
+The following code-block will illustrate how to stop an individual SoundInstance.
+
+.. code-block:: csharp
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        if(event.Key == Keys.S)
+        {
+            //Stops the SoundInstance
+            this.MySoundInstance.Stop();
+        }
+    }
+
+Directly Changing the Volume of a SoundInstace
+++++++++++++++++++++++++++++++++++++++++++++++
+
+.. admonition:: Ranges of ``Volume`` and ``Pitch`` properties
+
+    While there are ranges given for ``Volume``, ``VolumeDB``, ``Pitch`` and ``PitchSemitones`` below, these properties can accept values both above and below the ranges stated if either entered numerically through the property field or through a ZilchScript. The ranges specified are the limits if only the slider is used to adjust the properties, and are the recommended ranges of the properties. 
+
+The following code-block will illustrate how to directly change the volume of an individual SoundInstance. This is the safest way to change the volume on a playing sound as it will *only* make the change to this particular instance. Make sure to be aware that changing the volume elsewhere, such as in the SoundSpace, can affect all currently playing sounds including SoundInstances like this one. See the :ref:`note on the SoundSpace page<SetVolPitchWithWarning>` for more information on potential conflicts and how they are handled.
+
+.. code-block:: csharp
+    
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        //SoundInstance Volume (just like the SoundCue property) falls on a range between [0.0, 1.0]
+        var newVolume : Real = 0.3;
+        
+        //Directly change the volume of the SoundInstance to a new value
+        this.MySoundInstance.Volume = newVolume;
+    }
+
+It's also possible to change the volume using decibels rather than floating points in ZilchScript. 
+
+.. code-block:: csharp
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        //SoundInstance Volume in decibels falls on a range between [-32, 6], as does the SoundCue
+        var newDBVolume : Real = 1;
+
+        //Directly change the volume of the SoundInstance to a new decibel value
+        this.MySoundInstance.VolumeDB = newDBVolume;
+    }
+    
+Directly Changing the Pitch of a SoundInstance
+++++++++++++++++++++++++++++++++++++++++++++++
+
+The following code-block will illustrate how to directly change the pitch of an individual SoundInstance. This is the safest way to change the pitch on a playing sound as it will *only* make the change to this particular instance. Make sure to be aware that changing the pitch elsewhere, such as in the SoundSpace, can affect all currently playing sounds including SoundInstances like this one. See :ref:`this note on the SoundSpace page<SetVolPitchWithWarning>` for more information on potential conflicts and how they are handled.
+
+.. code-block:: csharp
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        //SoundInstance Pitch (just like the SoundCue property) falls on a range between [-2.0, 2.0]
+        var newPitch = -1.2;
+        
+        //Directly change the pitch of the SoundInstance to a new value
+        this.MySoundInstance.Pitch = newPitch;
+    }
+
+It is also possible to change the pitch in terms of semitones rather than using floating point values in ZilchScript. 
+
+.. code-block:: csharp
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        //SoundInstance Semitone range is between [-24, 24]
+        var newSemitone = -13;
+        
+        //Directly change the pitch of the SoundInstance to a new Semitone
+        this.MySoundInstance.PitchSemitones = newSemitone;
+    }
+
+
+    
+Interpolating the Volume of a SoundInstance
++++++++++++++++++++++++++++++++++++++++++++
+
+The following code-block will illustrate how to interpolate the volume of an individual SoundInstance over time. This is the safest way to change the volume on a playing sound as it will *only* make the change to this particular instance. Make sure to be aware that changing the volume elsewhere, such as in the SoundSpace, can affect all currently playing sounds including SoundInstances like this one. See :ref:`this note on the SoundSpace page<SetVolPitchWithWarning>` for more information on potential conflicts and how they are handled.
+
+.. code-block:: csharp
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        //SoundInstance Volume (just like the SoundCue property) falls on a range between [0.0, 1.0]
+        var newVolume : Real = 0.8;
+        
+        //Interpolation time is in seconds
+        var interpolationTime : Real = 1.5;
+        
+        if(event.Key == Keys.V)
+        {
+            //Interpolate the volume of the SoundInstance to a new value (the first argument) 
+            //over time (the second argument)
+            this.MySoundInstance.InterpolateVolume(newVolume, interpolationTime);
+        }
+
+        //Interpolation can also use decibel levels, from [-32, 6]
+        var newDBVolume : Real = -16;
+
+        if(event.Key == Keys.D)
+        {
+            //Interpolate the decibel level of the SoundInstance to a 
+            //new value (the first argument) over time (the second argument)
+            this.MySoundInstance.InterpolateVolumeDB(newDBVolume, interpolationTime);
+        }
+    }
+
+Interpolating the Pitch of a SoundInstance
+++++++++++++++++++++++++++++++++++++++++++
+
+The following code-block will illustrate how to interpolate the pitch of an individual SoundInstance over time. This is the safest way to change the pitch on a playing sound as it will *only* make the change to this particular instance. Make sure to be aware that changing the pitch elsewhere, such as in the SoundSpace, can affect all currently playing sounds including SoundInstances like this one. See :ref:`this note on the SoundSpace page<SetVolPitchWithWarning>` for more information on potential conflicts and how they are handled.
+
+.. code-block:: csharp
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        //SoundInstance Pitch (just like the SoundCue property) falls on a range between [-2.0, 2.0]
+        var newPitch : Real = 0.7;
+        
+        //Interpolation time is in seconds
+        var interpolationTime : Real = 1.5;
+        
+        if(event.Key == Keys.P)
+        {
+            //Interpolate the pitch of the SoundInstance to a new value (the first argument) 
+            //over time(the second argument)
+            this.MySoundInstance.InterpolatePitch(newPitch, interpolationTime);
+        }
+
+        //Semitones may also be used, in a range of [-24, 24]
+        var newSemitone : Real = 8;
+        
+        if(event.Key == Keys.S)
+        {
+            //Interpolate the Semitone of the SoundInstance to a 
+            //new value (the first argument) over time(the second argument)
+            this.MySoundInstance.InterpolatePitchSemitones(newPitch, interpolationTime);
+        }
+    }
+    
+Using SoundTags with SoundInstances
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SoundTags can be applied to individual SoundInstances just like they can be applied to SoundCues. One thing to keep in mind before discussing how to place new tags on SoundInstances, is that since SoundInstances are objects created by SoundCues, those newly created SoundInstances will inherit the SoundTags attached to the SoundCue resource from which they derive. For example, if one was to make a SoundInstance from a SoundCue that has the SoundTag ``MySoundTag`` attached to it, and then calls the SetTagPitch function on the SoundSpace using ``MySoundTag``, the SoundInstance will have its pitch changed. As SoundCues, and therefore SoundInstances, can have an unlimited number of SoundTags attached to them, this is not a problem, but definitely something of which to be aware.
+
+Adding and Removing a SoundTag to and from a SoundInstance
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: csharp
+
+    [Property]
+    //The SoundTag to apply to the SoundInstance
+    var SoundTagToUse : SoundTag;
+    
+    [Property]
+    //The SoundCue to create a SoundInstance of
+    var SoundCueToUse : SoundCue;
+    
+    //A variable to be set to an instance of SoundCueToUse
+    var MySoundInstance : SoundInstance;
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    }
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        if(event.Key == Keys.Shift)
+        {
+            //Sets the MySoundInstance variable with a SoundInstance created by playing a SoundCue
+            this.MySoundInstance = this.Space.SoundSpace.PlayCue(this.SoundCueToUse);
+        }
+        if(event.Key == Keys.Space)
+        {
+            if(this.MySoundInstance != null)
+            {
+                //Adds the newly created SoundInstance to the SoundTag
+                //The SoundInstance can now be altered as part of the this.SoundTagToUse grouping.
+                this.SoundTagToUse.TagSound(this.MySoundInstance);
+            }
+        }
+        if(event.Key == Keys.Control)
+        {
+            if(this.MySoundInstance != null)
+            {
+                //Removes the SoundInstance from the SoundTag 
+                //The SoundInstance can no longer be altered as part of the this.SoundTagToUse grouping
+                this.SoundTagToUse.UnTagSound(this.MySoundInstance);
+            }
+        }
+    }
+    
+SoundInstance Properties and Functions
+--------------------------------------
+
+:ref:`SoundInstance Code Reference<ReferenceSoundInstance>`
+
+Related Materials
+-----------------
+
+Manual Pages
+~~~~~~~~~~~~
+
+*   :ref:`SoundCue<ManualSoundCue>`
+
+*   :ref:`SoundEmitter<ManualSoundEmitterAndSimpleSound>`
+
+*   :ref:`SoundSpace<ManualSoundSpace>`
+
+Tutorial Pages
+~~~~~~~~~~~~~~
+
+*   :ref:`Using Audio<TutorialAudio>`
+
+Reference Pages
+~~~~~~~~~~~~~~~
+
+*   :cpp:type:`Real`
+
+*   :cpp:type:`Boolean`

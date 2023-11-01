@@ -1,0 +1,79 @@
+.. _ReferenceLockStepGamepadUpdateEvent:
+
+.. rst-class:: searchtitle
+
+LockStepGamepadUpdateEvent
+==========================
+
+.. rst-class:: searchdescription
+
+A synced gamepad update event.
+
+.. include:: Description/LockStepGamepadUpdateEvent.rst
+
+.. cpp:class:: LockStepGamepadUpdateEvent
+
+    Base Class: :cpp:type:`LockStepGamepadEvent`
+
+.. _ReferenceLockStepGamepadUpdateEventProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String LockStepGamepadUpdateEvent::EventId
+
+            The event-ID that this event was dispatched under.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: LockStepPeer LockStepGamepadUpdateEvent::Peer
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint LockStepGamepadUpdateEvent::Index
+
+            The index of the gamepad that was activated or deactivated.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 LockStepGamepadUpdateEvent::LeftStick
+
+            Current offset[0, 1] from the center of the left stick.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 LockStepGamepadUpdateEvent::RightStick
+
+            Current offset[0, 1] from the center of the right stick.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 LockStepGamepadUpdateEvent::LeftStickDelta
+
+            Change in the left stick this frame.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec2 LockStepGamepadUpdateEvent::RightStickDelta
+
+            Change in the right stick this frame.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real LockStepGamepadUpdateEvent::LeftTrigger
+
+            How much the left trigger is down[0, 1].
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real LockStepGamepadUpdateEvent::RightTrigger
+
+            How much the right trigger is down[0, 1].
+
+.. _ReferenceLockStepGamepadUpdateEventMethods:
+
+.. include:: Remarks/LockStepGamepadUpdateEvent.rst

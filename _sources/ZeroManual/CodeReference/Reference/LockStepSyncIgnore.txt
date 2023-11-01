@@ -1,0 +1,124 @@
+.. _ReferenceLockStepSyncIgnore:
+
+.. rst-class:: searchtitle
+
+LockStepSyncIgnore
+==================
+
+.. rst-class:: searchdescription
+
+Sometimes when doing sync checking, we need to ignore specific components because we know that they will not be in sync. For example, player specific components such as the Microphone or the Camera.
+
+.. include:: Description/LockStepSyncIgnore.rst
+
+.. cpp:class:: LockStepSyncIgnore
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceLockStepSyncIgnoreProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog LockStepSyncIgnore::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space LockStepSyncIgnore::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog LockStepSyncIgnore::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession LockStepSyncIgnore::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool LockStepSyncIgnore::IgnoreAllComponents
+
+            Should we ignore all components(or just ones set in the array)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String LockStepSyncIgnore::IgnoreComponent0
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String LockStepSyncIgnore::IgnoreComponent1
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String LockStepSyncIgnore::IgnoreComponent2
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String LockStepSyncIgnore::IgnoreComponent3
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String LockStepSyncIgnore::IgnoreComponent4
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String LockStepSyncIgnore::IgnoreComponent5
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String LockStepSyncIgnore::IgnoreComponent6
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String LockStepSyncIgnore::IgnoreComponent7
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String LockStepSyncIgnore::IgnoreComponent8
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String LockStepSyncIgnore::IgnoreComponent9
+
+            
+
+.. _ReferenceLockStepSyncIgnoreMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void LockStepSyncIgnore::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/LockStepSyncIgnore.rst

@@ -1,0 +1,659 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Scripting/UsingCustomEaseInActionsTutorial.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:00:15 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using Custom Eases in Actions &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Scripting" href="index.html"/>
+        <link rel="next" title="Architecture" href="../Architecture/index.html"/>
+        <link rel="prev" title="Actions" href="Actions.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Scripting</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Scripting1.html">Scripting 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting2.html">Scripting 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting3.html">Scripting 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Scripting4.html">Scripting 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events1.html">Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events2.html">Events 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events3.html">Events 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Events4.html">Events 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actions.html">Actions</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Using Custom Eases in Actions</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Tutorials</a> &raquo;</li>
+      
+          <li><a href="index.html">Scripting</a> &raquo;</li>
+      
+    <li>Using Custom Eases in Actions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Tutorials/Scripting/UsingCustomEaseInActionsTutorial.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="using-custom-eases-in-actions">
+<span id="tutorialusingcustomeaseinactions"></span><h1>Using Custom Eases in Actions</h1>
+<p class="searchdescription">This lesson will cover using Custom Eases in your Actions with the aid of the SampleCurve resource. First, we&#8217;ll take a more in-depth look into what an ease actually is, what they can do for you, and what they look like when drawn on a sample curve.</p>
+<div class="section" id="a-closer-look-at-easing-functions">
+<h2>A Closer Look at Easing Functions</h2>
+<p>Eases are used primarily in what is called &#8220;tweening&#8221;, short for <em>in-betweening</em> (and Actions are Zero Engine&#8217;s form of tweening). Tweening is a procedure for interpolation between two values that can provide animation through the use of mathematical functions without the user having to adjust any frames herself. Eases are functions that control the rate of acceleration of the change in value. Usually, eases are used to make animations look more natural or &#8220;life-like&#8221;, though the most basic of eases&#8211;Linear&#8211;is decidedly sterile-looking or robotic, as we can see in this example of a simple moving platform:</p>
+<p><img alt="LinearPlatform" src="../../_images/LinearPlatform.gif" /></p>
+<p>The platform moves side to side at a steady, constant rate of motion. In other words, its rate of movement is linear. For the sake of comparison, let&#8217;s look at another, nicer-looking, more &#8220;life-like&#8221; ease; specifically, the QuadInOut ease (which uses the quadratic function to derive acceleration):</p>
+<p><img alt="QuadInOutPlatform" src="../../_images/QuadInOutPlatform.gif" /></p>
+<p>As you can see, in this case, the acceleration changes throughout the movement from left to right (and vice versa). It start slow, builds up speed, then slows back down once it nears the end. You have probably come across this type of movement in your everyday life. For example, elevators use a non-linear movement. Imagine if a high-speed elevator in a high-rise building did not change its acceleration, and the elevator comes to a complete stop while at the relatively high speed it moves at as it passes floors: every one in it would go flying to the ceiling. Instead, as the elevator approaches its destination, it slows down so that it comes to a smooth, non-person-launching stop (this might something to think about when creating elevator platforms in your own games if you&#8217;re looking to keep things realistic).</p>
+</div>
+<div class="section" id="visualising-eases">
+<h2>Visualising Eases</h2>
+<p>As you may have noticed from the brief explanation above, eases are primarily a function that acts on change in value over time. This means we can easily visualize them using a standard 2D graph, where the x-axis represents change in time and the y-axis represents change in value. Here are all of the most commonly used standard and exotic eases visualized on a graph.</p>
+<div class="section" id="sine-eases">
+<h3>Sine Eases</h3>
+<p><img alt="SineGroup" src="../../_images/SineGroup.png" /></p>
+<p>The Sine group, as you might have guessed, is based off a sine wave. It&#8217;s one of the most commonly used eases behind Quadratic and is already built into Zero&#8217;s Ease types.</p>
+</div>
+<div class="section" id="quadratic-eases">
+<h3>Quadratic Eases</h3>
+<p><img alt="QuadraticGroup" src="../../_images/QuadraticGroup.png" /></p>
+<p>The Quadratic group is by far the most popular and commonly used ease type as it provides a natural and nicely-flowing animation. The three Quadratic eases are also built into Zero&#8217;s ease types.</p>
+</div>
+<div class="section" id="cubic-eases">
+<h3>Cubic Eases</h3>
+<p><img alt="CubicGroup" src="../../_images/CubicGroup.png" /></p>
+<p>Whereas the Quadratic group is based on raising the completion percentage at a certain point in the tween by a power of two, cubic raises it by three, providing a slightly more &#8220;dramatic&#8221; effect.</p>
+</div>
+<div class="section" id="quartic-eases">
+<h3>Quartic Eases</h3>
+<p><img alt="QuarticGroup" src="../../_images/QuarticGroup.png" /></p>
+<p>The Quartic group is identical to the Cubic group except that it raises the percentage of completion by a power of four.</p>
+</div>
+<div class="section" id="quintic-eases">
+<h3>Quintic Eases</h3>
+<p><img alt="QuinticGroup" src="../../_images/QuinticGroup.png" /></p>
+<p>Again, the Quintic group is identical to the Cubic group except that it raises the percentage of completion by a power of five.</p>
+</div>
+<div class="section" id="expo-eases">
+<h3>Expo Eases</h3>
+<p><img alt="ExpoGroup" src="../../_images/ExpoGroup.png" /></p>
+<p>&#8220;Expo&#8221; is short for Exponential and as you can imagine, accelerates, decelerates, or both extremely quickly.</p>
+</div>
+<div class="section" id="circle-eases">
+<h3>Circle Eases</h3>
+<p><img alt="CircleGroup" src="../../_images/CircleGroup.png" /></p>
+<p>Another self-explanatory one. The curves in this ease are derived from the equation for half a circle.</p>
+</div>
+<div class="section" id="back-eases">
+<h3>Back Eases</h3>
+<p><img alt="BackGroup" src="../../_images/BackGroup.png" /></p>
+<p>This group is the first one we see that that actually under- and over-shoots its target. This group is great for use in bringing menus up and down.</p>
+</div>
+<div class="section" id="elastic-eases">
+<h3>Elastic Eases</h3>
+<p><img alt="ElasticGroup" src="../../_images/ElasticGroup.png" /></p>
+<p>One of the exotic groups. These eases give the illusion of elasticity, both at the front of the action, the end, and at the front and end.</p>
+</div>
+<div class="section" id="bounce-eases">
+<h3>Bounce Eases</h3>
+<p><img alt="BounceGroup" src="../../_images/BounceGroup.png" /></p>
+<p>Another of the exotic groups, these eases give the illusion that an object bounces at the beginning, end, or both during the action that uses them.</p>
+<p>Now that we&#8217;ve gone through the most commonly used standard and exotic eases, let&#8217;s take a look at how you can make some of these yourselves&#8211;as well as any of your own invention&#8211;as sample curves in Zero.</p>
+</div>
+</div>
+<div class="section" id="using-the-samplecurve-editor">
+<h2>Using the SampleCurve Editor</h2>
+<p>The SampleCurve editor is Zero&#8217;s tool for creating your own curves to apply to any number of things, including the Ease parameter in Actions. As you saw above, eases can be represented on a graph as a function of change over time. The same applies to the SampleCurve editor. Let&#8217;s take a closer look at the SampleCurve editor and see how to create our own eases for Actions.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new SampleCurve resource</span></a> named: <code class="docutils literal"><span class="pre">MyCustomEase</span></code></li>
+<li>By default, the initial curve shows a linear progression. To begin manipulating the curve, you will need to add an <code class="docutils literal"><span class="pre">AnchorPoint</span></code> by double-clicking on the curve where you want to place it. You can then grab the anchor point&#8211;by holding down the left mouse button on top of the point&#8211;and move it around the graph, as is demonstrated below:</li>
+</ul>
+<p><img alt="CreatingAnchorPoint" src="../../_images/CreatingAnchorPoint.gif" /></p>
+<ul class="simple">
+<li>If you need to add more than one anchor point on the curve, just double-click again on the curve where you want to place it. You can add an unlimited amount of anchor points, but eventually the curve will fill up to the point where you won&#8217;t be able to effectively edit it.</li>
+<li>Once you have an anchor point, you can manipulate the tangents of that point using one of four options: Linear Tangents, Weighted Linear Tangents, Split Tangents, and Weighted Split Tangents. All three are demonstrated below:</li>
+</ul>
+<div class="section" id="linear-tangents">
+<h3>Linear Tangents</h3>
+<p><img alt="LinearTangents" src="../../_images/LinearTangents.gif" /></p>
+</div>
+<div class="section" id="weighted-linear-tangents">
+<h3>Weighted Linear Tangents</h3>
+<p><img alt="WeightedLinearTangents" src="../../_images/WeightedLinearTangents.gif" /></p>
+</div>
+<div class="section" id="split-tangents">
+<h3>Split Tangents</h3>
+<p><img alt="SplitTangents" src="../../_images/SplitTangents.gif" /></p>
+</div>
+<div class="section" id="weighted-split-tangents">
+<h3>Weighted Split Tangents</h3>
+<p><img alt="WeightedSplitTangents" src="../../_images/WeightedSplitTangents.gif" /></p>
+<p>With unlimited anchor points and the tangent tools at your disposal, you can create countless custom eases for any purpose to use with your actions.</p>
+<p>We&#8217;ll now create a simple sample project that will show the process of creating and applying custom eases to actions. In particular, we&#8217;ll be creating a basic menu screen with a few options that will move up from beneath the screen to settle in the middle, giving the menu a little animation.</p>
+</div>
+</div>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><span class="xref std std-ref">CreateNewProject</span></p>
+</div>
+<div class="section" id="setting-up-the-level">
+<h2>Setting Up the Level</h2>
+<p>First, let&#8217;s create a background object for our menu.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In the Properties window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Set Name to: Background</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component Area</span></a></li>
+<li>Under Sprite</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">0,</span> <span class="pre">G:</span> <span class="pre">0,</span> <span class="pre">B:</span> <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Under Area</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Set Size to: <code class="docutils literal"><span class="pre">[20,</span> <span class="pre">20]</span></code></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p>The Property window should now look like this:</p>
+<p><img alt="BackgroundProperties" src="../../_images/BackgroundProperties.png" /></p>
+<p>Now let&#8217;s create a few SpriteTexts that will act as our menu options.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSpriteText</span></code> or <span class="menuselection">Create ‣ Create Sprite Text</span></li>
+<li>In the Properties window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Set Name to: PlayText</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add Component Area</span></a></li>
+<li>Under Transform</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Set Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">-11,</span> <span class="pre">0]</span></code></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Under SpriteText</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Set Visible to: <code class="docutils literal"><span class="pre">false</span></code></li>
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">0,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">255,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code></li>
+<li>Set FontSize to: <code class="docutils literal"><span class="pre">80</span></code></li>
+<li>Set Text to: <code class="docutils literal"><span class="pre">Play</span> <span class="pre">the</span> <span class="pre">Game!</span></code></li>
+<li>Set Align to: <code class="docutils literal"><span class="pre">Center</span></code></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Under Area</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Set Size to: <code class="docutils literal"><span class="pre">[10,</span> <span class="pre">2]</span></code></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p>The Property window should now look like this:</p>
+<p><img alt="PlayTextProperties" src="../../_images/PlayTextProperties.png" /></p>
+<p>Now we need to make two copies of this object.</p>
+<ul class="simple">
+<li>In the Objects window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Select the <code class="docutils literal"><span class="pre">PlayText</span></code> object</li>
+<li>Press Ctrl+D twice to duplicate the object twice</li>
+<li>Select the first duplicated object</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>In the Properties window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Change Name to: HowToText</li>
+<li>Under SpriteText</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">0,</span> <span class="pre">G:</span> <span class="pre">255,</span> <span class="pre">B:</span> <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code></li>
+<li>Set Text to: <code class="docutils literal"><span class="pre">How</span> <span class="pre">to</span> <span class="pre">Play</span></code></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ul class="simple">
+<li>In the Objects window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Select the second duplicated object</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>In the Properties window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Change Name to: QuitText</li>
+<li>Under SpriteText</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Set Color to: <code class="docutils literal"><span class="pre">[R:</span> <span class="pre">255,</span> <span class="pre">G:</span> <span class="pre">0,</span> <span class="pre">B:</span> <span class="pre">0,</span> <span class="pre">A:</span> <span class="pre">1.00]</span></code></li>
+<li>Set Text to: <code class="docutils literal"><span class="pre">Quit</span></code></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p>Your Level Editor window should now look like this:</p>
+<p><img alt="EditorWindow" src="../../_images/EditorWindow.png" /></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a></li>
+</ul>
+<p>We now have our menu background and all the sprite text objects that will act as our menu options; however, they are currently invisible and below the level itself. We want these objects to rise up from the bottom of the screen, so we&#8217;ll need to make a component for the sprite text objects that does just that using Actions.</p>
+</div>
+<div class="section" id="creating-the-component-for-menu-objects">
+<h2>Creating the Component for Menu Objects</h2>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">MenuActions</span></code></li>
+<li>Update the new script to look like this:</li>
+</ul>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MenuActions</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">EndValue</span> <span class="p">:</span> <span class="n">Real3</span><span class="p">;</span>
+
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">TimeToMove</span> <span class="p">:</span> <span class="n">Real</span><span class="p">;</span>
+
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">CustomEase</span> <span class="p">:</span> <span class="n">SampleCurve</span><span class="p">;</span>
+
+<span class="na">    [Property]</span>
+    <span class="kt">var</span> <span class="n">StartDelay</span> <span class="p">:</span> <span class="n">Real</span><span class="p">;</span>
+
+    <span class="kt">var</span> <span class="n">IsMenuUp</span> <span class="p">:</span> <span class="n">Boolean</span><span class="p">;</span>
+
+    <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Dispatch KeyDown event onto the Keyboard</span>
+        <span class="n">Zero</span><span class="p">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">Zero</span><span class="p">.</span><span class="n">Keyboard</span><span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">KeyDown</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">OnKeyDown</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">function</span> <span class="nf">OnKeyDown</span><span class="p">(</span><span class="k">event</span> <span class="p">:</span> <span class="n">KeyboardEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Check if spacebar is pressed AND if the menu is not already up</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">event</span><span class="p">.</span><span class="n">Key</span> <span class="p">==</span> <span class="n">Keys</span><span class="p">.</span><span class="n">Space</span> <span class="p">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="n">IsMenuUp</span> <span class="p">==</span> <span class="k">false</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">seq</span> <span class="p">=</span> <span class="n">Action</span><span class="p">.</span><span class="n">Sequence</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Actions</span><span class="p">);</span>
+
+            <span class="c1">//Delay for starting the action, if needed</span>
+            <span class="c1">//Default set to 0</span>
+            <span class="n">Action</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">StartDelay</span><span class="p">);</span>
+
+            <span class="c1">//Action for making sprite text&#39;s visible</span>
+            <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span>
+                            <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">SpriteText</span><span class="p">.</span><span class="n">Visible</span><span class="p">,</span>
+                            <span class="k">true</span><span class="p">,</span>
+                            <span class="m">0.01</span><span class="p">,</span>
+                            <span class="n">Ease</span><span class="p">.</span><span class="n">Linear</span><span class="p">);</span>
+            <span class="c1">//Action for moving sprite text&#39;s up into camera view</span>
+            <span class="n">Action</span><span class="p">.</span><span class="n">Property</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span>
+                            <span class="n">@this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">Transform</span><span class="p">.</span><span class="n">Translation</span><span class="p">,</span>
+                            <span class="k">this</span><span class="p">.</span><span class="n">EndValue</span><span class="p">,</span>
+                            <span class="k">this</span><span class="p">.</span><span class="n">TimeToMove</span><span class="p">,</span>
+                            <span class="k">this</span><span class="p">.</span><span class="n">CustomEase</span><span class="p">);</span>
+
+            <span class="k">this</span><span class="p">.</span><span class="n">IsMenuUp</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the three sprite text objects</span></a></li>
+<li>In the Properties Window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add a MenuActions component</span></a></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save the project</span></a></li>
+</ul>
+<p>Most of the above code should look familiar based on the previous tutorial on Actions. The one new element you&#8217;ve probably not seen before is the variable named &#8220;CustomEase&#8221; of type <code class="docutils literal"><span class="pre">SampleCurve</span></code>. It also has the <code class="docutils literal"><span class="pre">[Property]</span></code> attribute so that we can choose among all of our potential sample curves to apply to the action. If you look at the property right now, however, you&#8217;ll see there are no curves besides the default curve. Let&#8217;s change that by adding and defining our own sample curve.</p>
+</div>
+<div class="section" id="adding-and-editing-a-sample-curve">
+<h2>Adding and Editing a Sample Curve</h2>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new SampleCurve resource</span></a> named: <code class="docutils literal"><span class="pre">MenuTextCurve</span></code></li>
+</ul>
+<p>The SampleCurve editor window should pop-up. While we could make a simple curve similar to the quadratic group, let&#8217;s give the animation a little more flair, having the menu options slightly overshoot their target before settling back down to the place we want them to end up. In particular, we are going to make a version of the BackOut ease as can be seen in the graphs above. This ease will quickly move the object up to a value slightly above its target value, then slowly have it settle back down to the actual target value.</p>
+<p>The easiest way to create this curve is to create an anchor point in the middle of the curve and then drag it up so that the anchor point is sitting slightly before the halfway point on the x-axis (~ 0.40) and to the top on the y-axis (~ 1.0). Don&#8217;t worry that the curve goes off the editor screen. We&#8217;re only taking it slightly above the limit of the editor so you can still have a fairly strong  like so:</p>
+<p><img alt="InitialAnchorPoint" src="../../_images/InitialAnchorPoint.gif" /></p>
+<p>Next, we&#8217;ll want to smooth out the curve using the Linear Tangents (this is selected by default) that can be found above the graph in the SampleCurve editor. First, we&#8217;ll adjust the tangents of the anchor point we made, like so:</p>
+<p><img alt="CurveSmoothing" src="../../_images/CurveSmoothing.gif" /></p>
+<p>Finally, we&#8217;ll smooth out the last part of the curve using the tangents on the last anchor point (which is there by default at (1,1)), like so:</p>
+<p><img alt="SecondCurveSmoothing" src="../../_images/SecondCurveSmoothing.gif" /></p>
+<p>Now all that&#8217;s left to do is to update the properties in the MenuActions component of our menu objects.</p>
+<ul class="simple">
+<li>In the Objects window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Select the <code class="docutils literal"><span class="pre">PlayText</span></code> object</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>In the Properties window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Under MenuActions</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Set EndValue to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">3,</span> <span class="pre">0]</span></code></li>
+<li>Set TimeToMove to: <code class="docutils literal"><span class="pre">1</span></code></li>
+<li>Set CustomEase to: <code class="docutils literal"><span class="pre">MenuTextCurve</span></code></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ul class="simple">
+<li>In the Objects window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Select the <code class="docutils literal"><span class="pre">HowToText</span></code> object</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>In the Properties window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Under MenuActions</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Set EndValue to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+<li>Set TimeToMove to: <code class="docutils literal"><span class="pre">1</span></code></li>
+<li>Set CustomEase to: <code class="docutils literal"><span class="pre">MenuTextCurve</span></code></li>
+<li>Set StartDelay to: <code class="docutils literal"><span class="pre">0.4</span></code></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ul class="simple">
+<li>In the Objects window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Select the <code class="docutils literal"><span class="pre">QuitText</span></code> object</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>In the Properties window</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Under MenuActions</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Set EndValue to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">-3,</span> <span class="pre">0]</span></code></li>
+<li>Set TimeToMove to: <code class="docutils literal"><span class="pre">1</span></code></li>
+<li>Set CustomEase to: <code class="docutils literal"><span class="pre">MenuTextCurve</span></code></li>
+<li>Set StartDelay to: <code class="docutils literal"><span class="pre">0.8</span></code></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run your game</span></a></li>
+</ul>
+<p>When you press the Spacebar, the menu objects should now rise up from the bottom with a short delay in between each one, slightly overshoot the target value, and finally settle back down to the target value, like so:</p>
+<p><img alt="MenuFinal" src="../../_images/MenuFinal.gif" /></p>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions</h2>
+<p>In this lesson, we have looked at how eases affect the change in acceleration of a value change when used in Actions (or &#8220;tweening&#8221;). We have seen numerous examples of ease types visualized on a graph and how those visualizations can be implemented in Zero using the SampleCurve editor. Finally, we made a simple project where we created our own custom ease using the SampleCurve editor and applied it to actions that bring menu options up from beneath the camera.</p>
+</div>
+<div class="section" id="on-your-own">
+<h2>On Your Own</h2>
+<ul class="simple">
+<li>Create another sample curve that will act as an custom ease for an action that brings the menu options back down below (or takes them above) the view of the camera. You could use a BackIn ease to keep it symmetrical with the way the menu options came in or you come up with a completely different one that expresses something else.</li>
+<li>Make a simple 2D platformer with moving platforms that are all animated using actions. Create a number of custom eases to apply to the movement of the platforms, making the level increasingly challenging for the player.</li>
+<li>Create a 2D or 3D camera system that makes cinematic moves (using translation and rotation value changes) using actions that take advantage of custom eases for specific, dramatic effects.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Architecture/index.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Actions.html" class="btn btn-neutral" title="Actions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Scripting/UsingCustomEaseInActionsTutorial.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:02:52 GMT -->
+</html>

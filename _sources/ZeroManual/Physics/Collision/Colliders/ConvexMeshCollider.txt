@@ -1,0 +1,119 @@
+.. _ManualConvexMeshCollider:
+
+.. rst-class:: SearchTitle
+
+ConvexMeshCollider
+==================
+
+.. rst-class:: SearchDescription
+
+The :cpp:type:`ConvexMeshCollider` is a user-defined convex mesh that approximates a volume. A major limitation of ConvexMeshCollider is that it fills any concave portion of the volume that it is being applied to; that is, any empty space created by a concave shape will be treated as part of the collision boundaries and resolve collision in what appears to the user as empty space. Therefore, the user will want to use it for those objects that are completely convex or for a convex approximation of a volume. Upsides to the ConvexMeshCollider, as opposed to the :ref:`MeshCollider<ManualMeshCollider>`, are efficiency and volume being represented.
+
+.. sidebar:: Recommended Reading
+
+    This page includes topics one might not have encountered yet. To learn about or review these materials, the following list provides the links to their respective Manual or Tutorial pages:
+    
+    *   :ref:`Collider<ManualCollider>`
+    
+    *   :ref:`MeshCollider<ManualMeshCollider>`
+
+.. _ManualConvexMeshColliderCommon:
+
+Common Uses
+-----------
+
+*   Defining the collision boundaries for completely or mostly convex models.
+
+*   Defining the collision boundaries for dynamic models where a convex approximation of those collision boundaries is deemed acceptable.
+
+.. _ManualConvexMeshColliderUsing:
+
+Using ConvexMeshCollider
+------------------------
+
+Attaching ConvexMeshCollider to a Convex Object
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ConvexMeshCollider component is made to be used with convex shapes in general. To see how this collider works as intended, a model of a completely convex barrel will be used. When the barrel model is imported, and ``ConvexMesh`` is selected as the ``PhysicsImport`` option, the Zero Editor creates the ConvexMeshCollider component and attaches it to the archetype, visible as a green outline on the barrel, as can seen here:
+
+|ConvexBarrelCollider|
+
+Demonstration
+~~~~~~~~~~~~~
+
+ConvexMeshCollider to a Convex Object
++++++++++++++++++++++++++++++++++++++
+
+Here the barrel object can be seen rolling down an inclined plane, wobbling as a barrel would in real-life when dropped from a height at an angle:
+
+|ConvexBarrelDemo|
+
+While this demonstration proves the usefulness of the ConvexMeshCollider when working with convex :cpp:type:`Meshes<Mesh>`, it is worthwhile to look at what happens when a ConvexMeshCollider is applied to a model with a Mesh that has *concave* surfaces.
+
+Attaching ConvexMeshCollider to a Concave Object
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+To illustrate how a ConvexMeshCollider behaves when added to an object that has clearly concave surfaces, two objects--both using the same Spear model--will be used, one standing upright, the other upside-down and placed directly over the other.
+
+Once imported and added to the level, highlighting either one in the :ref:`Objects Window<ManualEditorUIObjectWindow>` will show the ConvexMeshCollider attached to each model. As seen below, the empty spaces between the blades on the spears is still covered by the collider.
+
+|ConvexMeshOnSpears|
+   
+In the recording below, where the upside-down spear drops directly down, one would expect the spears to intersect each other through the empty space created by the blades at the top of each. 
+
+|SpearsColliding|
+
+As can be seen, the spears did not intersect at all, instead colliding in what appears to be completely empty space. 
+
+In conclusion, when using the ConvexMeshCollider, the user will always wish to make sure they are working with a completely convex Mesh or with a Mesh where the user is comfortable with a convex approximation over concave surfaces.
+
+Properties and Methods of ConvexMeshCollider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`ConvexMeshCollider Code Reference<ReferenceConvexMeshCollider>`
+
+Events of ConvexMeshCollider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*   :ref:`Collision Events<ManualCollisionEvents>`
+
+*   :ref:`Group Collision Events<ManualGroupCollisionEvents>`
+
+.. _ManualConvexMeshColliderRelated:
+
+Related Material
+----------------
+
+Manual Pages
+~~~~~~~~~~~~
+
+*   :ref:`Collision Overview<ManualCollisionOverview>`
+
+*   :ref:`MultiConvexMeshCollider<ManualMultiConvexMeshCollider>`
+
+Tutorial Pages
+~~~~~~~~~~~~~~
+
+*   :ref:`Collision<TutorialCollisionEvents>`
+
+Reference Pages
+~~~~~~~~~~~~~~~
+
+*   :cpp:type:`Transform`
+*   :cpp:type:`Collider`
+*   :cpp:type:`Mesh`
+*   :cpp:type:`ConvexMeshCollider`
+
+
+        
+        
+        
+.. |ImportConvexBarrel|                            image:: images/ConvexMeshCollider/ImportConvexBarrel.png
+.. |CreateBarrel|                                  image:: images/ConvexMeshCollider/CreateBarrel.gif
+.. |ConvexBarrelCollider|                          image:: images/ConvexMeshCollider/ConvexBarrelCollider.png
+.. |ConvexBarrelDemo|                              image:: images/ConvexMeshCollider/ConvexBarrelDemo.gif
+.. |CreateSpear|                                   image:: images/ConvexMeshCollider/CreateSpear.gif
+.. |ConvexMeshOnSpears|                            image:: images/ConvexMeshCollider/ConvexMeshOnSpears.png
+.. |SpearsColliding|                               image:: images/ConvexMeshCollider/SpearsColliding.gif
+
+.. Written by: Jason Clark

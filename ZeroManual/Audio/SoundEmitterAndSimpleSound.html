@@ -1,0 +1,341 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Audio/SoundEmitterAndSimpleSound.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:57:44 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SoundEmitter and SimpleSound &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Audio" href="index.html"/>
+        <link rel="next" title="SoundListener" href="SoundListener.html"/>
+        <link rel="prev" title="SoundCue" href="SoundCue.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Audio</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Sounds.html">Sounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundCue.html">SoundCue</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SoundEmitter and SimpleSound</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="SoundListener.html">SoundListener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundSpace.html">SoundSpace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundTags.html">SoundTag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SoundInstance.html">SoundInstance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="index.html">Audio</a> &raquo;</li>
+      
+    <li>SoundEmitter and SimpleSound</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/ZeroManual/Audio/SoundEmitterAndSimpleSound.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="soundemitter-and-simplesound">
+<span id="manualsoundemitterandsimplesound"></span><h1>SoundEmitter and SimpleSound</h1>
+<p class="searchdescription">Zero engine has three main audio components: <a class="reference internal" href="SoundListener.html#manualsoundlistener"><span>SoundListener</span></a>, SoundEmitter, and SimpleSound. This page will focus on the SoundEmitter and SimpleSound components, which are grouped together because SimpleSound requires a SoundEmitter component to work. These two components comprise the most basic way to play a SoundCue in a level.</p>
+<div class="section" id="common-uses">
+<h2>Common Uses</h2>
+<ul class="simple">
+<li>Adjusting the Volume and Pitch of SoundCues</li>
+<li>Play, Pause and Stop a SoundCue at runtime</li>
+<li>Set up a SoundCue to play at object initialization</li>
+</ul>
+</div>
+<div class="section" id="using-soundemitter">
+<h2>Using SoundEmitter</h2>
+<p>While a SoundEmitter component is not necessary for playing sounds, it is recommended for adjusting the properties of any SoundCues in use. There are three ways to choose a SoundCue to play: using the SimpleSound component, using functions available in Zilch through the SoundEmitter, and using functions available in Zilch through the <a class="reference internal" href="SoundSpace.html#manualsoundspace"><span>SoundSpace</span></a>.</p>
+<p>The SoundEmitter component must be attached to an object for that object to emit a sound. There is no restriction on the types of objects on which sound emitters may be placed, so that they can be put on an enemy, or an empty Transform, or even the <code class="docutils literal"><span class="pre">LevelSettings</span></code> object. Through the Properties window both the Pitch and Volume may be changed, as well as whether or not the SoundEmitter uses a 3D position or can always be heard by all SoundListeners regardless of distance. There are also other variables and functions available through code.</p>
+<div class="section" id="volume">
+<h3>Volume</h3>
+<div class="admonition-ranges-of-volume-and-pitch-properties admonition">
+<p class="first admonition-title">Ranges of <code class="docutils literal"><span class="pre">Volume</span></code> and <code class="docutils literal"><span class="pre">Pitch</span></code> properties</p>
+<p class="last">While there are ranges given for <code class="docutils literal"><span class="pre">Volume</span></code>, <code class="docutils literal"><span class="pre">VolumeDB</span></code>, <code class="docutils literal"><span class="pre">Pitch</span></code> and <code class="docutils literal"><span class="pre">PitchSemitones</span></code> below, these properties can accept values both above and below the ranges stated if either entered numerically through the property field or through a ZilchScript. The ranges specified are the limits if only the slider is used to adjust the properties, and are the recommended ranges of the properties.</p>
+</div>
+<p>The Volume property allows the volume percentage of the SoundCue that has been chosen to be played to be set on a scale of <code class="docutils literal"><span class="pre">0.0</span></code> to <code class="docutils literal"><span class="pre">1.0</span></code>. The percentage is represented as a scalar between <code class="docutils literal"><span class="pre">0.0</span></code> and <code class="docutils literal"><span class="pre">1.0</span></code>; that is to say, at <code class="docutils literal"><span class="pre">1.0</span></code> the volume is at 100%, while at <code class="docutils literal"><span class="pre">0.0</span></code> the volume is at 0%. If <code class="docutils literal"><span class="pre">UseVolumeDB</span></code> is set to true then the Volume property is replaced with VolumeDB, which adjusts the volume of the SoundCue by decibel levels instead and has a range between <code class="docutils literal"><span class="pre">-32</span></code> and <code class="docutils literal"><span class="pre">6</span></code>. Volume can be changed in two ways: clicking directly on the slider at the position relative to the sound level wanted, or by right-clicking on the bar the level may be entered numerically, both demonstrated below:</p>
+<p><img alt="ClickVolumeChange" src="../../_images/ClickVolumeChange.gif" /></p>
+<p><em>Changing Volume by Clicking</em></p>
+<p><img alt="ManualVolumeChange" src="../../_images/ManualVolumeChange.gif" /></p>
+<p><em>Changing Volume Numerically</em></p>
+<p>As stated before, <code class="docutils literal"><span class="pre">VolumeDB</span></code> uses decibels in place of a floating point and so it adjusts volume slightly differently. A decibel level of <code class="docutils literal"><span class="pre">0.0</span></code> is considered the full volume of the imported Sound being played and is equivalent to a Volume of <code class="docutils literal"><span class="pre">1.0</span></code>. Decibels, however, either double or halve the current volume level for every multiple of 6 that it is adjusted. For instance, <code class="docutils literal"><span class="pre">6.0</span></code> is comparable to <code class="docutils literal"><span class="pre">2.0</span></code> (twice as loud) and <code class="docutils literal"><span class="pre">12.0</span></code> is equivalent to <code class="docutils literal"><span class="pre">4.0</span></code> (four times as loud), while <code class="docutils literal"><span class="pre">-6.0</span></code> is equal to <code class="docutils literal"><span class="pre">0.5</span></code> (half volume) but <code class="docutils literal"><span class="pre">-12</span></code> is the same as <code class="docutils literal"><span class="pre">0.25</span></code> (one quarter volume).</p>
+</div>
+<div class="section" id="pitch">
+<h3>Pitch</h3>
+<p>The Pitch property allows the pitch (or the perceived change of frequency) to be changed higher or lower based on an scalar ranging from <code class="docutils literal"><span class="pre">-2.0</span></code> to <code class="docutils literal"><span class="pre">2.0</span></code>. If <code class="docutils literal"><span class="pre">UsePitchSemitones</span></code> is set to true then the Pitch property is replaced with PitchSemitones and uses a range of <code class="docutils literal"><span class="pre">-24</span></code> to <code class="docutils literal"><span class="pre">24</span></code> instead. Changing the pitch results in either a higher or lower tone relative to positions on the standard musical scale; i.e. higher or lower frequencies will cause the same cue to sound like it is in a different key. The pitch may be changed in Property window in the exact same way as with volume, as demonstrated below:</p>
+<p><em>Changing Pitch by Clicking</em></p>
+<p><img alt="ClickPitchChange" src="../../_images/ClickPitchChange.gif" /></p>
+<p><em>Changing Pitch Numerically</em></p>
+<p><img alt="ManualPitchChange" src="../../_images/ManualPitchChange.gif" /></p>
+<p>Both Pitch and PitchSemitones will adjust the frequency of the given sound, with Pitch either doubling or halving with every whole number and PitchSemitones every multiple of 12. For example, a Pitch of <code class="docutils literal"><span class="pre">1</span></code> and PitchSemitone of <code class="docutils literal"><span class="pre">12</span></code> both doubly the frequency while a Pitch of <code class="docutils literal"><span class="pre">-2</span></code> and a PitchSemitone of <code class="docutils literal"><span class="pre">-24</span></code> will both quarter the frequency.</p>
+</div>
+<div class="section" id="positional">
+<h3>Positional</h3>
+<p>The Positional boolean determines whether or not the sound played via this SoundEmitter uses a 3D position in the the Space. If set to true then any SoundListeners within range of the <code class="docutils literal"><span class="pre">MaxDistance</span></code> property of the SoundCue played will be able to hear it, and it may use a dropoff effect to the sound played, which may lessen the volume as the SoundListener moves further from its position. If set to false then all listeners will be able to hear SoundCue played regardless of distance. Having <code class="docutils literal"><span class="pre">Positional</span></code> set to false is best used for music intended to be used as a background track, where the desired effect is to be heard regardless of where the player is in the level.</p>
+</div>
+</div>
+<div class="section" id="the-properties-and-functions-of-soundemitter">
+<h2>The Properties and Functions of SoundEmitter</h2>
+<p><a class="reference internal" href="../CodeReference/Reference/SoundEmitter.html#referencesoundemitter"><span>SoundEmitter Code Reference</span></a></p>
+</div>
+<div class="section" id="using-simplesound">
+<h2>Using SimpleSound</h2>
+<p>SimpleSound, like its name suggests, is a simple way to play a sound. Choose a SoundCue, set the Property <code class="docutils literal"><span class="pre">StartPlaying</span></code> to true, and the cue will play. This straightforward approach is best suited to sounds that will be looped throughout the level such as background music. The two properties available in the Property window are SoundCue, which assigns the cue to play, and <code class="docutils literal"><span class="pre">StartPlaying</span></code>, a boolean that when set to true will start the cue whenever the component is initialized. SimpleSound does have SoundEmitter as a Dependency so the SoundEmitter component will need to be added first before the SimpleSound component can be.</p>
+<p>Choose the SoundCue to play by clicking on the left-clicking on the bar to the right of &#8220;Cue&#8221;, which by default, has the cue <cite>DefaultCue</cite> in it. Then scroll down to find the cue desired and left-click again to select it, like so:</p>
+<p><img alt="SimpleCueSelect" src="../../_images/SimpleCueSelect.gif" /></p>
+</div>
+<div class="section" id="the-properties-and-functions-of-simplesound">
+<h2>The Properties and Functions of SimpleSound</h2>
+<p><a class="reference internal" href="../CodeReference/Reference/SimpleSound.html#referencesimplesound"><span>SimpleSound Code Reference</span></a></p>
+</div>
+<div class="section" id="related-materials">
+<h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="SoundCue.html#manualsoundcue"><span>SoundCue</span></a></li>
+<li><a class="reference internal" href="SoundListener.html#manualsoundlistener"><span>SoundListener</span></a></li>
+<li><a class="reference internal" href="SoundInstance.html#manualsoundinstance"><span>SoundInstance</span></a></li>
+<li><a class="reference internal" href="SoundSpace.html#manualsoundspace"><span>SoundSpace</span></a></li>
+</ul>
+</div>
+<div class="section" id="tutorial-pages">
+<h3>Tutorial Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../Tutorials/Audio/Audio.html#tutorialaudio"><span>Using Audio</span></a></li>
+</ul>
+</div>
+<div class="section" id="reference-pages">
+<h3>Reference Pages</h3>
+<ul class="simple">
+<li><code class="xref cpp cpp-type docutils literal"><span class="pre">Real</span></code></li>
+<li><code class="xref cpp cpp-type docutils literal"><span class="pre">Boolean</span></code></li>
+<li><code class="xref cpp cpp-type docutils literal"><span class="pre">SoundInstance</span></code></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SoundListener.html" class="btn btn-neutral float-right" title="SoundListener" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SoundCue.html" class="btn btn-neutral" title="SoundCue" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Audio/SoundEmitterAndSimpleSound.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 23:57:47 GMT -->
+</html>

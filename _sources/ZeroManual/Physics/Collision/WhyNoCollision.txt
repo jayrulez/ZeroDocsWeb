@@ -1,0 +1,36 @@
+.. _ManualWhyNoCollision:
+
+.. rst-class:: SearchTitle
+
+Why is my object not colliding?
+-------------------------------
+
+.. rst-class:: SearchDescription
+
+* **It isn't colliding:** Check to make sure they are in fact colliding. In orthographic camera settings it is impossible to perceive when the z-values of the objects are misaligned. Try looking at the property grid of the objects or changing to a perspective camera view to confirm if they are actually colliding. 
+
+* **They don't have a collider:** Ensure both objects in question have a collider component of some variety (e.g. SphereCollider, BoxCollider, etc.).
+  
+ If you are specifically looking for visual collision resolution, be sure that neither are set for `Ghost Collision`.
+ 
+* **The object is static:** Check that the object that is supposed to be colliding has a RigidBody component and that its DynamicState is set to Dynamic or Kinematic. 
+
+  If it is static (or treated as static; `which is the default for things with a collider component but no RigidBody component` ), then it won't register the collision. 
+  
+    * Marked as a non-moving object, it is not checking for collision, thus, if it collides with other static object, you'll have no collision. 
+    * Equally if it collides with a dynamic object that is sleeping (i.e. it became stable and stopped running physics updates), it won't wake up the dynamic object, and thus, won't collide. 
+
+ If you are moving your player via code, such as using the SweptController, RigidBody should still be present, with the DynamicState set to Kinematic. 
+
+* **The message isn't being sent:** Ensure the SendEvents property for the colliders is marked True. 
+
+ If using the SweptController make sure:
+
+  * CustomCollisionEventsTracker component is attached to the same object as the SweptController
+  * SweptController's ForwardEvents property is set to true;
+ 
+* **The object didn't sign up to receive the event:** Check that the object that is supposed to collide is actually listening for the collision events. For more information on how to do this refer to the :ref:`Collision Events lesson <TutorialCollisionEvents>` . 
+
+|
+
+* **The object signed up for the wrong event:** Ensure the the object, event name, and callback function parameters are all correctly set in the Connect function to match the object of interest. Look to the guide for specifics on :ref:`listening for an event <TutorialEvents>` . 

@@ -1,0 +1,836 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/AI/SimpleAi.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 22:16:15 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ai Shooting and Movement &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Artificial Intelligence" href="index.html"/>
+        <link rel="next" title="Community" href="../../Community/index.html"/>
+        <link rel="prev" title="Artificial Intelligence" href="index.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Artificial Intelligence</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Ai Shooting and Movement</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Tutorials</a> &raquo;</li>
+      
+          <li><a href="index.html">Artificial Intelligence</a> &raquo;</li>
+      
+    <li>Ai Shooting and Movement</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Tutorials/AI/SimpleAi.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="ai-shooting-and-movement">
+<span id="tutorialsimpleai"></span><h1>Ai Shooting and Movement</h1>
+<p class="searchdescription">This snippet will cover artificial intelligence and adding simple behaviors to objects such as pacing back and forth, chasing, and shooting.</p>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/LauncherNewProject.html#manualcreatenewproject"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<p><strong>Player object</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Sprite object that was just created</span></a></li>
+<li>In Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Player</span></code></li>
+<li>Under Transform<ul>
+<li>Set Translation to: [-10, 0, 0]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Enemy object</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Sprite object that was just created</span></a></li>
+<li>In Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Enemy</span></code></li>
+<li>Under Sprite<ul>
+<li>Set SpriteSource to: Circle</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>Here is how our level should look after we do our initial level setup:</p>
+<p><a class="reference internal" href="../../_images/PlayerAndEnemyCreated.png"><img alt="PlayerAndEnemyCreated" src="../../_images/PlayerAndEnemyCreated.png" style="height: 3.0in;" /></a></p>
+</div>
+<div class="section" id="moving-the-player-object">
+<h2>Moving The Player Object</h2>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">PlayerController</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Player object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add the PlayerController component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project.</span></a></li>
+<li>Update the <strong>PlayerController</strong> script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">PlayerController</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="c1">// Variables trakcing player state</span>
+    <span class="c1">// Movement</span>
+    <span class="k">var</span> <span class="nx">MoveLeft</span> <span class="o">:</span> <span class="nb">Boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">MoveRight</span><span class="o">:</span> <span class="nb">Boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">MoveSpeed</span><span class="o">:</span> <span class="nx">Real</span>    <span class="o">=</span> <span class="mf">10.0</span><span class="o">;</span>
+
+    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nb">Transform</span><span class="o">:</span> <span class="nb">Transform</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// We will update the player every logic update</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Get all input from the Player Here</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">UpdatePlayerInput</span><span class="p">();</span>
+        <span class="c1">// Apply Logic for player movement</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">ApplyMovement</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">UpdatePlayerInput</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Set flags marking player movement</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">MoveLeft</span>  <span class="o">=</span> <span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">A</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">MoveRight</span> <span class="o">=</span> <span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">D</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">ApplyMovement</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">var</span> <span class="nx">moveDirection</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+
+        <span class="c1">// Apply movement based on player input</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">MoveLeft</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">moveDirection</span> <span class="o">+=</span> <span class="nx">Real3</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">MoveRight</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">moveDirection</span> <span class="o">+=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Only want the direction, do not want it to affect speed.</span>
+        <span class="nx">moveDirection</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Normalize</span><span class="p">(</span><span class="nx">moveDirection</span><span class="p">);</span>
+
+        <span class="c1">// Apply Movement</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+=</span> <span class="nx">moveDirection</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">MoveSpeed</span><span class="o">;</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="HorizontalMotion" src="../../_images/HorizontalMotion.png" /></p>
+<p>We now have basic horizontal movement of the Player object through the use of the A and D keys.</p>
+</div>
+<div class="section" id="basic-game-a-i-artificial-intelligence">
+<h2>Basic Game A.I. (Artificial Intelligence)</h2>
+<p>Artificial Intelligence in games is about having non-player controlled objects (NPCs) behave with a sense of reasoning or self-awareness. Some examples include chasing an object, fleeing from an object, navigating to a specific destination, swarming, and just wandering around with no destination. The ghosts in the game <em>Pac-Man</em> will chase <em>Pac-man</em> when they see him, and then they flee when his power pellet is active. Having object&#8217;s make decisions and change their behavior in similar ways that a human would is what helps to create an illusion of intellect or cunning. This allows for clever game play experiences.</p>
+</div>
+<div class="section" id="simple-a-i-movement">
+<h2>Simple A.I. Movement</h2>
+<p>Now that we have an idea of basic AI in games, let&#8217;s add some behavior to the Enemy object. We&#8217;ll start with some simple movement.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">EnemyController</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Enemy object</span></a></li>
+<li>In the Properties Window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add the EnemyController component</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a></li>
+</ul>
+<p>Now we are going to make the Enemy object move up and down as if it was pacing back and forth or patrolling a specific area.</p>
+<ul class="simple">
+<li>Update the EnemyController script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">EnemyController</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">PaceSpeed</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">5.0</span><span class="o">;</span>
+    <span class="k">var</span> <span class="nx">PaceDirection</span><span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+
+    <span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nb">Transform</span><span class="o">:</span> <span class="nb">Transform</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// We need to update the enemy&#39;s behavior every logic update</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Logic for pacing back and forth</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">PaceBackAndForth</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">PaceBackAndForth</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Apply movement</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">PaceDirection</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">PaceSpeed</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>The Enemy object moves upward. The next step is to make the object change its direction after it moves past a maximum distance from its starting position.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li>Update the <strong>EnemyController</strong> with the following code:<ul>
+<li>Update the class variables by adding the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">PaceSpeed</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">5.0</span><span class="o">;</span>
+<span class="hll">  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nx">MaxMoveDistance</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">;</span>
+</span>  <span class="k">var</span> <span class="nx">PaceDirection</span><span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="hll">  <span class="k">var</span> <span class="nx">StartPosition</span><span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">();</span>
+</span>
+
+<span class="o">*</span> <span class="nx">Update</span> <span class="nx">the</span> <span class="o">**</span><span class="nx">Initialize</span><span class="o">**</span> <span class="kd">function</span> <span class="nx">by</span> <span class="nx">adding</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">code</span><span class="o">:</span>
+</pre></div>
+</div>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="c1">// We need to update the enemy&#39;s behavior every logic update</span>
+  <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+<span class="hll">  <span class="c1">// Have to know where we started to know how far we&#39;ve moved</span>
+</span><span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">StartPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+</span>
+
+<span class="o">*</span> <span class="nx">Update</span> <span class="nx">the</span> <span class="o">**</span><span class="nx">PaceBackAndForth</span><span class="o">**</span> <span class="kd">function</span> <span class="k">with</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">code</span><span class="o">:</span>
+</pre></div>
+</div>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="hll">  <span class="c1">// Find out how far we&#39;ve travelled from our start position</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nx">displacement</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">StartPosition</span><span class="o">;</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nx">distanceFromStart</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Length</span><span class="p">(</span><span class="nx">displacement</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">  <span class="c1">// If we have travelled past our max distance</span>
+</span><span class="hll">  <span class="k">if</span> <span class="p">(</span><span class="nx">distanceFromStart</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">MaxMoveDistance</span><span class="p">)</span>
+</span><span class="hll">  <span class="p">{</span>
+</span><span class="hll">      <span class="c1">// Change direction to go back the way we came</span>
+</span><span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">PaceDirection</span> <span class="o">=</span> <span class="o">-</span><span class="nx">displacement</span><span class="o">;</span>
+</span><span class="hll">  <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">  <span class="c1">// Ensure the PaceDirection is only a direction via normlization</span>
+</span><span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">PaceDirection</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Normalize</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">PaceDirection</span><span class="p">);</span>
+</span>
+  <span class="c1">// Apply movement</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">PaceDirection</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">PaceSpeed</span><span class="o">;</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="Pacing" src="../../_images/Pacing.png" /></p>
+<p>The Enemy object moves upward until it reaches the specified distance from its starting position, and then it goes in the opposite direction.</p>
+</div>
+<div class="section" id="chasing-an-object-when-it-gets-close">
+<h2>Chasing An Object When It Gets Close</h2>
+<p>Our new goal is to make the Enemy object chase after the Player object whenever the Player object gets within a specified range or distance from the Enemy object. We will start by detecting that the player is within range. We will visually test that our code works by simply changing the Enemy object&#8217;s color depending on whether or not the Player object is close by.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li>Update the <strong>EnemyController</strong> script with the following code:<ul>
+<li>Update the class variables with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span> <span class="c1">// Pacing Properties and variables</span>
+<span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+<span class="k">var</span> <span class="nx">PaceSpeed</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">5.0</span><span class="o">;</span>
+<span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+<span class="k">var</span> <span class="nx">MaxMoveDistance</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">PaceDirection</span><span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">StartPosition</span><span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">();</span>
+
+<span class="c1">// Chasing Properties and variables</span>
+<span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+<span class="k">var</span> <span class="nx">TargetObject</span><span class="o">:</span> <span class="nx">CogPath</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">ChaseTriggerDistance</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">7.0</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">DistanceFromTarget</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">ChaseDirection</span><span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">();</span>
+<span class="k">var</span> <span class="nx">ChaseColor</span><span class="o">:</span><span class="nx">Real4</span> <span class="o">=</span> <span class="nx">Real4</span><span class="p">(</span><span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="k">var</span> <span class="nx">TargetIsWithinRange</span><span class="o">:</span> <span class="nb">Boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="c1">// Variables for smoothing state transitions</span>
+<span class="k">var</span> <span class="nx">OriginalColor</span><span class="o">:</span> <span class="nx">Real4</span> <span class="o">=</span> <span class="nx">Real4</span><span class="p">();</span>
+
+<span class="c1">// Dependencies</span>
+<span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+<span class="k">var</span> <span class="nb">Transform</span><span class="o">:</span> <span class="nb">Transform</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="p">[</span><span class="nx">Dependency</span><span class="p">]</span>
+<span class="k">var</span> <span class="nb">Sprite</span><span class="o">:</span> <span class="nb">Sprite</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</pre></div>
+</div>
+<p><em>Notice that some things have been rearranged for readability</em></p>
+<blockquote>
+<div><ul class="simple">
+<li>Update the <strong>Initialize</strong> function with the following code:</li>
+</ul>
+</div></blockquote>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="k">this</span><span class="p">.</span><span class="nx">StartPosition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+<span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">OriginalColor</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Sprite</span><span class="p">.</span><span class="nb">Color</span><span class="o">;</span>
+</span></pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li>Update the <strong>OnLogicUpdate</strong>  function with the following code:</li>
+</ul>
+</div></blockquote>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Reevaluate the situation to determine if our object should pursue</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">TargetIsWithinRange</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="c1">// If our target exists</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TargetObject</span><span class="p">.</span><span class="nx">Cog</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Calculate the direction and distance of target</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">CalculateChaseDirectionAndDistance</span><span class="p">();</span>
+    <span class="c1">// Evaluate whether Ai should chase or pace</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">TargetIsWithinRange</span> <span class="o">=</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">DistanceFromTarget</span> <span class="o">&lt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">ChaseTriggerDistance</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TargetIsWithinRange</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Chase target</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">ChaseTarget</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="c1">// If target not in range</span>
+    <span class="p">{</span>
+        <span class="c1">// Pace back and forth</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">PaceBackAndForth</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="c1">// if there is no target, pace</span>
+<span class="p">{</span>
+    <span class="c1">// Logic for pacing back and forth</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">PaceBackAndForth</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li>Update the <strong>PaceBackAndForth</strong> function by adding the following code:</li>
+</ul>
+</div></blockquote>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="kd">function</span> <span class="nx">PaceBackAndForth</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+  <span class="p">{</span>
+<span class="hll">      <span class="c1">// Set pacing color</span>
+</span><span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Sprite</span><span class="p">.</span><span class="nb">Color</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">OriginalColor</span><span class="o">;</span>
+</span></pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li>Add the following function to the <strong>EnemyController</strong> class:</li>
+</ul>
+</div></blockquote>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">CalculateChaseDirectionAndDistance</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Get direction toward target</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ChaseDirection</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">TargetObject</span><span class="p">.</span><span class="nx">Cog</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="o">;</span>
+    <span class="c1">// Extract distance by finding magnitude</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">DistanceFromTarget</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Length</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">ChaseDirection</span><span class="p">);</span>
+    <span class="c1">// Extract direction by normalizing</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ChaseDirection</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">Normalize</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">ChaseDirection</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li>Add the following function to the <strong>EnemyController</strong> class:</li>
+</ul>
+</div></blockquote>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">ChaseTarget</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Set Chase Color</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Sprite</span><span class="p">.</span><span class="nb">Color</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">ChaseColor</span><span class="o">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a></li>
+<li>In the Objects Window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Enemy object</span></a></li>
+</ul>
+</li>
+<li>In the Properties Window<ul>
+<li>Under EnemyController<ul>
+<li>Set targetObject to: Player</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="ChaseRed" src="../../_images/ChaseRed.png" /></p>
+<p>The Enemy object moves moves up and down. If you move the Player object close enough, the Enemy object&#8217;s color will change to red. It also stops moving because, at the moment, the only thing we are doing in the ChaseTarget function is changing the color. We calculated the ChaseDirection already, so let&#8217;s go ahead and make the Enemy object chase the Player object.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li>Update the <strong>EnemyController</strong> script with the following code:<ul>
+<li>Update the class variables by adding the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="c1">// Chasing Properties and variables</span>
+  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+  <span class="k">var</span> <span class="nx">TargetObject</span><span class="o">:</span> <span class="nx">CogPath</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="hll">  <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+</span><span class="hll">  <span class="k">var</span> <span class="nx">ChaseSpeed</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">5.0</span><span class="o">;</span>
+</span>  <span class="k">var</span> <span class="nx">ChaseTriggerDistance</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">7.0</span><span class="o">;</span>
+  <span class="k">var</span> <span class="nx">DistanceFromTarget</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+  <span class="k">var</span> <span class="nx">ChaseDirection</span><span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">();</span>
+  <span class="k">var</span> <span class="nx">ChaseColor</span><span class="o">:</span><span class="nx">Real4</span> <span class="o">=</span> <span class="nx">Real4</span><span class="p">(</span><span class="mf">1.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">1.0</span><span class="p">);</span>
+  <span class="k">var</span> <span class="nx">TargetIsWithinRange</span><span class="o">:</span> <span class="nb">Boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li>Update the <strong>ChaseTarget</strong> function:</li>
+</ul>
+</div></blockquote>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="hll">  <span class="kd">function</span> <span class="nx">ChaseTarget</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+</span>  <span class="p">{</span>
+      <span class="c1">// Set Chase Color</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Sprite</span><span class="p">.</span><span class="nb">Color</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">ChaseColor</span><span class="o">;</span>
+
+<span class="hll">      <span class="c1">// Apply movement</span>
+</span><span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">ChaseDirection</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">ChaseSpeed</span><span class="o">;</span>
+</span>  <span class="p">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li>Update the <strong>LogicUpdate</strong> function by altering the following line:</li>
+</ul>
+</div></blockquote>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">TargetIsWithinRange</span><span class="p">)</span>
+  <span class="p">{</span>
+      <span class="c1">// Chase target</span>
+<span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">ChaseTarget</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+</span>  <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="Chasing" src="../../_images/Chasing.png" /></p>
+<p>The Enemy object now chases the Player object when the Player object gets near. In this situation, the Enemy object is already in the level. This is why we were able to simply set its targetObject Cog Property to the Player object which is also already in the level. If we had created the Enemy object at run-time, from an archetype, then the Cog Property wouldn&#8217;t work (it becomes invalid). This is because the Cog Property can&#8217;t have a reference to an object that doesn&#8217;t exist yet.</p>
+</div>
+<div class="section" id="shooting">
+<h2>Shooting</h2>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">Projectile</span></code></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project.</span></a></li>
+</ul>
+<p><strong>Create a Sprite</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a> : <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Sprite object that was just created</span></a></li>
+<li>In the Properties Window<ul>
+<li>Set Name to: EnemyProjectile</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/AddRemoveComponent.html#manualaddremovecomponents"><span>Add the Projectile component</span></a></li>
+<li>Under Transform<ul>
+<li>Set Scale to: [0.5, 0.5, 0.5]</li>
+</ul>
+</li>
+<li>Under Sprite<ul>
+<li>Set SpriteSource to: Circle</li>
+<li>Set Color to: [R: 128, G: 128, B: 0, A: 1.00]</li>
+</ul>
+</li>
+<li>Set Archetype to: EnemyProjectile</li>
+<li>Click the button to upload (save) the archetype</li>
+</ul>
+</li>
+</ul>
+<p>Here is the EnemyProjectile archetype&#8217;s properties:</p>
+<p><img alt="ArchetypeEnemyProjectile" src="../../_images/ArchetypeEnemyProjectile.png" /></p>
+<ul class="simple">
+<li>Update the Projectile script with the following code:</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">Projectile</span> <span class="o">:</span> <span class="nx">ZilchComponent</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">Speed</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">2.0</span><span class="o">;</span>
+    <span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nx">Direction</span><span class="o">:</span> <span class="nx">Real3</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">();</span>
+    <span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// We need to update the projectile&#39;s movement every logic update</span>
+        <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Apply movement</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Direction</span> <span class="o">*</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">Speed</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project.</span></a></li>
+</ul>
+<p>Make sure the EnemyProjectile archetype was saved to the Library Window.</p>
+<ul class="simple">
+<li>In the Library Window<ul>
+<li>Start typing <code class="docutils literal"><span class="pre">EnemyProjectile</span></code> in the search bar</li>
+</ul>
+</li>
+</ul>
+<p><img alt="InLibrary" src="../../_images/InLibrary.png" /></p>
+<ul class="simple">
+<li>In the Objects Window<ul>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the EnemyProjectile</span></a></li>
+</ul>
+</li>
+<li>Delete the EnemyProjectile object</li>
+</ul>
+<p><img alt="DeleteObject" src="../../_images/DeleteObject.png" /></p>
+<ul class="simple">
+<li>Open the <strong>EnemyController</strong> script</li>
+<li>Update the <strong>EnemyController</strong> script with the following code:<ul>
+<li>Update the <strong>OnLogicUpdate</strong> function with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span>  <span class="c1">// Chase target</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">ChaseTarget</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+<span class="hll">  <span class="c1">// Shoot target</span>
+</span><span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">ShootAtTarget</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+</span></pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li>Add the following function to the <strong>EnemyController</strong> class:</li>
+</ul>
+</div></blockquote>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">ShootAtTarget</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Create a projectile originating from the enemy&#39;s position</span>
+    <span class="k">var</span> <span class="nx">projectileObject</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">CreateAtPosition</span><span class="p">(</span><span class="nx">Archetype</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;EnemyProjectile&quot;</span><span class="p">)</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">projectileObject</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Shoot in the direction of the target (which is the same as the chase Direction)</span>
+        <span class="nx">projectileObject</span><span class="p">.</span><span class="nx">Projectile</span><span class="p">.</span><span class="nx">Direction</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">ChaseDirection</span><span class="o">;</span>
+        <span class="c1">// Make sure projectile moves faster than the enemy</span>
+        <span class="nx">projectileObject</span><span class="p">.</span><span class="nx">Projectile</span><span class="p">.</span><span class="nx">Speed</span> <span class="o">=</span> <span class="mf">15.0</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">ChaseSpeed</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p><img alt="RapidFire" src="../../_images/RapidFire.png" /></p>
+<p>If you move the Player object close to the Enemy object, it will create an EnemyProjectile object using the EnemyProjectile archetype, and then send it flying in the direction of the Player object. It works, but we have a problem. It is creating a really large number of objects really, really fast. This will lead to performance problems such lagging and memory shortage. Let&#8217;s limit the rate at which projectiles are being shot.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/StopGame.html#manualstopgame"><span>Stop the Game</span></a></li>
+<li>Update the <strong>EnemyController</strong> script with the following code:<ul>
+<li>Update the class variables by adding the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Shooting Properties</span>
+<span class="p">[</span><span class="nx">Property</span><span class="p">]</span>
+<span class="k">var</span> <span class="nx">ShootDelay</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">;</span>
+<span class="k">var</span> <span class="nx">NextShot</span><span class="o">:</span> <span class="nx">Real</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li>Update the <strong>ShootAtTarget</strong> function with the following code:</li>
+</ul>
+</div></blockquote>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="hll">  <span class="c1">// Don&#39;t shoot until the next shot timer is reached</span>
+</span><span class="hll">  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">TimePassed</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">NextShot</span><span class="p">)</span>
+</span><span class="hll">  <span class="p">{</span>
+</span><span class="hll">      <span class="c1">// Update next shot timer</span>
+</span><span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">NextShot</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">TimePassed</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">ShootDelay</span><span class="o">;</span>
+</span>      <span class="c1">// Create a projectile originating from the enemy&#39;s position</span>
+      <span class="k">var</span> <span class="nx">projectileObject</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="p">.</span><span class="nx">CreateAtPosition</span><span class="p">(</span><span class="nx">Archetype</span><span class="p">.</span><span class="nx">Find</span><span class="p">(</span><span class="s2">&quot;EnemyProjectile&quot;</span><span class="p">)</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nb">Transform</span><span class="p">.</span><span class="nx">Translation</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">projectileObject</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+      <span class="p">{</span>
+          <span class="c1">// Shoot in the direction of the target (which is the same as the chase Direction)</span>
+          <span class="nx">projectileObject</span><span class="p">.</span><span class="nx">Projectile</span><span class="p">.</span><span class="nx">Direction</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">ChaseDirection</span><span class="o">;</span>
+          <span class="c1">// Make sure projectile moves faster than the enemy</span>
+          <span class="nx">projectileObject</span><span class="p">.</span><span class="nx">Projectile</span><span class="p">.</span><span class="nx">Speed</span> <span class="o">=</span> <span class="mf">15.0</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">ChaseSpeed</span><span class="o">;</span>
+      <span class="p">}</span>
+<span class="hll">  <span class="p">}</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SavingProject.html#manualsavingproject"><span>Save your project</span></a> and <a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>run the game</span></a></li>
+</ul>
+<p>When the Player object gets near the Enemy object, the Enemy object will shoot a projectile every second now because we set the <strong>ShootDelay</strong> variable to 1.0 (seconds).</p>
+<p>Right now, the Enemy object simply paces back and forth in the specified direction after traveling a specified distance. You could add additional behavior by adding logic for giving the Enemy object a random <strong>PaceDirection</strong> and <strong>MaxMoveDistance</strong> when it moves past its MaxMoveDistance.</p>
+<p>For efficiency and good practice, you should also equip the projectile archetype with self-deleting behavior, such as a timed death component used in the  <span class="xref std std-ref">Particle Effects lesson</span> or make one that deletes it upon leaving the screen.</p>
+<p>Now you know how to code a simple Ai.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../Community/index.html" class="btn btn-neutral float-right" title="Community" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Artificial Intelligence" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/AI/SimpleAi.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 22:16:20 GMT -->
+</html>

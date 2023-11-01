@@ -1,0 +1,138 @@
+.. _TutorialArea:
+
+.. rst-class:: SearchTitle
+
+Area Component
+==============
+
+.. rst-class:: SearchDescription
+
+This lesson explains the basics of using the Area Component.
+
+Create a New Project
+--------------------
+
+:ref:`ManualCreateNewProject`
+
+Level Setup
+-----------
+
+Create the Test Sprite
+
+*   :ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+*   :ref:`Select the Sprite you created <ManualSelectObject>`
+
+*   In the Properties Window
+
+    *   Set name to: AreaTest
+    
+    *   Under Transform
+    
+        *   Set Scale to: [5, 1, 1]     
+
+|Stretched|
+   
+Why Area?
+---------
+
+Notice that the edges of the sprite are all blurry. How can we fix that?
+
+* In the Properties Window
+
+    * :ref:`Add the Area Component <ManualAddRemoveComponents>`
+    
+    * Under Transform
+    
+        *   Reset Scale to: [1, 1, 1]    
+        
+    * Under Area
+    
+        * Set Size to: [5, 1]
+        
+        
+Here is what it will look like
+
+|NineSliced|
+
+First note that Area's Size unlike scale will not be inherited by children.
+        
+Now the edges are nice on our sprite. This is because the default Square sprite already has feature know as nine slice scaling enabled. 
+
+Here is how it works.
+
+|NineSliceDemo|
+
+Adding Your Own Nine Sliced Sprite
+----------------------------------
+
+:download:`Download Sprite <images/Area/Button.png>`
+
+
+* Import a Nine Slice ready sprite.
+
+* Find the sprite in the library and edit it
+
+* In Sprite Editor Window
+
+    * Set the mode to nine slice
+
+    * Change the Left, Right, Top, and Bottom to 5,5,5,5
+
+    |NineSliceSettings|
+
+
+    
+* Select this sprite on your object
+
+|NiceButton|
+
+
+
+Tiling Mode
+-----------
+
+Sprites can also be tiled by the Area component
+
+:download:`Download Sprite <images/Area/TiledBackground.png>`
+
+* Import a tilable sprite to your project.
+
+* Find the sprite in the library
+
+* In Sprite Editor Window
+
+    * Set the mode to Tiled
+
+* :ref:`Command<ManualCommands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+
+* In the Properties Window
+
+    * Set the sprite to tiled background
+
+    * :ref:`Add the Area Component <ManualAddRemoveComponents>`
+        
+    * Under Area
+    
+        * Set Size to: [200, 200]
+
+|FinalButtonWeb| 
+
+
+..  |FinalButtonWeb| image:: images/Area/TileDemo.png
+    :width: 8.35in
+
+..  |FinalButtonBook| image:: images/Area/TileDemo.png
+    :height: 3.0in
+
+..  |Stretched| image:: images/Area/Stretched.png
+
+..  |NineSliced| image:: images/Area/NineSliced.png
+
+.. |NineSliceDemo| image:: images/Area/NineSliceDemo.png
+
+..  |NineSliceSettings| image:: images/Area/NineSliceSettings.png
+
+.. |NiceButton| image:: images/Area/NiceButton.png
+
+ 

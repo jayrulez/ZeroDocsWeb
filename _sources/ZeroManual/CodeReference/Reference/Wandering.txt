@@ -1,0 +1,124 @@
+.. _ReferenceWandering:
+
+.. rst-class:: searchtitle
+
+Wandering
+=========
+
+.. rst-class:: searchdescription
+
+Rotates the object in a way that would cause the object to wander if it was moving forward.
+
+.. include:: Description/Wandering.rst
+
+.. cpp:class:: Wandering
+
+    Base Class: :cpp:type:`MovementBase`
+
+.. _ReferenceWanderingProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Wandering::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space Wandering::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog Wandering::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession Wandering::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Wandering::Active
+
+            Is the component active.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Wandering::MaxAngleChange
+
+            The maximum angle that this component can output.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Wandering::Strength
+
+            The strength of this particular movement component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Wandering::QueryOnly
+
+            Do we query the component(and not rotate our object?)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool Wandering::DebugDraw
+
+            Do we draw the debug information?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Wandering::CircleRadius
+
+            The radius of the circle that we use to wander.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Wandering::MaxWanderAngleChange
+
+            The maximum change in wandering angle per frame.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int Wandering::RecursionLevels
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real Wandering::ScalePerRecursion
+
+            The scale per recursion(ignore this if your recursion level is 1)
+
+.. _ReferenceWanderingMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void Wandering::DebugDraw()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Real Wandering::QueryAngleChangeRadians()
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Real Wandering::QueryAngleChangeDegrees()
+
+            
+
+.. include:: Remarks/Wandering.rst

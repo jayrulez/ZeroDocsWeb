@@ -1,0 +1,582 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Gameplay/UsingTheSweptController.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:07:46 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using the Swept Controller &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../index-2.html"/>
+        <link rel="up" title="Gameplay" href="index.html"/>
+        <link rel="next" title="Graphics" href="../Graphics/index.html"/>
+        <link rel="prev" title="Level Checkpoints" href="SameLevelCheckpoints.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ZeroManual/index.html">Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Architecture/index.html">Architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Gameplay</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ObjectCreation.html">Object Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Input/index.html">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VectorMath/index.html">Vector Math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LevelSwitching.html">Level Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SameLevelCheckpoints.html">Level Checkpoints</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Using the Swept Controller</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AI/index.html">Artificial Intelligence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Tutorials</a> &raquo;</li>
+      
+          <li><a href="index.html">Gameplay</a> &raquo;</li>
+      
+    <li>Using the Swept Controller</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/Tutorials/Gameplay/UsingTheSweptController.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="using-the-swept-controller">
+<span id="tutorialsusingthesweptcontroller"></span><h1>Using the Swept Controller</h1>
+<p class="searchdescription">This lesson shows how to use the SweptController stock script to create a player that has physics-based abilities, such as jumping and collision.</p>
+<div class="section" id="learning-objectives">
+<span id="tutorialsusingthesweptcontrollervocab"></span><h2>Learning Objectives</h2>
+<ul class="simple">
+<li>Understanding the usage of the <code class="docutils literal"><span class="pre">SweptController</span></code>.</li>
+<li>Use of a Kinematic character controller.</li>
+</ul>
+<table border="1" class="vocabsection docutils">
+<colgroup>
+<col width="17%" />
+<col width="29%" />
+<col width="27%" />
+<col width="27%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="4">Vocabulary</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>RigidBody</td>
+<td>DynamicState</td>
+<td>Dynamic</td>
+<td>Kinematic</td>
+</tr>
+<tr class="row-odd"><td>Static</td>
+<td>PlayerController</td>
+<td>SweptController</td>
+<td>Input Detection</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="create-a-new-project">
+<h2>Create a New Project</h2>
+<p><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/LauncherNewProject.html#manualcreatenewproject"><span>Create a New Project</span></a></p>
+</div>
+<div class="section" id="level-setup">
+<h2>Level Setup</h2>
+<p><strong>Ground Object</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></li>
+<li>In Properties Window<ul>
+<li>Set Name to: <code class="docutils literal"><span class="pre">Ground</span></code></li>
+<li><span class="xref std std-ref">Add a BoxCollider Component</span></li>
+<li>Under Transform<ul>
+<li>Set the Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></li>
+<li>Set the Scale to: <code class="docutils literal"><span class="pre">[10,</span> <span class="pre">1,</span> <span class="pre">1]</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Platform Object</strong></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></p>
+</li>
+<li><p class="first">In Properties Window</p>
+<ul>
+<li><p class="first">Set Name to: <code class="docutils literal"><span class="pre">Platform</span></code></p>
+</li>
+<li><p class="first"><span class="xref std std-ref">Add a BoxCollider Component</span></p>
+</li>
+<li><p class="first">Under Transform</p>
+<ul>
+<li><p class="first">Set the Translation to: <code class="docutils literal"><span class="pre">[4,</span> <span class="pre">4,</span> <span class="pre">0]</span></code></p>
+</li>
+<li><p class="first">Set the Scale to: <code class="docutils literal"><span class="pre">[5,</span> <span class="pre">1,</span> <span class="pre">1]</span></code></p>
+<blockquote>
+<div><p><img alt="CP0_LevelSetupWeb" src="../../_images/CP0_4.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="implementing-stock-scripts">
+<h2>Implementing Stock Scripts</h2>
+<p>Next we will import the provided platformer scripts into our project.</p>
+<ul class="simple">
+<li>Download the <code class="docutils literal"><span class="pre">SweptCharacter</span></code> package from The Void.</li>
+</ul>
+<p>You should now find the SweptController under ZilchScript tag in the Library Window.</p>
+<ul class="simple">
+<li>Open up the Code for SweptController</li>
+</ul>
+<p>It is not the responsibility of the high-level programmer to know how this code works.  We just need to be able to integrate it correctly.</p>
+<p>If you look at the top of the code, you will see the instructions that we need to use.  We will come back to this once are done creating the player.</p>
+<p><strong>Player Object</strong></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/Commands.html#manualcommands"><span>Command</span></a>: <code class="docutils literal"><span class="pre">CreateSprite</span></code> or <span class="menuselection">Create ‣ Create Sprite</span></p>
+</li>
+<li><p class="first">In Properties Window</p>
+<ul>
+<li><p class="first">Set Name to: <code class="docutils literal"><span class="pre">Player</span></code></p>
+</li>
+<li><p class="first"><span class="xref std std-ref">Add a BoxCollider Component</span></p>
+</li>
+<li><p class="first"><span class="xref std std-ref">Add a RigidBody Component</span></p>
+</li>
+<li><p class="first"><span class="xref std std-ref">Add a SweptController Component</span></p>
+</li>
+<li><p class="first">Under Transform</p>
+<ul class="simple">
+<li>Set the Translation to: <code class="docutils literal"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">0]</span></code></li>
+</ul>
+</li>
+<li><p class="first">Under RigidBody</p>
+<ul>
+<li><p class="first">Set AllowSleep to: <code class="docutils literal"><span class="pre">False</span></code></p>
+<blockquote>
+<div><p><img alt="CP0_LevelSetupPlayerWeb" src="../../_images/CP0_3.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The first and foremost instruction in the SweptController script is:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// The user will need to make their own script for peripheral input.</span>
+</pre></div>
+</div>
+<p>This means we need to implement a PlayerController to use with our SweptController.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/ResourceAdding.html#manualresourceadding"><span>Add a new ZilchScript resource</span></a> named: <code class="docutils literal"><span class="pre">PlayerController</span></code></li>
+<li>Go back to SweptController</li>
+</ul>
+<p>Now we need to follow the rest of the instructions at the top of the SweptController.</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Usage:</span>
+<span class="c1">// The user will need to make their own script for peripheral input.</span>
+<span class="hll"><span class="c1">// Each LogicUpdate, the input script should determine the direction of</span>
+</span><span class="hll"><span class="c1">// desired movement (does not need to be normalized) and pass it to the</span>
+</span><span class="hll"><span class="c1">// Update function of this script, along with the Dt from the UpdateEvent.</span>
+</span>
+<span class="c1">// Character controller is independent of physics update.</span>
+<span class="c1">// The RigidBody is expected to be Kinematic when using this controller.</span>
+</pre></div>
+</div>
+<p>This tells us we need to:</p>
+<p>Step 1: Connect to the built-in LogicUpdate event</p>
+<p>Step 2: In the LogicUpdate event callback</p>
+<ul>
+<li><p class="first">Step 2a: Generate a movement vector</p>
+</li>
+<li><p class="first">Step 2b: Call the SweptController&#8217;s Update function <br /> Passing:</p>
+<blockquote>
+<div><ul class="simple">
+<li>(2b.i)  the movement vector <br /> and</li>
+<li>(2b.ii) the Dt variable (Provided by the UpdateEvent parameter of the LogicUpdate event callback)</li>
+</ul>
+<p><br /></p>
+</div></blockquote>
+</li>
+</ul>
+<ul class="simple">
+<li>In the <strong>PlayerController</strong> script<ul>
+<li>Update the <strong>PlayerController</strong>&#8216;s <strong>Initialize</strong> function with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Initialize</span><span class="p">(</span><span class="nx">init</span> <span class="o">:</span> <span class="nx">CogInitializer</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Step 1</span>
+<span class="hll">  <span class="nx">Zero</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Space</span><span class="o">,</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">LogicUpdate</span><span class="o">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">OnLogicUpdate</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><ul class="first">
+<li>Update the <strong>PlayerController</strong>&#8216;s <strong>OnLogicUpdate</strong> function with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Step 2</span>
+<span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Step 2a</span>
+<span class="hll">  <span class="k">var</span> <span class="nx">movement</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+</span>
+  <span class="c1">// Step 2b</span>
+<span class="hll">  <span class="c1">// at the end, update</span>
+</span>  <span class="c1">//                                2b.i      2b.ii</span>
+<span class="hll">  <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SweptController</span><span class="p">.</span><span class="nx">Update</span><span class="p">(</span><span class="nx">movement</span><span class="o">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Now we can change the movement by checking for key presses.</p>
+<ul class="simple">
+<li>In the <strong>PlayerController</strong> script<ul>
+<li>Update the <strong>PlayerController</strong>&#8216;s <strong>OnLogicUpdate</strong> function with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">movement</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+
+<span class="hll">  <span class="c1">// control left, right, and up</span>
+</span><span class="hll">  <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Left</span><span class="p">))</span>
+</span><span class="hll">  <span class="p">{</span>
+</span><span class="hll">    <span class="nx">movement</span><span class="p">.</span><span class="nx">X</span> <span class="o">-=</span> <span class="mf">1.0</span><span class="o">;</span>
+</span><span class="hll">  <span class="p">}</span>
+</span>
+<span class="hll">  <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Right</span><span class="p">))</span>
+</span><span class="hll">  <span class="p">{</span>
+</span><span class="hll">    <span class="nx">movement</span><span class="p">.</span><span class="nx">X</span> <span class="o">+=</span> <span class="mf">1.0</span><span class="o">;</span>
+</span><span class="hll">  <span class="p">}</span>
+</span>
+<span class="hll">  <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Up</span><span class="p">))</span>
+</span><span class="hll">  <span class="p">{</span>
+</span><span class="hll">    <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SweptController</span><span class="p">.</span><span class="nx">Jump</span><span class="p">();</span>
+</span><span class="hll">  <span class="p">}</span>
+</span>
+  <span class="c1">// at the end, update</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SweptController</span><span class="p">.</span><span class="nx">Update</span><span class="p">(</span><span class="nx">movement</span><span class="o">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Player object</span></a></li>
+<li>In the Properties Window<ul>
+<li><span class="xref std std-ref">Add the PlayerController component</span></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>Run the game</span></a><ul>
+<li>Use the controls</li>
+</ul>
+</li>
+</ul>
+<p>At this point, all the controls are implemented for the Player, but the user cannot control the height of the player.  We want to tell the SweptController to stop jumping when the key is released.</p>
+<ul class="simple">
+<li>In the <strong>PlayerController</strong> script<ul>
+<li>Update the <strong>PlayerController</strong>&#8216;s <strong>OnLogicUpdate</strong> function with the following code:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">OnLogicUpdate</span><span class="p">(</span><span class="nx">event</span> <span class="o">:</span> <span class="nx">UpdateEvent</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">var</span> <span class="nx">movement</span> <span class="o">=</span> <span class="nx">Real3</span><span class="p">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="p">);</span>
+
+  <span class="c1">// control left, right, and up</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Left</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="nx">movement</span><span class="p">.</span><span class="nx">X</span> <span class="o">-=</span> <span class="mf">1.0</span><span class="o">;</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Right</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="nx">movement</span><span class="p">.</span><span class="nx">X</span> <span class="o">+=</span> <span class="mf">1.0</span><span class="o">;</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsPressed</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Up</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SweptController</span><span class="p">.</span><span class="nx">Jump</span><span class="p">();</span>
+  <span class="p">}</span>
+
+<span class="hll">  <span class="c1">// if the jump key is not pressed, find the point of release and stop jumping</span>
+</span><span class="hll">  <span class="k">if</span><span class="p">(</span><span class="nx">Zero</span><span class="p">.</span><span class="nb">Keyboard</span><span class="p">.</span><span class="nx">KeyIsDown</span><span class="p">(</span><span class="nx">Keys</span><span class="p">.</span><span class="nx">Up</span><span class="p">)</span> <span class="o">==</span> <span class="kc">false</span><span class="p">)</span>
+</span><span class="hll">  <span class="p">{</span>
+</span><span class="hll">    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SweptController</span><span class="p">.</span><span class="nx">Jumping</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">      <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SweptController</span><span class="p">.</span><span class="nx">JumpCancel</span><span class="p">();</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">  <span class="p">}</span>
+</span>
+  <span class="c1">// at the end, update</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">Owner</span><span class="p">.</span><span class="nx">SweptController</span><span class="p">.</span><span class="nx">Update</span><span class="p">(</span><span class="nx">movement</span><span class="o">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Dt</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/RunTheGame.html#manualrunthegame"><span>Run the game</span></a><ul>
+<li>Use the controls</li>
+</ul>
+</li>
+</ul>
+<p>By quickly tapping the <code class="docutils literal"><span class="pre">Up</span> <span class="pre">Arrow</span></code> you can see the player&#8217;s jump height is lower.</p>
+<p>Now we can continue following the SweptController instructions:</p>
+<div class="highlight-as"><div class="highlight"><pre><span></span><span class="c1">// Usage:</span>
+<span class="c1">// The user will need to make their own script for peripheral input.</span>
+<span class="c1">// Each LogicUpdate, the input script should determine the direction of</span>
+<span class="c1">// desired movement (does not need to be normalized) and pass it to the</span>
+<span class="c1">// Update function of this script, along with the Dt from the UpdateEvent.</span>
+
+<span class="c1">// Character controller is independent of physics update.</span>
+<span class="hll"><span class="c1">// The RigidBody is expected to be Kinematic when using this controller.</span>
+</span></pre></div>
+</div>
+<ul>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Player object</span></a></p>
+</li>
+<li><p class="first">In Properties Window</p>
+<ul>
+<li><p class="first">Under RigidBody</p>
+<ul class="simple">
+<li>Set DynamicState to: <code class="docutils literal"><span class="pre">Kinematic</span></code></li>
+</ul>
+<p><img alt="CP0_RigidBody" src="../../_images/CP0_1.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="changeable-properties">
+<h2>Changeable Properties</h2>
+<p>By running the game, you will notice everything should work correctly, but the player can&#8217;t jump high enough to reach the upper platform.  We can change the JumpSpeed for the Player.</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="../../ZeroManual/Editor/EditorCommands/SelectObject.html#manualselectobject"><span>Select the Player object</span></a></p>
+</li>
+<li><p class="first">In Properties Window</p>
+<ul>
+<li><p class="first">Under SweptController</p>
+<ul class="simple">
+<li>Set JumpSpeed to: <code class="docutils literal"><span class="pre">10</span></code></li>
+</ul>
+<p><img alt="CP0_SweptControllerJumpSpeed" src="../../_images/CP0_2.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now we know how to integrate the SweptController to make a platform character controller.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Graphics/index.html" class="btn btn-neutral float-right" title="Graphics" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SameLevelCheckpoints.html" class="btn btn-neutral" title="Level Checkpoints" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/Tutorials/Gameplay/UsingTheSweptController.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 00:07:47 GMT -->
+</html>

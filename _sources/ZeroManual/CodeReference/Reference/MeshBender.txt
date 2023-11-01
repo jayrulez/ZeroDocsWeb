@@ -1,0 +1,94 @@
+.. _ReferenceMeshBender:
+
+.. rst-class:: searchtitle
+
+MeshBender
+==========
+
+.. rst-class:: searchdescription
+
+Bends a mesh(typically for per instance modification)
+
+.. include:: Description/MeshBender.rst
+
+.. cpp:class:: MeshBender
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceMeshBenderProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MeshBender::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space MeshBender::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MeshBender::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession MeshBender::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int MeshBender::ResolutionX
+
+            The resolutions of the control point grid(only the tool sets these!)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int MeshBender::ResolutionY
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: int MeshBender::ResolutionZ
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 MeshBender::Dimensions
+
+            The dimensions we use for the lattice(the grid box)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 MeshBender::Offset
+
+            The offset we use for the lattice(the grid box)
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Quat MeshBender::Rotation
+
+            The rotation applied to the lattice(the grid box)
+
+.. _ReferenceMeshBenderMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void MeshBender::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/MeshBender.rst

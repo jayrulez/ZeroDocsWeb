@@ -1,0 +1,447 @@
+
+
+.. _CogPathsGAM100:
+
+.. rst-class:: SearchTitle
+
+Cog Paths
+=========
+
+.. rst-class:: SearchDescription
+
+Cog Paths provide the best way to get a reference to any Cog within your game. It allows you to point directly to the object as you've identified in the editor (or through a written file path) instead of wasting valuable computation time searching for it in code. In this lesson we will make an extremely small and simple project in order to cover creating Cog Paths, linking them to objects within the editor, and looking at the properties of Cog Paths that are available to you.
+
+Learning Objectives
+-------------------
+
+Learn to...
+
+*	Use CogPaths to gain access to objects at runtime.
+
+Level Setup
+-----------
+
+* :ref:`CreateNewProject`
+
+We'll make the Player first.
+
+*   :ref:`Command<CommandsGAM100>`: ``CreateSprite`` or
+    :menuselection:`Create --> Create Sprite`
+   
+*   In the Properties Window
+    
+    *   Set Name to: ``Player``
+    
+    *   Under Transform
+        
+        *   Set Translation to ``[-4.0, 0.0, 0.0]``
+
+    *   Under Sprite
+   
+        *   Set Color to: ``[R: 0, G: 0, B: 255, A: 1.00]`` , ``#0000FF``
+     
+        *   Set SpriteSource to: ``Circle``
+     
+*   :ref:`Add Component <AddComponentGAM100>` :ref:`Area<AreaGAM100>`
+ 
+*   Under :ref:`Area<AreaGAM100>`
+
+    *   Set Size to: ``[1.5, 1.5]``
+     
+*   :ref:`Add Component <AddComponentGAM100>` RigidBody
+   
+*   Under RigidBody
+
+    * Set DynamicState to: ``Kinematic``
+   
+*   :ref:`Add Component <AddComponentGAM100>` SphereCollider
+   
+*   Under SphereCollider
+
+    *   Set Radius to: ``0.5``
+
+
+Now let's make the Enemy
+
+*   :ref:`Command<CommandsGAM100>`: ``CreateSprite`` or
+    :menuselection:`Create --> Create Sprite`
+   
+*   In the Properties Window
+ 
+    *   Set Name to: ``Enemy``
+ 
+    *   Under Transform
+   
+        *   Set Translation to ``[4.0, 0.0, 0.0]``
+
+    *   Under Sprite
+   
+        *   Set Color to: ``[R: 255, G: 0, B: 0, A: 1.00]`` , ``#FF0000``
+     
+*   :ref:`Add Component <AddComponentGAM100>` :ref:`Area<AreaGAM100>`
+     
+*   :ref:`Add Component <AddComponentGAM100>` RigidBody
+   
+*   Under RigidBody
+
+    *   Set DynamicState to: ``Kinematic``
+   
+*   :ref:`Add Component <AddComponentGAM100>` BoxCollider
+
+
+
+Finally, let's duplicate the Enemy object twice for a total of three enemies.
+
+*   In the Level window
+
+    *   Select the ``Enemy`` object
+ 
+    *   ``Ctrl+D`` to Duplicate the object
+
+*   In the Objects window
+
+    *   Select the new copy of the object
+   
+*   In the Properties window
+
+    *   Under Transform
+ 
+        *   Set Translation to: ``[4.0, 3.0, 0.0]``
+     
+Repeat the previous steps to make the third enemy, but this time set Translation to: ``[4.0, -3.0, 0.0]``
+
+*   :ref:`Save the project <SavingProjectGAM100>`
+
+Your Level editor screen should now look like the following picture:
+
+|LevelEditorAtSetup|
+
+Now that we have our level setup complete, let's make a simple player controller so we can move around the level.
+
+
+
+Make a PlayerController ZilchScript
+-----------------------------------
+
+Our PlayerController script will allow the blue circle to move around the level.
+
+*   :ref:`Add a new ZilchScript resource<ResourceAddingGAM100>` named: ``PlayerController``
+
+    *   Update the ``PlayerController`` ZilchScript as follows:
+
+.. code-block:: csharp
+
+    class PlayerController : ZilchComponent
+    {
+      //Property to adjust the speed of the Player
+      [Property]
+      var Speed : Real = 0.0;
+      
+      function Initialize(init : CogInitializer)
+      {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+      
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        var movement = Real3(0,0,0);
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.Down))
+        {
+          movement += Real3(0.0, -1.0, 0.0);
+        }
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.Up))
+        {
+          movement += Real3(0.0, 1.0, 0.0);
+        }
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.Right))
+        {
+          movement += Real3(1.0, 0.0, 0.0);
+        }
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.Left))
+        {
+          movement += Real3(-1.0, 0.0, 0.0);
+        }
+        
+        //Moves the player according to input and the speed set in the property
+        this.Owner.Transform.Translation += movement * this.Speed * event.Dt;
+      }
+    }
+    
+Since we have a speed Property, we need to attach the component and set the value in the Properties window.
+
+*   In the Objects window
+
+    *   Select the ``Player`` object
+   
+*   In the Properties window
+
+    *   Under ``PlayerController``
+ 
+        *   Set Speed to: ``5.0``
+     
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+ 
+Now we have a player object that moves around the level.
+ 
+Add Collision Logic to the Enemy Objects
+----------------------------------------
+ 
+To make this an actual game, we need to add some interaction beyond just moving a circle around a black screen. So, we're going to create a new ZilchScript that will destroy the Enemy objects upon collision with the Player. We'll also see our first example of using a Cog Path.
+ 
+*   :ref:`Stop the Game <StopGameGAM100>`
+
+*   :ref:`Add a new ZilchScript resource <ResourceAddingGAM100>` named: ``CollisionLogic``
+
+*   :ref:`Save the Project <SavingProjectGAM100>`
+ 
+*   :ref:`Select the Enemy objects <SelectObjectGAM100>`
+
+*   In the Properties window
+
+    *   :ref:`Add the CollisionLogic component <AddComponentGAM100>` we just created to the three Enemy objects
+   
+*   Open the ``CollisionLogic`` script and update it as follows:
+ 
+.. code-block:: csharp
+
+    //Defines our new ZilchComponent
+    class CollisionLogic : ZilchComponent
+    {
+      //Instatiates a CogPath variable and makes it a Property
+      [Property]
+      var PlayerPath : CogPath = null;
+      
+      //Instantiates a Cog variable that will hold the Cog taken from the CogPath
+      var Player : Cog = null;
+      
+      function Initialize(init : CogInitializer)
+      {
+        //Assigns the Player Cog selected in the Cogpath Property to the Player Cog variable
+        this.Player = this.PlayerPath.Cog;
+        
+        //Connects to the CollisionStarted event
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+      }
+      
+      //The function that will contain the behavior that will occur when a collision happens
+      function OnCollisionStarted(event : CollisionEvent)
+      {
+        //If the object collided with is the player, then...
+        if(event.OtherObject == this.Player)
+        {
+          //Destroy the object this component is attached to.
+          this.Owner.Destroy();
+        }
+      }
+    }
+    
+Let's spend a minute looking at what we just added to the script. The first thing you'll see under the initial class definition of the CollisionLogic component is a CogPath variable--PlayerPath--that will be used to get a reference to the Player. This will take place under the Properties of the component once it is attached to an object. We will look at this step in more detail below. The next variable--Player--is of the type Cog and will be used to hold the reference to the Player found through the CogPath. In order to reference the Player on our Cog variable, we will need to assign it to the Cog found through the CogPath variable under the ``Initialize`` function, so that it is ready to be used throughout the rest of the script.
+
+Finding the Reference to the Player
+-----------------------------------
+
+In order to intially find the reference to the Player, we will use the CogPath Property as it appears in the Properties window. In order to do this, we'll first need to attach our CollisionLogic component to the three enemies.
+
+*   In the Objects Window
+
+    *   Select the first Enemy object
+ 
+*   In the Properties Window
+
+    *   :ref:`Add the CollisionLogic component <AddComponentGAM100>`
+ 
+*   Repeat this same process for the other two Enemy objects in the Objects Window
+
+Now, we will go back through all three Enemy objects, open the CollisionLogic component and use our CogPath property to find a reference to the Player.
+
+*   In the Objects Window
+
+    *   Select the first Enemy object
+ 
+*   In the Properties Window
+
+    *   Under CollisionLogic
+ 
+        *   ``Left Click`` , ``Hold`` and ``Drag`` the Orange Reticle to the right of ``PlayerPath`` to the "Player" object (the blue circle). Once you click and hold, the mouse curser should change to a white cross symbol.     Hovering over the Player object correctly should look like this:
+  
+  |ChoosingPlayerCog|
+  
+        *   Release the ``Left Mouse Button``
+  
+Once you've done this you should see ``:/Player`` appear in the box below ``PlayerPath``. The end result should look like this:
+
+|PlayerCogPath|
+
+*   Repeat this same process for each CollisionLogic component on the other two Enemy objects.
+
+*   :ref:`Save the project <SavingProjectGAM100>` and :ref:`run the game <RunTheGameGAM100>`
+
+Now when you move the player to collide with an enemy, the enemy object should destroy itself.
+
+The Syntax of CogPaths
+----------------------
+
+When you grabbed the reference to the player with the CogPath property, the resulting string in the box below PlayerPath in the CollisionLogic component probably looked a bit strange. Why does it need the colon and forward slash? Wouldn't "Player" be just as effective? Well, the reason we have this seemingly strange syntax is so you, the user, can see the object "path" as it relates both to the space as well as any parented or child objects. The ``:/`` preceeding Player means that the object referenced is within the same space as the object getting a reference to it (the enemies in this case). If this reminds you of standard file path syntax as you would see and use in a command line, then you would be correct. The syntax for CogPaths pretty much directly follows the same rules. To look at how this might work, let's make a couple of changes to the level.
+
+*   In the Level Window
+
+    *   Select the Player Objects
+ 
+    *   "Ctrl+D" to duplicate the Player object
+ 
+*   In the Objects Window
+
+    *   Select this duplicate Player object
+ 
+*   In the Properties Window
+
+    *   Change the Name to: ``PlayerChild``
+ 
+    *   Under Transform
+ 
+        *   Set Translation to: ``-4.0, -4.0, 0.0``
+  
+*   Back in the Objects Window
+
+    *   ``Left Click`` , ``Hold`` and ``Drag`` ``PlayerChild`` on top of ``Player``
+  
+    *   Release ``Left Mouse Button``
+ 
+    *   ``Left click`` on the newly placed orange arrow to the left of ``Player``. You should now see ``PlayerChild`` slightly indented directly below ``Player``. Your Objects Window should now look like this:
+ 
+|PlayerChildObjectsWindow|
+
+*   :ref:`Save the project <SavingProjectGAM100>`
+
+
+
+Now that we have an object parented to another, let's see what the CogPath string looks like when it references the child object.
+
+*   In the Objects Window
+
+    *   Select the first Enemy object
+ 
+*   In the Properties Window
+
+    *   Under CollisionLogic
+ 
+        *   ``Left Click`` , ``Hold`` and ``Drag`` the Orange Reticle to the right of ``PlayerPath`` to the "PlayerChild" object (the lower placed blue circle)
+    
+Now, the CollisionLogic component should look like this, with a different string in the CogPath box:
+
+|PlayerChildCogpath|
+
+As you can see, the string has changed to: ``:/Player/PlayerChild``. This would be the same syntax in a file system looking at a folder or file placed within another folder. Here, it designates that in the Object hierarchy, the PlayerChild object is a child of the Player object.
+
+This syntax can be very helpful when, for whatever reason, you are not able to directly select an object, especially one that is three or four steps down one object's hierarchy. One example could be a complex player model where a "finger" object is parented to a "hand" object that is parented to a "arm" object that is parented to a "torso" object. Trying to select that particular finger model with the mouse could be painstakingly difficult or even impossible depending on your model. Finding the finger object through the use of the CogPath syntax, however, makes finding the reference  simple matter of typing in the object hierarchy down to its location (in our little example it would something like: :/PlayerModel/Torso/Arm/Hand/Finger).
+
+Cog Path Properties
+------------------- 
+
+There are a number of in-editor properties that belong to CogPaths that are not immediately visible when you first look at the Property window. To reveal them, ``Left Click`` on the orange arrow directly to the left of the orange reticle in your CollisionLogic component (as it is attached to one of the enemies). You should immediately see a list of nine different properties drop down beneath the CogPath string box. These properties allow you to choose when to throw certain Errors and when to update the Cog and Path to the Cog. While this lesson will not go over each of the first six properties, you can easily see their functionality by hovering over each one's name, like so:
+
+*   In the Objects Window
+
+    *   Select one of the Enemy objects (the one still connected to the ``PlayerChild`` will do fine)
+ 
+*   In the Properties Window
+
+    *   Under the CollisionLogic component
+ 
+        *   ``Left click`` the orange arrow next to the orange reticle
+  
+        *   In the list of properties that appear, hover your mouse over the second one down, named ``ErrorOnPathCantCompute``. You should see the following window pop-up, describing the function of the property:
+  
+|CogPathPropertiesWithDescription|
+  
+You can do the same thing with the rest of the first six properties available to you. They are also listed here, with their descriptions, in the table below:
+
++------------------------------+-----------------------------------------------------------------------+
+| Editor Property              | Description                                                           |
++==============================+=======================================================================+
+| DirectCog                    | If the current cog is null, and you try to access it through          | 
+|                              | CogPath.Cog, it will try to resolve the path when you access it.      |  
+|                              | DirectCog never tries to resolve the path. It's a pointer to the      |
+|                              | object itself.                                                        |
++------------------------------+-----------------------------------------------------------------------+
+| ErrorOnResolveToNull         | Is an exception thrown if you try to access the Cog when it's invalid |
+|                              | or not found?                                                         |
++------------------------------+-----------------------------------------------------------------------+
+| ErrorOnPathCantCompute       | Throw an exception/notification if the path to an object cannot be    |
+|                              | computed?                                                             |
++------------------------------+-----------------------------------------------------------------------+
+| ErrorOnDirectLinkFail        | Throw an exception/notification if a direct link to the object cannot |
+|                              | be resolved?                                                          |
++------------------------------+-----------------------------------------------------------------------+
+| UpdateCogOnPathChange        | When we set the cog path, should we try and resolve the object? (this |
+|                              | also detects parse errors)                                            |
++------------------------------+-----------------------------------------------------------------------+
+| UpdateCogOnInitialize        | Whether the cog path attempts to resolve an object when the object is |
+|                              | fully initialized                                                     |
++------------------------------+-----------------------------------------------------------------------+
+| UpdatePathOnCogChange        | When we set the cog, should we try and recompute a path to the        |
+|                              | object?                                                               |
++------------------------------+-----------------------------------------------------------------------+
+
+As for the last three, however (``PathPreference0``, ``PathPreference1``, ``PathPreference2``), no pop-up description is available and we will therefore give a short description of their functionality.
+
+When automatically determining a string path to an object (such as when using the orange reticle target picker in editor when ly setting the Cog) the path preferences are used.
+
+*   ``CogRelative`` means that we first try and look if there is a way to represent that path as a relative path. This is only valid if the objects are on the same hierarchy (such as '..' for parent, '../OtherObject' for a sibling, or 'Child1/Child2' for children).
+
+*   ``Space relative`` assumes the objects are not on the same hierarchy, but exist within the same space. This means all paths begin with ':/', which means look within the same space.
+
+*   ``Absolute`` means we always require a named space (such as Hud or Main) and then a full path to the object such as 'Hud:/HealthText'. Note that Absolute can only be used in the editor with the orange reticle target picker if the space is given a name.
+
+These three options can be changed so that you the first preference (``PathPreference0``) could be set to SpaceRelative instead of CogRelative, and so forth. This is completely up to the discretion of the user and the particular circumstances of his or her project.
+
+
+
+Properties and Functions of CogPath
+-----------------------------------
+
+The following tables will cover all of the member properties and functions of CogPath that are available in Zilch.
+
+The Properties of CogPath in Zilch
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following table enumerates the properties of CogPath available to the user in Zilch:
+
++-------------------------------------------+--------------------------------------------------------------------------------------------+
+| Property                                  | Description                                                                                |
++===========================================+============================================================================================+
+| RelativeTo : :cpp:type:`Cog`              | The cogs that we compute paths relative to (i.e. parent or child objects)                  |
++-------------------------------------------+--------------------------------------------------------------------------------------------+
+| Required                                  |  **Deprecated** Name changed to ``ErrorOnResolveToNull``                                   |
++-------------------------------------------+--------------------------------------------------------------------------------------------+
+
+The Functions of CogPath in Zilch
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following table enumerates the functions of CogPath available to the user in Zilch:
+
++------------------------------+------------------------+---------------------------------------------------------------------------------------------+
+| Function                     | Return                 | Description                                                                                 |
++==============================+========================+=============================================================================================+
+| Clone()                      | :cpp:type:`CogPath`    | Creates a new copy of a cog path (since cog paths are reference counted and shared)         |
++------------------------------+------------------------+---------------------------------------------------------------------------------------------+
+| Refresh()                    | :cpp:type:`Boolean`    | This will attempt to refresh an object using the DirectCog reference.  If it finds it, it   | 
+|                              |                        | returns true; otherwise, it returns false.                                                  |
++------------------------------+------------------------+---------------------------------------------------------------------------------------------+
+| RefreshIfNull()              |                        | This method will only attempt to refresh is the object is null.                             | 
++------------------------------+------------------------+---------------------------------------------------------------------------------------------+
+
+In this Lesson, we have covered creating CogPath properties, finding references to Cogs using both the orange reticle target picker as well as using a particular syntax to look in object hierarchies, assigning a Cog variable to the reference received from the CogPath, and went over the properties available to you when using CogPaths.
+
+.. |LevelEditorAtSetup|                    image:: images/CogPathsTutorial/LevelEditorAtSetup.png
+  :height: 3.0in
+.. |PlayerCogPath|                         image:: images/CogPathsTutorial/PlayerCogPath.png
+.. |ChoosingPlayerCog|                     image:: images/CogPathsTutorial/ChoosingPlayerCog.png
+.. |PlayerChildObjectsWindow|              image:: images/CogPathsTutorial/PlayerChildObjectsWindow.png
+.. |PlayerChildCogPath|                    image:: images/CogPathsTutorial/PlayerChildCogPath.png
+.. |CogPathPropertiesWithDescription|      image:: images/CogPathsTutorial/CogPathPropertiesWithDescription.png
+  :height: 2.0in

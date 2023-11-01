@@ -1,0 +1,64 @@
+.. _ReferenceObjectLinkAnchor:
+
+.. rst-class:: searchtitle
+
+ObjectLinkAnchor
+================
+
+.. rst-class:: searchdescription
+
+Component used to keep track of what ObjectLinks a cog has. This component is added dynamically whenever a ObjectLink is added to a cog that did not contain an ObjectLink before. This can be used to traverse across linked objects and find the entire"island" of ObjectLinks.
+
+.. include:: Description/ObjectLinkAnchor.rst
+
+.. cpp:class:: ObjectLinkAnchor
+
+    Base Class: :cpp:type:`Component`
+
+.. _ReferenceObjectLinkAnchorProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ObjectLinkAnchor::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space ObjectLinkAnchor::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog ObjectLinkAnchor::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession ObjectLinkAnchor::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: ObjectLinkRange ObjectLinkAnchor::ObjectLinks
+
+            The range of object link edges connected to this anchor.
+
+.. _ReferenceObjectLinkAnchorMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void ObjectLinkAnchor::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+.. include:: Remarks/ObjectLinkAnchor.rst

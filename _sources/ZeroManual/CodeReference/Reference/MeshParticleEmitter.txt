@@ -1,0 +1,190 @@
+.. _ReferenceMeshParticleEmitter:
+
+.. rst-class:: searchtitle
+
+MeshParticleEmitter
+===================
+
+.. rst-class:: searchdescription
+
+Emits particles on a mesh surface.
+
+.. include:: Description/MeshParticleEmitter.rst
+
+.. cpp:class:: MeshParticleEmitter
+
+    Base Class: :cpp:type:`ParticleEmitterShared`
+
+.. _ReferenceMeshParticleEmitterProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MeshParticleEmitter::Owner
+
+            Get the Object this component is owned/composed. Not the parent of this composition.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Space MeshParticleEmitter::Space
+
+            The Space where the object is located.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Cog MeshParticleEmitter::LevelSettings
+
+            Get the object named'LevelSettings', a special object where we can put components for our level.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: GameSession MeshParticleEmitter::GameSession
+
+            Get the GameSession that owns us and our space.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool MeshParticleEmitter::Active
+
+            Is this emitter currently emitting particles?
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: uint MeshParticleEmitter::EmitCount
+
+            Number of particles to emit per reset.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real MeshParticleEmitter::EmitRate
+
+            Rate that particles spawn per second.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real MeshParticleEmitter::EmitVariance
+
+            How much the emit can vary per sample.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real MeshParticleEmitter::Size
+
+            Size of each particle spawned.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real MeshParticleEmitter::SizeVariance
+
+            How much the emit can vary per sample.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real MeshParticleEmitter::Lifetime
+
+            How a particle's starting lifetime is.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real MeshParticleEmitter::LifetimeVariance
+
+            Hom much lifetime can vary per particle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real MeshParticleEmitter::Spin
+
+            Speed in rads per second of the particle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real MeshParticleEmitter::SpinVariance
+
+            Hom much speed speed can vary per particle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool MeshParticleEmitter::RandomSpin
+
+            Each particle should start with random spin.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real MeshParticleEmitter::Fill
+
+            How much area of the emitter to used 0 to 1.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Real MeshParticleEmitter::EmitterVelocityPercent
+
+            How much of the objects velocity is added to the particles.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 MeshParticleEmitter::StartVelocity
+
+            Velocity of each particle at start.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 MeshParticleEmitter::RandomVelocity
+
+            Random Velocity per particle.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 MeshParticleEmitter::TangentVelocity
+
+            Velocity of each particle in x horizontal tangent y vertical tangent and z outward tangent.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Vec3 MeshParticleEmitter::EmitterSize
+
+            Size of the emitter.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool MeshParticleEmitter::FastMovingEmitter
+
+            Whether or not we attempt to emit along the vector between the previous position to the current position, which looks better for fast moving particle systems Note: Particle systems that teleport will emit along the teleport line.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: Mesh MeshParticleEmitter::Mesh
+
+            Mesh used for this Model.
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: MeshEmitMode::Type MeshParticleEmitter::MeshEmitMode
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: bool MeshParticleEmitter::UseModelComponent
+
+            
+
+.. _ReferenceMeshParticleEmitterMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void MeshParticleEmitter::DebugDraw()
+
+            Base debug draw for a component. Special for the each type of component.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: void MeshParticleEmitter::ResetCount()
+
+            
+
+.. include:: Remarks/MeshParticleEmitter.rst

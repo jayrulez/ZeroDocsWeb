@@ -1,0 +1,422 @@
+<!-- this is a global static patch html file  -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Architecture/Objects/LevelSettings.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 22:32:41 GMT -->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Level Setting Object &mdash; Zero Engine 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Zero Engine 1.0 documentation" href="../../../index-2.html"/>
+        <link rel="up" title="Siginficant Objects" href="index.html"/>
+        <link rel="next" title="The Space Object" href="Spaces.html"/>
+        <link rel="prev" title="Siginficant Objects" href="index.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30697525-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index-2.html" class="icon icon-home"> Zero Engine
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://zero.digipen.edu/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="../../../Launcher/ZeroLauncherSetup.html">Download Zero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../GettingStarted/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Editor/index.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Scripting/index.html">Scripting</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Architecture</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Cogs/index.html">Cogs</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Siginficant Objects</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">The Level Setting Object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Spaces.html">The Space Object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GameSession.html">The GameSession Object</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Resources/index.html">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Components/index.html">Components</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Gameplay/index.html">Gameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../UI/index.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AI/index.html">Artificial Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ZilchInZero/index.html">Zilch In Zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CodeReference/index.html">Code Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Community/index.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Workshops/index.html">Classes &amp; Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/index.html">Zero Engine Support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://survey.digipen.edu/survey/index/sid/524363/newtest/Y/lang/en">Feedback Survey</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index-2.html">Zero Engine</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index-2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Zero Manual</a> &raquo;</li>
+      
+          <li><a href="../index.html">Architecture</a> &raquo;</li>
+      
+          <li><a href="index.html">Siginficant Objects</a> &raquo;</li>
+      
+    <li>The Level Setting Object</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/ZeroManual/Architecture/Objects/LevelSettings.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="searchtitle section" id="the-level-setting-object">
+<span id="manuallevelsettings"></span><h1>The Level Setting Object</h1>
+<p class="searchdescription">The LevelSettings object is a <a class="reference internal" href="../../CodeReference/Reference/Cog.html#_CPPv23Cog" title="Cog"><code class="xref cpp cpp-type docutils literal"><span class="pre">Cog</span></code></a> of which there is one unique instance per <a class="reference internal" href="../../CodeReference/Reference/Level.html#_CPPv25Level" title="Level"><code class="xref cpp cpp-type docutils literal"><span class="pre">Level</span></code></a>. It serves as a globally accessible object from a variety of object types such as Components or other <a class="reference internal" href="../../CodeReference/Reference/Cog.html#_CPPv23Cog" title="Cog"><code class="xref cpp cpp-type docutils literal"><span class="pre">Cogs</span></code></a>. Unlike any other <a class="reference internal" href="../../CodeReference/Reference/Cog.html#_CPPv23Cog" title="Cog"><code class="xref cpp cpp-type docutils literal"><span class="pre">Cog</span></code></a> there is no way to instantiate a LevelSettings object.</p>
+<div class="section" id="common-uses">
+<span id="manuallevelsettingscommonuses"></span><h2>Common Uses</h2>
+<blockquote>
+<div><ul class="simple">
+<li>Adding level specific <span class="xref std std-ref">physics effects</span>.</li>
+<li>Centralized location for level specific components such as the <a class="reference internal" href="../../CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a>, <a class="reference internal" href="../../CodeReference/Reference/ForwardRenderer.html#_CPPv215ForwardRenderer" title="ForwardRenderer"><code class="xref cpp cpp-type docutils literal"><span class="pre">ForwardRenderer</span></code></a>, and other graphical effects.</li>
+<li>Adding custom components which need to be globally accessible in a level by any other components that exist in the level.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="using-the-levelsettings-object">
+<span id="manuallevelsettingsusingobject"></span><h2>Using the LevelSettings Object</h2>
+<div class="section" id="accessing-the-levelsettings-object-in-editor">
+<h3>Accessing the LevelSettings Object In Editor</h3>
+<div class="sidebar">
+<p class="first sidebar-title">Initialization Order</p>
+<p class="last">Notice that because the LevelSettings object is always the first object in the <a class="reference internal" href="../../Editor/EditorUI.html#manualeditoruiobjectwindow"><span>Object Window</span></a> (and cannot be reordered) it will always be the first object to be created and initialized when the level is loaded into the <a class="reference internal" href="../../CodeReference/Reference/Space.html#_CPPv25Space" title="Space"><code class="xref cpp cpp-type docutils literal"><span class="pre">Space</span></code></a>. This can be very useful when implementing logic which depends on being initialized before related components on other objects in the level.</p>
+</div>
+<p>The LevelSettings object will always be the first object in the <a class="reference internal" href="../../Editor/EditorUI.html#manualeditoruiobjectwindow"><span>Object Window</span></a> making it easy to find in editor.</p>
+<p><img alt="LevelSettingsObjectView" src="../../../_images/LevelSettingsObjectView.png" /></p>
+<p>Since the LevelSettings object lacks any Graphics or Physics based representation in the level, the only way to select and modify its components in the editor is through the Object Window.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>LevelSettings &amp; Hierarchies</p>
+<p class="last">While parenting can often be useful with objects that do not have transforms, in the case of the LevelSettings object, parenting has been deactivated.</p>
+</div>
+</div>
+<div class="section" id="accessing-the-levelsettings-object-in-script">
+<span id="manuallevelsettingsaccessing"></span><h3>Accessing the LevelSettings Object In Script</h3>
+<p>The LevelSettings object may be accessed from scripts via any component or Cog:</p>
+<div class="highlight-csharp"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ExampleComponent</span> <span class="p">:</span> <span class="n">ZilchComponent</span>
+<span class="p">{</span>
+  <span class="c1">// Accessing the LevelSettings object through the component</span>
+  <span class="kt">var</span> <span class="n">CurrentLevelSettings</span> <span class="p">:</span> <span class="n">Cog</span>
+  <span class="p">{</span>
+    <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">LevelSettings</span><span class="p">;</span> <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Accessing the LevelSettings object through the component&#39;s object</span>
+  <span class="kt">var</span> <span class="n">AlsoCurrentLevelSettings</span> <span class="p">:</span> <span class="n">Cog</span>
+  <span class="p">{</span>
+    <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">Owner</span><span class="p">.</span><span class="n">LevelSettings</span><span class="p">;</span> <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Accessing the LevelSettings object through the Space object</span>
+  <span class="kt">var</span> <span class="n">StillTheCurrentLevelSettings</span> <span class="p">:</span> <span class="n">Cog</span>
+  <span class="p">{</span>
+    <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">Space</span><span class="p">.</span><span class="n">LevelSettings</span><span class="p">;</span> <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="n">function</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">init</span> <span class="p">:</span> <span class="n">CogInitializer</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// If we compare the values of the properties which access the LevelSettings</span>
+    <span class="c1">// object through different objects (component, component&#39;s object, and</span>
+    <span class="c1">// space), we can prove that theyare accessing the same LevelSettings object.</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CurrentLevelSettings</span> <span class="p">==</span>
+       <span class="k">this</span><span class="p">.</span><span class="n">AlsoCurrentLevelSettings</span> <span class="p">==</span>
+       <span class="k">this</span><span class="p">.</span><span class="n">StillTheCurrentLevelSettings</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;These properties reference the same LevelSettings object.&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="default-components-of-levelsettings">
+<span id="manuallevelsettingsdefaultcomponents"></span><h3>Default Components of LevelSettings</h3>
+<p><img alt="LevelSettingsComponents" src="../../../_images/LevelSettingsComponents.png" /></p>
+<div class="section" id="gravityeffect-drageffect">
+<h4>GravityEffect &amp; DragEffect</h4>
+<div class="sidebar">
+<p class="first sidebar-title">Learning more about PhysicsEffect components</p>
+<p class="last">If lacking in experience with Zero&#8217;s PhysicsEffects components, one can <span class="xref std std-ref">learn more about them here</span>.</p>
+</div>
+<p>Physics Effects are built in components that implement a piece of common physics-based functionality such as the <a class="reference internal" href="../../CodeReference/Reference/GravityEffect.html#_CPPv213GravityEffect" title="GravityEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">GravityEffect</span></code></a> or the <a class="reference internal" href="../../CodeReference/Reference/DragEffect.html#_CPPv210DragEffect" title="DragEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">DragEffect</span></code></a> components that are attached to the LevelSettings by default. Each physics effect component may perform the logic on different spatial scopes depending on which object is attached to. When a physics effect component is attached to the LevelSettings object it is applied to all objects in that level. This allows one to implement level wide effects with any of the built in physics effects as is done by default with <a class="reference internal" href="../../CodeReference/Reference/GravityEffect.html#_CPPv213GravityEffect" title="GravityEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">GravityEffect</span></code></a> and <a class="reference internal" href="../../CodeReference/Reference/DragEffect.html#_CPPv210DragEffect" title="DragEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">DragEffect</span></code></a>.</p>
+</div>
+<div class="section" id="cameraviewport">
+<h4>CameraViewport</h4>
+<p>When running a game one must create a window in which to render the game. This window is called a viewport. The <a class="reference internal" href="../../CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a> component is what creates that viewport. Due to the fact that most games are not split screen one may think that normally only one viewport and therefore only one CameraViewport component would exist per game. However, it is common practice in Zero to <a class="reference internal" href="../../../Tutorials/UI/HeadsUpDisplay.html#tutorialheadsupdisplay"><span>build your UI</span></a> in a separate level and load it into a second space which must be rendered with a transparent background on top of the game space.</p>
+<p>In order to achieve this effect where the HUD renders on top of the game with our interacting with it the <cite>HUDSpace</cite> needs its own <a class="reference internal" href="../../CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a>. Having the <a class="reference internal" href="../../CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a> component attached to the LevelSettings provides any object in the space, or any object that has access to the space to have easy access to the component. The usefulness of this structure is even greater in split screen games where there is potential for many spaces and viewports to exist that will all need data about the others.</p>
+</div>
+<div class="section" id="griddraw">
+<h4>GridDraw</h4>
+<p>The <a class="reference internal" href="../../CodeReference/Reference/GridDraw.html#_CPPv28GridDraw" title="GridDraw"><code class="xref cpp cpp-type docutils literal"><span class="pre">GridDraw</span></code></a> component is a simple debug drawing component. It uses Zero&#8217;s buit in <a class="reference internal" href="../../Scripting/DebugDrawing.html#manualdebugdrawing"><span>debug drawing functionality</span></a> to create a customizable unit grid in the Level Window.</p>
+</div>
+<div class="section" id="forwardrenderer">
+<h4>ForwardRenderer</h4>
+<div class="sidebar">
+<p class="first sidebar-title">Forward &amp; Deferred Rendering</p>
+<p class="last">To learn more about Forward vs. Deferred rendering pipelines check out <a class="reference external" href="http://gamedevelopment.tutsplus.com/articles/forward-rendering-vs-deferred-rendering--gamedev-12342">this article</a> about render techniques.</p>
+</div>
+<p>By default, the <a class="reference internal" href="../../CodeReference/Reference/ForwardRenderer.html#_CPPv215ForwardRenderer" title="ForwardRenderer"><code class="xref cpp cpp-type docutils literal"><span class="pre">ForwardRenderer</span></code></a> is attached to the LevelSettings object; it may be replaced, however, with the <a class="reference internal" href="../../CodeReference/Reference/DeferredRenderer.html#_CPPv216DeferredRenderer" title="DeferredRenderer"><code class="xref cpp cpp-type docutils literal"><span class="pre">DeferredRenderer</span></code></a> if that is the desired rendering pipeline.</p>
+</div>
+</div>
+<div class="section" id="custom-components">
+<span id="manuallevelsettingscustomcomponents"></span><h3>Custom Components</h3>
+<p>The LevelSettings object is often a very convenient object on which to attach certain custom Zilch components. Imagine a scenario in which a function is implemented for a friendly AI which needs to return an enemy to attack. If all the enemies exist independent of any other object or component, there may be no immediate path from which to access all enemies from the AI.</p>
+<p>A common technique is to add an <cite>EnemyManager</cite> component to the LevelSettings object which has a member of type <code class="docutils literal"><span class="pre">Array[Cog]</span></code> called <code class="docutils literal"><span class="pre">EnemyList</span></code>. By attaching this component to the LevelSettings object all objects, including the enemies, are given access to the <cite>EnemyManager</cite> component. If the enemies are implemented so that they add themselves to the <code class="docutils literal"><span class="pre">EnemyList</span></code> when they are initialized and remove themselves when they are destroyed, there now exists a reliable way of accessing a complete list of all existing enemies.</p>
+<p>While the above example may not be applicable to all games, it demonstrates the usefulness and flexibility that the LevelSettings object may grant.</p>
+</div>
+<div class="section" id="events-dispatched-on-the-levelsettings-object">
+<span id="manuallevelsettingsevents"></span><h3>Events Dispatched On The LevelSettings Object</h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="30%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Event Name</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>EnterView</td>
+<td><a class="reference internal" href="../../CodeReference/Reference/GraphicalEvent.html#_CPPv214GraphicalEvent" title="GraphicalEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GraphicalEvent</span></code></a></td>
+<td>Dispatched if <a class="reference internal" href="../../CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a> is attached to the
+LevelSettings object.</td>
+</tr>
+<tr class="row-odd"><td>ExitView</td>
+<td><a class="reference internal" href="../../CodeReference/Reference/GraphicalEvent.html#_CPPv214GraphicalEvent" title="GraphicalEvent"><code class="xref cpp cpp-type docutils literal"><span class="pre">GraphicalEvent</span></code></a></td>
+<td>Dispatched if <a class="reference internal" href="../../CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a> is attached to the
+LevelSettings object.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="related-materials">
+<span id="manuallevelsettingsrelatedmaterials"></span><h2>Related Materials</h2>
+<div class="section" id="manual-pages">
+<h3>Manual Pages</h3>
+<ul class="simple">
+<li><a class="reference internal" href="../../Editor/EditorUI.html#manualeditorui"><span>Editor UI</span></a></li>
+<li><a class="reference internal" href="../../Scripting/DebugDrawing.html#manualdebugdrawing"><span>Debug Drawing</span></a></li>
+<li><a class="reference internal" href="../../Graphics/CamerasViewportsRenderers/index.html#manualcamerasviewportsrenderersindex"><span>Cameras, Viewports, and Renderers</span></a></li>
+</ul>
+<div class="section" id="code-reference">
+<h4>Code Reference</h4>
+<ul class="simple">
+<li><a class="reference internal" href="../../CodeReference/Reference/CameraViewport.html#_CPPv214CameraViewport" title="CameraViewport"><code class="xref cpp cpp-type docutils literal"><span class="pre">CameraViewport</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/GravityEffect.html#_CPPv213GravityEffect" title="GravityEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">GravityEffect</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/DragEffect.html#_CPPv210DragEffect" title="DragEffect"><code class="xref cpp cpp-type docutils literal"><span class="pre">DragEffect</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/GridDraw.html#_CPPv28GridDraw" title="GridDraw"><code class="xref cpp cpp-type docutils literal"><span class="pre">GridDraw</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/ForwardRenderer.html#_CPPv215ForwardRenderer" title="ForwardRenderer"><code class="xref cpp cpp-type docutils literal"><span class="pre">ForwardRenderer</span></code></a></li>
+<li><a class="reference internal" href="../../CodeReference/Reference/DeferredRenderer.html#_CPPv216DeferredRenderer" title="DeferredRenderer"><code class="xref cpp cpp-type docutils literal"><span class="pre">DeferredRenderer</span></code></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="tutorials">
+<h3>Tutorials</h3>
+<ul class="simple">
+<li><span class="xref std std-ref">PhysicsEffects</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Spaces.html" class="btn btn-neutral float-right" title="The Space Object" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Siginficant Objects" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, DigiPen Institute of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../cdn.mathjax.org/mathjax/latest/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<script src="../../../_static/js/extjquery.js"></script>
+
+
+
+</body>
+
+<!-- Mirrored from zero.digipen.edu/ZeroManual/Architecture/Objects/LevelSettings.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Dec 2022 22:33:08 GMT -->
+</html>

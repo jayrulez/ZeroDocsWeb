@@ -1,0 +1,76 @@
+.. _ReferenceMesh:
+
+.. rst-class:: searchtitle
+
+Mesh
+====
+
+.. rst-class:: searchdescription
+
+Mesh resource class. Contains hardware vertex buffer and index buffer.
+
+.. include:: Description/Mesh.rst
+
+.. cpp:class:: Mesh
+
+    Base Class: :cpp:type:`Resource`
+
+.. _ReferenceMeshProperties:
+
+Properties
+----------
+
+    .. rst-class:: collapsible
+
+        .. cpp:member:: String Mesh::Name
+
+            Name of resource for display.
+
+.. _ReferenceMeshMethods:
+
+Methods
+-------
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Resource Mesh::RuntimeClone()
+
+            Clone a resource for runtime modification.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: uint Mesh::GetVertexCount()
+
+            The amount of vertices on the mesh.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: uint Mesh::GetTriangleCount()
+
+            The amount of triangles on the mesh.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: uint Mesh::GetVertexIndex(uint triIndex)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec2 Mesh::GetVec2Attribute(uint index, VertexSemantic::Enum attribute)
+
+            Vertex attribute getters.
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec3 Mesh::GetVec3Attribute(uint index, VertexSemantic::Enum attribute)
+
+            
+
+    .. rst-class:: collapsible
+
+        .. cpp:function:: Vec4 Mesh::GetVec4Attribute(uint index, VertexSemantic::Enum attribute)
+
+            
+
+.. include:: Remarks/Mesh.rst

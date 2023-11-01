@@ -1,0 +1,340 @@
+.. include:: BookFormattingShortcuts.rst
+
+.. _2016FollowingCamera:
+
+.. rst-class:: SearchTitle
+
+Following Camera
+================
+
+.. rst-class:: SearchDescription
+
+This lesson covers creating a camera, setting it as the in-game camera, basic camera movement, camera logic, and smooth camera movement.
+
+.. _2016FollowingCameraVocab:
+
+Learning Objectives
+-------------------
+
+Learn to...
+
+*	Use cameras to view the scene from different perspective.
+
+*	Create a camera that follows another object.
+
+*	Rename ZilchScript resources.
+
+.. rst-class:: VocabSection
+
++-----------------------------------------+
+| Vocabulary                              |
++===============+=========================+
+| Camera        | Orthographic Projection |
++---------------+-------------------------+
+| Interpolation | Perspective Projection  |
++---------------+-------------------------+
+
+Create a New Project
+--------------------
+
+:ref:`2016CreateNewProject`
+
+Level Setup
+-----------
+
+Here is how our level should look after we do our initial level setup:
+
+|InitialLevelSetup|
+
+Our initial level setup includes a ground, 2 walls, and the player object.
+
+**Player Object**
+
+*   :ref:`Command<2016Commands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In Properties Window
+
+    *   Set Name to: Player
+    *   Under Sprite
+
+        *   Set Color to: Orange [R: 255, G: 128, B: 0, A: 1.00]
+
+**Ground Objects**
+
+*   :ref:`Command<2016Commands>` : ``CreateSprite`` or :menuselection:`Create --> Create Sprite`
+*   In Properties Window
+
+    *   Set Name to: Ground
+    *   Under Transform
+
+        *   Set Translation to: [-10, -1, 0]
+        *   Set Scale to: [20, 1, 1]
+
+|pbr|
+
+*   Paste a copy of the Ground object and :ref:`select it <2016SelectObject>`
+*   In Properties Window
+
+    *   Under Transform
+
+        *   Set Translation to: [10, -1, 0]
+
+Here is our objects in the Objects Window:
+
+|ObjectsAfterLevelSetup|
+
+*   :ref:`Save the project <2016SavingProject>`
+
+Camera Component
+----------------
+
+Since our camera is 2D, we will cover the 2D aspects of the camera. If you select the Camera object, you will see that a preview of what the camera can "see" is displayed in the Level Window:
+
+|NoBookSingleLine| |DisplayMountWeb|
+
+|NoWebBegin|
+|DisplayMountBook|
+|NoWebEnd|
+
+Anything outside of the rectangle will not be seen by the camera when we run the game.
+
+|pbr|
+
+The Camera component uses the position and rotation of the Transform component. The size of this rectangle can be set with the Camera component's Size property.
+
+*   :ref:`Select the Camera object <2016SelectObject>`
+*   In the Properties Window
+
+    *   Under Camera
+
+        *   Set ProjectionMode to: Orthographic
+        *   Set Size to: 1
+
+|NoBookSingleLine| |Size1Web|
+        
+        |NoWebBegin| |CameraComp| |NoWebEnd|
+
+Notice how the length and width of the camera's viewing area is now 1 unit, which is why only the Player object (which has a width and height of 1) is visible.
+
+*   In the Properties Window
+
+    *   Under Camera
+
+        *   Set Size to: 7
+
+    |NoBookSingleLine| |Size7Web|
+
+    |NoWebBegin| |Size7Book| |NoWebEnd|
+
+|NoBookSingleLine| |Size7ViewWeb|
+
+Camera Movement
+---------------
+
+Now that we have a camera setup, let's start on some camera logic. First, we will make the camera move. Moving a camera is just like moving any other game object.
+
+*   :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: 'CameraMovement'    
+
+* Change the **CameraMovement** script to the following code:
+
+.. code-block:: as
+    
+    class CameraMovement : ZilchComponent
+    {
+      function Initialize(init : CogInitializer)
+      { 
+        // we want to update our camera's position each game loop
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+      
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+        // check if we pressed on the left key
+        if(Zero.Keyboard.KeyIsDown(Keys.Left))
+        {
+          // create a new temporary variable to hold our camera's position
+          var cameraPos = this.Owner.Transform.LocalTranslation;
+          // update the position one unit
+          cameraPos.X -= 1.0;
+          // set the camera's transform to our new position
+          this.Owner.Transform.LocalTranslation = cameraPos;
+        }
+        
+        // check if we pressed on the right key
+        if(Zero.Keyboard.KeyIsDown(Keys.Right))
+        {
+          // create a new temporary variable to hold our camera's position
+          var cameraPos = this.Owner.Transform.LocalTranslation;
+          // update the position one unit
+          cameraPos.X += 1.0;
+          // set the camera's transform to our new position
+          this.Owner.Transform.LocalTranslation = cameraPos;
+        }
+      }
+    }
+    
+*   :ref:`Select the Camera object <2016SelectObject>`
+    
+    * :ref:`Add the CameraMovement component <2016AddComponent>`
+*   :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+Now the camera can be moved in game by pressing the Left and Right arrow keys.
+
+|pbr|
+
+Camera Logic
+------------
+
+Now we will make the camera follow the Player object.
+
+*   :ref:`Stop the Game <2016StopGame>`
+*   :ref:`Select the Camera object <2016SelectObject>`
+*   In the Properties Window
+
+    *   Click the X along side the CameraMovement script to remove it from the Camera object
+*   Close the CameraMovement script by clicking the X on the CameraMovement tab (if it is open)
+
+Renaming ZilchScripts
+---------------------
+
+Now we will make the Player object move. We can use the script that we just removed from the Camera object, but its current name is not accurate anymore. We can simply rename the script with these simple steps:
+
+*   In the Library Window
+
+    *   Under the ZilchScript tab
+    *   ``Right-Click`` on the CameraMovement ZilchScript
+
+        *   Select Rename
+        *   Set the Name to: Movement    
+    *   Open the Movement ZilchScript
+
+        *   Rename the **CameraMovement** class to: Movement
+
+        .. code-block:: as
+          :emphasize-lines: 1
+
+            class Movement : ZilchComponent
+            {
+
+*   :ref:`Save the project <2016SavingProject>`
+            
+Moving the Player Object
+------------------------
+
+*   :ref:`Select the Player object <2016SelectObject>`
+*   Add the Movement script to the Player object
+*   :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+We now have basic movement for the Player object by pressing the Left and Right arrow keys, but if we move too far, we are unable to see the Player object.
+
+|pbr|
+
+Making the Camera Follow the Player Object
+------------------------------------------
+
+*   :ref:`Stop the Game <2016StopGame>`
+*   :ref:`Add a new ZilchScript resource<2016ResourceAdding>` named: 'CameraLogic' 
+*   :ref:`Select the Camera object <2016SelectObject>`
+*   In the Properties Window
+
+    * :ref:`Add the CameraLogic component <2016AddComponent>`
+
+We will start by simply having the CameraLogic script set the Camera's translation along the x-axis to be the same as the Player object's translation along the x-axis (without changing the camera's translation along the y or z-axis.) 
+
+There's one little problem: we don't have access to the Player object's Transform component from inside the CameraLogic script as it is attached to the Camera object.
+
+Getting the Player Object
+-------------------------
+
+We will use a cogpath to solve this problem. **Cog** is the name used to refer to game objects. If read from right to left, the name Cog is an acronym for Game Object Composition. This is because our game objects are simply a composition of components and/or child game objects.
+
+* Change the **CameraLogic** script to the following code:
+
+.. code-block:: as
+  :emphasize-lines: 6,10
+
+    class CameraLogic : ZilchComponent
+    {
+	  [Property]
+	  var TargetobjectCogPath : CogPath = null;
+	
+      var TargetObject : Cog = null;
+      
+      function Initialize(init : CogInitializer)
+      {
+        this.TargetObject = this.TargetObjectCogPath.Cog;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+      }
+      
+      function OnLogicUpdate(event : UpdateEvent)
+      {
+      }
+    }
+
+Line 6 is a Cog variable to store a reference to our ``Player``. On line 7 we use the ``TargetobjectCogPath`` to get access to the ``Player``. 
+
+* :ref:`Save the project <2016SavingProject>`    
+
+|pbr|
+
+Now that we have a TargetObject, we can access its information.    
+    
+* Change the **CameraLogic script's OnLogicUpdate** to the following code:
+
+.. code-block:: as
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+      // create a new variable to hold the player's position
+      var newCameraPos = this.TargetObject.Transform.LocalTranslation;
+      // save the camera's z value
+      newCameraPos.Z = this.Owner.Transform.LocalTranslation.Z;
+      // set the camera's new position to newCameraPos
+      this.Owner.Transform.LocalTranslation = newCameraPos;         
+    }
+
+*   :ref:`Select the Camera object <2016SelectObject>`
+*   In the Properties Window
+	
+	*	Under CameraLogic
+		
+		*	Set Path to point at the ``Player`` object.
+
+Using the TargetObject variable, we accessed the target object's translation to obtain the x and y components to help update our Camera's position.  
+
+*   :ref:`Save the project <2016SavingProject>` and :ref:`run the game <2016RunTheGame>`
+
+Now when we move the Player object using the Left and Right arrow keys, the camera follows the Player object.
+
+.. |Size7Web| image:: images/FollowingCamera/Size7.png
+
+.. |Size7Book| image:: images/FollowingCamera/Size7.png
+    :height: 3.0in
+
+.. |DisplayMountWeb| image:: images/FollowingCamera/DisplayMount.png
+    :width: 8.35in
+
+.. |DisplayMountBook| image:: images/FollowingCamera/DisplayMount.png
+    :height: 3.0in
+
+.. |Size7ViewWeb| image:: images/FollowingCamera/Size7View.png
+    :width: 8.35in
+
+.. |Size7ViewBook| image:: images/FollowingCamera/Size7View.png
+    :height: 4.0in
+
+.. |Size1Web|                                image:: images/FollowingCamera/Size1.png
+    :width: 5.0in
+
+.. |Size1Book|                                image:: images/FollowingCamera/Size1.png
+    :height: 4.0in
+    
+.. |ObjectsAfterLevelSetup|               image:: images/FollowingCamera/ObjectsAfterLevelSetup.png
+  :height: 1.5in
+
+.. |InitialLevelSetup|                    image:: images/FollowingCamera/InitialLevelSetup.png
+    :width: 5.0in
+
+.. |CogPathProperty|                      image:: images/FollowingCamera/CogPathProperty.png
+
+.. |CameraComp| image:: images/FollowingCamera/CameraComp.png
+  :height: 3.0in
